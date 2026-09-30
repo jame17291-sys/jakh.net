@@ -89,7 +89,7 @@ jobs:
           npm ci --prefix site-worker --no-audit --no-fund
           ./node_modules/.bin/playwright install chromium
       - name: Validate the immutable repair and release policy
-        run: node --test scripts/autopilot-policy.test.mjs scripts/autopilot-repairs.test.mjs scripts/autopilot-orchestration.test.mjs scripts/autopilot-github-app.test.mjs
+        run: node --test scripts/autopilot-policy.test.mjs scripts/autopilot-repairs.test.mjs scripts/autopilot-orchestration.test.mjs scripts/autopilot-github-app.test.mjs scripts/autopilot-identity-diagnostics.test.mjs
       - name: Run one bounded daily maintenance cycle
         env:
           GITHUB_TOKEN: ${{ github.token }}

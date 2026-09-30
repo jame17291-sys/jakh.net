@@ -2,6 +2,7 @@ import { readFile, appendFile, writeFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
 import { join } from "node:path";
 import { verifyStaticApiRelease } from "./static-api-release-gate.mjs";
+import { diagnoseIdentityToken } from "./autopilot-identity-diagnostics.mjs";
 
 export const REPOSITORY = "jame17291-sys/jakh.net";
 export const REPOSITORY_ID = "1227088138";
@@ -87,6 +88,10 @@ export async function oidcToken(env = process.env, fetchImpl = fetch) {
 export async function autopilotRequest(action, body, { env = process.env, fetchImpl = fetch } = {}) {
   if (!["claim", "report", "release", "authorize-release"].includes(action)) throw new Error("Unknown Autopilot operation.");
   const token = await oidcToken(env, fetchImpl);
+  return requestAutopilotWithToken(action, body, token, fetchImpl);
+}
+
+async function requestAutopilotWithToken(action, body, token, fetchImpl) {
   return responseJson(await fetchImpl(`${API_ORIGIN}/api/internal/autopilot/${action}`, {
     method: "POST", redirect: "error", signal: AbortSignal.timeout(25_000),
     headers: { authorization: `Bearer ${token}`, "content-type": "application/json" },
@@ -99,17 +104,22 @@ export async function diagnoseAutopilotIdentity(env = process.env, fetchImpl = f
   if (env.GITHUB_EVENT_NAME !== "workflow_dispatch") throw new Error("Identity diagnostics require an explicit manual run.");
   const receipt = { version: 1, mode: "identity_check_only", runId: current.runId,
     sourceSha: current.sha, checkedAt: new Date().toISOString() };
+  let runner;
   try {
+    // Compare the runner and Worker using one freshly issued token held only in memory.
+    const token = await oidcToken(env, fetchImpl);
+    runner = await diagnoseIdentityToken(token, { fetchImpl });
     // The existing handler authenticates first, then rejects this unknown key before any D1 access.
-    await autopilotRequest("claim", { diagnosticOnly: true }, { env, fetchImpl });
-    return { ...receipt, status: "failed", code: "IDENTITY_PREFLIGHT_UNEXPECTED_ACCEPTANCE" };
+    await requestAutopilotWithToken("claim", { diagnosticOnly: true }, token, fetchImpl);
+    return { ...receipt, status: "failed", code: "IDENTITY_PREFLIGHT_UNEXPECTED_ACCEPTANCE", runner };
   } catch (error) {
     const knownCode = AUTOPILOT_ERROR_STATUSES.get(error.code) === error.status ? error.code : undefined;
     if (error.status === 400 && knownCode === "AUTOPILOT_PAYLOAD_INVALID") {
-      return { ...receipt, status: "identity_verified_without_claim", httpStatus: 400, code: knownCode };
+      return { ...receipt, status: "identity_verified_without_claim", httpStatus: 400, code: knownCode, runner };
     }
     return { ...receipt, status: "failed", code: knownCode || "IDENTITY_REQUEST_FAILED",
-      ...(Number.isInteger(error.status) && error.status >= 100 && error.status <= 599 ? { httpStatus: error.status } : {}) };
+      ...(Number.isInteger(error.status) && error.status >= 100 && error.status <= 599 ? { httpStatus: error.status } : {}),
+      ...(runner ? { runner } : {}) };
   }
 }
 

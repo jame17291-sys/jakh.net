@@ -46,7 +46,7 @@
     <link rel="manifest" href="/manifest.webmanifest" />
     <script defer src="/privacy-consent.js?v=2026080101"></script>
     <script defer src="/site-navigation.js"></script>
-  </head>
+  <link rel="stylesheet" href="/tv-trivia.css" /></head>
   <body data-page="category" data-category="tv-shows-trivia" data-route-lang="ar">
     <a href="#top" class="skip-link">انتقل إلى المحتوى</a>
     <header class="site-header shell unified-header">
@@ -69,44 +69,77 @@
         <a href="/ar/mind-lab/">ألغاز واختبارات</a><span aria-hidden="true">‹</span>
         <span id="breadcrumbCategoryName" aria-current="page">المسلسلات</span>
       </nav>
-      <section class="hero shell hero-category">
-        <div class="hero-copy">
-          <img class="ra-art ra-art-topic" data-illustration="topic-tv-shows-trivia" src="/assets/illustrations/topic-tv-shows-trivia-480.webp" srcset="/assets/illustrations/topic-tv-shows-trivia-480.webp 480w, /assets/illustrations/topic-tv-shows-trivia-960.webp 960w" sizes="(max-width: 600px) 100px, 180px" width="960" height="640" alt="" loading="eager" decoding="async" fetchpriority="high" />
-          <p class="eyebrow" id="categoryKicker">الفنون والثقافة والترفيه</p>
-          <h1 id="categoryTitle">📺 المسلسلات</h1>
-          <p class="hero-text" id="categoryDescription">يضم موضوع «المسلسلات» 250 سؤالًا بالعربية والإنجليزية، ويتناول الحساسين، باب الحارة، وبرايكينج باد. اختر لغتك، واكشف الإجابات، وتابع نتيجتك.</p>
-          <div class="hero-badges"><span id="categoryCountPill">250 سؤالاً</span><span id="categoryDiffBadge"></span></div>
-          <a class="primary-btn" href="#cardGrid">ابدأ الأسئلة</a>
-        </div>
-      </section>
-      <section class="shell section-block" id="questionSection">
-        <details class="question-filters">
-          <summary>البحث وتصفية الأسئلة</summary>
-          <section class="control-panel" aria-label="خيارات الأسئلة">
-          <label class="search-field"><span>ابحث في هذا الموضوع</span><input id="cardSearchInput" type="search" autocomplete="off" placeholder="ابحث بكلمة أو إجابة" /></label>
-          <div class="select-grid">
-            <label><span>الصعوبة</span><select id="difficultySelect"><option value="all">كل المستويات</option><option value="easy">سهل</option><option value="medium">متوسط</option><option value="hard">صعب</option><option value="very-advanced">صعب جداً</option></select></label>
-            <label><span>إظهار</span><select id="viewSelect"><option value="all">الكل</option><option value="unsolved">غير المحلول</option><option value="solved">المحلول</option><option value="favorites">المفضلة</option></select></label>
-            <label><span>الترتيب</span><select id="sortSelect"><option value="featured">مقترح</option><option value="difficulty">حسب الصعوبة</option><option value="az">A → Z</option><option value="random">عشوائي</option></select></label>
-          </div>
-          <div id="subcategoryWrap" class="subcategory-wrap"><p class="mini-label">الموضوعات الفرعية</p><div class="chip-row" id="subcategoryFilters"><button class="category-chip is-active" data-subcategory="all">الكل · 250</button><button class="category-chip" data-subcategory="Al-Hashasheen">الحشاشين · 25</button>
-              <button class="category-chip" data-subcategory="Bab Al-Hara">باب الحارة · 25</button>
-              <button class="category-chip" data-subcategory="Breaking Bad">برايكينج باد · 25</button>
-              <button class="category-chip" data-subcategory="Diriliş: Ertuğrul">قيامة أرطغرل · 25</button>
-              <button class="category-chip" data-subcategory="Friends">فريندز · 25</button>
-              <button class="category-chip" data-subcategory="Game of Thrones">صراع العروش · 25</button>
-              <button class="category-chip" data-subcategory="Maraya">مرايا · 25</button>
-              <button class="category-chip" data-subcategory="Stranger Things">أشياء غريبة · 25</button>
-              <button class="category-chip" data-subcategory="Tash Ma Tash">طاش ما طاش · 25</button>
-              <button class="category-chip" data-subcategory="The Wire">ذا واير · 25</button></div></div>
-          </section>
-        </details>
-        <div class="library-toolbar"><p id="resultsLabel">عرض 250 بطاقة.</p><button class="text-btn" id="resetPageBtn">إعادة الضبط</button></div>
-        <div id="emptyState" class="empty-state hidden"><strong>لا توجد بطاقات مطابقة.</strong></div>
-        <div id="cardGrid" class="riddle-grid" aria-live="polite" tabindex="-1"></div>
-        <div id="categorySummaryMount" class="category-progress-summary"></div>
-      </section>
-      <section class="shell section-block"><div class="section-heading library-head"><div><p class="eyebrow">واصل</p><h2>موضوعات قريبة</h2></div></div><div id="relatedCategories" class="category-grid"></div></section>
+      <div id="tvTrivia" class="tv-trivia shell" aria-busy="true">
+    <section class="tv-hero" aria-labelledby="tvTitle">
+      <div><p class="tv-eyebrow">نادي تحدّي المسلسلات</p><h1 id="tvTitle">جاهز لتحدّي مسلسلاتك المفضلة؟</h1><p class="tv-intro">10 أسئلة. مسلسلاتك المفضلة. بلا تسجيل.</p>
+      <div class="tv-actions"><button class="tv-button tv-primary" data-tv="mixed" disabled>ابدأ تحدّيًا متنوعًا<span aria-hidden="true">↗</span></button><a class="tv-text-button" href="#tvShows">اختر مسلسلًا</a></div>
+      <p class="tv-reassurance"><span class="tv-status-dot" aria-hidden="true"></span>بلا حرق للأحداث افتراضيًا<span aria-hidden="true"> · </span>بلا مؤقّت. استمتع بالتحدّي.</p></div>
+      <img class="tv-hero-art" data-illustration="topic-tv-shows-trivia" src="/assets/illustrations/topic-tv-shows-trivia-480.webp" alt="" width="480" height="320" fetchpriority="high" decoding="async" />
+    </section>
+    <div id="tvMessage" role="status" aria-live="polite">نجهّز أسئلتك…</div>
+    <section id="tvShows" class="tv-show-section" aria-labelledby="tvShowsTitle" tabindex="-1">
+      <div class="tv-section-heading"><div><h2 id="tvShowsTitle">اختر مسلسلك المفضل</h2><p>قليل من الحنين، وكثير من متعة التحدّي.</p></div><span class="tv-small">10 مسلسلات · لغتان</span></div>
+      <div class="tv-show-grid"><article class="tv-show-card">
+        <button class="tv-show-play" data-tv="play-show" data-show="friends" disabled aria-label="العب 10 أسئلة: فريندز">
+          <img src="/assets/tv/friends-600.webp" srcset="/assets/tv/friends-360.webp 360w, /assets/tv/friends-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="eager" decoding="async" />
+          <span class="tv-show-body"><span class="tv-small">كوميديا</span><strong>فريندز</strong><span class="tv-small tv-bank-count">80 سؤالًا إجمالًا</span><span class="tv-card-action">العب 10 أسئلة<span aria-hidden="true">↗</span></span></span>
+        </button><button class="tv-options-link" data-tv="options" data-show="friends" disabled aria-label="خيارات فريندز">خيارات الجولة</button>
+      </article><article class="tv-show-card">
+        <button class="tv-show-play" data-tv="play-show" data-show="bab-al-hara" disabled aria-label="العب 10 أسئلة: باب الحارة">
+          <img src="/assets/tv/bab-al-hara-600.webp" srcset="/assets/tv/bab-al-hara-360.webp 360w, /assets/tv/bab-al-hara-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="eager" decoding="async" />
+          <span class="tv-show-body"><span class="tv-small">دراما سورية</span><strong>باب الحارة</strong><span class="tv-small tv-bank-count">80 سؤالًا إجمالًا</span><span class="tv-card-action">العب 10 أسئلة<span aria-hidden="true">↗</span></span></span>
+        </button><button class="tv-options-link" data-tv="options" data-show="bab-al-hara" disabled aria-label="خيارات باب الحارة">خيارات الجولة</button>
+      </article><article class="tv-show-card">
+        <button class="tv-show-play" data-tv="play-show" data-show="breaking-bad" disabled aria-label="العب 10 أسئلة: بريكينغ باد">
+          <img src="/assets/tv/breaking-bad-600.webp" srcset="/assets/tv/breaking-bad-360.webp 360w, /assets/tv/breaking-bad-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="eager" decoding="async" />
+          <span class="tv-show-body"><span class="tv-small">دراما وجريمة</span><strong>بريكينغ باد</strong><span class="tv-small tv-bank-count">80 سؤالًا إجمالًا</span><span class="tv-card-action">العب 10 أسئلة<span aria-hidden="true">↗</span></span></span>
+        </button><button class="tv-options-link" data-tv="options" data-show="breaking-bad" disabled aria-label="خيارات بريكينغ باد">خيارات الجولة</button>
+      </article><article class="tv-show-card">
+        <button class="tv-show-play" data-tv="play-show" data-show="maraya" disabled aria-label="العب 10 أسئلة: مرايا">
+          <img src="/assets/tv/maraya-600.webp" srcset="/assets/tv/maraya-360.webp 360w, /assets/tv/maraya-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="eager" decoding="async" />
+          <span class="tv-show-body"><span class="tv-small">كوميديا اجتماعية</span><strong>مرايا</strong><span class="tv-small tv-bank-count">80 سؤالًا إجمالًا</span><span class="tv-card-action">العب 10 أسئلة<span aria-hidden="true">↗</span></span></span>
+        </button><button class="tv-options-link" data-tv="options" data-show="maraya" disabled aria-label="خيارات مرايا">خيارات الجولة</button>
+      </article><article class="tv-show-card">
+        <button class="tv-show-play" data-tv="play-show" data-show="stranger-things" disabled aria-label="العب 10 أسئلة: سترينجر ثينغز">
+          <img src="/assets/tv/stranger-things-600.webp" srcset="/assets/tv/stranger-things-360.webp 360w, /assets/tv/stranger-things-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="lazy" decoding="async" />
+          <span class="tv-show-body"><span class="tv-small">خيال علمي وغموض</span><strong>سترينجر ثينغز</strong><span class="tv-small tv-bank-count">80 سؤالًا إجمالًا</span><span class="tv-card-action">العب 10 أسئلة<span aria-hidden="true">↗</span></span></span>
+        </button><button class="tv-options-link" data-tv="options" data-show="stranger-things" disabled aria-label="خيارات سترينجر ثينغز">خيارات الجولة</button>
+      </article><article class="tv-show-card">
+        <button class="tv-show-play" data-tv="play-show" data-show="tash-ma-tash" disabled aria-label="العب 10 أسئلة: طاش ما طاش">
+          <img src="/assets/tv/tash-ma-tash-600.webp" srcset="/assets/tv/tash-ma-tash-360.webp 360w, /assets/tv/tash-ma-tash-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="lazy" decoding="async" />
+          <span class="tv-show-body"><span class="tv-small">كوميديا سعودية</span><strong>طاش ما طاش</strong><span class="tv-small tv-bank-count">80 سؤالًا إجمالًا</span><span class="tv-card-action">العب 10 أسئلة<span aria-hidden="true">↗</span></span></span>
+        </button><button class="tv-options-link" data-tv="options" data-show="tash-ma-tash" disabled aria-label="خيارات طاش ما طاش">خيارات الجولة</button>
+      </article><article class="tv-show-card">
+        <button class="tv-show-play" data-tv="play-show" data-show="game-of-thrones" disabled aria-label="العب 10 أسئلة: صراع العروش">
+          <img src="/assets/tv/game-of-thrones-600.webp" srcset="/assets/tv/game-of-thrones-360.webp 360w, /assets/tv/game-of-thrones-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="lazy" decoding="async" />
+          <span class="tv-show-body"><span class="tv-small">فانتازيا</span><strong>صراع العروش</strong><span class="tv-small tv-bank-count">80 سؤالًا إجمالًا</span><span class="tv-card-action">العب 10 أسئلة<span aria-hidden="true">↗</span></span></span>
+        </button><button class="tv-options-link" data-tv="options" data-show="game-of-thrones" disabled aria-label="خيارات صراع العروش">خيارات الجولة</button>
+      </article><article class="tv-show-card">
+        <button class="tv-show-play" data-tv="play-show" data-show="ertugrul" disabled aria-label="العب 10 أسئلة: قيامة أرطغرل">
+          <img src="/assets/tv/ertugrul-600.webp" srcset="/assets/tv/ertugrul-360.webp 360w, /assets/tv/ertugrul-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="lazy" decoding="async" />
+          <span class="tv-show-body"><span class="tv-small">مغامرات تاريخية</span><strong>قيامة أرطغرل</strong><span class="tv-small tv-bank-count">80 سؤالًا إجمالًا</span><span class="tv-card-action">العب 10 أسئلة<span aria-hidden="true">↗</span></span></span>
+        </button><button class="tv-options-link" data-tv="options" data-show="ertugrul" disabled aria-label="خيارات قيامة أرطغرل">خيارات الجولة</button>
+      </article><article class="tv-show-card">
+        <button class="tv-show-play" data-tv="play-show" data-show="the-wire" disabled aria-label="العب 10 أسئلة: ذا واير">
+          <img src="/assets/tv/the-wire-600.webp" srcset="/assets/tv/the-wire-360.webp 360w, /assets/tv/the-wire-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="lazy" decoding="async" />
+          <span class="tv-show-body"><span class="tv-small">دراما وجريمة</span><strong>ذا واير</strong><span class="tv-small tv-bank-count">80 سؤالًا إجمالًا</span><span class="tv-card-action">العب 10 أسئلة<span aria-hidden="true">↗</span></span></span>
+        </button><button class="tv-options-link" data-tv="options" data-show="the-wire" disabled aria-label="خيارات ذا واير">خيارات الجولة</button>
+      </article><article class="tv-show-card">
+        <button class="tv-show-play" data-tv="play-show" data-show="al-hashasheen" disabled aria-label="العب 10 أسئلة: الحشاشين">
+          <img src="/assets/tv/al-hashasheen-600.webp" srcset="/assets/tv/al-hashasheen-360.webp 360w, /assets/tv/al-hashasheen-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="lazy" decoding="async" />
+          <span class="tv-show-body"><span class="tv-small">دراما تاريخية</span><strong>الحشاشين</strong><span class="tv-small tv-bank-count">80 سؤالًا إجمالًا</span><span class="tv-card-action">العب 10 أسئلة<span aria-hidden="true">↗</span></span></span>
+        </button><button class="tv-options-link" data-tv="options" data-show="al-hashasheen" disabled aria-label="خيارات الحشاشين">خيارات الجولة</button>
+      </article></div>
+    </section>
+    <section id="tvResume" hidden class="tv-resume" aria-label="أكمل جولتك"></section>
+    <section class="tv-other" aria-labelledby="tvOtherTitle"><h2 id="tvOtherTitle">مسلسلك. وطريقتك في اللعب.</h2><div class="tv-mode-grid">
+      <article><span class="tv-mode-number" aria-hidden="true">01</span><h3>تحدٍّ مؤقّت</h3><p>20 ثانية لكل سؤال. نقطة واحدة لكل إجابة صحيحة.</p><button class="tv-text-button" data-tv="timed" disabled>تحدٍّ مؤقّت<span aria-hidden="true">↗</span></button></article>
+      <article><span class="tv-mode-number" aria-hidden="true">02</span><h3>تدرّب بالبطاقات</h3><p>خذ وقتك، واكشف الإجابات، واحفظ مفضلتك.</p><button class="tv-text-button" data-tv="practice" disabled>تدرّب بالبطاقات<span aria-hidden="true">↗</span></button></article>
+      <article><span class="tv-mode-number" aria-hidden="true">03</span><h3>العب مع الأصدقاء</h3><p>أنشئ غرفة تحدٍّ أو انضم إلى غرفة موجودة.</p><div class="tv-actions"><button class="tv-text-button" data-tv="create" disabled>أنشئ غرفة</button><button class="tv-text-button" data-tv="join" disabled>انضم برمز</button></div></article>
+    </div></section>
+    <p class="tv-save-note">تُحفظ جولتك وأفضل نتائجك على هذا المتصفح. <button class="tv-text-button" data-tv="sync" disabled>سجّل الدخول لمزامنة الإجابات والمفضلة</button></p>
+    <noscript><p>فعّل JavaScript لبدء التحدّي التفاعلي.</p></noscript>
+  </div><section class="shell section-block"><div class="section-heading library-head"><div><p class="eyebrow">واصل</p><h2>موضوعات قريبة</h2></div></div><div id="relatedCategories" class="category-grid"></div></section>
     </main>
     <footer class="site-footer shell">
       <div class="footer-inner">

@@ -7,24 +7,45 @@ import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 const read = filename => JSON.parse(fs.readFileSync(new URL(`../${filename}`,import.meta.url),'utf8'));
 const plan = read('docs/content-review/mindlab-remediation-2026-09-23.json');
+const tvAmendment = read('docs/content-review/tv-trivia-2026-09-30.json');
+const tvExpansion = read('docs/content-review/tv-trivia-expansion-2026-09-30.json');
+const tvFollowup = read('docs/content-review/tv-trivia-followup-2026-09-30.json');
 const cards = new Map(plan.scope.flatMap(topic => read(`data/${topic.slug}.json`)).map(card=>[card.id,card]));
 const hash = card => crypto.createHash('sha256').update(JSON.stringify(card)).digest('hex');
 
 test('all 1,241 audit findings are repaired without deleting or renumbering the 3,275 public questions',()=>{
   assert.equal(plan.scope.length,51);
   assert.equal(plan.counts.publicQuestions,3275);
-  assert.equal(cards.size,3275);
+  assert.equal(cards.size,3825);
   assert.equal(plan.counts.auditFindings,1241);
   assert.equal(plan.changes.filter(c=>c.finding).length,1241);
   assert.equal(new Set(plan.changes.map(c=>c.id)).size,plan.changes.length);
   for (const topic of plan.scope) {
     const actual = read(`data/${topic.slug}.json`);
-    assert.equal(actual.length,topic.count,topic.slug);
-    assert.deepEqual(actual.map(c=>c.id),topic.ids,topic.slug);
+    const added = topic.slug === 'tv-shows-trivia' ? tvExpansion.additions.map(c => c.id) : [];
+    assert.equal(actual.length,topic.count + added.length,topic.slug);
+    assert.deepEqual(actual.map(c=>c.id),[...topic.ids, ...added],topic.slug);
   }
   for (const change of plan.changes) {
     assert.notEqual(change.beforeHash,change.afterHash,`${change.id}: not a real change`);
-    assert.equal(hash(cards.get(change.id)),change.afterHash,`${change.id}: patch not applied`);
+    const successor = tvAmendment.changes.find(c => c.id === change.id);
+    if (successor) {
+      assert.equal(change.category, 'tv-shows-trivia', `${change.id}: amendment scope`);
+      assert.equal(successor.beforeHash, change.afterHash, `${change.id}: preserve historical repair chain`);
+      assert.ok(successor.reason?.trim(), `${change.id}: documented follow-up`);
+    }
+    const expanded = tvExpansion.changes.find(c => c.id === change.id);
+    if (expanded) {
+      assert.equal(change.category, 'tv-shows-trivia');
+      assert.equal(expanded.beforeHash, successor?.afterHash || change.afterHash, `${change.id}: preserve expansion chain`);
+      assert.ok(expanded.reason?.trim());
+    }
+    const followup = tvFollowup.changes.find(c => c.id === change.id);
+    if (followup) {
+      assert.equal(followup.beforeHash, expanded?.afterHash || successor?.afterHash || change.afterHash);
+      assert.ok(followup.reason?.trim());
+    }
+    assert.equal(hash(cards.get(change.id)),followup?.afterHash || expanded?.afterHash || successor?.afterHash || change.afterHash,`${change.id}: patch not applied`);
     assert.ok(change.reason?.trim(),change.id);
     assert.notEqual(change.patch.review?.status,'reviewed',`${change.id}: must not manufacture certification`);
   }

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { landingMarkup as tvTriviaMarkup } from '../tv-trivia-markup.js';
 
 import fs from "node:fs";
 import path from "node:path";
@@ -663,7 +664,7 @@ function renderFunctionalCategoryShell(category, lang) {
     isPartOf: { "@id": `${SITE_ORIGIN}/#website` },
   };
   const topicOptions = (category.topics || []).map((topic) => `<button class="category-chip" data-subcategory="${escapeHtml(topic.en)}">${escapeHtml(topic[lang] || topic.en)} · ${topic.count}</button>`).join("\n              ");
-  return `<!DOCTYPE html>
+  const html = `<!DOCTYPE html>
 <html lang="${lang}" dir="${isAr ? "rtl" : "ltr"}">
   ${head({
     title,
@@ -720,6 +721,10 @@ function renderFunctionalCategoryShell(category, lang) {
     <script src="/app.js?v=${APP_ASSET_VERSION}"></script>
   </body>
 </html>`;
+  if (category.slug !== 'tv-shows-trivia') return html;
+  return html
+    .replace('</head>', '<link rel="stylesheet" href="/tv-trivia.css" /></head>')
+    .replace(/<section class="hero shell hero-category">[\s\S]*?(?=<section class="shell section-block"><div class="section-heading)/u, tvTriviaMarkup(lang, false, Object.fromEntries(category.topics.map(topic => [topic.en, topic.count]))));
 }
 
 function sitemapUrl(url, priority, alternates, lastModified = LAST_MODIFIED) {

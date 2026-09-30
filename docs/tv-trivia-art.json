@@ -1,0 +1,57 @@
+{
+  "generator": "Built-in Image Generation",
+  "created": "2026-09-30",
+  "style": "Original 3:2 editorial gouache illustrations in cream, russet and show-specific accent colors. No text, logos or actor likenesses.",
+  "images": [
+    {
+      "id": "breaking-bad",
+      "subject": "a vintage cream motorhome on a New Mexico desert road beside a glass chemistry flask, sage hills, yellow sky",
+      "prompt": "Original editorial gouache illustration: a vintage cream motorhome on a New Mexico desert road beside a glass chemistry flask, sage hills, yellow sky. Landscape 3:2, warm Riddle Arabia palette, no text or logos. Central subject fits a 240 × 160 pixel card."
+    },
+    {
+      "id": "friends",
+      "subject": "an inviting orange velvet coffeehouse sofa, two coffee mugs on a low table, warm cafe interior and purple accents",
+      "prompt": "Original editorial gouache illustration: an inviting orange velvet coffeehouse sofa, two coffee mugs on a low table, warm cafe interior and purple accents. Landscape 3:2, warm Riddle Arabia palette, no text or logos. Central subject fits a 240 × 160 pixel card."
+    },
+    {
+      "id": "game-of-thrones",
+      "subject": "an ancient northern stone castle, a modest iron crown, pine trees and distant snowy mountains, no swords or throne replicas",
+      "prompt": "Original editorial gouache illustration: an ancient northern stone castle, a modest iron crown, pine trees and distant snowy mountains, no swords or throne replicas. Landscape 3:2, warm Riddle Arabia palette, no text or logos. Central subject fits a 240 × 160 pixel card."
+    },
+    {
+      "id": "the-wire",
+      "subject": "Baltimore red brick rowhouses and a vintage detective's payphone, telephone wires crossing a dusky blue sky",
+      "prompt": "Original editorial gouache illustration: Baltimore red brick rowhouses and a vintage detective's payphone, telephone wires crossing a dusky blue sky. Landscape 3:2, warm Riddle Arabia palette, no text or logos. Central subject fits a 240 × 160 pixel card."
+    },
+    {
+      "id": "stranger-things",
+      "subject": "two 1980s bicycles beneath tall pine trees and a small string of warm Christmas lights, atmospheric midnight teal and muted burgundy",
+      "prompt": "Original editorial gouache illustration: two 1980s bicycles beneath tall pine trees and a small string of warm Christmas lights, atmospheric midnight teal and muted burgundy. Landscape 3:2, warm Riddle Arabia palette, no text or logos. Central subject fits a 240 × 160 pixel card."
+    },
+    {
+      "id": "bab-al-hara",
+      "subject": "an old Damascus courtyard doorway with striped stone arch, jasmine vine and brass lantern in afternoon sunlight",
+      "prompt": "Original editorial gouache illustration: an old Damascus courtyard doorway with striped stone arch, jasmine vine and brass lantern in afternoon sunlight. Landscape 3:2, warm Riddle Arabia palette, no text or logos. Central subject fits a 240 × 160 pixel card."
+    },
+    {
+      "id": "maraya",
+      "subject": "an ornate antique brass mirror on a wooden stand, reflection of a small Syrian theatre stage with burgundy curtain, playful sophisticated mood",
+      "prompt": "Original editorial gouache illustration: an ornate antique brass mirror on a wooden stand, reflection of a small Syrian theatre stage with burgundy curtain, playful sophisticated mood. Landscape 3:2, warm Riddle Arabia palette, no text or logos. Central subject fits a 240 × 160 pixel card."
+    },
+    {
+      "id": "tash-ma-tash",
+      "subject": "a cozy Saudi majlis corner, red geometric cushions, brass dallah coffee pot and two small cups, golden desert sunlight",
+      "prompt": "Original editorial gouache illustration: a cozy Saudi majlis corner, red geometric cushions, brass dallah coffee pot and two small cups, golden desert sunlight. Landscape 3:2, warm Riddle Arabia palette, no text or logos. Central subject fits a 240 × 160 pixel card."
+    },
+    {
+      "id": "ertugrul",
+      "subject": "a medieval nomadic tent with blue geometric fabric and saddle in an Anatolian green valley, distant mountains, no people",
+      "prompt": "Original editorial gouache illustration: a medieval nomadic tent with blue geometric fabric and saddle in an Anatolian green valley, distant mountains, no people. Landscape 3:2, warm Riddle Arabia palette, no text or logos. Central subject fits a 240 × 160 pixel card."
+    },
+    {
+      "id": "al-hashasheen",
+      "subject": "a dramatic medieval Persian mountain fortress viewed from a winding path, ochre rock cliffs and turquoise dusk sky",
+      "prompt": "Original editorial gouache illustration: a dramatic medieval Persian mountain fortress viewed from a winding path, ochre rock cliffs and turquoise dusk sky. Landscape 3:2, warm Riddle Arabia palette, no text or logos. Central subject fits a 240 × 160 pixel card."
+    }
+  ]
+}

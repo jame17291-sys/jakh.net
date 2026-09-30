@@ -46,7 +46,7 @@
     <link rel="manifest" href="/manifest.webmanifest" />
     <script defer src="/privacy-consent.js?v=2026080101"></script>
     <script defer src="/site-navigation.js"></script>
-  </head>
+  <link rel="stylesheet" href="/tv-trivia.css" /></head>
   <body data-page="category" data-category="tv-shows-trivia" data-route-lang="en">
     <a href="#top" class="skip-link">Skip to main content</a>
     <header class="site-header shell unified-header">
@@ -69,44 +69,77 @@
         <a href="/mind-lab">Riddles &amp; Quizzes</a><span aria-hidden="true">›</span>
         <span id="breadcrumbCategoryName" aria-current="page">TV Shows</span>
       </nav>
-      <section class="hero shell hero-category">
-        <div class="hero-copy">
-          <img class="ra-art ra-art-topic" data-illustration="topic-tv-shows-trivia" src="/assets/illustrations/topic-tv-shows-trivia-480.webp" srcset="/assets/illustrations/topic-tv-shows-trivia-480.webp 480w, /assets/illustrations/topic-tv-shows-trivia-960.webp 960w" sizes="(max-width: 600px) 100px, 180px" width="960" height="640" alt="" loading="eager" decoding="async" fetchpriority="high" />
-          <p class="eyebrow" id="categoryKicker">Arts, Culture &amp; Entertainment</p>
-          <h1 id="categoryTitle">📺 TV Shows</h1>
-          <p class="hero-text" id="categoryDescription">250 bilingual questions across 10 top-rated TV shows — 5 English (Breaking Bad, Game of Thrones, Friends, The Wire, Stranger Things) and 5 Arabic (Bab Al-Hara, Maraya, Tash Ma Tash, Ertuğrul, Al-Hasaseen).</p>
-          <div class="hero-badges"><span id="categoryCountPill">250 questions</span><span id="categoryDiffBadge"></span></div>
-          <a class="primary-btn" href="#cardGrid">Start practice</a>
-        </div>
-      </section>
-      <section class="shell section-block" id="questionSection">
-        <details class="question-filters">
-          <summary>Search and filter questions</summary>
-          <section class="control-panel" aria-label="Question controls">
-          <label class="search-field"><span>Search this topic</span><input id="cardSearchInput" type="search" autocomplete="off" placeholder="Search by word or answer" /></label>
-          <div class="select-grid">
-            <label><span>Difficulty</span><select id="difficultySelect"><option value="all">All levels</option><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option><option value="very-advanced">Very advanced</option></select></label>
-            <label><span>Show</span><select id="viewSelect"><option value="all">Everything</option><option value="unsolved">Unsolved</option><option value="solved">Solved</option><option value="favorites">Favorites</option></select></label>
-            <label><span>Sort</span><select id="sortSelect"><option value="featured">Featured</option><option value="difficulty">By difficulty</option><option value="az">A → Z</option><option value="random">Shuffle</option></select></label>
-          </div>
-          <div id="subcategoryWrap" class="subcategory-wrap"><p class="mini-label">Subtopics</p><div class="chip-row" id="subcategoryFilters"><button class="category-chip is-active" data-subcategory="all">All · 250</button><button class="category-chip" data-subcategory="Al-Hashasheen">Al-Hashasheen · 25</button>
-              <button class="category-chip" data-subcategory="Bab Al-Hara">Bab Al-Hara · 25</button>
-              <button class="category-chip" data-subcategory="Breaking Bad">Breaking Bad · 25</button>
-              <button class="category-chip" data-subcategory="Diriliş: Ertuğrul">Diriliş: Ertuğrul · 25</button>
-              <button class="category-chip" data-subcategory="Friends">Friends · 25</button>
-              <button class="category-chip" data-subcategory="Game of Thrones">Game of Thrones · 25</button>
-              <button class="category-chip" data-subcategory="Maraya">Maraya · 25</button>
-              <button class="category-chip" data-subcategory="Stranger Things">Stranger Things · 25</button>
-              <button class="category-chip" data-subcategory="Tash Ma Tash">Tash Ma Tash · 25</button>
-              <button class="category-chip" data-subcategory="The Wire">The Wire · 25</button></div></div>
-          </section>
-        </details>
-        <div class="library-toolbar"><p id="resultsLabel">Showing 250 cards.</p><button class="text-btn" id="resetPageBtn">Reset filters</button></div>
-        <div id="emptyState" class="empty-state hidden"><strong>No cards match that choice.</strong></div>
-        <div id="cardGrid" class="riddle-grid" aria-live="polite" tabindex="-1"></div>
-        <div id="categorySummaryMount" class="category-progress-summary"></div>
-      </section>
-      <section class="shell section-block"><div class="section-heading library-head"><div><p class="eyebrow">Keep going</p><h2>Related topics</h2></div></div><div id="relatedCategories" class="category-grid"></div></section>
+      <div id="tvTrivia" class="tv-trivia shell" aria-busy="true">
+    <section class="tv-hero" aria-labelledby="tvTitle">
+      <div><p class="tv-eyebrow">THE TV TRIVIA CLUB</p><h1 id="tvTitle">How well do you know your favourite shows?</h1><p class="tv-intro">10 questions. Your favourite shows. No sign-up needed.</p>
+      <div class="tv-actions"><button class="tv-button tv-primary" data-tv="mixed" disabled>Play a mixed quiz<span aria-hidden="true">↗</span></button><a class="tv-text-button" href="#tvShows">Choose a show</a></div>
+      <p class="tv-reassurance"><span class="tv-status-dot" aria-hidden="true"></span>Spoiler-safe by default<span aria-hidden="true"> · </span>No timer. Just good TV.</p></div>
+      <img class="tv-hero-art" data-illustration="topic-tv-shows-trivia" src="/assets/illustrations/topic-tv-shows-trivia-480.webp" alt="" width="480" height="320" fetchpriority="high" decoding="async" />
+    </section>
+    <div id="tvMessage" role="status" aria-live="polite">Getting your questions ready…</div>
+    <section id="tvShows" class="tv-show-section" aria-labelledby="tvShowsTitle" tabindex="-1">
+      <div class="tv-section-heading"><div><h2 id="tvShowsTitle">Pick your next obsession</h2><p>A little nostalgia. A little friendly competition.</p></div><span class="tv-small">10 shows · 2 languages</span></div>
+      <div class="tv-show-grid"><article class="tv-show-card">
+        <button class="tv-show-play" data-tv="play-show" data-show="friends" disabled aria-label="Play 10 questions: Friends">
+          <img src="/assets/tv/friends-600.webp" srcset="/assets/tv/friends-360.webp 360w, /assets/tv/friends-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="eager" decoding="async" />
+          <span class="tv-show-body"><span class="tv-small">Comedy</span><strong>Friends</strong><span class="tv-small tv-bank-count">80 questions in total</span><span class="tv-card-action">Play 10 questions<span aria-hidden="true">↗</span></span></span>
+        </button><button class="tv-options-link" data-tv="options" data-show="friends" disabled aria-label="Options for Friends">Round options</button>
+      </article><article class="tv-show-card">
+        <button class="tv-show-play" data-tv="play-show" data-show="bab-al-hara" disabled aria-label="Play 10 questions: Bab Al-Hara">
+          <img src="/assets/tv/bab-al-hara-600.webp" srcset="/assets/tv/bab-al-hara-360.webp 360w, /assets/tv/bab-al-hara-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="eager" decoding="async" />
+          <span class="tv-show-body"><span class="tv-small">Syrian drama</span><strong>Bab Al-Hara</strong><span class="tv-small tv-bank-count">80 questions in total</span><span class="tv-card-action">Play 10 questions<span aria-hidden="true">↗</span></span></span>
+        </button><button class="tv-options-link" data-tv="options" data-show="bab-al-hara" disabled aria-label="Options for Bab Al-Hara">Round options</button>
+      </article><article class="tv-show-card">
+        <button class="tv-show-play" data-tv="play-show" data-show="breaking-bad" disabled aria-label="Play 10 questions: Breaking Bad">
+          <img src="/assets/tv/breaking-bad-600.webp" srcset="/assets/tv/breaking-bad-360.webp 360w, /assets/tv/breaking-bad-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="eager" decoding="async" />
+          <span class="tv-show-body"><span class="tv-small">Crime drama</span><strong>Breaking Bad</strong><span class="tv-small tv-bank-count">80 questions in total</span><span class="tv-card-action">Play 10 questions<span aria-hidden="true">↗</span></span></span>
+        </button><button class="tv-options-link" data-tv="options" data-show="breaking-bad" disabled aria-label="Options for Breaking Bad">Round options</button>
+      </article><article class="tv-show-card">
+        <button class="tv-show-play" data-tv="play-show" data-show="maraya" disabled aria-label="Play 10 questions: Maraya">
+          <img src="/assets/tv/maraya-600.webp" srcset="/assets/tv/maraya-360.webp 360w, /assets/tv/maraya-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="eager" decoding="async" />
+          <span class="tv-show-body"><span class="tv-small">Social comedy</span><strong>Maraya</strong><span class="tv-small tv-bank-count">80 questions in total</span><span class="tv-card-action">Play 10 questions<span aria-hidden="true">↗</span></span></span>
+        </button><button class="tv-options-link" data-tv="options" data-show="maraya" disabled aria-label="Options for Maraya">Round options</button>
+      </article><article class="tv-show-card">
+        <button class="tv-show-play" data-tv="play-show" data-show="stranger-things" disabled aria-label="Play 10 questions: Stranger Things">
+          <img src="/assets/tv/stranger-things-600.webp" srcset="/assets/tv/stranger-things-360.webp 360w, /assets/tv/stranger-things-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="lazy" decoding="async" />
+          <span class="tv-show-body"><span class="tv-small">Sci-fi & mystery</span><strong>Stranger Things</strong><span class="tv-small tv-bank-count">80 questions in total</span><span class="tv-card-action">Play 10 questions<span aria-hidden="true">↗</span></span></span>
+        </button><button class="tv-options-link" data-tv="options" data-show="stranger-things" disabled aria-label="Options for Stranger Things">Round options</button>
+      </article><article class="tv-show-card">
+        <button class="tv-show-play" data-tv="play-show" data-show="tash-ma-tash" disabled aria-label="Play 10 questions: Tash Ma Tash">
+          <img src="/assets/tv/tash-ma-tash-600.webp" srcset="/assets/tv/tash-ma-tash-360.webp 360w, /assets/tv/tash-ma-tash-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="lazy" decoding="async" />
+          <span class="tv-show-body"><span class="tv-small">Saudi comedy</span><strong>Tash Ma Tash</strong><span class="tv-small tv-bank-count">80 questions in total</span><span class="tv-card-action">Play 10 questions<span aria-hidden="true">↗</span></span></span>
+        </button><button class="tv-options-link" data-tv="options" data-show="tash-ma-tash" disabled aria-label="Options for Tash Ma Tash">Round options</button>
+      </article><article class="tv-show-card">
+        <button class="tv-show-play" data-tv="play-show" data-show="game-of-thrones" disabled aria-label="Play 10 questions: Game of Thrones">
+          <img src="/assets/tv/game-of-thrones-600.webp" srcset="/assets/tv/game-of-thrones-360.webp 360w, /assets/tv/game-of-thrones-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="lazy" decoding="async" />
+          <span class="tv-show-body"><span class="tv-small">Fantasy</span><strong>Game of Thrones</strong><span class="tv-small tv-bank-count">80 questions in total</span><span class="tv-card-action">Play 10 questions<span aria-hidden="true">↗</span></span></span>
+        </button><button class="tv-options-link" data-tv="options" data-show="game-of-thrones" disabled aria-label="Options for Game of Thrones">Round options</button>
+      </article><article class="tv-show-card">
+        <button class="tv-show-play" data-tv="play-show" data-show="ertugrul" disabled aria-label="Play 10 questions: Diriliş: Ertuğrul">
+          <img src="/assets/tv/ertugrul-600.webp" srcset="/assets/tv/ertugrul-360.webp 360w, /assets/tv/ertugrul-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="lazy" decoding="async" />
+          <span class="tv-show-body"><span class="tv-small">Historical adventure</span><strong>Diriliş: Ertuğrul</strong><span class="tv-small tv-bank-count">80 questions in total</span><span class="tv-card-action">Play 10 questions<span aria-hidden="true">↗</span></span></span>
+        </button><button class="tv-options-link" data-tv="options" data-show="ertugrul" disabled aria-label="Options for Diriliş: Ertuğrul">Round options</button>
+      </article><article class="tv-show-card">
+        <button class="tv-show-play" data-tv="play-show" data-show="the-wire" disabled aria-label="Play 10 questions: The Wire">
+          <img src="/assets/tv/the-wire-600.webp" srcset="/assets/tv/the-wire-360.webp 360w, /assets/tv/the-wire-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="lazy" decoding="async" />
+          <span class="tv-show-body"><span class="tv-small">Crime drama</span><strong>The Wire</strong><span class="tv-small tv-bank-count">80 questions in total</span><span class="tv-card-action">Play 10 questions<span aria-hidden="true">↗</span></span></span>
+        </button><button class="tv-options-link" data-tv="options" data-show="the-wire" disabled aria-label="Options for The Wire">Round options</button>
+      </article><article class="tv-show-card">
+        <button class="tv-show-play" data-tv="play-show" data-show="al-hashasheen" disabled aria-label="Play 10 questions: Al-Hashasheen">
+          <img src="/assets/tv/al-hashasheen-600.webp" srcset="/assets/tv/al-hashasheen-360.webp 360w, /assets/tv/al-hashasheen-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="lazy" decoding="async" />
+          <span class="tv-show-body"><span class="tv-small">Historical drama</span><strong>Al-Hashasheen</strong><span class="tv-small tv-bank-count">80 questions in total</span><span class="tv-card-action">Play 10 questions<span aria-hidden="true">↗</span></span></span>
+        </button><button class="tv-options-link" data-tv="options" data-show="al-hashasheen" disabled aria-label="Options for Al-Hashasheen">Round options</button>
+      </article></div>
+    </section>
+    <section id="tvResume" hidden class="tv-resume" aria-label="Continue your round"></section>
+    <section class="tv-other" aria-labelledby="tvOtherTitle"><h2 id="tvOtherTitle">Your show. Your way.</h2><div class="tv-mode-grid">
+      <article><span class="tv-mode-number" aria-hidden="true">01</span><h3>Timed challenge</h3><p>20 seconds per question. One point per correct answer.</p><button class="tv-text-button" data-tv="timed" disabled>Timed challenge<span aria-hidden="true">↗</span></button></article>
+      <article><span class="tv-mode-number" aria-hidden="true">02</span><h3>Flashcard practice</h3><p>Take your time, reveal answers, and save favourites.</p><button class="tv-text-button" data-tv="practice" disabled>Flashcard practice<span aria-hidden="true">↗</span></button></article>
+      <article><span class="tv-mode-number" aria-hidden="true">03</span><h3>Play with friends</h3><p>Host or join an existing Battle Room.</p><div class="tv-actions"><button class="tv-text-button" data-tv="create" disabled>Create room</button><button class="tv-text-button" data-tv="join" disabled>Join with code</button></div></article>
+    </div></section>
+    <p class="tv-save-note">Your round and personal bests stay on this browser. <button class="tv-text-button" data-tv="sync" disabled>Sign in to sync answers & favourites</button></p>
+    <noscript><p>Enable JavaScript to play the interactive quiz.</p></noscript>
+  </div><section class="shell section-block"><div class="section-heading library-head"><div><p class="eyebrow">Keep going</p><h2>Related topics</h2></div></div><div id="relatedCategories" class="category-grid"></div></section>
     </main>
     <footer class="site-footer shell">
       <div class="footer-inner">

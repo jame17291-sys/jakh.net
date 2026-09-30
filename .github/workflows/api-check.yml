@@ -66,6 +66,7 @@ jobs:
           scripts/quick-fire-content.test.mjs
           scripts/frontend-product-contract.test.mjs
           scripts/free-first-gameplay.test.mjs
+          scripts/tv-trivia.test.mjs
           scripts/provenance-ui-contract.test.mjs
           scripts/public-history-policy.test.mjs
           scripts/public-seo-release-contract.test.mjs

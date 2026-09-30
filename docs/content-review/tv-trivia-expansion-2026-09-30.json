@@ -1,0 +1,4399 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-30",
+  "baseCommit": "fd20203",
+  "scope": "Expand each of the ten TV-show banks to 80 bilingual multiple-choice questions; preserve all original IDs and all earlier audit records.",
+  "counts": {
+    "before": 250,
+    "after": 800,
+    "added": 550,
+    "newlyPrepared": 112,
+    "prepared": 800,
+    "spoilerSafe": 487
+  },
+  "shows": [
+    {
+      "show": "Friends",
+      "total": 80,
+      "spoilerSafe": 28,
+      "seasonGated": 52
+    },
+    {
+      "show": "Bab Al-Hara",
+      "total": 80,
+      "spoilerSafe": 64,
+      "seasonGated": 16
+    },
+    {
+      "show": "Breaking Bad",
+      "total": 80,
+      "spoilerSafe": 35,
+      "seasonGated": 45
+    },
+    {
+      "show": "Maraya",
+      "total": 80,
+      "spoilerSafe": 80,
+      "seasonGated": 0
+    },
+    {
+      "show": "Stranger Things",
+      "total": 80,
+      "spoilerSafe": 32,
+      "seasonGated": 48
+    },
+    {
+      "show": "Tash Ma Tash",
+      "total": 80,
+      "spoilerSafe": 80,
+      "seasonGated": 0
+    },
+    {
+      "show": "Game of Thrones",
+      "total": 80,
+      "spoilerSafe": 37,
+      "seasonGated": 43
+    },
+    {
+      "show": "Diriliş: Ertuğrul",
+      "total": 80,
+      "spoilerSafe": 47,
+      "seasonGated": 33
+    },
+    {
+      "show": "The Wire",
+      "total": 80,
+      "spoilerSafe": 34,
+      "seasonGated": 46
+    },
+    {
+      "show": "Al-Hashasheen",
+      "total": 80,
+      "spoilerSafe": 50,
+      "seasonGated": 30
+    }
+  ],
+  "screening": "Both languages, aligned answer choices, explanations and conservative whole-card season limits screened during implementation. Season 0 allows premise, cast, production and anthology sketch setups without punchlines or endings. This does not claim independent editorial certification; review.status remains pending.",
+  "changes": [
+    {
+      "id": "tv-shows-trivia-001",
+      "beforeHash": "9b1de8d882523cd44369aa99a5d4765a9ec8f992782d4b01d043b4262ad94541",
+      "afterHash": "7142e371805ac44c728323d1436fdd2ec20f6298427796654edd2a3a735cd609",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-002",
+      "beforeHash": "c7c1745f628d2a89c11569e228ebe664e76505e345e70a52cad7eb0bf84e37b7",
+      "afterHash": "0c378aae0539c72e8b34c7899f1459e25fb10af42995411d0dee465a21de0281",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-003",
+      "beforeHash": "975791954f255b944c965524cb7266d316f10ea57552a812a79b9b94526d733d",
+      "afterHash": "8547019a3a892f7dd492bd5a18ce1f0ae369ecfee8abffe26d1f760160395e02",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-004",
+      "beforeHash": "d6d946dffebb558a6115704b1e1d08a22b8fc6743fba41602149a4a8fccd534d",
+      "afterHash": "35297ec3794600e34273dff14017534b6d2c54a541c7ab30447cc377cb0cdad9",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-005",
+      "beforeHash": "14210e685ef6e093e8a4d219b90948d91d03a5940e7f2ccafaf509fa8578cc60",
+      "afterHash": "3df9ba17401b18236c033f17e81f45c6d05fcef960d843dda5bea0092ae924a3",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-006",
+      "beforeHash": "99d38d73b2711df2a0f01c6e1ddca27a9b03709f119177f7302302e7f123d884",
+      "afterHash": "51e116a89b87d469c4574d5abeec565cb13cea4ebc261c5de474d02986b5bc1c",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-007",
+      "beforeHash": "85ead7652b046eb7c3d22809d2ca3783b3a82eac000b610d11d6438701cf6adf",
+      "afterHash": "8a6d4fce21d795058f9d696addbf39510b0575014e6c97b7b40f93cd3f7ff2b1",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-008",
+      "beforeHash": "7601d97f05e410536b76ba6f5c31c292234abb40a8339aa27014d92a18807462",
+      "afterHash": "d6ee08d80cbf4dfd4d2507737f8ad7da5e38391890f68f71854307d34349e62f",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-009",
+      "beforeHash": "3ee95c4a9d07eb24cf06a47d04bb58195c8a2a5b03d83a77e0273fdcc10ab11a",
+      "afterHash": "8fddfa1a7f93179464287b8cecd1e8ca07d3ec140e3d2588444cb824af2520a3",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-010",
+      "beforeHash": "87cb47e157e675e0e8190ffbc05597cd4b117a191eb4d46c7f1bc28386a5959b",
+      "afterHash": "aa77682acf81205c1b07e32eb46250b9cdb1c7c66eb07cdf2603852603cd6042",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-011",
+      "beforeHash": "416f24c039d0e8ec312c255968c591e308c8d14f1485b274fd6271dd3a014cc8",
+      "afterHash": "226a5ed1b1f910cdc688c0e559461306f9da1dafbb71853b464994bc1cd61fa7",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-012",
+      "beforeHash": "075dce05f682ddb06f3e5771428ecbaaf2583fb1159914e9235cd6da3e38688d",
+      "afterHash": "ff6a652caf9204a56029fb320a70811cef4fd6ff3a27609b7cbbb09e4a51fbfb",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-013",
+      "beforeHash": "2d31641398735edcbc6a7e5f3b721c3f03a32054efe52267573e1b994222b656",
+      "afterHash": "64caa7fbfadee909cc6164f75567c77e7b266458741158915e1b402943a128ab",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-014",
+      "beforeHash": "3dd204758f172939793587038b29b7675809745edab10e3fc5c71b4108945364",
+      "afterHash": "717ade5fe2016b66b4c3d4b2cc5cb53010063072299545a99f6651cc02a3bc48",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-015",
+      "beforeHash": "ab9e01b36d021b77056cc60bfa5d9fe58e6eed17bc2c5c576c0197df6ec24a8a",
+      "afterHash": "1492df5882dd5297e193ff8f3360f91a38e25b98a01feb56085fa15811141ccc",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-016",
+      "beforeHash": "27a8a2bae7ad76daff7743bc9f8d1c1c43b3c6e8992c47279f107942185c6fdc",
+      "afterHash": "6476b8d2660b6af5d5c0a0a81da718f3e27ac47eec72e4c8037f218ce589619e",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-017",
+      "beforeHash": "37c0043162e0d84e180cd308a664942ef39b8610eb779d46b780c6382fa18ea7",
+      "afterHash": "071b469c379b3b70b94022bb1548feb6131896fef66273c59902430156d9eef9",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-018",
+      "beforeHash": "053e72b7a0a182a7a2172097e8384ed7e646540b262e2aeee2e24c479e158968",
+      "afterHash": "e9c8402d5f13fce46f2ee7e00c0ef9d893a6d5de1af12ae9801bb74f31a34a21",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-019",
+      "beforeHash": "324430d186f55a8d8140b9eb311ae0498cad2db01ae15bde5f9dc2846ad051d2",
+      "afterHash": "2304644c9af438748833cc69208eb0ccd1a5789601268c224f03a8a4c7e4d8f9",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-020",
+      "beforeHash": "be9df1bbf9b6dc3b13372e4f72d4af36f7f7b1221c98d46a8a3efe535015c0c9",
+      "afterHash": "eaadeb77b0053752b9294c5d55f4dbba5e1721e5941c800172c8d329254d841b",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-021",
+      "beforeHash": "72c50f7512382328161007e1baadf539247d957a2a020c18cbe5752b7bc381a1",
+      "afterHash": "bc1af941d4f236a728c8b7281bfb07aec7812e4508a30d271569f636897c953e",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-022",
+      "beforeHash": "b2de52dcc10e851ad17217ef6c5602b060f89c8a99d46c2b1eb5b6aa52ee6da6",
+      "afterHash": "6a5d2a6e713974212aae317434e7ff9e0996634ff792276a2554f5e815dd5927",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-023",
+      "beforeHash": "4aaf668c650aab7ff95197daa71695f9bc0e9a23d4bf2620d3d91d328f3ce683",
+      "afterHash": "e979d0a7b5cdef274dee4d1e4a6270ad3e2d28cb6174b898a4e62218effa018d",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-024",
+      "beforeHash": "910582373636583b13628b1f847c13d0b7f41b197ad641a6618cc324743ad204",
+      "afterHash": "81a57d8406468b4e5198ea4dc0475b76778f830dbc54f6baccdbb33fc61e7435",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-025",
+      "beforeHash": "1d404087c1fd6b7d55d9a54567abc12327195f5b52d5279359f3cc6725fd977b",
+      "afterHash": "e051957a6f410ebd4e26dd5f550e872639d07d3869682acfb411e0e4a9c2dbd1",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-026",
+      "beforeHash": "ab868498906cc2bfb267d4101d8a662fe8d5a54e18ca9993b479bf9a872b5601",
+      "afterHash": "da31c504cf6d83fa06dd423ba3476037f2a2d4ad54969ce8ddf3fe884ea1482b",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-027",
+      "beforeHash": "8ff7d10c19e2c32702a1d1ea73e902a9629332a65962dcb3ae1ea003b072be01",
+      "afterHash": "003f2693761477dada29093cc729c80eaddae2dcf557f21b0fe5cb6e615993c5",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-028",
+      "beforeHash": "5f9b722dbe125ead1150476997072a653f9ea302aa8a7ed604a8e036c2d52d6e",
+      "afterHash": "1aef3376c9918e5da9b12872462192f3b0f4b609398faa7bb4c4604c7acabe72",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-029",
+      "beforeHash": "7578db0a452792f4a271730505fa684e411e7d6d6a7a62b8a2329b8e0036c185",
+      "afterHash": "0071abc0ac0b53c4a5bd61fa0b82246383660c2aaf87c66114bb69ed23e4b026",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-030",
+      "beforeHash": "db72408fd8abfd2067b1f35ee95da1a2fb59106b0e7c8ddb1af307ce6eeb7b90",
+      "afterHash": "9c08cae6a6075663553662364c6d6569543d47a32c6d5a6b4c6dad704d52501e",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-031",
+      "beforeHash": "a805f3d3671e918a792bf91d344c73fcf42c405a23fff68f05fe68bcc84505d2",
+      "afterHash": "d529c239865f2eba0774b45be94fdb90f168172f1a9e67d9c597e3b4322662bd",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-032",
+      "beforeHash": "4e873c3f7ba7f43eb2bde4d1bc93168f6c78efc3bd0638f65cf4b98e726c3a7e",
+      "afterHash": "a0cf9d46022763be9cb901f65435d416847cd78150a80835a48a58db46829e52",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-033",
+      "beforeHash": "8f2e1a59af69da2a9c9b8faa7fe7d41308757c573dd55407e5fc0f9011463b67",
+      "afterHash": "30ac703e0a0579c5d59c8c2bef0538b7f56f4d10ffa39f33af6f48e0b9be9202",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-034",
+      "beforeHash": "50d22b9bfbbafbdd262b1244e7511cd8df92e591eac3cf94c09d62a0fb3930c7",
+      "afterHash": "1146f9d6e00fe88357f9c380516fc5ccbf347c4a11c591f099eca5a6d96570d1",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-035",
+      "beforeHash": "60a01c0b3a47387846703df2d1242aa86997c931a4153f38b9f13dcc9e9d0ef5",
+      "afterHash": "c3caad2171639bd7dc35a018fb3825303db35f71c3753bbb8cf42b6181113f62",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-036",
+      "beforeHash": "3cc29f45de155d760649a390ce368fe61cc5d69c6901686ffdfe3ff48816f2c9",
+      "afterHash": "689ebb077a587e4fa2915737bcaaf47fa7a001ada3ed6b6ac691d409eff5b95e",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-037",
+      "beforeHash": "1be4ff33fe2fe2ce115207b1b0687545c5cdcd995d6610d098f65153d41f4e5b",
+      "afterHash": "a647aa59a25cfb84dcc7420069ec60924e0df51403932dbd9b88289a8651c581",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-038",
+      "beforeHash": "7f5abf4586e722968f120c95ba73d1e8185f802fb31941850e4559903c35a3e7",
+      "afterHash": "1f12f1a2993f7074659b506e2a1b377287abf2d3e37fab198ece0c162e0aa120",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-039",
+      "beforeHash": "a39242c6cb86647721207f3bd33ba5a09af0bbbfaa0eb5759b1d88e08ccdc65a",
+      "afterHash": "83f7d8564b0e5591791cecd3234c6f1bb7cc3011bda5d9102e89ffbf1b85d0f5",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-040",
+      "beforeHash": "a5c6937e3a7e506fb4b5139062861c70f114094df4acb5b6381530dd3b991e02",
+      "afterHash": "942b745bc7cb2f2273c0e147f1844c4cde6b6a5b5c6f8c9f44163a93f1bbeea1",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-041",
+      "beforeHash": "a55a2128759c0240ddc6e90148453b9f81a18baf131de6f6ed3b84c9da33bc13",
+      "afterHash": "808da5345f199c23f3dce993b629603ebd07972e0ffc30e87a0c1959772aa076",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-042",
+      "beforeHash": "4d40bd60bd6efaa615ab323ebe41360943f6f565668c5ec128c80f2d0eca67fa",
+      "afterHash": "4503f216308011a742a4751cb4fa8dbc0d547b2272477fceb1df47ae8e0ecfa8",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-043",
+      "beforeHash": "43368a1ea5f12a8e38366fe9d49b4867a3d9fdc1c8461e46dbe6f7b79665f2b7",
+      "afterHash": "e4e2509fc09f83cb67b66718fb81f104666a495d4f3463b9c83e246080a19123",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-044",
+      "beforeHash": "104d4230250263be65bf7b03642ac20f791600e99598c1f79c745421171b1b72",
+      "afterHash": "100fe78945ba219364a4933d757063ab2261a7dd992bb986d88a7d85c2ebb203",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-045",
+      "beforeHash": "22d33fbd48fb6533061771a1fc872b73c50362afd556982ac31b0f9c56ec33a8",
+      "afterHash": "5262003f196eec7c4a09f4cf896c657630f74d9ce4ad9d36c0a1ef8554d90198",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-046",
+      "beforeHash": "fb27374603f40e21ce4c2a9fdbe3fd59583efcb3940514866b6a7f14dfca5ef8",
+      "afterHash": "11ac0e4fff7a2e54dca4bcceef22da9c6cc152e70c1636c900e53ae5090e42bb",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-047",
+      "beforeHash": "724f307544810f46540f9336f0fa5e055b2532c97ec30fd728412dc0d5afca9c",
+      "afterHash": "9d246418ee5aeeefc8af8320605ada1243b3b128dee991bdb9c35022ea9efd95",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-048",
+      "beforeHash": "58832dc6ee7d84e524a5175ae6857c4171ecfd783bb0f1f599e6ae00ba09deda",
+      "afterHash": "720a8480ef0d24e8be5b3c16210595ffae8387a28595c4fa22f8b5797ccb8080",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-049",
+      "beforeHash": "2ac4dcfa444f773175e535403dc1f250791fa6a05893ce95b7f4fd5ddb21b2b4",
+      "afterHash": "7f532e9e17476d1273c436c67fa908a8fb03080bcf88cd079cfad26d2b9f83fe",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-050",
+      "beforeHash": "db3575f46d8d5238ecd45a38eb38765044ff4b5881f7f5ac58469cd6ebad9dbc",
+      "afterHash": "f659af9f13f918f8ecdca48d63f5f43a1e401c0f2960790ccf2c3f8ced671855",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-051",
+      "beforeHash": "4e0366b39eb08550dbcd97bbde7216a4ff1e091af8b1493ab1babf24b6e7f82f",
+      "afterHash": "336a0e4ab8da7ea0b66f8d8f844987d17c13fe355ab38679e8cb73ca2e700ff6",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-052",
+      "beforeHash": "25b706f6e791e4c2b768a9feb07d29d7fffc7ff5139d288cc30ed7b2c00f24c9",
+      "afterHash": "037371e640e03b7c8fd4aca2c17434636fba0d758b483e11fe7872189a727d5f",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-053",
+      "beforeHash": "9b919c77ab0e99503b2c6e6af9a2241bc2a2f1a5ca5ade5643edecbd0503b5d2",
+      "afterHash": "021c53745a2f4a989c79290a7e972cac68cf103274da65caf3ea7a162d5894cd",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-054",
+      "beforeHash": "e6290b8a86b746a5a0954a90efa3d276a0325ca477b84820cea4097cc5f89dcb",
+      "afterHash": "8a0172764a9a37f5b3a394493e85c229459e63969757738eccfb0891b5419d8a",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-055",
+      "beforeHash": "2042653c22e1885e3e4d55f3b351e2aa76890c8426675cd1a656c31ce83aee5b",
+      "afterHash": "58cb6a72cbd1d275ae16c9dfd173a13e04e4b13f6d792457460e9ba23666858e",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-056",
+      "beforeHash": "2873d1a0017f7e9bb8c0c870e94fef4c1cfaa73a3bd19f699095c54d888c1760",
+      "afterHash": "ede26d311ea5fe4917317689afc0009a7abb3ddd5dd9b26ee756b867b03074ab",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-057",
+      "beforeHash": "e351ba577189bd7da21275e3acaf8423012e4d77c1f5ed87dcce1b66619cac5b",
+      "afterHash": "c09e01835dda8fe1683b9126a02eda203c8a7a3181be6740787d69497c50f053",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-058",
+      "beforeHash": "205239fc2977b86bc1e714b8e58cb3cff596b42c65ef95b7161fac9be5c5a416",
+      "afterHash": "5868caf9f78729004fea48c0300822ea249aaf88b0297dd7c5e2bc6f03a5dfdc",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-059",
+      "beforeHash": "c89eb26af1cdd4f432a8db6ed451392ce85227776a6aec1d9b113a7bb28810d4",
+      "afterHash": "515ae68355c366947e4c7a429c9b54f0de677c1cfb8a475d119fe45eb78eab68",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-060",
+      "beforeHash": "7c168b11e9d23c0a11f4c3a755f7d5b62efbb9a7cce33474996e559122eb74e6",
+      "afterHash": "8b22fd8d202c0483c47b043c1e5d6f9181f04460628e9cdc3fa3964728b5e6e9",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-061",
+      "beforeHash": "93567af1d5d1204f09008a4e28c16811ba4e7312748b3fa6f1fdf2fdab1d19a2",
+      "afterHash": "a89c7fc7ab85d004064d4d053594025558990a1c644b2dff1e6de24c30ce89d3",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-062",
+      "beforeHash": "f84027c80c974fd62c2cbac14b0a882a8e2ab3be3290837dd6e3343e03b189d1",
+      "afterHash": "0caabfaa8e9300ce9117ea2e962e1ccf5b8e5aac0087cdea1a80de3a7586ebee",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-063",
+      "beforeHash": "1031cbc15562bf7198b1a3ef57fb455f563a97f80b843f40cc4f2e51d5b44d23",
+      "afterHash": "a1e18128eb156e17d49c911eadb09917646ba438467943bbf5888b81e39ac0bf",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-064",
+      "beforeHash": "3d965087e0759fc8635a486785a1aaa6d7ee9679bfa853164927b775759b2211",
+      "afterHash": "089e08f24a7836e866d4c8829fa3b38a09f75bd0a2282d69ae2c0dfe8834113d",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-065",
+      "beforeHash": "8f5e4380e1855bbc3f4fdde0ac7b5e5643a75e9134d4185b070fb28e5ec47cf0",
+      "afterHash": "6e775f9e335568f52e62cbfa354ec7c2823d614f0dadcd6d0fdae5a726d8e57f",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-066",
+      "beforeHash": "13416c4a3201ae080e3dec3a51c891de5389f43a9d23b1dd17da527252965d1e",
+      "afterHash": "49231db0664418580b5fbca3db3aeb465406e08a225934031e1f0a09aa8083ea",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-067",
+      "beforeHash": "2bae0e71dd236e7ca502dc28d549d0b9189d5c7ee25cce4ee39b4fa661c24ff6",
+      "afterHash": "3398c57d00b9c860a4e1d42252929b94c5fefcdc77b20da564fae4f201da7b80",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-068",
+      "beforeHash": "74ffd5ba19b373c03bee75c66ee3184bd990ca062e7f05ceee2b50ee4906a1ef",
+      "afterHash": "e88794f784b19e01f03091c0ebef03ed4d004e4748790432e42bb7ad64360587",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-069",
+      "beforeHash": "aa983b53970b2bc17402b5088299b60ffca7a8e393241778e3e973c063c928d4",
+      "afterHash": "85ac9637a08d45da18c5fd1fc66286a63d489f637eb71cd78a4c748145074968",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-070",
+      "beforeHash": "46bb2e6e888b42ded66dfa72b6841d5c5a1c8a1aa778953651d055d57b214fd3",
+      "afterHash": "c572f7ab42894732e7c7146e15d73394724990a5ca66f0a3dd92ed996d4df83e",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-071",
+      "beforeHash": "3b023f51198bb8dd3061068f81acbb0b033c1a7643c80b52336d2d10c5aec52e",
+      "afterHash": "74e9a7f806c5611b02287e45902fffc9ac27d68431a0d304921def3f255ad049",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-072",
+      "beforeHash": "53774f389d91eb00a6e14cd7f34067aa1c672322ccbcb15cdc022ad180322b4d",
+      "afterHash": "ebd995ff01c172d2dee356024eb35be98e4f3241342ec04105dd8706ad875aae",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-073",
+      "beforeHash": "5ea13f83f49b66554686496bde4289ef63fe3091ce146ddb02cb4b8cebbb3ed6",
+      "afterHash": "e1d237d33eea58e17ca866f9df465861d57ef66da03fa056d8b977901f8c71f9",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-074",
+      "beforeHash": "41f41bddbd14f761da45b742eb2a7702c5189f057ed44bf155d71e340380c7fb",
+      "afterHash": "42ebd5ccd2cdaec0164bcf7033d4169899a5ed49cb34a19d3da8910a58fbab44",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-075",
+      "beforeHash": "c61a396fa362d14eed0ef6f40a4977e28853d5b51ad114241f45e95a44ec2971",
+      "afterHash": "b9b60af4ccb408f2b468f7b3b4fd4c0fbb4807ba9493c9b1fe0a34552b7a5768",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-076",
+      "beforeHash": "f2dcb40eff3c946372e82316e1944dc5c38d0c70b8da0a6d7c58bda57b254558",
+      "afterHash": "ad39c1e1fe8a479d327a0600e153216b4656444c337a7ed5bab593fc9fc2c30c",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-077",
+      "beforeHash": "ec9e3d9ea71d2fbbc5e5abb216c989a5ceb5b7e7dc04535d6c4a7c1831974da7",
+      "afterHash": "e07118c976858109de89bb436c02770003ada62c2e68db4adcca5e41461d5a50",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-078",
+      "beforeHash": "3d01b9efd4dc467b76fa4fe4bbdfcb4ce5a7715c7657bc9877ba0d9b95fec2ad",
+      "afterHash": "b0574a99e21824adc42e74bd34cab54aef22e5a6fd98d37a93b7a74e06ab20a4",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-079",
+      "beforeHash": "8cc8d6b8a08c06b8dddcbe5581cfefba9d6f06024cfd36404959714d98d9fe60",
+      "afterHash": "500c64f3bb0a389520e60d2d141d324221ea2e1ee3f619d66bdd69c9c8452397",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-080",
+      "beforeHash": "972b107b6e6d353f1fa66629b7a0532f513215fe51b399717dce692ff358ec57",
+      "afterHash": "86295bbaa57e24756b32f7bf9281da9daca1c804fe8a09086b2cda0e0075b2af",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-081",
+      "beforeHash": "af6886cc97b513bd494314ed20a8fd2f3c4f34e1686f80108a0fc951c852d4df",
+      "afterHash": "8e48d22e67df63e01e1a29bc58798e9c736909fe683f58ef7bcbbdb7dd8b9341",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-082",
+      "beforeHash": "13e6628cc1d54926673d97b3c2ec40add8a1988026be833551a461c909f4b521",
+      "afterHash": "ae8a85383438d3d56a932f5800450726b7cc3da55858a4b310f04406ee996cf5",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-083",
+      "beforeHash": "3d13aeef13b333d952d8f6c9ad7e8bce88a56071da18944e004a4e75bd8b9c49",
+      "afterHash": "018612784d864a99b8ece3e61cb85819493edfc1d0030b73a7346b52fe7e2087",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-084",
+      "beforeHash": "e07a14396a6e46d149ce115e95dd1d519fd243fe93d8475dff467e17a3b58f3b",
+      "afterHash": "531839c55f1c85166a0aa89dcf6edbc58c08b2a1bbc92a7ff01a21ba57445907",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-085",
+      "beforeHash": "1fd3cbaa8c8da80fb32f14c5c4c38d9419780e308d2c0f983db7fe48666127d0",
+      "afterHash": "96c355604cc73ef19656eef98af40ed1a280f350e2a939afddc9d5b0fd175ff8",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-086",
+      "beforeHash": "a27801a1026a077c7ddcbeb41a500fc9a9212302d78c722bb520a07f74eaeb12",
+      "afterHash": "6cde728e53d7039214b2b0b5dc0610ca8fca97a08c64b302a10ef194af38cdaf",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-087",
+      "beforeHash": "7e4b782aae6cb62cc920a0514c57bee44dafbf6b5a600aa4d89b27ec1176129c",
+      "afterHash": "57853f58f687450718b917be98b9e17a0f66955b1b50168c6a089b8980ad3eef",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-088",
+      "beforeHash": "08da68e3aff863067b765ef1669fd27918dd9510c4c2600b33b991dcbc9bd6bc",
+      "afterHash": "caebd7362c3a225728a8392a2f71334cbf5373da9adc20a392a8169d80b4fc5b",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-089",
+      "beforeHash": "117299771392f2a093da67bb1643ee0e762004d15c392c328a21955f7e35afdc",
+      "afterHash": "3519ab676d7b136140f20a2fba8588142e18ce5e751a5a5a0b60ac9af39e74e0",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-090",
+      "beforeHash": "c57cad108fb00a5c40d1a520d6fa2e4f505f5dbf254dcbddf791b1133d5d70d9",
+      "afterHash": "84a179aba0b3b8519aa5789a11c0e769ccbb991ab37b45b2d04286366bc2ddfd",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-091",
+      "beforeHash": "3d8fc0cf8e5271c2d82628485f2c20ad1c47e5acd746c177f72a398535f4b3e4",
+      "afterHash": "341f3b7bf6164b8c68a6da9b5a4a2dfec1f3a62fbb47c2e81fd370e97c5b78d4",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-092",
+      "beforeHash": "19310dc7dcd71e3ac72b72023450d961edede7d65fe1d109dc34300f753cb731",
+      "afterHash": "60520a74aa4f82c7151a430289adb3251c58830c9a379d836a355d63eed007a2",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-093",
+      "beforeHash": "b6b8e94192e43b923e6be0cc92c913626040ab7195b790ecc7f6a197e58feaf0",
+      "afterHash": "2fe16039c9961cc0a4e746f321771f79d40c5e780b4051b4e21d4304c3ceb25a",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-094",
+      "beforeHash": "e69f93e642eb1614dcfd122fe16728ac6c25878ab7bad14103ba9bc2c6f6ac15",
+      "afterHash": "f8f1d6845992bccfa65384a162682832ae29a9d582230e1d3b3aa265f492b491",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-095",
+      "beforeHash": "3a536508dda334a1dbf11c6c1a35a8964a7b269d0ac0ca7986fdeeb5302e4947",
+      "afterHash": "10a4f8294e0834b9b73ad4ad88310ae8b5fc74d3ec49d893cd20090e11a1b732",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-096",
+      "beforeHash": "80321968b04ffde86038f5fbd4b6d3d9e6fc34c5f4da831c3e417e766b819d20",
+      "afterHash": "147c01caba860d57bcb88717cc3515d2a1ee9c14f3da22603ca5139b821bc0c7",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-097",
+      "beforeHash": "10b7f6f4fd47160bc1e0143a7169b95190b01f15ffb40cc43edf582d7232868b",
+      "afterHash": "c710c7cd0daf786ba39fa802965a6d9db9e24ff3383bc062f832061b0bcb6007",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-098",
+      "beforeHash": "10a7b9cd5b514939130118df45c5cbb6f116c2ccd45faa602d71fca76526df9f",
+      "afterHash": "d3a1521b817d5043cf5e12a3765f15a07021124db791f21722f2e26ee8d68039",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-099",
+      "beforeHash": "62882d4c1e55770c02080d8b1efdf9af337404b90b814f5570ab71f8cefc5b98",
+      "afterHash": "fb87497892ddf842d00ca6f4c3ed466b8232b21cc58883f57444e587d1640f6d",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-100",
+      "beforeHash": "98e5fc56e7821f6996acead311065db70ce39a59510c0a15331c4652add396a2",
+      "afterHash": "6177edb72ee604ba703df40da37477d61f05cf03cf165fe1aa564a21209dee48",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-101",
+      "beforeHash": "55af802a897d9fe59493c599acf6fe6bd19daaa5a1a13e0e52b4af73c88e3589",
+      "afterHash": "9f60a4591af0dffec6abcff99940a0e63d0e95269f6d26d1295d3fea0acb70b3",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-102",
+      "beforeHash": "c52b893798a2006f5796a97769fdc9fbead96a7e4919ebded53587ecac508835",
+      "afterHash": "83158560c5f1af45efbb021444c3d3a2642908ba3b8e974a547fec7f6439ebda",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-103",
+      "beforeHash": "2a9cc8716548798b2b9bfa29921cebc719f3d88a6cff89f2370a1004f063f103",
+      "afterHash": "2f243d5cddb8826045b302816366c02e654e65d72e6045805f2d0262410aefb0",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-104",
+      "beforeHash": "c61ceafd100c9910cc815be05073609f488f68e57ea672dd37e6069a6231b92b",
+      "afterHash": "60651980da3f29747912b8aa48e16cd5abfba8d136babcb9dbc9e0e4579ddb1f",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-105",
+      "beforeHash": "6e1b439d3a4f7f639d621523df88bc599b923876e35e542c158c63918fe32bfa",
+      "afterHash": "ec02fd6b1dee77719adee2796f7ae5aa52e6d3617ac98bfa70a9a7972609bd3f",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-106",
+      "beforeHash": "04a41e14ffafb9e9034c2a4bcbaa82dd7c7945584027ee3ea55ffdb98bb40639",
+      "afterHash": "d3a3a59448a32845c340153f703c93485df3a2677a6c7a1323ab7ddb11ce2a7d",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-107",
+      "beforeHash": "c1143c3e3c3992dae88e52093652be606d9f3aa444297818e05dd708e4058a34",
+      "afterHash": "9aca37b9e6b1386e4c5640c0819c71b11cd7418e4cb5b25a87427ca82c2f8276",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-108",
+      "beforeHash": "c3a3ddc4e4b4717f9a356818db2a373d3a58a438099e302d8ecf705e76bf506f",
+      "afterHash": "78cee49feea25c4a9f5dd9426e4c254ba5ae27f5d187f6337108d493531ac1b5",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-109",
+      "beforeHash": "71839487561b1403bcf10c0c3ecb9a40f712b51696d31760f221944ba18f0598",
+      "afterHash": "589137a099a7a1807eed05200ac78b6becf63bb955a121b68a8e61ff5ec5ef1d",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-110",
+      "beforeHash": "4f906b79df39b9bfffd2f3fb869a35f8d9920c898f2244bc4e6eeaf9fea2ebbf",
+      "afterHash": "b170efcfb2f4c962ba37e12f1de2068623da732ff09762cd09d99d53e5d2e54c",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-111",
+      "beforeHash": "e8795e2438e2506ed9edb41ecfe97f702c007f6b64cee553954e15f6e6e2ffb9",
+      "afterHash": "52f87426ea64722a4f2b16d40accf6d330bafadcfd9211aec4040bb007b5229a",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-112",
+      "beforeHash": "d9327a639982f7eca1f0aea32ad1266eb293a778533690c3350cd58eef6dcc48",
+      "afterHash": "3a1215699d255bde03d0023d0861b23653f0e01fe11162c425413a470346ebd2",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-113",
+      "beforeHash": "067c17f1e621fd1398e372d802613aa7d04bf27f1a6022e189a734ce9719ee66",
+      "afterHash": "716d6b9f7ab34550fbedf96656114775d2acbc6d113519bfce031d828614d797",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-114",
+      "beforeHash": "c7db95a26a6f4765ddfc0dcbd7c381cf5f36ed6f5023ee433c916042c83fe766",
+      "afterHash": "84e886e9c3736a3babe8da9cc012f774d2af74f182cfb5c1a0c5040ba5cb493d",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-115",
+      "beforeHash": "48aa93b66b053d0c6d9c2fad37f02f94a41b93459503e582416a7d10068137bd",
+      "afterHash": "1579daaf2e3656edbc86ff2d8860ee911663dd2353e4660af79f53ab8ea0c43a",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-116",
+      "beforeHash": "87ac553064bc1a3295309d78068aaf9759a5b9364adf0eea0a28ccf2bd9283d8",
+      "afterHash": "096c5924f9590f274ae420636f68d4c6063ca73310854d3fd3a6df7b89f4917c",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-117",
+      "beforeHash": "555c266e687c59fc2fe40d894d35033e0918dafb7a5664bdabd958b7d7d6a85d",
+      "afterHash": "67c20bceca94c5c20e41132b44cc3f70fcba5601402ec404fbd35ef53b28da78",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-118",
+      "beforeHash": "eeff3fdfbdcc2ea2a83d1c9d7f5027901f872faecccf49cd92012deec486d99b",
+      "afterHash": "d89a0dcc83be7867ed01db1e319d7a7b6c11a3c7fda5164de9b17b4601094d38",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-119",
+      "beforeHash": "8a836e6c5625be95f5836a3a04dde09c65be92e37b9b68d88123f5513ed60138",
+      "afterHash": "e6e87850ba12207cf5c4425d49daa472c6bbc182a2dd4413fb58c877c0f6b099",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-120",
+      "beforeHash": "1e4424d9a21d2eb3f8642016f0695f6effacef741e053944cddd7db0c0f4c785",
+      "afterHash": "51921827e1b7a6b660451cb72aa9bc5c45efb87d74b18b258cdab499aaf83bd2",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-121",
+      "beforeHash": "6601216ce19651a09aec47aca80fd63249c30abaef8d7679fe0494b93a71980e",
+      "afterHash": "4b2c6aac6b453ffc0e12c73cf69f0b290da865cded0c7ee40d473b92504650a2",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-122",
+      "beforeHash": "357b0a770b9727ae8d001af6dd958e5540af1c10e707e919cdb125be55242a0a",
+      "afterHash": "9232056f5dd70485e5cc82164ab507eaf9c5f69095e986c53bd8ae7f82842379",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-123",
+      "beforeHash": "21389974f791631050c086d535c49882a6216dee0a848a6e53c1487813b528f6",
+      "afterHash": "78077ab7e76b7fbf82cbdabab7a3dea2e662c51e7977edd1d8e6338a3d7176eb",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-124",
+      "beforeHash": "61e2cf2385596339f72a64d88265d36f5994827ea047d594ab23e3202ab950e6",
+      "afterHash": "9bfd629b0fbcb81f57dcb89e0dde558ad8c8bf800a1128ef3e6562ef413330b2",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-125",
+      "beforeHash": "78996ac8428b3e5e8dcb795772dbbcda51fb092b9291acb80bf7fcbefa921f14",
+      "afterHash": "23cc0c442588c94fa6cd0e9ec1ec838d6821da6a689cc9ff875256eec40f1d9e",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-126",
+      "beforeHash": "b17fc74bc84a6a12a9cec63c53ced54ec55fac8cc0bdb61a6aedac1e600f0795",
+      "afterHash": "f25c6dc0a45c36df7db93f5353aa0cdac3b91a4b50ecdeb5416369d7ac60bc89",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-127",
+      "beforeHash": "b73969743c89667ceed7ee34d31cf898541703e84ce6c254466381b58c2ca945",
+      "afterHash": "2635b64f114a07b7434b9745bcca776aae8549b90945c4eb27d09f3f35ee77f2",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-128",
+      "beforeHash": "40091d3c0486742e8cd20b6f1793feb5ee5589688c8f073f830c09bd8172e900",
+      "afterHash": "7dd44df3fb5c8389a32f67aadd26a2a91316f14762d8f8abc4117ffecbb4feab",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-129",
+      "beforeHash": "0ac91c4b2f529b818d181a961bad1eea72f19d8f6b5d41b5d9410cbe3918a381",
+      "afterHash": "1aca9143413eb19ef9100aff6683133b33ee198f58563f64725e4004fb11e8d6",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-130",
+      "beforeHash": "2e9a213c1a714a2b2a7329dde7340dcd92164cef1447290a44f42442fc8816ec",
+      "afterHash": "0bcb4380099fff64967a0017c9dfc95a2359d07a7b4187ddca79c5dbd4d54717",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-131",
+      "beforeHash": "21c039f681550eab1c9753f19c60a90e4a7d37205f301bfc1ced6c254b0d252a",
+      "afterHash": "14139a0110be42b70665ea9858db96b43c8fd4beb20f15e58a65bfee67fc0228",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-132",
+      "beforeHash": "e87896261f99d7f0cb654c5b5b8912f545f1fc8ffc1b4176042fe520a5d8d121",
+      "afterHash": "23438f3f293c489d75e224d2ea0315df71b08e008a33d3f9ea542f8c2499bd71",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-133",
+      "beforeHash": "6f1fb6c87a7228cceaab4e8122f707be2698f9a9eca40cf9667aa183c026da9a",
+      "afterHash": "3cb94df524455a8f790517ce2678f97ae259768e1b0c6e1de4193f007f4b5e07",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-134",
+      "beforeHash": "9f65a77d3d81cb8563ceba76cba27534a582a10bfbf0e33d2502098bc7d819e5",
+      "afterHash": "be32abe61bede803e22a8392975cee214dafaf60d1ed04cd596085d56539720d",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-135",
+      "beforeHash": "b6eb37e1a747b0962bb263c02327a5e0de03b64b5741b54213c4c25d5f01d074",
+      "afterHash": "e820106de0e44ee5795765c035292979254e0c429837d2efe6a7790dd433b2ad",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-136",
+      "beforeHash": "5344ed8430ff9aa245fb3c6d8e70d805fa073c7d443450b59d371791b4fe2444",
+      "afterHash": "b0f9cb936996d0c08fb26a03772d1d0b4829fbe2d2350e4acf52a65313f3bf3a",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-137",
+      "beforeHash": "065dcee926d742a04e012ae3be9f02f72236bc4e6374aa9d1b00f22163cf9cbf",
+      "afterHash": "895d992f944f338242d6597adc039f10b470676767ccea31fc89225dda47c222",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-138",
+      "beforeHash": "51b8caf15b991774d88afe083fcd479c5343b21d62fff9a61a892b43ad99fa0d",
+      "afterHash": "86a2d3f6d79e79ad1904c58390c60137d11387faed414bba5517fe2eeae06553",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-139",
+      "beforeHash": "7c09cf5887226d7ef8928075e0457f7a91a449aee9703d1d3fe76297c1560fca",
+      "afterHash": "df42c774ba5c99a7a7be6ba9079ca661d6284d67be00ed7c962d64cdb08ba2da",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-140",
+      "beforeHash": "db5b489ca386417d9b171f19ebe4620f5999e19877ae3526f98e38773ac4ec8b",
+      "afterHash": "91f3b990a78197a21ba732c8ed3b8c31ba2b39d8b91522cd8e3d09f39e679e1d",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-141",
+      "beforeHash": "b8c6d1fb36299eb4ed270d6cb07d25db1a2ae9af51ba23661d7d1fa9059262fe",
+      "afterHash": "68da0d7a159356fbbb751b7871e07f66a0ca6f7610f05180e3533568a210d3ad",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-142",
+      "beforeHash": "f5cea6f4c3d2341f3c55366e79770052fd56eee3965426d5e0728abdb929598f",
+      "afterHash": "6abe2eb43a51e7c9fc7923db13b438e74c18c2e96b46d2c665f4bfc0b8a90b41",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-143",
+      "beforeHash": "7e1fdc5fa99de8a4c73347e068cac0edfc48cbe45bf1f541e58253ff473529f5",
+      "afterHash": "08e474c0d839dd6ee5b9504e6974925637c5c5c2d5fe3b7a3cd045aecdf2e88b",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-144",
+      "beforeHash": "1f13a8c3707c55eb48e54f8ffd28cbbfa152c9bc2fa615a82d3f82c672c0caaf",
+      "afterHash": "1c146023eeb2662e53e0f90b13a4371eb2736af98238f20bd4d19cdac5f6798c",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-145",
+      "beforeHash": "33c10150bb1b5f6412e91844c0c4ba37adf1b246ede6cb4245e4328dd987b691",
+      "afterHash": "087ab9e073d139a238a9ec43d4e5e79f86dfee1bc2c33214afcdca9558708129",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-146",
+      "beforeHash": "18f463207387700c0701a87a12ca1606a0c5308ab7532fcff4abc850645b8716",
+      "afterHash": "1cbc519bd52816bc4a153e3a8a736721f4ea0c16f743a3bde438a24c93ac8552",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-147",
+      "beforeHash": "7ec9eea8f0cb3c904d7b4de8cc2e3a99634b95fa47fe051e797a563fb2bf5502",
+      "afterHash": "441d134867c24fe52863493caf58ffffff7618b96dda47de944604a5ecd4c9f9",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-148",
+      "beforeHash": "74bf93fd98002cadef650c5deae87675f9aaa1873e1499ef5ab7b0c5ddefbd1b",
+      "afterHash": "b67d8dfcb970b8e3d9fc7cb2ec3527c34f459d03c3157a93a392f7d64d6e27f7",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-149",
+      "beforeHash": "c0154c381c475d1b4b4b19bcfdc1f00663ef4f902886bd9ce9f2b201d641e35b",
+      "afterHash": "0257a039fff8f94a909608f60983dfab42da856aecf72f54a67abaa94c37aadb",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-150",
+      "beforeHash": "13e2bf7750259baae9e85377c9da912f190c5062ce1e9e8b880a2106c1466e60",
+      "afterHash": "2a52c30e365b604007fb181b44a75e49e662529a9b34338b0ece056a40721eaa",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-151",
+      "beforeHash": "ed6b322cdefb20333415669c51374ca7d44d3f2df529147b59d7ee4b0c9ef6ba",
+      "afterHash": "d922f00f90ab5fff3211b9465832e0cf5eeaec53cda454194f8ca4e8e75df1ef",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-152",
+      "beforeHash": "c64615ec8f3bef9baa5662c4aeee5bc2919563b1edb24784c335d6a6ef8a5e58",
+      "afterHash": "ee50b95d80b26b94074ba564db70e9926a448f9e518a7fbe631edca90ce79641",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-153",
+      "beforeHash": "c0ce1fc1a10fd5607a0cae45015195fffdf00b8ace72b829176497e6b12452d7",
+      "afterHash": "864257dad1f0b613bf55f8a1ff359a5e3f288aafba1f6c8c3868cb7155a4c675",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-154",
+      "beforeHash": "f31f39a1abcbf55a121b2dc5e5a3be8f61ddab551ecb49d052d15de6e8bc6fed",
+      "afterHash": "851a91d0809d13d69c25d3c37472dc4d660d89a9a9cc8928d7167a866e7376be",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-155",
+      "beforeHash": "2f6e6a852976a7f4aeb48c6c9aae57a00b026a30e842ad690811e3bf073fc53b",
+      "afterHash": "6045b5674c6743d0eeb656823952cb485d1361e5be5684d5ca4f32286eb3126a",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-156",
+      "beforeHash": "2e702dcc4e6b0cb4b91b5419fec9328f2ecec89f10804765beda705d3907e927",
+      "afterHash": "403042da6689f207fdc42131839b35514c917fc0023cd5ba8e00c5d1a462cd70",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-157",
+      "beforeHash": "a83a59fe4b76dccbd141c4fd5d7e5e6f62bfb58eb1b16cceadcb65bcd52f737b",
+      "afterHash": "7f73bf8a7acf0209a9aeaea8180d701d2e79c27b589d409ff3ca9519ed580d87",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-158",
+      "beforeHash": "efc98123dde36408048f349136a447d047bef14c3a0dbb105e72f34b9e606f39",
+      "afterHash": "2e9b79290a6f8621d1bb52726357f13f03be1b47992d1d50e7d959710c0ae41c",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-159",
+      "beforeHash": "cd1f9f2949f7e388f18334990feb82a15d9b74cbca9be755913c98e5f9f16ff3",
+      "afterHash": "f51e925648b420f4390f80a8acc784b3bf2af932dcf006bd270507fee06b06dc",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-160",
+      "beforeHash": "44fdee63c07288209b192e96cdb774327a3ffdffdd00c0f27b098bada90baabb",
+      "afterHash": "a6f97b4d45a33e91bed56cd6fe8faa53ea2552f09c1a7801102907243cc1eb97",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-161",
+      "beforeHash": "d55dc04578be50616eb2a2ffb3984383858aea2c73c42621a1463c18d28d2298",
+      "afterHash": "ef50c68e19280dea9b0a26c30be6984b2b1ff027ea8159578c4b7762cd1c5b56",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-162",
+      "beforeHash": "715f88afd7c8af8398c296fdf1de8463ede61e95e4396cc0f75977945687dba0",
+      "afterHash": "af840552ad44d84403a4331a2f4f7ad947b9de46ee61232c9295b65c679aa987",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-163",
+      "beforeHash": "bdf3258de8a97888b4f0889c1bc7550e9d05c3294f0a09608cf4b6503edf97ff",
+      "afterHash": "d6607b84ad10e155ae7aedb76ac13d4498777c6591f86ca4f2b53c4eda383bc0",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-164",
+      "beforeHash": "262c78106bdbce7996acd6d77d6e518f651b1c46d8668d233da7b49c57bff67f",
+      "afterHash": "f0272e8a04e04e81149f2af5217085f2cadc089c1eaf5e0c9251d04d066a1bad",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-165",
+      "beforeHash": "1aa30d22b87f68381d08c08fa6c738baa9d102b8f67fd65ba0909ab4c530b552",
+      "afterHash": "8813363196dd5568b6fc4305afb88032e49c49bad4ed9fa1f92f4bb30b59564f",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-166",
+      "beforeHash": "7c26d4fa6e4e0feaceb97dd70dcb52d92e8bb4d8c0639494f2dda667814f7bf6",
+      "afterHash": "f6296472149b0be858ae4c6cf7076dc4243f40f16a9a7e64af57c1a5f3b2f3a1",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-167",
+      "beforeHash": "095f3a985b60052533bde475a2cc313b6148b04c784329a0b951c76413dbdea6",
+      "afterHash": "26a85398f0b8ec73e63a737c149cae0aa6b017e0ab2915c8221a1f3696846af7",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-168",
+      "beforeHash": "ba8261c5d49ee5b3528bad09152e18d14476cd5ea2a772bb6ea5814d0e6639c6",
+      "afterHash": "4e4a6b6264babd03a1ad582f753e9caa42b9d5e7866f6a00193946e1959f4a54",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-169",
+      "beforeHash": "e38e5196809a031eeeaf9a68badb04b34dc3240435d9810ef1cc903d30693681",
+      "afterHash": "4008163af09961bd243ff5c2bec3dc2bd2406a599871945fdba57b74405e89b6",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-170",
+      "beforeHash": "c29b1e10a505d73219a43aa35dab7758f78f42c0956d31248b95a3f7e0e96c5d",
+      "afterHash": "d8dd3587d7bb89b8e03e8646c92f99e7c306c3f9b0dabe9873f96ebd325d6a94",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-171",
+      "beforeHash": "ff064d5d6907c236f3b8b03a090dfee6ec138f248f3b3dae6a2afe80929728f5",
+      "afterHash": "51404621c702f526ed77d5bdeb2cb276044850fbed8cb4d61925317771b6b57d",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-172",
+      "beforeHash": "cf728db036c2af33aef77e9318b05b831ac3285ec230f4b5149fcf0f297b6d16",
+      "afterHash": "fb3e7e14d5e33bacceac70702555eb6d4c9c7c8b35fbd740c5af04b1c8fa2937",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-173",
+      "beforeHash": "d6e47240180951fcdd8eaaae4d54f15c90c4d682e6cc5aaeeba42128d94fcb06",
+      "afterHash": "60ce262d298c165ebc5c1969de1e5456fd4f5e8cedc2ae9a3f0612e02e0dc3f9",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-174",
+      "beforeHash": "95d3e148b295c421b62238b1360d0a99a0ae33ca091801b2e53853a05576ce98",
+      "afterHash": "0ef2826ae2cd743eee74cbdbb88c39c92d500d706ea054a6a8c65e5abefa5833",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-175",
+      "beforeHash": "6b75cace4033707bb82d78b3d8d6dca9d5d564bff8746c66f60eddf773a85e27",
+      "afterHash": "20f25a54adcec31ee04ac03f5c0ce654d1beaff74101344fad95fdc395687133",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-176",
+      "beforeHash": "3470d65e6f419babf999eaf11ef54d23a48755e5e93e7b14a7395738a258850f",
+      "afterHash": "dec0c2b419e42499981a6ac8b57b90d301d4a3384c5e268338c71a8334705492",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-177",
+      "beforeHash": "2f418d9520bab94a7864cf25d25f2e4cc15a03be7854cae35f9cbabe3cd9e3e7",
+      "afterHash": "b67dc7305b6c8f6d8f91231c32e526ddf29ac3c5146ec126ee2eb5075652363b",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-178",
+      "beforeHash": "81d196fff85fd3ccd391e7a0174cf42ddf18adc41be8423944c1c74c6a40bb20",
+      "afterHash": "6ace0bdda01140df53d72da551d6c1f35d22d33e3db7b2517ab3c2eacdbb8599",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-179",
+      "beforeHash": "6b36e7cd22ec9237af14f04f7204a05cbbb89d4ead336cc30af1b493f90427fc",
+      "afterHash": "174f009b2f092b40567780da7793467278237f99eef2d44681a550959a5ca10d",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-180",
+      "beforeHash": "ccb6c584ee2860fe1f25c84384ebe8bd42d4122b4f2e4df9f0c5599834f1cfef",
+      "afterHash": "1fba6d4b4f9ec445c3d5749d022b6bb7cae6fb351d508f8610939e872564581f",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-181",
+      "beforeHash": "2298839174ac39531af09916f16dd4ca420783bcaa0fde3fa6d9b09ba5eae78f",
+      "afterHash": "86d6ed29d1a738452c2e2f60473e4aee93f481b16eb231a3fb733793484056ce",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-182",
+      "beforeHash": "e7ef4095d877826ad26c752430caba9f6a373a9fc9090994da7f0445aa3adc56",
+      "afterHash": "af6fa97d0d7a64d389bfe43ee3856e166bd285b173717a50b596ca18a914cd2e",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-183",
+      "beforeHash": "9b6eec47a4bc64713f06ecb7887db8938b8acdd1811ae24286a12a64bb4d18b0",
+      "afterHash": "7a544c9b1db69137b5498fc4a88decdd9faf15c0843a3c250801293096d2c457",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-184",
+      "beforeHash": "a6d5a9becf49b68c9c82be516453861f5e2b8570214dd56d49a5bb3fb0f09489",
+      "afterHash": "8149a38be63066e5c933eedde62b4d04cd96a5458aa9900e1ac028212aafdaaa",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-185",
+      "beforeHash": "de0339af30a65622974b5cc7f7354da672d92a2405a255a03fcefefaf4be6ad7",
+      "afterHash": "218b3e1d0dd51a160fb84c6c51f6031d7e40d4385e84a1dc2503d0291d113cce",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-186",
+      "beforeHash": "a78aa63630035941d9646427c296c2ae6961925b16df4e4177ff2cc74b6b057b",
+      "afterHash": "6d9e92edee940439d3d6a9ab811beeff1106ae280baaaba904d9596e0b7d740c",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-187",
+      "beforeHash": "665b9fb115145d2ea288fcf53cb6ec09550504e76e1433c551ac5fcfc5840cfb",
+      "afterHash": "274cc379cbba39d76a2edbddd5ec71dcde2ddf0390f2f878cc28b38cdce060b0",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-188",
+      "beforeHash": "6b678d6dd00fb5f848a8f4335f7dea4072b98935a7fc601279c943fd6a0ff299",
+      "afterHash": "741d615215e47c0e596aafbc0a75220803b4b206ab6273753ab3d314e46bc3cb",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-189",
+      "beforeHash": "e894df46b1e9eeb236a5aa5f7166a45f87288a1d1e57875add52f370bf76df23",
+      "afterHash": "e9869b734a609476a7648b8e2dfab8f0d94b6fc6023569ee6b36cbc777ef1a63",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-190",
+      "beforeHash": "9d3d8953cdebc52d30e469c1a9110c9dc4a9b1c7b9cbb32659d70bdf05bc3499",
+      "afterHash": "bb79fe68c0e78819a5c5de86adb155c5a60344e26a9d10eebff765b3954f3896",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-191",
+      "beforeHash": "b95f2f4f3e8cd6742633a3d71b194f3b99bc708ec6160d1b44976866b56906cf",
+      "afterHash": "c43672693bf7f5e84cd701e40f31a6542486cfc28b77a81aade3c29308f37f33",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-192",
+      "beforeHash": "89f059581cde8da1571bba8a6083c06533b637ce29afd3d388affaf85725a79e",
+      "afterHash": "039d6c454b96281133b17adaf5b6ea787662a46516a01284e56a2ea35063a098",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-193",
+      "beforeHash": "f2e60a8ea6f3e18209127d28852199bf227a90c35bfbb5ca7228fc9937e266ad",
+      "afterHash": "dd388d63c283e98206045977e77eae3768cab927618d68ba5a56071f13080eb1",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-194",
+      "beforeHash": "d7a7399a08231fcb27fed71e10d00ed16d3b5f11b4a646076269cd5778778f3e",
+      "afterHash": "c93bdf8c9c126d3ff9bd2790f6657da8a044dd09176cf269531765b4f7142079",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-195",
+      "beforeHash": "7c99c3f1c0d9c10071d53b8d2304f966f79600411cef7a35bc45376635cbe33b",
+      "afterHash": "a830671c2a2afb6639b0f077575f14bb540b46d3ee91dca954445897c8bc7876",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-196",
+      "beforeHash": "dc566d3260f18b590b80ad44bfa558bfbb421d96e4c8183e65e031998ebc9426",
+      "afterHash": "d35d5f92f47bd57ea506bd548392f343de07e51d6984cb5bda1fa766e1b9f1c0",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-197",
+      "beforeHash": "ae83b3b21f13bab5bc760a74ef5aa784d699d0272503075301093bd3bf29362c",
+      "afterHash": "c29de9da0477b93725f201a54288a4f27675491332ac1dc37dc62f61e621680f",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-198",
+      "beforeHash": "5d83c29b8bbc0d4d154c5fb079be821d9b0d6b370f74fd52b6f2791353079832",
+      "afterHash": "7e259f60721e4ec6afe5330556e59080684950582ba736cdf922c399b4ca39a4",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-199",
+      "beforeHash": "aae6559ebd2ebaa9fe8a9092b6ed80e1fefdaf43d63c64eab0307cbe0b40691d",
+      "afterHash": "96029409452673e1ca0c883359176f4049a879045965ff4c962e67d0dfae7691",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-200",
+      "beforeHash": "0ee0b41a43ecec28542e1ba5236a31b1be50a4b2e3de39b7dd483628d4586312",
+      "afterHash": "7b2f3027b8fa92bbb734487d5a7fc7df29e44fab9717beeadc8d25c4c185478b",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-201",
+      "beforeHash": "e24b8967b8308082e95c4778b4ff40f0c3ec35fff8b40aacd653b0234ee7b146",
+      "afterHash": "2fa5662898bfc6f78be82c68d83ad701ae5eb3a394ab1c1558a6b2336362a10a",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-202",
+      "beforeHash": "d68985f87e59e0154967282c703d12c7c1924158bb256001311f353d488f76fa",
+      "afterHash": "9f47bfc0740783f0142e7fb55b83ad739c3e38a73aaae47da169e2724b5c7773",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-203",
+      "beforeHash": "56279868872fb62c2a88aff70690c1f47e8835f93ad7a0f0e7e7bc8d256a8f94",
+      "afterHash": "dee0739277b2169a1af8bde991e53afd80d49ee0f3fbb8ca0609ebc03455a67d",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-204",
+      "beforeHash": "e419f16a4faaaa0bdf44ae6b5d41e2e51ce6b7b01f38cc1143fe5783c1aa53b5",
+      "afterHash": "eedd10113d5bc8de69912aed8b1aa2f9ed436064ab4b7114392fb6ea1c6defbb",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-205",
+      "beforeHash": "f9e3e76cebe03ea55278327fd20432e13b8198be5973d0e3526e41571d7401c3",
+      "afterHash": "c453e215ac7ddbfe893817d5d8e78f7fdac6e5e998076493efd4f4e753a800df",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-206",
+      "beforeHash": "caaefc81e7ff4a6d4291732df0860ef2e18f6ab3a3baeee770b1f255a510d3ca",
+      "afterHash": "d6ed4bb09500ad1613d54a3d60a8b4a12b3c6cca6558f0a4330ac9aa87f7f4f2",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-207",
+      "beforeHash": "e629f54be0c7e94199fc516cc497b882417a66b07929e10f912c4a264324deed",
+      "afterHash": "fdbb9c4ee1544070001153e1aa37b6789addf9deac4fec2e9d0937df1f54129a",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-208",
+      "beforeHash": "29cb37b713799994000ad9cd51f6a636377492d1ee67b99b73ee9a715cfea688",
+      "afterHash": "cdf5e78ec22edd4f76ccc749cc1da647349295e4212f141607ec5078230d1a66",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-209",
+      "beforeHash": "788d533c43725895cde7623e849f2ffd046bf342bb45b4c1483e4f3c814c1a5e",
+      "afterHash": "7c0a37ce48a4357c74c76f270a2770abbbe28c4aaa43d1c7ee697348ec99576c",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-210",
+      "beforeHash": "a61d03bc8267edbe6085a498ed75ba8a7306258c838c62c089de9ed691689e0d",
+      "afterHash": "8c041c0a0e1d8d599ffd58fcc573a4a275ceb61c0f206c435511d243921b3cea",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-211",
+      "beforeHash": "90c592c0fc1306d8fcc845ea630ebb2781aaf383ed6428b7567ac2f68685ff44",
+      "afterHash": "8653736ec93b1e48a6f0510c225e5a4c8ab2cd10bf21508bf23ca43aa8791e90",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-212",
+      "beforeHash": "c5f7cf49af6fac657564558cc97eb7969c38fec381bd8ee16ea1294a38b8bbdb",
+      "afterHash": "b95eddf20b2975aee6dcb9df02c6543d9a8e1af722b8c04ecf69a6809ee3b0ae",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-213",
+      "beforeHash": "931d8cfb2817893d3f58da3f93013fb3a645b74085ab218ad3afbba932008b68",
+      "afterHash": "cb31b6be2bdf7f005ec00fb2fbefde74403ede4cd42b919de39e875ffff5c5b5",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-214",
+      "beforeHash": "30749226c054eb972ad436f7d4c7bb7e9e58e963316153bc69ddb00b15d30713",
+      "afterHash": "c8a177a1befa14701fefed5881c7b6403923b8e3990b08d87398830ca391f530",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-215",
+      "beforeHash": "086c006287dbcb02de9e55817198d2cc46462afdbb1d807c59cc7e432fbb94eb",
+      "afterHash": "63cbeb5f399a881ea4b2c90c19e572430e436fb34d20efda462c19305bd9b37c",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-216",
+      "beforeHash": "e459d0c84c0d23a633eea29bec82d8e5c3814c9d70eb2964568c1b86aba5387c",
+      "afterHash": "a4b69f6b9f02a407346addde2be433674a6c6853b62eb11b10d7a9ff005948b6",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-217",
+      "beforeHash": "66e91a9372fcb2fddf265cf9aa219ed9ed340e798e5c889bf2c6be37354e21b7",
+      "afterHash": "8ece53ce4ef89aa9448d1211bb91fe1c5e7aa000001fe30d5ce7c256c1767d4b",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-218",
+      "beforeHash": "95735f33f1666adcae4b3301bb96ab0835edd494be614f81e5bdd1eba308df6f",
+      "afterHash": "adf04dc90785c9e3d5a8327974678a592c7ded436e058e8b63f0a8fceeb295b8",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-219",
+      "beforeHash": "76b37bbd7c87235862c4db39472ebe57d5a4dae2f2f28e2b235af386f6183814",
+      "afterHash": "57a587589c32066054ab88367d799cac85832cfa1a003f722f865ef09398dc6d",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-220",
+      "beforeHash": "a2ff2d23b2eec062986ea2b2b89185e3470dc68eb1f822c60f1d629a02d79b8c",
+      "afterHash": "ec0930471afe68a4a1f4407964627ca34473fb834d831bed5eb3eb7a220457f2",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-221",
+      "beforeHash": "ece196c9f730e6e3efc654fae7326fb04d6f2554d7fcbc97b8e606a5e032e4e0",
+      "afterHash": "c2ad83b5e84ae2b6f9e21842ae4ba9512231396408224a0cb7e3e0c8354c9271",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-222",
+      "beforeHash": "f80a29a783536f51e947eb2a6ce5cc15b21c20d84fac35da2d6f39e1a13622b8",
+      "afterHash": "887006018b45d47d8211783a4da1af277add43a4cd1ebaece511b451f69c3b8d",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-223",
+      "beforeHash": "e010cd7bf213c53524e68567ed1f12571f9773304d2e89f87ecc77a6346ca5ba",
+      "afterHash": "55f124b8aade929f43a0b5e6be29999fdfc3e18a5c5b130f4e3940ec85a700a4",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-224",
+      "beforeHash": "d7ea15cd7eb99ce7acc89ae589ee87e5d4b03a04a5f32918b999899e3a199797",
+      "afterHash": "355a04f7d6cd545cf9cd1b25ac7b41520f537d87c70e8ed7c8b36113180f7c9b",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-225",
+      "beforeHash": "da48254bb3a9512500b1a3b5c031e2dd2a035fde06128e44b2fbcfe5c2c5a431",
+      "afterHash": "a1b4ade208e8abab4ef037c3e1386168cd5e6b15ec1b604399158b61abb09c26",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-226",
+      "beforeHash": "1ee0bd00bb276cb798ecbbd3deb6b804d22038c10c7281c121ac17fb71b6beac",
+      "afterHash": "e27aa78b84de135dedcb10d8aaad5de301fcf3a5ca5c6e1d9bcf040f8710c9fd",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-227",
+      "beforeHash": "7b131064add127d8451003b8d832951718601f92aa3567beb13ef5024e95756b",
+      "afterHash": "5884abfbac8cb2d67421392d3460a90e6c70490b64d231d129fe9ded14403269",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-228",
+      "beforeHash": "fccb44186011ba9327d0900a5c3a742edf01e008b61aa13c2ade13af5bc3b2a9",
+      "afterHash": "c9267923be7e201bfaf2b1d84491c1eb913b89d6beb2d01fda5f858dc2c1af32",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-229",
+      "beforeHash": "f0d39fdfe5dafe75fde7bb0338f427e330c52a5d5b5c0f5d9483654c719345f9",
+      "afterHash": "d66eb6f3ce3c3270c11c52855d148b0622e43bb6b17f11959e5c14ff7c928f36",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-230",
+      "beforeHash": "f18f041e3f4910c21aa67f5af0e774429e7fb7de5f4d2a18585b85b1c9308eb8",
+      "afterHash": "fae17d2286c6e78c771eabf3036f0e1456dd1f80f989412f078a25376536e4b5",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-231",
+      "beforeHash": "3f24ddbc8fb3ae7e1ae28534b7077a4c45af38c1a857514229f8fef24c5a251f",
+      "afterHash": "060da54769a5f3c742a5b4fe77496c331c3ad7e0b28829174f3b1c1c630910ca",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-232",
+      "beforeHash": "c4d7d21caa9701fce0bdbd5adc3532b75f1248bb62f7c7f575797582dce84303",
+      "afterHash": "0f2b1cf12d9650ab7895b36b2955520c59b9434f3cf5ec91e94f9fd7745c4dac",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-233",
+      "beforeHash": "0d97c69434d01eb61f6539529e1a9ab48913ace3b7eb236841fdaec007f5a3a0",
+      "afterHash": "e41010152bc85a7fefabf1fe7734a7acaa54f1550e5441cf4f3b5f6293f48258",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-234",
+      "beforeHash": "52f64ad530928d34a6cd39cc630c931cbb2f6ad5e564af201b5c0135fd8dbe7e",
+      "afterHash": "e3c5f1935db3054349c85a42bc81efa0bcbb5fba642ba7aa69306e3e4127ae47",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-235",
+      "beforeHash": "4a4991157a67de1e709b0da44fc49dc4824349ee8b246b5b53eecdb08648e443",
+      "afterHash": "67b6ae3bc46d08898decf4a37889545a69b6baacefbc265010f297cb39d2ecd0",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-236",
+      "beforeHash": "ab2e4c20db832df32eff2b75f9e23d2aa7a47f68c96ca6a5c76a3fb2e5168e3f",
+      "afterHash": "7e43a05236cf4a2af2b74464e371c2d9bca149a5fab6112e5709e827cfb17c3e",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-237",
+      "beforeHash": "d5a0ce96b305e1cb6590707c8a38127bab41817142b598a9cc2a3b38e7408ad7",
+      "afterHash": "e9a7daf12936669103149e395793afa15102f98758df53c21f737d9eaf0fbd33",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-238",
+      "beforeHash": "83fbecffa0e41c516ceccd5ae7724cb5c5d006d3516ba50d7a39f8864e0287d2",
+      "afterHash": "b51c1070597308847a16a5863f6bb55984aebc5b716333b3f26f673a8e732014",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-239",
+      "beforeHash": "37e8a3697063aa65b5260a8f4f26fbaaa1b7f25ee0e2539fd5d5ddfcfd9c2cdc",
+      "afterHash": "3ab9c79a480f6fbc08e858c700924563066daed426b66bcbe478c3b01d106440",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-240",
+      "beforeHash": "dc0280003a1b53b028ae062290753580cc828cc25c4e6cfb3f7d84f8d19975f8",
+      "afterHash": "d5b0af46abf43c8e45b79d98fc32839bbba55749d782b6846f716d47c300f838",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-241",
+      "beforeHash": "5e5d56b94c6e59a7a47afb36978701bf003b221e58ff0525f7828b9ce798f1cc",
+      "afterHash": "c3f74b483593fcd4445a0b8541f61054bacc77ad0a349e1eae15e1cbdb91fa4c",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-242",
+      "beforeHash": "bc310afbffaaddac8fc56994bf495e72fac4040c7f0a2f69dd1bb37367d423a0",
+      "afterHash": "b0c3d22524fb1a22ca5f4b369e062803f9aa4853dc8639602ec55f810b09bf8c",
+      "reason": "Retain prepared content, classify its theme for varied rounds, and clarify any amended wording or season limit."
+    },
+    {
+      "id": "tv-shows-trivia-243",
+      "beforeHash": "2e183989e36078b544f0fe53ecaf3ad1eecf6394e9c47337a393edb8c5d62394",
+      "afterHash": "71a7bee16f7f95b5e16f45cf6178b5b4661c94053c4b8acb157b28acaec84407",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-244",
+      "beforeHash": "8f42a73fe06a90d7c0eeb138f97265f15356338aa8baece16666d812b7346e5b",
+      "afterHash": "22704528d9634752db3b2d9323163629bf8355e5fece568d438551055d2c6b54",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-245",
+      "beforeHash": "d9fe91d741c9678f0ab74f3749b68918c54436417e29b42a9a27e3cd3f3607c2",
+      "afterHash": "55159236ba76d00d43e3413abc7c054120f373dfb10dcda96dbb2cb0f5a5c9e8",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-246",
+      "beforeHash": "ae86201d27ec79d9699773da1d99c4ea52e61e43e466beb7731eb10436bc3d9d",
+      "afterHash": "abfb1ba80ab603b1a3dfc94b731ea4d22262941cf9388476f3a30677690057cc",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-247",
+      "beforeHash": "1979cba32609223c1b05649833760455bcf916e115dcf65a71606857e57f5ed7",
+      "afterHash": "a5092e9e25aee528c2c55f63cf11cf2a49243828e5275b2e59da900adf8b4168",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-248",
+      "beforeHash": "eab3e8ffe773dd9fd7f02f242955179bcaf4e3f3501cff08dfe4104617112cf1",
+      "afterHash": "369306b9fc343722a153ddaa16cc842a8f01f2fb7c1ad2fa911070623483b7ba",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-249",
+      "beforeHash": "57c1956f3cb0dbecd3da409a1e4ed07375bdf8cda2cb2bd14141878e9e66d6d1",
+      "afterHash": "9653f181ada84ebb6aa71b655170f327377d85b181d021f0a2af50138c1bc782",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    },
+    {
+      "id": "tv-shows-trivia-250",
+      "beforeHash": "2d0585eb34511e1820ab65252a54f565b66583fb02654cadc67d1be2d593455c",
+      "afterHash": "c900fcad60aa62b855bb5853cb459c9b72ecacf7323e0ff2ac9a339973098381",
+      "reason": "Add aligned bilingual multiple-choice answers, explanation, question theme and screened season limit; clarify ambiguous prompts where needed."
+    }
+  ],
+  "additions": [
+    {
+      "id": "tv-shows-trivia-251",
+      "show": "Breaking Bad",
+      "afterHash": "10910ad98215d6cb6755dbf660c3eaa7ac0478a1f2842f43e44ec04cddd28b98"
+    },
+    {
+      "id": "tv-shows-trivia-252",
+      "show": "Breaking Bad",
+      "afterHash": "4355f476556f807ecf363c7fb214762067dc889c20b2ebb147ed6a0b0e13aee4"
+    },
+    {
+      "id": "tv-shows-trivia-253",
+      "show": "Breaking Bad",
+      "afterHash": "a1ace949376851022f384f51e925a428eb06ca28ba3c3bd161a0b392d759a5ab"
+    },
+    {
+      "id": "tv-shows-trivia-254",
+      "show": "Breaking Bad",
+      "afterHash": "999559e34d78acc9bdd6c783df0b2bff3eaa02279cff1cfa652923d28b223453"
+    },
+    {
+      "id": "tv-shows-trivia-255",
+      "show": "Breaking Bad",
+      "afterHash": "cfa2fec19178fc8a18e62cfa938f7d22ec303622b8a2a2ab4a2c22a6c1d8ada7"
+    },
+    {
+      "id": "tv-shows-trivia-256",
+      "show": "Breaking Bad",
+      "afterHash": "53b64b7c87d1114cca12e557ac5b077328f4ada4e93541caffc6da141f218379"
+    },
+    {
+      "id": "tv-shows-trivia-257",
+      "show": "Breaking Bad",
+      "afterHash": "3324cf55448c735a5c1f62d1d40738a044af3f35481d15c6a36c4e51b3c70ef1"
+    },
+    {
+      "id": "tv-shows-trivia-258",
+      "show": "Breaking Bad",
+      "afterHash": "a7ecd5ace59151047f92b3234ef930680d60694f22362037e6f0da01b65433cc"
+    },
+    {
+      "id": "tv-shows-trivia-259",
+      "show": "Breaking Bad",
+      "afterHash": "99c5800d36dd5684e08f7f63a706946af51a6d99eea43556f96efb9762bd19e8"
+    },
+    {
+      "id": "tv-shows-trivia-260",
+      "show": "Breaking Bad",
+      "afterHash": "805f00e57c88b8312b22f65aa4501ea69e98be84b072a02623ef808e603893ae"
+    },
+    {
+      "id": "tv-shows-trivia-261",
+      "show": "Breaking Bad",
+      "afterHash": "329cd45a43e6b424c4d87c3850fb5353db771c9176552bc973ebcd13a6b9e6ee"
+    },
+    {
+      "id": "tv-shows-trivia-262",
+      "show": "Breaking Bad",
+      "afterHash": "2879947f6ea48c15fe3b9134ace7a76d78e0ec62a245911d76ef6ed74d61f820"
+    },
+    {
+      "id": "tv-shows-trivia-263",
+      "show": "Breaking Bad",
+      "afterHash": "171b15f89bbcf76628c86609597636145c088e5fcebfd902dcba1888beeb707c"
+    },
+    {
+      "id": "tv-shows-trivia-264",
+      "show": "Breaking Bad",
+      "afterHash": "95588fd414341c12392fd92308ecb3f978f55f3f6c472dc07bf32af4118997f2"
+    },
+    {
+      "id": "tv-shows-trivia-265",
+      "show": "Breaking Bad",
+      "afterHash": "45f06956353161a32a3992c1809dc73460169b8b6761359555c63602bb461c55"
+    },
+    {
+      "id": "tv-shows-trivia-266",
+      "show": "Breaking Bad",
+      "afterHash": "d7d0e2e119aa0b8a16aaa88bf2173346299d6be94eb39251a6621ad08458b916"
+    },
+    {
+      "id": "tv-shows-trivia-267",
+      "show": "Breaking Bad",
+      "afterHash": "a1084e5eef2aa663810ea348ede5700f4abee8ab226ea622e4b8a84f0cc34ac6"
+    },
+    {
+      "id": "tv-shows-trivia-268",
+      "show": "Breaking Bad",
+      "afterHash": "0630d5077ddef35b6bacb8a6d090f40b1ff3c346325ca1c68d941ba16e6d1010"
+    },
+    {
+      "id": "tv-shows-trivia-269",
+      "show": "Breaking Bad",
+      "afterHash": "f76e295c5cba7f146cce85812e03883a42a185e27c59dfec787bc05e87e70bd5"
+    },
+    {
+      "id": "tv-shows-trivia-270",
+      "show": "Breaking Bad",
+      "afterHash": "e053d6ba3ce2c41d2e94b323ed49e0db189df4b56b0fa96b0de6842040d42562"
+    },
+    {
+      "id": "tv-shows-trivia-271",
+      "show": "Breaking Bad",
+      "afterHash": "fd6652f263837bd233ffb629c7feb4c24f4501f509195f60f1e632c61947c98a"
+    },
+    {
+      "id": "tv-shows-trivia-272",
+      "show": "Breaking Bad",
+      "afterHash": "13ce379527b8fad1313c872c787bce796b0c1e5256d62e5e416228a830742883"
+    },
+    {
+      "id": "tv-shows-trivia-273",
+      "show": "Breaking Bad",
+      "afterHash": "8e7ce3443168c499096a07d0c0333bd1ed501d12eba1d70d48383d0bc79984ad"
+    },
+    {
+      "id": "tv-shows-trivia-274",
+      "show": "Breaking Bad",
+      "afterHash": "d12289ba258e4c8b44c87537dc02a0db05a285ad7997511a4ecf6dfe2df9f0b8"
+    },
+    {
+      "id": "tv-shows-trivia-275",
+      "show": "Breaking Bad",
+      "afterHash": "83fd3a0d2c0c2d14cfafb0c4b38390c6a8a36d20b690be6702947003834ada26"
+    },
+    {
+      "id": "tv-shows-trivia-276",
+      "show": "Breaking Bad",
+      "afterHash": "b29a45fdb81a853c108c2cd5f2e891251dd0b6c748aadb92aeffa11aa4b689b4"
+    },
+    {
+      "id": "tv-shows-trivia-277",
+      "show": "Breaking Bad",
+      "afterHash": "f39bb45e27c156e73636fb177c311de9f15f2f816f187f6ddb71522e1c0295a7"
+    },
+    {
+      "id": "tv-shows-trivia-278",
+      "show": "Breaking Bad",
+      "afterHash": "8631b7d45985e29ec0a9a46aad142de65b8ba2faf404a8f6a7e097b7b8a8b2ce"
+    },
+    {
+      "id": "tv-shows-trivia-279",
+      "show": "Breaking Bad",
+      "afterHash": "d3cd61e1348837a4633bf27d99d11c6314fcc219f4cd67c81dbe18ffdd89e756"
+    },
+    {
+      "id": "tv-shows-trivia-280",
+      "show": "Breaking Bad",
+      "afterHash": "87daf9e0b43bcccb39620ea07ae3db81f3f4ba73709c4c1b229b621b5681d4f1"
+    },
+    {
+      "id": "tv-shows-trivia-281",
+      "show": "Breaking Bad",
+      "afterHash": "a51681bdcd2d6de763d8e77be706c89e4bd4ffd95ef0be2654ef026d7afe5154"
+    },
+    {
+      "id": "tv-shows-trivia-282",
+      "show": "Breaking Bad",
+      "afterHash": "ca6858f5905bbd7758ea985ebd2cd07f83788bd78e7fff7199c1c5ac288eeee1"
+    },
+    {
+      "id": "tv-shows-trivia-283",
+      "show": "Breaking Bad",
+      "afterHash": "b3fb2fb28fc89f498407584244d591a4f2696149f40bdab700e432a391d8f55a"
+    },
+    {
+      "id": "tv-shows-trivia-284",
+      "show": "Breaking Bad",
+      "afterHash": "4c6c2fdf529e6e60e3b7022c73184b2b17d29286987d9793173e2b8fac489e23"
+    },
+    {
+      "id": "tv-shows-trivia-285",
+      "show": "Breaking Bad",
+      "afterHash": "2f4f393e6d4ea0aea9f6e21dbd7dafceb984758a8f426b611af2917bf8dbc9c5"
+    },
+    {
+      "id": "tv-shows-trivia-286",
+      "show": "Breaking Bad",
+      "afterHash": "f8a17be307335b2752d7cf143b7517eb7abb81f4ae58146efd9da3576f4869c5"
+    },
+    {
+      "id": "tv-shows-trivia-287",
+      "show": "Breaking Bad",
+      "afterHash": "3315eab0a7d87bf9b538e20cb7b9e32b12697ca1726c0ec57063a41b6d92c01b"
+    },
+    {
+      "id": "tv-shows-trivia-288",
+      "show": "Breaking Bad",
+      "afterHash": "8f830373035ddbe16a197e8b350667bd713ef98dff0524afd8f31d5df75b2841"
+    },
+    {
+      "id": "tv-shows-trivia-289",
+      "show": "Breaking Bad",
+      "afterHash": "8817e995d5d02d233c703c2618b9ee8e9131980604f2912e9bcea6f442a42870"
+    },
+    {
+      "id": "tv-shows-trivia-290",
+      "show": "Breaking Bad",
+      "afterHash": "bc79566f1f929b3dfefbca4c2e141c80274c6c7616181b6397fc0720418b4c5f"
+    },
+    {
+      "id": "tv-shows-trivia-291",
+      "show": "Breaking Bad",
+      "afterHash": "51c0a4565efbede699056bdfe7f97b0b38c9790fd5e476bd0c6110dedb9ebbe7"
+    },
+    {
+      "id": "tv-shows-trivia-292",
+      "show": "Breaking Bad",
+      "afterHash": "84e811757b0523638f4016d77bc9458dc3f889cdf633460a051de12ab1bac89d"
+    },
+    {
+      "id": "tv-shows-trivia-293",
+      "show": "Breaking Bad",
+      "afterHash": "6bd1f85a14136c7e9be15cf08aaabc9ae1e6377afbebf579a852cbf3df4d4cbc"
+    },
+    {
+      "id": "tv-shows-trivia-294",
+      "show": "Breaking Bad",
+      "afterHash": "0cfa9b438b3d89636f35d9bbc0cf2e7c701ce67a37368a87b449f6b3e811cc9e"
+    },
+    {
+      "id": "tv-shows-trivia-295",
+      "show": "Breaking Bad",
+      "afterHash": "d5993d7bad21bb07d28ceca8686d68077d0f54be8a542f41d9e94bce5f25d17c"
+    },
+    {
+      "id": "tv-shows-trivia-296",
+      "show": "Breaking Bad",
+      "afterHash": "1c8865c844e06d8782fdb7f24b08ee40378e5556fb36fac5d1ac408cb918c1e3"
+    },
+    {
+      "id": "tv-shows-trivia-297",
+      "show": "Breaking Bad",
+      "afterHash": "5ddc039b561d540c75e7a4517b57e981384b092a160cb0c53776fdd5f181d569"
+    },
+    {
+      "id": "tv-shows-trivia-298",
+      "show": "Breaking Bad",
+      "afterHash": "61fba5457568fe0f861a1d5e58bd79814e453d7e8a8a198f104586953d62be98"
+    },
+    {
+      "id": "tv-shows-trivia-299",
+      "show": "Breaking Bad",
+      "afterHash": "ad367d12807335c70c66f110096b40c48fcacbe646cf69910d9eb6618d285868"
+    },
+    {
+      "id": "tv-shows-trivia-300",
+      "show": "Breaking Bad",
+      "afterHash": "2949fe1342cf3832891bff9dac80a2752a1a803ed2225ab37f958e0e0d9d0e82"
+    },
+    {
+      "id": "tv-shows-trivia-301",
+      "show": "Breaking Bad",
+      "afterHash": "2c09c654be513886e1637370d69866786c9baa469ecf69785e458e0d2220715f"
+    },
+    {
+      "id": "tv-shows-trivia-302",
+      "show": "Breaking Bad",
+      "afterHash": "28a58921faa92e69cee62eb875945db4b2dfce73b7a99586adc00ac1c42059ed"
+    },
+    {
+      "id": "tv-shows-trivia-303",
+      "show": "Breaking Bad",
+      "afterHash": "43229d2941b9c1a1658e8861a4b4e7400081dfbe87e4cc9649702d475048709d"
+    },
+    {
+      "id": "tv-shows-trivia-304",
+      "show": "Breaking Bad",
+      "afterHash": "d5fb050967e8021401394f067459391333964be4696fccee12acf16cb40b3abc"
+    },
+    {
+      "id": "tv-shows-trivia-305",
+      "show": "Breaking Bad",
+      "afterHash": "cf9b1d7222f75f349645cae7e83cfc67a1d1a7901e93088468c5626578ae810d"
+    },
+    {
+      "id": "tv-shows-trivia-306",
+      "show": "Friends",
+      "afterHash": "4a30c3295f11b639ede6587808312ab652f90cf3408c47e63c6a69724bd5e52f"
+    },
+    {
+      "id": "tv-shows-trivia-307",
+      "show": "Friends",
+      "afterHash": "5962c88b197fcbaea149c8f24ce65afca359fe3540c6224ed50cc991050c764e"
+    },
+    {
+      "id": "tv-shows-trivia-308",
+      "show": "Friends",
+      "afterHash": "379ee24b90749a8a74448c70996e103baaccf9bd7c90d50f47083949ff134a59"
+    },
+    {
+      "id": "tv-shows-trivia-309",
+      "show": "Friends",
+      "afterHash": "fb800980a37c25daf1cfabf3fea0175fdadae914f6daccad1fba01ea5e12b8d2"
+    },
+    {
+      "id": "tv-shows-trivia-310",
+      "show": "Friends",
+      "afterHash": "f931386f5e57960b9ff2c92f5117c2636bc404741efe8fabde70b9b886bea5f3"
+    },
+    {
+      "id": "tv-shows-trivia-311",
+      "show": "Friends",
+      "afterHash": "d48a5f863323cf09cf5d73b4d8ee34de6dcc96d98a034aa9adeca4b463493b61"
+    },
+    {
+      "id": "tv-shows-trivia-312",
+      "show": "Friends",
+      "afterHash": "e89201f36bf71e5a8e29484f7d324d8bbd93b72a3a99178c59dc5ca412c1a325"
+    },
+    {
+      "id": "tv-shows-trivia-313",
+      "show": "Friends",
+      "afterHash": "e7b3e37a0dc79d83037f8e87e4a7f390306f9a2effd177ce028831c1df04900f"
+    },
+    {
+      "id": "tv-shows-trivia-314",
+      "show": "Friends",
+      "afterHash": "9dfdf506cb20aed1936caa88bbd331cbe5a318abef47e8213463ec3cf3ae37ff"
+    },
+    {
+      "id": "tv-shows-trivia-315",
+      "show": "Friends",
+      "afterHash": "fd6dfa73df64f5fb36b66044f6d9a229325272a32c443d1c119cd21a269f96b4"
+    },
+    {
+      "id": "tv-shows-trivia-316",
+      "show": "Friends",
+      "afterHash": "d33134f4d300e42b2899033c1d528894c813be1d6fa215beb359479697aad46e"
+    },
+    {
+      "id": "tv-shows-trivia-317",
+      "show": "Friends",
+      "afterHash": "9e823dedf6254af8e7ba47978f378fc033685a75dfa7ed344dedeaf42f4db6e7"
+    },
+    {
+      "id": "tv-shows-trivia-318",
+      "show": "Friends",
+      "afterHash": "0830a3dd872ab9406e10ae488b99ce8d355e1f431c2a3b57d4290248b37a2188"
+    },
+    {
+      "id": "tv-shows-trivia-319",
+      "show": "Friends",
+      "afterHash": "bead0c294f586efb3d4e70356bd964320b975d8201a351b288c6747921edcac8"
+    },
+    {
+      "id": "tv-shows-trivia-320",
+      "show": "Friends",
+      "afterHash": "0aeee2f059023cff6dc49d092be463aec50c569d131623355e6d6093f96e52f8"
+    },
+    {
+      "id": "tv-shows-trivia-321",
+      "show": "Friends",
+      "afterHash": "aaeb9dae1da047cc85fdb4cfc0161bb22f026034bc3f19cf6ac1a54a1792d872"
+    },
+    {
+      "id": "tv-shows-trivia-322",
+      "show": "Friends",
+      "afterHash": "85177fdafba00d1a564f899d88eacf1e085239baddeea192d1aa286e93de9874"
+    },
+    {
+      "id": "tv-shows-trivia-323",
+      "show": "Friends",
+      "afterHash": "79f27785c7b7c5a9675d3a996e8cd754d9abba1c1c8e4581477994f7ffb3d089"
+    },
+    {
+      "id": "tv-shows-trivia-324",
+      "show": "Friends",
+      "afterHash": "62c8b72297680e2f4d964c2951db9caa45bc4d9f94586092fa0dfc9ce3f3aff4"
+    },
+    {
+      "id": "tv-shows-trivia-325",
+      "show": "Friends",
+      "afterHash": "4954de12f9a44f235d93843564327d4f141a32277b2ba62d4b195b4bcfd845d6"
+    },
+    {
+      "id": "tv-shows-trivia-326",
+      "show": "Friends",
+      "afterHash": "71c1bea750bb2124e67b7efe45e7610ae127d710eaeec33817c6c123a1453239"
+    },
+    {
+      "id": "tv-shows-trivia-327",
+      "show": "Friends",
+      "afterHash": "216ac924816adc4951b955291e7482ddf3c2912acef65a554c7a55f8dcadc68e"
+    },
+    {
+      "id": "tv-shows-trivia-328",
+      "show": "Friends",
+      "afterHash": "05440f2cd736bca00930be1d6a104c7cfad6583f47394468020a5e1066fd4bdf"
+    },
+    {
+      "id": "tv-shows-trivia-329",
+      "show": "Friends",
+      "afterHash": "a754f5c3530b8f79fab05af18f7c082b1cb57d9c9e24e02cd1eb2a5e2e33659a"
+    },
+    {
+      "id": "tv-shows-trivia-330",
+      "show": "Friends",
+      "afterHash": "2794cdaaa63a878b31c082eaaab5811a86ad5fa3c4287efbc11035bd92e1a8fa"
+    },
+    {
+      "id": "tv-shows-trivia-331",
+      "show": "Friends",
+      "afterHash": "1ce46388dd9c54acedfdd38f7ea1b8bb0859a99421d4d3f6b6e0d93c0b4ed20d"
+    },
+    {
+      "id": "tv-shows-trivia-332",
+      "show": "Friends",
+      "afterHash": "458638395d6ef5e657904a201f0f7d1c4dfa9ba9e53d0ba4253fab4bcf929942"
+    },
+    {
+      "id": "tv-shows-trivia-333",
+      "show": "Friends",
+      "afterHash": "c7ceabfb44cbc44dc4a600f5fb49bc5ebd3a4420cf907b27b949be4197bacdf5"
+    },
+    {
+      "id": "tv-shows-trivia-334",
+      "show": "Friends",
+      "afterHash": "98bea9a0ddcaec160318afab1fcc413438d4b3cfe0acee103e8ae17fdf159e43"
+    },
+    {
+      "id": "tv-shows-trivia-335",
+      "show": "Friends",
+      "afterHash": "72023846cf4774afd11b4f4e06ce3a90f6ca35f94f73608f353f2dcc99641c5f"
+    },
+    {
+      "id": "tv-shows-trivia-336",
+      "show": "Friends",
+      "afterHash": "9860a76354394e7b97a829c7745182f898a6b74a3d07bc36b1ac5b4acece1494"
+    },
+    {
+      "id": "tv-shows-trivia-337",
+      "show": "Friends",
+      "afterHash": "c9726e4fd7787c707de069384ee91210054d8c986216eabec2555f54fe9ee82a"
+    },
+    {
+      "id": "tv-shows-trivia-338",
+      "show": "Friends",
+      "afterHash": "65a937dbb73fd228944b5feb321d7231df93cbadd504a2407f460cf8a20c36df"
+    },
+    {
+      "id": "tv-shows-trivia-339",
+      "show": "Friends",
+      "afterHash": "b16cf300dd11688b76591234c9dbfa9ca1e38b303d08988db26bce64ff6a67a5"
+    },
+    {
+      "id": "tv-shows-trivia-340",
+      "show": "Friends",
+      "afterHash": "c3e95e7676214fb19e3511e55139fba05d7af10c469977f8fa4f6ab9fcf6eeb1"
+    },
+    {
+      "id": "tv-shows-trivia-341",
+      "show": "Friends",
+      "afterHash": "7a0b22c169275a01862997883d72e4a0cab9247a7765bed97f18e0d939ef0aee"
+    },
+    {
+      "id": "tv-shows-trivia-342",
+      "show": "Friends",
+      "afterHash": "2f5af044d35993bac5e347293653cb206a7f3697feb60b5373a3505372b7b97b"
+    },
+    {
+      "id": "tv-shows-trivia-343",
+      "show": "Friends",
+      "afterHash": "f0557ae2b0d7f33b0dcee81480d84272ea89307c119a8db17a5b19db2a8103b0"
+    },
+    {
+      "id": "tv-shows-trivia-344",
+      "show": "Friends",
+      "afterHash": "9d1377ffb4b784040769362230d82cb75fa0fd112d87a578ab8c0903f2b9571c"
+    },
+    {
+      "id": "tv-shows-trivia-345",
+      "show": "Friends",
+      "afterHash": "9bcee85805ab8d5401a7098e9f0ad2f6c0d5d7a45556b7c199c0bc8b90842395"
+    },
+    {
+      "id": "tv-shows-trivia-346",
+      "show": "Friends",
+      "afterHash": "e84be76e71c2fdb7dafa4598daaf5c7f9cebc081ff0156fb0a044c1760e18b12"
+    },
+    {
+      "id": "tv-shows-trivia-347",
+      "show": "Friends",
+      "afterHash": "d9b71209ef53080ca55ab1e8ee7649144abd2dd2251d5744d7971195c838400c"
+    },
+    {
+      "id": "tv-shows-trivia-348",
+      "show": "Friends",
+      "afterHash": "51c77b4906e11de45d4db6b37175e329ad5c72e7336255ad65905001511560dd"
+    },
+    {
+      "id": "tv-shows-trivia-349",
+      "show": "Friends",
+      "afterHash": "bb9f42741c6cf67abed93f792e85052750c4fabb11d8582b0c4c7eb7390dd489"
+    },
+    {
+      "id": "tv-shows-trivia-350",
+      "show": "Friends",
+      "afterHash": "76940bc578b5a15b670af849072ffcb1ffbe262b332ee52c92fb69338655b017"
+    },
+    {
+      "id": "tv-shows-trivia-351",
+      "show": "Friends",
+      "afterHash": "fa0693c4cc59801983426d908cbd07e955a2aa602d35f7b303c7c2b0542dce0e"
+    },
+    {
+      "id": "tv-shows-trivia-352",
+      "show": "Friends",
+      "afterHash": "52081f761cbe76bb12779a97ef9e82d60a214ec21b402206e0827b44a051a9f2"
+    },
+    {
+      "id": "tv-shows-trivia-353",
+      "show": "Friends",
+      "afterHash": "f1048f66f330512b7f99a04292cd791bafac4582ec17dad302ecac5094bae1e0"
+    },
+    {
+      "id": "tv-shows-trivia-354",
+      "show": "Friends",
+      "afterHash": "42d9a1490b9aa8fde67f686154f07a4c34cfede0f0d0bd4af32f9300273377fe"
+    },
+    {
+      "id": "tv-shows-trivia-355",
+      "show": "Friends",
+      "afterHash": "47507f31b45ca7f57a7a612a7db718fc571566afc8663d71b6373211ab4f0b19"
+    },
+    {
+      "id": "tv-shows-trivia-356",
+      "show": "Friends",
+      "afterHash": "4a0b5ddd34137150b7b68a5f9c9075e6fb5efce235f284711a7563bbac95fbef"
+    },
+    {
+      "id": "tv-shows-trivia-357",
+      "show": "Friends",
+      "afterHash": "6f96ca8303d03338a8c88997a93a8ba4c76e50067a8e879416d7c8235a4526f9"
+    },
+    {
+      "id": "tv-shows-trivia-358",
+      "show": "Friends",
+      "afterHash": "f479f3b36912629a3bef150a11999d6b356212a83e1f3cb0b865a726d518af79"
+    },
+    {
+      "id": "tv-shows-trivia-359",
+      "show": "Friends",
+      "afterHash": "52f4d2dc46ac6fe95f4a6745cd5b0d5f6db3a690dc22c2bd7998a5ed2b9201e3"
+    },
+    {
+      "id": "tv-shows-trivia-360",
+      "show": "Friends",
+      "afterHash": "fdf0c304ac754f705cd9116b2b0d5af470854e3e0b6890e9653a4786216e1276"
+    },
+    {
+      "id": "tv-shows-trivia-361",
+      "show": "Game of Thrones",
+      "afterHash": "80af9935989d39e7438eb57e635658d7447c25e632b0416932d81b77619d6da5"
+    },
+    {
+      "id": "tv-shows-trivia-362",
+      "show": "Game of Thrones",
+      "afterHash": "e0cd3c0e90a971b2008b3f200569b54250d8cf472d9e4f46405df27646b18c33"
+    },
+    {
+      "id": "tv-shows-trivia-363",
+      "show": "Game of Thrones",
+      "afterHash": "36563bdbc54996c2a3d000e72232b235c5cb09ee1c08fb72c3bce41c6c0c8d1c"
+    },
+    {
+      "id": "tv-shows-trivia-364",
+      "show": "Game of Thrones",
+      "afterHash": "d5e9301f8d094807fa648318c160862ac4c8ade2e081fefc706309332c0a3891"
+    },
+    {
+      "id": "tv-shows-trivia-365",
+      "show": "Game of Thrones",
+      "afterHash": "e85502b6df09f4c7275417d6ff9520e1447652e83058f5f617c32b33b05e722a"
+    },
+    {
+      "id": "tv-shows-trivia-366",
+      "show": "Game of Thrones",
+      "afterHash": "1a57edf43bc07efa03ef055838033092af37093c99e506006cef41093d99df70"
+    },
+    {
+      "id": "tv-shows-trivia-367",
+      "show": "Game of Thrones",
+      "afterHash": "21a091f7ae06b79bb97fcdd6eece970e7d11f74d8538ad0751838943ace4e2f5"
+    },
+    {
+      "id": "tv-shows-trivia-368",
+      "show": "Game of Thrones",
+      "afterHash": "f2f1f6174a195b4f91c7fb4ab7eb3aab83fbc129d761f3e1f1b68cb7351a6bf7"
+    },
+    {
+      "id": "tv-shows-trivia-369",
+      "show": "Game of Thrones",
+      "afterHash": "1c43a0f366bfeab3e66bd4856f4dd46fe2df6ef6296b9e2e564577209847658e"
+    },
+    {
+      "id": "tv-shows-trivia-370",
+      "show": "Game of Thrones",
+      "afterHash": "4c00b6972fc55d7d8e26fb4a288aa8e7573403b0d828380dfe7ffc34824069a5"
+    },
+    {
+      "id": "tv-shows-trivia-371",
+      "show": "Game of Thrones",
+      "afterHash": "983034a96ef58211a8f17a1193264544983abd86027ba8a2844c3ea74c4af3ad"
+    },
+    {
+      "id": "tv-shows-trivia-372",
+      "show": "Game of Thrones",
+      "afterHash": "4e476011fb50aabfdbb7ece04594374f48cf208b83fc586cdfc99a420b72a278"
+    },
+    {
+      "id": "tv-shows-trivia-373",
+      "show": "Game of Thrones",
+      "afterHash": "ece166001ea07629e2613b3d8caea72e131352d56f463b4020e1963dd6376354"
+    },
+    {
+      "id": "tv-shows-trivia-374",
+      "show": "Game of Thrones",
+      "afterHash": "b32a173e08125177907c2f64a0b49502f5805b08e1a63bdb8e643af1f945d529"
+    },
+    {
+      "id": "tv-shows-trivia-375",
+      "show": "Game of Thrones",
+      "afterHash": "571eb417f0e276869f84fe27bc2f921d1a9a3615031a069584292d060df70779"
+    },
+    {
+      "id": "tv-shows-trivia-376",
+      "show": "Game of Thrones",
+      "afterHash": "6c31d737cb81521bf59a4faef21aa3b9f1f309a01f2e4ff13136262ee21edbcd"
+    },
+    {
+      "id": "tv-shows-trivia-377",
+      "show": "Game of Thrones",
+      "afterHash": "de84ad620ef45503916054f3672455a6f9331ee4c45523a1317913e3cec38eef"
+    },
+    {
+      "id": "tv-shows-trivia-378",
+      "show": "Game of Thrones",
+      "afterHash": "96dbaedfc607fbcbc31869b149391c402951c5990093f136a52dcd54a408a8c7"
+    },
+    {
+      "id": "tv-shows-trivia-379",
+      "show": "Game of Thrones",
+      "afterHash": "4142ce9e2f4e6d17c63738a9de78ae08736f4e3a1fa00bdb8d8917e73520b6bb"
+    },
+    {
+      "id": "tv-shows-trivia-380",
+      "show": "Game of Thrones",
+      "afterHash": "5b57936607853bcbbb235a82371e97ec2e6a31ff3ed8d444f4e470487db2eba3"
+    },
+    {
+      "id": "tv-shows-trivia-381",
+      "show": "Game of Thrones",
+      "afterHash": "358719f027759a653a2a5894a08af60b3c29171c489c5dcd9ca9416e14c7ff77"
+    },
+    {
+      "id": "tv-shows-trivia-382",
+      "show": "Game of Thrones",
+      "afterHash": "e1b7e2f9aa0bb8143984a400da82083ac579df78b405756aeff66ee9be0fde47"
+    },
+    {
+      "id": "tv-shows-trivia-383",
+      "show": "Game of Thrones",
+      "afterHash": "cc71f04305508708a5f399fc5754b31bae6757f8de6e2ef7298aaadff6a9ff75"
+    },
+    {
+      "id": "tv-shows-trivia-384",
+      "show": "Game of Thrones",
+      "afterHash": "a85bf5fb7ff144a71c74de39fb3eedafe643fa5dd3cb95cfeea5daa6258eecc4"
+    },
+    {
+      "id": "tv-shows-trivia-385",
+      "show": "Game of Thrones",
+      "afterHash": "69fc313c96f97ba8ec0cd56bf9da7cd5ec601e08e4fe46e0b06c436dad901f1f"
+    },
+    {
+      "id": "tv-shows-trivia-386",
+      "show": "Game of Thrones",
+      "afterHash": "731a90a6a690e3d378b455f2ab4738bb76f776b3b0848ebf5f685307377dfc33"
+    },
+    {
+      "id": "tv-shows-trivia-387",
+      "show": "Game of Thrones",
+      "afterHash": "d25a9f43590e13c97a5dc31fd4a46c672d28b2aa1174bf4005d615daba0ad5d3"
+    },
+    {
+      "id": "tv-shows-trivia-388",
+      "show": "Game of Thrones",
+      "afterHash": "49153ad32cfa7681f96e6b65f0c5e1e4aa612037ba03324b135f5fc722ab65dc"
+    },
+    {
+      "id": "tv-shows-trivia-389",
+      "show": "Game of Thrones",
+      "afterHash": "3a2e1a80d47ec0c0617056804f54b842b2bcd2972856251fbf7372a3f43d97cb"
+    },
+    {
+      "id": "tv-shows-trivia-390",
+      "show": "Game of Thrones",
+      "afterHash": "dd68c2e24d68b45ae6b0817552558090d7fda6b662836aa1c901b86a50ca620a"
+    },
+    {
+      "id": "tv-shows-trivia-391",
+      "show": "Game of Thrones",
+      "afterHash": "b343083f4966dbb19a22ca2c167694c913ba252faaac8890616b93eaa65dd638"
+    },
+    {
+      "id": "tv-shows-trivia-392",
+      "show": "Game of Thrones",
+      "afterHash": "413a85dae4d3b97818874709eda11a17fec6d33f5befa05500bcb35493422203"
+    },
+    {
+      "id": "tv-shows-trivia-393",
+      "show": "Game of Thrones",
+      "afterHash": "2297ebaf456df77737c1c04a304dafde9ffcbb8fe982bfc2a54d5aa33eec7b89"
+    },
+    {
+      "id": "tv-shows-trivia-394",
+      "show": "Game of Thrones",
+      "afterHash": "734b7fee3f99923bd156423b9d14b1d21be7e88d768b67e862d04f6f29afc4e5"
+    },
+    {
+      "id": "tv-shows-trivia-395",
+      "show": "Game of Thrones",
+      "afterHash": "4ea521508ca1d2c87789c1f2697c7cb48c444cfc28b47947ad1ad4935621b192"
+    },
+    {
+      "id": "tv-shows-trivia-396",
+      "show": "Game of Thrones",
+      "afterHash": "5bca02c9b8d986fe896c3fabfa99018ce95ab54250027c4c61100dbba1442e26"
+    },
+    {
+      "id": "tv-shows-trivia-397",
+      "show": "Game of Thrones",
+      "afterHash": "f433d2c3dc9e0ca723ab608ee9a9e226f29706ac107bd8e8882df5b42e36bd53"
+    },
+    {
+      "id": "tv-shows-trivia-398",
+      "show": "Game of Thrones",
+      "afterHash": "6e398a3f45d6f4a3b86df761289e207fe4dc07c2175c3dc186fbc0429109eba9"
+    },
+    {
+      "id": "tv-shows-trivia-399",
+      "show": "Game of Thrones",
+      "afterHash": "b5bd15e956cd37c386373a81013f424c46fbf3ff891f0089909a15508156cc8c"
+    },
+    {
+      "id": "tv-shows-trivia-400",
+      "show": "Game of Thrones",
+      "afterHash": "b88e1429270efc57d3918c7f96a407fd2eec276963c5b5d5cbbcc36467971dc8"
+    },
+    {
+      "id": "tv-shows-trivia-401",
+      "show": "Game of Thrones",
+      "afterHash": "65a3a7f57e5e43c99afd9ec46a5a578ff142e3239f88bdfbb024f4f8ef9586a7"
+    },
+    {
+      "id": "tv-shows-trivia-402",
+      "show": "Game of Thrones",
+      "afterHash": "661f43c6bc745eb7996aa135157139792ca131e7af902c1bf93d91669e712379"
+    },
+    {
+      "id": "tv-shows-trivia-403",
+      "show": "Game of Thrones",
+      "afterHash": "eb8e8181b883d09807145d0fd50576a3e8a68e9d4f5323bbc154757e6f98c9d7"
+    },
+    {
+      "id": "tv-shows-trivia-404",
+      "show": "Game of Thrones",
+      "afterHash": "78492b59636146994d3f98a6310d029aadb92b3ee2792cf99dfb31d5e7289d4d"
+    },
+    {
+      "id": "tv-shows-trivia-405",
+      "show": "Game of Thrones",
+      "afterHash": "3d33365091cbde87a4c9e9b0ce57e7ac7767f33751754556a90c90e744a75f09"
+    },
+    {
+      "id": "tv-shows-trivia-406",
+      "show": "Game of Thrones",
+      "afterHash": "ff7f7b5cf139c043aa65c8f164bcc592a9a9766df21086e0a1cd2c5360994ccc"
+    },
+    {
+      "id": "tv-shows-trivia-407",
+      "show": "Game of Thrones",
+      "afterHash": "b6f9e1e5976b024e7ad6e70cb56ef186742f7a9e7b98e119a6994c04ef7a4cd3"
+    },
+    {
+      "id": "tv-shows-trivia-408",
+      "show": "Game of Thrones",
+      "afterHash": "08188df712636e18c2286aebacfc0129f50b773f74887e4b246811590c17c10b"
+    },
+    {
+      "id": "tv-shows-trivia-409",
+      "show": "Game of Thrones",
+      "afterHash": "123de8f043f0ea6fc03d1124ba1b841e50a6d5de139cc54bbb30d42280ca5c1c"
+    },
+    {
+      "id": "tv-shows-trivia-410",
+      "show": "Game of Thrones",
+      "afterHash": "03139c228f6101df7faee48ded421a52ce7c9a2537a01d5684799bd871768a43"
+    },
+    {
+      "id": "tv-shows-trivia-411",
+      "show": "Game of Thrones",
+      "afterHash": "11b5ba1205225c91609f900b3ddb9bf9661059fa6e183e53883865be6e3770c9"
+    },
+    {
+      "id": "tv-shows-trivia-412",
+      "show": "Game of Thrones",
+      "afterHash": "584925c6ec82481e28ce7c27e7ad79ddf75c5b49155f232761f890bc034d06a5"
+    },
+    {
+      "id": "tv-shows-trivia-413",
+      "show": "Game of Thrones",
+      "afterHash": "d925adb51936572c3052265472474b899c64d3548e7cd0f9a282e021c12d34a3"
+    },
+    {
+      "id": "tv-shows-trivia-414",
+      "show": "Game of Thrones",
+      "afterHash": "a587f4908875e16f119ec201257ff946d711150eb61daa2dceaba295884a8df0"
+    },
+    {
+      "id": "tv-shows-trivia-415",
+      "show": "Game of Thrones",
+      "afterHash": "1fa15d4b7eb6470230682076b9836eb88e034d10ee112a1eb3b067c6dec1becc"
+    },
+    {
+      "id": "tv-shows-trivia-416",
+      "show": "Stranger Things",
+      "afterHash": "36058fcd2bd2f16a513078afbce9d5762a0e5cd264b6644658717216dd92aebd"
+    },
+    {
+      "id": "tv-shows-trivia-417",
+      "show": "Stranger Things",
+      "afterHash": "ec9872d376a9732619cf2d472d8e8fa336817e81789271f90cbae1577a7ab362"
+    },
+    {
+      "id": "tv-shows-trivia-418",
+      "show": "Stranger Things",
+      "afterHash": "ea1223bcc1401260806e095339491d2f49fb40f486350365dbd8f65c37bdd3bb"
+    },
+    {
+      "id": "tv-shows-trivia-419",
+      "show": "Stranger Things",
+      "afterHash": "ca5eb274e89e612a5e46ede5b5090dc5f502d791f8352193dcc0e60d948528a1"
+    },
+    {
+      "id": "tv-shows-trivia-420",
+      "show": "Stranger Things",
+      "afterHash": "94d2306bef7e425db60a2cdd9e7dd29edf93ac2867c756805ed824d99fb72a90"
+    },
+    {
+      "id": "tv-shows-trivia-421",
+      "show": "Stranger Things",
+      "afterHash": "16a1f16ef2b0b44d02bf6d6e594dad6b94e58e7938bad85645bf78f99fb9b48b"
+    },
+    {
+      "id": "tv-shows-trivia-422",
+      "show": "Stranger Things",
+      "afterHash": "5f0df62bc27be61858169321d3565f333aeca1636f6883a0a7661e21b0e6aaf6"
+    },
+    {
+      "id": "tv-shows-trivia-423",
+      "show": "Stranger Things",
+      "afterHash": "94b73619493dc6be6b66701a418ea19b63a10afcb5f6092812fcabeab130d84e"
+    },
+    {
+      "id": "tv-shows-trivia-424",
+      "show": "Stranger Things",
+      "afterHash": "5568dd9d7840e63286d33ca5696a223cfe0f00a729c1c7b3ddb67f11a3f1e4e0"
+    },
+    {
+      "id": "tv-shows-trivia-425",
+      "show": "Stranger Things",
+      "afterHash": "8de90ebefb3e3997ebf066b94f6fa1a976c2ffcbe12f59b8ec2f2d38b33703ff"
+    },
+    {
+      "id": "tv-shows-trivia-426",
+      "show": "Stranger Things",
+      "afterHash": "74e59d2dbb217d1534e11bc646fa9aa6633508e8d43f3549511626ce66d203fa"
+    },
+    {
+      "id": "tv-shows-trivia-427",
+      "show": "Stranger Things",
+      "afterHash": "dfea3a21aae80fa443954a4b9203ddf27a9d4acc0b48dad67c0d49f9d1d3a252"
+    },
+    {
+      "id": "tv-shows-trivia-428",
+      "show": "Stranger Things",
+      "afterHash": "2925db668229067fabd968bb106f6d36d4b9f2a5b4f5afbbe581b9439c218edd"
+    },
+    {
+      "id": "tv-shows-trivia-429",
+      "show": "Stranger Things",
+      "afterHash": "e4d20432d26cbefa6ee016c94b4b06ea5b6fd4c083bb0957670f2f93fce862f2"
+    },
+    {
+      "id": "tv-shows-trivia-430",
+      "show": "Stranger Things",
+      "afterHash": "9ac5f98b0e631d9e8fb06f94fbe2c45dedbb3005599489ff4ebaf37e37c9b823"
+    },
+    {
+      "id": "tv-shows-trivia-431",
+      "show": "Stranger Things",
+      "afterHash": "186322c5f2d423dd2b399396e18d09c65912791a549d4969097966f45023adfa"
+    },
+    {
+      "id": "tv-shows-trivia-432",
+      "show": "Stranger Things",
+      "afterHash": "1a18047d9c62f13b0a93a49ccdef31ec5517516c13fec188b84d6154eac2d32f"
+    },
+    {
+      "id": "tv-shows-trivia-433",
+      "show": "Stranger Things",
+      "afterHash": "c83e5450904ca8efccde6ca27c20e66ae3304d6fd2f0c64c6ad9ced8fc70a01e"
+    },
+    {
+      "id": "tv-shows-trivia-434",
+      "show": "Stranger Things",
+      "afterHash": "b6d5d5259eecfad985f23c60d3cb8a21d79fca7b0fb342cd1fe8e7f9f35579d1"
+    },
+    {
+      "id": "tv-shows-trivia-435",
+      "show": "Stranger Things",
+      "afterHash": "4f214b682fa77c25bdeccee8377adc87549a0862a8bf78c718cc668d99ad09d1"
+    },
+    {
+      "id": "tv-shows-trivia-436",
+      "show": "Stranger Things",
+      "afterHash": "30c962986545a4b98c52d1e92dd15921e39ac56d9e7ee5a811032a01c1a5329e"
+    },
+    {
+      "id": "tv-shows-trivia-437",
+      "show": "Stranger Things",
+      "afterHash": "1c5c4da87a474ffb4bb0983d329d2226fd360a002585fd62b108d1f1c2be1dd4"
+    },
+    {
+      "id": "tv-shows-trivia-438",
+      "show": "Stranger Things",
+      "afterHash": "7bde76a1d1c9bd1968008c5ea81efb35c7d685c2756a18e3960792cbe1c5aae8"
+    },
+    {
+      "id": "tv-shows-trivia-439",
+      "show": "Stranger Things",
+      "afterHash": "f2ff43501154853e6c4674cf925c819931dd6b04aa49fec64ec30821ad9871e4"
+    },
+    {
+      "id": "tv-shows-trivia-440",
+      "show": "Stranger Things",
+      "afterHash": "6b2ab605a0c93761bc3cba796b74a91c2a415b32b24f9c51476f4a5e07c7496a"
+    },
+    {
+      "id": "tv-shows-trivia-441",
+      "show": "Stranger Things",
+      "afterHash": "39138a71af656e6ad4f9aa0882a50a461b509fbcfa4930af8b784090effe73df"
+    },
+    {
+      "id": "tv-shows-trivia-442",
+      "show": "Stranger Things",
+      "afterHash": "b58c13cd56e5421209bc13809eb30f332459a83be5d82a5202c8213ea9ce4b35"
+    },
+    {
+      "id": "tv-shows-trivia-443",
+      "show": "Stranger Things",
+      "afterHash": "de6dab153379500f2f6bb9a8d870c09e49dd36926fd37bde22b11a5140acadb6"
+    },
+    {
+      "id": "tv-shows-trivia-444",
+      "show": "Stranger Things",
+      "afterHash": "2d6aa6b0625cada869d8be149daf49532339daf297dfc6104218333512f37aa2"
+    },
+    {
+      "id": "tv-shows-trivia-445",
+      "show": "Stranger Things",
+      "afterHash": "658a42bb45f5f4e49ee70b67c223eef944f51759311150f61290bf7d145a4af4"
+    },
+    {
+      "id": "tv-shows-trivia-446",
+      "show": "Stranger Things",
+      "afterHash": "080712f50cbee2f11d136ddec88f4dbf2f44756d939172d5797ec0d6f6c3dcff"
+    },
+    {
+      "id": "tv-shows-trivia-447",
+      "show": "Stranger Things",
+      "afterHash": "99bae86a31129d3b26e4c4242ccc9a169ce1a2d5e6524e83439567b7cad14c8d"
+    },
+    {
+      "id": "tv-shows-trivia-448",
+      "show": "Stranger Things",
+      "afterHash": "d0190619cd36836014f6e60fb7e51ff39f321d28b501684c815e3ff7a3daed3c"
+    },
+    {
+      "id": "tv-shows-trivia-449",
+      "show": "Stranger Things",
+      "afterHash": "becec9a473eef3624375063b9d2d010253e735b7b3936071118a63e55484941e"
+    },
+    {
+      "id": "tv-shows-trivia-450",
+      "show": "Stranger Things",
+      "afterHash": "1c1d7c34f3d63c7ec42c606501d226209bd31b4f4b687c651579a983df07c041"
+    },
+    {
+      "id": "tv-shows-trivia-451",
+      "show": "Stranger Things",
+      "afterHash": "21b82c46d9231ccae6a75d0f3577c6d78bb703eedcff4361f64803b1c3567444"
+    },
+    {
+      "id": "tv-shows-trivia-452",
+      "show": "Stranger Things",
+      "afterHash": "1601f47223f3c4f6e8da80e5c94bdf697a8db5ab8a637274601ff6e081e28e41"
+    },
+    {
+      "id": "tv-shows-trivia-453",
+      "show": "Stranger Things",
+      "afterHash": "096bd7f7fee71fa2fe143dd9e40343ba60cad6a54cdb12f23cd11edc93f50708"
+    },
+    {
+      "id": "tv-shows-trivia-454",
+      "show": "Stranger Things",
+      "afterHash": "508c355a63ffbd5bb126cd1ca82cfdb2c7200e3bb757e2af2458572fa4bf7790"
+    },
+    {
+      "id": "tv-shows-trivia-455",
+      "show": "Stranger Things",
+      "afterHash": "80b747869020530598e5a9afa9a900593d9a9254d395e38edc1f071b42480c81"
+    },
+    {
+      "id": "tv-shows-trivia-456",
+      "show": "Stranger Things",
+      "afterHash": "1df48e9ae47aea57336cd03a443ac4eefdda05d9fe78a13326d4e692b1709502"
+    },
+    {
+      "id": "tv-shows-trivia-457",
+      "show": "Stranger Things",
+      "afterHash": "40877f955790b8e6d80be7b0f7feae2fab25f2bf95d31a4fe04d040be33ff66c"
+    },
+    {
+      "id": "tv-shows-trivia-458",
+      "show": "Stranger Things",
+      "afterHash": "e1019c511e535cc4fc33ff768b2a11381d9297cc8f1f702e29dbb75bfc16764b"
+    },
+    {
+      "id": "tv-shows-trivia-459",
+      "show": "Stranger Things",
+      "afterHash": "19f18ebca318c980204c112a5709782dc4ca818130c96a3d0ae81450763e3f03"
+    },
+    {
+      "id": "tv-shows-trivia-460",
+      "show": "Stranger Things",
+      "afterHash": "6262f8c30c78921ae416cea1b00960c9cc022a39d6c3d554ea442037298ea8ee"
+    },
+    {
+      "id": "tv-shows-trivia-461",
+      "show": "Stranger Things",
+      "afterHash": "6984160033b2689a0669e91e639418d6d044015b6f568e80ae85bd2da8deee6e"
+    },
+    {
+      "id": "tv-shows-trivia-462",
+      "show": "Stranger Things",
+      "afterHash": "6f5bc8fcb534f76bf11bb3211fca47c6d7993c962445f63087f1a181b92d2155"
+    },
+    {
+      "id": "tv-shows-trivia-463",
+      "show": "Stranger Things",
+      "afterHash": "a8ed7e35ba36f9101fab4308f2c3d70669470cb7a83eaa819aca4bbd6db5d21f"
+    },
+    {
+      "id": "tv-shows-trivia-464",
+      "show": "Stranger Things",
+      "afterHash": "fd9ce9f0795473c5b6c3f05f3f94a64b1fa59f56b7d4cb0815608f817211af51"
+    },
+    {
+      "id": "tv-shows-trivia-465",
+      "show": "Stranger Things",
+      "afterHash": "4aa52290da02c2ca1b7ed464e20abda76918f0fe3aa6219daab32ccda5f50d49"
+    },
+    {
+      "id": "tv-shows-trivia-466",
+      "show": "Stranger Things",
+      "afterHash": "139afe5f3f82f9b022c36bff5058282e7135240cbce79ba6c394d4e40defc5a0"
+    },
+    {
+      "id": "tv-shows-trivia-467",
+      "show": "Stranger Things",
+      "afterHash": "ed92076bc7f604a0c10566bb548e525fb4770de57f99fef23b3ab7df2a290b4f"
+    },
+    {
+      "id": "tv-shows-trivia-468",
+      "show": "Stranger Things",
+      "afterHash": "a26f52cce6151007b239aa0f98aef7c47f2f740ab4c5ed3d34eec8ed2311e7f9"
+    },
+    {
+      "id": "tv-shows-trivia-469",
+      "show": "Stranger Things",
+      "afterHash": "2348b23792aa0cb30e5091e44cb91602f0b76170ceebc70e12de5249a36298a4"
+    },
+    {
+      "id": "tv-shows-trivia-470",
+      "show": "Stranger Things",
+      "afterHash": "d937523c954e1c5b79230406d4415e580e9a549c9e33deb17ec02ad30188a5db"
+    },
+    {
+      "id": "tv-shows-trivia-471",
+      "show": "The Wire",
+      "afterHash": "1305f2c4bcb4d27ff690d7edc3c4c8c928cf075da1b85748d8e8961781298d47"
+    },
+    {
+      "id": "tv-shows-trivia-472",
+      "show": "The Wire",
+      "afterHash": "0dcc87f55649f947a4d5dcc0b7a6b786c20e263b60729f89b52bece939755904"
+    },
+    {
+      "id": "tv-shows-trivia-473",
+      "show": "The Wire",
+      "afterHash": "92dd040341d5dda334fbfb48459e09f1bdc417672f715acead11f8aa5a65d406"
+    },
+    {
+      "id": "tv-shows-trivia-474",
+      "show": "The Wire",
+      "afterHash": "27e5caeb6f47fe2bdaab7cca3c8198f2d38b3a523a9a5adf62d43427383be82d"
+    },
+    {
+      "id": "tv-shows-trivia-475",
+      "show": "The Wire",
+      "afterHash": "d600b100701fb5dfc3e5e8b3389debe11d4bc9a69504c3ec163526cc8c618bbf"
+    },
+    {
+      "id": "tv-shows-trivia-476",
+      "show": "The Wire",
+      "afterHash": "23c5efca87ce91091ca050c864e1aa6786e26ea61dc81ac8f1eb6ac2f6c487cf"
+    },
+    {
+      "id": "tv-shows-trivia-477",
+      "show": "The Wire",
+      "afterHash": "ad88aae6cecf7896b13295ebfdb108bd6a9bd22fee5939287f3f363051045aaf"
+    },
+    {
+      "id": "tv-shows-trivia-478",
+      "show": "The Wire",
+      "afterHash": "84a9f229815c715e14680cbe8b19c1349ceea186dd4e118648188a37f8537fac"
+    },
+    {
+      "id": "tv-shows-trivia-479",
+      "show": "The Wire",
+      "afterHash": "5a88cb2a7edcfc3db6ddfc8e912f1a396ccbf456ee1c9db8f30e26d07eb9ddf3"
+    },
+    {
+      "id": "tv-shows-trivia-480",
+      "show": "The Wire",
+      "afterHash": "7db8add7edb6a4b191f573ed2acfffda4003d7e00f474fdb6713ba3cd5249797"
+    },
+    {
+      "id": "tv-shows-trivia-481",
+      "show": "The Wire",
+      "afterHash": "9bb7b2fc362ee0401d6396fe36a42b898dc874bafa638dd0f17d85050a61c3c6"
+    },
+    {
+      "id": "tv-shows-trivia-482",
+      "show": "The Wire",
+      "afterHash": "62b2119cb74d611495f9a7317303e1cfba78a1069c95104d3b0e7b793ef10e6e"
+    },
+    {
+      "id": "tv-shows-trivia-483",
+      "show": "The Wire",
+      "afterHash": "0f0cc777ac4810b6b0b812a37a9a6c61e8dfbfa3afa8ec111286bc8927a435ef"
+    },
+    {
+      "id": "tv-shows-trivia-484",
+      "show": "The Wire",
+      "afterHash": "e3afff935b813c52a9c66b9188d2ac5d75b604fb3438a2bc9a8c1e2aaab5c31a"
+    },
+    {
+      "id": "tv-shows-trivia-485",
+      "show": "The Wire",
+      "afterHash": "59f35758c6e903b9e1f32acf9f104333242a62de3a0d5281b5bacd09218074a3"
+    },
+    {
+      "id": "tv-shows-trivia-486",
+      "show": "The Wire",
+      "afterHash": "680028ed00d508c2fb85f3be2e85d51b8c341d79f25a75d342c1e8c423720e49"
+    },
+    {
+      "id": "tv-shows-trivia-487",
+      "show": "The Wire",
+      "afterHash": "3b70696862cbefcee26c0aa9b316a206fcafe53e61f4e9dc57bdd7d174a60aa5"
+    },
+    {
+      "id": "tv-shows-trivia-488",
+      "show": "The Wire",
+      "afterHash": "1484ffc6146a1ce4c2a663806799f3997e51418edfc9e70ef48c9bc3922c7381"
+    },
+    {
+      "id": "tv-shows-trivia-489",
+      "show": "The Wire",
+      "afterHash": "ca1f0a470dc2b805e8087c666199126487167d88bfd120f40eab97b86b19461d"
+    },
+    {
+      "id": "tv-shows-trivia-490",
+      "show": "The Wire",
+      "afterHash": "ef3b6fc181236575b9f193e09c776b274a6aba8fe6f6c932eae278fc0abfe2db"
+    },
+    {
+      "id": "tv-shows-trivia-491",
+      "show": "The Wire",
+      "afterHash": "0e60302a1bd6fb162031d908ff09aad070f4c6c65784fa571add93d8b0edd6e8"
+    },
+    {
+      "id": "tv-shows-trivia-492",
+      "show": "The Wire",
+      "afterHash": "c7672ee10754d5b4a13c059ae1c6fe5a2ab2e098fe3725dd08da1e14fcee6187"
+    },
+    {
+      "id": "tv-shows-trivia-493",
+      "show": "The Wire",
+      "afterHash": "1e4c6473ee5f111ec4c099fbb03e05ed11f15a65d5150f54e54a103740bdf487"
+    },
+    {
+      "id": "tv-shows-trivia-494",
+      "show": "The Wire",
+      "afterHash": "7a9df5985336bcc8a5d38d2d89bf6bd45c72f2ae834a6c422fac61bcb3fea441"
+    },
+    {
+      "id": "tv-shows-trivia-495",
+      "show": "The Wire",
+      "afterHash": "d49ee98b6ecd5e2970ae7ddb58719e30f74a4d24708e6c3804a8529b87fc78cf"
+    },
+    {
+      "id": "tv-shows-trivia-496",
+      "show": "The Wire",
+      "afterHash": "75104a1eccb6c95e6b7c6caf78b330cabc1a5c62c1b8a68bdfcb4413ebf1848f"
+    },
+    {
+      "id": "tv-shows-trivia-497",
+      "show": "The Wire",
+      "afterHash": "19aff8581757551978c5679ff39b64118cf84008e8e42ce727590e70d4ac254e"
+    },
+    {
+      "id": "tv-shows-trivia-498",
+      "show": "The Wire",
+      "afterHash": "514198a96afe7b3ac51d22351c3e97561777df35cfb7469fd2c7c15deb96c1e0"
+    },
+    {
+      "id": "tv-shows-trivia-499",
+      "show": "The Wire",
+      "afterHash": "e2a12132d33d6ef6a9b9e9a300e68f8280a3d75500b2304b262879aa44877573"
+    },
+    {
+      "id": "tv-shows-trivia-500",
+      "show": "The Wire",
+      "afterHash": "cf1ed4c1bb9db3df86aaadb0178c9feb14b43fc4d4ab51510595b794856814ed"
+    },
+    {
+      "id": "tv-shows-trivia-501",
+      "show": "The Wire",
+      "afterHash": "721c44477c8a4a1f433138ba57e7f43b2982975998fd6ff49104d0abf5a491c0"
+    },
+    {
+      "id": "tv-shows-trivia-502",
+      "show": "The Wire",
+      "afterHash": "fc2979f8d8719d59e2c870f115c37893e866f073a96289e8604734dd68865ea2"
+    },
+    {
+      "id": "tv-shows-trivia-503",
+      "show": "The Wire",
+      "afterHash": "f610107e1cb303e85a0f53836981702936b9421826ae5c95eabbfa8a246670c3"
+    },
+    {
+      "id": "tv-shows-trivia-504",
+      "show": "The Wire",
+      "afterHash": "45e588a1a2fd87062ee19cb04d86224fdfd19a55f2eb251d08fea1f6669257de"
+    },
+    {
+      "id": "tv-shows-trivia-505",
+      "show": "The Wire",
+      "afterHash": "a27e227e57388f06f29b21bdd83bdb2042b424544ad27e5e3906523db0625d3b"
+    },
+    {
+      "id": "tv-shows-trivia-506",
+      "show": "The Wire",
+      "afterHash": "8a2b7005dccfd036bf6c95bf5b15665d080a1dd1499c1ed24019aeb78f5e4881"
+    },
+    {
+      "id": "tv-shows-trivia-507",
+      "show": "The Wire",
+      "afterHash": "bb81d6ecbf5b9a6456f3c620dc909be6a907a1d1baa36b79b4bd50b84dbdf6bc"
+    },
+    {
+      "id": "tv-shows-trivia-508",
+      "show": "The Wire",
+      "afterHash": "20db4544f83dcb4abbb20e3056785b3faac0a81a8959199498839f9d41abff0a"
+    },
+    {
+      "id": "tv-shows-trivia-509",
+      "show": "The Wire",
+      "afterHash": "c767d5200345761ef61ee8e88c1f115ef4b59ce9879e4e2a42079150c7b817cc"
+    },
+    {
+      "id": "tv-shows-trivia-510",
+      "show": "The Wire",
+      "afterHash": "5a15897c6522377b0ff3fb500aa7cbf9d63df2b65f93027d7142b52f747aa8c5"
+    },
+    {
+      "id": "tv-shows-trivia-511",
+      "show": "The Wire",
+      "afterHash": "529325dd3b6d0f774ecd698bfc0d0c8618b02bf46cf85336957f67237a62c1b0"
+    },
+    {
+      "id": "tv-shows-trivia-512",
+      "show": "The Wire",
+      "afterHash": "b1c75ab36029d4d32c6c7479eef3aefe4c3803b55bf2a70d478841bc8a12a52d"
+    },
+    {
+      "id": "tv-shows-trivia-513",
+      "show": "The Wire",
+      "afterHash": "fa4104ead67d57654230001ad8107ca04725c219a1d0ac766fcdf26c587707a1"
+    },
+    {
+      "id": "tv-shows-trivia-514",
+      "show": "The Wire",
+      "afterHash": "932d91547c178970816139ec2a7d2559ec25673fb2080c838eb5cb9b24682dea"
+    },
+    {
+      "id": "tv-shows-trivia-515",
+      "show": "The Wire",
+      "afterHash": "92a335b540f96c362717338239e18376d441a6f3de8dc63d8eff2af22c95e903"
+    },
+    {
+      "id": "tv-shows-trivia-516",
+      "show": "The Wire",
+      "afterHash": "d1c90689795c45857d5d24e6fc21266a731aac508dc13c50fdd693af441fe0b8"
+    },
+    {
+      "id": "tv-shows-trivia-517",
+      "show": "The Wire",
+      "afterHash": "39ed9adecd1cb7cfd6924899b21099e27e5d4c950b83e11eadfba715d53b87dc"
+    },
+    {
+      "id": "tv-shows-trivia-518",
+      "show": "The Wire",
+      "afterHash": "dd783b37a04eb7c218ae726448920fb707e352f698379eac994f8457d151013b"
+    },
+    {
+      "id": "tv-shows-trivia-519",
+      "show": "The Wire",
+      "afterHash": "9e1c1733a220e76e1dfa8a02c4cb6ea9c9b463118cec33a25f8d56d4af15e6a9"
+    },
+    {
+      "id": "tv-shows-trivia-520",
+      "show": "The Wire",
+      "afterHash": "dcb537136e1b0f36e1b03e7f9a29cf1d39570adc2471ef116ba3c455402de379"
+    },
+    {
+      "id": "tv-shows-trivia-521",
+      "show": "The Wire",
+      "afterHash": "334073314d5a44bf4b624ce766f6711ea1849976d8826c9a6ca06e3478098de5"
+    },
+    {
+      "id": "tv-shows-trivia-522",
+      "show": "The Wire",
+      "afterHash": "e9ccd5a088e9f45997ce6f8d4a670108e5555f84ea5ef216b19eecbc0a2d1323"
+    },
+    {
+      "id": "tv-shows-trivia-523",
+      "show": "The Wire",
+      "afterHash": "15a1c425b5aba58030170b1ffeafeccb98830af64ab96fd6f14601801a66b62c"
+    },
+    {
+      "id": "tv-shows-trivia-524",
+      "show": "The Wire",
+      "afterHash": "0af2d92861ba9369dda14c01a12d17285a37f4d1f3f11a1af48afcfe9202ff85"
+    },
+    {
+      "id": "tv-shows-trivia-525",
+      "show": "The Wire",
+      "afterHash": "272e645aaba216240874c4e622f985cebc1c259f0037935cf643a2316fbe831b"
+    },
+    {
+      "id": "tv-shows-trivia-526",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "6a5944ec1ebb3da408d6d65fd614dff0eac419085d23d1af00c2d726b85cef4c"
+    },
+    {
+      "id": "tv-shows-trivia-527",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "bd4b78b75fc583cccd207ce0228eff9ed4ecd0d3979d984aa1403cd6a57267ca"
+    },
+    {
+      "id": "tv-shows-trivia-528",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "595223d5b53634bd0767fe929fae192c577ee0e2f7fbfae91602f4d9b5ff938f"
+    },
+    {
+      "id": "tv-shows-trivia-529",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "0c48991bd0a577094ac7c26440015b806cb65268e53fe73db49328aada3cb3bd"
+    },
+    {
+      "id": "tv-shows-trivia-530",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "2cb8b0b11c9d390bff97963cd846165d0bcf52e96ccbc5d4819d5e3d43245bb9"
+    },
+    {
+      "id": "tv-shows-trivia-531",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "8d9509e81bf8614e5934f01f9e2bc1538cb4c1dbf66b2989c98e6a8d96a47d44"
+    },
+    {
+      "id": "tv-shows-trivia-532",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "7ef5e9cf2a1c7da368fa8c01642292fcaafd130bb7ca24f6d8256b3212db8fa6"
+    },
+    {
+      "id": "tv-shows-trivia-533",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "86c07daa002b42120d90136d3fa718f7e1d78914d6c1d233a74e261281cff19d"
+    },
+    {
+      "id": "tv-shows-trivia-534",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "9cb59cd529b7ed2269803f4dc3e1e1c3244b8938930621ba5656b4403ce20f45"
+    },
+    {
+      "id": "tv-shows-trivia-535",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "6576da9ec69a2f05e315712c86157558bdb57ad6cbcc1f4a1ee628db76a2cbfb"
+    },
+    {
+      "id": "tv-shows-trivia-536",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "ebf4e3218b569fc5e367c559b12b7ffd9adc7aae96face4bd2150f942e5484a1"
+    },
+    {
+      "id": "tv-shows-trivia-537",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "f77cb5aab2ae6621d871b96a5efc173a9796d9af0997603eba8c0cf52228c638"
+    },
+    {
+      "id": "tv-shows-trivia-538",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "95a08019ee5769a399c32044febf4c809c218a2fa242e98e58e2f7ecdde8ebc8"
+    },
+    {
+      "id": "tv-shows-trivia-539",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "bccd062408b5d5731f8b0c4bf018b753a100eb921acdf3e4ba14bf58243716ff"
+    },
+    {
+      "id": "tv-shows-trivia-540",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "6cc09a732a4044b8baab2448ef8c8ec009326c7ab6cdcf3008c691cacab005cc"
+    },
+    {
+      "id": "tv-shows-trivia-541",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "612145b61238b7a278b14d93398369df6b247ce0240d631e534f0c4befb3b025"
+    },
+    {
+      "id": "tv-shows-trivia-542",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "1de882339b763c9d3b7c1aa3cd7dd86ebd697d9e2796937a0233079f9394b8e5"
+    },
+    {
+      "id": "tv-shows-trivia-543",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "aad4a08ccfd545bc08e9269f63a944b94923803e899c27be5ce3553fc0304130"
+    },
+    {
+      "id": "tv-shows-trivia-544",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "ea9706dd3d42a05f2c2847d7db418444ef368b6814cfaca0e70fa184fd6e4507"
+    },
+    {
+      "id": "tv-shows-trivia-545",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "f2b264dc912b167c8ea41a5f47d6e80d6e22435ee47e908774240f67437762f0"
+    },
+    {
+      "id": "tv-shows-trivia-546",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "6c599cfdf833f1050c1f1e71e58c99e4bdc64bcb945b26443ec054719c8c565d"
+    },
+    {
+      "id": "tv-shows-trivia-547",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "3d44f4b96a2454ca610a109cf198190106a5315c88c63988e02f232215d4cd97"
+    },
+    {
+      "id": "tv-shows-trivia-548",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "ab72b6d0b0a2c086276061967fc84565d53501d1d07c473014fed94ad610171c"
+    },
+    {
+      "id": "tv-shows-trivia-549",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "ba3f92f14b23091febf7a039f1844ce24b5e377b28f63e1ffbb934917194cda0"
+    },
+    {
+      "id": "tv-shows-trivia-550",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "785e3c745dbe88759ab3cd9936dbd493afd6ce93ba268e81ab71ba280d853a96"
+    },
+    {
+      "id": "tv-shows-trivia-551",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "18efe6035d4af65b52ada8b083f9f9019652bd755add4343927b47d56c2b071a"
+    },
+    {
+      "id": "tv-shows-trivia-552",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "8464ffe4eb6038f4453d6e0c4d478c46f4dc24f9ba1fe3495389018c98140298"
+    },
+    {
+      "id": "tv-shows-trivia-553",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "a57c96718f553c6c5b99df097b011c2d5cf3f9e895d3c2cfa6273e828ba4f83b"
+    },
+    {
+      "id": "tv-shows-trivia-554",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "722ff1d75ae86eb308c425d0d5004061c775d794e06669fcb761ef5dec4bd90c"
+    },
+    {
+      "id": "tv-shows-trivia-555",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "52f54789869fc1cda03c85a7c86fa9b36aa4ad354d1a1fa5d2037bf6b3a75f10"
+    },
+    {
+      "id": "tv-shows-trivia-556",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "dc9053dcc85f1db36b87d5b2097a06a6e269c77575fc0565715274aa2599df1b"
+    },
+    {
+      "id": "tv-shows-trivia-557",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "085bd97e600ea13aa0aca19340dc03c6ef3d1c72dbadc9192987405baebffab4"
+    },
+    {
+      "id": "tv-shows-trivia-558",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "c77496b35fff9901fcd1a57607b23a0fe87ed4f64d4a2a2abe77d47ef063767c"
+    },
+    {
+      "id": "tv-shows-trivia-559",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "5910a329949995b234a3fe1a32c66aeea80ae42ff47470f00fb191d76dba3ea3"
+    },
+    {
+      "id": "tv-shows-trivia-560",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "7ec721f86a6feadfbede74b212fde6dc0736aac85394d8e2c3e5f279c9581572"
+    },
+    {
+      "id": "tv-shows-trivia-561",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "cdef7c21fb9c7f6dbb1c612ce95ac1d9ce5930a4516205cfcf19aaaf0a0e866e"
+    },
+    {
+      "id": "tv-shows-trivia-562",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "f9f896373d35488bb05137458a82faa906d7ca880d85e54917fcd5bd82fdaead"
+    },
+    {
+      "id": "tv-shows-trivia-563",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "87af1fbc373482670f058f4c833b5fda6c5df7e8b35fe28e27b5e93fac2c75fb"
+    },
+    {
+      "id": "tv-shows-trivia-564",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "69afedf95a168829f8ffd72cea5a92932ef6655b5455cc15a1dc35f5520fa995"
+    },
+    {
+      "id": "tv-shows-trivia-565",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "dded7028fe09d15520baae22b009487bdbbbea40e9f4f245d7b3c5ecd8c73ac7"
+    },
+    {
+      "id": "tv-shows-trivia-566",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "8a68d4176b4b39dba6dea7694cee6fd4c7917905734a63669730c9ce6363e72b"
+    },
+    {
+      "id": "tv-shows-trivia-567",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "d0d665d98933c4502723d5e0e6d7d3ac3fedb7cd33424099d57bacc4f22b16d2"
+    },
+    {
+      "id": "tv-shows-trivia-568",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "b34062511a55a0ada3f2a6e9483c19350b40c9754aa799ff720b080d04220deb"
+    },
+    {
+      "id": "tv-shows-trivia-569",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "6795374be6f8de5b9f91338e6d04b746ebebd6dec57190e1f8407d65bc1a2a50"
+    },
+    {
+      "id": "tv-shows-trivia-570",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "4f1de10430f1f5fa46b34f0b37492230385f118fdc884c64f42e472d70dc06e2"
+    },
+    {
+      "id": "tv-shows-trivia-571",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "7b0d9cf13a9d1cf072edab50d4253997f5d0080051edeebd11d69eac654e3742"
+    },
+    {
+      "id": "tv-shows-trivia-572",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "029878c7b3f9e649a6d5aaae2d37c812f9e4f35e3e958bdca5cb46c23cd7e95a"
+    },
+    {
+      "id": "tv-shows-trivia-573",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "6fd93dd8dd9afbada8725286d2db55e6b1714c50a1c20fa108d39083d38b15fb"
+    },
+    {
+      "id": "tv-shows-trivia-574",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "e7ac32a74996c88d393f3a48913c78d87af106e9baba6d0328efdbf28e5c4323"
+    },
+    {
+      "id": "tv-shows-trivia-575",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "38b3abadcee03d6f1ab24bbc38e94ca7e4cf370e4ce31c809180b1ef0bf44e90"
+    },
+    {
+      "id": "tv-shows-trivia-576",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "6573d95916a99f448447f3fc916b566b96d117b6b68b85107efd488690730d3b"
+    },
+    {
+      "id": "tv-shows-trivia-577",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "80b542b32587a403670322de8f0c227fc13cf054e19fd5f4492db6c7e2bee2dc"
+    },
+    {
+      "id": "tv-shows-trivia-578",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "32d0e3e3091bc666a95ad15f6a82a4ebbf16252e2296c85b84f80f1728ced008"
+    },
+    {
+      "id": "tv-shows-trivia-579",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "e23f49dcede84bb8b5f18abfa129eb2096c2a69aa4285706c580671b63bf2ff1"
+    },
+    {
+      "id": "tv-shows-trivia-580",
+      "show": "Diriliş: Ertuğrul",
+      "afterHash": "fe44a4b7e20a1ecb936bc49469b9e9f69573172e2fb86cd36171465016586d07"
+    },
+    {
+      "id": "tv-shows-trivia-581",
+      "show": "Bab Al-Hara",
+      "afterHash": "9b89b1b7888ee92cdd94c784f6479cd02a65007f7192293e749463e81807abfd"
+    },
+    {
+      "id": "tv-shows-trivia-582",
+      "show": "Bab Al-Hara",
+      "afterHash": "23cd42b990b43bb7f646283853ccceb876f30644374e7fd4813fa53fbcec0f18"
+    },
+    {
+      "id": "tv-shows-trivia-583",
+      "show": "Bab Al-Hara",
+      "afterHash": "21f83b6cbed0b56e40692a70964e7508f7fb665079095457ee363eda283a88a8"
+    },
+    {
+      "id": "tv-shows-trivia-584",
+      "show": "Bab Al-Hara",
+      "afterHash": "35875e05279ad91e9cc200f1ec12873e897cf8baca11395af1c06b2731c21c8c"
+    },
+    {
+      "id": "tv-shows-trivia-585",
+      "show": "Bab Al-Hara",
+      "afterHash": "efa1d39e1287da9b611f3833fc71ea28bb5734b5d02f3e9bd6ada9b94174fa19"
+    },
+    {
+      "id": "tv-shows-trivia-586",
+      "show": "Bab Al-Hara",
+      "afterHash": "e96695b6fa628505a408f9a9123183269cba28b8867ac269dfa939e0cb14d6e7"
+    },
+    {
+      "id": "tv-shows-trivia-587",
+      "show": "Bab Al-Hara",
+      "afterHash": "17fcbea07d55bda47583fa2f0d0b6a6293823d9b93833e6653f4c50e84965dce"
+    },
+    {
+      "id": "tv-shows-trivia-588",
+      "show": "Bab Al-Hara",
+      "afterHash": "112c339f7d5d43ceacc077fd65a07c6ebecd74a7db7f670ae36ade0afcdb6941"
+    },
+    {
+      "id": "tv-shows-trivia-589",
+      "show": "Bab Al-Hara",
+      "afterHash": "bbaf9dcf97c7a507f092746a6d15aa1ca247ab67dd0803968241d2da712eb0af"
+    },
+    {
+      "id": "tv-shows-trivia-590",
+      "show": "Bab Al-Hara",
+      "afterHash": "46fecfa9f6a2184e2679f4084302f00bd9e282baf090e6426973236ee71874f1"
+    },
+    {
+      "id": "tv-shows-trivia-591",
+      "show": "Bab Al-Hara",
+      "afterHash": "ee2df88dad669e3d3ad65ff54442a914260633f41223b06937e3ea595ec224d8"
+    },
+    {
+      "id": "tv-shows-trivia-592",
+      "show": "Bab Al-Hara",
+      "afterHash": "141abe14058d7236e631130aa676c17ce214635f9c637330c434a77d0394c37f"
+    },
+    {
+      "id": "tv-shows-trivia-593",
+      "show": "Bab Al-Hara",
+      "afterHash": "94f9e1cc64f2c84379e2bf72410ca38ce7bb8af85ed3b10b0b48060dd9e340d2"
+    },
+    {
+      "id": "tv-shows-trivia-594",
+      "show": "Bab Al-Hara",
+      "afterHash": "85c5a8f787a623c8f42638fb3a910b255350bb43c60f952c566301a60618bbd6"
+    },
+    {
+      "id": "tv-shows-trivia-595",
+      "show": "Bab Al-Hara",
+      "afterHash": "98ea4e3da58a76e227e0f63db89088bd8e7ffef02d922f54aee1d813ba256728"
+    },
+    {
+      "id": "tv-shows-trivia-596",
+      "show": "Bab Al-Hara",
+      "afterHash": "0dfc08322192725a719c12b7e7b6cfe621640b3883decb426e055e295cb4db2c"
+    },
+    {
+      "id": "tv-shows-trivia-597",
+      "show": "Bab Al-Hara",
+      "afterHash": "e8249c9df8e11646e779209d4d9dd905b251f679a1cf8a02ef75c4328a6bfd49"
+    },
+    {
+      "id": "tv-shows-trivia-598",
+      "show": "Bab Al-Hara",
+      "afterHash": "481a0b2a99a1f18232f22cd2588266c42455fb645a29f874838c9e1705187c8c"
+    },
+    {
+      "id": "tv-shows-trivia-599",
+      "show": "Bab Al-Hara",
+      "afterHash": "72ca1c80ec7b02294a4ff9f3fe16bbe976279dd4ad08fb341ba5d0fb54aaf301"
+    },
+    {
+      "id": "tv-shows-trivia-600",
+      "show": "Bab Al-Hara",
+      "afterHash": "c61317a6c822e958212e9a5365bdd1460b8d2ea1cfb2c8b1489ac1242ed55c7d"
+    },
+    {
+      "id": "tv-shows-trivia-601",
+      "show": "Bab Al-Hara",
+      "afterHash": "d7ad5656fec4b9e0439764da438e2fd0b559305cc835ab06745fda1fab4b1284"
+    },
+    {
+      "id": "tv-shows-trivia-602",
+      "show": "Bab Al-Hara",
+      "afterHash": "eee00035e7044ff75c19d9c6c41601ff6e8f9f9d4a1036a8db1e8cef2111b155"
+    },
+    {
+      "id": "tv-shows-trivia-603",
+      "show": "Bab Al-Hara",
+      "afterHash": "661aaed2e17c6fea89ab7ea2b935438cb1a12136d7a6ff3cc46f1763b6dcb9e3"
+    },
+    {
+      "id": "tv-shows-trivia-604",
+      "show": "Bab Al-Hara",
+      "afterHash": "6c14db6590f273f07804eee80e2030859ce0723ffb5f85c57b8375a02a0e30db"
+    },
+    {
+      "id": "tv-shows-trivia-605",
+      "show": "Bab Al-Hara",
+      "afterHash": "57102217ff223e08990b82baf351d2aec19bb83fa4e23db91b66d48465c66d12"
+    },
+    {
+      "id": "tv-shows-trivia-606",
+      "show": "Bab Al-Hara",
+      "afterHash": "a8131e3d7ead0784211e9170d7dbc4a22b55b022d9e67659c9243f702a03d323"
+    },
+    {
+      "id": "tv-shows-trivia-607",
+      "show": "Bab Al-Hara",
+      "afterHash": "2d05c866de535bf712418dffc149b37ec37d720576b426958542bf0496f10fcf"
+    },
+    {
+      "id": "tv-shows-trivia-608",
+      "show": "Bab Al-Hara",
+      "afterHash": "914a47440c5d7ed4af1645396c6e4a9335a6ed53259e3b84be2a130bb366dfa8"
+    },
+    {
+      "id": "tv-shows-trivia-609",
+      "show": "Bab Al-Hara",
+      "afterHash": "3a3c6c42c5352edb6bb12f3b1d6ac7230e402fc7f6087f5d289efe88fc871479"
+    },
+    {
+      "id": "tv-shows-trivia-610",
+      "show": "Bab Al-Hara",
+      "afterHash": "a67741443acd5460f044ff0f197436ff756d28188b0c29c3f2c4b83918136f79"
+    },
+    {
+      "id": "tv-shows-trivia-611",
+      "show": "Bab Al-Hara",
+      "afterHash": "2217d9b68b0ed5e09f64d755dbc3bf8b7be2e5a4dde80bca446453ac1b625797"
+    },
+    {
+      "id": "tv-shows-trivia-612",
+      "show": "Bab Al-Hara",
+      "afterHash": "c6096a91d898d20b50c3b3cd220e1f8c98fed36cbd4727a090b2bd04fcdbb0e5"
+    },
+    {
+      "id": "tv-shows-trivia-613",
+      "show": "Bab Al-Hara",
+      "afterHash": "f5db692278a9ba011c467bcca41494b7f2987b717104982e523ded048fb263f1"
+    },
+    {
+      "id": "tv-shows-trivia-614",
+      "show": "Bab Al-Hara",
+      "afterHash": "dedca4b39d310ac48be36afbc070a79a9bbc783eaf8cc402e530a956c78007e8"
+    },
+    {
+      "id": "tv-shows-trivia-615",
+      "show": "Bab Al-Hara",
+      "afterHash": "bb8d7850f2226241a73aba8866cb443decbea345247cb3017cceaf0a1edc274b"
+    },
+    {
+      "id": "tv-shows-trivia-616",
+      "show": "Bab Al-Hara",
+      "afterHash": "031e42c53c44c51c1775d5d2e5ce85012e6f04b8720339a65f9a8c1177c08933"
+    },
+    {
+      "id": "tv-shows-trivia-617",
+      "show": "Bab Al-Hara",
+      "afterHash": "9f77c872db12ab34cdee976d527ffb20450307d56d82346d1b3c6fc5e90d40a7"
+    },
+    {
+      "id": "tv-shows-trivia-618",
+      "show": "Bab Al-Hara",
+      "afterHash": "a9643eea407d2ec2a88a9dfbf4592f7ec61c60f9faed76fb3296a315626c6853"
+    },
+    {
+      "id": "tv-shows-trivia-619",
+      "show": "Bab Al-Hara",
+      "afterHash": "f13257a8483f32b4fdc47f47f74e12cd8b436517d648f619991d0d6f80cf9f89"
+    },
+    {
+      "id": "tv-shows-trivia-620",
+      "show": "Bab Al-Hara",
+      "afterHash": "9cdde828c6b159974409acc5fcb09ded57c18ea8e5ae01f220143c46b545ffcb"
+    },
+    {
+      "id": "tv-shows-trivia-621",
+      "show": "Bab Al-Hara",
+      "afterHash": "c3e0e0a1f5610099ae4c45fc3785266f71ac371f333798efee487f4cac62cc1e"
+    },
+    {
+      "id": "tv-shows-trivia-622",
+      "show": "Bab Al-Hara",
+      "afterHash": "44068938092162c93befcd408804831041f1ad4cb5e4aace564ea423b389afe4"
+    },
+    {
+      "id": "tv-shows-trivia-623",
+      "show": "Bab Al-Hara",
+      "afterHash": "11d60ae3c503b77696c879becbecf69f8c770bb0d09c17e010e7527f8399242e"
+    },
+    {
+      "id": "tv-shows-trivia-624",
+      "show": "Bab Al-Hara",
+      "afterHash": "b476af86cf1944e10ea268de3464fe013858c7844533f72b13be4f7b8d17552d"
+    },
+    {
+      "id": "tv-shows-trivia-625",
+      "show": "Bab Al-Hara",
+      "afterHash": "6b469907b3b7acf3e807e2ff71c4b5d019fbec89fb2a28a013d733b86761b999"
+    },
+    {
+      "id": "tv-shows-trivia-626",
+      "show": "Bab Al-Hara",
+      "afterHash": "899ac6e7ad1bc208d72f2c6e67a8ff0bdad7040a721aaf5ad9863a5953a0d32f"
+    },
+    {
+      "id": "tv-shows-trivia-627",
+      "show": "Bab Al-Hara",
+      "afterHash": "7a2d908d8b6249bd403411551e15f6e02397fbefec499d6475cf6c614cff3587"
+    },
+    {
+      "id": "tv-shows-trivia-628",
+      "show": "Bab Al-Hara",
+      "afterHash": "c35a518790975043f3f44370567b03e3360e0ffdcee14ccfca231e6099b75a53"
+    },
+    {
+      "id": "tv-shows-trivia-629",
+      "show": "Bab Al-Hara",
+      "afterHash": "dc3c4e6085f22b0cc36fff5f21aa9bffda409c1ebe891a4405278de71475cdaf"
+    },
+    {
+      "id": "tv-shows-trivia-630",
+      "show": "Bab Al-Hara",
+      "afterHash": "fe754d5c1f9b4e4606267e712a3ff590d0711efe768ced036ef5ee87e6b9feaf"
+    },
+    {
+      "id": "tv-shows-trivia-631",
+      "show": "Bab Al-Hara",
+      "afterHash": "6c4ba4974e6ea583cbd380555d8e1b87039f056dd5a74205c4fa5294547c6eaa"
+    },
+    {
+      "id": "tv-shows-trivia-632",
+      "show": "Bab Al-Hara",
+      "afterHash": "2b7d5cc022d6d0561ee243ab71755956143efd0e2453aa07b21953ed5da41944"
+    },
+    {
+      "id": "tv-shows-trivia-633",
+      "show": "Bab Al-Hara",
+      "afterHash": "d9e1d379e4897a5744fdcf8a064118bfb14ee47864245a49c28d46be57a92e66"
+    },
+    {
+      "id": "tv-shows-trivia-634",
+      "show": "Bab Al-Hara",
+      "afterHash": "9b91fdc84323d4591c94448d75ed6a26d956cbf251790bee3b124c71adbe515e"
+    },
+    {
+      "id": "tv-shows-trivia-635",
+      "show": "Bab Al-Hara",
+      "afterHash": "162ae9a586acc2a2f73d16f769dafa795f12083a41de0aa211c4f42fc53d4f48"
+    },
+    {
+      "id": "tv-shows-trivia-636",
+      "show": "Maraya",
+      "afterHash": "935deafdddae6e3df9405dd0f4ef014e06c16ab869b1f6664bdd421a4eb54571"
+    },
+    {
+      "id": "tv-shows-trivia-637",
+      "show": "Maraya",
+      "afterHash": "f8f1b3e42a21fd560f42b38b6f79cc3387968ebc4b87d83ca75c8b2fbdd59b05"
+    },
+    {
+      "id": "tv-shows-trivia-638",
+      "show": "Maraya",
+      "afterHash": "6b01d1cd6eb9dc3f54703d664f6d2e32ab125ea36c890c18bc0fac270110df54"
+    },
+    {
+      "id": "tv-shows-trivia-639",
+      "show": "Maraya",
+      "afterHash": "80a9cd4b7eca534a50acde797f7a73a9fa7870f2dfeaa8577aa0223e6ff2783a"
+    },
+    {
+      "id": "tv-shows-trivia-640",
+      "show": "Maraya",
+      "afterHash": "296340594c4429b96c34f5f66d244398e09fd0d0ead7505376f23a3b7610f3d2"
+    },
+    {
+      "id": "tv-shows-trivia-641",
+      "show": "Maraya",
+      "afterHash": "add348a3a6abb3406ba437143820670ffc8ead2c4d2262b0bf2cc93686e2fe90"
+    },
+    {
+      "id": "tv-shows-trivia-642",
+      "show": "Maraya",
+      "afterHash": "92c3ade07fffb192644518da66cd24e30c6a75744b4bf336eb898e4f34f632a6"
+    },
+    {
+      "id": "tv-shows-trivia-643",
+      "show": "Maraya",
+      "afterHash": "e692d22b91c63f01312d969c4bc0a4cc6cd42468922b6780184247061d800555"
+    },
+    {
+      "id": "tv-shows-trivia-644",
+      "show": "Maraya",
+      "afterHash": "8d70c54bbad50a0c02f671fa95ee546392026a47d99bc6372b03e9c428603e62"
+    },
+    {
+      "id": "tv-shows-trivia-645",
+      "show": "Maraya",
+      "afterHash": "1d32b61cedcc5261d04bdc5c6dc8c848e7066a5c8ce0378a3ded494ea4ffd462"
+    },
+    {
+      "id": "tv-shows-trivia-646",
+      "show": "Maraya",
+      "afterHash": "da7a41ed348c64fa75eea35ae386f4784f4dc0936ba01b6f44ca44c3cd670782"
+    },
+    {
+      "id": "tv-shows-trivia-647",
+      "show": "Maraya",
+      "afterHash": "ddf1681e2f226e5dae0880f95b814f2706cb5c044e170b974d17d57c07556e80"
+    },
+    {
+      "id": "tv-shows-trivia-648",
+      "show": "Maraya",
+      "afterHash": "a787c18a029a68cf82ca1a8d04ff69b20ebb82b8d8b113a42680252c5d0d5ad5"
+    },
+    {
+      "id": "tv-shows-trivia-649",
+      "show": "Maraya",
+      "afterHash": "0b86c0e88ddd77f75aa7883c75b45cec20436286ae642db87f95800661c90a8e"
+    },
+    {
+      "id": "tv-shows-trivia-650",
+      "show": "Maraya",
+      "afterHash": "8f7ff7e40c2b4e9e9aaeaadcb6c42784b8205831a94f401f9b1edeaab89636dc"
+    },
+    {
+      "id": "tv-shows-trivia-651",
+      "show": "Maraya",
+      "afterHash": "f993e4158bf5691ba6e80a4bd0f1dbb8d7b32cdc32511f7022b5d5609c9a2fa9"
+    },
+    {
+      "id": "tv-shows-trivia-652",
+      "show": "Maraya",
+      "afterHash": "4e891af9fa8ccd6d2a151eb2fbd28b3ef9c84a674254f47be4b1b3c27278ae53"
+    },
+    {
+      "id": "tv-shows-trivia-653",
+      "show": "Maraya",
+      "afterHash": "67ed97771be467893233885803322a4f51d62edd54107c4290325077cf0dbef0"
+    },
+    {
+      "id": "tv-shows-trivia-654",
+      "show": "Maraya",
+      "afterHash": "30f0c8fc1a347ec549a91b5cc89e6b96a8fa1e29e12ffc96051da0fa2cc4dac3"
+    },
+    {
+      "id": "tv-shows-trivia-655",
+      "show": "Maraya",
+      "afterHash": "8a4a6fc407949c8a932d89e6156b40b4a71b277a5ef8cdec47b7e5dfcef6470b"
+    },
+    {
+      "id": "tv-shows-trivia-656",
+      "show": "Maraya",
+      "afterHash": "1a674c0284ee82db980813db710fea30912de9e3d68933dc1bf04aecdfd2c7e3"
+    },
+    {
+      "id": "tv-shows-trivia-657",
+      "show": "Maraya",
+      "afterHash": "36072e5de51794f4067a96754887f482a3710f8839448cafe833962c7e35adad"
+    },
+    {
+      "id": "tv-shows-trivia-658",
+      "show": "Maraya",
+      "afterHash": "ab712b1c321e64c0904a8cce132e063683ec71b100aae3619bbde26a5c7ed4cc"
+    },
+    {
+      "id": "tv-shows-trivia-659",
+      "show": "Maraya",
+      "afterHash": "83e0f46f31335988c2bc2e9207427b0e653c8eba71a99dc63f92dfd4b5feb802"
+    },
+    {
+      "id": "tv-shows-trivia-660",
+      "show": "Maraya",
+      "afterHash": "8d9e00cc790590cf85cf6af90a65f83c80432f942ed49fb4bba7792db00dbc5e"
+    },
+    {
+      "id": "tv-shows-trivia-661",
+      "show": "Maraya",
+      "afterHash": "7910fe0fe5bfb94babae790b6a69c3eeccf6063576e92a4ef539edf1d00c5466"
+    },
+    {
+      "id": "tv-shows-trivia-662",
+      "show": "Maraya",
+      "afterHash": "1243465edd8303f854c8995711c18c3d5c29fd55aad34c6fd0ede889b92b50ad"
+    },
+    {
+      "id": "tv-shows-trivia-663",
+      "show": "Maraya",
+      "afterHash": "de7260ec5450904119ab54abfd4dcf01d5651d8c537c11ff7b455fa3509949ab"
+    },
+    {
+      "id": "tv-shows-trivia-664",
+      "show": "Maraya",
+      "afterHash": "1ab6b9e223b252ad1c4057d088012a03deffedc2af262dfd2dd5c521d1a96b8d"
+    },
+    {
+      "id": "tv-shows-trivia-665",
+      "show": "Maraya",
+      "afterHash": "22f54a078ff741621e4ebf8c64eff77414d17ae99c91877f9bbd861e6efd1204"
+    },
+    {
+      "id": "tv-shows-trivia-666",
+      "show": "Maraya",
+      "afterHash": "3bb2a577bdc27f214478975c9ff8f716f16a03d8f99d0f49f42dd5baa14b3a65"
+    },
+    {
+      "id": "tv-shows-trivia-667",
+      "show": "Maraya",
+      "afterHash": "d630f7ef83731d50b3d831ea839defb5517d0ee9e54de4d3af2d6c0322f72036"
+    },
+    {
+      "id": "tv-shows-trivia-668",
+      "show": "Maraya",
+      "afterHash": "967cfbca61cd9da15d6a1892456feff4bba51679a0e4b731d4a25fe020ba8ec2"
+    },
+    {
+      "id": "tv-shows-trivia-669",
+      "show": "Maraya",
+      "afterHash": "1fe6e6fe1a00de7d5e7c039f0d97a711a29159b0ab0add0cf2ccf8803c0f8b08"
+    },
+    {
+      "id": "tv-shows-trivia-670",
+      "show": "Maraya",
+      "afterHash": "15d290d27b470ca97f25ee9f1f0fbe671c91e4c849a09d96613070307cac8c76"
+    },
+    {
+      "id": "tv-shows-trivia-671",
+      "show": "Maraya",
+      "afterHash": "bddfa51977da2c91508d0354fdf63b5442c3c683f38d9c46d5565db2e2895d70"
+    },
+    {
+      "id": "tv-shows-trivia-672",
+      "show": "Maraya",
+      "afterHash": "942ad86a013659fe5be40e05f8740b9fffcb6d384460ca1e3ed67e9ced786122"
+    },
+    {
+      "id": "tv-shows-trivia-673",
+      "show": "Maraya",
+      "afterHash": "781fb33e0b5d87cdfd332ee7928e9e29681f95d194f86482d6b2c93ca04dc80d"
+    },
+    {
+      "id": "tv-shows-trivia-674",
+      "show": "Maraya",
+      "afterHash": "081e0ab7ec0ca1f13eef3a6ae3053bb30e5ee351cf72e9aae023092b87010746"
+    },
+    {
+      "id": "tv-shows-trivia-675",
+      "show": "Maraya",
+      "afterHash": "fe206c610aefd057d06c2e55cb678b6e0c12d37d88301fb2870d1be41cf950ea"
+    },
+    {
+      "id": "tv-shows-trivia-676",
+      "show": "Maraya",
+      "afterHash": "cce06d744dee9d03591971fbba416158c59b782a895b2a4125fe0a943ee4ecbf"
+    },
+    {
+      "id": "tv-shows-trivia-677",
+      "show": "Maraya",
+      "afterHash": "12382c623f6cc6034e4ad88e4fe7d7d605c7ecdacb1a3bdf044a206c3811fd29"
+    },
+    {
+      "id": "tv-shows-trivia-678",
+      "show": "Maraya",
+      "afterHash": "86d2df712bdbbc9330c1538adb8b0dd00df489393029e135c024e732df61a7ba"
+    },
+    {
+      "id": "tv-shows-trivia-679",
+      "show": "Maraya",
+      "afterHash": "8ec7a0b18a7e2b8413ed49e3fa7347c82f1675009900f6623c487121c867d69b"
+    },
+    {
+      "id": "tv-shows-trivia-680",
+      "show": "Maraya",
+      "afterHash": "cd265806dbe09dd53a3ac6cd8d99f972b737c35a376bc4ffdbaebc6a0d0cee16"
+    },
+    {
+      "id": "tv-shows-trivia-681",
+      "show": "Maraya",
+      "afterHash": "af58985cd30ad322e4d1965c1b42ab4f5edae4ca692b0b55c135d0e14a65fab5"
+    },
+    {
+      "id": "tv-shows-trivia-682",
+      "show": "Maraya",
+      "afterHash": "a48dd950cd824e9a5256392519786ed91688033c0dace6747eed50dcc8624da4"
+    },
+    {
+      "id": "tv-shows-trivia-683",
+      "show": "Maraya",
+      "afterHash": "34dd56f6d94a7334eac0f0ea21fd41dfda9777e014d73d76db8d2af6e1281294"
+    },
+    {
+      "id": "tv-shows-trivia-684",
+      "show": "Maraya",
+      "afterHash": "64b3e30fceec6f92575d765788117630a81be6b8104b8edba92c266a5d308854"
+    },
+    {
+      "id": "tv-shows-trivia-685",
+      "show": "Maraya",
+      "afterHash": "7f37477839759fe1ec57bda9694cb766e836c5d97e66e42a55519b1eaeaf4749"
+    },
+    {
+      "id": "tv-shows-trivia-686",
+      "show": "Maraya",
+      "afterHash": "519c5547a6f21464b7236dde1af77dea6e415576333942331913f99444d21418"
+    },
+    {
+      "id": "tv-shows-trivia-687",
+      "show": "Maraya",
+      "afterHash": "e3f3bb412731d5007ce4ddd68f15500d7f12088194a4ddd818004f9303f1e01b"
+    },
+    {
+      "id": "tv-shows-trivia-688",
+      "show": "Maraya",
+      "afterHash": "5951b6253de092c375a4d5d32d876f2d67a67910e070ef2c2d54fe76b94bff0d"
+    },
+    {
+      "id": "tv-shows-trivia-689",
+      "show": "Maraya",
+      "afterHash": "3d9ff5a28f26d180623da6d33d0449f1507e1fc7ce9352439289a7aecd996c8f"
+    },
+    {
+      "id": "tv-shows-trivia-690",
+      "show": "Maraya",
+      "afterHash": "9fd1f35d12b35ad8d0892a12a94008b5ffd51ca788d4e90f6cba745bb89a3f5e"
+    },
+    {
+      "id": "tv-shows-trivia-691",
+      "show": "Tash Ma Tash",
+      "afterHash": "4d868269b6ca083ec41723b6f4bf927f5b3468bd5b9e3a9c469d0df651cb9a70"
+    },
+    {
+      "id": "tv-shows-trivia-692",
+      "show": "Tash Ma Tash",
+      "afterHash": "1753b2906a6f03485f79da36bd9c76d5e7904a282918ee12f4bb8a0c4b58efb4"
+    },
+    {
+      "id": "tv-shows-trivia-693",
+      "show": "Tash Ma Tash",
+      "afterHash": "7d8d774b46acca1dfd19e86d10ffe27c3c64fa795c21243569d97440d29d4341"
+    },
+    {
+      "id": "tv-shows-trivia-694",
+      "show": "Tash Ma Tash",
+      "afterHash": "cf3083aeb5a3a87de101a7a4a3b4f8e070bcfe8ca6551e7bcf01b102dc908074"
+    },
+    {
+      "id": "tv-shows-trivia-695",
+      "show": "Tash Ma Tash",
+      "afterHash": "fffff6cb9289c81dd21ca73710e07ffe0faec7d01e918ed403247b7bb9454c19"
+    },
+    {
+      "id": "tv-shows-trivia-696",
+      "show": "Tash Ma Tash",
+      "afterHash": "84fc6d9bd1ee78c0d73ef80213c63875b738374fe6f3a9599dc46af13c65f4d8"
+    },
+    {
+      "id": "tv-shows-trivia-697",
+      "show": "Tash Ma Tash",
+      "afterHash": "3d8ca67399bc3fcc63fde787c429e40efd5b4dd4b438f7a68e2f110242b1e236"
+    },
+    {
+      "id": "tv-shows-trivia-698",
+      "show": "Tash Ma Tash",
+      "afterHash": "adba7344b0cbef6f949604007c814f54c480c8f22d886eff7be1d08cc3725235"
+    },
+    {
+      "id": "tv-shows-trivia-699",
+      "show": "Tash Ma Tash",
+      "afterHash": "f4e1aae9e99f1a871f67246ff7aee3c0b9b34a53acf0b49f9541ff03a63ee146"
+    },
+    {
+      "id": "tv-shows-trivia-700",
+      "show": "Tash Ma Tash",
+      "afterHash": "c09bf1a10c2271d18b5063f0fd7a321aa0b0380f109d9f4799113dd3dcc26dfd"
+    },
+    {
+      "id": "tv-shows-trivia-701",
+      "show": "Tash Ma Tash",
+      "afterHash": "b976c7a124aff4f59d5d6402e4e4667cda3e2f77e5f7e62868b43a5ca93fb1ae"
+    },
+    {
+      "id": "tv-shows-trivia-702",
+      "show": "Tash Ma Tash",
+      "afterHash": "b456f8b033453cea6391ba89cf62299fa03d516cc1c850e0690a6547ab0ebd00"
+    },
+    {
+      "id": "tv-shows-trivia-703",
+      "show": "Tash Ma Tash",
+      "afterHash": "3cee63ef61cf16b352cd77ed686a461e0b25c0ad15756fad3a722a2e741d1456"
+    },
+    {
+      "id": "tv-shows-trivia-704",
+      "show": "Tash Ma Tash",
+      "afterHash": "47d1cbbb012b452c69499bf2a5c22794adf9a48fd931e273563ab58c139f4ed9"
+    },
+    {
+      "id": "tv-shows-trivia-705",
+      "show": "Tash Ma Tash",
+      "afterHash": "49a5f9f884eca557422954437ae2638ad55d410396f9bf18bd430c0111c05433"
+    },
+    {
+      "id": "tv-shows-trivia-706",
+      "show": "Tash Ma Tash",
+      "afterHash": "dbc952a721b6b157c096635ae417e2522febce9cd4085a1d8e9198d7b5fe6566"
+    },
+    {
+      "id": "tv-shows-trivia-707",
+      "show": "Tash Ma Tash",
+      "afterHash": "357600591da917ba6288fcd0875fa07113ec140e8f6ad66dc665dfccd9aa9f1a"
+    },
+    {
+      "id": "tv-shows-trivia-708",
+      "show": "Tash Ma Tash",
+      "afterHash": "c438819a63ec66883712d9d0602a30a354b7ad6ee872b9e3be6f6e11e898b4dc"
+    },
+    {
+      "id": "tv-shows-trivia-709",
+      "show": "Tash Ma Tash",
+      "afterHash": "0a6d04d9ad440d0dcb21337f3208686de042b2361fb184ecd099a2b3569eae0b"
+    },
+    {
+      "id": "tv-shows-trivia-710",
+      "show": "Tash Ma Tash",
+      "afterHash": "608fcec360a238ad5286fc3758c64e8b9c619a58d95d82adf546ef6aeb364a93"
+    },
+    {
+      "id": "tv-shows-trivia-711",
+      "show": "Tash Ma Tash",
+      "afterHash": "1dfd86e2d48df9f4355a72ea828c4c4af45fdc4a3094acdc7347be3b6b186c77"
+    },
+    {
+      "id": "tv-shows-trivia-712",
+      "show": "Tash Ma Tash",
+      "afterHash": "2d4add49847681de93c4ef0b71f6f4320310a78c1337db6decabc8eddc70245a"
+    },
+    {
+      "id": "tv-shows-trivia-713",
+      "show": "Tash Ma Tash",
+      "afterHash": "b9427d5faf0b54dcc1b5ad557f9451affade5d414a72d19c95ca79756699ca04"
+    },
+    {
+      "id": "tv-shows-trivia-714",
+      "show": "Tash Ma Tash",
+      "afterHash": "07bb1bf0fcca0d194478df3d8b2d9264717883456b6669f23e0f2bcd19c87013"
+    },
+    {
+      "id": "tv-shows-trivia-715",
+      "show": "Tash Ma Tash",
+      "afterHash": "2688087fc1411f1c13e88b2dc1ec764a5365756463eb8b80aff195a55313a78f"
+    },
+    {
+      "id": "tv-shows-trivia-716",
+      "show": "Tash Ma Tash",
+      "afterHash": "7748046d48d3d818740997f17b26babc87cedd9453580c280f2d7d7626fd985f"
+    },
+    {
+      "id": "tv-shows-trivia-717",
+      "show": "Tash Ma Tash",
+      "afterHash": "5dfea492322ddc338849f116f8401f30865a800f2c6aa263bc87003c0c8b3447"
+    },
+    {
+      "id": "tv-shows-trivia-718",
+      "show": "Tash Ma Tash",
+      "afterHash": "521b0b9bcd557441194721c74580522c7641c260f8ec7439a3776b60b42e2f9c"
+    },
+    {
+      "id": "tv-shows-trivia-719",
+      "show": "Tash Ma Tash",
+      "afterHash": "5f6b67e393b4ef4be02c2c7d5c411a2e0f80b810f1a722dafbbaa018fd1191ce"
+    },
+    {
+      "id": "tv-shows-trivia-720",
+      "show": "Tash Ma Tash",
+      "afterHash": "21ad742fe11aa88dc9c1d3c273974a15fcfbcbad7084378a0d7c62c8aef34505"
+    },
+    {
+      "id": "tv-shows-trivia-721",
+      "show": "Tash Ma Tash",
+      "afterHash": "453fd22c6d9f61d4dcde0b8a20157d4602c322f655d92a25bccb86782b602b47"
+    },
+    {
+      "id": "tv-shows-trivia-722",
+      "show": "Tash Ma Tash",
+      "afterHash": "b6949f37db9c4074700ad0c37c6c83f7d9f9f78ff4ce804a32de4879dfda5fbb"
+    },
+    {
+      "id": "tv-shows-trivia-723",
+      "show": "Tash Ma Tash",
+      "afterHash": "ecdbc5f4c26130bee2ff0c0d7f291d298ef5815579c0213aa964acbb8ad1aee1"
+    },
+    {
+      "id": "tv-shows-trivia-724",
+      "show": "Tash Ma Tash",
+      "afterHash": "f9032514ae073fc37865cb5922a204f82ab7338ffbac2654336c05a6fcfc5ccb"
+    },
+    {
+      "id": "tv-shows-trivia-725",
+      "show": "Tash Ma Tash",
+      "afterHash": "0e280c423e80f2866c110b560a76b94c1396de8723f81b1aefb214fa3ae80759"
+    },
+    {
+      "id": "tv-shows-trivia-726",
+      "show": "Tash Ma Tash",
+      "afterHash": "1db935f164d37b8e94230133cca143bc3cf59947bd777da43109cf2ff01e9e78"
+    },
+    {
+      "id": "tv-shows-trivia-727",
+      "show": "Tash Ma Tash",
+      "afterHash": "482949c48749e8429a70f690f44f93e75bf8d4500002180b12b56a85c12f8264"
+    },
+    {
+      "id": "tv-shows-trivia-728",
+      "show": "Tash Ma Tash",
+      "afterHash": "bb21c92b244231aad3c31da6580272c6ed15a0d2b0f02645e161de9166217d2a"
+    },
+    {
+      "id": "tv-shows-trivia-729",
+      "show": "Tash Ma Tash",
+      "afterHash": "d0eb96972989918e04838f055321f2daa88642a743af30937708b0855a483d83"
+    },
+    {
+      "id": "tv-shows-trivia-730",
+      "show": "Tash Ma Tash",
+      "afterHash": "e3f4b83c55da8cccf36f10771f1c2444d16194d50c7eab34aa041e004c5e7267"
+    },
+    {
+      "id": "tv-shows-trivia-731",
+      "show": "Tash Ma Tash",
+      "afterHash": "6dde532a485cb0bbd97a2d0aa59868fcd4a8f4e3e7fff89691ed26d0a155e05f"
+    },
+    {
+      "id": "tv-shows-trivia-732",
+      "show": "Tash Ma Tash",
+      "afterHash": "8520f33573d430046845a84ca555f228246326ecb485dac54781043b01bd2cc8"
+    },
+    {
+      "id": "tv-shows-trivia-733",
+      "show": "Tash Ma Tash",
+      "afterHash": "e46bbc2921356900a420d3bb0a805d8bb562fbbe2f361116373066694d38380d"
+    },
+    {
+      "id": "tv-shows-trivia-734",
+      "show": "Tash Ma Tash",
+      "afterHash": "cfb026df3e3841faf99c04da7184c736f42e610650cdb7ce920435dae2000676"
+    },
+    {
+      "id": "tv-shows-trivia-735",
+      "show": "Tash Ma Tash",
+      "afterHash": "99d584311e46f68ad26a2651c09c7bbf0bed23e58e0f1f2a5516b9f817973410"
+    },
+    {
+      "id": "tv-shows-trivia-736",
+      "show": "Tash Ma Tash",
+      "afterHash": "aa88fce81cfe4c9e0a552340a595da657a5c37ac416425416210fc6e1270083f"
+    },
+    {
+      "id": "tv-shows-trivia-737",
+      "show": "Tash Ma Tash",
+      "afterHash": "6de790248b9130bd5bda731027a23d06482587f921a0896e5397836aa4d38b11"
+    },
+    {
+      "id": "tv-shows-trivia-738",
+      "show": "Tash Ma Tash",
+      "afterHash": "ac51ff1e398f80765285901253fa8d268e8bcf1838c6296e74cf6d1869c682bb"
+    },
+    {
+      "id": "tv-shows-trivia-739",
+      "show": "Tash Ma Tash",
+      "afterHash": "c5a2d5e410277134cd967f8eac67f097b79d3092f9b97d6f56ad495d321c5849"
+    },
+    {
+      "id": "tv-shows-trivia-740",
+      "show": "Tash Ma Tash",
+      "afterHash": "42bf48c1861b5592ce764f2d6d781af80fd259517dfef09aa8122578873cd88d"
+    },
+    {
+      "id": "tv-shows-trivia-741",
+      "show": "Tash Ma Tash",
+      "afterHash": "6bd1d8d084637e6581496d3f89cf3d50aeb460c27ad00314b6bc26d52893b78f"
+    },
+    {
+      "id": "tv-shows-trivia-742",
+      "show": "Tash Ma Tash",
+      "afterHash": "389e7a11342ea55ae231dff4430cbd279d9a45086fca4aca01aaa77db12f6064"
+    },
+    {
+      "id": "tv-shows-trivia-743",
+      "show": "Tash Ma Tash",
+      "afterHash": "b0951cf5afac22996eaf296ac8d73d7c2b75e2447c45b806edefc8dd5aefba72"
+    },
+    {
+      "id": "tv-shows-trivia-744",
+      "show": "Tash Ma Tash",
+      "afterHash": "83c141003ffbe0e4595ef1562e17255b9e0d35f0fb3539bf793b5de334706383"
+    },
+    {
+      "id": "tv-shows-trivia-745",
+      "show": "Tash Ma Tash",
+      "afterHash": "8860c3fa9f9b003df82b068643db38c6e30eaca04d89e44ff624b630df1f4030"
+    },
+    {
+      "id": "tv-shows-trivia-746",
+      "show": "Al-Hashasheen",
+      "afterHash": "7b263a37ffd716af76d2b17dc8cbd57dbf70cdfbac696bb869ba9caf6b581ea4"
+    },
+    {
+      "id": "tv-shows-trivia-747",
+      "show": "Al-Hashasheen",
+      "afterHash": "9c7494b64aafa75a010f3e80a9c5ee2bb96c716d20be6cde57f4def83da49929"
+    },
+    {
+      "id": "tv-shows-trivia-748",
+      "show": "Al-Hashasheen",
+      "afterHash": "8b1105d97efbda309af4588b9da48cbbd9aaf02ec18dc7dd88e634b9ab6e99bf"
+    },
+    {
+      "id": "tv-shows-trivia-749",
+      "show": "Al-Hashasheen",
+      "afterHash": "c973357b0b16e0349d1b7b287d87687375e4b9c9065df9861983be55fc273d6f"
+    },
+    {
+      "id": "tv-shows-trivia-750",
+      "show": "Al-Hashasheen",
+      "afterHash": "4d7b23588e9dfc08e40e34d032b4e82a5404a6d74a25e421b971e816d78b9253"
+    },
+    {
+      "id": "tv-shows-trivia-751",
+      "show": "Al-Hashasheen",
+      "afterHash": "1f5545122f1f2ea5cd5218e8c17d75588d4872a1c7e2308aedf5258c784ac944"
+    },
+    {
+      "id": "tv-shows-trivia-752",
+      "show": "Al-Hashasheen",
+      "afterHash": "bc615ccf4603cd2be11613be139018514a47b5b57055b3b814cfff7bae0e3438"
+    },
+    {
+      "id": "tv-shows-trivia-753",
+      "show": "Al-Hashasheen",
+      "afterHash": "12121bcfb33c9a9c28f9c767c861a246f96bc9db024a9b7d54acc51648b97daf"
+    },
+    {
+      "id": "tv-shows-trivia-754",
+      "show": "Al-Hashasheen",
+      "afterHash": "a5cc8711f6439ce38e845e7810d5547e4746bcd9049d29c7b087e731fbe272ea"
+    },
+    {
+      "id": "tv-shows-trivia-755",
+      "show": "Al-Hashasheen",
+      "afterHash": "d3e4286b0af113a833ffdbfc3dc2549fecfed4ef8fdb0aae2db3a08456a1323e"
+    },
+    {
+      "id": "tv-shows-trivia-756",
+      "show": "Al-Hashasheen",
+      "afterHash": "0f4ad8d015e42316885ac3d1fe41aef8597408e367b583a8ca087c1464cece7d"
+    },
+    {
+      "id": "tv-shows-trivia-757",
+      "show": "Al-Hashasheen",
+      "afterHash": "80d5cfeb3f277f866303238272623c8d9c71e577e59e5a194d93cea1c5b4b51d"
+    },
+    {
+      "id": "tv-shows-trivia-758",
+      "show": "Al-Hashasheen",
+      "afterHash": "94f655c9b036362c34a6ed2718d6c6e1ce2be8c3edd87c664a4986ccdb3c64ac"
+    },
+    {
+      "id": "tv-shows-trivia-759",
+      "show": "Al-Hashasheen",
+      "afterHash": "c51380be62be9116880c57c38f3a19a36b74825149327a32e74c16e07630102f"
+    },
+    {
+      "id": "tv-shows-trivia-760",
+      "show": "Al-Hashasheen",
+      "afterHash": "bf830801f62668fb957d78a96649e58803f193b6a3e4afb383efd47ce9c7f937"
+    },
+    {
+      "id": "tv-shows-trivia-761",
+      "show": "Al-Hashasheen",
+      "afterHash": "4e26e963182e545dde60a84faa6fe41ab642afadc63c66b8ebb0c13faa4d9bad"
+    },
+    {
+      "id": "tv-shows-trivia-762",
+      "show": "Al-Hashasheen",
+      "afterHash": "422a9ac294ed78d6b049baafcbfbf57b30355d1ffa060a0097720fce4c93b896"
+    },
+    {
+      "id": "tv-shows-trivia-763",
+      "show": "Al-Hashasheen",
+      "afterHash": "813b35e01a209acb294d275d3c1b511502059d58c80ad4e31a783d06cbd051a3"
+    },
+    {
+      "id": "tv-shows-trivia-764",
+      "show": "Al-Hashasheen",
+      "afterHash": "5c3cf121ba4ddc331b12e2a9d16ae474ea66b53eb39fe89cb1fc5ec0edcd8082"
+    },
+    {
+      "id": "tv-shows-trivia-765",
+      "show": "Al-Hashasheen",
+      "afterHash": "c242f4297a190c35dcf672254d92cddb028656368ab8158f466d98e9eea044a9"
+    },
+    {
+      "id": "tv-shows-trivia-766",
+      "show": "Al-Hashasheen",
+      "afterHash": "43adf7e38f26588b9844a98cb2d0a19ef560f379a6cfe33e39dd08bb3ee4288d"
+    },
+    {
+      "id": "tv-shows-trivia-767",
+      "show": "Al-Hashasheen",
+      "afterHash": "914651a42d82b8009b5d592e31fec024abdbb55cd5962f37781afdccccf28ede"
+    },
+    {
+      "id": "tv-shows-trivia-768",
+      "show": "Al-Hashasheen",
+      "afterHash": "b2ec777d0a6ce9a3e6f23de13de8512d752b703780daf92df1516dd5e121eb25"
+    },
+    {
+      "id": "tv-shows-trivia-769",
+      "show": "Al-Hashasheen",
+      "afterHash": "5f86203125be0383c2fd20e146eb23db01b1a17876ac94df392ca305abce89e2"
+    },
+    {
+      "id": "tv-shows-trivia-770",
+      "show": "Al-Hashasheen",
+      "afterHash": "800961e2e7e3b85c3d213c7c23f2f73fa7f3448922be682b9e210b31b01cd298"
+    },
+    {
+      "id": "tv-shows-trivia-771",
+      "show": "Al-Hashasheen",
+      "afterHash": "fc63cfb8f258b7c08e79a1817ca2b20d4e63fb30535f5e9be1b1e7379d4f90b4"
+    },
+    {
+      "id": "tv-shows-trivia-772",
+      "show": "Al-Hashasheen",
+      "afterHash": "526acaf16945f6343dac14179d2560a0e4468022685fcb70af7dc33d8bd86cc1"
+    },
+    {
+      "id": "tv-shows-trivia-773",
+      "show": "Al-Hashasheen",
+      "afterHash": "a101ddc12be6ebff1be4d35b7bbd6015092353a4aec37ab0c97b441af4cf5eb1"
+    },
+    {
+      "id": "tv-shows-trivia-774",
+      "show": "Al-Hashasheen",
+      "afterHash": "5f46c8cdc15a8090daa63acfa3fbd57ea3953569d0e6aa6c24cc583dd2d18427"
+    },
+    {
+      "id": "tv-shows-trivia-775",
+      "show": "Al-Hashasheen",
+      "afterHash": "ca40aec87a76413a798631f2027015f61109cc84babbe6ba01f2a3c510744d06"
+    },
+    {
+      "id": "tv-shows-trivia-776",
+      "show": "Al-Hashasheen",
+      "afterHash": "27553fed4c19f0034ad0585c190deb1b9848c1b7a610a08f66f23a224d843f55"
+    },
+    {
+      "id": "tv-shows-trivia-777",
+      "show": "Al-Hashasheen",
+      "afterHash": "c959d7ff5f288b7f478c327224c48d9cc28220e081e3c985d6d7bec0721a709f"
+    },
+    {
+      "id": "tv-shows-trivia-778",
+      "show": "Al-Hashasheen",
+      "afterHash": "4f3578de1a0330ee0cb96ac960ba898ef3bde400986f127b6cec7258a4f6f985"
+    },
+    {
+      "id": "tv-shows-trivia-779",
+      "show": "Al-Hashasheen",
+      "afterHash": "2ee1cf6ce3a60e6bddcc77ccc4bd9f885f5eb5b98c2ca53aaed7e71b4580ff0b"
+    },
+    {
+      "id": "tv-shows-trivia-780",
+      "show": "Al-Hashasheen",
+      "afterHash": "d95173c2da40d696d8805dbf13b33c66544b8e6605845ac90618d46317fd7aca"
+    },
+    {
+      "id": "tv-shows-trivia-781",
+      "show": "Al-Hashasheen",
+      "afterHash": "a157d216a96296829d2855df6e74f9fffc8fecaac52b3d320be4ed24c09b1043"
+    },
+    {
+      "id": "tv-shows-trivia-782",
+      "show": "Al-Hashasheen",
+      "afterHash": "0eaf453f2d3a932a22b48eb91278ce417a368fa70ac585a78a9ec25555946f19"
+    },
+    {
+      "id": "tv-shows-trivia-783",
+      "show": "Al-Hashasheen",
+      "afterHash": "a89556e7452ce62f12554c2acfbb1b8a527df3267da65d2aff2a82ff20b2d72d"
+    },
+    {
+      "id": "tv-shows-trivia-784",
+      "show": "Al-Hashasheen",
+      "afterHash": "5eb6800a8c21159e83fbda2da823aa5b3e421bcf65e9e0725251423f11b953c1"
+    },
+    {
+      "id": "tv-shows-trivia-785",
+      "show": "Al-Hashasheen",
+      "afterHash": "5aa544a88d2576c14abc255a0f881641118ffd836ed484e76793058d462ba32b"
+    },
+    {
+      "id": "tv-shows-trivia-786",
+      "show": "Al-Hashasheen",
+      "afterHash": "41af55729374660043764c675ad5e545ed67202b12d80d04a6c9844fe30354c8"
+    },
+    {
+      "id": "tv-shows-trivia-787",
+      "show": "Al-Hashasheen",
+      "afterHash": "12864b2d69c2441db92da55f9aa15ca748dbd81882e723f4f3c939a7a2b25d75"
+    },
+    {
+      "id": "tv-shows-trivia-788",
+      "show": "Al-Hashasheen",
+      "afterHash": "3c665794ff6c7340ed4b072773eca4fc66a83a23fc0e181a44bc2bf6fca4d14a"
+    },
+    {
+      "id": "tv-shows-trivia-789",
+      "show": "Al-Hashasheen",
+      "afterHash": "4527406e1fe181bcf58481717e15fbeaec7dfb626842d423c0d0ce368ec92ad5"
+    },
+    {
+      "id": "tv-shows-trivia-790",
+      "show": "Al-Hashasheen",
+      "afterHash": "24fb9b87a124825aa0d223058c56c6085d8f426d04c0188d79dc535bdebaefc0"
+    },
+    {
+      "id": "tv-shows-trivia-791",
+      "show": "Al-Hashasheen",
+      "afterHash": "072d34e189410fb10709bc2b6b30c93c38f7da054f2d8245b17a04de389b261a"
+    },
+    {
+      "id": "tv-shows-trivia-792",
+      "show": "Al-Hashasheen",
+      "afterHash": "2f4d020450a0f3dbadb556250e4403a6e0e3b18bd41b75673e5ff4ada2ccfb0c"
+    },
+    {
+      "id": "tv-shows-trivia-793",
+      "show": "Al-Hashasheen",
+      "afterHash": "7a32cd0bab458a0ec87b7c7b3e97746d0be6b96aff49631d20cd2a4e2a5e7ce6"
+    },
+    {
+      "id": "tv-shows-trivia-794",
+      "show": "Al-Hashasheen",
+      "afterHash": "def93ff575773540563e1435cb8fe787fb22c696ef78c554b68be055946d1442"
+    },
+    {
+      "id": "tv-shows-trivia-795",
+      "show": "Al-Hashasheen",
+      "afterHash": "50b439ab063e9e4dff9823ad5adeea76a3057f3823762ab8aec8e090bdd4b5bd"
+    },
+    {
+      "id": "tv-shows-trivia-796",
+      "show": "Al-Hashasheen",
+      "afterHash": "b48b77da5dfb354706dd198aca35f8b6cbbd26aaec29d4529232c64143735a4c"
+    },
+    {
+      "id": "tv-shows-trivia-797",
+      "show": "Al-Hashasheen",
+      "afterHash": "1c66f474061cc865c492ebc726f93a63ef9eee1ab93f91edeacee2646ac1427b"
+    },
+    {
+      "id": "tv-shows-trivia-798",
+      "show": "Al-Hashasheen",
+      "afterHash": "d4671917789898d25ee3e8efa3d81ac5f09046fe2b5b0567ca04c41f42bc5685"
+    },
+    {
+      "id": "tv-shows-trivia-799",
+      "show": "Al-Hashasheen",
+      "afterHash": "1e7f00e53693655359aeea278b0668ed5f2301f7b2f2e8bcf9c60ef301afcc81"
+    },
+    {
+      "id": "tv-shows-trivia-800",
+      "show": "Al-Hashasheen",
+      "afterHash": "1bdb44f6a98aaf859638ef349e40a4cfb406d5408df1692983f58913a77709fb"
+    }
+  ],
+  "references": {
+    "Breaking Bad": [
+      "https://www.sonypictures.com/tv/breakingbad",
+      "https://www.amc.com/blogs/celebrate-breaking-bads-10th-anniversary-with-amcs-complete-series-marathon--1004379",
+      "https://www.amc.com/blogs/follow-the-rise-and-fall-of-the-white-family-in-these-breaking-bad-episodes--1008871"
+    ],
+    "Friends": [
+      "https://press.wbd.com/us/media-release/warner-bros/warner-bros-discovery-launches-friends-fan-week-2022-social-media-contests-and",
+      "https://www.televisionacademy.com/features/news/industry-news/friends-oral-history-30th-anniversary-matthew-perry",
+      "https://www.friends-tv.org/faq.html"
+    ],
+    "Game of Thrones": [
+      "https://www.hbomaxlapress.com/programming/series/94",
+      "https://www.hbo.com/game-of-thrones",
+      "https://en.wikipedia.org/wiki/List_of_Game_of_Thrones_characters",
+      "https://www.sky.com/watch/game-of-thrones/cast-and-characters"
+    ],
+    "Stranger Things": [
+      "https://www.netflix.com/tudum/stranger-things",
+      "https://www.netflix.com/tudum/articles/stranger-things-season-1-recap",
+      "https://www.netflix.com/tudum/articles/stranger-things-season-3-recap",
+      "https://www.netflix.com/tudum/articles/stranger-things-5-upside-down-explained",
+      "https://www.youtube.com/watch?v=JpbWqiUy0YM"
+    ],
+    "The Wire": [
+      "https://www.hbo.com/series",
+      "https://en.wikipedia.org/wiki/List_of_The_Wire_characters",
+      "https://en.wikipedia.org/wiki/The_Wire"
+    ],
+    "Diriliş: Ertuğrul": [
+      "https://www.trt1.com.tr/diziler/dirilis-ertugrul/oyuncu",
+      "https://www.trt1.com.tr/diziler/dirilis-ertugrul/bolum/1bolum",
+      "https://www.trt1.com.tr/diziler/dirilis-ertugrul/bolum/12",
+      "https://www.tabii.com/en/detail/2707/dirilis-ertugrul",
+      "https://en.wikipedia.org/wiki/List_of_Dirili%C5%9F%3A_Ertu%C4%9Frul_characters"
+    ],
+    "Bab Al-Hara": [
+      "https://elcinema.com/work/1010631/cast",
+      "https://elcinema.com/work/1010631/episodes",
+      "https://elcinema.com/work/2042488/cast",
+      "https://en.wikipedia.org/wiki/Bab_Al-Hara"
+    ],
+    "Maraya": [
+      "https://shahid.mbc.net/ar/series/maraya/series-985229",
+      "https://elcinema.com/work/1788978/cast",
+      "https://elcinema.com/work/2022443/cast",
+      "https://elcinema.com/work/1910493/episodes",
+      "https://elcinema.com/work/1783457/episodes",
+      "https://www.youtube.com/watch?v=VeGyW-V6_lY",
+      "https://www.bostah.com/2006/مرايا_2006/مشاركات"
+    ],
+    "Tash Ma Tash": [
+      "https://shahid.mbc.net/ar/series/Tash/series-69240",
+      "https://elcinema.com/work/2077331/episodes",
+      "https://elcinema.com/work/1088291/episodes",
+      "https://www.youtube.com/watch?v=sUHwmKWVQ8k",
+      "https://www.youtube.com/watch?v=dTN1kbYk4Co",
+      "https://www.alwatan.com.sa/article/193361",
+      "https://www.alriyadh.com/189584",
+      "https://www.alayam.com/alayam/local/1005369/News.html"
+    ],
+    "Al-Hashasheen": [
+      "https://www.watchit.com/watch/ar/series/Al-Hashasheen/series-1040",
+      "https://elcinema.com/work/2082493/cast",
+      "https://elcinema.com/work/2082493/episodes"
+    ]
+  },
+  "referenceScope": "Reference list used for authoring and spot checks, not per-question provenance certification."
+}

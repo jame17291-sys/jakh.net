@@ -1,4 +1,5 @@
 import { PUZZLE_ROUTES, puzzlePath } from '../puzzle-routes.js';
+import { SHOWS } from '../tv-trivia-engine.js';
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -125,7 +126,17 @@ for (const relative of generatedFiles) {
     if (/<img\b[^>]*\bid="categoryImage"/u.test(html)) {
       failures.push(`${relative}: obsolete dynamic category illustration mount`);
     }
-    if (!/<div\b[^>]*\bid="cardGrid"/u.test(html)) {
+    if (category.slug === 'tv-shows-trivia') {
+      if (!html.includes('id="tvTrivia"') || !html.includes('class="tv-show-grid"')) failures.push(`${relative}: missing quiz and show discovery mounts`);
+      for (const show of SHOWS) {
+        for (const width of [360, 600]) {
+          const asset = `assets/tv/${show.id}-${width}.webp`;
+          if (!html.includes(`/${asset}`) || !fs.existsSync(path.join(root, asset))) failures.push(`${relative}: missing responsive show image ${asset}`);
+        }
+      }
+      const art = [...html.matchAll(/<img\b[^>]*src="\/assets\/tv\/[^>]*>/gu)].map(([tag]) => tag);
+      if (art.length !== SHOWS.length || art.some(tag => !tag.includes('srcset=') || !tag.includes('sizes=') || !tag.includes('width="600" height="400"'))) failures.push(`${relative}: show artwork needs responsive sizes and stable dimensions`);
+    } else if (!/<div\b[^>]*\bid="cardGrid"/u.test(html)) {
       failures.push(`${relative}: missing question grid`);
     }
     if (!/<script\b[^>]*\bsrc="\/app\.js\?v=/u.test(html)) {

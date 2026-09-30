@@ -44,7 +44,7 @@ function health(overrides = {}) {
       state: "safety-quarantine-active",
       quarantinedCategories: [...quarantine.categorySlugs],
       quarantinedQuestions: quarantine.manifest.totalCards,
-      publicQuestions: 3_275,
+      publicQuestions: 3_825,
       manifestSha256: quarantine.policySha256,
     },
     ...overrides,

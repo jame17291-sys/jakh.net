@@ -24,7 +24,7 @@ const EXPECTED_QUARANTINED_COUNTS = Object.freeze({
 
 test("generated card index contains the complete validated catalog", async () => {
   const index = await getCardIndex({});
-  assert.equal(Object.keys(index).length, 3_553);
+  assert.equal(Object.keys(index).length, 4_103);
   assert.deepEqual(index["currencies-1"], ["currencies", "easy"]);
 });
 

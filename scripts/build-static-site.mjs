@@ -42,6 +42,7 @@ export const FINGERPRINT_PREFIX_LENGTH = 16;
 const ILLUSTRATION_MODULES = Object.freeze(["/site-illustrations.js", "/directory-ui.js"]);
 
 const PUZZLE_ASSETS = Object.freeze([
+  "/tv-trivia-engine.js", "/tv-trivia-copy.js", "/tv-trivia-share.js", "/tv-trivia-markup.js", "/tv-trivia.css", "/tv-trivia.js",
   "/puzzle-routes.js",
   "/puzzle-arabic-words.js", "/puzzle-hive-data.js", "/puzzle-square-data.js", "/puzzle-group-data.js",
   "/puzzle-word-data.js", "/puzzle-catalog.js", "/puzzle-daily.js",
@@ -76,6 +77,7 @@ export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
 ]);
 
 const HTML_FINGERPRINT_SOURCE_PATHS = new Set([
+  "/tv-trivia.css",
   "/kids-learning.js", "/kids-learning.css",
   "/puzzle-room.js",
   "/puzzle-room.css",
@@ -216,6 +218,7 @@ function rewriteSearchLeaderboard(source, fingerprints) {
 function rewriteApplication(source, fingerprints) {
   let rewritten = source;
   for (const dependency of [
+    "/tv-trivia.js",
     "/directory-ui.js",
     "/battle-mode.js",
     "/battle-mode.css",
@@ -398,7 +401,7 @@ function rewritePublishedClaimValue(source, {
       new RegExp(`${fullCategories}(?=\\s+(?:موضوع(?:اً|ًا)?|فئة)(?![\\p{L}\\p{M}\\p{N}]))`, "gu"),
       String(publicCategories),
     )
-    .replaceAll("3,500+", "3,200+");
+    .replaceAll("3,500+", `${(Math.floor(publicQuestions / 100) * 100).toLocaleString("en-US")}+`);
   rewritten = rewritten.replace(
     /(<[^>]+\bid=["']badgeCategories2?["'][^>]*>)\s*\d[\d,]*\s*(<\/[^>]+>)/giu,
     `$1${publicCategories}$2`,
@@ -708,7 +711,7 @@ export function assertPublicProjection(artifactBytes, { publication, quarantine 
     }
   }
   invariant(publication.publicCategories === 51, `public category contract changed from 51 to ${publication.publicCategories}`);
-  invariant(publication.publicQuestions === 3_275, `public question contract changed from 3275 to ${publication.publicQuestions}`);
+  invariant(publication.publicQuestions === 3_825, `public question contract changed from 3825 to ${publication.publicQuestions}`);
   invariant(quarantine.manifest.totalCards === 278, "production quarantine contract changed from 278 cards");
 }
 

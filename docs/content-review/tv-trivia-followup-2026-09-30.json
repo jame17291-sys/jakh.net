@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-30",
+  "baseCommit": "5875a6d",
+  "scope": "Resolve the failed strict cross-bank semantic duplicate check without removing questions or relaxing audit thresholds.",
+  "changes": [
+    {
+      "id": "tv-shows-trivia-172",
+      "beforeHash": "fb3e7e14d5e33bacceac70702555eb6d4c9c7c8b35fbd740c5af04b1c8fa2937",
+      "afterHash": "94f69d02b4536fb0b4b814e6d310bc96f2e4ff5e6a14fac34c22f1bc98fd1c59",
+      "reason": "Replace a fact duplicated elsewhere in the site with a distinct bilingual question; retain the ID, show and spoiler-safe eligibility."
+    },
+    {
+      "id": "tv-shows-trivia-367",
+      "beforeHash": "21a091f7ae06b79bb97fcdd6eece970e7d11f74d8538ad0751838943ace4e2f5",
+      "afterHash": "f9dc78e08df771cc41c113af53e7895280531f87f437cdcb08ee4531fe4899fe",
+      "reason": "Replace a fact duplicated elsewhere in the site with a distinct bilingual question; retain the ID, show and spoiler-safe eligibility."
+    },
+    {
+      "id": "tv-shows-trivia-642",
+      "beforeHash": "92c3ade07fffb192644518da66cd24e30c6a75744b4bf336eb898e4f34f632a6",
+      "afterHash": "dca639bf4f4dbc8083446a6681301fe80ba8a168912dc1f2cc5645f0e1262ef1",
+      "reason": "Replace a fact duplicated elsewhere in the site with a distinct bilingual question; retain the ID, show and spoiler-safe eligibility."
+    },
+    {
+      "id": "tv-shows-trivia-643",
+      "beforeHash": "e692d22b91c63f01312d969c4bc0a4cc6cd42468922b6780184247061d800555",
+      "afterHash": "ff98ad6ec5da18046fa55d23905a725fcebac34f51af2d3d6a57806ef8fd7063",
+      "reason": "Replace a fact duplicated elsewhere in the site with a distinct bilingual question; retain the ID, show and spoiler-safe eligibility."
+    },
+    {
+      "id": "tv-shows-trivia-644",
+      "beforeHash": "8d70c54bbad50a0c02f671fa95ee546392026a47d99bc6372b03e9c428603e62",
+      "afterHash": "a2f3a8ae4991208b93619798e68e94a810f47505ee723b4338a5a56a3bec6efe",
+      "reason": "Replace a fact duplicated elsewhere in the site with a distinct bilingual question; retain the ID, show and spoiler-safe eligibility."
+    },
+    {
+      "id": "tv-shows-trivia-645",
+      "beforeHash": "1d32b61cedcc5261d04bdc5c6dc8c848e7066a5c8ce0378a3ded494ea4ffd462",
+      "afterHash": "ed5637fa321df46c7d840cea2cf80c57059e0b333a6c4174dd49340d5bf0143d",
+      "reason": "Replace a fact duplicated elsewhere in the site with a distinct bilingual question; retain the ID, show and spoiler-safe eligibility."
+    },
+    {
+      "id": "tv-shows-trivia-646",
+      "beforeHash": "da7a41ed348c64fa75eea35ae386f4784f4dc0936ba01b6f44ca44c3cd670782",
+      "afterHash": "315d66c579f8e894bb2f5a488bf27878837099c0c548bfc0f2b4c8cc16f7ac84",
+      "reason": "Replace a fact duplicated elsewhere in the site with a distinct bilingual question; retain the ID, show and spoiler-safe eligibility."
+    },
+    {
+      "id": "tv-shows-trivia-669",
+      "beforeHash": "1fe6e6fe1a00de7d5e7c039f0d97a711a29159b0ab0add0cf2ccf8803c0f8b08",
+      "afterHash": "356c868550f03151fa0d02ecbd2db4fd0d2693fed8d3e5aaa3f8285ad9b3981f",
+      "reason": "Correct the sketch title to Jurn Al-Kibbeh, episode twelve of Maraya 98."
+    }
+  ],
+  "sources": [
+    "https://elcinema.com/work/1783457/episodes",
+    "https://elcinema.com/work/1910493/episodes",
+    "https://gameofthrones.fandom.com/wiki/Raven"
+  ],
+  "reviewNote": "Replacement choices and explanations were screened in both languages; they reveal only show-world facts or sketch setups, not endings. Separate formal editorial status remains pending."
+}

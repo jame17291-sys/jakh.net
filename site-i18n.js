@@ -74,10 +74,10 @@
     about: {
       en: {
         metaTitle: 'About Riddle Arabia & Our Content Standards',
-        metaDescription: 'Learn how Riddle Arabia organizes, translates, and improves its 3,553 bilingual questions, plus how to report a correction.',
+        metaDescription: 'Learn how Riddle Arabia organizes, translates, and improves its 4,103 bilingual questions, plus how to report a correction.',
         aboutEyebrow: 'About Riddle Arabia',
         aboutTitle: 'A friendly bilingual place to think, learn, and play',
-        aboutIntro: 'Riddle Arabia is a free English-and-Arabic riddle, quiz, and browser-game website. The library currently includes 3,553 question cards mapped into 56 topics and five clear sections.',
+        aboutIntro: 'Riddle Arabia is a free English-and-Arabic riddle, quiz, and browser-game website. The library currently includes 4,103 question cards mapped into 56 topics and five clear sections.',
         standardsOrganizedTitle: 'How content is organized',
         standardsOrganizedText: 'Every question belongs to one category, one practical subtopic, and one difficulty level. Related categories and focused collections help people move through the library without a maze of overlapping pages.',
         standardsTranslationTitle: 'Translation and consistency',
@@ -93,10 +93,10 @@
       },
       ar: {
         metaTitle: 'عن ريدل أرابيا ومعايير المحتوى',
-        metaDescription: 'تعرّف إلى طريقة تنظيم 3,553 سؤالًا في ريدل أرابيا، وترجمتها وتحسينها، وتعلّم كيف ترسل لنا تصحيحًا.',
+        metaDescription: 'تعرّف إلى طريقة تنظيم 4,103 سؤالًا في ريدل أرابيا، وترجمتها وتحسينها، وتعلّم كيف ترسل لنا تصحيحًا.',
         aboutEyebrow: 'عن ريدل أرابيا',
         aboutTitle: 'مكان مرح للتفكير، والتعلّم، واللعب، بالعربية والإنجليزية',
-        aboutIntro: 'ريدل أرابيا موقع مجاني يجمع الألغاز، والاختبارات، وألعاب المتصفح، بالعربية والإنجليزية. وتضم مكتبتنا حاليًا 3,553 بطاقة موزّعة على 56 موضوعًا في خمسة أقسام.',
+        aboutIntro: 'ريدل أرابيا موقع مجاني يجمع الألغاز، والاختبارات، وألعاب المتصفح، بالعربية والإنجليزية. وتضم مكتبتنا حاليًا 4,103 بطاقة موزّعة على 56 موضوعًا في خمسة أقسام.',
         standardsOrganizedTitle: 'كيف ننظم المحتوى',
         standardsOrganizedText: 'نصنّف كل سؤال ضمن موضوع واحد، وموضوع فرعي واضح، ومستوى صعوبة محدد. ونربط بين الموضوعات القريبة، ونضع بعض الأسئلة في مجموعات قصيرة، ليكون الاستكشاف سهلًا وممتعًا.',
         standardsTranslationTitle: 'الترجمة والاتساق',

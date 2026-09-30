@@ -35,7 +35,7 @@ export const CONTENT_PUBLICATION_CONTRACT = Object.freeze({
   state: "safety-quarantine-active",
   quarantinedCategories: Object.freeze([...checkedPublicationQuarantine.categorySlugs]),
   quarantinedQuestions: checkedPublicationQuarantine.manifest.totalCards,
-  publicQuestions: 3_275,
+  publicQuestions: 3_825,
   manifestSha256: checkedPublicationQuarantine.policySha256,
 });
 
@@ -672,7 +672,7 @@ export async function runProductionMonitor(options = {}) {
       QUARANTINED_CATEGORY_SLUGS.every((slug) => !categorySlugs.has(slug)),
       "catalog exposes a quarantined category",
     );
-    expect(catalog.site?.totalQuestions === 3_275, "catalog public question total is not 3275");
+    expect(catalog.site?.totalQuestions === 3_825, "catalog public question total is not 3825");
     expect(
       catalog.site?.publication === undefined,
       "catalog exposes internal publication governance metadata",
@@ -737,7 +737,7 @@ export async function runProductionMonitor(options = {}) {
     expectContentType(resource.response, /application\/json/iu);
     const index = parseJson(resource);
     expect(index && typeof index === "object" && !Array.isArray(index), "card index is not an object");
-    expect(Object.keys(index).length === 3_275, `card index contains ${Object.keys(index).length} cards instead of 3275`);
+    expect(Object.keys(index).length === 3_825, `card index contains ${Object.keys(index).length} cards instead of 3825`);
     expect(
       checkedPublicationQuarantine.cardIds.size > 0
         && [...checkedPublicationQuarantine.cardIds].every((cardId) => !Object.hasOwn(index, cardId)),
@@ -758,9 +758,9 @@ export async function runProductionMonitor(options = {}) {
       expectContentType(resource.response, /application\/json/iu);
       const shard = parseJson(resource);
       expect(shard.language === language, `${language} search language marker is invalid`);
-      expect(shard.total === 3_275, `${language} search total is not 3275`);
+      expect(shard.total === 3_825, `${language} search total is not 3825`);
       expect(Array.isArray(shard.categories) && shard.categories.length === 51, `${language} search categories are not 51`);
-      expect(Array.isArray(shard.cards) && shard.cards.length === 3_275, `${language} search cards are not 3275`);
+      expect(Array.isArray(shard.cards) && shard.cards.length === 3_825, `${language} search cards are not 3825`);
       expect(
         shard.cards.every((row) => Array.isArray(row) && !checkedPublicationQuarantine.cardIds.has(row[1])),
         `${language} search exposes a quarantined card`,

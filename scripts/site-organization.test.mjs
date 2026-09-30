@@ -254,6 +254,13 @@ test('topic pages prioritize practice and collapse optional filters without dupl
     for (const file of [`${slug}.html`, `ar/topics/${slug}/index.html`]) {
       const html = read(file);
       assert.doesNotMatch(html, /id="categoryImage"|id="categoryBanner"/u, file);
+      if (slug === 'tv-shows-trivia') {
+        assert.match(html, /data-tv="mixed"/u, `${file}: immediate quiz entry`);
+        assert.equal((html.match(/data-tv="play-show"/gu) || []).length, 10, `${file}: all shows visible`);
+        assert.ok(html.indexOf('data-tv="mixed"') < html.indexOf('data-tv="practice"'), `${file}: solo precedes practice`);
+        assert.doesNotMatch(html, /class="question-filters"/u, `${file}: detailed filters belong in practice`);
+        continue;
+      }
       const filters = html.match(/<details\b([^>]*)class="question-filters"([^>]*)>([\s\S]*?)<\/details>/u);
       assert.ok(filters, `${file}: missing collapsible filters`);
       assert.doesNotMatch(`${filters[1]} ${filters[2]}`, /\bopen\b/u, file);

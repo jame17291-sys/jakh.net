@@ -1,0 +1,103 @@
+{
+  "scope": "Bilingual TV trivia redesign with 80 questions for each of 10 shows; existing URLs and all original 250 identifiers retained",
+  "status": "Implemented for review; not deployed",
+  "content": {
+    "prepared": 800,
+    "premiseOnly": 487,
+    "seasonGated": 313,
+    "withheld": 0,
+    "minimumSafePerShow": 28,
+    "classification": "Season 0 covers premise, cast, production and anthology sketch setups without punchlines or endings. Positive seasons require completion of that season. The whole bilingual prompt, answer, choices and explanation are sealed together by contentKey. Any display edit invalidates eligibility until rescreened and resealed.",
+    "formalReview": "Existing review.status records remain pending. This implementation screening does not certify the separate editorial/provenance programme.",
+    "perShow": 80,
+    "added": 550
+  },
+  "implemented": [
+    "Ten visible shows with original illustrations, two-column phone and four-column wide layouts",
+    "Ten questions per round, four choices, manual Next, one point per correct answer",
+    "Untimed default; optional 20-second absolute deadline that does not reset on refresh",
+    "Spoiler limits shared by quiz, saved-round validation, and flashcards",
+    "Results, missed-answer review, replay, local bests, resumable rounds",
+    "Language switching preserves show, season, question, choices, answers and score",
+    "User-initiated text sharing and a 1080px score image preview/download link",
+    "Practice search, difficulty, progress, favourites, sorting and pagination",
+    "Existing account progress/favourite syncing and Battle Room entry points retained",
+    "Consent-gated view, start, answer, exit, complete, replay, share and score_card analytics",
+    "Theme-balanced show rounds prefer unseen questions; all-season play covers 80 unique questions across eight rounds. Discovery cards show total bank sizes and round options show the eligible count."
+  ],
+  "analytics": {
+    "prefix": "tv_quiz_",
+    "variant": "tv-redesign-v1",
+    "dimensions": [
+      "language",
+      "device",
+      "show",
+      "timed",
+      "season"
+    ],
+    "rates": [
+      "sessions with a start / sessions with a TV-page view",
+      "completed rounds / started rounds",
+      "sessions with a replay / sessions with a completed round"
+    ],
+    "baseline": "Historical analytics were not available in this task. Compare equivalent periods and consent-eligible sessions by language/device after release; no improvement percentages are claimed."
+  },
+  "verification": {
+    "contractTests": 429,
+    "siteWorkerTests": 31,
+    "additionalChecks": [
+      "static build",
+      "SEO",
+      "bilingual coverage",
+      "catalog and route generation",
+      "search index",
+      "responsive image assets",
+      "production hygiene",
+      "duplicate-question audit",
+      "git diff whitespace",
+      "Worker bundle dry-run with installed Wrangler 4.131.0; no deployment"
+    ],
+    "browser": [
+      "English mixed round completed",
+      "Arabic show round completed",
+      "correct, wrong and skipped feedback",
+      "results and missed review",
+      "replay",
+      "refresh resume",
+      "bidirectional language switch with score and season preservation",
+      "timer expiry waits for Next",
+      "practice safe search and favourites",
+      "visible keyboard focus",
+      "320px and 390px phone widths without horizontal overflow",
+      "desktop visual review",
+      "English/Arabic 1080px score-image generation",
+      "Expanded bank: 80 displayed on every show card in both languages",
+      "Friends settings: 28 spoiler-safe questions, 80 with all seasons",
+      "Expanded round completed after English-to-Arabic switch and refresh at question 3 with score 2 preserved",
+      "390px Arabic phone layout and default-width discovery cards visually checked"
+    ],
+    "limits": [
+      "Native file-download completion could not be confirmed in the in-app browser, although both score images rendered at 1080 by 1080 and expose download links",
+      "Local preview has no account or multiplayer backend; authenticated sync and rooms need a staging smoke test",
+      "Five-person first-use timing study is pending",
+      "Formal content sign-off and full accessibility certification are not claimed"
+    ],
+    "monitorAndOrchestrationTests": 64
+  },
+  "maintenance": [
+    "Author both languages and three aligned distractors; assign a conservative whole-card season limit.",
+    "After checking every visible field, set tvQuiz.contentKey = contentKey(card) from tv-trivia-engine.js. Never reseal unreviewed changes automatically.",
+    "Document source-content changes in the amendment ledger, preserving earlier repair hashes and existing IDs.",
+    "Regenerate catalog, search indexes, learning audit ledger, SEO pages and Arabic shared routes when their inputs change.",
+    "Run npm run test:tv, npm run test:contracts and npm --prefix site-worker test. The source build includes tracked files, so stage new runtime/assets before building."
+  ],
+  "spotCheckReferences": [
+    "https://www.sonypictures.com/tv/breakingbad",
+    "https://www.sonypictures.com/corp/press_releases/2010/01_10/01062010_breaking_bad.html",
+    "https://www.televisionacademy.com/features/news/industry-news/friends-oral-history-30th-anniversary-matthew-perry",
+    "https://www.netflix.com/tudum/stranger-things",
+    "https://www.trt1.com.tr/diziler/dirilis-ertugrul/oyuncu",
+    "https://elcinema.com/work/1788978/cast",
+    "https://www.watchit.com/watch/ar/series/الحشاشين/series-1040"
+  ]
+}

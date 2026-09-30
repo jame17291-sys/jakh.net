@@ -856,7 +856,7 @@
       button.textContent = t("checkingAccess");
       els.gateActions.append(button);
     }
-    const hasAccess = Boolean(state.me && ADMIN_ROLES.has(state.me.role));
+    const hasAccess = Boolean(state.me && ADMIN_ROLES.has(state.me.role) && state.gateMode !== "mfa");
     gate.hidden = hasAccess;
     els.refreshButton.hidden = !hasAccess;
     els.logoutButton.hidden = !hasAccess;
@@ -1938,7 +1938,7 @@
     const sessionFailure = results.find((result) => (
       result.status === "rejected"
       && result.reason instanceof AdminApiError
-      && result.reason.status === 401
+      && (result.reason.status === 401 || ["MFA_REQUIRED", "MFA_ENROLLMENT_REQUIRED"].includes(result.reason.code))
     ));
     if (sessionFailure) {
       handleActionError(sessionFailure.reason);

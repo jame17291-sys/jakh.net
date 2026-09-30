@@ -48,8 +48,9 @@ function mutations(path) {
   return fixture.getState().requests.filter((request) => request.method !== "GET" && (!path || request.path === path));
 }
 
-async function scenario(name, run, { role = "OWNER", lang = "en", viewport = { width: 1440, height: 960 } } = {}) {
+async function scenario(name, run, { role = "OWNER", lang = "en", viewport = { width: 1440, height: 960 }, securityEnabled = true, securityVerified = true } = {}) {
   fixture.reset();
+  fixture.control({ securityEnabled, securityVerified });
   const context = await browser.newContext({ viewport });
   const page = await context.newPage();
   page.setDefaultTimeout(12_000);
@@ -65,7 +66,7 @@ async function scenario(name, run, { role = "OWNER", lang = "en", viewport = { w
   });
   try {
     await page.goto(`${fixture.baseUrl}/admin?role=${role}&lang=${lang}`, { waitUntil: "domcontentloaded" });
-    await visible(page, "#adminApp");
+    await visible(page, securityVerified ? "#adminApp" : "#gateActions button.primary-button:not([disabled])");
     await run(page);
     assert.deepEqual(errors, [], "Admin emitted browser exceptions");
     assert.deepEqual(externalRequests, [], "Synthetic admin attempted to contact an external service");
@@ -98,6 +99,58 @@ async function audit(page, label) {
 
 try {
   browser = await chromium.launch({ headless: true, executablePath });
+
+  for (const role of ["OWNER", "ADMIN"]) for (const lang of ["en", "ar"]) {
+    await scenario(`${role}/${lang} keeps authenticator setup reachable before any protected request`, async (page) => {
+      assert.equal(await page.locator("#gate").isVisible(), true);
+      assert.equal(await page.locator("#adminApp").isVisible(), false);
+      assert.equal(await page.locator("#refreshButton").isVisible(), false);
+      assert.equal(fixture.getState().requests.some(request => request.path.startsWith('/api/admin/')), false);
+      await page.locator("#gateActions button.primary-button").click();
+      await visible(page, '.auth-security-dialog input[name="password"]');
+      assert.equal(await page.locator('.auth-security-dialog').getAttribute('lang'), lang);
+      await page.locator('.auth-security-dialog .auth-security-actions button[type="button"]').click();
+      await page.locator('.auth-security-dialog').waitFor({ state: 'detached' });
+      assert.equal(await page.locator("#gate").isVisible(), true, 'cancel leaves the setup gate available');
+      assert.equal(await page.locator("#adminApp").isVisible(), false);
+      assert.equal(await page.locator("#gateActions button.primary-button").isEnabled(), true);
+      assert.equal(mutations().length, 0, 'viewing and cancelling setup never enrolls an authenticator');
+    }, { role, lang, securityEnabled: false, securityVerified: false });
+
+    await scenario(`${role}/${lang} releases the workspace only after verification and re-gates expired MFA`, async (page) => {
+      assert.equal(await page.locator("#gate").isVisible(), true);
+      assert.equal(await page.locator("#adminApp").isVisible(), false);
+      assert.equal(fixture.getState().requests.some(request => request.path.startsWith('/api/admin/')), false);
+      await page.locator("#gateActions button.primary-button").click();
+      await visible(page, '.auth-security-dialog input[name="code"]');
+      await page.locator('.auth-security-dialog input[name="code"]').fill('000000');
+      await page.locator('.auth-security-dialog button[type="submit"]').click();
+      await textContains(page, '.auth-security-error', lang === 'ar' ? 'الرمز غير صحيح' : 'The code is incorrect');
+      assert.equal(fixture.getState().securityVerified, false);
+      assert.equal(await page.locator('#adminApp').isVisible(), false, 'an incorrect code does not release the workspace');
+      assert.equal(fixture.getState().requests.some(request => request.path.startsWith('/api/admin/')), false);
+      await page.locator('.auth-security-dialog input[name="code"]').fill('123456');
+      await page.locator('.auth-security-dialog button[type="submit"]').click();
+      await visible(page, '#adminApp');
+      assert.equal(await page.locator('#gate').isVisible(), false);
+      await visible(page, '#metricGrid .metric-card');
+      const requests = fixture.getState().requests;
+      const verified = requests.findIndex(request => request.path === '/api/user/security/verify' && request.body.code === '123456');
+      const protectedRequest = requests.findIndex(request => request.path.startsWith('/api/admin/'));
+      assert.ok(verified >= 0 && protectedRequest > verified, 'protected data is requested only after verification');
+      await page.locator('#languageToggle').click();
+      assert.equal(await page.locator('#gate').isVisible(), false, 'language rendering retains a verified workspace');
+      fixture.control({ securityVerified: false });
+      await page.locator('#refreshButton').click();
+      await visible(page, '#gateActions button.primary-button:not([disabled])');
+      assert.equal(await page.locator('#gate').isVisible(), true, '403 MFA_REQUIRED returns to the verification gate');
+      assert.equal(await page.locator('#adminApp').isVisible(), false, 'stale protected workspace is hidden after verification expires');
+      assert.equal(await page.locator('#refreshButton').isVisible(), false);
+      await page.locator('#languageToggle').click();
+      assert.equal(await page.locator('#gate').isVisible(), true, 'language rendering cannot hide the MFA gate');
+      assert.equal(await page.locator('#adminApp').isVisible(), false);
+    }, { role, lang, securityVerified: false });
+  }
 
   await scenario("global ID and Arabic search need no category; filters and selection survive navigation", async (page) => {
     await openContent(page);

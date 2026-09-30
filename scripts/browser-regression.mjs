@@ -11,6 +11,7 @@ import { dayKey } from "../puzzle-catalog.js";
 import { puzzlePath } from "../puzzle-routes.js";
 import { dailyIndex } from "../puzzle-daily.js";
 import { LETTER_SQUARES } from "../puzzle-word-data.js";
+import { runPasswordChangeRegressions } from "./password-change-browser-cases.mjs";
 
 const BROWSER_ENGINES = Object.freeze({ chromium, firefox, webkit });
 const BROWSER_ENGINE = String(process.env.JAKH_BROWSER_ENGINE || "chromium").toLowerCase();
@@ -677,6 +678,9 @@ async function main() {
         await context.close();
       }
     });
+
+    await runTest("password changes show visible validation, progress, errors and success in both languages", () =>
+      runPasswordChangeRegressions({ browser, baseUrl, createContext, setConsent: setCurrentDeniedConsent, waitUntil: NAVIGATION_READY_EVENT }));
 
     await runTest("signed-in owner utilities remain usable with a long username on narrow screens", async () => {
       const username = 'OwnerWithAnExtremelyLongDisplayNameForLayoutChecks';

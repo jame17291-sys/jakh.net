@@ -577,6 +577,7 @@ const UI = {
     avatarSaveError: 'Could not save the avatar.',
     chooseAvatarAria: 'Choose {avatar} as your avatar',
     passwordFieldsRequired: 'Fill both password fields.',
+    passwordUpdating: 'Updating password…',
     passwordUpdated: 'Password updated!',
     suggestionSubmitError: 'Could not submit. Please try again.',
     initializationError: 'Riddle Arabia could not finish loading. Please refresh and try again.',
@@ -990,6 +991,7 @@ const UI = {
     avatarSaveError: 'تعذّر حفظ الصورة الرمزية.',
     chooseAvatarAria: 'اختر {avatar} صورةً رمزيةً',
     passwordFieldsRequired: 'املأ حقلي كلمة المرور.',
+    passwordUpdating: 'جارٍ تحديث كلمة المرور…',
     passwordUpdated: 'تم تحديث كلمة المرور!',
     suggestionSubmitError: 'تعذّر إرسال الاقتراح. حاول مرة أخرى.',
     initializationError: 'تعذّر إكمال تحميل ريدل أرابيا. حدّث الصفحة وحاول مرة أخرى.',
@@ -3743,15 +3745,16 @@ function renderAuthModal(mode = 'signin') {
         <div class="form-row" style="margin-bottom:1rem;">
              <label>
                <span>${escapeHtml(state.lang === 'ar' ? 'كلمة المرور الحالية' : 'Current Password')}</span>
-               <input type="password" id="currentPassword" autocomplete="current-password" />
+               <input type="password" id="currentPassword" autocomplete="current-password" aria-describedby="changePasswordStatus" />
              </label>
              <label>
                <span>${escapeHtml(state.lang === 'ar' ? 'كلمة المرور الجديدة' : 'New Password')}</span>
-               <input type="password" id="newPassword" autocomplete="new-password" minlength="15" maxlength="128" aria-describedby="changePasswordRules" />
+               <input type="password" id="newPassword" autocomplete="new-password" minlength="15" maxlength="128" aria-describedby="changePasswordRules changePasswordStatus" />
              </label>
         </div>
         <p id="changePasswordRules" class="password-rules">${escapeHtml(t('passwordRules'))}</p>
-        <button class="mini-btn" id="changePasswordBtn">${escapeHtml(state.lang === 'ar' ? 'تحديث كلمة المرور' : 'Update Password')}</button>
+        <p id="changePasswordStatus" class="auth-inline-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        <button class="mini-btn" type="button" id="changePasswordBtn" aria-describedby="changePasswordStatus">${escapeHtml(state.lang === 'ar' ? 'تحديث كلمة المرور' : 'Update Password')}</button>
         ${(state.dbUser?.role === 'ADMIN' || state.dbUser?.role === 'OWNER') ? `<hr /><h3>${escapeHtml(state.lang === 'ar' ? 'حماية الوصول إلى الإدارة' : 'Protect admin access')}</h3><p>${escapeHtml(state.lang === 'ar' ? 'أضف تطبيق مصادقة واحفظ رموز الاسترداد لفتح لوحة الإدارة بأمان.' : 'Add an authenticator and save recovery codes to securely open the administration console.')}</p><button class="secondary-btn" type="button" id="adminSecurityBtn">${escapeHtml(state.lang === 'ar' ? 'إعداد تطبيق المصادقة أو التحقق منه' : 'Set up or verify authenticator')}</button>` : ''}
 
         <hr style="margin:1.5rem 0;opacity:0.2;" />
@@ -3860,22 +3863,45 @@ function renderAuthModal(mode = 'signin') {
 
     const cpBtn = document.getElementById('changePasswordBtn');
     if (cpBtn) cpBtn.addEventListener('click', async () => {
-       const cur = document.getElementById('currentPassword').value;
-       const neu = document.getElementById('newPassword').value;
-       if (!cur || !neu) return showToast(t('passwordFieldsRequired'), true);
-       if ([...neu].length < 15 || neu.length > 128) return showToast(t('errorPasswordPolicy'), true);
        if (cpBtn.disabled) return;
+       const currentInput = document.getElementById('currentPassword');
+       const newInput = document.getElementById('newPassword');
+       const status = document.getElementById('changePasswordStatus');
+       const cur = currentInput.value;
+       const neu = newInput.value;
+       currentInput.removeAttribute('aria-invalid');
+       newInput.removeAttribute('aria-invalid');
+       if (!cur || !neu) {
+          setAuthInlineStatus(status, t('passwordFieldsRequired'), 'error');
+          const missingInput = !cur ? currentInput : newInput;
+          missingInput.setAttribute('aria-invalid', 'true');
+          missingInput.focus();
+          return;
+       }
+       if ([...neu].length < 15 || neu.length > 128) {
+          setAuthInlineStatus(status, t('errorPasswordPolicy'), 'error');
+          newInput.setAttribute('aria-invalid', 'true');
+          newInput.focus();
+          return;
+       }
        cpBtn.disabled = true;
-       cpBtn.textContent = '...';
+       cpBtn.setAttribute('aria-busy', 'true');
+       currentInput.disabled = true;
+       newInput.disabled = true;
+       cpBtn.textContent = t('passwordUpdating');
+       setAuthInlineStatus(status, t('passwordUpdating'));
        try {
           await apiFetch('/user/password', { method: 'POST', body: JSON.stringify({ currentPassword: cur, newPassword: neu }) });
-          showToast(t('passwordUpdated'));
-          document.getElementById('currentPassword').value = '';
-          document.getElementById('newPassword').value = '';
+          currentInput.value = '';
+          newInput.value = '';
+          setAuthInlineStatus(status, t('passwordUpdated'), 'success');
        } catch (err) {
-          showToast(localizedErrorMessage(err), true);
+          setAuthInlineStatus(status, localizedErrorMessage(err), 'error');
        } finally {
+          currentInput.disabled = false;
+          newInput.disabled = false;
           cpBtn.disabled = false;
+          cpBtn.removeAttribute('aria-busy');
           cpBtn.textContent = state.lang === 'ar' ? 'تحديث كلمة المرور' : 'Update Password';
        }
     });

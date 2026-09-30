@@ -81,6 +81,9 @@ export function createAdminFixtureState() {
     saveDelayMs: 0,
     feedbackPageSize: null,
     stepUp: false,
+    authenticated: true,
+    securityEnabled: true,
+    securityVerified: true,
   };
 }
 
@@ -132,11 +135,18 @@ export async function startAdminWorkspaceFixture({ port = 0, siteRoot = ROOT } =
         state.requests.push({ path: url.pathname, query: url.search, method: request.method, body, role });
         const path = url.pathname.slice(4);
         if (path === "/health") return json({ ok: true, schema: "10", targetSchema: "10", features: { contentStudio: true, adminMfa: true } });
+        if (path === "/auth/session") return json({ authenticated: state.authenticated });
+        if (!state.authenticated) return json({ error: "Sign in required", code: "UNAUTHORIZED" }, 401);
         if (path === "/user/profile") return json({ id: actorId, username, email: "owner@example.test", avatar: "R", role });
-        // Admin workspace tests start after successful MFA; enrollment and
-        // challenge enforcement are covered by the real API integration tests.
-        if (path === "/user/security") return json({ required: true, enabled: true, verified: true, recoveryCodesRemaining: 10 });
-        if (path === "/auth/session") return json({ authenticated: true });
+        if (path === "/user/security") return json({ required: true, enabled: state.securityEnabled, verified: state.securityVerified, recoveryCodesRemaining: state.securityEnabled ? 10 : 0 });
+        if (path === "/user/security/verify" && request.method === "POST") {
+          if (!state.securityEnabled || body.code !== "123456") return json({ error: "Invalid fixture code", code: "MFA_CODE_INVALID" }, 400);
+          state.securityVerified = true;
+          return json({ verified: true });
+        }
+        if (path.startsWith("/admin/") && (!state.securityEnabled || !state.securityVerified)) {
+          return json({ error: "Authenticator verification required", code: state.securityEnabled ? "MFA_REQUIRED" : "MFA_ENROLLMENT_REQUIRED" }, 403);
+        }
         if (path === "/admin/security") return json({ stepUp: { expiresAt: state.stepUp ? new Date(Date.now() + 600_000).toISOString() : null } });
         if (path === "/admin/security/reauthenticate" && request.method === "POST") {
           state.stepUp = true;
@@ -221,7 +231,7 @@ export async function startAdminWorkspaceFixture({ port = 0, siteRoot = ROOT } =
       let relative = decodeURIComponent(url.pathname).replace(/^\/+/, "");
       if (!relative || relative === "admin" || relative === "admin/") relative = "admin.html";
       const file = resolve(siteRoot, relative);
-      if (!file.startsWith(`${resolve(siteRoot)}${sep}`) || !/^(admin(?:-config)?\.(html|css|js)|fonts\/|assets\/|favicon\.)/u.test(relative)) {
+      if (!file.startsWith(`${resolve(siteRoot)}${sep}`) || !/^(admin(?:-config)?\.(html|css|js)|auth-security\.(?:js|css)$|fonts\/|assets\/|favicon\.)/u.test(relative)) {
         response.writeHead(404); response.end("Fixture serves only admin assets"); return;
       }
       let bytes = await readFile(file);

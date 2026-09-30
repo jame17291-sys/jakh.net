@@ -6,6 +6,12 @@ on:
     # 07:23 Dubai. Off the hour to reduce scheduler contention.
     - cron: "23 3 * * *"
   workflow_dispatch:
+    inputs:
+      identity_check_only:
+        description: "Verify maintenance identity without claiming the daily run or changing the website"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -15,10 +21,39 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  identity-check:
+    name: Verify identity without claiming daily maintenance
+    if: >-
+      github.event_name == 'workflow_dispatch' && inputs.identity_check_only == true &&
+      github.repository == 'jame17291-sys/jakh.net' &&
+      github.ref == 'refs/heads/main' && github.ref_protected &&
+      github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+      - name: Authenticate and require rejection before any daily claim
+        run: node scripts/autopilot-client.mjs diagnose-identity "$RUNNER_TEMP/autopilot-identity.json"
+      - name: Keep the nonsecret identity result
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: autopilot-identity-${{ github.run_id }}
+          path: ${{ runner.temp }}/autopilot-identity.json
+          if-no-files-found: ignore
+          retention-days: 1
   maintain:
     name: Inspect, repair, test and verify
     if: >-
-      github.repository == 'jame17291-sys/jakh.net' &&
+      inputs.identity_check_only != true && github.repository == 'jame17291-sys/jakh.net' &&
       github.ref == 'refs/heads/main' && github.ref_protected &&
       github.event.repository.private == false
     runs-on: ubuntu-latest

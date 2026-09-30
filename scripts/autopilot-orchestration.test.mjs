@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
 import { fileURLToPath } from 'node:url';
-import { context, githubClient, oidcToken, autopilotRequest, assertMain, releaseInputs, authorizeRelease,
+import { context, githubClient, oidcToken, autopilotRequest, diagnoseAutopilotIdentity, assertMain, releaseInputs, authorizeRelease,
   REPOSITORY, REPOSITORY_ID, API_ORIGIN, AUDIENCE } from './autopilot-client.mjs';
 import { safeChildEnv, findingBody, syncFindings, matchDispatchedRun, dispatchAndWait,
   FINDINGS_MARKER, BOT_ID, publishVerifiedRepair, waitForPullRequestChecks, verifyPublishedBuild,
@@ -67,6 +67,118 @@ test('network failures and oversized JSON fail without exposing bearer tokens', 
     throw new TypeError('redirect forbidden');
   });
   await assert.rejects(() => redirected(PREFIX), /redirect forbidden/);
+});
+
+test('Autopilot failures retain only known identity codes with the matching HTTP status', async () => {
+  for (const [code, status] of [
+    ['AUTOPILOT_IDENTITY_INVALID', 401], ['AUTOPILOT_IDENTITY_EXPIRED', 401],
+    ['AUTOPILOT_IDENTITY_SCOPE_INVALID', 403], ['AUTOPILOT_IDENTITY_UNAVAILABLE', 503],
+    ['AUTOPILOT_PAYLOAD_INVALID', 400],
+  ]) {
+    let calls = 0;
+    const fetchImpl = async () => ++calls === 1 ? response({ value: 'private-identity-token' })
+      : response({ code, error: 'private-identity-token', details: ENV.GITHUB_TOKEN }, status);
+    await assert.rejects(() => autopilotRequest('claim', {}, { env: ENV, fetchImpl }), error => {
+      assert.equal(error.message, `Autopilot claim: HTTP ${status} (${code})`);
+      assert.equal(error.code, code);
+      assert.equal(error.status, status);
+      assert.doesNotMatch(JSON.stringify(error), /private-identity-token|test-ephemeral-token/);
+      return true;
+    });
+    assert.equal(calls, 2);
+  }
+});
+
+test('Autopilot diagnostics discard malformed, unexpected and secret-bearing error details', async () => {
+  const bodies = [
+    { code: 'private-identity-token', error: ENV.GITHUB_TOKEN },
+    { code: 'AUTOPILOT_IDENTITY_INVALID\nprivate-identity-token' },
+    { code: 'AUTOPILOT_IDENTITY_SCOPE_INVALID' }, // Wrong status must remain generic.
+    { code: ['AUTOPILOT_IDENTITY_INVALID'] },
+    [{ code: 'AUTOPILOT_IDENTITY_INVALID' }],
+    null,
+  ];
+  for (const body of [...bodies.map(value => JSON.stringify(value)), '<html>private-identity-token</html>', '{invalid-json']) {
+    let calls = 0;
+    const fetchImpl = async () => ++calls === 1 ? response({ value: 'private-identity-token' }) : new Response(body, { status: 401 });
+    await assert.rejects(() => autopilotRequest('claim', {}, { env: ENV, fetchImpl }), error => {
+      assert.equal(error.message, 'Autopilot claim: HTTP 401');
+      assert.equal(error.code, undefined);
+      assert.equal(error.status, 401);
+      return true;
+    });
+  }
+});
+
+test('GitHub and OIDC-provider errors cannot inject Autopilot diagnostic codes', async () => {
+  const fetchImpl = async () => response({ code: 'AUTOPILOT_IDENTITY_INVALID', error: ENV.GITHUB_TOKEN }, 401);
+  const gh = githubClient(ENV, fetchImpl);
+  for (const request of [() => gh(`${PREFIX}/issues`), () => oidcToken(ENV, fetchImpl)]) {
+    await assert.rejects(request, error => {
+      assert.equal(error.status, 401);
+      assert.equal(error.code, undefined);
+      assert.doesNotMatch(error.message, /AUTOPILOT_IDENTITY|test-ephemeral-token/);
+      return true;
+    });
+  }
+});
+
+test('manual identity diagnostics send only an invalid claim payload and require its exact authenticated rejection', async () => {
+  const calls = [];
+  const fetchImpl = async (url, options) => {
+    calls.push({ url: String(url), options });
+    return calls.length === 1 ? response({ value: 'private-identity-token' })
+      : response({ code: 'AUTOPILOT_PAYLOAD_INVALID', error: 'private-identity-token' }, 400);
+  };
+  const result = await diagnoseAutopilotIdentity({ ...ENV, GITHUB_EVENT_NAME: 'workflow_dispatch' }, fetchImpl);
+  assert.equal(result.status, 'identity_verified_without_claim');
+  assert.equal(result.mode, 'identity_check_only');
+  assert.equal(result.sourceSha, BASE);
+  assert.equal(result.runId, ENV.GITHUB_RUN_ID);
+  assert.equal(result.httpStatus, 400);
+  assert.equal(result.code, 'AUTOPILOT_PAYLOAD_INVALID');
+  assert.equal(calls.length, 2);
+  assert.equal(calls[1].url, `${API_ORIGIN}/api/internal/autopilot/claim`);
+  assert.deepEqual(JSON.parse(calls[1].options.body), { diagnosticOnly: true });
+  assert.doesNotMatch(JSON.stringify(result), /private-identity-token|test-ephemeral-token/);
+});
+
+test('identity diagnostics never retry or claim after auth failures, wrong responses, or unexpected acceptance', async () => {
+  for (const [body, status, expectedCode] of [
+    [{ code: 'AUTOPILOT_IDENTITY_EXPIRED', error: 'private-identity-token' }, 401, 'AUTOPILOT_IDENTITY_EXPIRED'],
+    [{ code: 'AUTOPILOT_PAYLOAD_INVALID' }, 401, 'IDENTITY_REQUEST_FAILED'],
+    [{ code: 'private-identity-token' }, 400, 'IDENTITY_REQUEST_FAILED'],
+    [{ error: 'private-identity-token' }, 400, 'IDENTITY_REQUEST_FAILED'],
+    [{ claimed: true, private: 'private-identity-token' }, 200, 'IDENTITY_PREFLIGHT_UNEXPECTED_ACCEPTANCE'],
+  ]) {
+    let calls = 0;
+    const fetchImpl = async () => ++calls === 1 ? response({ value: 'private-identity-token' }) : response(body, status);
+    const result = await diagnoseAutopilotIdentity({ ...ENV, GITHUB_EVENT_NAME: 'workflow_dispatch' }, fetchImpl);
+    assert.equal(result.status, 'failed');
+    assert.equal(result.code, expectedCode);
+    assert.equal(calls, 2);
+    assert.doesNotMatch(JSON.stringify(result), /private-identity-token|test-ephemeral-token/);
+  }
+  const failure = await diagnoseAutopilotIdentity({ ...ENV, GITHUB_EVENT_NAME: 'workflow_dispatch' }, async () => {
+    throw new Error('private-identity-token');
+  });
+  assert.equal(failure.code, 'IDENTITY_REQUEST_FAILED');
+  assert.doesNotMatch(JSON.stringify(failure), /private-identity-token/);
+  await assert.rejects(() => diagnoseAutopilotIdentity(ENV, async () => assert.fail('must not request a token')), /explicit manual/);
+});
+
+test('manual identity-check workflow cannot start a daily claim or request publishing credentials', async () => {
+  const source = await fs.readFile(path.join(ROOT, '.github/workflows/site-autopilot.yml'), 'utf8');
+  const diagnostic = source.split('  identity-check:\n')[1].split('  maintain:\n')[0];
+  const maintenance = source.split('  maintain:\n')[1];
+  assert.match(source, /identity_check_only:[\s\S]*default: false\n\s+type: boolean/u);
+  assert.match(diagnostic, /github\.event_name == 'workflow_dispatch' && inputs\.identity_check_only == true/u);
+  assert.match(diagnostic, /github\.ref == 'refs\/heads\/main' && github\.ref_protected/u);
+  assert.match(diagnostic, /permissions:\n\s+contents: read\n\s+id-token: write/u);
+  assert.match(diagnostic, /autopilot-client\.mjs diagnose-identity/u);
+  assert.doesNotMatch(diagnostic, /site-autopilot\.mjs|secrets\.|environment:|GITHUB_TOKEN:|contents: write|issues: write/u);
+  assert.match(maintenance, /inputs\.identity_check_only != true/u);
+  assert.match(maintenance, /node scripts\/site-autopilot\.mjs/u);
 });
 
 test('OIDC audience and internal API destination are fixed and redirect-free', async () => {

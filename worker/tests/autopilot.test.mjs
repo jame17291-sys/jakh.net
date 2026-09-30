@@ -133,6 +133,24 @@ test('OIDC rejects expired, future and long-lived tokens', async () => {
   }
 });
 
+test('identity-only diagnostics authenticate but never read or reserve the daily run', async (t) => {
+  const { env, database } = await setup(t);
+  let databaseAccesses = 0;
+  const diagnosticEnv = { ...env, DB: new Proxy({}, { get() {
+    databaseAccesses++;
+    throw new Error('Identity-only diagnostics must not access D1');
+  } }) };
+  await assert.rejects(claimAutopilot(machine('claim', { diagnosticOnly: true }), diagnosticEnv),
+    error('AUTOPILOT_PAYLOAD_INVALID', 400));
+  const unsigned = machine('claim', { diagnosticOnly: true });
+  unsigned.headers.set('authorization', 'Bearer not.a.jwt');
+  await assert.rejects(claimAutopilot(unsigned, diagnosticEnv), error('AUTOPILOT_IDENTITY_INVALID', 401));
+  assert.equal(databaseAccesses, 0);
+  assert.equal(database.prepare('SELECT count(*) AS count FROM schema_meta WHERE key GLOB ?').get(`${RUN_PREFIX}*`).count, 0);
+  assert.equal((await claimed(env)).claimed, true, 'the ordinary claim still reserves the available daily run');
+  assert.equal(database.prepare('SELECT count(*) AS count FROM schema_meta WHERE key GLOB ?').get(`${RUN_PREFIX}*`).count, 1);
+});
+
 test('owner control defaults paused; non-owners and unauthenticated users cannot inspect or mutate', async (t) => {
   const { env, database } = await setup(t);
   database.prepare('DELETE FROM schema_meta WHERE key=?').run(ENABLED_KEY);

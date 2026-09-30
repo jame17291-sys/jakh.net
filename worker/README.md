@@ -78,10 +78,10 @@ Every returned recovery code is a high-entropy bearer secret shown once. The
 client must ask the user to save the replacement; it must not persist the code
 in browser storage or send it to analytics/logging.
 
-During the schema 8 → 9 release, the compatibility Worker keeps login, profile,
+During the schema 9 → 10 release, the compatibility Worker keeps login, profile,
 progress, leaderboard, suggestion, game, scoring, and the static question corpus
-available. Content Studio returns `503 CONTENT_STUDIO_UNAVAILABLE` until schema 9
-creates its draft and immutable revision tables. The health response reports the
+available. Privileged admin operations return `503 MFA_UNAVAILABLE` until
+schema 10 creates the MFA tables. The health response reports the
 actual D1 schema, target schema, compatible schema range, and feature-readiness
 flags; it never reports a missing-table feature as ready.
 
@@ -98,14 +98,16 @@ Production schema changes use two separate, manually selected runs of **Deploy
 API** from the same validated source:
 
 1. `compatibility` deploys the target Worker against the current D1 schema and
-   contains no migration command. It verifies D1 did not change and rolls back
-   to the exact prior Worker version if the compatibility health contract fails.
+   contains no migration command. It verifies D1 did not change. A failed
+   compatibility health contract rolls back only when the exact prior Worker
+   version has independently passed the required runtime safety proof.
 2. `migrate-final` refuses before any D1 mutation unless the one active Worker
    reports the source version, actual current schema, target schema, a
    compatibility range containing both schemas, and honest feature readiness.
    Its deployment metadata must also bind that Worker to the exact current Git
    commit and target schema; if `main` changed, rerun `compatibility` first.
-   Only then does it capture Time Travel evidence, apply migrations, prove the
+   Only then does it export, encrypt, restore-test, and retain a database backup,
+   capture Time Travel evidence, apply migrations, prove the
    same Worker on the target schema, and deploy the final Worker. A failed final
    verification rolls back to that proven-compatible Worker version; Worker
    rollback never reverses D1.
@@ -114,7 +116,27 @@ For code-only releases, use `compatibility`; when D1 is already at the source
 schema, `migrate-final` deliberately refuses. Do not bypass this protocol with a
 manual `wrangler d1 migrations apply` followed by `wrangler deploy`.
 
-Production is served only from the `api.jakh.net` custom domain. Keep
+Production is served only from the `api.riddlearabia.com` custom domain. Keep
 `workers_dev` disabled so the API does not have a second public hostname.
 
 Never commit `.dev.vars`, Cloudflare tokens, or generated secrets.
+
+## Production deployment ownership
+
+Production API and static releases must run through their protected GitHub
+Actions workflows. Cloudflare Workers Builds for `jakh-api` must remain
+validation-only: repository root `/worker`, production branch `main`, build
+command `npm run check`, and deploy command `npx wrangler deploy --dry-run`.
+This configuration was observed and saved on 2026-09-30. The static site Worker
+has no connected repository.
+
+A second deployment pipeline can replace a verified Worker and remove its
+source annotation before migration. Keep the exact-source gate intact; after
+any configuration change that creates a Worker version, rerun compatibility
+before migration.
+
+The follow-up production monitor identifies release workflows by their file
+path, since GitHub can return the custom run title as the run name. Only a
+successful API compatibility run with its exact source SHA may use the supported
+pre-migration schema range. Scheduled, manual, and final-release monitoring keep
+the strict target-schema contract.

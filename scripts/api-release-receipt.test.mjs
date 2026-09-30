@@ -514,10 +514,9 @@ test("workflow statically separates no-migration compatibility from gated migrat
   assert.equal(workflow.match(/\[ "\$attempt" -lt 18 \]/gu)?.length, 5);
   assert.doesNotMatch(workflow, /for attempt in 1 2 3 4 5 6/u);
   assert.match(workflow, /--migration-authorization-outcome/u);
-  assert.match(
-    monitorWorkflow,
-    /workflow_run\.name == 'Deploy API'[\s\S]+startsWith\(github\.event\.workflow_run\.display_title, 'API compatibility ·'\)/u,
-  );
-  assert.match(monitorWorkflow, /JAKH_MONITOR_SCOPE:[\s\S]+workflow_run\.name == 'Deploy API'[\s\S]+&& 'api'/u);
+  assert.match(monitorWorkflow, /id: context\n\s+run: node scripts\/monitor-workflow-context\.mjs/u);
+  assert.equal(monitorWorkflow.match(/JAKH_MONITOR_SCOPE: \$\{\{ steps\.context\.outputs\.scope \}\}/gu)?.length, 2);
+  assert.match(monitorWorkflow, /JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA: \$\{\{ steps\.context\.outputs\.allow-compatible-schema \}\}/u);
+  assert.doesNotMatch(monitorWorkflow, /workflow_run\.name ==/u);
   assert.doesNotMatch(monitorWorkflow, /API migrate-final[^\n]+ALLOW_COMPATIBLE/u);
 });

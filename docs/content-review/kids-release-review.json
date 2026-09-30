@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "status": "reviewed",
+  "reviewMethod": "AI editorial review with separate authoring and independent review passes",
+  "reviewedOn": "2026-09-30",
+  "coverage": {
+    "activities": 120,
+    "printablePacks": 24,
+    "weeklyPlans": 16,
+    "parentGuides": 8,
+    "preservedRiddles": 30
+  },
+  "checks": [
+    "correctness and explained answers",
+    "age suitability and adaptations",
+    "materials and practical instructions",
+    "Arabic and English equivalence",
+    "appropriate supervision guidance"
+  ],
+  "limitations": "This records AI editorial review, not qualified educator approval or physical family trials.",
+  "sourceSha256": {
+    "data/kids/activities-young.json": "31a9c80524368126e09e58ebd7447d33494d1beb7ecff53e3d02240371a341a4",
+    "data/kids/activities-older.json": "d67cc19704d674e34bcb35601938daada75871e405e2bb67e84d9db2b22d80cd",
+    "scripts/kids-resources.mjs": "3d75f06779afb716222e765ff04cabe92f45043dd9aa23049fa9a04a4d4fb087",
+    "scripts/kids-legacy.mjs": "bb72e8c940e85d7debe19f44f79642c3d31585915204ac508944db12fc0201ac"
+  },
+  "notes": [
+    "docs/content-review/kids-young-review.md",
+    "docs/content-review/kids-older-review.md",
+    "docs/content-review/kids-independent-review.md"
+  ]
+}

@@ -51,6 +51,7 @@ const PUZZLE_ASSETS = Object.freeze([
 ]);
 
 export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
+  "/kids-learning.js", "/kids-state.js", "/kids-learning.css", "/data/kids/catalog.json",
   ...ILLUSTRATION_MODULES,
   ...PUZZLE_ASSETS,
   "/app.js",
@@ -75,6 +76,7 @@ export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
 ]);
 
 const HTML_FINGERPRINT_SOURCE_PATHS = new Set([
+  "/kids-learning.js", "/kids-learning.css",
   "/puzzle-room.js",
   "/puzzle-room.css",
   "/app.js",
@@ -97,6 +99,7 @@ const ADMIN_RUNTIME_ENVIRONMENT_PATTERN = /^[a-z][a-z0-9-]{0,31}$/u;
 const LOOPBACK_ADMIN_API_HOSTS = new Set(["localhost", "127.0.0.1", "::1", "[::1]"]);
 
 const DEPLOYABLE_EXTENSIONS = new Set([
+  ".pdf",
   ".css",
   ".gif",
   ".html",
@@ -888,6 +891,7 @@ export async function buildStaticSite({
   };
 
   for (const stableUrlPath of [
+    "/kids-state.js", "/kids-learning.css", "/data/kids/catalog.json",
     "/styles.css",
     "/site-navigation.js",
     "/akshifha.css",
@@ -918,6 +922,16 @@ export async function buildStaticSite({
       text = replaceQuotedUrl(text, `.${dependency}`, target).value;
     }
     addFingerprint(stable, Buffer.from(text, "utf8"));
+  }
+
+  const kidsSource = sourceBytes.get("kids-learning.js");
+  if (kidsSource) {
+    let rewritten = kidsSource.toString("utf8");
+    for (const dependency of ["/kids-state.js", "/data/kids/catalog.json"]) {
+      invariant(fingerprints[dependency], `Kids runtime requires ${dependency}`);
+      rewritten = replaceQuotedUrl(rewritten, dependency, fingerprints[dependency]).value;
+    }
+    addFingerprint("/kids-learning.js", Buffer.from(rewritten, "utf8"));
   }
 
   const searchSource = sourceBytes.get("search-leaderboard.js");

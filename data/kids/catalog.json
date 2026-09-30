@@ -1,0 +1,3765 @@
+{
+  "schemaVersion": 1,
+  "activities": [
+    {
+      "id": "kids-3-4-language-01",
+      "age": "3-4",
+      "area": "language",
+      "format": "game",
+      "minutes": 5,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Mystery object bag",
+        "ar": "حقيبة الأشياء الغامضة"
+      },
+      "summary": {
+        "en": "Describe a familiar object before showing it.",
+        "ar": "صِف شيئًا مألوفًا قبل إظهاره."
+      }
+    },
+    {
+      "id": "kids-3-4-language-02",
+      "age": "3-4",
+      "area": "language",
+      "format": "story",
+      "minutes": 10,
+      "materialGroup": "none",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "One-sentence story circle",
+        "ar": "حكاية جملة بعد جملة"
+      },
+      "summary": {
+        "en": "Take turns building a tiny story together.",
+        "ar": "تبادلوا الأدوار لبناء حكاية قصيرة."
+      }
+    },
+    {
+      "id": "kids-3-4-language-03",
+      "age": "3-4",
+      "area": "language",
+      "format": "game",
+      "minutes": 5,
+      "materialGroup": "none",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Animal sound detective",
+        "ar": "محقّق أصوات الحيوانات"
+      },
+      "summary": {
+        "en": "Listen to an animal sound and explain your guess.",
+        "ar": "استمع إلى صوت حيوان واشرح تخمينك."
+      }
+    },
+    {
+      "id": "kids-3-4-language-04",
+      "age": "3-4",
+      "area": "language",
+      "format": "movement",
+      "minutes": 5,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Where is Teddy?",
+        "ar": "أين الدبّ؟"
+      },
+      "summary": {
+        "en": "Move a toy to explore position words.",
+        "ar": "حرّك دمية لتجربة كلمات المكان."
+      }
+    },
+    {
+      "id": "kids-3-4-language-05",
+      "age": "3-4",
+      "area": "language",
+      "format": "story",
+      "minutes": 10,
+      "materialGroup": "paper",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "My day in three pictures",
+        "ar": "يومي في ثلاث صور"
+      },
+      "summary": {
+        "en": "Tell a familiar routine using three quick drawings.",
+        "ar": "احكِ عن روتين مألوف بثلاث رسومات بسيطة."
+      }
+    },
+    {
+      "id": "kids-3-4-maths-01",
+      "age": "3-4",
+      "area": "maths",
+      "format": "game",
+      "minutes": 10,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "A picnic for three toys",
+        "ar": "نزهة لثلاث دمى"
+      },
+      "summary": {
+        "en": "Set one place for each toy guest.",
+        "ar": "جهّز مكانًا لكل دمية ضيفة."
+      }
+    },
+    {
+      "id": "kids-3-4-maths-02",
+      "age": "3-4",
+      "area": "maths",
+      "format": "game",
+      "minutes": 10,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Sock pair search",
+        "ar": "البحث عن أزواج الجوارب"
+      },
+      "summary": {
+        "en": "Find pairs in a small pile of clean socks.",
+        "ar": "ابحث عن الأزواج في مجموعة صغيرة من الجوارب النظيفة."
+      }
+    },
+    {
+      "id": "kids-3-4-maths-03",
+      "age": "3-4",
+      "area": "maths",
+      "format": "movement",
+      "minutes": 5,
+      "materialGroup": "none",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Clap and count",
+        "ar": "صفّق وعُدّ"
+      },
+      "summary": {
+        "en": "Copy short groups of claps and count each one.",
+        "ar": "قلّد مجموعات قصيرة من التصفيق وعُدّ كل تصفيقة."
+      }
+    },
+    {
+      "id": "kids-3-4-maths-04",
+      "age": "3-4",
+      "area": "maths",
+      "format": "game",
+      "minutes": 10,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Long and short paths",
+        "ar": "مساران طويل وقصير"
+      },
+      "summary": {
+        "en": "Compare two paths made from rolled towels.",
+        "ar": "قارن مسارين مصنوعين من مناشف ملفوفة."
+      }
+    },
+    {
+      "id": "kids-3-4-maths-05",
+      "age": "3-4",
+      "area": "maths",
+      "format": "game",
+      "minutes": 10,
+      "materialGroup": "paper",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Shape parking spaces",
+        "ar": "مواقف الأشكال"
+      },
+      "summary": {
+        "en": "Park large shape cards in matching spaces.",
+        "ar": "ضع بطاقات الأشكال الكبيرة في أماكن مطابقة."
+      }
+    },
+    {
+      "id": "kids-3-4-logic-01",
+      "age": "3-4",
+      "area": "logic",
+      "format": "puzzle",
+      "minutes": 5,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Which toy disappeared?",
+        "ar": "أي لعبة اختفت؟"
+      },
+      "summary": {
+        "en": "Notice which of three familiar objects is missing.",
+        "ar": "لاحظ أيّ الأشياء الثلاثة المألوفة اختفى."
+      }
+    },
+    {
+      "id": "kids-3-4-logic-02",
+      "age": "3-4",
+      "area": "logic",
+      "format": "game",
+      "minutes": 10,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Sort it your way",
+        "ar": "صنّف بطريقتك"
+      },
+      "summary": {
+        "en": "Make two groups and explain your sorting rule.",
+        "ar": "كوّن مجموعتين واشرح قاعدة التصنيف."
+      }
+    },
+    {
+      "id": "kids-3-4-logic-03",
+      "age": "3-4",
+      "area": "logic",
+      "format": "movement",
+      "minutes": 5,
+      "materialGroup": "none",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Clap, tap, what comes next?",
+        "ar": "صفقة، نقرة، ماذا بعد؟"
+      },
+      "summary": {
+        "en": "Build and continue a repeating movement pattern.",
+        "ar": "ابنِ نمطًا حركيًا متكرّرًا وأكمله."
+      }
+    },
+    {
+      "id": "kids-3-4-logic-04",
+      "age": "3-4",
+      "area": "logic",
+      "format": "puzzle",
+      "minutes": 10,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Build a toy road",
+        "ar": "ابنِ طريقًا للعبة"
+      },
+      "summary": {
+        "en": "Plan a route around an obstacle for a toy.",
+        "ar": "خطّط مسارًا للعبة حول عائق."
+      }
+    },
+    {
+      "id": "kids-3-4-logic-05",
+      "age": "3-4",
+      "area": "logic",
+      "format": "puzzle",
+      "minutes": 10,
+      "materialGroup": "paper",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Repair the funny picture",
+        "ar": "أصلح الصورة الطريفة"
+      },
+      "summary": {
+        "en": "Spot an everyday detail that does not fit and change it.",
+        "ar": "لاحظ تفصيلًا يوميًا لا يناسب الصورة وغيّره."
+      }
+    },
+    {
+      "id": "kids-3-4-science-01",
+      "age": "3-4",
+      "area": "science",
+      "format": "experiment",
+      "minutes": 10,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Hand shadow shapes",
+        "ar": "أشكال ظلال اليد"
+      },
+      "summary": {
+        "en": "Change a hand shadow with a torch and wall.",
+        "ar": "غيّر ظل يدك باستخدام مصباح وجدار."
+      }
+    },
+    {
+      "id": "kids-3-4-science-02",
+      "age": "3-4",
+      "area": "science",
+      "format": "experiment",
+      "minutes": 15,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Float or sink tray",
+        "ar": "صينية الطفو والغوص"
+      },
+      "summary": {
+        "en": "Test large everyday objects in shallow water.",
+        "ar": "اختبر أشياء يومية كبيرة في ماء ضحل."
+      }
+    },
+    {
+      "id": "kids-3-4-science-03",
+      "age": "3-4",
+      "area": "science",
+      "format": "experiment",
+      "minutes": 10,
+      "materialGroup": "paper",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Move it with air",
+        "ar": "حرّكه بالهواء"
+      },
+      "summary": {
+        "en": "Use a paper fan to move another sheet.",
+        "ar": "استخدم مروحة ورقية لتحريك ورقة أخرى."
+      }
+    },
+    {
+      "id": "kids-3-4-science-04",
+      "age": "3-4",
+      "area": "science",
+      "format": "experiment",
+      "minutes": 15,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "A gentle ramp test",
+        "ar": "تجربة منحدر بسيط"
+      },
+      "summary": {
+        "en": "Roll a toy car down two gentle slopes.",
+        "ar": "دحرج سيارة لعبة على منحدرين بسيطين."
+      }
+    },
+    {
+      "id": "kids-3-4-science-05",
+      "age": "3-4",
+      "area": "science",
+      "format": "experiment",
+      "minutes": 15,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "From ice to water",
+        "ar": "من الثلج إلى الماء"
+      },
+      "summary": {
+        "en": "Watch a large piece of ice change on a tray.",
+        "ar": "راقب تغيّر قطعة ثلج كبيرة في صينية."
+      }
+    },
+    {
+      "id": "kids-3-4-creativity-01",
+      "age": "3-4",
+      "area": "creativity",
+      "format": "making",
+      "minutes": 15,
+      "materialGroup": "craft",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Torn-paper garden",
+        "ar": "حديقة الورق الممزّق"
+      },
+      "summary": {
+        "en": "Build an imaginary garden with large paper pieces.",
+        "ar": "اصنع حديقة خيالية بقطع ورقية كبيرة."
+      }
+    },
+    {
+      "id": "kids-3-4-creativity-02",
+      "age": "3-4",
+      "area": "creativity",
+      "format": "movement",
+      "minutes": 10,
+      "materialGroup": "none",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Become a living statue",
+        "ar": "كن تمثالًا حيًا"
+      },
+      "summary": {
+        "en": "Use comfortable poses to become trees, animals or weather.",
+        "ar": "اتّخذ وضعيات مريحة لتمثيل أشجار أو حيوانات أو طقس."
+      }
+    },
+    {
+      "id": "kids-3-4-creativity-03",
+      "age": "3-4",
+      "area": "creativity",
+      "format": "making",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Texture rubbing pictures",
+        "ar": "صور الملمس بالفرك"
+      },
+      "summary": {
+        "en": "Discover patterns by rubbing a crayon over covered textures.",
+        "ar": "اكتشف نقوشًا بفرك قلم شمعي فوق ملمس مغطّى بالورق."
+      }
+    },
+    {
+      "id": "kids-3-4-creativity-04",
+      "age": "3-4",
+      "area": "creativity",
+      "format": "making",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "A paper character with a voice",
+        "ar": "شخصية ورقية لها صوت"
+      },
+      "summary": {
+        "en": "Draw a character and invent how it speaks.",
+        "ar": "ارسم شخصية وابتكر طريقتها في الكلام."
+      }
+    },
+    {
+      "id": "kids-3-4-creativity-05",
+      "age": "3-4",
+      "area": "creativity",
+      "format": "game",
+      "minutes": 10,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Kitchen sound composer",
+        "ar": "ملحّن أصوات المطبخ"
+      },
+      "summary": {
+        "en": "Create a short, gentle tune from household sounds.",
+        "ar": "ابتكر لحنًا قصيرًا وهادئًا من أصوات منزلية."
+      }
+    },
+    {
+      "id": "kids-3-4-life-01",
+      "age": "3-4",
+      "area": "life",
+      "format": "story",
+      "minutes": 10,
+      "materialGroup": "none",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "How might Teddy feel?",
+        "ar": "كيف قد يشعر الدبّ؟"
+      },
+      "summary": {
+        "en": "Discuss a toy character’s feelings and possible help.",
+        "ar": "تحدّث عن مشاعر شخصية لعبة والمساعدة الممكنة."
+      }
+    },
+    {
+      "id": "kids-3-4-life-02",
+      "age": "3-4",
+      "area": "life",
+      "format": "game",
+      "minutes": 10,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "The friendly pretend shop",
+        "ar": "المتجر التخيّلي اللطيف"
+      },
+      "summary": {
+        "en": "Practise asking for and handing over pretend goods.",
+        "ar": "تدرّب على طلب سلع خيالية وتسليمها."
+      }
+    },
+    {
+      "id": "kids-3-4-life-03",
+      "age": "3-4",
+      "area": "life",
+      "format": "game",
+      "minutes": 10,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Fold a little towel",
+        "ar": "اطوِ منشفة صغيرة"
+      },
+      "summary": {
+        "en": "Follow a simple folding routine and help with a real job.",
+        "ar": "اتّبع خطوات طي بسيطة وساعد في مهمة حقيقية."
+      }
+    },
+    {
+      "id": "kids-3-4-life-04",
+      "age": "3-4",
+      "area": "life",
+      "format": "game",
+      "minutes": 10,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "A home for every toy",
+        "ar": "مكان لكل لعبة"
+      },
+      "summary": {
+        "en": "Agree where a few toys belong and tidy them together.",
+        "ar": "اتّفق على مكان بضع ألعاب ورتّبها مع الأسرة."
+      }
+    },
+    {
+      "id": "kids-3-4-life-05",
+      "age": "3-4",
+      "area": "life",
+      "format": "making",
+      "minutes": 10,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Our turn-taking tower",
+        "ar": "برج تبادل الأدوار"
+      },
+      "summary": {
+        "en": "Build one low tower by adding a block in turns.",
+        "ar": "ابنِ برجًا منخفضًا بإضافة مكعّب بالتناوب."
+      }
+    },
+    {
+      "id": "kids-5-6-language-01",
+      "age": "5-6",
+      "area": "language",
+      "format": "game",
+      "minutes": 10,
+      "materialGroup": "paper",
+      "reading": "early",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "First-sound picture hunt",
+        "ar": "البحث عن الصوت الأول"
+      },
+      "summary": {
+        "en": "Group objects that begin with the same spoken sound.",
+        "ar": "اجمع أشياء تبدأ بالصوت المنطوق نفسه."
+      }
+    },
+    {
+      "id": "kids-5-6-language-02",
+      "age": "5-6",
+      "area": "language",
+      "format": "story",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "early",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "The lost hat story order",
+        "ar": "ترتيب قصة القبعة المفقودة"
+      },
+      "summary": {
+        "en": "Arrange four events into a sensible story.",
+        "ar": "رتّب أربعة أحداث في قصة مفهومة."
+      }
+    },
+    {
+      "id": "kids-5-6-language-03",
+      "age": "5-6",
+      "area": "language",
+      "format": "game",
+      "minutes": 10,
+      "materialGroup": "none",
+      "reading": "early",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Find the rhyming friend",
+        "ar": "ابحث عن الكلمة ذات النهاية المشابهة"
+      },
+      "summary": {
+        "en": "Listen for words with matching ending sounds.",
+        "ar": "استمع إلى كلمات تتشابه أصوات نهاياتها."
+      }
+    },
+    {
+      "id": "kids-5-6-language-04",
+      "age": "5-6",
+      "area": "language",
+      "format": "game",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "early",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Letter shapes in a name",
+        "ar": "أشكال الحروف في الاسم"
+      },
+      "summary": {
+        "en": "Explore a familiar letter and find it again.",
+        "ar": "استكشف حرفًا مألوفًا وابحث عنه مجددًا."
+      }
+    },
+    {
+      "id": "kids-5-6-language-05",
+      "age": "5-6",
+      "area": "language",
+      "format": "story",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "early",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Interview a family expert",
+        "ar": "حاور خبيرًا من الأسرة"
+      },
+      "summary": {
+        "en": "Ask a family member about a familiar skill.",
+        "ar": "اسأل فردًا من الأسرة عن مهارة مألوفة."
+      }
+    },
+    {
+      "id": "kids-5-6-maths-01",
+      "age": "5-6",
+      "area": "maths",
+      "format": "game",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Fill the ten-frame",
+        "ar": "املأ إطار العشرة"
+      },
+      "summary": {
+        "en": "Explore numbers in two rows of five spaces.",
+        "ar": "استكشف الأعداد في صفين من خمس خانات."
+      }
+    },
+    {
+      "id": "kids-5-6-maths-02",
+      "age": "5-6",
+      "area": "maths",
+      "format": "game",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "The picture-price shop",
+        "ar": "متجر الأسعار المصوّرة"
+      },
+      "summary": {
+        "en": "Add pretend prices within a ten-point budget.",
+        "ar": "اجمع أسعارًا خيالية ضمن ميزانية عشر نقاط."
+      }
+    },
+    {
+      "id": "kids-5-6-maths-03",
+      "age": "5-6",
+      "area": "maths",
+      "format": "game",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Measure with a paper strip",
+        "ar": "قِس بشريط ورقي"
+      },
+      "summary": {
+        "en": "Measure a book by repeating one paper unit.",
+        "ar": "قِس كتابًا بتكرار وحدة ورقية واحدة."
+      }
+    },
+    {
+      "id": "kids-5-6-maths-04",
+      "age": "5-6",
+      "area": "maths",
+      "format": "game",
+      "minutes": 10,
+      "materialGroup": "paper",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Share six picnic sandwiches",
+        "ar": "وزّع ست شطائر للنزهة"
+      },
+      "summary": {
+        "en": "Share drawn sandwiches equally between three guests.",
+        "ar": "وزّع شطائر مرسومة بالتساوي بين ثلاثة ضيوف."
+      }
+    },
+    {
+      "id": "kids-5-6-maths-05",
+      "age": "5-6",
+      "area": "maths",
+      "format": "making",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Fold-and-check butterflies",
+        "ar": "فراشات نطويها ونتحقّق منها"
+      },
+      "summary": {
+        "en": "Compare a butterfly’s two sides across a fold.",
+        "ar": "قارن جانبي فراشة حول طيّة."
+      }
+    },
+    {
+      "id": "kids-5-6-logic-01",
+      "age": "5-6",
+      "area": "logic",
+      "format": "puzzle",
+      "minutes": 10,
+      "materialGroup": "paper",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Two clues, one animal",
+        "ar": "دليلان وحيوان واحد"
+      },
+      "summary": {
+        "en": "Use two clues to identify a pictured animal.",
+        "ar": "استخدم دليلين لتحديد حيوان مصوّر."
+      }
+    },
+    {
+      "id": "kids-5-6-logic-02",
+      "age": "5-6",
+      "area": "logic",
+      "format": "puzzle",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Guide the robot on a grid",
+        "ar": "وجّه الروبوت على الشبكة"
+      },
+      "summary": {
+        "en": "Give a pretend robot exact one-square instructions.",
+        "ar": "أعطِ روبوتًا خياليًا تعليمات دقيقة بمقدار خانة."
+      }
+    },
+    {
+      "id": "kids-5-6-logic-03",
+      "age": "5-6",
+      "area": "logic",
+      "format": "puzzle",
+      "minutes": 10,
+      "materialGroup": "paper",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Find the broken pattern",
+        "ar": "اكتشف خلل النمط"
+      },
+      "summary": {
+        "en": "Repair one change in a repeating shape pattern.",
+        "ar": "أصلح تغييرًا واحدًا في نمط أشكال متكرّر."
+      }
+    },
+    {
+      "id": "kids-5-6-logic-04",
+      "age": "5-6",
+      "area": "logic",
+      "format": "game",
+      "minutes": 15,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Build from a spoken plan",
+        "ar": "ابنِ حسب خطة مسموعة"
+      },
+      "summary": {
+        "en": "Describe a small block model for another builder.",
+        "ar": "صِف نموذج مكعّبات صغيرًا ليبنيه شخص آخر."
+      }
+    },
+    {
+      "id": "kids-5-6-logic-05",
+      "age": "5-6",
+      "area": "logic",
+      "format": "game",
+      "minutes": 10,
+      "materialGroup": "paper",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Guess my sorting rule",
+        "ar": "خمّن قاعدة تصنيفي"
+      },
+      "summary": {
+        "en": "Discover a hidden rule by testing new examples.",
+        "ar": "اكتشف قاعدة مخفية بتجربة أمثلة جديدة."
+      }
+    },
+    {
+      "id": "kids-5-6-science-01",
+      "age": "5-6",
+      "area": "science",
+      "format": "experiment",
+      "minutes": 20,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Strong paper bridges",
+        "ar": "جسور ورقية قوية"
+      },
+      "summary": {
+        "en": "Compare a flat paper bridge with a folded one.",
+        "ar": "قارن جسرًا ورقيًا مسطّحًا بآخر مطوي."
+      }
+    },
+    {
+      "id": "kids-5-6-science-02",
+      "age": "5-6",
+      "area": "science",
+      "format": "experiment",
+      "minutes": 15,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Which cloth drinks water?",
+        "ar": "أي قماش يمتص الماء؟"
+      },
+      "summary": {
+        "en": "Compare how two materials take up the same small splash.",
+        "ar": "قارن امتصاص مادتين لكمية ماء صغيرة متساوية."
+      }
+    },
+    {
+      "id": "kids-5-6-science-03",
+      "age": "5-6",
+      "area": "science",
+      "format": "game",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Leaf observer notebook",
+        "ar": "دفتر ملاحظة الأوراق"
+      },
+      "summary": {
+        "en": "Compare visible leaf features without pulling plants apart.",
+        "ar": "قارن صفات الأوراق الظاهرة دون إتلاف النباتات."
+      }
+    },
+    {
+      "id": "kids-5-6-science-04",
+      "age": "5-6",
+      "area": "science",
+      "format": "experiment",
+      "minutes": 15,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Let the light through",
+        "ar": "دع الضوء يمرّ"
+      },
+      "summary": {
+        "en": "Compare clear, translucent and opaque materials.",
+        "ar": "قارن مواد شفافة وشبه شفافة ومعتمة."
+      }
+    },
+    {
+      "id": "kids-5-6-science-05",
+      "age": "5-6",
+      "area": "science",
+      "format": "experiment",
+      "minutes": 10,
+      "materialGroup": "none",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Feel a humming sound",
+        "ar": "تحسّس صوت الطنين"
+      },
+      "summary": {
+        "en": "Compare gentle humming with silent breathing.",
+        "ar": "قارن طنينًا لطيفًا بالتنفّس الصامت."
+      }
+    },
+    {
+      "id": "kids-5-6-creativity-01",
+      "age": "5-6",
+      "area": "creativity",
+      "format": "making",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Map an imaginary island",
+        "ar": "ارسم جزيرة خيالية"
+      },
+      "summary": {
+        "en": "Design places and paths for a tiny adventure.",
+        "ar": "صمّم أماكن ومسارات لمغامرة صغيرة."
+      }
+    },
+    {
+      "id": "kids-5-6-creativity-02",
+      "age": "5-6",
+      "area": "creativity",
+      "format": "making",
+      "minutes": 30,
+      "materialGroup": "craft",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "A recycled toy shelter",
+        "ar": "مأوى للعبة من مواد معاد استخدامها"
+      },
+      "summary": {
+        "en": "Design a small shelter that fits a toy.",
+        "ar": "صمّم مأوى صغيرًا يتّسع للعبة."
+      }
+    },
+    {
+      "id": "kids-5-6-creativity-03",
+      "age": "5-6",
+      "area": "creativity",
+      "format": "making",
+      "minutes": 20,
+      "materialGroup": "craft",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Over-and-under paper weaving",
+        "ar": "نسج الورق فوق وتحت"
+      },
+      "summary": {
+        "en": "Weave broad paper strips into a simple mat.",
+        "ar": "انسج شرائط ورقية عريضة لصنع حصيرة بسيطة."
+      }
+    },
+    {
+      "id": "kids-5-6-creativity-04",
+      "age": "5-6",
+      "area": "creativity",
+      "format": "making",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Draw a tiny music score",
+        "ar": "ارسم مقطوعة موسيقية صغيرة"
+      },
+      "summary": {
+        "en": "Create picture symbols for sounds and perform them.",
+        "ar": "ابتكر رموزًا مصوّرة للأصوات ونفّذها."
+      }
+    },
+    {
+      "id": "kids-5-6-creativity-05",
+      "age": "5-6",
+      "area": "creativity",
+      "format": "making",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "One subject, three styles",
+        "ar": "موضوع واحد بثلاثة أساليب"
+      },
+      "summary": {
+        "en": "Draw the same familiar thing using three kinds of marks.",
+        "ar": "ارسم الشيء المألوف نفسه بثلاثة أنواع من العلامات."
+      }
+    },
+    {
+      "id": "kids-5-6-life-01",
+      "age": "5-6",
+      "area": "life",
+      "format": "game",
+      "minutes": 15,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Pack for a pretend outing",
+        "ar": "جهّز حقيبة لنزهة خيالية"
+      },
+      "summary": {
+        "en": "Choose useful items for a specific family outing.",
+        "ar": "اختر أشياء مفيدة لنزهة عائلية محدّدة."
+      }
+    },
+    {
+      "id": "kids-5-6-life-02",
+      "age": "5-6",
+      "area": "life",
+      "format": "story",
+      "minutes": 15,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Two builders, one favourite block",
+        "ar": "بنّاءان ومكعّب مفضّل واحد"
+      },
+      "summary": {
+        "en": "Act out different ways to solve a small sharing disagreement.",
+        "ar": "مثّل طرقًا مختلفة لحل خلاف صغير حول المشاركة."
+      }
+    },
+    {
+      "id": "kids-5-6-life-03",
+      "age": "5-6",
+      "area": "life",
+      "format": "game",
+      "minutes": 15,
+      "materialGroup": "household",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Practise a zip and a button",
+        "ar": "تدرّب على السحّاب والزر"
+      },
+      "summary": {
+        "en": "Try clothing fasteners on a garment laid flat.",
+        "ar": "جرّب وسائل إغلاق الملابس وهي مفرودة."
+      }
+    },
+    {
+      "id": "kids-5-6-life-04",
+      "age": "5-6",
+      "area": "life",
+      "format": "story",
+      "minutes": 10,
+      "materialGroup": "none",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Make a clear help request",
+        "ar": "اطلب المساعدة بوضوح"
+      },
+      "summary": {
+        "en": "Practise telling a trusted adult what help is needed.",
+        "ar": "تدرّب على إخبار بالغ موثوق بالمساعدة المطلوبة."
+      }
+    },
+    {
+      "id": "kids-5-6-life-05",
+      "age": "5-6",
+      "area": "life",
+      "format": "game",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "adult",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Plan a family mini-project",
+        "ar": "خطّط مشروعًا عائليًا صغيرًا"
+      },
+      "summary": {
+        "en": "Divide a simple shared task into jobs and check completion.",
+        "ar": "قسّم مهمة مشتركة بسيطة إلى أعمال وتحقّق من إتمامها."
+      }
+    },
+    {
+      "id": "kids-7-8-language-01",
+      "age": "7-8",
+      "area": "language",
+      "format": "story",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Lost-and-found story",
+        "ar": "قصة المفقودات"
+      },
+      "summary": {
+        "en": "Turn a lost object into a beginning, middle and ending.",
+        "ar": "حوّل شيئًا مفقودًا إلى قصة لها بداية ووسط ونهاية."
+      }
+    },
+    {
+      "id": "kids-7-8-language-02",
+      "age": "7-8",
+      "area": "language",
+      "format": "game",
+      "minutes": 10,
+      "materialGroup": "none",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Describe without naming",
+        "ar": "صِف دون أن تسمّي"
+      },
+      "summary": {
+        "en": "Help a partner guess an object using precise spoken clues.",
+        "ar": "ساعد شريكًا على تخمين شيء باستخدام أوصاف شفهية دقيقة."
+      }
+    },
+    {
+      "id": "kids-7-8-language-03",
+      "age": "7-8",
+      "area": "language",
+      "format": "puzzle",
+      "minutes": 10,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "nearby",
+      "screenFree": true,
+      "title": {
+        "en": "Facts or guesses?",
+        "ar": "حقائق أم تخمينات؟"
+      },
+      "summary": {
+        "en": "Read a tiny scene and separate what it says from what you infer.",
+        "ar": "اقرأ مشهدًا قصيرًا وميّز ما يقوله عما تستنتجه."
+      }
+    },
+    {
+      "id": "kids-7-8-language-04",
+      "age": "7-8",
+      "area": "language",
+      "format": "game",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Instructions that work",
+        "ar": "تعليمات تعمل"
+      },
+      "summary": {
+        "en": "Test whether a partner can reproduce a drawing from your words.",
+        "ar": "اختبر قدرة شريكك على إعادة رسم شكل اعتمادًا على كلماتك."
+      }
+    },
+    {
+      "id": "kids-7-8-language-05",
+      "age": "7-8",
+      "area": "language",
+      "format": "story",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Two voices, one event",
+        "ar": "صوتان لحدث واحد"
+      },
+      "summary": {
+        "en": "Tell the same small event from two different viewpoints.",
+        "ar": "احكِ الحدث الصغير نفسه من وجهتي نظر مختلفتين."
+      }
+    },
+    {
+      "id": "kids-7-8-maths-01",
+      "age": "7-8",
+      "area": "maths",
+      "format": "game",
+      "minutes": 15,
+      "materialGroup": "household",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "The twenty-token shop",
+        "ar": "متجر العشرين قطعة"
+      },
+      "summary": {
+        "en": "Buy combinations of pretend goods while keeping track of a budget.",
+        "ar": "اشترِ مجموعات من سلع خيالية وتابع الميزانية."
+      }
+    },
+    {
+      "id": "kids-7-8-maths-02",
+      "age": "7-8",
+      "area": "maths",
+      "format": "making",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "nearby",
+      "screenFree": true,
+      "title": {
+        "en": "Fraction picnic",
+        "ar": "نزهة الكسور"
+      },
+      "summary": {
+        "en": "Fold paper food into equal shares and compare half with quarters.",
+        "ar": "اطوِ طعامًا ورقيًا إلى حصص متساوية وقارن النصف بالأرباع."
+      }
+    },
+    {
+      "id": "kids-7-8-maths-03",
+      "age": "7-8",
+      "area": "maths",
+      "format": "game",
+      "minutes": 15,
+      "materialGroup": "household",
+      "reading": "independent",
+      "adult": "nearby",
+      "screenFree": true,
+      "title": {
+        "en": "Measure twice",
+        "ar": "قِس مرتين"
+      },
+      "summary": {
+        "en": "Discover why the same table has different measurements in different units.",
+        "ar": "اكتشف لماذا يختلف قياس الطاولة نفسها باختلاف وحدة القياس."
+      }
+    },
+    {
+      "id": "kids-7-8-maths-04",
+      "age": "7-8",
+      "area": "maths",
+      "format": "puzzle",
+      "minutes": 10,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "nearby",
+      "screenFree": true,
+      "title": {
+        "en": "Timetable detective",
+        "ar": "محقق الجدول الزمني"
+      },
+      "summary": {
+        "en": "Work out when a short sequence of activities will finish.",
+        "ar": "احسب متى تنتهي سلسلة قصيرة من الأنشطة."
+      }
+    },
+    {
+      "id": "kids-7-8-maths-05",
+      "age": "7-8",
+      "area": "maths",
+      "format": "game",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "A tiny survey",
+        "ar": "استطلاع صغير"
+      },
+      "summary": {
+        "en": "Collect a few preferences and turn them into a readable bar chart.",
+        "ar": "اجمع تفضيلات قليلة وحوّلها إلى مخطط أعمدة واضح."
+      }
+    },
+    {
+      "id": "kids-7-8-logic-01",
+      "age": "7-8",
+      "area": "logic",
+      "format": "puzzle",
+      "minutes": 10,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "nearby",
+      "screenFree": true,
+      "title": {
+        "en": "Three pets, two clues",
+        "ar": "ثلاثة حيوانات ودليلان"
+      },
+      "summary": {
+        "en": "Match three fictional children to three pets by elimination.",
+        "ar": "طابق ثلاثة أطفال خياليين مع ثلاثة حيوانات باستخدام الاستبعاد."
+      }
+    },
+    {
+      "id": "kids-7-8-logic-02",
+      "age": "7-8",
+      "area": "logic",
+      "format": "puzzle",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "nearby",
+      "screenFree": true,
+      "title": {
+        "en": "Two sorting rules",
+        "ar": "قاعدتان للفرز"
+      },
+      "summary": {
+        "en": "Sort drawn shapes by colour and shape at the same time.",
+        "ar": "افرز أشكالًا مرسومة حسب اللون والشكل في الوقت نفسه."
+      }
+    },
+    {
+      "id": "kids-7-8-logic-03",
+      "age": "7-8",
+      "area": "logic",
+      "format": "game",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Robot on a grid",
+        "ar": "روبوت على شبكة"
+      },
+      "summary": {
+        "en": "Write movement instructions that guide a pretend robot to a goal.",
+        "ar": "اكتب تعليمات حركة توجّه روبوتًا خياليًا إلى هدف."
+      }
+    },
+    {
+      "id": "kids-7-8-logic-04",
+      "age": "7-8",
+      "area": "logic",
+      "format": "puzzle",
+      "minutes": 10,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "nearby",
+      "screenFree": true,
+      "title": {
+        "en": "Find a rule, test a rule",
+        "ar": "اكتشف قاعدة واختبرها"
+      },
+      "summary": {
+        "en": "Explore number patterns and explain the rule you chose.",
+        "ar": "استكشف أنماط الأعداد واشرح القاعدة التي اخترتها."
+      }
+    },
+    {
+      "id": "kids-7-8-logic-05",
+      "age": "7-8",
+      "area": "logic",
+      "format": "puzzle",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "nearby",
+      "screenFree": true,
+      "title": {
+        "en": "The snack-box order",
+        "ar": "ترتيب علب الوجبات"
+      },
+      "summary": {
+        "en": "Arrange four labelled boxes using position clues.",
+        "ar": "رتّب أربع علب مرسومة ومسمّاة باستخدام أدلة عن مواقعها."
+      }
+    },
+    {
+      "id": "kids-7-8-science-01",
+      "age": "7-8",
+      "area": "science",
+      "format": "experiment",
+      "minutes": 20,
+      "materialGroup": "household",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Paper bridge test",
+        "ar": "اختبار الجسر الورقي"
+      },
+      "summary": {
+        "en": "Compare a flat paper bridge with a folded version using the same load.",
+        "ar": "قارن جسرًا ورقيًا مسطحًا بنسخة مطوية باستخدام الحمل نفسه."
+      }
+    },
+    {
+      "id": "kids-7-8-science-02",
+      "age": "7-8",
+      "area": "science",
+      "format": "experiment",
+      "minutes": 15,
+      "materialGroup": "household",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Where does the water go?",
+        "ar": "إلى أين يذهب الماء؟"
+      },
+      "summary": {
+        "en": "Compare how three materials respond to the same small amount of water.",
+        "ar": "قارن استجابة ثلاث مواد لكمية صغيرة متساوية من الماء."
+      }
+    },
+    {
+      "id": "kids-7-8-science-03",
+      "age": "7-8",
+      "area": "science",
+      "format": "experiment",
+      "minutes": 15,
+      "materialGroup": "household",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Make a shadow grow",
+        "ar": "اجعل الظل يكبر"
+      },
+      "summary": {
+        "en": "Move an object between a torch and a wall to investigate shadow size.",
+        "ar": "حرّك شيئًا بين مصباح يدوي وحائط لاستكشاف حجم الظل."
+      }
+    },
+    {
+      "id": "kids-7-8-science-04",
+      "age": "7-8",
+      "area": "science",
+      "format": "game",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "One place, many living things",
+        "ar": "مكان واحد وكائنات كثيرة"
+      },
+      "summary": {
+        "en": "Observe one small place and record living things without disturbing them.",
+        "ar": "راقب مكانًا صغيرًا وسجّل الكائنات الحية دون إزعاجها."
+      }
+    },
+    {
+      "id": "kids-7-8-science-05",
+      "age": "7-8",
+      "area": "science",
+      "format": "experiment",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "nearby",
+      "screenFree": true,
+      "title": {
+        "en": "Flat or crumpled?",
+        "ar": "مسطحة أم مجعّدة؟"
+      },
+      "summary": {
+        "en": "Compare how two equal sheets fall when their shapes differ.",
+        "ar": "قارن سقوط ورقتين متساويتين عندما يختلف شكلهما."
+      }
+    },
+    {
+      "id": "kids-7-8-creativity-01",
+      "age": "7-8",
+      "area": "creativity",
+      "format": "making",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "nearby",
+      "screenFree": true,
+      "title": {
+        "en": "Island symbols and map keys",
+        "ar": "رموز الجزيرة ومفتاح الخريطة"
+      },
+      "summary": {
+        "en": "Design a place with landmarks and a key that another person can use.",
+        "ar": "صمّم مكانًا بمعالم ومفتاح رموز يستطيع شخص آخر استخدامه."
+      }
+    },
+    {
+      "id": "kids-7-8-creativity-02",
+      "age": "7-8",
+      "area": "creativity",
+      "format": "game",
+      "minutes": 15,
+      "materialGroup": "none",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Rhythm conversation",
+        "ar": "حوار بالإيقاع"
+      },
+      "summary": {
+        "en": "Trade short sound patterns and build a shared rhythm.",
+        "ar": "تبادلا أنماطًا صوتية قصيرة وابنيا إيقاعًا مشتركًا."
+      }
+    },
+    {
+      "id": "kids-7-8-creativity-03",
+      "age": "7-8",
+      "area": "creativity",
+      "format": "making",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "nearby",
+      "screenFree": true,
+      "title": {
+        "en": "A pattern that tiles",
+        "ar": "نمط يغطي الصفحة"
+      },
+      "summary": {
+        "en": "Fill a paper region with repeating squares and create a shared-edge design.",
+        "ar": "املأ مساحة ورقية بمربعات متكررة وابتكر تصميمًا تتصل حوافه."
+      }
+    },
+    {
+      "id": "kids-7-8-creativity-04",
+      "age": "7-8",
+      "area": "creativity",
+      "format": "story",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Folded characters on stage",
+        "ar": "شخصيات مطوية على المسرح"
+      },
+      "summary": {
+        "en": "Make two standing paper characters and perform a tiny dialogue.",
+        "ar": "اصنع شخصيتين ورقيتين واقفتين ومثّل حوارًا قصيرًا."
+      }
+    },
+    {
+      "id": "kids-7-8-creativity-05",
+      "age": "7-8",
+      "area": "creativity",
+      "format": "making",
+      "minutes": 30,
+      "materialGroup": "craft",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Design a pencil home",
+        "ar": "صمّم بيتًا للأقلام"
+      },
+      "summary": {
+        "en": "Turn a clean box into an organizer, then improve it after testing.",
+        "ar": "حوّل صندوقًا نظيفًا إلى منظّم، ثم حسّنه بعد الاختبار."
+      }
+    },
+    {
+      "id": "kids-7-8-life-01",
+      "age": "7-8",
+      "area": "life",
+      "format": "game",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Pack for the pretend trip",
+        "ar": "جهّز حقيبة الرحلة الخيالية"
+      },
+      "summary": {
+        "en": "Choose useful items for a short outing and explain the tradeoffs.",
+        "ar": "اختر أشياء مفيدة لنزهة قصيرة واشرح المفاضلات."
+      }
+    },
+    {
+      "id": "kids-7-8-life-02",
+      "age": "7-8",
+      "area": "life",
+      "format": "game",
+      "minutes": 15,
+      "materialGroup": "household",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "A fair turn-taking plan",
+        "ar": "خطة عادلة لتبادل الأدوار"
+      },
+      "summary": {
+        "en": "Make a simple agreement for sharing a favourite activity.",
+        "ar": "ضع اتفاقًا بسيطًا لتقاسم نشاط مفضل."
+      }
+    },
+    {
+      "id": "kids-7-8-life-03",
+      "age": "7-8",
+      "area": "life",
+      "format": "puzzle",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "nearby",
+      "screenFree": true,
+      "title": {
+        "en": "Morning routine puzzle",
+        "ar": "لغز روتين الصباح"
+      },
+      "summary": {
+        "en": "Arrange a fictional morning using simple order constraints.",
+        "ar": "رتّب صباحًا خياليًا باستخدام شروط بسيطة للترتيب."
+      }
+    },
+    {
+      "id": "kids-7-8-life-04",
+      "age": "7-8",
+      "area": "life",
+      "format": "game",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Ask a useful question",
+        "ar": "اطرح سؤالًا مفيدًا"
+      },
+      "summary": {
+        "en": "Practice asking for the missing information needed to finish a task.",
+        "ar": "تدرّب على طلب المعلومة الناقصة اللازمة لإكمال مهمة."
+      }
+    },
+    {
+      "id": "kids-7-8-life-05",
+      "age": "7-8",
+      "area": "life",
+      "format": "making",
+      "minutes": 20,
+      "materialGroup": "household",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Make a shared-space checklist",
+        "ar": "قائمة لمساحة مشتركة"
+      },
+      "summary": {
+        "en": "Create and test a short checklist for resetting a drawing area.",
+        "ar": "أنشئ واختبر قائمة قصيرة لإعادة ترتيب مكان الرسم."
+      }
+    },
+    {
+      "id": "kids-9-12-language-01",
+      "age": "9-12",
+      "area": "language",
+      "format": "puzzle",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Build a fair riddle",
+        "ar": "اصنع لغزًا منصفًا"
+      },
+      "summary": {
+        "en": "Write a riddle whose clues narrow toward a defensible answer.",
+        "ar": "اكتب لغزًا تضيق أدلته الاحتمالات وصولًا إلى إجابة يمكن تبريرها."
+      }
+    },
+    {
+      "id": "kids-9-12-language-02",
+      "age": "9-12",
+      "area": "language",
+      "format": "game",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "The evidence editor",
+        "ar": "محرر الأدلة"
+      },
+      "summary": {
+        "en": "Rewrite a dramatic claim so it matches the information available.",
+        "ar": "أعد صياغة ادعاء مبالغ فيه ليتوافق مع المعلومات المتاحة."
+      }
+    },
+    {
+      "id": "kids-9-12-language-03",
+      "age": "9-12",
+      "area": "language",
+      "format": "making",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "independent",
+      "screenFree": true,
+      "title": {
+        "en": "A poem with a hidden word",
+        "ar": "قصيدة بكلمة مخفية"
+      },
+      "summary": {
+        "en": "Create a short acrostic and choose images that fit its theme.",
+        "ar": "اكتب قصيدة قصيرة تخفي كلمة في أوائل أسطرها واختر صورًا تناسب موضوعها."
+      }
+    },
+    {
+      "id": "kids-9-12-language-04",
+      "age": "9-12",
+      "area": "language",
+      "format": "game",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Keep the meaning, cut the words",
+        "ar": "احتفظ بالمعنى واختصر الكلمات"
+      },
+      "summary": {
+        "en": "Edit a long notice into a short message without losing essential facts.",
+        "ar": "حرّر إعلانًا طويلًا إلى رسالة قصيرة دون فقد الحقائق الأساسية."
+      }
+    },
+    {
+      "id": "kids-9-12-language-05",
+      "age": "9-12",
+      "area": "language",
+      "format": "story",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Make a reasoned proposal",
+        "ar": "قدّم اقتراحًا معلّلًا"
+      },
+      "summary": {
+        "en": "Recommend a feature for an imaginary shared garden and consider an objection.",
+        "ar": "اقترح إضافة لحديقة مشتركة خيالية وناقش اعتراضًا عليها."
+      }
+    },
+    {
+      "id": "kids-9-12-maths-01",
+      "age": "9-12",
+      "area": "maths",
+      "format": "puzzle",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "independent",
+      "screenFree": true,
+      "title": {
+        "en": "Scale a colour recipe",
+        "ar": "كبّر وصفة الألوان"
+      },
+      "summary": {
+        "en": "Use a ratio to enlarge an imaginary paint mixture without changing its recipe.",
+        "ar": "استخدم النسبة لتكبير مزيج ألوان خيالي دون تغيير وصفته."
+      }
+    },
+    {
+      "id": "kids-9-12-maths-02",
+      "age": "9-12",
+      "area": "maths",
+      "format": "experiment",
+      "minutes": 20,
+      "materialGroup": "household",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Chance versus results",
+        "ar": "الاحتمال والنتائج"
+      },
+      "summary": {
+        "en": "Compare predicted chances with a small set of random draws.",
+        "ar": "قارن الاحتمالات المتوقعة بنتائج مجموعة صغيرة من السحوبات العشوائية."
+      }
+    },
+    {
+      "id": "kids-9-12-maths-03",
+      "age": "9-12",
+      "area": "maths",
+      "format": "puzzle",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "independent",
+      "screenFree": true,
+      "title": {
+        "en": "Which notebook offer?",
+        "ar": "أي عرض للدفاتر؟"
+      },
+      "summary": {
+        "en": "Compare bundle prices with both unit cost and a fixed spending limit.",
+        "ar": "قارن أسعار الحزم باستخدام سعر الوحدة وحد الإنفاق معًا."
+      }
+    },
+    {
+      "id": "kids-9-12-maths-04",
+      "age": "9-12",
+      "area": "maths",
+      "format": "puzzle",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "independent",
+      "screenFree": true,
+      "title": {
+        "en": "Same area, different fence",
+        "ar": "المساحة نفسها وسياج مختلف"
+      },
+      "summary": {
+        "en": "Find rectangular gardens with the same area and compare their perimeters.",
+        "ar": "ابحث عن حدائق مستطيلة لها المساحة نفسها وقارن محيطاتها."
+      }
+    },
+    {
+      "id": "kids-9-12-maths-05",
+      "age": "9-12",
+      "area": "maths",
+      "format": "puzzle",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "independent",
+      "screenFree": true,
+      "title": {
+        "en": "Which average tells the story?",
+        "ar": "أي متوسط يصف البيانات؟"
+      },
+      "summary": {
+        "en": "Compare mean and median when one measurement is much larger.",
+        "ar": "قارن المتوسط الحسابي والوسيط عندما تكون إحدى القيم أكبر بكثير."
+      }
+    },
+    {
+      "id": "kids-9-12-logic-01",
+      "age": "9-12",
+      "area": "logic",
+      "format": "puzzle",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "The river crossing plan",
+        "ar": "خطة عبور النهر"
+      },
+      "summary": {
+        "en": "Move three fictional passengers across a river while respecting constraints.",
+        "ar": "انقل ثلاثة ركاب خياليين عبر نهر مع الالتزام بالشروط."
+      }
+    },
+    {
+      "id": "kids-9-12-logic-02",
+      "age": "9-12",
+      "area": "logic",
+      "format": "puzzle",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "independent",
+      "screenFree": true,
+      "title": {
+        "en": "Only one label is true",
+        "ar": "ملصق واحد فقط صحيح"
+      },
+      "summary": {
+        "en": "Use the truth count to locate a pretend prize in one of three boxes.",
+        "ar": "استخدم عدد العبارات الصحيحة لتحديد جائزة خيالية في إحدى ثلاث علب."
+      }
+    },
+    {
+      "id": "kids-9-12-logic-03",
+      "age": "9-12",
+      "area": "logic",
+      "format": "puzzle",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "independent",
+      "screenFree": true,
+      "title": {
+        "en": "The shortest delivery route",
+        "ar": "أقصر طريق للتوصيل"
+      },
+      "summary": {
+        "en": "Find the least-cost route through a small weighted network.",
+        "ar": "ابحث عن المسار الأقل تكلفة في شبكة صغيرة ذات أوزان."
+      }
+    },
+    {
+      "id": "kids-9-12-logic-04",
+      "age": "9-12",
+      "area": "logic",
+      "format": "puzzle",
+      "minutes": 15,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "independent",
+      "screenFree": true,
+      "title": {
+        "en": "Crack the four-digit order",
+        "ar": "اكشف ترتيب الأرقام الأربعة"
+      },
+      "summary": {
+        "en": "Arrange four different digits using three ordering clues.",
+        "ar": "رتّب أربعة أرقام مختلفة باستخدام ثلاثة أدلة للترتيب."
+      }
+    },
+    {
+      "id": "kids-9-12-logic-05",
+      "age": "9-12",
+      "area": "logic",
+      "format": "game",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Thirteen-token strategy",
+        "ar": "استراتيجية القطع الثلاث عشرة"
+      },
+      "summary": {
+        "en": "Explore a take-away game and explain a winning first move.",
+        "ar": "استكشف لعبة إزالة قطع واشرح حركة أولى تضمن الفوز عند المتابعة الصحيحة."
+      }
+    },
+    {
+      "id": "kids-9-12-science-01",
+      "age": "9-12",
+      "area": "science",
+      "format": "experiment",
+      "minutes": 20,
+      "materialGroup": "household",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Does stirring change dissolving?",
+        "ar": "هل يغيّر التحريك سرعة الذوبان؟"
+      },
+      "summary": {
+        "en": "Compare two equal salt-and-water mixtures while changing only stirring.",
+        "ar": "قارن مزيجين متساويين من الملح والماء مع تغيير التحريك فقط."
+      }
+    },
+    {
+      "id": "kids-9-12-science-02",
+      "age": "9-12",
+      "area": "science",
+      "format": "experiment",
+      "minutes": 30,
+      "materialGroup": "household",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Keep the ice cool",
+        "ar": "حافظ على برودة الثلج"
+      },
+      "summary": {
+        "en": "Test whether a cloth covering slows melting under the same room conditions.",
+        "ar": "اختبر هل يبطئ غطاء قماشي ذوبان الثلج في ظروف الغرفة نفسها."
+      }
+    },
+    {
+      "id": "kids-9-12-science-03",
+      "age": "9-12",
+      "area": "science",
+      "format": "experiment",
+      "minutes": 15,
+      "materialGroup": "household",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "See a vibration",
+        "ar": "شاهد الاهتزاز"
+      },
+      "summary": {
+        "en": "Use a flexible ruler to connect visible movement with a sound.",
+        "ar": "استخدم مسطرة مرنة لربط الحركة المرئية بالصوت."
+      }
+    },
+    {
+      "id": "kids-9-12-science-04",
+      "age": "9-12",
+      "area": "science",
+      "format": "experiment",
+      "minutes": 20,
+      "materialGroup": "household",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "A surface that slows a slide",
+        "ar": "سطح يبطئ الانزلاق"
+      },
+      "summary": {
+        "en": "Compare a block sliding down a smooth ramp and a fabric-covered ramp.",
+        "ar": "قارن انزلاق جسم على منحدر أملس ومنحدر مغطى بالقماش."
+      }
+    },
+    {
+      "id": "kids-9-12-science-05",
+      "age": "9-12",
+      "area": "science",
+      "format": "making",
+      "minutes": 20,
+      "materialGroup": "household",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "A model of day and night",
+        "ar": "نموذج للنهار والليل"
+      },
+      "summary": {
+        "en": "Rotate a labelled ball in a steady beam of light to model a day.",
+        "ar": "أدر كرة عليها علامة أمام ضوء ثابت لتمثيل يوم."
+      }
+    },
+    {
+      "id": "kids-9-12-creativity-01",
+      "age": "9-12",
+      "area": "creativity",
+      "format": "making",
+      "minutes": 30,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Invent a five-minute board game",
+        "ar": "ابتكر لعبة لوحية لخمس دقائق"
+      },
+      "summary": {
+        "en": "Design a small game, test its rules and fix one confusing moment.",
+        "ar": "صمّم لعبة صغيرة واختبر قواعدها وأصلح موقفًا غامضًا واحدًا."
+      }
+    },
+    {
+      "id": "kids-9-12-creativity-02",
+      "age": "9-12",
+      "area": "creativity",
+      "format": "story",
+      "minutes": 30,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "independent",
+      "screenFree": true,
+      "title": {
+        "en": "A comic without words",
+        "ar": "قصة مصورة بلا كلمات"
+      },
+      "summary": {
+        "en": "Tell a four-panel story using actions, framing and visual clues.",
+        "ar": "احكِ قصة من أربع لوحات مستخدمًا الأفعال وزوايا الرسم والأدلة البصرية."
+      }
+    },
+    {
+      "id": "kids-9-12-creativity-03",
+      "age": "9-12",
+      "area": "creativity",
+      "format": "making",
+      "minutes": 30,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "nearby",
+      "screenFree": true,
+      "title": {
+        "en": "One-sheet standing sculpture",
+        "ar": "منحوتة قائمة من ورقة واحدة"
+      },
+      "summary": {
+        "en": "Build a free-standing paper form using folds, then test its stability.",
+        "ar": "ابنِ شكلًا ورقيًا يقف وحده باستخدام الطيات ثم اختبر ثباته."
+      }
+    },
+    {
+      "id": "kids-9-12-creativity-04",
+      "age": "9-12",
+      "area": "creativity",
+      "format": "making",
+      "minutes": 30,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "A sign everyone can read",
+        "ar": "لافتة سهلة الفهم"
+      },
+      "summary": {
+        "en": "Design a simple sign and test whether its symbol communicates clearly.",
+        "ar": "صمّم لافتة بسيطة واختبر هل يوصل رمزها المعنى بوضوح."
+      }
+    },
+    {
+      "id": "kids-9-12-creativity-05",
+      "age": "9-12",
+      "area": "creativity",
+      "format": "story",
+      "minutes": 20,
+      "materialGroup": "none",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "A scene made of sounds",
+        "ar": "مشهد من الأصوات"
+      },
+      "summary": {
+        "en": "Build a short imaginary setting using a sequence of gentle sounds.",
+        "ar": "ابنِ مكانًا خياليًا قصيرًا باستخدام تسلسل من أصوات هادئة."
+      }
+    },
+    {
+      "id": "kids-9-12-life-01",
+      "age": "9-12",
+      "area": "life",
+      "format": "puzzle",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Plan a small shared event",
+        "ar": "خطّط لفعالية مشتركة صغيرة"
+      },
+      "summary": {
+        "en": "Fit a welcome, activity and cleanup into a fixed fictional schedule.",
+        "ar": "وزّع الترحيب والنشاط والترتيب ضمن جدول خيالي محدد."
+      }
+    },
+    {
+      "id": "kids-9-12-life-02",
+      "age": "9-12",
+      "area": "life",
+      "format": "game",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Compare choices with criteria",
+        "ar": "قارن الخيارات بمعايير"
+      },
+      "summary": {
+        "en": "Choose a fictional club activity using shared priorities rather than a single favourite.",
+        "ar": "اختر نشاطًا لنادٍ خيالي وفق أولويات مشتركة بدل تفضيل واحد."
+      }
+    },
+    {
+      "id": "kids-9-12-life-03",
+      "age": "9-12",
+      "area": "life",
+      "format": "game",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Repair a crossed message",
+        "ar": "أصلح رسالة أسيء فهمها"
+      },
+      "summary": {
+        "en": "Practice clarifying an ambiguous text with calm, specific wording.",
+        "ar": "تدرّب على توضيح رسالة غامضة بصياغة هادئة ومحددة."
+      }
+    },
+    {
+      "id": "kids-9-12-life-04",
+      "age": "9-12",
+      "area": "life",
+      "format": "making",
+      "minutes": 30,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Teach a skill in five steps",
+        "ar": "علّم مهارة في خمس خطوات"
+      },
+      "summary": {
+        "en": "Make a short guide, watch someone use it and improve the instructions.",
+        "ar": "أنشئ دليلًا قصيرًا وراقب شخصًا يستخدمه ثم حسّن التعليمات."
+      }
+    },
+    {
+      "id": "kids-9-12-life-05",
+      "age": "9-12",
+      "area": "life",
+      "format": "game",
+      "minutes": 20,
+      "materialGroup": "paper",
+      "reading": "independent",
+      "adult": "together",
+      "screenFree": true,
+      "title": {
+        "en": "Share less, explain why",
+        "ar": "شارك معلومات أقل واشرح السبب"
+      },
+      "summary": {
+        "en": "Review a fictional activity invitation and remove unnecessary personal details.",
+        "ar": "راجع دعوة خيالية لنشاط واحذف التفاصيل الشخصية غير اللازمة."
+      }
+    }
+  ],
+  "ages": [
+    {
+      "id": "3-4",
+      "title": {
+        "en": "Little discoverers",
+        "ar": "مستكشفون صغار"
+      },
+      "description": {
+        "en": "Talk, notice, match and move. Play with a grown-up, one small discovery at a time.",
+        "ar": "نتحدّث ونلاحظ ونطابق ونتحرّك. نلعب مع شخص بالغ ونكتشف شيئًا صغيرًا في كل مرة."
+      }
+    },
+    {
+      "id": "5-6",
+      "title": {
+        "en": "Curious starters",
+        "ar": "بدايات فضولية"
+      },
+      "description": {
+        "en": "Explore sounds, stories, numbers and patterns through playful first steps.",
+        "ar": "نستكشف الأصوات والقصص والأعداد والأنماط بخطوات أولى مرحة."
+      }
+    },
+    {
+      "id": "7-8",
+      "title": {
+        "en": "Growing thinkers",
+        "ar": "أفكار تنمو"
+      },
+      "description": {
+        "en": "Read clues, test ideas, measure, make and explain how you worked it out.",
+        "ar": "نقرأ القرائن ونختبر الأفكار ونقيس ونصنع ونشرح كيف توصّلنا إلى النتيجة."
+      }
+    },
+    {
+      "id": "9-12",
+      "title": {
+        "en": "Independent explorers",
+        "ar": "مستكشفون مستقلّون"
+      },
+      "description": {
+        "en": "Investigate, reason, design and create. Follow a question a little further.",
+        "ar": "نبحث ونستدلّ ونصمّم ونبتكر، ونتتبّع السؤال إلى ما هو أبعد."
+      }
+    }
+  ],
+  "areas": [
+    {
+      "id": "language",
+      "title": {
+        "en": "Language & stories",
+        "ar": "اللغة والقصص"
+      },
+      "description": {
+        "en": "Listen, tell, read and play with words.",
+        "ar": "نستمع ونحكي ونقرأ ونلعب بالكلمات."
+      },
+      "image": "arabic-riddles"
+    },
+    {
+      "id": "maths",
+      "title": {
+        "en": "Maths in everyday life",
+        "ar": "الرياضيات في حياتنا"
+      },
+      "description": {
+        "en": "Count, compare, measure and find patterns.",
+        "ar": "نعدّ ونقارن ونقيس ونكتشف الأنماط."
+      },
+      "image": "logic-puzzles"
+    },
+    {
+      "id": "logic",
+      "title": {
+        "en": "Logic & problem-solving",
+        "ar": "المنطق وحلّ المشكلات"
+      },
+      "description": {
+        "en": "Notice clues, try possibilities and explain.",
+        "ar": "نلاحظ القرائن ونجرّب الاحتمالات ونشرح."
+      },
+      "image": "classic-riddles"
+    },
+    {
+      "id": "science",
+      "title": {
+        "en": "Science & nature",
+        "ar": "العلوم والطبيعة"
+      },
+      "description": {
+        "en": "Wonder, observe, predict and test.",
+        "ar": "نتساءل ونلاحظ ونتوقّع ونختبر."
+      },
+      "image": "geography"
+    },
+    {
+      "id": "creativity",
+      "title": {
+        "en": "Creativity & making",
+        "ar": "الإبداع والصنع"
+      },
+      "description": {
+        "en": "Imagine, draw, build and try another way.",
+        "ar": "نتخيّل ونرسم ونبني ونجرّب طريقة أخرى."
+      },
+      "image": "kids-riddles"
+    },
+    {
+      "id": "life",
+      "title": {
+        "en": "Together & everyday skills",
+        "ar": "التعاون ومهارات الحياة"
+      },
+      "description": {
+        "en": "Take turns, listen, plan and help each other.",
+        "ar": "نتبادل الأدوار ونستمع ونخطّط ونساعد بعضنا."
+      },
+      "image": "family-riddles"
+    }
+  ],
+  "plans": [
+    {
+      "id": "week-3-4-1",
+      "age": "3-4",
+      "title": {
+        "en": "Notice & wonder · ages 3-4",
+        "ar": "نلاحظ ونتساءل · الأعمار 3-4"
+      },
+      "description": {
+        "en": "Five optional activities for a flexible week. Move, repeat or skip any day.",
+        "ar": "خمسة أنشطة اختيارية لأسبوع مرن. غيّر اليوم أو كرّر النشاط أو تجاوزه كما يناسبك."
+      },
+      "activityIds": [
+        "kids-3-4-language-01",
+        "kids-3-4-maths-01",
+        "kids-3-4-logic-01",
+        "kids-3-4-science-01",
+        "kids-3-4-life-01"
+      ]
+    },
+    {
+      "id": "week-3-4-2",
+      "age": "3-4",
+      "title": {
+        "en": "Patterns & possibilities · ages 3-4",
+        "ar": "أنماط واحتمالات · الأعمار 3-4"
+      },
+      "description": {
+        "en": "Five optional activities for a flexible week. Move, repeat or skip any day.",
+        "ar": "خمسة أنشطة اختيارية لأسبوع مرن. غيّر اليوم أو كرّر النشاط أو تجاوزه كما يناسبك."
+      },
+      "activityIds": [
+        "kids-3-4-language-02",
+        "kids-3-4-maths-02",
+        "kids-3-4-science-02",
+        "kids-3-4-creativity-02",
+        "kids-3-4-life-02"
+      ]
+    },
+    {
+      "id": "week-3-4-3",
+      "age": "3-4",
+      "title": {
+        "en": "Make & explain · ages 3-4",
+        "ar": "نصنع ونشرح · الأعمار 3-4"
+      },
+      "description": {
+        "en": "Five optional activities for a flexible week. Move, repeat or skip any day.",
+        "ar": "خمسة أنشطة اختيارية لأسبوع مرن. غيّر اليوم أو كرّر النشاط أو تجاوزه كما يناسبك."
+      },
+      "activityIds": [
+        "kids-3-4-language-03",
+        "kids-3-4-maths-03",
+        "kids-3-4-logic-03",
+        "kids-3-4-creativity-03",
+        "kids-3-4-life-03"
+      ]
+    },
+    {
+      "id": "week-3-4-4",
+      "age": "3-4",
+      "title": {
+        "en": "Try, share & discover · ages 3-4",
+        "ar": "نجرّب ونشارك ونكتشف · الأعمار 3-4"
+      },
+      "description": {
+        "en": "Five optional activities for a flexible week. Move, repeat or skip any day.",
+        "ar": "خمسة أنشطة اختيارية لأسبوع مرن. غيّر اليوم أو كرّر النشاط أو تجاوزه كما يناسبك."
+      },
+      "activityIds": [
+        "kids-3-4-language-04",
+        "kids-3-4-logic-04",
+        "kids-3-4-science-04",
+        "kids-3-4-creativity-04",
+        "kids-3-4-life-04"
+      ]
+    },
+    {
+      "id": "week-5-6-1",
+      "age": "5-6",
+      "title": {
+        "en": "Notice & wonder · ages 5-6",
+        "ar": "نلاحظ ونتساءل · الأعمار 5-6"
+      },
+      "description": {
+        "en": "Five optional activities for a flexible week. Move, repeat or skip any day.",
+        "ar": "خمسة أنشطة اختيارية لأسبوع مرن. غيّر اليوم أو كرّر النشاط أو تجاوزه كما يناسبك."
+      },
+      "activityIds": [
+        "kids-5-6-language-01",
+        "kids-5-6-maths-01",
+        "kids-5-6-logic-01",
+        "kids-5-6-science-01",
+        "kids-5-6-life-01"
+      ]
+    },
+    {
+      "id": "week-5-6-2",
+      "age": "5-6",
+      "title": {
+        "en": "Patterns & possibilities · ages 5-6",
+        "ar": "أنماط واحتمالات · الأعمار 5-6"
+      },
+      "description": {
+        "en": "Five optional activities for a flexible week. Move, repeat or skip any day.",
+        "ar": "خمسة أنشطة اختيارية لأسبوع مرن. غيّر اليوم أو كرّر النشاط أو تجاوزه كما يناسبك."
+      },
+      "activityIds": [
+        "kids-5-6-language-02",
+        "kids-5-6-maths-02",
+        "kids-5-6-science-02",
+        "kids-5-6-creativity-02",
+        "kids-5-6-life-02"
+      ]
+    },
+    {
+      "id": "week-5-6-3",
+      "age": "5-6",
+      "title": {
+        "en": "Make & explain · ages 5-6",
+        "ar": "نصنع ونشرح · الأعمار 5-6"
+      },
+      "description": {
+        "en": "Five optional activities for a flexible week. Move, repeat or skip any day.",
+        "ar": "خمسة أنشطة اختيارية لأسبوع مرن. غيّر اليوم أو كرّر النشاط أو تجاوزه كما يناسبك."
+      },
+      "activityIds": [
+        "kids-5-6-language-03",
+        "kids-5-6-maths-03",
+        "kids-5-6-logic-03",
+        "kids-5-6-creativity-03",
+        "kids-5-6-life-03"
+      ]
+    },
+    {
+      "id": "week-5-6-4",
+      "age": "5-6",
+      "title": {
+        "en": "Try, share & discover · ages 5-6",
+        "ar": "نجرّب ونشارك ونكتشف · الأعمار 5-6"
+      },
+      "description": {
+        "en": "Five optional activities for a flexible week. Move, repeat or skip any day.",
+        "ar": "خمسة أنشطة اختيارية لأسبوع مرن. غيّر اليوم أو كرّر النشاط أو تجاوزه كما يناسبك."
+      },
+      "activityIds": [
+        "kids-5-6-language-04",
+        "kids-5-6-logic-04",
+        "kids-5-6-science-04",
+        "kids-5-6-creativity-04",
+        "kids-5-6-life-04"
+      ]
+    },
+    {
+      "id": "week-7-8-1",
+      "age": "7-8",
+      "title": {
+        "en": "Notice & wonder · ages 7-8",
+        "ar": "نلاحظ ونتساءل · الأعمار 7-8"
+      },
+      "description": {
+        "en": "Five optional activities for a flexible week. Move, repeat or skip any day.",
+        "ar": "خمسة أنشطة اختيارية لأسبوع مرن. غيّر اليوم أو كرّر النشاط أو تجاوزه كما يناسبك."
+      },
+      "activityIds": [
+        "kids-7-8-language-01",
+        "kids-7-8-maths-01",
+        "kids-7-8-logic-01",
+        "kids-7-8-science-01",
+        "kids-7-8-life-01"
+      ]
+    },
+    {
+      "id": "week-7-8-2",
+      "age": "7-8",
+      "title": {
+        "en": "Patterns & possibilities · ages 7-8",
+        "ar": "أنماط واحتمالات · الأعمار 7-8"
+      },
+      "description": {
+        "en": "Five optional activities for a flexible week. Move, repeat or skip any day.",
+        "ar": "خمسة أنشطة اختيارية لأسبوع مرن. غيّر اليوم أو كرّر النشاط أو تجاوزه كما يناسبك."
+      },
+      "activityIds": [
+        "kids-7-8-language-02",
+        "kids-7-8-maths-02",
+        "kids-7-8-science-02",
+        "kids-7-8-creativity-02",
+        "kids-7-8-life-02"
+      ]
+    },
+    {
+      "id": "week-7-8-3",
+      "age": "7-8",
+      "title": {
+        "en": "Make & explain · ages 7-8",
+        "ar": "نصنع ونشرح · الأعمار 7-8"
+      },
+      "description": {
+        "en": "Five optional activities for a flexible week. Move, repeat or skip any day.",
+        "ar": "خمسة أنشطة اختيارية لأسبوع مرن. غيّر اليوم أو كرّر النشاط أو تجاوزه كما يناسبك."
+      },
+      "activityIds": [
+        "kids-7-8-language-03",
+        "kids-7-8-maths-03",
+        "kids-7-8-logic-03",
+        "kids-7-8-creativity-03",
+        "kids-7-8-life-03"
+      ]
+    },
+    {
+      "id": "week-7-8-4",
+      "age": "7-8",
+      "title": {
+        "en": "Try, share & discover · ages 7-8",
+        "ar": "نجرّب ونشارك ونكتشف · الأعمار 7-8"
+      },
+      "description": {
+        "en": "Five optional activities for a flexible week. Move, repeat or skip any day.",
+        "ar": "خمسة أنشطة اختيارية لأسبوع مرن. غيّر اليوم أو كرّر النشاط أو تجاوزه كما يناسبك."
+      },
+      "activityIds": [
+        "kids-7-8-language-04",
+        "kids-7-8-logic-04",
+        "kids-7-8-science-04",
+        "kids-7-8-creativity-04",
+        "kids-7-8-life-04"
+      ]
+    },
+    {
+      "id": "week-9-12-1",
+      "age": "9-12",
+      "title": {
+        "en": "Notice & wonder · ages 9-12",
+        "ar": "نلاحظ ونتساءل · الأعمار 9-12"
+      },
+      "description": {
+        "en": "Five optional activities for a flexible week. Move, repeat or skip any day.",
+        "ar": "خمسة أنشطة اختيارية لأسبوع مرن. غيّر اليوم أو كرّر النشاط أو تجاوزه كما يناسبك."
+      },
+      "activityIds": [
+        "kids-9-12-language-01",
+        "kids-9-12-maths-01",
+        "kids-9-12-logic-01",
+        "kids-9-12-science-01",
+        "kids-9-12-life-01"
+      ]
+    },
+    {
+      "id": "week-9-12-2",
+      "age": "9-12",
+      "title": {
+        "en": "Patterns & possibilities · ages 9-12",
+        "ar": "أنماط واحتمالات · الأعمار 9-12"
+      },
+      "description": {
+        "en": "Five optional activities for a flexible week. Move, repeat or skip any day.",
+        "ar": "خمسة أنشطة اختيارية لأسبوع مرن. غيّر اليوم أو كرّر النشاط أو تجاوزه كما يناسبك."
+      },
+      "activityIds": [
+        "kids-9-12-language-02",
+        "kids-9-12-maths-02",
+        "kids-9-12-science-02",
+        "kids-9-12-creativity-02",
+        "kids-9-12-life-02"
+      ]
+    },
+    {
+      "id": "week-9-12-3",
+      "age": "9-12",
+      "title": {
+        "en": "Make & explain · ages 9-12",
+        "ar": "نصنع ونشرح · الأعمار 9-12"
+      },
+      "description": {
+        "en": "Five optional activities for a flexible week. Move, repeat or skip any day.",
+        "ar": "خمسة أنشطة اختيارية لأسبوع مرن. غيّر اليوم أو كرّر النشاط أو تجاوزه كما يناسبك."
+      },
+      "activityIds": [
+        "kids-9-12-language-03",
+        "kids-9-12-maths-03",
+        "kids-9-12-logic-03",
+        "kids-9-12-creativity-03",
+        "kids-9-12-life-03"
+      ]
+    },
+    {
+      "id": "week-9-12-4",
+      "age": "9-12",
+      "title": {
+        "en": "Try, share & discover · ages 9-12",
+        "ar": "نجرّب ونشارك ونكتشف · الأعمار 9-12"
+      },
+      "description": {
+        "en": "Five optional activities for a flexible week. Move, repeat or skip any day.",
+        "ar": "خمسة أنشطة اختيارية لأسبوع مرن. غيّر اليوم أو كرّر النشاط أو تجاوزه كما يناسبك."
+      },
+      "activityIds": [
+        "kids-9-12-language-04",
+        "kids-9-12-logic-04",
+        "kids-9-12-science-04",
+        "kids-9-12-creativity-04",
+        "kids-9-12-life-04"
+      ]
+    }
+  ],
+  "packs": [
+    {
+      "id": "pack-3-4-language",
+      "age": "3-4",
+      "area": "language",
+      "title": {
+        "en": "Language & stories · ages 3-4",
+        "ar": "اللغة والقصص · الأعمار 3-4"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-3-4-language-01",
+        "kids-3-4-language-02",
+        "kids-3-4-language-03",
+        "kids-3-4-language-04",
+        "kids-3-4-language-05"
+      ]
+    },
+    {
+      "id": "pack-3-4-maths",
+      "age": "3-4",
+      "area": "maths",
+      "title": {
+        "en": "Maths in everyday life · ages 3-4",
+        "ar": "الرياضيات في حياتنا · الأعمار 3-4"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-3-4-maths-01",
+        "kids-3-4-maths-02",
+        "kids-3-4-maths-03",
+        "kids-3-4-maths-04",
+        "kids-3-4-maths-05"
+      ]
+    },
+    {
+      "id": "pack-3-4-logic",
+      "age": "3-4",
+      "area": "logic",
+      "title": {
+        "en": "Logic & problem-solving · ages 3-4",
+        "ar": "المنطق وحلّ المشكلات · الأعمار 3-4"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-3-4-logic-01",
+        "kids-3-4-logic-02",
+        "kids-3-4-logic-03",
+        "kids-3-4-logic-04",
+        "kids-3-4-logic-05"
+      ]
+    },
+    {
+      "id": "pack-3-4-science",
+      "age": "3-4",
+      "area": "science",
+      "title": {
+        "en": "Science & nature · ages 3-4",
+        "ar": "العلوم والطبيعة · الأعمار 3-4"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-3-4-science-01",
+        "kids-3-4-science-02",
+        "kids-3-4-science-03",
+        "kids-3-4-science-04",
+        "kids-3-4-science-05"
+      ]
+    },
+    {
+      "id": "pack-3-4-creativity",
+      "age": "3-4",
+      "area": "creativity",
+      "title": {
+        "en": "Creativity & making · ages 3-4",
+        "ar": "الإبداع والصنع · الأعمار 3-4"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-3-4-creativity-01",
+        "kids-3-4-creativity-02",
+        "kids-3-4-creativity-03",
+        "kids-3-4-creativity-04",
+        "kids-3-4-creativity-05"
+      ]
+    },
+    {
+      "id": "pack-3-4-life",
+      "age": "3-4",
+      "area": "life",
+      "title": {
+        "en": "Together & everyday skills · ages 3-4",
+        "ar": "التعاون ومهارات الحياة · الأعمار 3-4"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-3-4-life-01",
+        "kids-3-4-life-02",
+        "kids-3-4-life-03",
+        "kids-3-4-life-04",
+        "kids-3-4-life-05"
+      ]
+    },
+    {
+      "id": "pack-5-6-language",
+      "age": "5-6",
+      "area": "language",
+      "title": {
+        "en": "Language & stories · ages 5-6",
+        "ar": "اللغة والقصص · الأعمار 5-6"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-5-6-language-01",
+        "kids-5-6-language-02",
+        "kids-5-6-language-03",
+        "kids-5-6-language-04",
+        "kids-5-6-language-05"
+      ]
+    },
+    {
+      "id": "pack-5-6-maths",
+      "age": "5-6",
+      "area": "maths",
+      "title": {
+        "en": "Maths in everyday life · ages 5-6",
+        "ar": "الرياضيات في حياتنا · الأعمار 5-6"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-5-6-maths-01",
+        "kids-5-6-maths-02",
+        "kids-5-6-maths-03",
+        "kids-5-6-maths-04",
+        "kids-5-6-maths-05"
+      ]
+    },
+    {
+      "id": "pack-5-6-logic",
+      "age": "5-6",
+      "area": "logic",
+      "title": {
+        "en": "Logic & problem-solving · ages 5-6",
+        "ar": "المنطق وحلّ المشكلات · الأعمار 5-6"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-5-6-logic-01",
+        "kids-5-6-logic-02",
+        "kids-5-6-logic-03",
+        "kids-5-6-logic-04",
+        "kids-5-6-logic-05"
+      ]
+    },
+    {
+      "id": "pack-5-6-science",
+      "age": "5-6",
+      "area": "science",
+      "title": {
+        "en": "Science & nature · ages 5-6",
+        "ar": "العلوم والطبيعة · الأعمار 5-6"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-5-6-science-01",
+        "kids-5-6-science-02",
+        "kids-5-6-science-03",
+        "kids-5-6-science-04",
+        "kids-5-6-science-05"
+      ]
+    },
+    {
+      "id": "pack-5-6-creativity",
+      "age": "5-6",
+      "area": "creativity",
+      "title": {
+        "en": "Creativity & making · ages 5-6",
+        "ar": "الإبداع والصنع · الأعمار 5-6"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-5-6-creativity-01",
+        "kids-5-6-creativity-02",
+        "kids-5-6-creativity-03",
+        "kids-5-6-creativity-04",
+        "kids-5-6-creativity-05"
+      ]
+    },
+    {
+      "id": "pack-5-6-life",
+      "age": "5-6",
+      "area": "life",
+      "title": {
+        "en": "Together & everyday skills · ages 5-6",
+        "ar": "التعاون ومهارات الحياة · الأعمار 5-6"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-5-6-life-01",
+        "kids-5-6-life-02",
+        "kids-5-6-life-03",
+        "kids-5-6-life-04",
+        "kids-5-6-life-05"
+      ]
+    },
+    {
+      "id": "pack-7-8-language",
+      "age": "7-8",
+      "area": "language",
+      "title": {
+        "en": "Language & stories · ages 7-8",
+        "ar": "اللغة والقصص · الأعمار 7-8"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-7-8-language-01",
+        "kids-7-8-language-02",
+        "kids-7-8-language-03",
+        "kids-7-8-language-04",
+        "kids-7-8-language-05"
+      ]
+    },
+    {
+      "id": "pack-7-8-maths",
+      "age": "7-8",
+      "area": "maths",
+      "title": {
+        "en": "Maths in everyday life · ages 7-8",
+        "ar": "الرياضيات في حياتنا · الأعمار 7-8"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-7-8-maths-01",
+        "kids-7-8-maths-02",
+        "kids-7-8-maths-03",
+        "kids-7-8-maths-04",
+        "kids-7-8-maths-05"
+      ]
+    },
+    {
+      "id": "pack-7-8-logic",
+      "age": "7-8",
+      "area": "logic",
+      "title": {
+        "en": "Logic & problem-solving · ages 7-8",
+        "ar": "المنطق وحلّ المشكلات · الأعمار 7-8"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-7-8-logic-01",
+        "kids-7-8-logic-02",
+        "kids-7-8-logic-03",
+        "kids-7-8-logic-04",
+        "kids-7-8-logic-05"
+      ]
+    },
+    {
+      "id": "pack-7-8-science",
+      "age": "7-8",
+      "area": "science",
+      "title": {
+        "en": "Science & nature · ages 7-8",
+        "ar": "العلوم والطبيعة · الأعمار 7-8"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-7-8-science-01",
+        "kids-7-8-science-02",
+        "kids-7-8-science-03",
+        "kids-7-8-science-04",
+        "kids-7-8-science-05"
+      ]
+    },
+    {
+      "id": "pack-7-8-creativity",
+      "age": "7-8",
+      "area": "creativity",
+      "title": {
+        "en": "Creativity & making · ages 7-8",
+        "ar": "الإبداع والصنع · الأعمار 7-8"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-7-8-creativity-01",
+        "kids-7-8-creativity-02",
+        "kids-7-8-creativity-03",
+        "kids-7-8-creativity-04",
+        "kids-7-8-creativity-05"
+      ]
+    },
+    {
+      "id": "pack-7-8-life",
+      "age": "7-8",
+      "area": "life",
+      "title": {
+        "en": "Together & everyday skills · ages 7-8",
+        "ar": "التعاون ومهارات الحياة · الأعمار 7-8"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-7-8-life-01",
+        "kids-7-8-life-02",
+        "kids-7-8-life-03",
+        "kids-7-8-life-04",
+        "kids-7-8-life-05"
+      ]
+    },
+    {
+      "id": "pack-9-12-language",
+      "age": "9-12",
+      "area": "language",
+      "title": {
+        "en": "Language & stories · ages 9-12",
+        "ar": "اللغة والقصص · الأعمار 9-12"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-9-12-language-01",
+        "kids-9-12-language-02",
+        "kids-9-12-language-03",
+        "kids-9-12-language-04",
+        "kids-9-12-language-05"
+      ]
+    },
+    {
+      "id": "pack-9-12-maths",
+      "age": "9-12",
+      "area": "maths",
+      "title": {
+        "en": "Maths in everyday life · ages 9-12",
+        "ar": "الرياضيات في حياتنا · الأعمار 9-12"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-9-12-maths-01",
+        "kids-9-12-maths-02",
+        "kids-9-12-maths-03",
+        "kids-9-12-maths-04",
+        "kids-9-12-maths-05"
+      ]
+    },
+    {
+      "id": "pack-9-12-logic",
+      "age": "9-12",
+      "area": "logic",
+      "title": {
+        "en": "Logic & problem-solving · ages 9-12",
+        "ar": "المنطق وحلّ المشكلات · الأعمار 9-12"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-9-12-logic-01",
+        "kids-9-12-logic-02",
+        "kids-9-12-logic-03",
+        "kids-9-12-logic-04",
+        "kids-9-12-logic-05"
+      ]
+    },
+    {
+      "id": "pack-9-12-science",
+      "age": "9-12",
+      "area": "science",
+      "title": {
+        "en": "Science & nature · ages 9-12",
+        "ar": "العلوم والطبيعة · الأعمار 9-12"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-9-12-science-01",
+        "kids-9-12-science-02",
+        "kids-9-12-science-03",
+        "kids-9-12-science-04",
+        "kids-9-12-science-05"
+      ]
+    },
+    {
+      "id": "pack-9-12-creativity",
+      "age": "9-12",
+      "area": "creativity",
+      "title": {
+        "en": "Creativity & making · ages 9-12",
+        "ar": "الإبداع والصنع · الأعمار 9-12"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-9-12-creativity-01",
+        "kids-9-12-creativity-02",
+        "kids-9-12-creativity-03",
+        "kids-9-12-creativity-04",
+        "kids-9-12-creativity-05"
+      ]
+    },
+    {
+      "id": "pack-9-12-life",
+      "age": "9-12",
+      "area": "life",
+      "title": {
+        "en": "Together & everyday skills · ages 9-12",
+        "ar": "التعاون ومهارات الحياة · الأعمار 9-12"
+      },
+      "description": {
+        "en": "Five complete activities, space to try your ideas, and a separate parent answer guide.",
+        "ar": "خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل."
+      },
+      "activityIds": [
+        "kids-9-12-life-01",
+        "kids-9-12-life-02",
+        "kids-9-12-life-03",
+        "kids-9-12-life-04",
+        "kids-9-12-life-05"
+      ]
+    }
+  ],
+  "guides": [
+    {
+      "id": "choose-a-starting-level",
+      "title": {
+        "en": "Find a comfortable starting point",
+        "ar": "اختيار بداية مناسبة"
+      },
+      "description": {
+        "en": "Use age as a guide, then follow what your child can enjoy and try.",
+        "ar": "اجعل العمر دليلًا أوليًا، ثم اتبع ما يستمتع به طفلك ويستطيع تجربته."
+      }
+    },
+    {
+      "id": "help-without-giving-answers",
+      "title": {
+        "en": "Help without giving the answer",
+        "ar": "المساعدة دون إعطاء الإجابة"
+      },
+      "description": {
+        "en": "Small prompts that leave the discovery with your child.",
+        "ar": "تلميحات صغيرة تترك متعة الاكتشاف لطفلك."
+      }
+    },
+    {
+      "id": "bilingual-play",
+      "title": {
+        "en": "Make room for both languages",
+        "ar": "مساحة للّعب باللغتين"
+      },
+      "description": {
+        "en": "Enjoy Arabic and English without turning every game into a translation test.",
+        "ar": "استمتع بالعربية والإنجليزية دون تحويل كل لعبة إلى اختبار ترجمة."
+      }
+    },
+    {
+      "id": "ten-minute-routine",
+      "title": {
+        "en": "Build a gentle ten-minute routine",
+        "ar": "روتين لطيف في عشر دقائق"
+      },
+      "description": {
+        "en": "A small invitation to play, with space for busy days.",
+        "ar": "دعوة صغيرة للّعب، تتّسع للأيام المزدحمة."
+      }
+    },
+    {
+      "id": "learning-from-mistakes",
+      "title": {
+        "en": "Turn a mistake into a question",
+        "ar": "حوّل الخطأ إلى سؤال"
+      },
+      "description": {
+        "en": "Explore what happened without scores or pressure.",
+        "ar": "استكشف ما حدث دون درجات أو ضغط."
+      }
+    },
+    {
+      "id": "adapt-the-activity",
+      "title": {
+        "en": "Give every child a way to join",
+        "ar": "طريقة لكل طفل للمشاركة"
+      },
+      "description": {
+        "en": "Change the materials or response, while keeping the idea.",
+        "ar": "غيّر المواد أو طريقة الإجابة مع الحفاظ على الفكرة."
+      }
+    },
+    {
+      "id": "mixed-age-siblings",
+      "title": {
+        "en": "Play together across ages",
+        "ar": "اللّعب بين أعمار مختلفة"
+      },
+      "description": {
+        "en": "One shared activity, with different ways to contribute.",
+        "ar": "نشاط مشترك، وطرق مختلفة للمساهمة."
+      }
+    },
+    {
+      "id": "take-learning-offline",
+      "title": {
+        "en": "Take the idea away from the screen",
+        "ar": "انقل الفكرة بعيدًا عن الشاشة"
+      },
+      "description": {
+        "en": "Use the page to begin, then explore the room, the paper or the outdoors.",
+        "ar": "ابدأ من الصفحة ثم استكشف الغرفة أو الورق أو المكان الخارجي."
+      }
+    }
+  ],
+  "legacy": [
+    {
+      "id": "kids-riddles-001",
+      "question": {
+        "en": "I am made of colored wax, wear a paper jacket, and leave a bright trail on a page. What am I?",
+        "ar": "أنا مصنوع من شمع ملوّن، وأرتدي غلافاً ورقياً، وأترك خطاً زاهياً على الصفحة. ما أنا؟"
+      },
+      "answer": {
+        "en": "A crayon",
+        "ar": "قلم شمع ملوّن"
+      },
+      "age": "5-6",
+      "explanation": {
+        "en": "The wax makes a coloured mark. Many crayons have a paper wrapper around the wax.",
+        "ar": "يترك الشمع أثرًا ملوّنًا، وتحيط بكثير من أقلام الشمع ورقة تغليف."
+      }
+    },
+    {
+      "id": "kids-riddles-002",
+      "question": {
+        "en": "I am orange, grow underground, and rabbits often eat me. What am I?",
+        "ar": "أنا برتقالي اللون، أنمو تحت الأرض، وكثيرًا ما تأكلني الأرانب. ما أنا؟"
+      },
+      "answer": {
+        "en": "A carrot",
+        "ar": "جزرة"
+      },
+      "age": "5-6",
+      "explanation": {
+        "en": "A carrot is a root that grows underground. Orange is a common carrot colour, although carrots can have other colours too.",
+        "ar": "الجزر جذر ينمو تحت الأرض. البرتقالي لون شائع له، وقد يكون بألوان أخرى أيضًا."
+      }
+    },
+    {
+      "id": "kids-riddles-003",
+      "question": {
+        "en": "Which craft turns a sheet of paper into shapes such as birds by folding it?",
+        "ar": "ما الفن الذي يحوّل ورقة إلى أشكال، مثل الطيور، بطيّها؟"
+      },
+      "answer": {
+        "en": "Origami, the art of paper folding.",
+        "ar": "الأوريغامي، أو فن طي الورق."
+      },
+      "age": "5-6",
+      "explanation": {
+        "en": "Origami creates shapes by folding paper. A paper bird is one familiar example.",
+        "ar": "يصنع الأوريغامي أشكالًا بطيّ الورق، والطائر الورقي مثال مألوف عليه."
+      }
+    },
+    {
+      "id": "kids-riddles-004",
+      "question": {
+        "en": "I stand beside a bed with one foot and a shade. Touch my switch and I make a small sun indoors. What am I?",
+        "ar": "أقف بجانب السرير على قدم واحدة ولي غطاء. المس مفتاحي فأصنع شمساً صغيرة داخل الغرفة. ما أنا؟"
+      },
+      "answer": {
+        "en": "A bedside lamp",
+        "ar": "مصباح جانبي"
+      },
+      "age": "5-6",
+      "explanation": {
+        "en": "A lamp has a base, a shade and a switch. “A small sun” describes its light; it is not a real sun.",
+        "ar": "للمصباح قاعدة وغطاء ومفتاح. «شمس صغيرة» وصف لضوئه وليست شمسًا حقيقية."
+      }
+    },
+    {
+      "id": "kids-riddles-005",
+      "question": {
+        "en": "We are soft twins that guard your feet, but we hide whenever your shoes arrive. What are we?",
+        "ar": "نحن توأمان ناعمان نحمي قدميك، لكننا نختبئ كلما حضرت الأحذية. ما نحن؟"
+      },
+      "answer": {
+        "en": "A pair of socks",
+        "ar": "زوج من الجوارب"
+      },
+      "age": "5-6",
+      "explanation": {
+        "en": "Socks come as a pair and cover your feet. Shoes usually cover the socks when you put them on.",
+        "ar": "تأتي الجوارب في زوج وتغطّي القدمين، وعادة تغطّيها الأحذية عند ارتدائها."
+      }
+    },
+    {
+      "id": "kids-riddles-006",
+      "question": {
+        "en": "I sit on your nose with two clear windows and help fuzzy letters become sharp. What am I?",
+        "ar": "أجلس على أنفك بنافذتين شفافتين، وأجعل الحروف الضبابية واضحة. ما أنا؟"
+      },
+      "answer": {
+        "en": "Eyeglasses",
+        "ar": "النظارات"
+      },
+      "age": "5-6",
+      "explanation": {
+        "en": "The two clear lenses of eyeglasses can help someone see clearly. Not everyone needs glasses.",
+        "ar": "قد تساعد عدستا النظارة الشفّافتان الشخص على الرؤية بوضوح، ولا يحتاج الجميع إلى نظارات."
+      }
+    },
+    {
+      "id": "kids-riddles-007",
+      "question": {
+        "en": "Sunlight makes my outline appear on the ground beside you. I move when you move, but disappear when that sunlight is blocked. What am I?",
+        "ar": "يرسم ضوء الشمس شكلي على الأرض بجانبك. أتحرك معك، وأختفي عندما يُحجب ضوء الشمس الذي يصنعني. ما أنا؟"
+      },
+      "answer": {
+        "en": "A shadow",
+        "ar": "الظل"
+      },
+      "age": "7-8",
+      "explanation": {
+        "en": "Your body blocks some sunlight, leaving a darker outline on a surface. Without that light source, that particular shadow disappears.",
+        "ar": "يحجب جسمك جزءًا من ضوء الشمس فيترك شكلًا أغمق على سطح. وبغياب مصدر الضوء هذا يختفي ذلك الظلّ."
+      }
+    },
+    {
+      "id": "kids-riddles-008",
+      "question": {
+        "en": "I start with empty pages. After every drawing, I remember a picture without taking a photograph. What am I?",
+        "ar": "أبدأ بصفحات فارغة، وبعد كل رسمة أحفظ صورة من دون أن ألتقطها بكاميرا. ما أنا؟"
+      },
+      "answer": {
+        "en": "A sketchbook",
+        "ar": "دفتر رسم"
+      },
+      "age": "5-6",
+      "explanation": {
+        "en": "A sketchbook holds drawings on its pages. “Remember” means the drawings stay there for you to see later.",
+        "ar": "يحتفظ دفتر الرسم بالرسومات على صفحاته. و«يحفظ» هنا تعني أنّك تستطيع رؤيتها لاحقًا."
+      }
+    },
+    {
+      "id": "kids-riddles-009",
+      "question": {
+        "en": "I wear a cap, carry ink instead of blood, and leave words wherever my tip walks. What am I?",
+        "ar": "أرتدي غطاءً، وأحمل حبراً بدلاً من الدم، وأترك كلمات حيثما سار رأسي. ما أنا؟"
+      },
+      "answer": {
+        "en": "A pen",
+        "ar": "القلم"
+      },
+      "age": "5-6",
+      "explanation": {
+        "en": "A pen uses ink to make marks. Its tip touches the paper and its cap covers the tip.",
+        "ar": "يستخدم القلم الحبر لترك أثر. يلمس رأسه الورق ويغطّي الغطاء ذلك الرأس."
+      }
+    },
+    {
+      "id": "kids-riddles-010",
+      "question": {
+        "en": "I have a tongue that never tastes and laces that never tie themselves. Your foot lives inside me. What am I?",
+        "ar": "لي لسان لا يتذوق، وأربطة لا تعقد نفسها، وتسكن قدمك بداخلي. ما أنا؟"
+      },
+      "answer": {
+        "en": "A shoe",
+        "ar": "الحذاء"
+      },
+      "age": "5-6",
+      "explanation": {
+        "en": "The tongue is the flap beneath the laces of a shoe. It shares a name with a body part but cannot taste.",
+        "ar": "لسان الحذاء هو الجزء الموجود تحت الأربطة. يشترك مع عضو الجسم في الاسم، لكنه لا يتذوّق."
+      }
+    },
+    {
+      "id": "kids-riddles-011",
+      "question": {
+        "en": "You have six red blocks. You take away two, then put one blue block on each red block that remains. How many blocks are in the four stacks?",
+        "ar": "لديك ستة مكعبات حمراء. تُبعد مكعبين، ثم تضع مكعباً أزرق فوق كل مكعب أحمر متبقٍّ. كم مكعباً يوجد في الأكوام الأربعة؟"
+      },
+      "answer": {
+        "en": "8 blocks — four red and four blue",
+        "ar": "8 مكعبات — أربعة حمراء وأربعة زرقاء"
+      },
+      "age": "7-8",
+      "explanation": {
+        "en": "Six minus two leaves four red blocks. One blue block on each adds four more: 4 + 4 = 8.",
+        "ar": "ستة ناقص اثنين يترك أربعة مكعّبات حمراء. نضيف أربعة زرقاء، واحدًا فوق كل أحمر: 4 + 4 = 8."
+      }
+    },
+    {
+      "id": "kids-riddles-012",
+      "question": {
+        "en": "I divide a year into twelve named parts and give every date its own square. What am I?",
+        "ar": "أقسّم السنة إلى اثني عشر جزءاً له أسماء، وأمنح كل تاريخ مربعاً خاصاً به. ما أنا؟"
+      },
+      "answer": {
+        "en": "A calendar",
+        "ar": "التقويم"
+      },
+      "age": "5-6",
+      "explanation": {
+        "en": "A calendar divides a year into months and shows dates. The clue describes a calendar with a grid of date squares.",
+        "ar": "يقسّم التقويم السنة إلى أشهر ويعرض التواريخ. تصف القرينة تقويمًا تُعرض فيه التواريخ في مربّعات."
+      }
+    },
+    {
+      "id": "kids-riddles-013",
+      "question": {
+        "en": "What can you break even if you never pick it up or touch it?",
+        "ar": "ما الذي يمكنك كسره حتى دون أن تلمسه؟"
+      },
+      "answer": {
+        "en": "A promise",
+        "ar": "الوعد"
+      },
+      "age": "7-8",
+      "explanation": {
+        "en": "To “break a promise” means not to do what you said you would do. Nothing physical has to snap. Other figurative answers may fit too.",
+        "ar": "«إخلاف الوعد» يعني عدم فعل ما قلت إنّك ستفعله. لا ينكسر شيء مادي. وقد تناسب القرينة إجابات مجازية أخرى أيضًا."
+      }
+    },
+    {
+      "id": "kids-riddles-014",
+      "question": {
+        "en": "I am spoken backward before a rocket rises — three, two, one — and I end exactly when the journey begins. What am I?",
+        "ar": "أُقال بترتيب عكسي قبل انطلاق الصاروخ — ثلاثة، اثنان، واحد — وأنتهي لحظة بدء الرحلة. ما أنا؟"
+      },
+      "answer": {
+        "en": "A countdown",
+        "ar": "العدّ التنازلي"
+      },
+      "age": "5-6",
+      "explanation": {
+        "en": "A countdown counts backwards to a starting moment: three, two, one, go.",
+        "ar": "يعدّ العدّ التنازلي إلى الخلف وصولًا إلى لحظة البدء: ثلاثة، اثنان، واحد، انطلق."
+      }
+    },
+    {
+      "id": "kids-riddles-015",
+      "question": {
+        "en": "If today is two days before Friday, what day is today?",
+        "ar": "إذا كان اليوم يسبق يوم الجمعة بيومين، فما اليوم؟"
+      },
+      "answer": {
+        "en": "Wednesday",
+        "ar": "الأربعاء"
+      },
+      "age": "7-8",
+      "explanation": {
+        "en": "Count backwards from Friday: Thursday is one day before it and Wednesday is two days before it.",
+        "ar": "عدّ إلى الخلف من الجمعة: الخميس يسبقه بيوم، والأربعاء يسبقه بيومين."
+      }
+    },
+    {
+      "id": "kids-riddles-016",
+      "question": {
+        "en": "I fit in a pocket, wake with a passcode, and hold maps, messages, and games without using shelves. What am I?",
+        "ar": "أدخل في الجيب، وأستيقظ برمز مرور، وأحمل خرائط ورسائل وألعاباً من دون رفوف. ما أنا؟"
+      },
+      "answer": {
+        "en": "A smartphone",
+        "ar": "هاتف ذكي"
+      },
+      "age": "5-6",
+      "explanation": {
+        "en": "A smartphone can store maps, messages and games digitally. A passcode can lock access to it.",
+        "ar": "يمكن للهاتف الذكي تخزين الخرائط والرسائل والألعاب رقميًا، ويمكن لرمز مرور قفل الوصول إليه."
+      }
+    },
+    {
+      "id": "kids-riddles-017",
+      "question": {
+        "en": "I grow smaller whenever I remove a pencil mistake, yet I never write anything myself. What am I?",
+        "ar": "أصغر كلما أزلت خطأً بالقلم الرصاص، ومع ذلك لا أكتب شيئاً بنفسي. ما أنا؟"
+      },
+      "answer": {
+        "en": "An eraser",
+        "ar": "الممحاة"
+      },
+      "age": "5-6",
+      "explanation": {
+        "en": "An eraser wears away as it removes pencil marks. It removes writing instead of adding it.",
+        "ar": "تتآكل الممحاة أثناء إزالة آثار القلم الرصاص، فهي تزيل الكتابة بدلًا من إضافتها."
+      }
+    },
+    {
+      "id": "kids-riddles-018",
+      "question": {
+        "en": "I have one handle and an open mouth. I hold your drink quietly until you tilt me. What am I?",
+        "ar": "لي مقبض واحد وفم مفتوح، وأحمل شرابك بهدوء حتى تميلني. ما أنا؟"
+      },
+      "answer": {
+        "en": "A mug",
+        "ar": "كوب ذو مقبض"
+      },
+      "age": "5-6",
+      "explanation": {
+        "en": "A mug has a handle and an open top. Tilting it lets the drink flow out.",
+        "ar": "للكوب ذي المقبض فتحة علوية ومقبض، وتسمح إمالته بخروج الشراب."
+      }
+    },
+    {
+      "id": "kids-riddles-019",
+      "question": {
+        "en": "A three-digit code has a middle digit of 3. Its first digit is twice its last, and all three digits add to 9. What is the code?",
+        "ar": "رمز من ثلاثة أرقام، رقمه الأوسط 3. الرقم الأول يساوي ضعف الأخير، ومجموع الأرقام الثلاثة 9. ما الرمز؟"
+      },
+      "answer": {
+        "en": "432",
+        "ar": "432"
+      },
+      "age": "9-12",
+      "explanation": {
+        "en": "The first and last digits must add to 6 because the middle is 3. The pair 4 and 2 fits, and 4 is twice 2: 432.",
+        "ar": "يجب أن يكون مجموع الرقمين الأول والأخير 6 لأنّ الأوسط 3. يناسب الرقمان 4 و2، و4 ضعف 2، فيكون الرمز 432."
+      }
+    },
+    {
+      "id": "kids-riddles-020",
+      "question": {
+        "en": "I have 64 alternating light and dark squares. Two sets of chess pieces start on opposite sides of me. What am I?",
+        "ar": "لديّ 64 مربعًا تتناوب بين الفاتح والداكن. تبدأ مجموعتا قطع الشطرنج على جانبين متقابلين مني. ما أنا؟"
+      },
+      "answer": {
+        "en": "A chessboard",
+        "ar": "رقعة شطرنج"
+      },
+      "age": "7-8",
+      "explanation": {
+        "en": "A chessboard has eight rows of eight squares. Eight times eight equals 64.",
+        "ar": "في رقعة الشطرنج ثمانية صفوف، في كل منها ثمانية مربّعات. ثمانية في ثمانية يساوي 64."
+      }
+    },
+    {
+      "id": "kids-riddles-021",
+      "question": {
+        "en": "My two digits add to 9. I am 27 greater than the number made by reversing my digits. What number am I?",
+        "ar": "مجموع رقميّ يساوي 9، وأنا أكبر بـ27 من العدد الناتج عن عكس ترتيبهما. ما العدد؟"
+      },
+      "answer": {
+        "en": "63",
+        "ar": "63"
+      },
+      "age": "9-12",
+      "explanation": {
+        "en": "Reverse 63 to get 36. Then 63 - 36 = 27, and 6 + 3 = 9, so both clues fit.",
+        "ar": "اعكس 63 فتحصل على 36. ثم 63 - 36 = 27، و6 + 3 = 9، فتتحقّق القرينتان."
+      }
+    },
+    {
+      "id": "kids-riddles-022",
+      "question": {
+        "en": "The numbers 2, 6, 12, and 20 are made by multiplying neighboring whole numbers: 1×2, 2×3, 3×4, 4×5. What comes next?",
+        "ar": "الأعداد 2 و6 و12 و20 ناتجة عن ضرب عددين صحيحين متتاليين: 1×2، 2×3، 3×4، 4×5. ما العدد التالي؟"
+      },
+      "answer": {
+        "en": "30 — from 5×6",
+        "ar": "30 — من 5×6"
+      },
+      "age": "9-12",
+      "explanation": {
+        "en": "The first factor increases by one each time, with the next whole number beside it. After 4 × 5 comes 5 × 6 = 30.",
+        "ar": "يزداد العامل الأول واحدًا كل مرة ويُضرب في العدد الصحيح الذي يليه. بعد 4 × 5 تأتي 5 × 6 = 30."
+      }
+    },
+    {
+      "id": "kids-riddles-023",
+      "question": {
+        "en": "A square garden has a lamp at each corner and one lamp halfway along each side. How many lamps are there altogether?",
+        "ar": "في حديقة مربعة مصباح عند كل زاوية ومصباح في منتصف كل ضلع. كم مصباحاً يوجد بالمجموع؟"
+      },
+      "answer": {
+        "en": "8 lamps",
+        "ar": "8 مصابيح"
+      },
+      "age": "7-8",
+      "explanation": {
+        "en": "There are four different corners and four different side midpoints. Add 4 + 4; do not count a corner twice.",
+        "ar": "هناك أربع زوايا مختلفة وأربعة منتصفات للأضلاع. اجمع 4 + 4، ولا تعدّ الزاوية مرتين."
+      }
+    },
+    {
+      "id": "kids-riddles-024",
+      "question": {
+        "en": "I am less than 50, divisible by both 6 and 8, and my digits add to 6. What number am I?",
+        "ar": "أنا أقل من 50، وأقبل القسمة على 6 وعلى 8، ومجموع رقميّ يساوي 6. ما العدد؟"
+      },
+      "answer": {
+        "en": "24",
+        "ar": "24"
+      },
+      "age": "9-12",
+      "explanation": {
+        "en": "Multiples shared by 6 and 8 below 50 are 24 and 48. Only 24 has digits adding to 6: 2 + 4 = 6.",
+        "ar": "المضاعفان المشتركان للعددين 6 و8 تحت 50 هما 24 و48. وحده 24 مجموع رقميه 6، إذ 2 + 4 = 6."
+      }
+    },
+    {
+      "id": "kids-riddles-025",
+      "question": {
+        "en": "A toy robot faces west. It turns a quarter-turn right, a half-turn right, then a quarter-turn left. Which direction does it face?",
+        "ar": "روبوت لعبة يواجه الغرب. يدور ربع دورة يميناً، ثم نصف دورة يميناً، ثم ربع دورة يساراً. أي اتجاه يواجه الآن؟"
+      },
+      "answer": {
+        "en": "East",
+        "ar": "الشرق"
+      },
+      "age": "9-12",
+      "explanation": {
+        "en": "From west, a right quarter-turn points north. A right half-turn points south. A left quarter-turn from south points east.",
+        "ar": "من الغرب، ربع دورة يمينًا يصل إلى الشمال. نصف دورة يمينًا يصل إلى الجنوب. ثم ربع دورة يسارًا من الجنوب يصل إلى الشرق."
+      }
+    },
+    {
+      "id": "kids-riddles-026",
+      "question": {
+        "en": "The pages of a 12-page comic are numbered from 1 through 12. How many times is the digit 1 printed?",
+        "ar": "صفحات قصة مصوّرة من 12 صفحة مرقّمة من 1 إلى 12. كم مرة طُبع الرقم 1؟"
+      },
+      "answer": {
+        "en": "5 times — on pages 1, 10, twice on 11, and on 12",
+        "ar": "5 مرات — في الصفحات 1 و10، ومرتين في 11، ومرة في 12"
+      },
+      "age": "7-8",
+      "explanation": {
+        "en": "The digit appears once in 1, once in 10, twice in 11, and once in 12: 1 + 1 + 2 + 1 = 5.",
+        "ar": "يظهر الرقم مرة في 1، ومرة في 10، ومرتين في 11، ومرة في 12: 1 + 1 + 2 + 1 = 5."
+      }
+    },
+    {
+      "id": "kids-riddles-027",
+      "question": {
+        "en": "A lock code uses the digits 1, 2, and 3 exactly once. It is greater than 300, it is even, and its middle digit is 1. What is the code?",
+        "ar": "رمز قفل يستخدم الأرقام 1 و2 و3 مرة واحدة لكل منها. هو أكبر من 300، وعدد زوجي، ورقمه الأوسط 1. ما الرمز؟"
+      },
+      "answer": {
+        "en": "312",
+        "ar": "312"
+      },
+      "age": "9-12",
+      "explanation": {
+        "en": "Being greater than 300 puts 3 first. The middle is 1, leaving 2 at the end. The result 312 is even.",
+        "ar": "كون الرمز أكبر من 300 يضع 3 أولًا. الرقم الأوسط 1، فيبقى 2 في النهاية. والعدد 312 زوجي."
+      }
+    },
+    {
+      "id": "kids-riddles-028",
+      "question": {
+        "en": "Two cups hold 10 marbles altogether. One cup has four more marbles than the other. How many marbles are in each cup?",
+        "ar": "يحتوي كوبان على 10 كرات صغيرة بالمجموع. في أحدهما أربع كرات أكثر من الآخر. كم كرة في كل كوب؟"
+      },
+      "answer": {
+        "en": "7 marbles and 3 marbles",
+        "ar": "7 كرات و3 كرات"
+      },
+      "age": "7-8",
+      "explanation": {
+        "en": "Remove the four extra marbles from the total of ten. Split the remaining six equally into three and three, then return the four: seven and three.",
+        "ar": "أزل الكرات الأربع الزائدة من المجموع عشرة. قسّم الست الباقية بالتساوي إلى ثلاثة وثلاثة، ثم أعد الأربع: سبعة وثلاثة."
+      }
+    },
+    {
+      "id": "kids-riddles-029",
+      "question": {
+        "en": "A clock chimes once at 1, twice at 2, and so on. How many chimes does it make from 1 through 5?",
+        "ar": "تدق الساعة مرة عند الواحدة، ومرتين عند الثانية، وهكذا. كم دقة تصدر من الواحدة حتى الخامسة؟"
+      },
+      "answer": {
+        "en": "15 chimes",
+        "ar": "15 دقة"
+      },
+      "age": "7-8",
+      "explanation": {
+        "en": "Add each hour’s chimes: 1 + 2 + 3 + 4 + 5 = 15.",
+        "ar": "اجمع دقّات كل ساعة: 1 + 2 + 3 + 4 + 5 = 15."
+      }
+    },
+    {
+      "id": "kids-riddles-030",
+      "question": {
+        "en": "I have a round face and two moving pointers. I hang on a wall and help you know when school starts. What am I?",
+        "ar": "لي وجه دائري وعقربان يتحركان. أُعلَّق على الحائط وأساعدك على معرفة موعد بدء المدرسة. ما أنا؟"
+      },
+      "answer": {
+        "en": "An analog wall clock",
+        "ar": "ساعة حائط بعقارب"
+      },
+      "age": "5-6",
+      "explanation": {
+        "en": "The two main hands show hours and minutes on the clock face. Some clocks also have a thinner seconds hand.",
+        "ar": "يشير العقربان الرئيسيان إلى الساعات والدقائق على وجه الساعة. وبعض الساعات لها أيضًا عقرب ثوانٍ أرفع."
+      }
+    }
+  ]
+}

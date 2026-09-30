@@ -280,6 +280,10 @@ if (categories.length !== 56) fail("data/catalog.json", `expected 56 source cate
 
 for (const category of categories) {
   const slug = category.slug;
+  if (slug === "kids-riddles") {
+    assertPair({ enRelative: "kids-riddles.html", arRelative: "ar/topics/kids-riddles/index.html", enPath: "/kids-riddles", arPath: "/ar/topics/kids-riddles/", label: "kids learning hub", indexable: true });
+    continue;
+  }
   const enRelative = `${slug}.html`;
   const arRelative = `ar/topics/${slug}/index.html`;
   assertPair({

@@ -1,8 +1,11 @@
 .DS_Store
 _site/
 *.log
-node_modules/
+node_modules
 worker/.wrangler/
 worker/dist-worker/
 site-worker/.wrangler/
 site-worker/dist-worker/
+
+# Local authoring and visual review intermediates
+/work/

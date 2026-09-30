@@ -16,6 +16,7 @@
     }
   }
   const active = path === '/' || path === '/ar' ? 'home'
+    : /^(?:\/ar\/topics)?\/kids-riddles(?:\/|$)/.test(path) ? 'kids'
     : /\/(?:daily)$/.test(path) ? 'daily'
     : document.body?.hasAttribute?.('data-puzzle-page') ? 'games'
     : /\/(?:play|brain-games|alab-al-dimagh|akshifha|chess|backgammon|mastermind|go|reversi|codenames|catan|set|hanabi|diplomacy)$/.test(path) ? 'games'
@@ -32,7 +33,8 @@
     target.search = '';
     for (const [key, value] of new URLSearchParams(location.search)) {
       if (key === 'game' && document.body?.hasAttribute?.('data-puzzle-page')) continue;
-      if (['case', 'mode', 'day', 'card', 'profile', 'difficulty', 'subcategory', 'battle', 'join', 'game', 'variant', 'date', 'edition', 'duelRoom'].includes(key)) target.searchParams.set(key, value);
+      const kidsFilter = document.body?.classList?.contains('kids-page') && ['search', 'age', 'area', 'minutes', 'materialGroup', 'format', 'reading', 'adult', 'screenFree', 'noPrinter'].includes(key);
+      if (kidsFilter || ['case', 'mode', 'day', 'card', 'profile', 'difficulty', 'subcategory', 'battle', 'join', 'game', 'variant', 'date', 'edition', 'duelRoom'].includes(key)) target.searchParams.set(key, value);
     }
     target.hash = location.hash;
     link.href = target.pathname + target.search + target.hash;

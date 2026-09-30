@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { siteHeader, navigationScript } from "./site-navigation-markup.mjs";
+import { kidsRoutePairs } from "./generate-kids-pages.mjs";
 import { illustrationMarkup, SECTION_ILLUSTRATIONS, COLLECTION_ILLUSTRATIONS, TOPIC_ILLUSTRATIONS } from "../site-illustrations.js";
 
 import {
@@ -746,6 +747,7 @@ function renderSitemap() {
     ...RIDDLE_ARABIA_GAME_CATALOG.map((game) => ({ en: `/${game.slug}`, ar: `/ar/games/${game.slug}/`, lastModified: { en: LAST_MODIFIED, ar: "2026-09-30" }, priority: "0.65" })),
     ...RIDDLE_ARABIA_PUZZLE_CATALOG.map((game) => ({ ...game.paths, lastModified: "2026-09-30", priority: "0.75" })),
     ...PRESERVED_GAME_SLUGS.map((slug) => ({ en: `/${slug}`, ar: `/ar/games/${slug}/`, lastModified: { en: LAST_MODIFIED, ar: "2026-09-30" }, priority: "0.35" })),
+    ...kidsRoutePairs(),
   ];
   const entries = pairs.flatMap((pair) => {
     const alternates = { en: `${SITE_ORIGIN}${pair.en}`, ar: `${SITE_ORIGIN}${pair.ar}` };
@@ -805,6 +807,7 @@ function desiredOutputs() {
   emit("ar/about/index.html", renderAboutPage("ar"));
   emit("mind-lab.html", renderMindLabDirectory());
   for (const category of categories) {
+    if (category.slug === "kids-riddles") continue; // Dedicated kids generator owns the learning hub.
     emit(`${category.slug}.html`, renderFunctionalCategoryShell(category, "en"));
     emit(`ar/topics/${category.slug}/index.html`, renderFunctionalCategoryShell(category, "ar"));
   }
@@ -858,5 +861,5 @@ if (stale.length) {
 console.log(
   `${checkOnly ? "Riddle Arabia SEO generation is current" : "Generated Riddle Arabia SEO"}: `
   + `${RIDDLE_ARABIA_SEO_PAGES.length} original bilingual experience pairs, `
-  + `${categories.length * 2} functional noindex topic shells, and a focused sitemap.`,
+  + `${(categories.length - 1) * 2} functional noindex topic shells, and a focused sitemap.`,
 );

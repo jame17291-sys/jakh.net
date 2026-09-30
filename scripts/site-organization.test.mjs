@@ -40,15 +40,15 @@ test('lazy-rendered cards reserve block height without an oversized intrinsic wi
   assert.doesNotMatch(css, /contain-intrinsic-size:\s*auto 420px/u);
 });
 
-test('one bilingual navigation contract names four real destinations and separate utilities', () => {
+test('one bilingual navigation contract names five real destinations and separate utilities', () => {
   for (const lang of ['en', 'ar']) {
-    for (const active of ['home', 'library', 'games', 'daily']) {
+    for (const active of ['home', 'library', 'kids', 'games', 'daily']) {
       const header = siteHeader({ lang, alternate: lang === 'en' ? '/ar/mind-lab/' : '/mind-lab', active });
       const links = primaryLinks(header);
-      assert.deepEqual(links.map((link) => link['data-nav']), ['home', 'library', 'games', 'daily']);
+      assert.deepEqual(links.map((link) => link['data-nav']), ['home', 'library', 'kids', 'games', 'daily']);
       assert.deepEqual(links.map((link) => link.href), lang === 'ar'
-        ? ['/ar/', '/ar/mind-lab/', '/ar/play/', '/ar/daily/']
-        : ['/', '/mind-lab', '/play', '/daily']);
+        ? ['/ar/', '/ar/mind-lab/', '/ar/topics/kids-riddles/', '/ar/play/', '/ar/daily/']
+        : ['/', '/mind-lab', '/kids-riddles', '/play', '/daily']);
       assert.deepEqual(links.filter((link) => link['aria-current']).map((link) => link['data-nav']), [active]);
       assert.equal(links[1].label, lang === 'ar' ? 'ألغاز واختبارات' : 'Riddles &amp; Quizzes');
       assert.match(header, /class="language-route-link"[^>]*hreflang="(?:en|ar)"[^>]*lang="(?:en|ar)"[^>]*dir="(?:ltr|rtl)"/u);
@@ -68,7 +68,7 @@ test('main journeys and every public topic have the same server-rendered navigat
     const html = read(file);
     assert.equal((html.match(/class="primary-navigation"/gu) || []).length, 1, file);
     const links = primaryLinks(html);
-    assert.equal(links.length, 4, file);
+    assert.equal(links.length, 5, file);
     assert.equal(links.filter((link) => link['aria-current'] === 'page').length, file.includes('about') ? 0 : 1, file);
     assert.match(html, /class="language-route-link"/u, file);
     assert.match(html, /<script[^>]*\bsrc="\/site-navigation\.js"/u, file);
@@ -89,7 +89,7 @@ test('static home, games hub, and editorial pages do not load the question appli
 });
 
 function runNavigation({ pathname, bodyClasses = [], dataPage = '', puzzlePage = '', search = '', hash = '', alternate = 'https://riddlearabia.com/ar/mind-lab/' }) {
-  const links = ['home', 'library', 'games', 'daily'].map((key) => ({
+  const links = ['home', 'library', 'kids', 'games', 'daily'].map((key) => ({
     dataset: { nav: key },
     attributes: { 'aria-current': 'page' },
     setAttribute(name, value) { this.attributes[name] = value; },
@@ -250,7 +250,7 @@ test('Privacy Centre initializes without the retired language select and preserv
 });
 
 test('topic pages prioritize practice and collapse optional filters without duplicate hero artwork', () => {
-  for (const { slug } of catalog.categories) {
+  for (const { slug } of catalog.categories.filter(category => category.slug !== "kids-riddles")) {
     for (const file of [`${slug}.html`, `ar/topics/${slug}/index.html`]) {
       const html = read(file);
       assert.doesNotMatch(html, /id="categoryImage"|id="categoryBanner"/u, file);

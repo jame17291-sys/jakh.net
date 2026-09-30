@@ -44,6 +44,8 @@ jobs:
         run: node scripts/audit-question-bank.mjs --strict
       - name: Validate SEO metadata and crawlable content
         run: node scripts/validate-seo.mjs
+      - name: Verify kids learning catalog and printable packs
+        run: node --test scripts/kids-content.test.mjs scripts/kids-toolkit.test.mjs scripts/kids-runtime-fallback.test.mjs
       - name: Validate static source, taxonomy, and generated card index
         run: node scripts/validate-static.mjs
       - name: Validate complete English and Arabic coverage

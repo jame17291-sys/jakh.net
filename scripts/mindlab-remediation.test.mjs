@@ -9,6 +9,7 @@ const read = filename => JSON.parse(fs.readFileSync(new URL(`../${filename}`,imp
 const plan = read('docs/content-review/mindlab-remediation-2026-09-23.json');
 const tvAmendment = read('docs/content-review/tv-trivia-2026-09-30.json');
 const tvExpansion = read('docs/content-review/tv-trivia-expansion-2026-09-30.json');
+const tvFollowup = read('docs/content-review/tv-trivia-followup-2026-09-30.json');
 const cards = new Map(plan.scope.flatMap(topic => read(`data/${topic.slug}.json`)).map(card=>[card.id,card]));
 const hash = card => crypto.createHash('sha256').update(JSON.stringify(card)).digest('hex');
 
@@ -39,7 +40,12 @@ test('all 1,241 audit findings are repaired without deleting or renumbering the 
       assert.equal(expanded.beforeHash, successor?.afterHash || change.afterHash, `${change.id}: preserve expansion chain`);
       assert.ok(expanded.reason?.trim());
     }
-    assert.equal(hash(cards.get(change.id)),expanded?.afterHash || successor?.afterHash || change.afterHash,`${change.id}: patch not applied`);
+    const followup = tvFollowup.changes.find(c => c.id === change.id);
+    if (followup) {
+      assert.equal(followup.beforeHash, expanded?.afterHash || successor?.afterHash || change.afterHash);
+      assert.ok(followup.reason?.trim());
+    }
+    assert.equal(hash(cards.get(change.id)),followup?.afterHash || expanded?.afterHash || successor?.afterHash || change.afterHash,`${change.id}: patch not applied`);
     assert.ok(change.reason?.trim(),change.id);
     assert.notEqual(change.patch.review?.status,'reviewed',`${change.id}: must not manufacture certification`);
   }

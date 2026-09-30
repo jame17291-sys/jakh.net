@@ -74,16 +74,26 @@ test('the expansion preserves original identifiers and records every new or chan
   const expansion = JSON.parse(fs.readFileSync(new URL('../docs/content-review/tv-trivia-expansion-2026-09-30.json', import.meta.url)));
   const previous = JSON.parse(fs.readFileSync(new URL('../docs/content-review/tv-trivia-2026-09-30.json', import.meta.url)));
   const original = JSON.parse(fs.readFileSync(new URL('../docs/content-review/mindlab-remediation-2026-09-23.json', import.meta.url)));
+  const followup = JSON.parse(fs.readFileSync(new URL('../docs/content-review/tv-trivia-followup-2026-09-30.json', import.meta.url)));
   const digest = c => crypto.createHash('sha256').update(JSON.stringify(c)).digest('hex');
+  const latestHash = entry => {
+    const next = followup.changes.find(c => c.id === entry.id);
+    if (next) {
+      assert.equal(next.beforeHash, entry.afterHash, `${entry.id}: follow-up preserves expansion history`);
+      assert.ok(next.reason?.trim());
+    }
+    return next?.afterHash || entry.afterHash;
+  };
   assert.deepEqual(cards.slice(0,250).map(c => c.id), Array.from({length:250}, (_,i) => `tv-shows-trivia-${String(i+1).padStart(3,'0')}`));
   assert.equal(expansion.additions.length, 550);
   for (const change of expansion.changes) {
     const predecessor = previous.changes.find(c => c.id === change.id) || original.changes.find(c => c.id === change.id);
     if (predecessor) assert.equal(change.beforeHash, predecessor.afterHash);
     else assert.match(change.beforeHash, /^[a-f0-9]{64}$/u);
-    assert.equal(change.afterHash, digest(cards.find(c => c.id === change.id)));
+    assert.equal(latestHash(change), digest(cards.find(c => c.id === change.id)));
   }
-  for (const added of expansion.additions) assert.equal(added.afterHash, digest(cards.find(c => c.id === added.id)));
+  for (const added of expansion.additions) assert.equal(latestHash(added), digest(cards.find(c => c.id === added.id)));
+  for (const change of followup.changes) assert.ok([...expansion.changes, ...expansion.additions].some(c => c.id === change.id));
   for (const show of SHOWS) for (const lang of ['en','ar']) {
     const prompts = cards.filter(c => c.subcategory.en === show.key).map(c => c.question[lang].normalize('NFKC').toLowerCase().replace(/[\p{P}\p{S}\s]/gu, ''));
     assert.equal(new Set(prompts).size, 80, `${show.id}/${lang}`);

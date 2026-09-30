@@ -7012,18 +7012,18 @@
   },
   {
     "id": "tv-shows-trivia-172",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Maraya",
       "ar": "مرايا"
     },
     "question": {
-      "en": "Which Maraya cast member plays the baker Abu Bashir in Bab Al-Hara?",
-      "ar": "أيّ ممثل من فريق «مرايا» يجسد الخبّاز أبو بشير في «باب الحارة»؟"
+      "en": "In Maraya 2011 episode nine, where does the rural traveller plan to spend his holiday?",
+      "ar": "في الحلقة التاسعة من مرايا ٢٠١١، أين يخطط الرجل الريفي لقضاء عطلته؟"
     },
     "answer": {
-      "en": "Hassan Dakkak",
-      "ar": "حسن دكاك"
+      "en": "The capital city",
+      "ar": "العاصمة"
     },
     "review": {
       "status": "pending"
@@ -7031,24 +7031,24 @@
     "tvQuiz": {
       "version": 1,
       "spoilerSeason": 0,
-      "kind": "behind-scenes",
+      "kind": "moment",
       "distractors": {
         "en": [
-          "Salim Kallas",
-          "Issam Abaji",
-          "Hussam Tahsin Bek"
+          "A seaside resort",
+          "A mountain village",
+          "A desert camp"
         ],
         "ar": [
-          "سليم كلاس",
-          "عصام عبه جي",
-          "حسام تحسين بيك"
+          "منتجع ساحلي",
+          "قرية جبلية",
+          "مخيم صحراوي"
         ]
       },
       "explanation": {
-        "en": "Hassan Dakkak appears in Maraya and plays the baker in Bab Al-Hara.",
-        "ar": "يظهر حسن دكاك في مرايا ويجسد الخباز في باب الحارة."
+        "en": "A city break puts the visitor's budget in the spotlight.",
+        "ar": "تضع عطلة المدينة ميزانية الزائر تحت الأضواء."
       },
-      "contentKey": "1a827016"
+      "contentKey": "c3d0c82e"
     }
   },
   {
@@ -15013,15 +15013,15 @@
       "ar": "صراع العروش"
     },
     "question": {
-      "en": "Which city is the capital of the Seven Kingdoms?",
-      "ar": "أي مدينة هي عاصمة الممالك السبع؟"
+      "en": "Which birds carry written messages between castles in Game of Thrones?",
+      "ar": "أي طيور تحمل الرسائل المكتوبة بين القلاع في صراع العروش؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "King's Landing",
-      "ar": "كينغز لاندينغ"
+      "en": "Ravens",
+      "ar": "الغربان"
     },
     "tvQuiz": {
       "version": 1,
@@ -15029,21 +15029,21 @@
       "kind": "world",
       "distractors": {
         "en": [
-          "Winterfell",
-          "Oldtown",
-          "Volantis"
+          "Owls",
+          "Falcons",
+          "Swallows"
         ],
         "ar": [
-          "وينترفيل",
-          "أولدتاون",
-          "فولانتيس"
+          "البوم",
+          "الصقور",
+          "السنونو"
         ]
       },
       "explanation": {
-        "en": "King's Landing houses the Red Keep and the royal court.",
-        "ar": "تضم كينغز لاندينغ القلعة الحمراء والبلاط الملكي."
+        "en": "Ravens are Westeros's familiar long-distance messengers.",
+        "ar": "الغربان رسل ويستروس المألوفون للمسافات البعيدة."
       },
-      "contentKey": "aa88c610"
+      "contentKey": "be6ee1a5"
     }
   },
   {
@@ -26288,37 +26288,37 @@
       "ar": "مرايا"
     },
     "question": {
-      "en": "Which Maraya actor also plays Abu Badr in Bab Al-Hara?",
-      "ar": "أي ممثل في مرايا يجسد أيضًا أبا بدر في باب الحارة؟"
+      "en": "Which payments does the official want to increase in Maraya 2011 episode eleven?",
+      "ar": "أي مدفوعات يريد المسؤول زيادتها في الحلقة الحادية عشرة من مرايا ٢٠١١؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "Mohammed Khair Al-Jarrah",
-      "ar": "محمد خير الجراح"
+      "en": "Taxes",
+      "ar": "الضرائب"
     },
     "tvQuiz": {
       "version": 1,
       "spoilerSeason": 0,
-      "kind": "behind-scenes",
+      "kind": "moment",
       "distractors": {
         "en": [
-          "Adel Ali",
-          "Abdel Rahman Al Rashi",
-          "Asem Hawat"
+          "School fees",
+          "Train fares",
+          "Cinema tickets"
         ],
         "ar": [
-          "عادل علي",
-          "عبد الرحمن آل رشي",
-          "عاصم حواط"
+          "رسوم المدارس",
+          "أجور القطارات",
+          "تذاكر السينما"
         ]
       },
       "explanation": {
-        "en": "Mohammed Khair Al-Jarrah appears in both ensembles.",
-        "ar": "يشارك محمد خير الجراح في طاقمي العملين."
+        "en": "The sketch turns revenue collection into social satire.",
+        "ar": "تحول اللوحة جباية الأموال إلى سخرية اجتماعية."
       },
-      "contentKey": "e7555fde"
+      "contentKey": "77dd73c0"
     }
   },
   {
@@ -26329,37 +26329,37 @@
       "ar": "مرايا"
     },
     "question": {
-      "en": "Which Maraya actress also plays Feryal in Bab Al-Hara?",
-      "ar": "أي ممثلة في مرايا تجسد أيضًا فريال في باب الحارة؟"
+      "en": "What job does the wife suggest for her husband in Maraya 2011 episode fourteen?",
+      "ar": "ما العمل الذي تقترحه الزوجة على زوجها في الحلقة الرابعة عشرة من مرايا ٢٠١١؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "Wafaa Mousalli",
-      "ar": "وفاء موصللي"
+      "en": "Cemetery guard",
+      "ar": "حارس مقبرة"
     },
     "tvQuiz": {
       "version": 1,
       "spoilerSeason": 0,
-      "kind": "behind-scenes",
+      "kind": "moment",
       "distractors": {
         "en": [
-          "Taj Haidar",
-          "Leila Samour",
-          "Maha Al-Masri"
+          "Nightclub singer",
+          "Hotel porter",
+          "Taxi driver"
         ],
         "ar": [
-          "تاج حيدر",
-          "ليلى سمور",
-          "مها المصري"
+          "مغنٍ في نادٍ ليلي",
+          "حامل حقائب في فندق",
+          "سائق أجرة"
         ]
       },
       "explanation": {
-        "en": "Wafaa Mousalli is familiar from both comic sketches and Damascene drama.",
-        "ar": "تُعرف وفاء موصللي من اللوحات الكوميدية والدراما الشامية معًا."
+        "en": "The unusual workplace sets up the husband's predicament.",
+        "ar": "يمهد مكان العمل غير المعتاد لمأزق الزوج."
       },
-      "contentKey": "4992aad5"
+      "contentKey": "30e5bed0"
     }
   },
   {
@@ -26370,37 +26370,37 @@
       "ar": "مرايا"
     },
     "question": {
-      "en": "Which Maraya 2006 actor also plays Abu Ghalib?",
-      "ar": "أي ممثل في مرايا ٢٠٠٦ يجسد أيضًا أبا غالب؟"
+      "en": "How many insurance policies must the salesman sell for a promotion in Maraya 2011 episode twenty-four?",
+      "ar": "كم بوليصة تأمين يجب أن يبيع الموظف ليحصل على ترقية في الحلقة الرابعة والعشرين من مرايا ٢٠١١؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "Nizar Abu Hajar",
-      "ar": "نزار أبو حجر"
+      "en": "50",
+      "ar": "٥٠"
     },
     "tvQuiz": {
       "version": 1,
       "spoilerSeason": 0,
-      "kind": "behind-scenes",
+      "kind": "moment",
       "distractors": {
         "en": [
-          "Asem Hawat",
-          "Yasser Al-Azmeh",
-          "Mohammed Qanou"
+          "25",
+          "75",
+          "100"
         ],
         "ar": [
-          "عاصم حواط",
-          "ياسر العظمة",
-          "محمد قنوع"
+          "٢٥",
+          "٧٥",
+          "١٠٠"
         ]
       },
       "explanation": {
-        "en": "Nizar Abu Hajar appears in Maraya's ensemble as well as Bab Al-Hara.",
-        "ar": "يظهر نزار أبو حجر ضمن فريق مرايا وكذلك باب الحارة."
+        "en": "A sales target becomes the starting point for an unlikely customer hunt.",
+        "ar": "يصبح هدف المبيعات نقطة انطلاق للبحث عن زبائن غير متوقعين."
       },
-      "contentKey": "fa258e21"
+      "contentKey": "3cebce64"
     }
   },
   {
@@ -26411,37 +26411,37 @@
       "ar": "مرايا"
     },
     "question": {
-      "en": "Which Maraya 98 actor also plays Abu Khater?",
-      "ar": "أي ممثل في مرايا ٩٨ يجسد أيضًا أبا خاطر؟"
+      "en": "What does the artist want a museum to safeguard in Maraya 2011 episode twenty-five?",
+      "ar": "ما الذي يريد الفنان إيداعه في متحف لحمايته في الحلقة الخامسة والعشرين من مرايا ٢٠١١؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "Salim Kallas",
-      "ar": "سليم كلاس"
+      "en": "His paintings",
+      "ar": "لوحاته"
     },
     "tvQuiz": {
       "version": 1,
       "spoilerSeason": 0,
-      "kind": "behind-scenes",
+      "kind": "moment",
       "distractors": {
         "en": [
-          "Yasser Al-Azmeh",
-          "Mohammed Qanou",
-          "Abbas Al-Nouri"
+          "Ancient coins",
+          "Musical instruments",
+          "Old manuscripts"
         ],
         "ar": [
-          "ياسر العظمة",
-          "محمد قنوع",
-          "عباس النوري"
+          "عملات أثرية",
+          "آلات موسيقية",
+          "مخطوطات قديمة"
         ]
       },
       "explanation": {
-        "en": "Salim Kallas connects the casts of the two Syrian programmes.",
-        "ar": "يربط سليم كلاس طاقمي البرنامجين السوريين."
+        "en": "The painter worries about protecting the work he has created.",
+        "ar": "يقلق الرسام على حماية الأعمال التي أبدعها."
       },
-      "contentKey": "d82321e2"
+      "contentKey": "dc004f19"
     }
   },
   {
@@ -26452,37 +26452,37 @@
       "ar": "مرايا"
     },
     "question": {
-      "en": "Which Maraya 2013 actress also plays Umm Issam?",
-      "ar": "أي ممثلة في مرايا ٢٠١٣ تجسد أيضًا أم عصام؟"
+      "en": "Which subject does the private tutor teach in Maraya 2011 episode twenty-eight?",
+      "ar": "ما المادة التي يدرّسها معلم الدروس الخصوصية في الحلقة الثامنة والعشرين من مرايا ٢٠١١؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "Sabah Al-Jazairi",
-      "ar": "صباح الجزائري"
+      "en": "Mathematics",
+      "ar": "الرياضيات"
     },
     "tvQuiz": {
       "version": 1,
       "spoilerSeason": 0,
-      "kind": "behind-scenes",
+      "kind": "moment",
       "distractors": {
         "en": [
-          "Salma Al-Masri",
-          "Shukran Murtaja",
-          "Wafaa Mousalli"
+          "History",
+          "Geography",
+          "French"
         ],
         "ar": [
-          "سلمى المصري",
-          "شكران مرتجى",
-          "وفاء موصللي"
+          "التاريخ",
+          "الجغرافيا",
+          "الفرنسية"
         ]
       },
       "explanation": {
-        "en": "Sabah Al-Jazairi moves between sketch comedy and family drama.",
-        "ar": "تتنقل صباح الجزائري بين كوميديا اللوحات والدراما العائلية."
+        "en": "His son's difficulties bring the tutoring business close to home.",
+        "ar": "تقرب صعوبات ابنه مشروع الدروس الخصوصية من بيته."
       },
-      "contentKey": "d8df8ce7"
+      "contentKey": "557ab446"
     }
   },
   {
@@ -27395,8 +27395,8 @@
       "ar": "مرايا"
     },
     "question": {
-      "en": "Where do the men swap relationship stories in Rijal W Niswan?",
-      "ar": "أين يتبادل الرجال قصص علاقاتهم في «رجال ونسوان»؟"
+      "en": "Where do the men swap marriage stories in Jurn Al-Kibbeh from Maraya 98?",
+      "ar": "أين يتبادل الرجال حكايات زواجهم في «جرن الكبة» من مرايا ٩٨؟"
     },
     "review": {
       "status": "pending"
@@ -27425,7 +27425,7 @@
         "en": "The café setting lets several men compare their experiences.",
         "ar": "يتيح إطار المقهى لعدة رجال مقارنة تجاربهم."
       },
-      "contentKey": "93d530e4"
+      "contentKey": "34b204c1"
     }
   },
   {

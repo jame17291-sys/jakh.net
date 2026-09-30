@@ -102,7 +102,7 @@ function mockApi({ failPath = null, cleanupFails = false, passwordFailure = null
       return json({ privacy: { analytics: state.analytics } });
     }
     if (path === "/api/user/export") {
-      return json({ profile: { username: state.username } });
+      return json({ exportVersion: 2, account: { username: state.username } });
     }
     if (path === "/api/scores/server-checked/challenge" && method === "POST") {
       return json({
@@ -186,6 +186,31 @@ test("a mid-run failure still deletes the created synthetic account", async () =
   assert.deepEqual(api.state.deleted, ["jakh_synth_1234abcde"]);
   assert.equal(api.state.exists, false);
 });
+
+for (const wrongShape of ["profile-only", "different-account"]) {
+  test(`an export with ${wrongShape} fails identity verification and still cleans up`, async () => {
+    const api = mockApi();
+    const fetchImpl = async (input, init) => {
+      if (new URL(input).pathname === "/api/user/export") {
+        return json({
+          exportVersion: 2,
+          profile: { username: api.state.username },
+          ...(wrongShape === "different-account" ? { account: { username: "not_the_created_account" } } : {}),
+        });
+      }
+      return api.fetchImpl(input, init);
+    };
+    await assert.rejects(() => runSyntheticAccountMonitor(options(fetchImpl)), error => {
+      assert(error instanceof SyntheticMonitorError);
+      assert.match(error.receipt.failure, /export does not identify the created account/u);
+      assert.equal(error.receipt.cleanup.confirmed, true);
+      return true;
+    });
+    assert.equal(api.state.exists, false);
+    assert.deepEqual(api.state.deleted, ["jakh_synth_1234abcde"]);
+    assert.equal(api.state.requests.some(request => request.path === "/api/scores/server-checked/challenge"), false);
+  });
+}
 
 test("cleanup failure is never hidden behind the primary result", async () => {
   const api = mockApi({ cleanupFails: true });

@@ -3675,6 +3675,14 @@ body[data-page] { padding-bottom: 0; }
   .unified-header .brand { justify-content: flex-start; }
 }
 @media (max-width: 600px) {
+  /* Keep phone clearance inside the footer instead of after the document. */
+  html:has(> body.page-home) { padding-bottom: 0; }
+  body.page-home > .site-footer {
+    margin-top: 1.5rem;
+    padding-bottom: calc(max(1.5rem, var(--jakh-fixed-content-inset)) + env(safe-area-inset-bottom, 0px));
+  }
+  body.page-home #top { padding-bottom: 0; }
+  body.page-home #top > .home-discovery:last-child { margin-bottom: 0; }
   .activity-grid, .home-next-grid, .game-directory { grid-template-columns: 1fr; }
   .activity-grid { gap: .65rem; margin-top: 1.25rem; }
   .activity-card { padding: 1rem; }

@@ -263,8 +263,15 @@ async function writeReport(path, report, env) {
     + (report.deploymentRunId ? `- [Production release](https://github.com/${REPOSITORY}/actions/runs/${report.deploymentRunId})\n` : ""));
 }
 
+export function maintenanceReceiptIdentity(ctx, env = process.env) {
+  const attempt = env.GITHUB_RUN_ATTEMPT;
+  if (!/^[1-9][0-9]{0,4}$/u.test(attempt || "") || Number(attempt) > 10_000) throw new Error("Maintenance requires a valid workflow run attempt.");
+  return { version: 1, runId: ctx.runId, runAttempt: Number(attempt), sourceSha: ctx.sha };
+}
+
 export async function runAutopilot(env = process.env) {
   const ctx = context(env);
+  const identity = maintenanceReceiptIdentity(ctx, env);
   const readiness = automaticReleaseReadiness(env);
   // A reservation is a UTC-day budget. Never begin a manual cycle so late
   // that its bounded release work could cross into another reservation day.
@@ -272,12 +279,12 @@ export async function runAutopilot(env = process.env) {
   const minutesUntilMidnight = 1440 - (start.getUTCHours() * 60 + start.getUTCMinutes());
   if (minutesUntilMidnight < 105) throw new Error("Run maintenance earlier in the UTC day; the next scheduled run remains at 07:23 Dubai.");
   const root = process.cwd();
-  const outputDir = resolve(env.RUNNER_TEMP || "../autopilot-work", `autopilot-${ctx.runId}`);
+  const outputDir = resolve(env.RUNNER_TEMP || "../autopilot-work", `autopilot-${ctx.runId}-${identity.runAttempt}`);
   if (outputDir === root || outputDir.startsWith(`${root}/`)) throw new Error("Maintenance evidence must stay outside the checkout.");
   await mkdir(outputDir, { recursive: true });
   const reportPath = join(outputDir, "daily-report.json");
   const gh = githubClient(env);
-  const report = { version: 1, runId: ctx.runId, sourceSha: ctx.sha, releaseMode: readiness.mode, status: "inspecting", checksPassed: 0, checksFailed: 0, changedFiles: [], failedChecks: [] };
+  const report = { ...identity, releaseMode: readiness.mode, status: "inspecting", checksPassed: 0, checksFailed: 0, changedFiles: [], failedChecks: [] };
   let day;
   const send = async (status, extra = {}) => {
     report.status = status;

@@ -102,7 +102,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          name: autopilot-${{ github.run_id }}
-          path: ${{ runner.temp }}/autopilot-${{ github.run_id }}/*.json
+          name: autopilot-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/autopilot-${{ github.run_id }}-${{ github.run_attempt }}/*.json
           if-no-files-found: ignore
           retention-days: 1

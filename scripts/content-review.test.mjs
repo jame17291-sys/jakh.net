@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { mkdtempSync, mkdirSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
+import { mkdtempSync, mkdirSync, readFileSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
@@ -225,6 +225,54 @@ function proofRootFixture(t) {
 function sha256(value) {
   return createHash("sha256").update(value).digest("hex");
 }
+
+function candidateScaffold() {
+  return JSON.parse(readFileSync(
+    new URL("../docs/content-review/templates/evidence-candidate.json", import.meta.url),
+    "utf8",
+  ));
+}
+
+test("the editorial candidate scaffold uses the evidence schema without inventing approvals", () => {
+  const store = candidateScaffold();
+  assert.deepEqual(validateEvidenceStore(store), []);
+  assert.deepEqual(Object.keys(store), ["schemaVersion", "reviewers", "cards"]);
+  const record = store.cards.REPLACE_WITH_EXISTING_CARD_ID;
+  assert.equal(record.evidence[0].status, "candidate");
+  for (const field of ["mutabilityAssessment", "bilingualApproval", "finalApproval", "highStakesSignoff"]) {
+    assert.equal(Object.hasOwn(record, field), false);
+  }
+  assert.deepEqual(store.reviewers.REPLACE_WITH_REAL_REVIEWER_ID.qualifications, []);
+});
+
+test("unreplaced scaffold IDs fail against the real-card contract", () => {
+  const errors = validateEvidenceStore(candidateScaffold(), [
+    { category: "history", card: card() },
+  ]);
+  assert.match(errors.join("\n"), /REPLACE_WITH_EXISTING_CARD_ID.*unknown card/u);
+});
+
+test("candidate scaffold cannot close even a legacy-reviewed high-stakes card", () => {
+  const store = candidateScaffold();
+  store.cards["example-1"] = store.cards.REPLACE_WITH_EXISTING_CARD_ID;
+  delete store.cards.REPLACE_WITH_EXISTING_CARD_ID;
+  const entries = [{ category: "survival", card: reviewedCard() }];
+  assert.deepEqual(validateEvidenceStore(store, entries), []);
+  const coverage = buildEvidenceCoverage(entries, store, { asOf: "2026-08-01" });
+  assert.equal(coverage.summary.reviewed, 1);
+  assert.equal(coverage.summary.evidenceComplete, 0);
+  assert.equal(coverage.summary.acceptedEvidence, 0);
+  assert.equal(coverage.summary.candidateEvidence, 1);
+  assert.equal(coverage.summary.highStakes.evidenceComplete, 0);
+  for (const blocker of [
+    "claim-claim-1-lacks-accepted-evidence",
+    "accepted-evidence-missing",
+    "mutability-assessment-missing",
+    "bilingual-approval-missing-or-future",
+    "qualified-high-stakes-signoff-missing-or-future",
+    "final-approval-missing-or-future",
+  ]) assert.ok(coverage.cards[0].blockers.includes(blocker), blocker);
+});
 
 test("evidence coverage closes only a fully mapped and approved reviewed card", () => {
   const entries = [{ category: "history", card: reviewedCard() }];

@@ -37,7 +37,9 @@ jobs:
       - name: Verify compact global search index
         run: node scripts/generate-search-index.mjs --check
       - name: Verify editorial review governance
-        run: node scripts/content-review-report.mjs --check
+        run: |
+          node scripts/content-review-report.mjs --check
+          node scripts/generate-content-review-work-queue.mjs --check
       - name: Verify production publication quarantine
         run: node scripts/generate-production-quarantine.mjs --check
       - name: Audit exact and semantic question duplicates

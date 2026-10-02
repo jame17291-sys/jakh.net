@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "reviewers": {
+    "REPLACE_WITH_REAL_REVIEWER_ID": {
+      "displayName": "REPLACE with the reviewer's real name",
+      "roles": ["fact-checker"],
+      "qualifications": []
+    }
+  },
+  "cards": {
+    "REPLACE_WITH_EXISTING_CARD_ID": {
+      "claims": [
+        {
+          "id": "claim-1",
+          "text": {
+            "en": "REPLACE with one exact factual claim or riddle mechanism",
+            "ar": "استبدل هذا النص بادعاء واقعي محدد أو آلية اللغز"
+          },
+          "evidenceIds": ["source-1"]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "source-1",
+          "type": "web",
+          "status": "candidate",
+          "title": "REPLACE with the exact source title",
+          "publisher": "REPLACE with the responsible publisher",
+          "locator": {
+            "kind": "section",
+            "value": "REPLACE with the exact claim-supporting section"
+          },
+          "claimIds": ["claim-1"],
+          "notes": "Candidate only. Record and assess the real URL, access date, source version, and exact locator before accepting this source."
+        }
+      ]
+    }
+  }
+}

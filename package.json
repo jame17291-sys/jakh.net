@@ -31,7 +31,7 @@
     "check:kids": "node scripts/generate-kids-pages.mjs --check && node --test scripts/kids-content.test.mjs scripts/kids-toolkit.test.mjs scripts/kids-runtime-fallback.test.mjs"
   },
   "devDependencies": {
-    "@axe-core/playwright": "4.12.1",
+    "@axe-core/playwright": "4.13.0",
     "playwright": "1.62.1"
   }
 }

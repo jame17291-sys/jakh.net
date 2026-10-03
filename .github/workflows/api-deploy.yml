@@ -332,7 +332,7 @@ jobs:
         run: node worker/scripts/prepare-duel-push-secrets.mjs "${{ runner.temp }}/word-duel-vapid.json"
       - name: Deploy compatibility or code-only final Worker
         id: deploy_compatibility
-        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        uses: cloudflare/wrangler-action@953926a2e2182532811c01a25e53647d93bf07c0 # v4.1.3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -439,7 +439,7 @@ jobs:
       - name: Roll back failed compatibility deployment
         id: rollback_worker
         if: ${{ always() && inputs.domain_cutover != true && steps.preflight.outcome == 'success' && steps.rollback_proof.outputs.rollback-safe == 'true' && steps.deploy_compatibility.outcome != 'skipped' && (steps.verify_production.outcome != 'success' || steps.runtime_monitor.outcome != 'success' || steps.candidate_runtime_proof.outcome != 'success') }}
-        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        uses: cloudflare/wrangler-action@953926a2e2182532811c01a25e53647d93bf07c0 # v4.1.3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -774,7 +774,7 @@ jobs:
             --output "$RECEIPT_DIR/pre-migration-recovery-bookmark.json"
       - name: Apply database migrations
         id: apply_migrations
-        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        uses: cloudflare/wrangler-action@953926a2e2182532811c01a25e53647d93bf07c0 # v4.1.3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -879,7 +879,7 @@ jobs:
         run: node worker/scripts/prepare-duel-push-secrets.mjs "${{ runner.temp }}/word-duel-vapid.json"
       - name: Deploy final Worker
         id: deploy_final
-        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        uses: cloudflare/wrangler-action@953926a2e2182532811c01a25e53647d93bf07c0 # v4.1.3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -982,7 +982,7 @@ jobs:
       - name: Roll back final Worker to proven compatibility version
         id: rollback_worker
         if: ${{ always() && inputs.domain_cutover != true && steps.preflight.outcome == 'success' && steps.rollback_proof.outputs.rollback-safe == 'true' && steps.post_migration_runtime_proof.outcome == 'success' && steps.deploy_final.outcome != 'skipped' && (steps.verify_production.outcome != 'success' || steps.runtime_monitor.outcome != 'success' || steps.candidate_runtime_proof.outcome != 'success') }}
-        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        uses: cloudflare/wrangler-action@953926a2e2182532811c01a25e53647d93bf07c0 # v4.1.3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

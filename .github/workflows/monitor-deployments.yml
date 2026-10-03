@@ -1,0 +1,129 @@
+name: Monitor Deployments
+run-name: Inspect maintenance receipt
+
+on:
+  workflow_run:
+    workflows: [Daily website maintenance]
+    types: [completed]
+    branches: [main]
+
+permissions: {}
+
+concurrency:
+  group: maintenance-receipt-${{ github.event.workflow_run.id }}
+  cancel-in-progress: false
+
+jobs:
+  inspect:
+    name: Inspect bounded maintenance evidence
+    if: >-
+      github.repository == 'jame17291-sys/jakh.net' &&
+      github.event.repository.default_branch == 'main' &&
+      github.event.workflow_run.repository.full_name == github.repository &&
+      github.event.workflow_run.head_repository.full_name == github.repository &&
+      github.event.workflow_run.head_branch == 'main' &&
+      github.event.workflow_run.path == '.github/workflows/site-autopilot.yml' &&
+      (github.event.workflow_run.event == 'schedule' || github.event.workflow_run.event == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: read
+    env:
+      RUN_DIRECTORY: ${{ runner.temp }}/maintenance-evidence
+    outputs:
+      run_id: ${{ steps.status.outputs.run_id }}
+      run_attempt: ${{ steps.status.outputs.run_attempt }}
+      source_sha: ${{ steps.status.outputs.source_sha }}
+      status: ${{ steps.status.outputs.status }}
+      release_mode: ${{ steps.status.outputs.release_mode }}
+      build_id: ${{ steps.status.outputs.build_id }}
+      worker_version: ${{ steps.status.outputs.worker_version }}
+      deployment_run_id: ${{ steps.status.outputs.deployment_run_id }}
+      smoke_test: ${{ steps.status.outputs.smoke_test }}
+      checks_passed: ${{ steps.status.outputs.checks_passed }}
+      checks_failed: ${{ steps.status.outputs.checks_failed }}
+    steps:
+      # Trusted default-branch tools only; the triggering SHA and artifact files are data.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+      - name: Download only the exact authenticated maintenance artifact
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/deployment-monitor-workflow.mjs download "$RUN_DIRECTORY"
+      - name: Parse existing receipts without another download
+        if: always()
+        continue-on-error: true
+        env:
+          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+        run: >-
+          node scripts/deployment-receipt-monitor.mjs
+          --run-id="$SOURCE_RUN_ID"
+          --receipts-dir="$RUN_DIRECTORY/receipts"
+          --run-metadata="$RUN_DIRECTORY/run-metadata.json"
+          --output="$RUN_DIRECTORY/deployment-report.json"
+      - name: Export allowlisted fields and fail on unresolved evidence
+        if: always()
+        id: status
+        run: node scripts/deployment-monitor-workflow.mjs outputs "$RUN_DIRECTORY"
+      - name: Retain the bounded parsed report
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: deployment-report-${{ github.event.workflow_run.id }}-${{ github.event.workflow_run.run_attempt }}
+          path: ${{ runner.temp }}/maintenance-evidence/deployment-report.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  publish:
+    name: Publish bounded status on issue 113
+    needs: inspect
+    if: always() && needs.inspect.outputs.run_id != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          persist-credentials: false
+      # This job cannot read triggering artifacts. It receives only validated scalar outputs.
+      - name: Create or update one comment per maintenance attempt
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        env:
+          RECEIPT_RUN_ID: ${{ needs.inspect.outputs.run_id }}
+          RECEIPT_RUN_ATTEMPT: ${{ needs.inspect.outputs.run_attempt }}
+          RECEIPT_SOURCE_SHA: ${{ needs.inspect.outputs.source_sha }}
+          RECEIPT_STATUS: ${{ needs.inspect.outputs.status }}
+          RECEIPT_RELEASE_MODE: ${{ needs.inspect.outputs.release_mode }}
+          RECEIPT_BUILD_ID: ${{ needs.inspect.outputs.build_id }}
+          RECEIPT_WORKER_VERSION: ${{ needs.inspect.outputs.worker_version }}
+          RECEIPT_DEPLOYMENT_RUN_ID: ${{ needs.inspect.outputs.deployment_run_id }}
+          RECEIPT_SMOKE_TEST: ${{ needs.inspect.outputs.smoke_test }}
+          RECEIPT_CHECKS_PASSED: ${{ needs.inspect.outputs.checks_passed }}
+          RECEIPT_CHECKS_FAILED: ${{ needs.inspect.outputs.checks_failed }}
+        with:
+          script: |
+            const { pathToFileURL } = require('node:url');
+            const { join } = require('node:path');
+            const { commentBody } = await import(pathToFileURL(join(process.env.GITHUB_WORKSPACE, 'scripts/deployment-monitor-workflow.mjs')).href);
+            const names = ['run_id', 'run_attempt', 'source_sha', 'status', 'release_mode', 'build_id', 'worker_version', 'deployment_run_id', 'smoke_test', 'checks_passed', 'checks_failed'];
+            const fields = Object.fromEntries(names.map(name => [name, process.env['RECEIPT_' + name.toUpperCase()]]));
+            const body = commentBody(fields);
+            const marker = body.split('\n')[0];
+            const params = { ...context.repo, issue_number: 113 };
+            const comments = await github.paginate(github.rest.issues.listComments, { ...params, per_page: 100 });
+            const existing = comments.find(comment => comment.user?.login === 'github-actions[bot]' && comment.body?.startsWith(marker));
+            if (existing) {
+              if (existing.body !== body) await github.rest.issues.updateComment({ ...context.repo, comment_id: existing.id, body });
+            } else {
+              await github.rest.issues.createComment({ ...params, body });
+            }

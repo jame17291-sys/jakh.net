@@ -98,6 +98,8 @@ jobs:
           scripts/runtime-monitor-proof.test.mjs
           scripts/deployment-safety-check.test.mjs
           scripts/deployment-receipt-monitor.test.mjs
+          scripts/deployment-monitor-workflow.test.mjs
+          scripts/deployment-monitor-integration.test.mjs
       - name: Validate bounded maintenance and automatic release policy
         run: node --test scripts/autopilot-policy.test.mjs scripts/autopilot-repairs.test.mjs scripts/autopilot-orchestration.test.mjs scripts/autopilot-github-app.test.mjs
       - name: Install API dependencies

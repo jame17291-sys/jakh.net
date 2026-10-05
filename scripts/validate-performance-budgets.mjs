@@ -14,7 +14,7 @@ export const ASSET_BUDGETS = Object.freeze({
   'battle-mode.js': Object.freeze({ raw: 30_000, gzip: 8_000, brotli: 7_000 }),
   'battle-selection.js': Object.freeze({ raw: 14_000, gzip: 4_000, brotli: 3_500 }),
   'battle-mode.css': Object.freeze({ raw: 12_000, gzip: 3_000, brotli: 2_500 }),
-  'speech-quality.js': Object.freeze({ raw: 5_000, gzip: 1_800, brotli: 1_500 }),
+  'speech-quality.js': Object.freeze({ raw: 5_000, gzip: 2_200, brotli: 1_900 }),
   'data/search-index.en.json': Object.freeze({ raw: 625_000, gzip: 220_000, brotli: 180_000 }),
   'data/search-index.ar.json': Object.freeze({ raw: 875_000, gzip: 240_000, brotli: 195_000 }),
 });

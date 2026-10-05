@@ -538,6 +538,11 @@ const UI = {
     noRelated: 'No related categories available.',
     audioPlay: 'Read aloud',
     audioStop: 'Stop',
+    audioPreparing: 'Preparing reader…',
+    audioFailed: 'Could not play. Tap Read aloud again.',
+    audioUnavailable: 'Browser cannot read aloud.',
+    audioVoiceMissing: 'Add an English voice in device settings.',
+    audioLoadFailed: 'Reader unavailable. Reload to retry.',
     audioOn: 'Audio on',
     audioOff: 'Audio off',
     suggestTitle: 'Got a topic idea?',
@@ -955,6 +960,11 @@ const UI = {
     noRelated: 'لا توجد موضوعات مرتبطة متاحة.',
     audioPlay: 'اقرأ بصوت عالٍ',
     audioStop: 'إيقاف',
+    audioPreparing: 'جارٍ تجهيز القراءة…',
+    audioFailed: 'تعذّر تشغيل الصوت. حاول مجددًا.',
+    audioUnavailable: 'متصفحك لا يدعم القراءة الصوتية.',
+    audioVoiceMissing: 'أضف صوتًا عربيًا من إعدادات الجهاز.',
+    audioLoadFailed: 'تعذّر تحميل الصوت. حدّث الصفحة وحاول مجددًا.',
     audioOn: 'الصوت مفعّل',
     audioOff: 'الصوت معطّل',
     suggestTitle: 'هل لديك فكرة لموضوع جديد؟',
@@ -2912,6 +2922,7 @@ function renderCategoryPage() {
     return;
   }
   if (!state.categoryData || !state.catalog) return;
+  prepareSpeech();
 
   const category = state.categoryData;
   if (els.categoryKicker) els.categoryKicker.textContent = category.cluster[state.lang];
@@ -3111,10 +3122,12 @@ function createCardMarkup(card) {
     : '';
 
   const flipLabel = flipped ? t('backToQuestion') : t('flipForAnswer');
-  const isAudioPlaying = _activeAudioCardId === card.id;
-  const audioLabel = isAudioPlaying ? t('audioStop') : t('audioPlay');
+  const isAudioActive = _activeAudioCardId === card.id;
+  const isAudioPlaying = isAudioActive && _speechPlaying;
+  const audioLoading = !_speechQuality && Boolean(_speechQualityPromise);
+  const audioLabel = audioLoading ? t('audioPreparing') : t(isAudioActive ? 'audioStop' : 'audioPlay');
   const audioBtn = state.audioEnabled
-    ? `<button class="mini-btn card-audio-btn${isAudioPlaying ? ' playing' : ''}" data-action="audio" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(audioLabel)}" title="${escapeHtml(audioLabel)}" ${frontFocus}>🔊</button>`
+    ? `<button class="mini-btn card-audio-btn${isAudioPlaying ? ' playing' : isAudioActive ? ' pending' : ''}${audioLoading ? ' speech-loading' : ''}" data-action="audio" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(audioLabel)}" title="${escapeHtml(audioLabel)}" ${audioLoading ? 'disabled aria-busy="true"' : ''} ${frontFocus}>${audioLoading ? '⏳' : '🔊'}</button>`
     : '';
   let markBtns;
   if (result === 'correct') {
@@ -4157,35 +4170,72 @@ let _currentAudio = null;
 let _activeAudioCardId = null;
 let _speechLoadId = 0;
 let _speechQualityPromise = null;
+let _speechQuality = null;
+let _speechPlaying = false;
+let _speechLoadAttempts = 0;
+const SPEECH_MODULE_URL = '/speech-quality.js';
 
-async function speakText(text, lang) {
-  stopSpeech();
-  const loadId = _speechLoadId;
-  try {
-    _speechQualityPromise ||= import('/speech-quality.js');
-    const { speakNaturally } = await _speechQualityPromise;
-    if (loadId !== _speechLoadId) return;
-    _currentAudio = speakNaturally({ text, lang, onEnd: _clearAudioBtns });
-    if (!_currentAudio) _clearAudioBtns();
-  } catch {
+function resetAudioButton(button) {
+  button.disabled = false;
+  button.classList.remove('playing', 'pending', 'speech-loading');
+  button.removeAttribute('aria-busy');
+  button.textContent = '🔊';
+  button.title = t('audioPlay');
+  button.setAttribute('aria-label', t('audioPlay'));
+}
+
+function prepareSpeech(retry = false) {
+  if (!state.audioEnabled || _speechQuality || _speechQualityPromise || _speechLoadAttempts >= 2 || (_speechLoadAttempts && !retry)) return;
+  document.querySelectorAll('.card-audio-btn').forEach(button => {
+    button.disabled = true;
+    button.classList.add('speech-loading');
+    button.setAttribute('aria-busy', 'true');
+    button.textContent = '⏳';
+    button.setAttribute('aria-label', t('audioPreparing'));
+  });
+  const path = _speechLoadAttempts++ ? `${SPEECH_MODULE_URL}?retry=1` : SPEECH_MODULE_URL;
+  _speechQualityPromise = import(path).then(module => {
+    _speechQuality = module;
+  }).catch(() => {
+    if (_speechLoadAttempts === 2) showToast(t('audioLoadFailed'), true);
+  }).finally(() => {
     _speechQualityPromise = null;
-    if (loadId === _speechLoadId) _clearAudioBtns();
-  }
+    document.querySelectorAll('.card-audio-btn.speech-loading').forEach(resetAudioButton);
+  });
+}
+
+function speakText(text, lang) {
+  const loadId = _speechLoadId;
+  const controller = _speechQuality.speakNaturally({ text, lang,
+    onStart() {
+      if (loadId !== _speechLoadId) return;
+      _speechPlaying = true;
+      document.querySelectorAll('.card-audio-btn.pending').forEach(button => {
+        button.classList.remove('pending');
+        button.classList.add('playing');
+        button.removeAttribute('aria-busy');
+      });
+    },
+    onEnd() { if (loadId === _speechLoadId) _clearAudioBtns(); },
+    onError(reason) {
+      if (loadId === _speechLoadId) showToast(t(reason === 'unsupported' ? 'audioUnavailable' : reason === 'voice-unavailable' ? 'audioVoiceMissing' : 'audioFailed'), true);
+    },
+  });
+  if (loadId === _speechLoadId && _activeAudioCardId) _currentAudio = controller;
+  else controller?.cancel();
 }
 
 function _clearAudioBtns() {
   _currentAudio = null;
   _activeAudioCardId = null;
-  document.querySelectorAll('.card-audio-btn.playing').forEach(b => {
-    b.classList.remove('playing');
-    b.title = t('audioPlay');
-    b.setAttribute('aria-label', t('audioPlay'));
-  });
+  _speechPlaying = false;
+  document.querySelectorAll('.card-audio-btn.playing, .card-audio-btn.pending').forEach(resetAudioButton);
 }
 
 function stopSpeech() {
   _speechLoadId += 1;
-  if (_currentAudio) { _currentAudio.cancel(); _currentAudio = null; }
+  _currentAudio?.cancel();
+  _clearAudioBtns();
 }
 
 function handleAudioBtn(btn) {
@@ -4193,27 +4243,23 @@ function handleAudioBtn(btn) {
   const card = state.categoryData?.cards.find(c => c.id === cardId);
   if (!card) return;
 
-  if (btn.classList.contains('playing')) {
-    stopSpeech();
-    _activeAudioCardId = null;
-    btn.classList.remove('playing');
-    btn.title = t('audioPlay');
-    btn.setAttribute('aria-label', t('audioPlay'));
+  if (_activeAudioCardId === cardId) return stopSpeech();
+  stopSpeech();
+  if (!_speechQuality) {
+    if (_speechLoadAttempts >= 2) showToast(t('audioLoadFailed'), true);
+    else { prepareSpeech(true); showToast(t('audioPreparing')); }
     return;
   }
-
-  document.querySelectorAll('.card-audio-btn.playing').forEach(b => {
-    b.classList.remove('playing');
-    b.title = t('audioPlay');
-    b.setAttribute('aria-label', t('audioPlay'));
-  });
-
-  btn.classList.add('playing');
+  btn.classList.add('pending');
+  btn.setAttribute('aria-busy', 'true');
   _activeAudioCardId = cardId;
   btn.title = t('audioStop');
   btn.setAttribute('aria-label', t('audioStop'));
   speakText(card.question[state.lang], state.lang);
 }
+
+window.addEventListener('pagehide', stopSpeech);
+document.addEventListener('visibilitychange', () => { if (document.hidden) stopSpeech(); });
 
 
 function initSuggestionBox() {

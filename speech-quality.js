@@ -1,116 +1,92 @@
-function voiceLanguage(voice) {
-  return String(voice?.lang || '').replaceAll('_', '-').toLowerCase();
-}
+const voiceLanguage = voice => String(voice?.lang || '').replaceAll('_', '-').toLowerCase();
+const languageOf = lang => String(lang).toLowerCase().split(/[-_]/u)[0];
+const voiceKey = voice => `${voiceLanguage(voice)}:${voice.voiceURI || voice.name}`;
+const failedRemoteVoices = new Set();
+let activeSpeech = null;
 
-export function getBestVoice(voices, lang) {
-  if (!Array.isArray(voices) || !voices.length) return null;
-  const isArabic = lang === 'ar';
-  const languagePrefix = isArabic ? 'ar' : 'en';
-  const localePriority = isArabic
-    ? new Map([['ar-ae', 45], ['ar-sa', 40], ['ar-eg', 35], ['ar', 25]])
-    : new Map([['en-us', 45], ['en-gb', 40], ['en-au', 35], ['en', 25]]);
-  const candidates = voices.filter((voice) => {
+export function getBestVoice(voices, lang, { online = globalThis.navigator?.onLine !== false } = {}) {
+  const language = languageOf(lang);
+  if (!Array.isArray(voices) || !['ar', 'en'].includes(language)) return null;
+  const candidates = voices.filter(voice => {
     const locale = voiceLanguage(voice);
-    return locale === languagePrefix || locale.startsWith(`${languagePrefix}-`);
+    return (locale === language || locale.startsWith(`${language}-`)) && (online || voice.localService);
   });
-  if (!candidates.length) return null;
-
-  function score(voice) {
-    const locale = voiceLanguage(voice);
-    const identity = `${voice.name || ''} ${voice.voiceURI || ''}`.toLowerCase();
-    let value = 0;
-    if (/premium|enhanced|neural|natural|studio/u.test(identity)) value += 500;
-    if (/google|microsoft|apple|siri/u.test(identity)) value += 80;
-    value += localePriority.get(locale) || (locale.startsWith(`${languagePrefix}-`) ? 20 : 0);
-    if (voice.default) value += 15;
-    if (voice.localService) value += 5;
-    return value;
-  }
-
-  return [...candidates].sort((left, right) => (
-    score(right) - score(left)
-    || String(left.name || '').localeCompare(String(right.name || ''))
-  ))[0];
+  const score = voice => {
+    const name = `${voice.name || ''} ${voice.voiceURI || ''}`.toLowerCase();
+    return (/premium|enhanced|neural|natural|studio/u.test(name) ? 100 : 0)
+      + (voice.localService ? 10 : 0) + (voice.default ? 5 : 0);
+  };
+  return candidates.sort((a, b) => score(b) - score(a))[0] || null;
 }
 
 export function prepareSpeechText(text, lang) {
-  let prepared = String(text || '').normalize('NFC').replace(/\s+/gu, ' ').trim();
-  if (lang !== 'ar') return prepared;
-  return prepared
-    .replace(/&/gu, ' و')
-    .replace(/\//gu, ' أو ')
-    .replace(/×/gu, ' في ')
-    .replace(/÷/gu, ' مقسوم على ')
-    .replace(/=/gu, ' يساوي ')
-    .replace(/\+/gu, ' زائد ')
-    .replace(/−/gu, ' ناقص ')
-    .replace(/%/gu, ' بالمئة')
-    .replace(/[:;]/gu, '،')
-    .replace(/[“”«»]/gu, '')
-    .replace(/([،؛؟!.])(?=\S)/gu, '$1 ')
-    .replace(/\s+/gu, ' ')
-    .trim();
+  const clean = String(text || '').normalize('NFC').replace(/\s+/gu, ' ').trim();
+  if (languageOf(lang) !== 'ar') return clean;
+  return clean
+    .replace(/([0-9٠-٩]+(?:[.٫][0-9٠-٩]+)?)\s*\/\s*([0-9٠-٩]+(?:[.٫][0-9٠-٩]+)?)/gu, (match, a, b, offset, source) => {
+      const before = source.slice(0, offset), after = source.slice(offset + match.length);
+      return /[0-9٠-٩.٫/]\s*$/u.test(before) || /^\s*[/0-9٠-٩.٫]/u.test(after) ? match : `${a} على ${b}`;
+    })
+    .replace(/&/gu, ' و ').replace(/×/gu, ' في ').replace(/÷/gu, ' مقسوم على ')
+    .replace(/=/gu, ' يساوي ').replace(/\+/gu, ' زائد ').replace(/−/gu, ' ناقص ')
+    .replace(/%/gu, ' بالمئة').replace(/[“”«»]/gu, '')
+    .replace(/([،؛؟!])(?=\S)/gu, '$1 ').replace(/\s+/gu, ' ').trim();
 }
 
-export function speakNaturally({ text, lang, onEnd = () => {} }) {
-  const synthesis = globalThis.speechSynthesis;
-  const Utterance = globalThis.SpeechSynthesisUtterance;
-  if (!synthesis || typeof Utterance !== 'function') return null;
+// Warm voice discovery without moving playback outside the user's tap.
+try { globalThis.speechSynthesis?.getVoices(); } catch { /* Report failures on playback. */ }
 
-  let stopped = false;
-  let voicesHandler = null;
-  let voicesTimer = null;
-
-  const clearVoiceWait = () => {
-    if (voicesHandler) synthesis.removeEventListener('voiceschanged', voicesHandler);
-    if (voicesTimer) clearTimeout(voicesTimer);
-    voicesHandler = null;
-    voicesTimer = null;
-  };
-
-  const controller = {
-    cancel() {
-      if (stopped) return;
-      stopped = true;
-      clearVoiceWait();
-      synthesis.cancel();
-    },
-  };
-
-  const finish = () => {
+export function speakNaturally({ text, lang, onStart = () => {}, onEnd = () => {}, onError = () => {} }) {
+  activeSpeech?.cancel();
+  const synthesis = globalThis.speechSynthesis, Utterance = globalThis.SpeechSynthesisUtterance;
+  const utterances = [];
+  let stopped = false, started = false, timer;
+  const cancelNative = () => { try { synthesis?.cancel(); } catch { /* UI cleanup still applies. */ } };
+  const controller = { cancel() { finish(undefined, false); } };
+  const finish = (error, notify = true) => {
     if (stopped) return;
     stopped = true;
-    clearVoiceWait();
-    onEnd();
+    clearTimeout(timer);
+    if (activeSpeech === controller) activeSpeech = null;
+    if (error || !notify) cancelNative();
+    utterances.length = 0;
+    if (notify) { try { if (error) onError(error); } finally { onEnd(); } }
   };
-
-  const start = () => {
-    if (stopped) return;
-    clearVoiceWait();
-    synthesis.cancel();
-    const utterance = new Utterance(prepareSpeechText(text, lang));
-    const voice = getBestVoice(synthesis.getVoices(), lang);
-    if (voice) {
-      utterance.voice = voice;
-      utterance.lang = voice.lang;
-    } else {
-      utterance.lang = lang === 'ar' ? 'ar-AE' : 'en-US';
+  if (!synthesis || typeof Utterance !== 'function') { finish('unsupported'); return null; }
+  try {
+    const content = prepareSpeechText(text, lang), language = languageOf(lang);
+    if (!content) { finish(); return null; }
+    const voices = synthesis.getVoices();
+    const voice = getBestVoice(voices.filter(item => !failedRemoteVoices.has(voiceKey(item))), language);
+    if (!['ar', 'en'].includes(language) || (voices.length && !voice)) { finish('voice-unavailable'); return null; }
+    const chunks = [];
+    let chunk = '';
+    for (const word of content.split(' ')) {
+      if (chunk && chunk.length + word.length > 220) { chunks.push(chunk); chunk = ''; }
+      chunk += (chunk ? ' ' : '') + word;
     }
-    // Arabic benefits from a little more breathing room than the browser
-    // default, especially around interrogative phrasing and longer answers.
-    utterance.rate = lang === 'ar' ? 0.92 : 0.98;
-    utterance.pitch = 1;
-    utterance.onend = finish;
-    utterance.onerror = finish;
-    synthesis.speak(utterance);
-  };
-
-  if (synthesis.getVoices().length) {
-    start();
-  } else {
-    voicesHandler = start;
-    synthesis.addEventListener('voiceschanged', voicesHandler);
-    voicesTimer = setTimeout(start, 600);
-  }
-  return controller;
+    if (chunk) chunks.push(chunk);
+    for (const [index, part] of chunks.entries()) {
+      const utterance = new Utterance(part);
+      utterance.lang = voice?.lang.replaceAll('_', '-') || (language === 'ar' ? 'ar-SA' : 'en-US');
+      if (voice) utterance.voice = voice;
+      utterance.rate = language === 'ar' ? 0.92 : 0.98;
+      utterance.pitch = 1;
+      utterance.onstart = () => { if (!stopped && !started) { started = true; clearTimeout(timer); onStart(); } };
+      utterance.onend = () => { if (index === chunks.length - 1) finish(); };
+      utterance.onerror = event => {
+        if (stopped) return;
+        if (event.error === 'network' && voice && !voice.localService) failedRemoteVoices.add(voiceKey(voice));
+        if (['canceled', 'interrupted'].includes(event.error)) { cancelNative(); finish(); }
+        else finish(event.error || 'synthesis-failed');
+      };
+      utterances.push(utterance);
+    }
+    activeSpeech = controller;
+    if (synthesis.paused && typeof synthesis.resume === 'function') synthesis.resume();
+    timer = setTimeout(() => finish('start-timeout'), 8000);
+    // Queue every retained utterance synchronously while user activation is valid.
+    for (const utterance of [...utterances]) { if (stopped) break; synthesis.speak(utterance); }
+  } catch { finish('synthesis-failed'); }
+  return stopped ? null : controller;
 }

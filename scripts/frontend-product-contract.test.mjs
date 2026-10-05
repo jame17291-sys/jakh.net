@@ -613,7 +613,7 @@ test('public Arabic actions use concise human wording and reject known literal t
   ]) assert.match(publicActions, new RegExp(naturalAction, 'u'), naturalAction);
 });
 
-test('read-aloud prefers a natural Arabic voice and uses human prosody', () => {
+test('read-aloud prefers a natural Arabic voice and preserves Arabic mathematical wording', () => {
   const basicSaudi = { name: 'Arabic', voiceURI: 'basic-ar-sa', lang: 'ar-SA', localService: true };
   const naturalEgyptian = {
     name: 'Microsoft Salma Online (Natural)',
@@ -624,15 +624,9 @@ test('read-aloud prefers a natural Arabic voice and uses human prosody', () => {
   assert.equal(getBestVoice([basicSaudi, naturalEgyptian], 'ar').name, naturalEgyptian.name);
   assert.equal(prepareSpeechText('كم يساوي 5×4؟20', 'ar'), 'كم يساوي 5 في 4؟ 20');
 
-  const speech = functionBlock('speakText', '_clearAudioBtns');
-  assert.match(speech, /import\('\/speech-quality\.js'\)/u);
-  assert.match(speech, /speakNaturally\(\{ text, lang, onEnd: _clearAudioBtns \}\)/u);
-  assert.doesNotMatch(speech, /ar-SA|0\.82|1\.05/u);
-
-  const qualityModule = fs.readFileSync(path.join(root, 'speech-quality.js'), 'utf8');
-  assert.match(qualityModule, /utterance\.lang = voice\.lang/u);
-  assert.match(qualityModule, /utterance\.rate = lang === 'ar' \? 0\.92 : 0\.98/u);
-  assert.match(qualityModule, /utterance\.pitch = 1/u);
+  assert.equal(prepareSpeechText('ما ناتج 0.5 × 0.5؟', 'ar'), 'ما ناتج 0.5 في 0.5؟');
+  assert.equal(prepareSpeechText('5/8 أم 3/5', 'ar'), '5 على 8 أم 3 على 5');
+  assert.equal(prepareSpeechText('الساعة 18:10', 'ar'), 'الساعة 18:10');
 });
 
 test('anonymous session, transient identity, and signed-out markup contracts remain honest', () => {

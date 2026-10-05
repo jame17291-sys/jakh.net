@@ -24,6 +24,41 @@ let resetOpener;
 let playOpener;
 let speechButton = null;
 let speechGeneration = 0;
+let speechController = null;
+let speechModule = null;
+let speechLoad = null;
+let speechAttempts = 0;
+const SPEECH_MODULE_URL = '/speech-quality.js';
+
+function prepareSpeech(retry = false) {
+  const controls = $$('[data-kids-speak]');
+  if (!controls.length || speechModule || speechLoad || speechAttempts >= 2 || (speechAttempts && !retry)) return;
+  const preparing = t('Preparing reader…', 'جارٍ تجهيز القراءة…');
+  for (const control of controls) {
+    control.dataset.kidsSpeakLabel ||= control.textContent;
+    control.disabled = true;
+    control.setAttribute('aria-busy', 'true');
+    control.textContent = preparing;
+  }
+  const ready = () => {
+    for (const control of controls) {
+      control.disabled = false;
+      control.removeAttribute('aria-busy');
+      control.textContent = control.dataset.kidsSpeakLabel;
+    }
+    if ($('[data-kids-status]')?.textContent === preparing) announce('');
+  };
+  const path = speechAttempts++ ? `${SPEECH_MODULE_URL}?retry=1` : SPEECH_MODULE_URL;
+  speechLoad = import(path).then(module => {
+    speechModule = module;
+    speechLoad = null;
+    ready();
+  }).catch(() => {
+    speechLoad = null;
+    ready();
+    if (speechAttempts === 2) speechFailure(controls[0], 'load-failed');
+  });
+}
 
 function element(tag, options = {}, children = []) {
   const result = document.createElement(tag);
@@ -298,60 +333,100 @@ function togglePlayTogether(force) {
 
 function stopSpeech() {
   speechGeneration += 1;
-  try { window.speechSynthesis?.cancel(); } catch { /* Speech support varies by browser. */ }
+  const controller = speechController;
+  speechController = null;
+  controller?.cancel();
   if (speechButton) {
     speechButton.setAttribute('aria-pressed', 'false');
+    speechButton.removeAttribute('aria-busy');
     speechButton.textContent = speechButton.dataset.kidsSpeakLabel || t('Read aloud', 'اقرأ بصوت عالٍ');
     speechButton = null;
   }
 }
 
-async function readAloud(control) {
+function speechFailure(control, reason) {
+  let message;
+  if (reason === 'load-failed') message = t('The reader could not load. Reload the page to try again. You can keep using the activity tools.', 'تعذّر تحميل القراءة الصوتية. حدّث الصفحة للمحاولة مرة أخرى. يمكنك الاستمرار في استخدام أدوات الأنشطة.');
+  else if (reason === 'unsupported') message = t('Read aloud is unavailable in this browser. The activity is ready for an adult to read together.', 'القراءة الصوتية غير متاحة في هذا المتصفح. يمكن لأحد الكبار قراءة النشاط مع الطفل.');
+  else if (reason === 'voice-unavailable') message = t('No English voice is available on this device. Add an English voice in device settings, or read the activity together.', 'لا يتوفر صوت عربي على هذا الجهاز. أضف صوتًا عربيًا من إعدادات الجهاز، أو اقرأوا النص معًا.');
+  else if (reason === 'not-allowed') message = t('Tap Read aloud again to start the voice. You can also read the activity together.', 'اضغط على زر القراءة مرة أخرى لتشغيل الصوت. ويمكنكم أيضًا قراءة النشاط معًا.');
+  else if (reason === 'network') message = t('The voice could not connect. Check your connection and try Read aloud again.', 'تعذّر اتصال خدمة الصوت. تحقّق من الاتصال ثم اضغط على زر القراءة مرة أخرى.');
+  else message = t('The voice could not play. Try Read aloud again, or read the activity together.', 'تعذّر تشغيل الصوت. اضغط على زر القراءة مرة أخرى، أو اقرأوا النشاط معًا.');
+  let feedback = $('[data-kids-speech-feedback]');
+  if (!feedback) {
+    feedback = element('p', { class: 'kids-note', dataset: { kidsSpeechFeedback: '' } });
+    const container = control.closest('.kids-actions')?.parentElement || control.parentElement;
+    container?.append(feedback);
+  }
+  feedback.textContent = message;
+  announce(message);
+}
+
+function readText(region) {
+  const copy = region.cloneNode(true);
+  $$('button, input, textarea, nav, select, script, style, [role="button"], [hidden], details:not([open]), [aria-hidden="true"], [data-kids-speech-feedback]', copy).forEach(node => node.remove());
+  const blocks = new Set(['ARTICLE', 'SECTION', 'DIV', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'P', 'LI', 'UL', 'OL', 'BLOCKQUOTE', 'SUMMARY', 'DETAILS', 'TR']);
+  const collect = node => {
+    if (node.nodeType === 3) return node.textContent;
+    if (node.tagName === 'BR') return '\n';
+    const text = [...node.childNodes].map(collect).join('');
+    return blocks.has(node.tagName) ? `\n${text}\n` : text;
+  };
+  const lines = collect(copy).split(/\n+/u).map(line => line.replace(/\s+/gu, ' ').trim()).filter(Boolean);
+  return lines.map((line, index) => index < lines.length - 1 && !/[.!?؟،؛:;]["'”’»)\]]*$/u.test(line) ? `${line}.` : line).join(' ');
+}
+
+function readAloud(control) {
   if (control === speechButton) { stopSpeech(); return; }
   stopSpeech();
-  if (!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)) {
-    announce(t('Read aloud is unavailable in this browser. The activity is ready for an adult to read together.', 'القراءة الصوتية غير متاحة في هذا المتصفح. يمكن لأحد الكبار قراءة النشاط مع الطفل.'));
+  if (!speechModule) {
+    if (speechAttempts >= 2) speechFailure(control, 'load-failed');
+    else {
+      prepareSpeech(true);
+      announce(t('Preparing reader…', 'جارٍ تجهيز القراءة…'));
+    }
     return;
   }
+  const previousFailure = $('[data-kids-speech-feedback]')?.textContent;
+  if (previousFailure && $('[data-kids-status]')?.textContent === previousFailure) announce('');
+  $$('[data-kids-speech-feedback]').forEach(node => { node.textContent = ''; });
   const region = (control.dataset.kidsReadTarget && document.getElementById(control.dataset.kidsReadTarget)) || control.closest('[data-kids-read]') || $('[data-kids-read]');
   if (!region) return;
-  const copy = region.cloneNode(true);
-  $$('button, nav, select, [hidden], details:not([open]), [aria-hidden="true"]', copy).forEach(node => node.remove());
-  const content = copy.textContent.replace(/\s+/gu, ' ').trim();
+  const content = readText(region);
   if (!content) return;
   const generation = speechGeneration;
-  let voices = window.speechSynthesis.getVoices();
-  if (!voices.length) {
-    await new Promise(resolve => {
-      const timeout = setTimeout(done, 700);
-      function done() { clearTimeout(timeout); window.speechSynthesis.removeEventListener('voiceschanged', done); resolve(); }
-      window.speechSynthesis.addEventListener('voiceschanged', done, { once: true });
-    });
-    if (generation !== speechGeneration) return;
-    voices = window.speechSynthesis.getVoices();
-  }
-  const voice = voices.find(candidate => candidate.lang.toLowerCase().startsWith(lang) && candidate.localService)
-    || voices.find(candidate => candidate.lang.toLowerCase().startsWith(lang));
-  if (ar && voices.length && !voice) {
-    announce('لا يتوفر صوت عربي على هذا الجهاز. أضف صوتًا عربيًا من إعدادات الجهاز، أو اقرأوا النص معًا.');
-    return;
-  }
-  const utterance = new SpeechSynthesisUtterance(content);
-  utterance.lang = ar ? 'ar-SA' : 'en-US';
-  if (voice) utterance.voice = voice;
-  utterance.rate = ar ? 0.85 : 0.9;
   control.dataset.kidsSpeakLabel ||= control.textContent;
   speechButton = control;
-  control.setAttribute('aria-pressed', 'true');
-  control.textContent = t('Stop reading', 'أوقف القراءة');
-  utterance.onend = () => { if (generation === speechGeneration) stopSpeech(); };
-  utterance.onerror = event => {
-    if (generation !== speechGeneration) return;
-    stopSpeech();
-    if (!['interrupted', 'canceled'].includes(event.error)) announce(t('The voice could not play. You can read the activity together, or try another browser voice.', 'تعذّر تشغيل الصوت. يمكنكم قراءة النشاط معًا أو تجربة صوت آخر على الجهاز.'));
-  };
-  try { window.speechSynthesis.speak(utterance); }
-  catch { stopSpeech(); announce(t('Read aloud is unavailable right now.', 'القراءة الصوتية غير متاحة الآن.')); }
+  control.setAttribute('aria-pressed', 'false');
+  control.setAttribute('aria-busy', 'true');
+  const controller = speechModule.speakNaturally({
+    text: content, lang,
+    onStart() {
+      if (generation !== speechGeneration) return;
+      control.removeAttribute('aria-busy');
+      control.setAttribute('aria-pressed', 'true');
+      control.textContent = t('Stop reading', 'أوقف القراءة');
+    },
+    onEnd() { if (generation === speechGeneration) stopSpeech(); },
+    onError(reason) {
+      if (generation !== speechGeneration) return;
+      stopSpeech();
+      speechFailure(control, reason);
+    },
+  });
+  if (generation === speechGeneration && speechButton === control) speechController = controller;
+  else controller?.cancel();
+}
+
+function bindSpeech() {
+  document.addEventListener('click', event => {
+    const control = event.target.closest('[data-kids-speak], [data-kids-stop-speech]');
+    if (!control) return;
+    if ('kidsSpeak' in control.dataset) readAloud(control);
+    else stopSpeech();
+  });
+  window.addEventListener('pagehide', stopSpeech);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) stopSpeech(); });
 }
 
 function printPlanner() {
@@ -452,8 +527,6 @@ function bindEvents() {
       $('[data-kids-cancel-reset]', resetDialog).focus();
     } else if ('kidsPlayTogether' in data) togglePlayTogether();
     else if ('kidsExitTogether' in data) togglePlayTogether(false);
-    else if ('kidsSpeak' in data) void readAloud(control);
-    else if ('kidsStopSpeech' in data) stopSpeech();
   });
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && !resetDialog?.open && document.body.classList.contains('kids-play-together')) togglePlayTogether(false);
@@ -465,12 +538,13 @@ function bindEvents() {
     catch { toolkit = emptyToolkit(); }
     renderToolkit();
   });
-  window.addEventListener('pagehide', stopSpeech);
   window.addEventListener('afterprint', () => document.body.classList.remove('kids-printing-plan'));
 }
 
 async function initialize() {
   if (!document.body.classList.contains('kids-page')) return;
+  bindSpeech();
+  prepareSpeech();
   syncLanguageLinks();
   try {
     const response = await fetch('/data/kids/catalog.json', { credentials: 'same-origin' });

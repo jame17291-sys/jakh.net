@@ -1,9 +1,12 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { mkdtemp, readFile, readdir, rm, writeFile, mkdir } from "node:fs/promises";
+import { mkdtemp, readFile, readdir, rm, writeFile, mkdir, copyFile } from "node:fs/promises";
+import { spawnSync } from 'node:child_process';
 import { tmpdir } from "node:os";
-import { join, resolve } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import test from "node:test";
+import vm from 'node:vm';
+import * as overrideModule from '../../content-overrides.js';
 
 import {
   buildStaticSite,
@@ -34,6 +37,126 @@ const expectedHeldAssets = [
 function digest(bytes) {
   return createHash("sha256").update(bytes).digest("hex");
 }
+
+function appFunction(source, name) {
+  const start = source.search(new RegExp(`(?:async )?function ${name}\\(`, 'u'));
+  assert.ok(start >= 0, name);
+  return source.slice(start, source.indexOf('\n}', start) + 2);
+}
+
+test('first navigation gets new questions through an unchanged worker with old SW and HTTP caches', async () => {
+  const manifest = JSON.parse(await readFile(join(repositoryRoot, 'site-worker/generated/site-manifest.json'), 'utf8'));
+  const built = relative => readFile(join(repositoryRoot, 'site-worker/dist', relative.replace(/^\//u, '')), 'utf8');
+  const catalog = JSON.parse(await built(manifest.fingerprints['/data/catalog.json']));
+  const freshCards = JSON.parse(await built(manifest.fingerprints['/data/chemistry.json']));
+  const oldCards = freshCards.map(({ quickFire: _quickFire, ...card }) => card);
+  const oldCatalog = { ...catalog, categories: catalog.categories.map(({ assetPath: _assetPath, ...category }) => category) };
+  const httpCache = new Map([
+    ['/data/catalog.json', JSON.stringify(oldCatalog)], ['/data/chemistry.json', JSON.stringify(oldCards)],
+  ]);
+  const published = new Map([
+    [manifest.fingerprints['/data/catalog.json'], JSON.stringify(catalog)],
+    [manifest.fingerprints['/data/chemistry.json'], JSON.stringify(freshCards)],
+  ]);
+  const stores = new Map(), listeners = new Map(), networkPaths = [];
+  const key = request => new URL(typeof request === 'string' ? request : request.url, 'https://riddlearabia.com').href;
+  const caches = {
+    async open(name) {
+      if (!stores.has(name)) {
+        const entries = new Map();
+        stores.set(name, {
+          async match(request) { return entries.get(key(request))?.clone(); },
+          async put(request, response) { entries.set(key(request), response.clone()); },
+          async keys() { return [...entries.keys()].map(url => new Request(url)); },
+          async delete(request) { return entries.delete(key(request)); },
+        });
+      }
+      return stores.get(name);
+    },
+    async keys() { return [...stores.keys()]; },
+  };
+  const controller = vm.createContext({
+    Request, Response, URL, caches,
+    self: { location: { origin: 'https://riddlearabia.com' }, addEventListener(type, listener) { listeners.set(type, listener); } },
+    fetch: async request => {
+      const pathname = new URL(key(request)).pathname;
+      networkPaths.push(pathname);
+      const body = httpCache.get(pathname) ?? published.get(pathname);
+      assert.ok(body, `unexpected network request: ${pathname}`);
+      const response = new Response(body, { headers: { 'content-type': 'application/json', 'cache-control': 'public, max-age=3600' } });
+      Object.defineProperty(response, 'type', { value: 'basic' });
+      return response;
+    },
+  });
+  vm.runInContext(await readFile(join(repositoryRoot, 'sw.js'), 'utf8'), controller);
+  const fetchThroughOldController = async pathname => {
+    let response, lifetimes = [];
+    listeners.get('fetch')({
+      request: new Request(new URL(pathname, 'https://riddlearabia.com')),
+      respondWith(value) { response = Promise.resolve(value); },
+      waitUntil(value) { lifetimes.push(value); },
+    });
+    const result = await response;
+    await Promise.all(lifetimes);
+    return result.json();
+  };
+  await fetchThroughOldController('/data/catalog.json');
+  await fetchThroughOldController('/data/chemistry.json');
+  assert.equal((await fetchThroughOldController('/data/chemistry.json?release=new')).filter(card => card.quickFire).length, 0,
+    'a changed query alone still hits the old worker pathname cache');
+  const application = await built(manifest.fingerprints['/app.js']);
+  const requests = [];
+  const state = { page: 'category', categorySlug: 'chemistry', catalog: null };
+  const page = vm.createContext({
+    state, categoryIsQuarantined: () => false, publicCatalogView: value => value,
+    fetchJson: async pathname => { requests.push(pathname); return fetchThroughOldController(pathname); },
+    loadContentOverridesModule: async () => overrideModule, apiFetch: async () => ({ overrides: [] }),
+  });
+  vm.runInContext('let catalogPromise = null;\n' + ['categoryAssetPath', 'loadCatalog', 'loadCategoryIfNeeded',
+    'quickFireChoiceKey', 'quickFireCorrectKeys', 'preparedQuickFire'].map(name => appFunction(application, name)).join('\n'), page);
+  await page.loadCategoryIfNeeded();
+  assert.equal(state.categoryData.cards.filter(card => page.preparedQuickFire(card)).length, 20);
+  assert.deepEqual(requests, [manifest.fingerprints['/data/catalog.json'], manifest.fingerprints['/data/chemistry.json']]);
+  assert.ok(networkPaths.includes(manifest.fingerprints['/data/chemistry.json']));
+  assert.equal((await fetchThroughOldController('/data/chemistry.json')).filter(card => card.quickFire).length, 0,
+    'old cache remains intact; freshness did not depend on activation, eviction or a hard reload');
+});
+
+test('a category-only content edit changes its catalog and app hashes without publishing held cards', async t => {
+  const baseline = JSON.parse(await readFile(join(repositoryRoot, 'site-worker/generated/site-manifest.json'), 'utf8'));
+  const temporary = await mkdtemp(join(tmpdir(), 'jakh-category-release-'));
+  t.after(() => rm(temporary, { recursive: true, force: true }));
+  const source = join(temporary, 'source');
+  const tracked = spawnSync('git', ['ls-files', '-z'], { cwd: repositoryRoot, encoding: 'utf8' });
+  assert.equal(tracked.status, 0);
+  const fileList = tracked.stdout.split('\0').filter(file => file && isDeployableFile(file));
+  await Promise.all([...fileList, 'docs/content-review/production-quarantine.json'].map(async file => {
+    await mkdir(dirname(join(source, file)), { recursive: true });
+    await copyFile(join(repositoryRoot, file), join(source, file));
+  }));
+  const chemistry = JSON.parse(await readFile(join(source, 'data/chemistry.json'), 'utf8'));
+  chemistry.find(card => card.quickFire).quickFire.explanation.en += ' Additional published reasoning.';
+  await writeFile(join(source, 'data/chemistry.json'), `${JSON.stringify(chemistry, null, 2)}\n`);
+  const changed = await buildStaticSite({ sourceRoot: source, fileList,
+    outputDirectory: join(temporary, 'dist'), manifestPath: join(temporary, 'manifest.json'),
+    manifestModulePath: join(temporary, 'manifest.js') });
+  for (const asset of ['/data/chemistry.json', '/data/catalog.json', '/app.js']) {
+    assert.notEqual(changed.fingerprints[asset], baseline.fingerprints[asset], asset);
+  }
+  for (const asset of ['/data/math.json', '/battle-mode.js', '/styles.css', '/kids-learning.js']) {
+    assert.equal(changed.fingerprints[asset], baseline.fingerprints[asset], `${asset}: unrelated asset remains stable`);
+  }
+  assert.notEqual(changed.sourceGraphId, baseline.sourceGraphId);
+  assert.notEqual(changed.offlineCacheIdentity, baseline.offlineCacheIdentity);
+  const catalog = JSON.parse(await readFile(join(temporary, 'dist', changed.fingerprints['/data/catalog.json'].slice(1)), 'utf8'));
+  assert.equal(catalog.categories.find(category => category.slug === 'chemistry').assetPath, changed.fingerprints['/data/chemistry.json']);
+  for (const slug of loadProductionQuarantine(repositoryRoot).categorySlugs) {
+    assert.equal(changed.fingerprints[`/data/${slug}.json`], undefined);
+    assert.equal(Object.keys(changed.files).some(file => file.startsWith(`/data/${slug}.`)), false);
+  }
+  const application = await readFile(join(temporary, 'dist', changed.fingerprints['/app.js'].slice(1)), 'utf8');
+  assert.ok(application.includes(changed.fingerprints['/data/catalog.json']));
+});
 
 function cardTextFragments(html) {
   return [...String(html).matchAll(
@@ -139,7 +262,16 @@ test("generated production manifest is complete, one-hop, and excludes repositor
     assert.equal(isRetiredPublicSeoArtifactPath(artifactPath), false, `retired SEO artifact was deployed: ${artifactPath}`);
   }
   assert.ok(manifest.inlineScripts["/"].length > 0, "root JSON-LD must receive a CSP hash");
-  assert.deepEqual(Object.keys(manifest.fingerprints).sort(), [...FINGERPRINT_SOURCE_PATHS].sort());
+  const categoryCatalog = JSON.parse(await readFile(join(repositoryRoot, 'site-worker/dist/data/catalog.json'), 'utf8'));
+  assert.deepEqual(Object.keys(manifest.fingerprints).sort(), [
+    ...FINGERPRINT_SOURCE_PATHS, ...categoryCatalog.categories.map(category => `/data/${category.slug}.json`),
+  ].sort());
+  for (const category of categoryCatalog.categories) {
+    assert.equal(category.assetPath, manifest.fingerprints[`/data/${category.slug}.json`]);
+  }
+  for (const slug of quarantine.categorySlugs) {
+    assert.equal(manifest.fingerprints[`/data/${slug}.json`], undefined, 'Held cards must have no fingerprint');
+  }
   await assertFingerprintBytes(manifest, join(repositoryRoot, "site-worker/dist"));
   await assertCompleteInventory(manifest, join(repositoryRoot, "site-worker/dist"));
 
@@ -162,7 +294,7 @@ test("generated production manifest is complete, one-hop, and excludes repositor
     assert.match(application, new RegExp(manifest.fingerprints[stable].replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
   }
   for (const [parent, dependencies] of Object.entries({
-    '/app.js': ['/auth-security.js', '/auth-enhancements.js'],
+    '/app.js': ['/auth-security.js', '/auth-enhancements.js', '/data/catalog.json'],
     '/admin.js': ['/auth-security.js'],
     '/auth-security.js': ['/auth-security.css'],
     '/battle-mode.js': ['/battle-selection.js'],

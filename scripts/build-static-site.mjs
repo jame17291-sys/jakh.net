@@ -77,6 +77,7 @@ export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
   "/search-leaderboard.css",
   "/data/search-index.en.json",
   "/data/search-index.ar.json",
+  "/data/catalog.json",
 ]);
 
 const HTML_FINGERPRINT_SOURCE_PATHS = new Set([
@@ -229,6 +230,7 @@ function rewriteApplication(source, fingerprints) {
     "/battle-mode.css",
     "/search-leaderboard.js",
     "/search-leaderboard.css",
+    "/data/catalog.json",
   ]) {
     const target = fingerprints[dependency];
     if (!target) continue;
@@ -897,6 +899,24 @@ export async function buildStaticSite({
     fingerprints[stableUrlPath] = target;
     return target;
   };
+
+  // Publish only the projected categories. Pin each card payload before the
+  // catalog and application so even an old service worker cannot substitute
+  // its cached canonical JSON for a newly published set of questions.
+  const catalogBytes = sourceBytes.get('data/catalog.json');
+  if (catalogBytes) {
+    const catalog = JSON.parse(catalogBytes.toString('utf8'));
+    for (const category of catalog.categories || []) {
+      invariant(/^[a-z0-9]+(?:-[a-z0-9]+)*$/u.test(category.slug), 'Invalid public category slug');
+      const stable = `/data/${category.slug}.json`;
+      const bytes = sourceBytes.get(urlPathToRelative(stable));
+      invariant(bytes, `Public category requires its question payload: ${stable}`);
+      category.assetPath = addFingerprint(stable, bytes);
+    }
+    const rewritten = Buffer.from(`${JSON.stringify(catalog, null, 2)}\n`, 'utf8');
+    artifactBytes.set('data/catalog.json', rewritten);
+    addFingerprint('/data/catalog.json', rewritten);
+  }
 
   for (const stableUrlPath of [
     "/auth-enhancements.js",

@@ -5,18 +5,20 @@ import vm from 'node:vm';
 import * as overrideModule from '../content-overrides.js';
 
 const source = readFileSync(new URL('../app.js', import.meta.url), 'utf8');
-const start = source.indexOf('async function loadBattleCategoryCards(');
-assert.ok(start >= 0);
-const loader = source.slice(start, source.indexOf('\n}', start) + 2);
+const loader = ['function categoryAssetPath(', 'async function loadBattleCategoryCards('].map(declaration => {
+  const start = source.indexOf(declaration);
+  assert.ok(start >= 0);
+  return source.slice(start, source.indexOf('\n}', start) + 2);
+}).join('\n');
 const card = {
   id: 'math-001', question: { en: 'Question', ar: 'سؤال' }, answer: { en: '5', ar: '5' },
   quickFire: { answer: { en: '5', ar: '5' } },
 };
 
-function harness({ response = { overrides: [] }, raw = [card], error = null } = {}) {
+function harness({ response = { overrides: [] }, raw = [card], error = null, assetPath } = {}) {
   const requests = [];
   const context = vm.createContext({
-    loadCatalog: async () => ({ categories: [{ slug: 'math' }] }),
+    loadCatalog: async () => ({ categories: [{ slug: 'math', ...(assetPath === undefined ? {} : { assetPath }) }] }),
     categoryIsQuarantined: slug => slug === 'blocked',
     fetchJson: async path => { requests.push(path); return raw; },
     loadContentOverridesModule: async () => overrideModule,
@@ -52,4 +54,43 @@ test('unpublished and quarantined topic requests are rejected before fetching', 
     await assert.rejects(h.load(slug), /unavailable/u);
     assert.deepEqual(h.requests, []);
   }
+});
+
+test('Battle pins its category payload to the catalog and rejects cross-category or external assets', async () => {
+  const assetPath = '/data/math.0123456789abcdef.json';
+  const h = harness({ assetPath });
+  await h.load('math');
+  assert.equal(h.requests[0], assetPath);
+  for (const invalid of [
+    'https://example.com/data/math.0123456789abcdef.json', '//example.com/data/math.0123456789abcdef.json',
+    '/data/chemistry.0123456789abcdef.json', '/data/math.0123456789abcdef.json?new=1',
+    '/data/../math.0123456789abcdef.json', '/data/math.json', null, [assetPath],
+  ]) {
+    const invalidHarness = harness({ assetPath: invalid });
+    await assert.rejects(invalidHarness.load('math'), /asset is invalid/u);
+    assert.deepEqual(invalidHarness.requests, [], 'invalid assets fail before static or API requests');
+  }
+});
+
+test('Practice waits for catalog metadata before fetching its immutable payload', async () => {
+  let resolveCatalog;
+  const catalog = new Promise(resolve => { resolveCatalog = resolve; });
+  const requests = [], state = { page: 'category', categorySlug: 'math' };
+  const assetPath = '/data/math.0123456789abcdef.json';
+  const context = vm.createContext({
+    state, loadCatalog: () => catalog, categoryIsQuarantined: () => false,
+    fetchJson: async path => { requests.push(path); return [card]; },
+    loadContentOverridesModule: async () => overrideModule, apiFetch: async () => ({ overrides: [] }),
+  });
+  const declarations = ['function categoryAssetPath(', 'async function loadCategoryIfNeeded('];
+  vm.runInContext(declarations.map(declaration => {
+    const start = source.indexOf(declaration);
+    return source.slice(start, source.indexOf('\n}', start) + 2);
+  }).join('\n'), context);
+  const pending = context.loadCategoryIfNeeded();
+  assert.deepEqual(requests, []);
+  resolveCatalog({ categories: [{ slug: 'math', assetPath }] });
+  await pending;
+  assert.deepEqual(requests, [assetPath]);
+  assert.equal(state.categoryData.cards[0], card);
 });

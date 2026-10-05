@@ -506,10 +506,19 @@ function battleConnectionHarness() {
     URL,
     API_ORIGIN: 'https://api.riddlearabia.com',
     state: { lang: 'en' },
-    battleState: { ws: null, phase: 'setup', timerInterval: 7 },
+    battleState: { ws: null, phase: 'setup', timerInterval: 7, tab: 'create', createPending: false,
+      selectionGeneration: 0, selectionSlug: 'science', selectionCounts: { all: 10 },
+      setup: { name: 'Player', category: 'science', difficulty: 'all', questionCount: 10 } },
     document: { getElementById: id => elements.get(id) },
     apiFetch: async () => ({ code: 'SCI7X2KQ', hostId: 'test-host' }),
     localizedErrorMessage: error => error.message,
+    captureBattleSetup() {},
+    clearBattleError() { elements.get('battleSetupError').textContent = ''; },
+    refreshBattleSelection() {
+      const button = elements.get('battleCreateBtn');
+      button.disabled = context.battleState.createPending;
+      button.textContent = button.disabled ? 'Creating…' : 'Create Battle Room';
+    },
     renderBattleUI: () => { renders += 1; },
     clearInterval: timer => clearedTimers.push(timer),
     handleBattleMessage() {},

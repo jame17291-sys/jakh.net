@@ -24,6 +24,7 @@ test('current initial and lazy feature assets stay inside deterministic budgets'
   assert.ok(Object.hasOwn(ASSET_BUDGETS, 'search-leaderboard.js'));
   assert.ok(Object.hasOwn(ASSET_BUDGETS, 'search-leaderboard.css'));
   assert.ok(Object.hasOwn(ASSET_BUDGETS, 'speech-quality.js'));
+  assert.ok(Object.hasOwn(ASSET_BUDGETS, 'battle-selection.js'));
 });
 
 test('natural speech implementation stays outside the initial bundle', () => {
@@ -88,6 +89,8 @@ test('Battle implementation and styles are absent from the initial bundles', () 
   const app = read('app.js');
   const sharedStyles = read('styles.css');
   const battleModule = read('battle-mode.js');
+  assert.match(battleModule, /import.*from '\.\/battle-selection\.js'/u);
+  assert.doesNotMatch(app, /import.*battle-selection/u);
   const battleStyles = read('battle-mode.css');
 
   assert.doesNotMatch(app, /\bconst battleState\s*=/u);

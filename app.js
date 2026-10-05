@@ -4121,6 +4121,24 @@ async function loadCategoryIfNeeded() {
   state.categoryData = { ...meta, cards: overrideModule.mergePublishedContentOverrides(raw, overrides) };
 }
 
+async function loadBattleCategoryCards(slug) {
+  const catalog = await loadCatalog();
+  if (!(catalog.categories || []).some(category => category.slug === slug) || categoryIsQuarantined(slug)) {
+    throw new Error('Category is unavailable');
+  }
+  // Room eligibility must reflect the same published revisions as the server.
+  // Practice can tolerate an API outage, but room creation must not use stale choices.
+  const [raw, overrideModule, response] = await Promise.all([
+    fetchJson(`/data/${slug}.json`),
+    loadContentOverridesModule(),
+    apiFetch(`/content/questions?category=${encodeURIComponent(slug)}`, { cache: 'no-store' }),
+  ]);
+  if (!Array.isArray(raw) || !Array.isArray(response?.overrides)) {
+    throw new Error('Question availability could not be checked');
+  }
+  return overrideModule.mergePublishedContentOverrides(raw, response.overrides);
+}
+
 
 let _analyticsInterval = null;
 
@@ -5186,6 +5204,7 @@ function renderCategoryPlayModes() {
   previousModes?.remove();
   const isAr = state.lang === 'ar';
   const preparedCount = new Set((state.categoryData?.cards || []).filter(card => preparedQuickFire(card)).map(card => card.id)).size;
+  const quickFireReady = preparedCount >= 5;
   const quickFireDescription = preparedCount >= 5
     ? (isAr ? `تحدٍ فردي مجاني مع توقيت — ${Math.min(10, preparedCount)} أسئلة` : `Free solo timed challenge — ${Math.min(10, preparedCount)} questions`)
     : (isAr ? 'نعمل على إعداد خيارات الأسئلة؛ التدريب المجاني متاح الآن' : 'Question choices are being prepared; free card practice is available now');
@@ -5203,7 +5222,7 @@ function renderCategoryPlayModes() {
           </div>
         </div>
         <button class="primary-btn play-mode-btn" id="playModeQuickFireBtn">
-          🎯 ${isAr ? 'ابدأ تحديًا فرديًا' : 'Start Solo'}
+          ${quickFireReady ? `🎯 ${isAr ? 'ابدأ تحديًا فرديًا' : 'Start Solo'}` : (isAr ? 'ابدأ التدريب' : 'Start practice')}
         </button>
       </div>
       <div class="play-mode-card play-mode-team">
@@ -5231,7 +5250,11 @@ function renderCategoryPlayModes() {
     questionSection.parentNode.insertBefore(el, questionSection);
   }
   if (wasExpanded) el.querySelector('details').open = true;
-  document.getElementById('playModeQuickFireBtn')?.addEventListener('click', startTimedQuiz);
+  document.getElementById('playModeQuickFireBtn')?.addEventListener('click', quickFireReady ? startTimedQuiz : () => {
+    const grid = document.getElementById('cardGrid');
+    grid?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    grid?.focus({ preventScroll: true });
+  });
   document.getElementById('playModeCreateRoomBtn')?.addEventListener('click', () => {
     openBattleModal(state.categorySlug, 'create');
   });
@@ -5316,6 +5339,8 @@ function loadBattleMode() {
       _battleMode = module.createBattleMode({
         API_ORIGIN,
         apiFetch,
+        loadBattleCategoryCards,
+        preparedQuickFire,
         escapeHtml,
         localizedErrorMessage,
         shareOrCopy,

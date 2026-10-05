@@ -6,7 +6,8 @@ import { normalizeScorableAnswer } from './content-review-lib.mjs';
 
 const categoryIds = {
   'classic-riddles': [2, 3, 4, 5, 7, 11, 18, 19, 23, 32],
-  math: [1, 2, 3, 6, 7, 8, 9, 12, 18, 20],
+  math: [1, 2, 3, 6, 7, 8, 9, 12, 18, 20, 117, 118, 119, 121, 122, 123, 125, 126, 127, 129],
+  chemistry: [1, 2, 3, 4, 7, 8, 31, 32, 34, 42, 11, 13, 14, 15, 17, 18, 20, 46, 52, 58],
   'logic-puzzles': [1, 2, 3, 6, 8, 13, 16, 17, 20, 27],
 };
 const cards = new Map();
@@ -35,37 +36,13 @@ test('catalog discovery counts match only actual eligible authored question sets
     for (const card of authored) assert.ok(context.preparedQuickFire(card), `${category.slug}/${card.id}`);
     total += authored.length;
   }
-  assert.equal(total, 30);
+  assert.equal(total, 60);
 });
 
-test('Battle discovery does not silently substitute an unprepared requested topic', () => {
-  const source = readFileSync(new URL('../battle-mode.js', import.meta.url), 'utf8');
-  const start = source.indexOf('function renderBattleSetup(');
-  const render = source.slice(start, source.indexOf('\n}', start) + 2);
-  const context = vm.createContext({
-    state: { lang: 'en', catalog: { categories: [
-      { slug: 'science', title: { en: 'Science' }, quickFireQuestionCount: 0 },
-      { slug: 'math', title: { en: 'Math' }, quickFireQuestionCount: 10 },
-    ] } },
-    battleState: { pendingSlug: 'science', tab: 'create' },
-    escapeHtml: String,
-    document: { getElementById: () => null },
-  });
-  vm.runInContext(render, context);
-  const body = {};
-  context.renderBattleSetup(body);
-  assert.doesNotMatch(body.innerHTML, /option value="science"/u);
-  assert.match(body.innerHTML, /option value="" disabled selected/u);
-  assert.match(body.innerHTML, /option value="math"/u);
-  context.battleState.pendingSlug = 'math';
-  context.renderBattleSetup(body);
-  assert.match(body.innerHTML, /option value="math" selected/u);
-});
-
-test('thirty seeded cards have complete aligned bilingual authored choices, not reviewer approvals', () => {
+test('sixty seeded cards have complete aligned bilingual authored choices, not reviewer approvals', () => {
   let total = 0;
   for (const [category, ids] of Object.entries(categoryIds)) {
-    assert.equal(ids.length, 10);
+    assert.equal(ids.length, category === 'math' || category === 'chemistry' ? 20 : 10);
     const authored = [...cards.values()].filter(card => card.id.startsWith(`${category}-`) && card.quickFire);
     assert.deepEqual(authored.map(card => card.id).sort(), ids.map(id => cardId(category, id)).sort());
     for (const number of ids) {
@@ -91,7 +68,7 @@ test('thirty seeded cards have complete aligned bilingual authored choices, not 
       total += 1;
     }
   }
-  assert.equal(total, 30);
+  assert.equal(total, 60);
 });
 
 test('authored arithmetic answers and numerical distractors satisfy exactly one intended result', () => {

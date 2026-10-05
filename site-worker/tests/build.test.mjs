@@ -165,6 +165,7 @@ test("generated production manifest is complete, one-hop, and excludes repositor
     '/app.js': ['/auth-security.js', '/auth-enhancements.js'],
     '/admin.js': ['/auth-security.js'],
     '/auth-security.js': ['/auth-security.css'],
+    '/battle-mode.js': ['/battle-selection.js'],
     '/puzzle-room.js': ['/puzzle-crossword-shell.js'],
     '/puzzle-crossword.js': ['/puzzle-crossword-shell.js'],
   })) {
@@ -379,7 +380,8 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
   await writeFile(join(source, "admin.css"), ".admin{display:block}\n", "utf8");
   await writeFile(join(source, "styles.css"), "body{color:#123}\n", "utf8");
   await writeFile(join(source, "privacy.css"), ".privacy{display:block}\n", "utf8");
-  await writeFile(join(source, "battle-mode.js"), "export const battle=1;\n", "utf8");
+  await writeFile(join(source, "battle-mode.js"), "import './battle-selection.js'; export const battle=1;\n", "utf8");
+  await writeFile(join(source, "battle-selection.js"), "export const selection=1;\n", "utf8");
   await writeFile(join(source, "battle-mode.css"), ".battle{display:block}\n", "utf8");
   await writeFile(join(source, "search-leaderboard.js"), "const fetchJson=(path)=>path; const language='en'; export const data=fetchJson(`/data/search-index.${language}.json`);\n", "utf8");
   await writeFile(join(source, "search-leaderboard.css"), ".search{display:block}\n", "utf8");
@@ -394,7 +396,7 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
 
   const fileList = [
     "index.html", "404.html", "admin.html", "app.js", "auth-enhancements.js", "admin-config.js", "admin.js", "admin.css", "auth-security.js", "auth-security.css", "styles.css", "privacy.css",
-    "battle-mode.js", "battle-mode.css", "search-leaderboard.js", "search-leaderboard.css",
+    "battle-mode.js", "battle-selection.js", "battle-mode.css", "search-leaderboard.js", "search-leaderboard.css",
     "data/search-index.en.json", "data/search-index.ar.json", "sw.js", "robots.txt",
     "package.json", "docs/secret.json", googleProof,
   ];
@@ -422,7 +424,7 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
     adminEnvironment: "staging",
   });
   assert.deepEqual(repeated, first, "same source graph must produce the same build and cache identities");
-  assert.equal(first.fileCount, 36);
+  assert.equal(first.fileCount, 38);
   assert.deepEqual(first.inlineScripts["/"], inlineScriptHashes('<script>window.test=1;</script>'));
   assert.equal(first.files["/package.json"], undefined);
   assert.equal(first.files["/docs/secret.json"], undefined);
@@ -519,6 +521,21 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
   const profileApplication = await readFile(join(temporary, 'profile-dist', profileChanged.fingerprints['/app.js'].slice(1)), 'utf8');
   assert.ok(profileApplication.includes(profileChanged.fingerprints['/auth-enhancements.js']));
   await assertFingerprintBytes(profileChanged, join(temporary, 'profile-dist'));
+
+  await writeFile(join(source, 'battle-selection.js'), 'export const selection=2;\n', 'utf8');
+  const selectionChanged = await buildStaticSite({
+    sourceRoot: source,
+    outputDirectory: join(temporary, 'selection-dist'),
+    manifestPath: join(temporary, 'selection.json'),
+    manifestModulePath: join(temporary, 'selection.js'),
+    fileList,
+  });
+  for (const asset of ['/battle-selection.js', '/battle-mode.js', '/app.js']) {
+    assert.notEqual(selectionChanged.fingerprints[asset], profileChanged.fingerprints[asset], `${asset} must change with Battle selection controls`);
+  }
+  const battle = await readFile(join(temporary, 'selection-dist', selectionChanged.fingerprints['/battle-mode.js'].slice(1)), 'utf8');
+  assert.ok(battle.includes(selectionChanged.fingerprints['/battle-selection.js']));
+  await assertFingerprintBytes(selectionChanged, join(temporary, 'selection-dist'));
 });
 
 test("deploy allow-list is explicit", () => {

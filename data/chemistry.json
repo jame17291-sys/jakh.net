@@ -16,6 +16,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "H₂O",
+        "ar": "H₂O"
+      },
+      "distractors": {
+        "en": [
+          "CO₂",
+          "O₂",
+          "H₂O₂"
+        ],
+        "ar": [
+          "CO₂",
+          "O₂",
+          "H₂O₂"
+        ]
+      },
+      "explanation": {
+        "en": "Water contains two hydrogen atoms and one oxygen atom.",
+        "ar": "يتكون جزيء الماء من ذرتي هيدروجين وذرة أكسجين واحدة."
+      }
     }
   },
   {
@@ -35,6 +57,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "The Periodic Table",
+        "ar": "الجدول الدوري للعناصر"
+      },
+      "distractors": {
+        "en": [
+          "The multiplication table",
+          "The solar system chart",
+          "The food pyramid"
+        ],
+        "ar": [
+          "جدول الضرب",
+          "مخطط النظام الشمسي",
+          "الهرم الغذائي"
+        ]
+      },
+      "explanation": {
+        "en": "The periodic table organizes chemical elements by atomic number.",
+        "ar": "ينظم الجدول الدوري العناصر الكيميائية بحسب العدد الذري."
+      }
     }
   },
   {
@@ -54,6 +98,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "Sodium and Chlorine",
+        "ar": "الصوديوم والكلور"
+      },
+      "distractors": {
+        "en": [
+          "Sodium and Oxygen",
+          "Calcium and Chlorine",
+          "Carbon and Oxygen"
+        ],
+        "ar": [
+          "الصوديوم والأكسجين",
+          "الكالسيوم والكلور",
+          "الكربون والأكسجين"
+        ]
+      },
+      "explanation": {
+        "en": "Na denotes sodium and Cl denotes chlorine.",
+        "ar": "يرمز Na إلى الصوديوم وCl إلى الكلور."
+      }
     }
   },
   {
@@ -73,6 +139,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "The Nucleus",
+        "ar": "النواة"
+      },
+      "distractors": {
+        "en": [
+          "The electron cloud",
+          "A chemical bond",
+          "An orbital"
+        ],
+        "ar": [
+          "السحابة الإلكترونية",
+          "رابطة كيميائية",
+          "مدار"
+        ]
+      },
+      "explanation": {
+        "en": "The nucleus is the small central part of an atom.",
+        "ar": "النواة هي الجزء المركزي الصغير من الذرة."
+      }
     }
   },
   {
@@ -130,6 +218,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "Au",
+        "ar": "Au"
+      },
+      "distractors": {
+        "en": [
+          "Ag",
+          "Fe",
+          "Cu"
+        ],
+        "ar": [
+          "Ag",
+          "Fe",
+          "Cu"
+        ]
+      },
+      "explanation": {
+        "en": "Gold's chemical symbol is Au.",
+        "ar": "الرمز الكيميائي للذهب هو Au."
+      }
     }
   },
   {
@@ -149,6 +259,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "Positive",
+        "ar": "موجبة"
+      },
+      "distractors": {
+        "en": [
+          "Negative",
+          "Neutral",
+          "It varies by element"
+        ],
+        "ar": [
+          "سالبة",
+          "متعادلة",
+          "تختلف باختلاف العنصر"
+        ]
+      },
+      "explanation": {
+        "en": "A proton has one positive elementary charge.",
+        "ar": "يحمل البروتون شحنة أولية موجبة واحدة."
+      }
     }
   },
   {
@@ -206,6 +338,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "The number of protons",
+        "ar": "عدد البروتونات"
+      },
+      "distractors": {
+        "en": [
+          "The number of neutrons",
+          "The number of electron shells",
+          "The number of protons plus neutrons"
+        ],
+        "ar": [
+          "عدد النيوترونات",
+          "عدد الأغلفة الإلكترونية",
+          "مجموع عدد البروتونات والنيوترونات"
+        ]
+      },
+      "explanation": {
+        "en": "Atomic number counts the protons in an atom's nucleus.",
+        "ar": "العدد الذري هو عدد البروتونات في نواة الذرة."
+      }
     }
   },
   {
@@ -244,6 +398,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "Valence electrons",
+        "ar": "إلكترونات التكافؤ"
+      },
+      "distractors": {
+        "en": [
+          "Core electrons",
+          "Protons",
+          "Neutrons"
+        ],
+        "ar": [
+          "إلكترونات الأغلفة الداخلية",
+          "البروتونات",
+          "النيوترونات"
+        ]
+      },
+      "explanation": {
+        "en": "The outermost-shell electrons are called valence electrons.",
+        "ar": "تسمى إلكترونات الغلاف الخارجي إلكترونات التكافؤ."
+      }
     }
   },
   {
@@ -263,6 +439,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "Isotopes",
+        "ar": "النظائر"
+      },
+      "distractors": {
+        "en": [
+          "Ions",
+          "Isomers",
+          "Molecules"
+        ],
+        "ar": [
+          "الأيونات",
+          "المتماكبات",
+          "الجزيئات"
+        ]
+      },
+      "explanation": {
+        "en": "Isotopes share an element's proton number but differ in neutron number.",
+        "ar": "تتساوى نظائر العنصر في عدد البروتونات وتختلف في عدد النيوترونات."
+      }
     }
   },
   {
@@ -282,6 +480,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "Endothermic",
+        "ar": "التفاعل الماص للحرارة"
+      },
+      "distractors": {
+        "en": [
+          "Exothermic",
+          "Thermoneutral",
+          "Always explosive"
+        ],
+        "ar": [
+          "التفاعل الطارد للحرارة",
+          "التفاعل المتعادل حرارياً",
+          "التفاعل الانفجاري دائماً"
+        ]
+      },
+      "explanation": {
+        "en": "An endothermic reaction takes in heat from its surroundings.",
+        "ar": "يمتص التفاعل الماص للحرارة الحرارة من محيطه."
+      }
     }
   },
   {
@@ -320,6 +540,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "Covalent Bond",
+        "ar": "الرابطة التساهمية"
+      },
+      "distractors": {
+        "en": [
+          "Ionic bond",
+          "Metallic bond",
+          "Hydrogen bond"
+        ],
+        "ar": [
+          "الرابطة الأيونية",
+          "الرابطة الفلزية",
+          "الرابطة الهيدروجينية"
+        ]
+      },
+      "explanation": {
+        "en": "Sharing electron pairs forms a covalent bond.",
+        "ar": "تتكون الرابطة التساهمية بمشاركة أزواج الإلكترونات."
+      }
     }
   },
   {
@@ -339,6 +581,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "Sublimation",
+        "ar": "التسامي"
+      },
+      "distractors": {
+        "en": [
+          "Melting",
+          "Condensation",
+          "Freezing"
+        ],
+        "ar": [
+          "الانصهار",
+          "التكاثف",
+          "التجمد"
+        ]
+      },
+      "explanation": {
+        "en": "Sublimation passes directly from solid to gas without a liquid phase.",
+        "ar": "التسامي تحول مباشر من الحالة الصلبة إلى الغازية دون المرور بالحالة السائلة."
+      }
     }
   },
   {
@@ -377,6 +641,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "A catalyst",
+        "ar": "المحفز (الكاتاليست)"
+      },
+      "distractors": {
+        "en": [
+          "An inhibitor",
+          "A product",
+          "A solvent"
+        ],
+        "ar": [
+          "المثبط",
+          "الناتج",
+          "المذيب"
+        ]
+      },
+      "explanation": {
+        "en": "A catalyst increases reaction rate and is regenerated during the reaction.",
+        "ar": "يزيد المحفز معدل التفاعل ويستعاد أثناء التفاعل."
+      }
     }
   },
   {
@@ -586,6 +872,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "Fe",
+        "ar": "Fe"
+      },
+      "distractors": {
+        "en": [
+          "Au",
+          "Ag",
+          "He"
+        ],
+        "ar": [
+          "Au",
+          "Ag",
+          "He"
+        ]
+      },
+      "explanation": {
+        "en": "Iron's chemical symbol is Fe.",
+        "ar": "الرمز الكيميائي للحديد هو Fe."
+      }
     }
   },
   {
@@ -605,6 +913,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "Ag",
+        "ar": "Ag"
+      },
+      "distractors": {
+        "en": [
+          "Au",
+          "Al",
+          "Sn"
+        ],
+        "ar": [
+          "Au",
+          "Al",
+          "Sn"
+        ]
+      },
+      "explanation": {
+        "en": "Silver's chemical symbol is Ag.",
+        "ar": "الرمز الكيميائي للفضة هو Ag."
+      }
     }
   },
   {
@@ -643,6 +973,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "Hydrogen",
+        "ar": "الهيدروجين"
+      },
+      "distractors": {
+        "en": [
+          "Helium",
+          "Oxygen",
+          "Nitrogen"
+        ],
+        "ar": [
+          "الهيليوم",
+          "الأكسجين",
+          "النيتروجين"
+        ]
+      },
+      "explanation": {
+        "en": "Hydrogen has the lowest atomic mass of the elements.",
+        "ar": "للهيدروجين أقل كتلة ذرية بين العناصر."
+      }
     }
   },
   {
@@ -795,6 +1147,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "Carbon",
+        "ar": "الكربون"
+      },
+      "distractors": {
+        "en": [
+          "Silicon",
+          "Calcium",
+          "Sulfur"
+        ],
+        "ar": [
+          "السيليكون",
+          "الكالسيوم",
+          "الكبريت"
+        ]
+      },
+      "explanation": {
+        "en": "Diamond is a form of the element carbon.",
+        "ar": "الألماس صورة من صور عنصر الكربون."
+      }
     }
   },
   {
@@ -871,6 +1245,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "A bond formed by the electrostatic attraction between oppositely charged ions",
+        "ar": "رابطة تتكوّن بالتجاذب الكهروستاتيكي بين أيونات مشحونة بشحنات متعاكسة"
+      },
+      "distractors": {
+        "en": [
+          "A bond formed by sharing electron pairs",
+          "A bond binding only neutrons",
+          "A bond formed by gravity"
+        ],
+        "ar": [
+          "رابطة تتكون بمشاركة أزواج الإلكترونات",
+          "رابطة تربط النيوترونات فقط",
+          "رابطة تتكون بفعل الجاذبية"
+        ]
+      },
+      "explanation": {
+        "en": "Oppositely charged ions attract each other electrostatically in an ionic bond.",
+        "ar": "تتجاذب الأيونات ذات الشحنات المتعاكسة كهربائياً في الرابطة الأيونية."
+      }
     }
   },
   {
@@ -985,6 +1381,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "Periods 4,5,6, and 7.",
+        "ar": "الدورات 4 و 5 و 6 و 7."
+      },
+      "distractors": {
+        "en": [
+          "Periods 1, 2, 3, and 4.",
+          "Periods 2, 3, 4, and 5.",
+          "Periods 3, 4, 5, and 6."
+        ],
+        "ar": [
+          "الدورات 1 و2 و3 و4.",
+          "الدورات 2 و3 و4 و5.",
+          "الدورات 3 و4 و5 و6."
+        ]
+      },
+      "explanation": {
+        "en": "The d-block rows occur in periods 4 through 7 of the standard periodic table.",
+        "ar": "تقع صفوف الفئة d في الدورات من 4 إلى 7 في الجدول الدوري القياسي."
+      }
     }
   },
   {
@@ -1099,6 +1517,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "Dmitri Mendeleev.",
+        "ar": "ديمتري مندليف."
+      },
+      "distractors": {
+        "en": [
+          "Isaac Newton",
+          "Charles Darwin",
+          "Albert Einstein"
+        ],
+        "ar": [
+          "إسحاق نيوتن",
+          "تشارلز داروين",
+          "ألبرت أينشتاين"
+        ]
+      },
+      "explanation": {
+        "en": "Mendeleev's 1869 table left gaps for elements yet to be discovered.",
+        "ar": "ترك جدول مندليف عام 1869 فراغات لعناصر لم تكن مكتشفة بعد."
+      }
     }
   },
   {

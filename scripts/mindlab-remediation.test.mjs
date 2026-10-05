@@ -10,6 +10,7 @@ const plan = read('docs/content-review/mindlab-remediation-2026-09-23.json');
 const tvAmendment = read('docs/content-review/tv-trivia-2026-09-30.json');
 const tvExpansion = read('docs/content-review/tv-trivia-expansion-2026-09-30.json');
 const tvFollowup = read('docs/content-review/tv-trivia-followup-2026-09-30.json');
+const gameChoiceAmendment = read('docs/content-review/game-choice-availability-2026-10-05.json');
 const cards = new Map(plan.scope.flatMap(topic => read(`data/${topic.slug}.json`)).map(card=>[card.id,card]));
 const hash = card => crypto.createHash('sha256').update(JSON.stringify(card)).digest('hex');
 
@@ -45,9 +46,60 @@ test('all 1,241 audit findings are repaired without deleting or renumbering the 
       assert.equal(followup.beforeHash, expanded?.afterHash || successor?.afterHash || change.afterHash);
       assert.ok(followup.reason?.trim());
     }
-    assert.equal(hash(cards.get(change.id)),followup?.afterHash || expanded?.afterHash || successor?.afterHash || change.afterHash,`${change.id}: patch not applied`);
+    const latestHistoricalHash = followup?.afterHash || expanded?.afterHash || successor?.afterHash || change.afterHash;
+    const gameChoice = gameChoiceAmendment.changes.find(c => c.id === change.id);
+    if (gameChoice) {
+      assert.ok(['chemistry', 'math'].includes(change.category), `${change.id}: game-choice amendment scope`);
+      assert.equal(gameChoice.category, change.category, `${change.id}: game-choice category`);
+      assert.equal(gameChoice.beforeHash, latestHistoricalHash, `${change.id}: preserve historical repair chain before authoring choices`);
+      assert.ok(gameChoice.reason?.trim(), `${change.id}: documented choice authoring`);
+    }
+    assert.equal(hash(cards.get(change.id)),gameChoice?.afterHash || latestHistoricalHash,`${change.id}: patch not applied`);
     assert.ok(change.reason?.trim(),change.id);
     assert.notEqual(change.patch.review?.status,'reviewed',`${change.id}: must not manufacture certification`);
+  }
+});
+
+test('game-choice amendment records all thirty additions while preserving each original whole-card fingerprint', () => {
+  assert.equal(gameChoiceAmendment.schemaVersion, 1);
+  assert.equal(gameChoiceAmendment.date, '2026-10-05');
+  assert.match(gameChoiceAmendment.baseCommit, /^[a-f0-9]{40}$/u);
+  assert.deepEqual(gameChoiceAmendment.counts, {
+    changedQuestions: 30, chemistry: 20, mathMedium: 10, addedAnswerAliases: 3,
+  });
+  assert.match(gameChoiceAmendment.reviewStatus, /pending editorial review/u);
+  assert.equal(gameChoiceAmendment.changes.length, 30);
+  const expected = [
+    ...[1, 2, 3, 4, 7, 8, 11, 13, 14, 15, 17, 18, 20, 31, 32, 34, 42, 46, 52, 58]
+      .map(number => `chemistry-${String(number).padStart(3, '0')}`),
+    ...[117, 118, 119, 121, 122, 123, 125, 126, 127, 129].map(number => `math-${number}`),
+  ];
+  assert.deepEqual(gameChoiceAmendment.changes.map(change => change.id).sort(), expected.sort());
+  const aliasCards = new Set(['math-118', 'math-119', 'math-123']);
+  for (const change of gameChoiceAmendment.changes) {
+    const card = cards.get(change.id);
+    assert.ok(card, `${change.id}: amendment must refer to an existing card`);
+    assert.equal(change.category, change.id.startsWith('chemistry-') ? 'chemistry' : 'math');
+    assert.ok(change.reason?.trim(), `${change.id}: amendment reason`);
+    assert.ok(change.verification?.trim(), `${change.id}: factual screening or computation method`);
+    assert.ok(Array.isArray(change.sourceUrls) && change.sourceUrls.length > 0, `${change.id}: primary source record`);
+    for (const source of change.sourceUrls) assert.equal(new URL(source).protocol, 'https:', `${change.id}: source URL`);
+    assert.match(change.beforeHash, /^[a-f0-9]{64}$/u);
+    assert.match(change.afterHash, /^[a-f0-9]{64}$/u);
+    assert.notEqual(change.beforeHash, change.afterHash, `${change.id}: not a real amendment`);
+    assert.equal(hash(card), change.afterHash, `${change.id}: current card must match documented amendment`);
+    const fields = aliasCards.has(change.id) ? ['acceptedAnswers', 'quickFire'] : ['quickFire'];
+    assert.deepEqual([...change.fieldsAdded].sort(), fields, `${change.id}: strictly additive choice authoring`);
+    const reconstructed = {...card};
+    for (const field of change.fieldsAdded) {
+      assert.ok(Object.hasOwn(reconstructed, field), `${change.id}: missing declared addition ${field}`);
+      delete reconstructed[field];
+    }
+    // The original whole-card hash protects every retained field, including questions,
+    // canonical answers, difficulty, review metadata, IDs, and existing aliases.
+    assert.equal(hash(reconstructed), change.beforeHash, `${change.id}: canonical or review content changed beyond documented additions`);
+    assert.deepEqual(card.review, {status: 'pending'}, `${change.id}: authoring choices must not certify review`);
+    if (change.category === 'math') assert.equal(card.difficulty, 'medium', `${change.id}: preserve Medium difficulty`);
   }
 });
 

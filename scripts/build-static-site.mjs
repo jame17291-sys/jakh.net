@@ -53,6 +53,7 @@ const PUZZLE_ASSETS = Object.freeze([
 
 export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
   "/auth-enhancements.js",
+  "/speech-quality.js",
   "/auth-security.css", "/auth-security.js",
   "/kids-learning.js", "/kids-state.js", "/kids-learning.css", "/data/kids/catalog.json",
   ...ILLUSTRATION_MODULES,
@@ -223,6 +224,7 @@ function rewriteApplication(source, fingerprints) {
   let rewritten = source;
   for (const dependency of [
     "/auth-enhancements.js",
+    "/speech-quality.js",
     "/auth-security.js",
     "/tv-trivia.js",
     "/directory-ui.js",
@@ -920,6 +922,7 @@ export async function buildStaticSite({
 
   for (const stableUrlPath of [
     "/auth-enhancements.js",
+    "/speech-quality.js",
     "/auth-security.css",
     "/kids-state.js", "/kids-learning.css", "/data/kids/catalog.json",
     "/styles.css",
@@ -965,7 +968,7 @@ export async function buildStaticSite({
   const kidsSource = sourceBytes.get("kids-learning.js");
   if (kidsSource) {
     let rewritten = kidsSource.toString("utf8");
-    for (const dependency of ["/kids-state.js", "/data/kids/catalog.json"]) {
+    for (const dependency of ["/kids-state.js", "/data/kids/catalog.json", "/speech-quality.js"]) {
       invariant(fingerprints[dependency], `Kids runtime requires ${dependency}`);
       rewritten = replaceQuotedUrl(rewritten, dependency, fingerprints[dependency]).value;
     }

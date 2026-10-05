@@ -35,6 +35,7 @@ test('every public practice level reveals freely, even with exhausted legacy tri
     safeStorageGet() { throw new Error('Legacy trial state must never be consulted'); },
     isFavorite: () => false, getProgressResult: () => null, t: key => key,
     escapeHtml: value => String(value), _activeAudioCardId: null,
+    _speechPlaying: false, _speechQuality: null, _speechQualityPromise: null,
     hapticTap() {}, trackEvent() {}, updateCardEl: id => changes.push(id),
   }), ['createCardMarkup', 'handleFlip']);
   for (const user of [null, { id: 'new-account' }]) {

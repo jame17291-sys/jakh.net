@@ -30,7 +30,7 @@ test('current initial and lazy feature assets stay inside deterministic budgets'
 test('natural speech implementation stays outside the initial bundle', () => {
   const app = read('app.js');
   const speechQuality = read('speech-quality.js');
-  assert.match(app, /import\('\/speech-quality\.js'\)/u);
+  assert.match(app, /const SPEECH_MODULE_URL = '\/speech-quality\.js'/u);
   assert.doesNotMatch(app, /function getBestVoice\b|function prepareSpeechText\b/u);
   assert.match(speechQuality, /export function getBestVoice\b/u);
   assert.match(speechQuality, /export function prepareSpeechText\b/u);

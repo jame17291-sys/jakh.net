@@ -14,6 +14,7 @@ import { dailyIndex } from "../puzzle-daily.js";
 import { LETTER_SQUARES } from "../puzzle-word-data.js";
 import { runPasswordChangeRegressions } from "./password-change-browser-cases.mjs";
 import { runProfileFeedbackRegressions } from "./profile-feedback-browser-cases.mjs";
+import { runSpeechRegressions } from "./speech-browser-cases.mjs";
 
 const BROWSER_ENGINES = Object.freeze({ chromium, firefox, webkit });
 const BROWSER_ENGINE = String(process.env.JAKH_BROWSER_ENGINE || "chromium").toLowerCase();
@@ -934,78 +935,9 @@ async function main() {
       }
     });
 
-    await runTest("natural Arabic read-aloud voice and controls", async () => {
-      const context = await createContext(browser, {
-        viewport: { width: 1280, height: 800 },
-        serviceWorkers: "block",
-      });
-      await context.addInitScript(() => {
-        const voices = [
-          { name: "Arabic", voiceURI: "basic-ar-sa", lang: "ar-SA", localService: true },
-          {
-            name: "Microsoft Salma Online (Natural)",
-            voiceURI: "natural-ar-eg",
-            lang: "ar-EG",
-            localService: false,
-          },
-        ];
-        class TestUtterance {
-          constructor(text) { this.text = text; }
-        }
-        const synthesis = {
-          getVoices: () => voices,
-          addEventListener() {},
-          removeEventListener() {},
-          cancel() { window.__speechCancelled = true; },
-          speak(utterance) {
-            window.__spokenArabic = {
-              text: utterance.text,
-              voice: utterance.voice?.name,
-              lang: utterance.lang,
-              rate: utterance.rate,
-              pitch: utterance.pitch,
-            };
-          },
-        };
-        Object.defineProperty(window, "SpeechSynthesisUtterance", {
-          configurable: true,
-          value: TestUtterance,
-        });
-        Object.defineProperty(window, "speechSynthesis", {
-          configurable: true,
-          value: synthesis,
-        });
-      });
-      const page = await context.newPage();
-      const assertNoPageErrors = trackPageErrors(page);
-      try {
-        await page.goto(`${baseUrl}/ar/topics/science/`, { waitUntil: NAVIGATION_READY_EVENT });
-        const audioButton = page.locator('.card-audio-btn').first();
-        await audioButton.waitFor();
-        await audioButton.click();
-        await page.waitForFunction(() => Boolean(window.__spokenArabic));
-        assert.deepEqual(await page.evaluate(() => window.__spokenArabic), {
-          text: "من يُشتهر بقانون الجاذبية الكونية بعد مشاهدة سقوط تفاحة؟",
-          voice: "Microsoft Salma Online (Natural)",
-          lang: "ar-EG",
-          rate: 0.92,
-          pitch: 1,
-        });
-        assert.equal(await audioButton.getAttribute('aria-label'), 'إيقاف');
-        assert.equal(await page.evaluate(() => (
-          performance.getEntriesByType('resource')
-            .some(entry => new URL(entry.name).pathname === '/speech-quality.js')
-        )), true);
-        await audioButton.evaluate(button => button.click());
-        await page.waitForFunction(() => (
-          document.querySelector('.card-audio-btn')?.getAttribute('aria-label') === 'اقرأ بصوت عالٍ'
-        ));
-        assert.equal(await audioButton.getAttribute('aria-label'), 'اقرأ بصوت عالٍ');
-        assert.equal(await page.evaluate(() => window.__speechCancelled), true);
-        assertNoPageErrors();
-      } finally {
-        await context.close();
-      }
+    await runSpeechRegressions({
+      browser, createContext, runTest, trackPageErrors, baseUrl, artifactManifest,
+      navigationReadyEvent: NAVIGATION_READY_EVENT,
     });
 
     await runTest("long English and Arabic cards expand without inner scrolling", async () => {

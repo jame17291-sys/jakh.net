@@ -1396,6 +1396,7 @@ async function main() {
     });
 
     await runTest("service worker cold-offline shell and direct game entry", async () => {
+      const scienceDataPath = artifactManifest?.fingerprints?.['/data/science.json'] || '/data/science.json';
       const context = await createContext(browser, {
         viewport: { width: 1024, height: 720 },
         serviceWorkers: "allow",
@@ -1447,7 +1448,7 @@ async function main() {
         await page.waitForLoadState('networkidle');
         assert.deepEqual(await page.evaluate(async (paths) => (
           Promise.all(paths.map(async (path) => Boolean(await caches.match(path))))
-        ), ['/chess', '/science', '/data/science.json', '/ar/privacy/', '/offline']), [true, true, true, true, true]);
+        ), ['/chess', '/science', scienceDataPath, '/ar/privacy/', '/offline']), [true, true, true, true, true]);
 
         // Playwright's Firefox offline toggle rejects top-level navigation
         // before an active service worker can answer it. Dropping the local

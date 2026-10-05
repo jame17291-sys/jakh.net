@@ -290,7 +290,8 @@ if (!appSource.includes("if (!initializeFromStorage()) return;")) {
 }
 for (const rootRelativeLoad of [
   "fetchJson('/data/catalog.json')",
-  "fetchJson(`/data/${state.categorySlug}.json`)",
+  "fetchJson(categoryAssetPath(meta))",
+  "return `/data/${meta.slug}.json`",
 ]) {
   if (!appSource.includes(rootRelativeLoad)) fail(`app.js: missing root-relative load ${rootRelativeLoad}`);
 }

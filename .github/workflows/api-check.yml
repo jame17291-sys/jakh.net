@@ -71,6 +71,7 @@ jobs:
           scripts/quick-fire-content.test.mjs
           scripts/battle-selection.test.mjs
           scripts/game-selection-loader.test.mjs
+          scripts/offline-cache-freshness.test.mjs
           scripts/game-content-coverage.test.mjs
           scripts/frontend-product-contract.test.mjs
           scripts/free-first-gameplay.test.mjs

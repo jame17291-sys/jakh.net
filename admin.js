@@ -1179,6 +1179,18 @@
     return response.json();
   }
 
+  function contentCategoryAssetPath(category) {
+    if (!category || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/u.test(category.slug)) {
+      throw new AdminApiError(t('contentSearchFailed'));
+    }
+    if (category.assetPath === undefined) return `/data/${category.slug}.json`;
+    const match = /^\/data\/([a-z0-9-]+)\.[a-f0-9]{16}\.json$/u.exec(category.assetPath);
+    if (typeof category.assetPath !== 'string' || !match || match[1] !== category.slug) {
+      throw new AdminApiError(t('contentSearchFailed'));
+    }
+    return category.assetPath;
+  }
+
   function categoryTitle(slug) {
     const category = state.content.catalog?.categories?.find((item) => item.slug === slug);
     return category?.title?.[state.lang] || category?.title?.en || slug;
@@ -1224,11 +1236,13 @@
     await Promise.all(Array.from({ length: Math.min(4, categories.length) }, async () => {
       while (index < categories.length) {
         const position = index++;
-        const slug = categories[position].slug;
+        const category = categories[position];
+        const path = contentCategoryAssetPath(category);
+        const slug = category.slug;
         if (refresh) state.content.cache.delete(slug);
         let cards = state.content.cache.get(slug);
         if (!cards) {
-          cards = await staticJson(`/data/${encodeURIComponent(slug)}.json`);
+          cards = await staticJson(path);
           if (!Array.isArray(cards)) throw new AdminApiError(t("contentSearchFailed"));
           cards = cards.map((card) => ({ ...card, categorySlug: slug }));
           state.content.cache.set(slug, cards);

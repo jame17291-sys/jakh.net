@@ -94,3 +94,62 @@ test('Practice waits for catalog metadata before fetching its immutable payload'
   assert.deepEqual(requests, [assetPath]);
   assert.equal(state.categoryData.cards[0], card);
 });
+
+function contentStudioHarness(payloads = new Map()) {
+  const admin = readFileSync(new URL('../admin.js', import.meta.url), 'utf8');
+  const declarations = ['class AdminApiError ', 'async function staticJson(',
+    'function contentCategoryAssetPath(', 'async function loadStaticCategories('].map(declaration => {
+    const start = admin.indexOf(declaration);
+    assert.ok(start >= 0, declaration);
+    return admin.slice(start, admin.indexOf('\n  }', start) + 4);
+  }).join('\n');
+  const requests = [], state = { content: { cache: new Map() } };
+  const context = vm.createContext({
+    state, t: key => `localized:${key}`,
+    fetch: async (path, options) => {
+      requests.push({ path, options });
+      const cards = payloads.get(path);
+      assert.ok(cards, `unexpected question asset: ${path}`);
+      return { ok: true, json: async () => cards };
+    },
+  });
+  vm.runInContext(`${declarations}\nglobalThis.LocalAdminApiError = AdminApiError;`, context);
+  return { load: context.loadStaticCategories, requests, state, ErrorClass: context.LocalAdminApiError };
+}
+
+test('returning Content Studio loads current pinned questions despite an old canonical cache', async () => {
+  const assetPath = '/data/math.0123456789abcdef.json';
+  const oldCards = [{ ...card, question: { en: 'Old question', ar: 'سؤال قديم' } }];
+  const currentCards = [{ ...card, question: { en: 'New question', ar: 'سؤال جديد' } }];
+  const h = contentStudioHarness(new Map([['/data/math.json', oldCards], [assetPath, currentCards]]));
+  const [loaded] = await h.load([{ slug: 'math', assetPath }]);
+  assert.equal(loaded.question.en, 'New question');
+  assert.equal(loaded.question.ar, 'سؤال جديد');
+  assert.equal(loaded.categorySlug, 'math');
+  assert.deepEqual(h.requests.map(request => request.path), [assetPath]);
+  assert.equal(h.requests[0].options.credentials, 'same-origin');
+  await h.load([{ slug: 'math', assetPath }]);
+  assert.equal(h.requests.length, 1, 'filter reuse preserves the in-memory content cache');
+  await h.load([{ slug: 'math', assetPath }], true);
+  assert.equal(h.requests.length, 2, 'refresh reloads the pinned payload');
+  const unbuilt = contentStudioHarness(new Map([['/data/math.json', oldCards]]));
+  await unbuilt.load([{ slug: 'math' }]);
+  assert.equal(unbuilt.requests[0].path, '/data/math.json', 'unbuilt source retains its canonical fallback');
+});
+
+test('Content Studio rejects unsafe category assets with its localized request error before fetching', async () => {
+  for (const assetPath of [
+    'https://example.com/data/math.0123456789abcdef.json', '//example.com/data/math.0123456789abcdef.json',
+    '/data/chemistry.0123456789abcdef.json', '/data/math.0123456789abcdef.json?new=1',
+    '/data/../math.0123456789abcdef.json', '/data/math.json', null, ['/data/math.0123456789abcdef.json'],
+  ]) {
+    const h = contentStudioHarness();
+    await assert.rejects(h.load([{ slug: 'math', assetPath }]), error =>
+      error instanceof h.ErrorClass && error.message === 'localized:contentSearchFailed');
+    assert.deepEqual(h.requests, []);
+  }
+  const h = contentStudioHarness();
+  await assert.rejects(h.load([{ slug: '../math' }]), error =>
+    error instanceof h.ErrorClass && error.message === 'localized:contentSearchFailed');
+  assert.deepEqual(h.requests, []);
+});

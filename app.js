@@ -2669,27 +2669,26 @@ async function markCachedCategories() {
   if (!('caches' in window)) return;
   try {
     const cacheNames = await caches.keys();
-    const dataCacheName = cacheNames
-      .filter(name => /^jakh-data-v\d+$/.test(name))
-      .sort((a, b) => Number(a.split('-v').pop()) - Number(b.split('-v').pop()))
-      .pop();
-    const navigationCacheName = cacheNames
-      .filter(name => /^jakh-navigation-v\d+$/.test(name))
-      .sort((a, b) => Number(a.split('-v').pop()) - Number(b.split('-v').pop()))
-      .pop();
-    if (!dataCacheName || !navigationCacheName) return;
-    const [dataCache, navigationCache] = await Promise.all([
-      caches.open(dataCacheName),
-      caches.open(navigationCacheName),
-    ]);
-    const [dataKeys, navigationKeys] = await Promise.all([dataCache.keys(), navigationCache.keys()]);
-    const cachedDataPaths = new Set(dataKeys.map(request => new URL(request.url).pathname));
-    const cachedNavigationPaths = new Set(navigationKeys.map(request => new URL(request.url).pathname.replace(/\/+$/, '') || '/'));
+    const pairs = await Promise.all(cacheNames.filter(name => name.startsWith('jakh-data-'))
+      .filter(name => cacheNames.includes(name.replace('jakh-data-', 'jakh-navigation-')))
+      .map(async name => {
+        const [dataCache, navigationCache] = await Promise.all([
+          caches.open(name), caches.open(name.replace('jakh-data-', 'jakh-navigation-')),
+        ]);
+        const [dataKeys, navigationKeys] = await Promise.all([dataCache.keys(), navigationCache.keys()]);
+        return {
+          data: new Set(dataKeys.map(request => new URL(request.url).pathname)),
+          navigation: new Set(navigationKeys.map(request => new URL(request.url).pathname.replace(/\/+$/, '') || '/')),
+        };
+      }));
     document.querySelectorAll('.category-card[href]').forEach(el => {
       const href = el.getAttribute('href');
       const pathname = new URL(href, location.origin).pathname.replace(/\.html$/i, '').replace(/\/+$/, '') || '/';
       const slug = pathname.replace(/.*\//, '');
-      if (cachedDataPaths.has(`/data/${slug}.json`) && cachedNavigationPaths.has(pathname)) {
+      const meta = state.catalog?.categories?.find(category => category.slug === slug);
+      if (!meta) return;
+      const dataPath = categoryAssetPath(meta);
+      if (pairs.some(pair => pair.data.has(dataPath) && pair.navigation.has(pathname))) {
         if (!el.querySelector('.offline-badge')) {
           const badge = document.createElement('span');
           badge.className = 'offline-badge';
@@ -4090,6 +4089,16 @@ function renderAuthModal(mode = 'signin') {
 
 
 let catalogPromise = null;
+function categoryAssetPath(meta) {
+  if (!meta || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/u.test(meta.slug) || categoryIsQuarantined(meta.slug)) {
+    throw new Error('Category is unavailable');
+  }
+  if (meta.assetPath === undefined) return `/data/${meta.slug}.json`;
+  const match = /^\/data\/([a-z0-9-]+)\.[a-f0-9]{16}\.json$/u.exec(meta.assetPath);
+  if (typeof meta.assetPath !== 'string' || !match || match[1] !== meta.slug) throw new Error('Category asset is invalid');
+  return meta.assetPath;
+}
+
 async function loadCatalog() {
   if (state.catalog) return state.catalog;
   if (!catalogPromise) {
@@ -4109,27 +4118,28 @@ async function loadCatalog() {
 async function loadCategoryIfNeeded() {
   if (state.page !== 'category' || !state.categorySlug) return;
   if (categoryIsQuarantined(state.categorySlug)) throw new Error('Content is quarantined');
-  const overrideModulePromise = loadContentOverridesModule();
-  const [raw, , overrideModule] = await Promise.all([
-    fetchJson(`/data/${state.categorySlug}.json`),
-    loadCatalog(),
-    overrideModulePromise,
+  const catalog = await loadCatalog();
+  const meta = catalog.categories.find(category => category.slug === state.categorySlug);
+  if (!meta) throw new Error('Category is unavailable');
+  const [raw, overrideModule] = await Promise.all([
+    fetchJson(categoryAssetPath(meta)),
+    loadContentOverridesModule(),
   ]);
   const overrides = await overrideModule.loadPublishedContentOverrides(apiFetch, state.categorySlug);
   if (!Array.isArray(raw)) throw new Error(`Invalid category data: ${state.categorySlug}`);
-  const meta = (state.catalog?.categories || []).find(c => c.slug === state.categorySlug) || {};
   state.categoryData = { ...meta, cards: overrideModule.mergePublishedContentOverrides(raw, overrides) };
 }
 
 async function loadBattleCategoryCards(slug) {
   const catalog = await loadCatalog();
-  if (!(catalog.categories || []).some(category => category.slug === slug) || categoryIsQuarantined(slug)) {
+  const meta = (catalog.categories || []).find(category => category.slug === slug);
+  if (!meta || categoryIsQuarantined(slug)) {
     throw new Error('Category is unavailable');
   }
   // Room eligibility must reflect the same published revisions as the server.
   // Practice can tolerate an API outage, but room creation must not use stale choices.
   const [raw, overrideModule, response] = await Promise.all([
-    fetchJson(`/data/${slug}.json`),
+    fetchJson(categoryAssetPath(meta)),
     loadContentOverridesModule(),
     apiFetch(`/content/questions?category=${encodeURIComponent(slug)}`, { cache: 'no-store' }),
   ]);
@@ -4309,7 +4319,7 @@ async function loadDailyChallenge() {
     const cat = cats[hash % cats.length];
     const overrideModulePromise = loadContentOverridesModule();
     const [raw, overrideModule] = await Promise.all([
-      fetchJson(`/data/${cat.slug}.json`),
+      fetchJson(categoryAssetPath(cat)),
       overrideModulePromise,
     ]);
     if (!Array.isArray(raw)) return;

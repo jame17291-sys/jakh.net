@@ -684,14 +684,11 @@ test('ACTIVE conflict warns before category-only discard and retries only after 
     'replacement challenge must start only after a validated discard response');
 });
 
-test('catalog, question-first layout, offline badge, focus lifecycle, and centralized SW registration stay bounded', () => {
+test('catalog, question-first layout, focus lifecycle, and centralized SW registration stay bounded', () => {
   assert.match(app, /let catalogPromise = null/u);
   assert.match(app, /if \(!catalogPromise\)/u);
   assert.doesNotMatch(app, /els\.categoryImage|['"]categoryImage['"]/u,
     'question pages must not restore the removed decorative hero image');
-  assert.match(app, /\^jakh-data-v\\d\+\$/u);
-  assert.match(app, /\^jakh-navigation-v\\d\+\$/u);
-  assert.match(app, /cachedDataPaths\.has\(`\/data\/\$\{slug\}\.json`\) && cachedNavigationPaths\.has\(pathname\)/u);
   const quick = functionBlock('createTimedQuizModal', 'startTimedQuiz');
   const start = functionBlock('startTimedQuiz', 'showTimedCard');
   const completion = functionBlock('showCategoryCompleteModal', 'showSelectableShareFallback');

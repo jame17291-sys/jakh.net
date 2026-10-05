@@ -19,6 +19,7 @@ const WCAG_TAGS = ["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"];
 const CONTENT_STUDIO_CATALOG = Object.freeze({
   categories: [{
     slug: "science",
+    assetPath: "/data/science.0123456789abcdef.json",
     title: { en: "Science", ar: "العلوم" },
     count: 2,
   }],
@@ -189,14 +190,14 @@ async function configureContext(context, { completedDaily = false, ownerAdmin = 
     }
   }, { seedCompletedDaily: completedDaily, dailyCard: ACCESSIBILITY_DAILY_CARD });
   if (ownerAdmin) {
-    await context.route("**/data/catalog.json", async (route) => {
+    await context.route(/\/data\/catalog(?:\.[a-f0-9]{16})?\.json(?:\?.*)?$/u, async (route) => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
         body: JSON.stringify(CONTENT_STUDIO_CATALOG),
       });
     });
-    await context.route("**/data/science.json", async (route) => {
+    await context.route(/\/data\/science(?:\.[a-f0-9]{16})?\.json(?:\?.*)?$/u, async (route) => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",

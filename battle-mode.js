@@ -1,3 +1,5 @@
+import { createBattleSelection } from './battle-selection.js';
+
 // Lazy-load Battle outside the startup bundle.
 
 export function createBattleMode(dependencies) {
@@ -8,6 +10,8 @@ export function createBattleMode(dependencies) {
     deactivateFocus,
     escapeHtml,
     localizedErrorMessage,
+    loadBattleCategoryCards,
+    preparedQuickFire,
     shareOrCopy,
     state,
     t,
@@ -31,7 +35,28 @@ const battleState = {
   timeLeft: 15,
   pendingSlug: '',
   joinPending: false,
+  createPending: false,
+  setup: { name: '', category: '', difficulty: 'all', questionCount: 10, code: '' },
+  selectionSlug: '',
+  selectionCounts: null,
+  selectionLoading: false,
+  selectionError: null,
+  selectionGeneration: 0,
+  setupError: '',
+  setupErrorTab: 'create',
 };
+
+const {
+  captureBattleSetup,
+  renderBattleSetup,
+  clearBattleError,
+  refreshBattleSelection,
+  loadBattleSelection,
+} = createBattleSelection({
+  battleState, state, document, loadBattleCategoryCards, preparedQuickFire,
+  escapeHtml, localizedErrorMessage, normalizeBattleCode, showBattleError, renderBattleUI,
+  handleBattleCreate, handleBattleJoin, t,
+});
 
 function normalizeBattleCode(value) {
   return String(value || '').trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
@@ -46,18 +71,33 @@ function getBattleWsUrl(code) {
 function openBattleModal(slug, tab = 'create', initialCode = '') {
   const overlay = document.getElementById('battleOverlay');
   if (!overlay) return;
+  captureBattleSetup();
   battleState.pendingSlug = slug || state.categorySlug || '';
+  battleState.setup.category = battleState.pendingSlug;
+  battleState.setup.difficulty = 'all';
+  battleState.setup.questionCount = 10;
+  battleState.setup.name ||= state.dbUser?.username || '';
+  battleState.setup.code = normalizeBattleCode(initialCode);
+  battleState.selectionGeneration += 1;
+  battleState.selectionSlug = '';
+  battleState.selectionCounts = null;
+  battleState.selectionLoading = false;
+  battleState.selectionError = null;
+  battleState.setupError = '';
+  battleState.createPending = false;
   battleState.phase = 'setup';
   battleState.tab = tab === 'join' ? 'join' : 'create';
   battleState.joinPending = false;
   overlay?.classList.remove('hidden');
   overlay?.setAttribute('aria-hidden', 'false');
-  renderBattleUI();
-  const codeInput = document.getElementById('battleCodeInput');
-  if (codeInput && initialCode) codeInput.value = normalizeBattleCode(initialCode);
+  renderBattleUI(false);
 }
 
 function closeBattleModal() {
+  captureBattleSetup();
+  battleState.selectionGeneration += 1;
+  battleState.selectionLoading = false;
+  battleState.createPending = false;
   clearInterval(battleState.timerInterval);
   if (battleState.ws) {
     battleState.ws.onclose = null;
@@ -84,9 +124,10 @@ function battleInitialFocus() {
   return '#battleExitBtn';
 }
 
-function renderBattleUI() {
+function renderBattleUI(preserveSetup = true) {
   const overlay = document.getElementById('battleOverlay');
   if (!overlay) return;
+  if (preserveSetup && battleState.phase === 'setup') captureBattleSetup();
   const isAr = state.lang === 'ar';
   const titles = {
     setup: isAr ? '⚡ غرفة المعركة' : '⚡ Battle Room',
@@ -112,110 +153,47 @@ function renderBattleUI() {
   activateFocus(battleInitialFocus());
 }
 
-function renderBattleSetup(body) {
-  const lang = state.lang;
-  const isAr = lang === 'ar';
-  const slug = battleState.pendingSlug;
-  const availableCategories = (state.catalog?.categories || [])
-    .filter(c => Number(c.quickFireQuestionCount) >= 5);
-  const selectedIsAvailable = availableCategories.some(c => c.slug === slug);
-  const joinPending = battleState.tab === 'join' && battleState.joinPending;
-  const catOptions = `<option value="" disabled${selectedIsAvailable ? '' : ' selected'}>${isAr ? 'اختر موضوعًا متاحًا' : 'Choose an available topic'}</option>` + availableCategories
-    .map(c => `<option value="${escapeHtml(c.slug)}"${c.slug === slug ? ' selected' : ''}>${escapeHtml(c.title[lang])}</option>`)
-    .join('');
-
-  body.innerHTML = `
-    <div class="battle-setup">
-      <div class="battle-setup-tabs">
-        <button class="battle-tab${battleState.tab === 'create' ? ' active' : ''}" id="battleTabCreate">
-          + ${isAr ? 'أنشئ غرفة' : 'Create Room'}
-        </button>
-        <button class="battle-tab${battleState.tab === 'join' ? ' active' : ''}" id="battleTabJoin">
-          ← ${isAr ? 'انضم إلى غرفة' : 'Join Room'}
-        </button>
-      </div>
-      <div class="battle-form">
-        <label>
-          ${isAr ? 'اسمك' : 'Your name'}
-          <input type="text" id="battleNameInput" maxlength="20"
-            placeholder="${isAr ? 'أدخل اسمك' : 'Enter your name'}"
-            value="${escapeHtml(state.dbUser?.username || '')}" autocomplete="nickname" />
-        </label>
-        ${battleState.tab === 'create' ? `
-          <label>
-            ${isAr ? 'الموضوع' : 'Category'}
-            <select id="battleCatSelect" aria-describedby="battleChoiceHint">${catOptions}</select>
-          </label>
-          <p id="battleChoiceHint">${isAr
-            ? 'موضوعات بخيارات مُعدّة؛ بقية الأسئلة مجانية في المكتبة. قد يقل عدد أسئلة الجولة عن اختيارك.'
-            : 'Prepared choices only. Other topics stay free in practice. Rounds use up to your chosen question count.'}</p>
-          <label>
-            ${isAr ? 'المستوى' : 'Difficulty'}
-            <select id="battleDiffSelect">
-              <option value="all">${isAr ? 'جميع المستويات' : 'All levels'}</option>
-              <option value="easy">${isAr ? 'سهل' : 'Easy'}</option>
-              <option value="medium">${isAr ? 'متوسط' : 'Medium'}</option>
-              <option value="hard">${isAr ? 'صعب' : 'Hard'}</option>
-              <option value="very-advanced">${isAr ? 'صعب جداً' : 'Very difficult'}</option>
-            </select>
-          </label>
-          <label>
-            ${isAr ? 'عدد الأسئلة' : 'Questions'}
-            <select id="battleCountSelect">
-              <option value="10">10</option>
-              <option value="20">20</option>
-              <option value="30">30</option>
-            </select>
-          </label>
-          <button class="primary-btn" id="battleCreateBtn">⚡ ${isAr ? 'أنشئ الغرفة' : 'Create Battle Room'}</button>
-        ` : `
-          <label>
-            ${isAr ? 'رمز الغرفة' : 'Room code'}
-            <input type="text" id="battleCodeInput" maxlength="16"
-              placeholder="${isAr ? 'مثال: SCI7X2KQ' : 'e.g. SCI7X2KQ'}"
-              dir="ltr"
-              style="text-transform:uppercase;font-family:var(--font-mono);letter-spacing:0.08em;"
-              autocomplete="off" />
-          </label>
-          <button class="primary-btn" id="battleJoinBtn"${joinPending ? ' disabled aria-busy="true"' : ''}>
-            ⚡ ${joinPending ? t('battleJoining') : (isAr ? 'انضم إلى الغرفة' : 'Join Room')}
-          </button>
-        `}
-        <p class="battle-error hidden" id="battleSetupError"></p>
-      </div>
-    </div>`;
-
-  document.getElementById('battleTabCreate')?.addEventListener('click', () => { battleState.tab = 'create'; renderBattleUI(); });
-  document.getElementById('battleTabJoin')?.addEventListener('click', () => { battleState.tab = 'join'; renderBattleUI(); });
-  document.getElementById('battleCreateBtn')?.addEventListener('click', handleBattleCreate);
-  document.getElementById('battleJoinBtn')?.addEventListener('click', handleBattleJoin);
-  const codeInput = document.getElementById('battleCodeInput');
-  codeInput?.addEventListener('input', () => {
-    codeInput.value = normalizeBattleCode(codeInput.value);
-  });
-}
-
 async function handleBattleCreate() {
-  const name = document.getElementById('battleNameInput')?.value.trim() || '';
-  const category = document.getElementById('battleCatSelect')?.value || '';
-  const difficulty = document.getElementById('battleDiffSelect')?.value || 'all';
-  const count = parseInt(document.getElementById('battleCountSelect')?.value || '10', 10);
+  if (battleState.createPending) return;
+  captureBattleSetup();
+  const { name: rawName, category, difficulty, questionCount } = battleState.setup;
+  const name = rawName.trim();
   const isAr = state.lang === 'ar';
   if (!name) { showBattleError(isAr ? 'أدخل اسمك' : 'Enter your name'); return; }
   if (!category) { showBattleError(isAr ? 'اختر موضوعًا' : 'Choose a category'); return; }
-  const btn = document.getElementById('battleCreateBtn');
-  if (btn) { btn.disabled = true; btn.textContent = isAr ? 'جارٍ الإنشاء...' : 'Creating...'; }
+  const available = battleState.selectionSlug === category && !battleState.selectionLoading
+    ? battleState.selectionCounts?.[difficulty] || 0 : 0;
+  if (available < 5 || !Number.isInteger(questionCount) || questionCount < 5 || questionCount > Math.min(30, available)) {
+    refreshBattleSelection();
+    return;
+  }
+  clearBattleError();
+  battleState.createPending = true;
+  refreshBattleSelection();
+  const generation = battleState.selectionGeneration;
+  let connectionPending = false;
   try {
     const data = await apiFetch('/battle/create', {
       method: 'POST',
-      body: JSON.stringify({ category, difficulty, questionCount: count }),
+      body: JSON.stringify({ category, difficulty, questionCount }),
     });
+    if (generation !== battleState.selectionGeneration || battleState.phase !== 'setup' || battleState.tab !== 'create') return;
     battleState.hostId = data.hostId;
     battleState.isHost = true;
     connectToBattle(data.code, name, data.hostId);
+    connectionPending = true;
   } catch (err) {
+    if (generation !== battleState.selectionGeneration || battleState.phase !== 'setup' || battleState.tab !== 'create') return;
     showBattleError(localizedErrorMessage(err, 'errorBattleCreate'));
-    if (btn) { btn.disabled = false; btn.textContent = `⚡ ${isAr ? 'أنشئ الغرفة' : 'Create Battle Room'}`; }
+    if (err?.code === 'BATTLE_CONTENT_NOT_READY') {
+      battleState.createPending = false;
+      void loadBattleSelection();
+    }
+  } finally {
+    if (!connectionPending && generation === battleState.selectionGeneration && battleState.phase === 'setup') {
+      battleState.createPending = false;
+      refreshBattleSelection();
+    }
   }
 }
 
@@ -240,6 +218,8 @@ function handleBattleJoin() {
 }
 
 function showBattleError(msg) {
+  battleState.setupError = msg;
+  battleState.setupErrorTab = battleState.tab;
   const el = document.getElementById('battleSetupError');
   if (el) { el.textContent = msg; el.classList.remove('hidden'); }
 }
@@ -261,6 +241,7 @@ function connectToBattle(code, name, hostId) {
     if (battleState.phase === 'closed' || battleState.phase === 'finished') return;
 
     const wasSetup = battleState.phase === 'setup';
+    battleState.createPending = false;
     battleState.joinPending = false;
     battleState.playerId = null;
     battleState.isHost = false;
@@ -283,6 +264,7 @@ function connectToBattle(code, name, hostId) {
       joinButton.removeAttribute('aria-busy');
       joinButton.textContent = `⚡ ${state.lang === 'ar' ? 'انضم إلى الغرفة' : 'Join Room'}`;
     }
+    refreshBattleSelection();
     showBattleError(serverError || (wasSetup
       ? (state.lang === 'ar' ? 'تعذر الاتصال بالغرفة. حاول مرة أخرى.' : 'Connection failed. Please try again.')
       : (state.lang === 'ar' ? 'انقطع الاتصال بالغرفة. أنشئ غرفة جديدة أو انضم إلى غرفة أخرى.' : 'Disconnected from battle room. Create or join another room.')));
@@ -308,6 +290,7 @@ function handleBattleMessage(msg) {
     return;
   }
   if (msg.type === 'joined') {
+    battleState.createPending = false;
     battleState.joinPending = false;
     battleState.playerId = msg.playerId;
     battleState.isHost = msg.isHost;
@@ -615,6 +598,13 @@ function renderBattlePodium(body) {
   document.getElementById('battlePlayAgainBtn')?.addEventListener('click', () => {
     battleState.phase = 'setup';
     battleState.tab = 'create';
+    battleState.selectionGeneration += 1;
+    battleState.selectionSlug = '';
+    battleState.selectionCounts = null;
+    battleState.selectionLoading = false;
+    battleState.selectionError = null;
+    battleState.createPending = false;
+    battleState.setupError = '';
     if (battleState.ws) { battleState.ws.onclose = null; battleState.ws.close(); battleState.ws = null; }
     renderBattleUI();
   });

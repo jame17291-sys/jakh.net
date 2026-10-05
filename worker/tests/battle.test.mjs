@@ -20,6 +20,22 @@ const cards = Array.from({ length: 8 }, (_, index) => ({
   },
 }));
 
+test("reported Chemistry and Math Medium selections build full bilingual ten-question rounds", () => {
+  for (const [category, difficulty] of [['chemistry', 'easy'], ['chemistry', 'medium'], ['math', 'medium']]) {
+    const source = JSON.parse(readFileSync(new URL(`../../data/${category}.json`, import.meta.url)));
+    const questions = buildBattleQuestions(source, difficulty, 10);
+    assert.equal(questions.length, 10, `${category}/${difficulty}`);
+    for (const question of questions) {
+      const original = source.find(card => card.id === question.id);
+      for (const lang of ['en', 'ar']) {
+        assert.equal(question.options[lang].length, 4);
+        assert.equal(new Set(question.options[lang]).size, 4);
+        assert.equal(question.options[lang][question.correctIndex], original.quickFire.answer[lang]);
+      }
+    }
+  }
+});
+
 test("battle questions preserve bilingual answer alignment", () => {
   const questions = buildBattleQuestions(cards, "hard", 3);
   assert.equal(questions.length, 3);

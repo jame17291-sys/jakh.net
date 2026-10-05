@@ -2620,6 +2620,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "3",
+        "ar": "3"
+      },
+      "distractors": {
+        "en": [
+          "5",
+          "8",
+          "−3"
+        ],
+        "ar": [
+          "5",
+          "8",
+          "−3"
+        ]
+      },
+      "explanation": {
+        "en": "In y = mx + b, the coefficient m is the slope, here 3.",
+        "ar": "في العلاقة y = mx + b يمثل المعامل m الميل، وهو هنا 3."
+      }
     }
   },
   {
@@ -2639,6 +2661,36 @@
     },
     "review": {
       "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "1/6"
+      ],
+      "ar": [
+        "1/6"
+      ]
+    },
+    "quickFire": {
+      "answer": {
+        "en": "1/6",
+        "ar": "1/6"
+      },
+      "distractors": {
+        "en": [
+          "1/12",
+          "1/36",
+          "1/2"
+        ],
+        "ar": [
+          "1/12",
+          "1/36",
+          "1/2"
+        ]
+      },
+      "explanation": {
+        "en": "Six of 36 equally likely outcomes sum to 7, so 6/36 = 1/6.",
+        "ar": "مجموع 6 نتائج من أصل 36 نتيجة متساوية الاحتمال هو 7، لذا 6/36 = 1/6."
+      }
     }
   },
   {
@@ -2658,6 +2710,36 @@
     },
     "review": {
       "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "24"
+      ],
+      "ar": [
+        "24"
+      ]
+    },
+    "quickFire": {
+      "answer": {
+        "en": "24",
+        "ar": "24"
+      },
+      "distractors": {
+        "en": [
+          "4",
+          "16",
+          "12"
+        ],
+        "ar": [
+          "4",
+          "16",
+          "12"
+        ]
+      },
+      "explanation": {
+        "en": "Four distinct people have 4 × 3 × 2 × 1 = 24 line arrangements.",
+        "ar": "يمكن ترتيب أربعة أشخاص مختلفين في صف بـ4 × 3 × 2 × 1 = 24 طريقة."
+      }
     }
   },
   {
@@ -2696,6 +2778,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "x = 2 or x = 3",
+        "ar": "x = 2 أو x = 3"
+      },
+      "distractors": {
+        "en": [
+          "x = 1 or x = 6",
+          "x = −2 or x = −3",
+          "x = 2 or x = −3"
+        ],
+        "ar": [
+          "x = 1 أو x = 6",
+          "x = −2 أو x = −3",
+          "x = 2 أو x = −3"
+        ]
+      },
+      "explanation": {
+        "en": "The equation factors as (x − 2)(x − 3) = 0.",
+        "ar": "تتحلل المعادلة إلى (x − 2)(x − 3) = 0."
+      }
     }
   },
   {
@@ -2715,6 +2819,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "5",
+        "ar": "5"
+      },
+      "distractors": {
+        "en": [
+          "3",
+          "7",
+          "9"
+        ],
+        "ar": [
+          "3",
+          "7",
+          "9"
+        ]
+      },
+      "explanation": {
+        "en": "The sorted set has five numbers, and its middle number is 5.",
+        "ar": "تتضمن المجموعة المرتبة خمسة أعداد، والعدد الأوسط هو 5."
+      }
     }
   },
   {
@@ -2734,6 +2860,36 @@
     },
     "review": {
       "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "19%"
+      ],
+      "ar": [
+        "19%"
+      ]
+    },
+    "quickFire": {
+      "answer": {
+        "en": "19%",
+        "ar": "19%"
+      },
+      "distractors": {
+        "en": [
+          "20%",
+          "10%",
+          "21%"
+        ],
+        "ar": [
+          "20%",
+          "10%",
+          "21%"
+        ]
+      },
+      "explanation": {
+        "en": "The remaining price is 0.9 × 0.9 = 0.81 of the original, so the saving is 19%.",
+        "ar": "يبقى من السعر الأصلي 0.9 × 0.9 = 0.81، لذلك التوفير 19%."
+      }
     }
   },
   {
@@ -2772,6 +2928,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "1/3",
+        "ar": "1/3"
+      },
+      "distractors": {
+        "en": [
+          "3/10",
+          "1/4",
+          "2/3"
+        ],
+        "ar": [
+          "3/10",
+          "1/4",
+          "2/3"
+        ]
+      },
+      "explanation": {
+        "en": "If x = 0.333..., then 10x − x = 3, giving x = 1/3.",
+        "ar": "إذا كان x = 0.333... فإن 10x − x = 3، ومنه x = 1/3."
+      }
     }
   },
   {
@@ -2791,6 +2969,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "12",
+        "ar": "12"
+      },
+      "distractors": {
+        "en": [
+          "6",
+          "24",
+          "10"
+        ],
+        "ar": [
+          "6",
+          "24",
+          "10"
+        ]
+      },
+      "explanation": {
+        "en": "The first positive multiple shared by 4 and 6 is 12.",
+        "ar": "أول مضاعف موجب مشترك للعددين 4 و6 هو 12."
+      }
     }
   },
   {
@@ -2810,6 +3010,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "12",
+        "ar": "12"
+      },
+      "distractors": {
+        "en": [
+          "18",
+          "20",
+          "10"
+        ],
+        "ar": [
+          "18",
+          "20",
+          "10"
+        ]
+      },
+      "explanation": {
+        "en": "Boys make up 40% of the class: 30 × 0.4 = 12.",
+        "ar": "يمثل الذكور 40% من الفصل: 30 × 0.4 = 12."
+      }
     }
   },
   {
@@ -2848,6 +3070,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "360°",
+        "ar": "360°"
+      },
+      "distractors": {
+        "en": [
+          "180°",
+          "270°",
+          "540°"
+        ],
+        "ar": [
+          "180°",
+          "270°",
+          "540°"
+        ]
+      },
+      "explanation": {
+        "en": "A simple quadrilateral can be divided into two triangles, giving 2 × 180° = 360°.",
+        "ar": "يمكن تقسيم رباعي أضلاع بسيط إلى مثلثين، فيكون المجموع 2 × 180° = 360°."
+      }
     }
   },
   {

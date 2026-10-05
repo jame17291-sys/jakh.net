@@ -69,6 +69,9 @@ jobs:
           scripts/content-review.test.mjs
           scripts/content-overrides.test.mjs
           scripts/quick-fire-content.test.mjs
+          scripts/battle-selection.test.mjs
+          scripts/game-selection-loader.test.mjs
+          scripts/game-content-coverage.test.mjs
           scripts/frontend-product-contract.test.mjs
           scripts/free-first-gameplay.test.mjs
           scripts/performance-budget.test.mjs

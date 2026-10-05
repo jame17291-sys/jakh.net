@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-09-18",
+  "asOf": "2026-10-05",
   "sourcePolicy": {
     "discoveryBatch": "One packet may share source-discovery work only within this exact category/subcategory group.",
     "claimMapping": "Every atomic claim must map reciprocally to accepted evidence with a precise locator.",

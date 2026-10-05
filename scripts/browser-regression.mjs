@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
+import { readFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium, firefox, webkit } from "playwright";
@@ -86,6 +87,15 @@ async function mockApi(context, { battle = null, profile = null } = {}) {
         contentType: "application/json",
         headers,
         body: JSON.stringify({ authenticated: Boolean(profile) }),
+      });
+      return;
+    }
+    if (path === "/api/content/questions") {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        headers,
+        body: JSON.stringify({ overrides: [] }),
       });
       return;
     }
@@ -782,9 +792,11 @@ async function main() {
         // Science remains freely browsable but has no authored choice set yet.
         // Never synthesize wrong answers from unrelated questions to fill it.
         await page.locator('.more-play-modes > summary').click();
+        assert.match(await page.locator("#playModeQuickFireBtn").innerText(), /Start practice/u);
         await page.locator("#playModeQuickFireBtn").click();
-        await page.waitForFunction(() => document.querySelector('.toast')?.textContent?.includes('Quick Fire'));
+        await page.waitForFunction(() => document.activeElement?.id === 'cardGrid');
         assert.equal(await page.locator('#timedQuizOverlay:not(.hidden)').count(), 0);
+        assert.equal(await page.locator('.toast.is-visible.is-error').count(), 0);
         await page.goto(`${baseUrl}/math`, { waitUntil: NAVIGATION_READY_EVENT });
         await page.locator("#playModeQuickFireBtn").waitFor({ state: 'attached' });
         await page.waitForLoadState('networkidle');
@@ -812,6 +824,113 @@ async function main() {
         assertNoPageErrors();
       } finally {
         await context.close();
+      }
+    });
+
+    await runTest("mobile bilingual Chemistry Quick Fire and Math Battle use available authored questions", async () => {
+      const [chemistry, math] = await Promise.all(['chemistry', 'math'].map(async category => (
+        JSON.parse(await readFile(resolve(REPOSITORY_ROOT, 'data', `${category}.json`), 'utf8'))
+      )));
+      const chemistryChoices = chemistry.filter(card => card.quickFire);
+      const mathChoices = math.filter(card => card.quickFire);
+      const mathCounts = Object.fromEntries(['all', 'easy', 'medium', 'hard', 'very-advanced'].map(difficulty => (
+        [difficulty, mathChoices.filter(card => difficulty === 'all' || card.difficulty === difficulty).length]
+      )));
+      assert(chemistryChoices.length >= 10, 'Chemistry needs at least ten authored questions for the solo round');
+      assert.equal(mathCounts.medium, 10, 'Math Medium has ten authored questions');
+      assert.equal(mathCounts.hard, 0, 'Math Hard remains unavailable without authored choices');
+
+      for (const language of ['en', 'ar']) {
+        const battle = { code: 'MTH7X2KQ', hostId: 'mobile-host-token', creates: [] };
+        const context = await createContext(browser, {
+          viewport: { width: 390, height: 844 },
+          isMobile: true,
+          hasTouch: true,
+          serviceWorkers: 'block',
+        }, { battle });
+        await setCurrentDeniedConsent(context);
+        await installBattleSocketMock(context, battle);
+        const page = await context.newPage();
+        const assertNoPageErrors = trackPageErrors(page);
+        const categoryRoute = category => language === 'ar' ? `/ar/topics/${category}/` : `/${category}`;
+        const hostName = language === 'ar' ? 'مضيف الرياضيات' : 'Math host';
+        try {
+          await page.goto(`${baseUrl}${categoryRoute('science')}`, { waitUntil: NAVIGATION_READY_EVENT });
+          await page.locator('#playModeQuickFireBtn').waitFor({ state: 'attached' });
+          await page.waitForLoadState('networkidle');
+          await page.locator('.more-play-modes > summary').click();
+          assert.match(await page.locator('#playModeQuickFireBtn').innerText(), language === 'ar' ? /ابدأ التدريب/u : /Start practice/u);
+          await page.locator('#playModeQuickFireBtn').click();
+          await page.waitForFunction(() => document.activeElement?.id === 'cardGrid');
+          assert(await page.locator('#cardGrid .riddle-card').count() > 0, `${language}: unsupported Quick Fire retains practice cards`);
+          assert.equal(await page.locator('#timedQuizOverlay:not(.hidden)').count(), 0);
+          assert.equal(await page.locator('.toast.is-visible.is-error').count(), 0);
+          await page.locator('#playModeCreateRoomBtn').click();
+          await page.locator('#battleCatSelect').waitFor({ state: 'visible' });
+          assert.equal(await page.locator('#battleCatSelect option[value="science"]').count(), 0);
+          assert.equal(await page.locator('#battleCreateBtn').isDisabled(), true);
+          assert.match(await page.locator('#battleChoiceHint').innerText(), language === 'ar' ? /التدريب المجاني/u : /free practice/u);
+          await page.locator('#battleExitBtn').click();
+          await page.locator('#battleOverlay').waitFor({ state: 'hidden' });
+
+          await page.goto(`${baseUrl}${categoryRoute('chemistry')}`, { waitUntil: NAVIGATION_READY_EVENT });
+          await page.locator('#playModeQuickFireBtn').waitFor({ state: 'attached' });
+          await page.waitForLoadState('networkidle');
+          await page.locator('.more-play-modes > summary').click();
+          await page.locator('#playModeQuickFireBtn').click();
+          await page.locator('#tqOptions [data-tq-option="0"]').waitFor();
+          const question = (await page.locator('#tqQuestion').innerText()).trim();
+          const card = chemistryChoices.find(candidate => candidate.question[language].trim() === question);
+          assert(card, `${language}: Chemistry Quick Fire displays an authored question`);
+          const choices = await page.locator('#tqOptions [data-tq-option] span[dir="auto"]').allTextContents();
+          const expected = [card.quickFire.answer[language], ...card.quickFire.distractors[language]].map(choice => choice.trim());
+          assert.equal(choices.length, 4);
+          assert.equal(new Set(choices).size, 4);
+          assert.deepEqual([...choices].sort(), [...expected].sort(), `${language}: choices belong to the displayed Chemistry question`);
+          assert.equal((await page.locator('#tqProgressText').innerText()).trim(), `1 / ${Math.min(10, chemistryChoices.length)}`);
+          await page.locator(`#tqOptions [data-tq-option="${choices.indexOf(card.quickFire.answer[language].trim())}"]`).click();
+          await page.locator('#tqAnswerWrap').waitFor({ state: 'visible' });
+          assert.equal((await page.locator('#tqFeedback').innerText()).trim(), language === 'ar' ? 'إجابة صحيحة.' : 'Correct.');
+          assert.equal(await page.locator('#tqFeedback').evaluate(node => node.classList.contains('is-correct')), true);
+          await page.keyboard.press('Escape');
+          await page.locator('#timedQuizOverlay').waitFor({ state: 'hidden' });
+
+          await page.goto(`${baseUrl}${categoryRoute('math')}`, { waitUntil: NAVIGATION_READY_EVENT });
+          await page.locator('#playModeCreateRoomBtn').waitFor({ state: 'attached' });
+          await page.waitForLoadState('networkidle');
+          await page.locator('.more-play-modes > summary').click();
+          await page.locator('#playModeCreateRoomBtn').click();
+          await page.locator('#battleNameInput').waitFor({ state: 'visible' });
+          await page.locator('#battleNameInput').fill(hostName);
+          await page.waitForFunction(() => document.querySelector('#battleCreateBtn')?.disabled === false);
+          assert.equal(await page.locator('#battleCatSelect').inputValue(), 'math');
+          assert.equal(await page.locator('#battleDiffSelect option[value="hard"]').evaluate(option => option.disabled), true);
+          const allSizes = await page.locator('#battleCountSelect option').evaluateAll(options => options.map(option => Number(option.value)));
+          assert(allSizes.length > 0 && allSizes.every(size => size >= 5 && size <= Math.min(30, mathCounts.all)), `${language}: every offered round fits its authored pool`);
+          await page.locator('#battleDiffSelect').selectOption('medium');
+          assert.equal(await page.locator('#battleNameInput').inputValue(), hostName);
+          const mediumSizes = await page.locator('#battleCountSelect option').evaluateAll(options => options.map(option => Number(option.value)));
+          assert.deepEqual(mediumSizes, [10]);
+          assert(mediumSizes.every(size => size <= mathCounts.medium));
+          await page.locator('#battleTabJoin').click();
+          assert.equal(await page.locator('#battleNameInput').inputValue(), hostName, `${language}: name survives the join tab rerender`);
+          await page.locator('#battleCodeInput').fill(battle.code);
+          await page.locator('#battleTabCreate').click();
+          assert.equal(await page.locator('#battleNameInput').inputValue(), hostName, `${language}: name survives the create tab rerender`);
+          assert.equal(await page.locator('#battleDiffSelect').inputValue(), 'medium');
+          assert.equal(await page.locator('#battleCountSelect').inputValue(), '10');
+          await page.locator('#battleTabJoin').click();
+          assert.equal(await page.locator('#battleCodeInput').inputValue(), battle.code);
+          await page.locator('#battleTabCreate').click();
+          await page.locator('#battleCreateBtn').click();
+          await page.locator('#battleShareBtn').waitFor({ state: 'visible' });
+          assert.deepEqual(battle.creates, [{ category: 'math', difficulty: 'medium', questionCount: 10 }]);
+          assert.match(await page.locator('.battle-player-row').first().innerText(), new RegExp(hostName, 'u'));
+          assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${language}: game controls fit a phone`);
+          assertNoPageErrors();
+        } finally {
+          await context.close();
+        }
       }
     });
 

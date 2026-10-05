@@ -71,6 +71,7 @@ export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
   "/admin.js",
   "/admin.css",
   "/battle-mode.js",
+  "/battle-selection.js",
   "/battle-mode.css",
   "/search-leaderboard.js",
   "/search-leaderboard.css",
@@ -908,7 +909,7 @@ export async function buildStaticSite({
     "/privacy.css",
     "/admin-config.js",
     "/admin.css",
-    "/battle-mode.js",
+    "/battle-selection.js",
     "/battle-mode.css",
     "/search-leaderboard.css",
     "/data/search-index.en.json",
@@ -916,6 +917,14 @@ export async function buildStaticSite({
   ]) {
     const bytes = sourceBytes.get(urlPathToRelative(stableUrlPath));
     if (bytes) addFingerprint(stableUrlPath, bytes);
+  }
+
+  const battleSource = sourceBytes.get('battle-mode.js');
+  if (battleSource) {
+    let rewritten = battleSource.toString('utf8');
+    const target = fingerprints['/battle-selection.js'];
+    if (target) rewritten = replaceQuotedUrl(rewritten, './battle-selection.js', target).value;
+    addFingerprint('/battle-mode.js', Buffer.from(rewritten, 'utf8'));
   }
 
   // Puzzle modules are ordered leaves-first. Propagate content hashes through

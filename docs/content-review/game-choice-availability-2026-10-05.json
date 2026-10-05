@@ -1,0 +1,442 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-05",
+  "baseCommit": "fb84b5c415dd07a7f184a8bf9728ec7bad3d4f17",
+  "scope": "Add twenty Chemistry and ten Math Medium bilingual question-choice sets without rewriting canonical content, reviewer status, or historical remediation hashes.",
+  "counts": {
+    "changedQuestions": 30,
+    "chemistry": 20,
+    "mathMedium": 10,
+    "addedAnswerAliases": 3
+  },
+  "reviewStatus": "Implementation content screening only; every affected card retains pending editorial review. This amendment records a change history and does not constitute accepted provenance evidence or reviewer approval.",
+  "hashMethod": "SHA-256 of UTF-8 JSON.stringify(card), preserving the committed property order. beforeHash is the exact card at baseCommit; afterHash is the amended card. Removing only fieldsAdded reconstructs the original whole-card fingerprint.",
+  "changes": [
+    {
+      "id": "chemistry-001",
+      "category": "chemistry",
+      "beforeHash": "a98b5782b52204745373e1cea0bfa7d6d1d622d8582031b5dc58dc37b636de7e",
+      "afterHash": "5862ec7e3c58629e2951879e75cfd071937f9c7dff19698be4247f44700570be",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Chemistry question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://water.usgs.gov/edu/watercycle-kids-adv.html"
+      ],
+      "verification": "Implementation screening against the cited scientific reference and the existing bilingual canonical answer; no formal editorial approval."
+    },
+    {
+      "id": "chemistry-002",
+      "category": "chemistry",
+      "beforeHash": "1fe104820a28ff6701d8ea3d2520ad5ef60d1e6dfd849cab9c61e6efc45b8638",
+      "afterHash": "f3413f0ea933de0ce392df47a5d3783be4e9c430501f488dac77830bde3dc09f",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Chemistry question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://periodic-table.rsc.org/about"
+      ],
+      "verification": "Implementation screening against the cited scientific reference and the existing bilingual canonical answer; no formal editorial approval."
+    },
+    {
+      "id": "chemistry-003",
+      "category": "chemistry",
+      "beforeHash": "97e8d3e9fcbdfe0127cacf7bf68bb90f512cf5c381af8d9e703523ee436b2969",
+      "afterHash": "85be3747aed8a5b0569e8d78dee2d746c861b30bf5902073cfc92cc275c49ba5",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Chemistry question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://www.usgs.gov/water-science-school/science/water-universal-solvent"
+      ],
+      "verification": "Implementation screening against the cited scientific reference and the existing bilingual canonical answer; no formal editorial approval."
+    },
+    {
+      "id": "chemistry-004",
+      "category": "chemistry",
+      "beforeHash": "2f9e210ee3d9805c7b482aaea952240b59542f84b9d5462cea72c513f75bcc46",
+      "afterHash": "974319c79e61059b5893ce0596663db81407fddc179cca03560e0d798c07d7b3",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Chemistry question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://www.energy.gov/science/doe-explainsnuclei"
+      ],
+      "verification": "Implementation screening against the cited scientific reference and the existing bilingual canonical answer; no formal editorial approval."
+    },
+    {
+      "id": "chemistry-007",
+      "category": "chemistry",
+      "beforeHash": "a27f7e7698efc8eadb4f787991b2b09fa021a096e50e2f7f03218b91cb4f6717",
+      "afterHash": "94f472b9d804564c75762194049da1c6e0ae09ab322e47ca732ceb09818c9cb4",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Chemistry question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://periodic-table.rsc.org/element/79/gold"
+      ],
+      "verification": "Implementation screening against the cited scientific reference and the existing bilingual canonical answer; no formal editorial approval."
+    },
+    {
+      "id": "chemistry-008",
+      "category": "chemistry",
+      "beforeHash": "f3eef24fed76e2029cea185f098e75e42ad6ecf7e85747ef4e0418a50a110e6f",
+      "afterHash": "50a217367ee8f24de1fe3767b32b17975e3ad3b6eab5606ea059220b284b3fe8",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Chemistry question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://www.energy.gov/science/doe-explainsprotons"
+      ],
+      "verification": "Implementation screening against the cited scientific reference and the existing bilingual canonical answer; no formal editorial approval."
+    },
+    {
+      "id": "chemistry-011",
+      "category": "chemistry",
+      "beforeHash": "331b5b90bbb72f36a113947a6b0cf2626ea51eab2e6ab2a0adba1919a2e8f764",
+      "afterHash": "36b8499c187e219ee7a6d472a8a3b4a163045d49039e35522e75686b476291c7",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Chemistry question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://goldbook.iupac.org/terms/view/A00499"
+      ],
+      "verification": "Implementation screening against the cited scientific reference and the existing bilingual canonical answer; no formal editorial approval."
+    },
+    {
+      "id": "chemistry-013",
+      "category": "chemistry",
+      "beforeHash": "293abb70fe78acf84394a543757a426f0c3b95a7ca4c21cd174283223eefe0db",
+      "afterHash": "19a5a8fd9328d3d73c7f866335d027ee0b2e30d364d575b167abf6e3b76573a1",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Chemistry question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://edu.rsc.org/resources/chemical-misconceptions-ii-revising-the-periodic-table/1090.article"
+      ],
+      "verification": "Implementation screening against the cited scientific reference and the existing bilingual canonical answer; no formal editorial approval."
+    },
+    {
+      "id": "chemistry-014",
+      "category": "chemistry",
+      "beforeHash": "0dcde558425bdc4c6432e729c66e1a3a262c653d9f953acbb825f6cbf57e781b",
+      "afterHash": "50d606649a49b5f33ebe46a3fcd241cbde0dbec69a7ab962a9064f108fc289f9",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Chemistry question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://goldbook.iupac.org/terms/view/I03331"
+      ],
+      "verification": "Implementation screening against the cited scientific reference and the existing bilingual canonical answer; no formal editorial approval."
+    },
+    {
+      "id": "chemistry-015",
+      "category": "chemistry",
+      "beforeHash": "274fbc57030a76c90831f8e6e95af414eef0a7669f7cd378ea62908d99053bc4",
+      "afterHash": "42f1d53fc220a86f8fba0e8d36d5cde8ff52e5ecf417745ec4169fde5767392d",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Chemistry question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://goldbook.iupac.org/terms/view/E02095"
+      ],
+      "verification": "Implementation screening against the cited scientific reference and the existing bilingual canonical answer; no formal editorial approval."
+    },
+    {
+      "id": "chemistry-017",
+      "category": "chemistry",
+      "beforeHash": "b25d766bd0213a8f4d499c9d0bb55c8ad8cd91a601f652fd1c729fa2fdc18c3f",
+      "afterHash": "52aa3ff7f3c343984899686048ad4125e37c2e9ce6be053d71f9814f230d9f4d",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Chemistry question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://goldbook.iupac.org/terms/view/C01384"
+      ],
+      "verification": "Implementation screening against the cited scientific reference and the existing bilingual canonical answer; no formal editorial approval."
+    },
+    {
+      "id": "chemistry-018",
+      "category": "chemistry",
+      "beforeHash": "466653aab75508f16b6c0f8c81808689587b5fbb32f8fe928307a1859a359c6d",
+      "afterHash": "7f7c3b22c21bcf5dbd30d4c495ea581e66d2ac20cf5d95a948b15861446b7357",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Chemistry question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://goldbook.iupac.org/terms/view/S06069"
+      ],
+      "verification": "Implementation screening against the cited scientific reference and the existing bilingual canonical answer; no formal editorial approval."
+    },
+    {
+      "id": "chemistry-020",
+      "category": "chemistry",
+      "beforeHash": "eb795b96767bc825a0c1dc0106bfd89685348bc2034c90a2e8d2e2ff13bc0562",
+      "afterHash": "1e9689a7319a60e873cccfba3705aecae4b83d8d663dd8b3024588358d42918f",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Chemistry question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://goldbook.iupac.org/terms/view/C00876"
+      ],
+      "verification": "Implementation screening against the cited scientific reference and the existing bilingual canonical answer; no formal editorial approval."
+    },
+    {
+      "id": "chemistry-031",
+      "category": "chemistry",
+      "beforeHash": "e0052d540a3588cee7fe5a7a588e8576d784d5db613893d1f99c39383461d412",
+      "afterHash": "2f0a63a3e1c1b66f4e46628ea91814f1745d497f855a1de86b454df37757824e",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Chemistry question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://periodic-table.rsc.org/element/26/iron"
+      ],
+      "verification": "Implementation screening against the cited scientific reference and the existing bilingual canonical answer; no formal editorial approval."
+    },
+    {
+      "id": "chemistry-032",
+      "category": "chemistry",
+      "beforeHash": "0fef342c9a2fdaa939b18815da0ba32133573ccd69ab214c5857e16bcc8fc771",
+      "afterHash": "2c120989020c8f19cd42006294fbd6e6cd5866142aa0115cd5009bc4689ce830",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Chemistry question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://periodic-table.rsc.org/element/47/silver"
+      ],
+      "verification": "Implementation screening against the cited scientific reference and the existing bilingual canonical answer; no formal editorial approval."
+    },
+    {
+      "id": "chemistry-034",
+      "category": "chemistry",
+      "beforeHash": "9cfc20065be8726b365201892bf90d074d0921a2ef70f1da9ec2112e7c8f0f19",
+      "afterHash": "3c48da480399ebf9e4ed26b8f689cba0225620747bb1dfc365521c59ae1a9aaa",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Chemistry question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://periodic-table.rsc.org/element/1/hydrogen"
+      ],
+      "verification": "Implementation screening against the cited scientific reference and the existing bilingual canonical answer; no formal editorial approval."
+    },
+    {
+      "id": "chemistry-042",
+      "category": "chemistry",
+      "beforeHash": "7490013afcfe501b892ea1f89fe08de7362566525b66374512392b5d3ec68334",
+      "afterHash": "18590dbb9c5b1d663ae9a1e0ae25e72a64a12f41dc8d4e3d2f222ba92c429945",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Chemistry question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://periodic-table.rsc.org/element/6/carbon"
+      ],
+      "verification": "Implementation screening against the cited scientific reference and the existing bilingual canonical answer; no formal editorial approval."
+    },
+    {
+      "id": "chemistry-046",
+      "category": "chemistry",
+      "beforeHash": "e221af6385a7aa54a3f664eba15284c7420ad2ca01d6c90989c0776929dc8add",
+      "afterHash": "45a82060043f8835f3bc7db4c438c9953c8ded675a56cfe3d9e922db75d5c370",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Chemistry question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://www.usgs.gov/water-science-school/science/water-universal-solvent"
+      ],
+      "verification": "Implementation screening against the cited scientific reference and the existing bilingual canonical answer; no formal editorial approval."
+    },
+    {
+      "id": "chemistry-052",
+      "category": "chemistry",
+      "beforeHash": "b96a8e7ab6f537d23872b30aab5f71d8348fd1bf887870c4d338623780899a69",
+      "afterHash": "fa4a0e81bbd6dcc3590f5cbd5bc628d7c9e5430de3ad477380dcba97c142684d",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Chemistry question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://periodic-table.rsc.org/element/22/titanium",
+        "https://periodic-table.rsc.org/element/40/zirconium",
+        "https://periodic-table.rsc.org/element/72/hafnium",
+        "https://periodic-table.rsc.org/element/104/rutherfordium"
+      ],
+      "verification": "Implementation screening against the cited scientific reference and the existing bilingual canonical answer; no formal editorial approval."
+    },
+    {
+      "id": "chemistry-058",
+      "category": "chemistry",
+      "beforeHash": "00fea743387b10818ed169c55bf5764884905027a7906ccb4ab607fcfb3e168c",
+      "afterHash": "f444c3fe8daefecd97a214d71333a88f9c7e790349a52d277d55755720b4333a",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Chemistry question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://periodic-table.rsc.org/about"
+      ],
+      "verification": "Implementation screening against the cited scientific reference and the existing bilingual canonical answer; no formal editorial approval."
+    },
+    {
+      "id": "math-117",
+      "category": "math",
+      "beforeHash": "22451e1f92690b32debd08c5bcff23eafca61678897c598437d2aee03d2f7214",
+      "afterHash": "bdb8a29f7da6967712ce7699869dc1c8b965b57aa3187f6295f34287f27e9320",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Math Medium question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://github.com/jame17291-sys/jakh.net/blob/fb84b5c415dd07a7f184a8bf9728ec7bad3d4f17/data/math.json"
+      ],
+      "verification": "Independently computed answer and all three distractors checked in scripts/game-content-coverage.test.mjs against the existing bilingual canonical question; the repository source is the primary record."
+    },
+    {
+      "id": "math-118",
+      "category": "math",
+      "beforeHash": "56370d95f2a70349218970c89cecd70231638128bbc46b7eea993455ad150248",
+      "afterHash": "7bc4378f3241ae1e7fad92f735d1772f12b103db68711b6a2183cdbccd2bc59b",
+      "fieldsAdded": [
+        "acceptedAnswers",
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Math Medium question playable in Quick Fire and Battle, with a concise alias for its existing canonical answer; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://github.com/jame17291-sys/jakh.net/blob/fb84b5c415dd07a7f184a8bf9728ec7bad3d4f17/data/math.json"
+      ],
+      "verification": "Independently computed answer and all three distractors checked in scripts/game-content-coverage.test.mjs against the existing bilingual canonical question; the repository source is the primary record."
+    },
+    {
+      "id": "math-119",
+      "category": "math",
+      "beforeHash": "d2b4647f2fde8fea775400a120f792caea171ebb533e61ccd7b67daaf4e619f2",
+      "afterHash": "3738c0ffc6edbffe9f2ee24df29d55e6802d3255ebfaf52fe18be6aee66d40fa",
+      "fieldsAdded": [
+        "acceptedAnswers",
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Math Medium question playable in Quick Fire and Battle, with a concise alias for its existing canonical answer; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://github.com/jame17291-sys/jakh.net/blob/fb84b5c415dd07a7f184a8bf9728ec7bad3d4f17/data/math.json"
+      ],
+      "verification": "Independently computed answer and all three distractors checked in scripts/game-content-coverage.test.mjs against the existing bilingual canonical question; the repository source is the primary record."
+    },
+    {
+      "id": "math-121",
+      "category": "math",
+      "beforeHash": "42a9852492ee89dce2e1928904158475321e9fb6632ace478d336b349c57724c",
+      "afterHash": "11aa0bc9db06ed5e0e5cc3a389ec4e1d87cdc4822fde3ba9b1340085626e8388",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Math Medium question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://github.com/jame17291-sys/jakh.net/blob/fb84b5c415dd07a7f184a8bf9728ec7bad3d4f17/data/math.json"
+      ],
+      "verification": "Independently computed answer and all three distractors checked in scripts/game-content-coverage.test.mjs against the existing bilingual canonical question; the repository source is the primary record."
+    },
+    {
+      "id": "math-122",
+      "category": "math",
+      "beforeHash": "d1c41203200cff899c9c52d89dd5230d0e389490c2445b8088fa3cf3d7422fcc",
+      "afterHash": "9206e35b6da45b604d985db8bd8f1483ca3649f3edc4374390fecced8673d5ba",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Math Medium question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://github.com/jame17291-sys/jakh.net/blob/fb84b5c415dd07a7f184a8bf9728ec7bad3d4f17/data/math.json"
+      ],
+      "verification": "Independently computed answer and all three distractors checked in scripts/game-content-coverage.test.mjs against the existing bilingual canonical question; the repository source is the primary record."
+    },
+    {
+      "id": "math-123",
+      "category": "math",
+      "beforeHash": "0c46ad33a24be33f9413e30e61c8a06924e9fccb54055ec42aa8d5829f143e10",
+      "afterHash": "52a0005d8b9de1a583dda93f794f0e3cce515fc6bc37a2008f3134eb4d2a76d8",
+      "fieldsAdded": [
+        "acceptedAnswers",
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Math Medium question playable in Quick Fire and Battle, with a concise alias for its existing canonical answer; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://github.com/jame17291-sys/jakh.net/blob/fb84b5c415dd07a7f184a8bf9728ec7bad3d4f17/data/math.json"
+      ],
+      "verification": "Independently computed answer and all three distractors checked in scripts/game-content-coverage.test.mjs against the existing bilingual canonical question; the repository source is the primary record."
+    },
+    {
+      "id": "math-125",
+      "category": "math",
+      "beforeHash": "e61f0f998d90c604d0f95d5c7e1fae4b178ee01726264751eee024e4087cb210",
+      "afterHash": "53da080c01065aab7247160f69851c9c48f781541be644b9a7d8195751c8ce79",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Math Medium question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://github.com/jame17291-sys/jakh.net/blob/fb84b5c415dd07a7f184a8bf9728ec7bad3d4f17/data/math.json"
+      ],
+      "verification": "Independently computed answer and all three distractors checked in scripts/game-content-coverage.test.mjs against the existing bilingual canonical question; the repository source is the primary record."
+    },
+    {
+      "id": "math-126",
+      "category": "math",
+      "beforeHash": "7782969117bcfec530ab6399eacefac2bb69d4b3aef2fc27fe22342319faab90",
+      "afterHash": "385f923950c5563f1dead984f8fe75bc133adffc0ef68b78afc29696945e99e6",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Math Medium question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://github.com/jame17291-sys/jakh.net/blob/fb84b5c415dd07a7f184a8bf9728ec7bad3d4f17/data/math.json"
+      ],
+      "verification": "Independently computed answer and all three distractors checked in scripts/game-content-coverage.test.mjs against the existing bilingual canonical question; the repository source is the primary record."
+    },
+    {
+      "id": "math-127",
+      "category": "math",
+      "beforeHash": "fa24d2492f1ac9518e793fb9a1e249c8cf477f98b36414eb2787fe01e62faded",
+      "afterHash": "198166dd4509f9a858e9c0cbf3354423f4a9c2f1e326355cfb95f2b9812551a0",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Math Medium question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://github.com/jame17291-sys/jakh.net/blob/fb84b5c415dd07a7f184a8bf9728ec7bad3d4f17/data/math.json"
+      ],
+      "verification": "Independently computed answer and all three distractors checked in scripts/game-content-coverage.test.mjs against the existing bilingual canonical question; the repository source is the primary record."
+    },
+    {
+      "id": "math-129",
+      "category": "math",
+      "beforeHash": "3056f52956b1a975eddfc42ee8046dfd74d139b53ce1ceda33641b982f2b78db",
+      "afterHash": "074a13b7c308e7dad5fce5cfbef3e73d6320098c16fc5e1de49bc596f91ec5c8",
+      "fieldsAdded": [
+        "quickFire"
+      ],
+      "reason": "Add question-specific bilingual choices and explanations to make the existing Math Medium question playable in Quick Fire and Battle; retain its canonical content, difficulty and pending review status.",
+      "sourceUrls": [
+        "https://github.com/jame17291-sys/jakh.net/blob/fb84b5c415dd07a7f184a8bf9728ec7bad3d4f17/data/math.json"
+      ],
+      "verification": "Independently computed answer and all three distractors checked in scripts/game-content-coverage.test.mjs against the existing bilingual canonical question; the repository source is the primary record."
+    }
+  ]
+}

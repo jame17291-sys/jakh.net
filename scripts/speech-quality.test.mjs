@@ -9,6 +9,7 @@ import vm from 'node:vm';
 const source = readFileSync(new URL('../speech-quality.js', import.meta.url), 'utf8');
 const localArabic = { name: 'Arabic', voiceURI: 'local-ar', lang: 'ar-SA', localService: true };
 const naturalArabic = { name: 'Microsoft Salma Online (Natural)', voiceURI: 'natural-ar', lang: 'ar-EG', localService: false };
+const enhancedArabic = { name: 'Arabic Enhanced', voiceURI: 'enhanced-ar', lang: 'ar-AE', localService: true };
 const english = { name: 'English', voiceURI: 'local-en', lang: 'en-US', localService: true };
 
 function engine({ voices = [localArabic, naturalArabic, english], supported = true, throws = '', online = true, paused = false } = {}) {
@@ -59,7 +60,14 @@ test('Arabic voice selection matches normalized locale and never substitutes Eng
   assert.equal(h.getBestVoice([english], 'ar'), null);
   assert.equal(h.getBestVoice([localArabic], 'en'), null);
   assert.equal(h.getBestVoice([], 'ar'), null);
-  assert.equal(h.getBestVoice([naturalArabic, localArabic], 'ar', { online: false }), localArabic);
+  assert.equal(h.getBestVoice([naturalArabic, localArabic], 'ar'), localArabic);
+});
+
+test('the free reader excludes browser-provided cloud voices and prioritizes an installed enhanced voice', () => {
+  const h = engine();
+  assert.equal(h.getBestVoice([naturalArabic], 'ar'), null);
+  assert.equal(h.getBestVoice([localArabic, enhancedArabic, naturalArabic], 'ar'), enhancedArabic);
+  assert.equal(h.getBestVoice([localArabic, naturalArabic], 'ar'), localArabic);
 });
 
 test('an installed underscore locale is normalized for the actual native utterance', () => {
@@ -189,8 +197,8 @@ test('a new shared-engine session itself cancels a previous queued session', () 
   assert.deepEqual(h.events, ['start', 'end']);
 });
 
-test('offline playback chooses an installed local voice rather than a remote service', () => {
-  const h = engine({ online: false });
+test('playback always chooses an installed local voice instead of a remote service', () => {
+  const h = engine();
   h.speak();
   assert.equal(h.spoken[0].voice, localArabic);
   h.event(0, 'start'); h.event(0, 'end');
@@ -216,10 +224,10 @@ test('native interruption of long instructions cancels the remaining queue witho
   assert.equal(h.timers.size, 0);
 });
 
-test('a failed remote voice falls back locally on the next tap without an automatic retry', () => {
+test('a failed local voice resets cleanly and the next tap stays on the free device engine', () => {
   const h = engine();
   h.speak();
-  assert.equal(h.spoken[0].voice, naturalArabic);
+  assert.equal(h.spoken[0].voice, localArabic);
   h.event(0, 'error', 'network');
   assert.equal(h.spoken.length, 1, 'network failure does not replay asynchronously outside the tap');
   assert.deepEqual(h.events, ['error:network', 'end']);

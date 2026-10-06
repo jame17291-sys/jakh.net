@@ -1,19 +1,19 @@
 const voiceLanguage = voice => String(voice?.lang || '').replaceAll('_', '-').toLowerCase();
 const languageOf = lang => String(lang).toLowerCase().split(/[-_]/u)[0];
-const voiceKey = voice => `${voiceLanguage(voice)}:${voice.voiceURI || voice.name}`;
-const failedRemoteVoices = new Set();
 let activeSpeech = null;
 
-export function getBestVoice(voices, lang, { online = globalThis.navigator?.onLine !== false } = {}) {
+// Use only installed device voices; never select browser-provided cloud voices.
+export function getBestVoice(voices, lang) {
   const language = languageOf(lang);
   if (!Array.isArray(voices) || !['ar', 'en'].includes(language)) return null;
   const candidates = voices.filter(voice => {
     const locale = voiceLanguage(voice);
-    return (locale === language || locale.startsWith(`${language}-`)) && (online || voice.localService);
+    return (locale === language || locale.startsWith(`${language}-`)) && voice.localService !== false;
   });
   const score = voice => {
     const name = `${voice.name || ''} ${voice.voiceURI || ''}`.toLowerCase();
-    return (/premium|enhanced|neural|natural|studio/u.test(name) ? 100 : 0)
+    return (/premium|enhanced|neural|natural|studio|siri/u.test(name) ? 100 : 0)
+      - (/compact|eloquence|espeak|robot/u.test(name) ? 25 : 0)
       + (voice.localService ? 10 : 0) + (voice.default ? 5 : 0);
   };
   return candidates.sort((a, b) => score(b) - score(a))[0] || null;
@@ -57,7 +57,7 @@ export function speakNaturally({ text, lang, onStart = () => {}, onEnd = () => {
     const content = prepareSpeechText(text, lang), language = languageOf(lang);
     if (!content) { finish(); return null; }
     const voices = synthesis.getVoices();
-    const voice = getBestVoice(voices.filter(item => !failedRemoteVoices.has(voiceKey(item))), language);
+    const voice = getBestVoice(voices, language);
     if (!['ar', 'en'].includes(language) || (voices.length && !voice)) { finish('voice-unavailable'); return null; }
     const chunks = [];
     let chunk = '';
@@ -76,7 +76,6 @@ export function speakNaturally({ text, lang, onStart = () => {}, onEnd = () => {
       utterance.onend = () => { if (index === chunks.length - 1) finish(); };
       utterance.onerror = event => {
         if (stopped) return;
-        if (event.error === 'network' && voice && !voice.localService) failedRemoteVoices.add(voiceKey(voice));
         if (['canceled', 'interrupted'].includes(event.error)) { cancelNative(); finish(); }
         else finish(event.error || 'synthesis-failed');
       };

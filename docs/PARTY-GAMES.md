@@ -1,0 +1,17 @@
+# Friendship games
+
+The Games hub links to bilingual standalone Most Likely To and How Well Do You Know Me pages. Their runtime, rules, copy and canonical prompt bank load only on these pages; the main app and stylesheet stay within their existing budgets.
+
+Most Likely To runs entirely on the device. Two to twelve nicknames play ten, fifteen or twenty shuffled prompts. Point mode accepts multiple group picks; private mode requires each phone handoff and retains only aggregate totals after revealing a round. Skipped rounds add no points. Names and ballots are not sent to the server.
+
+Know Me selects ten canonical four-choice questions. Creators may swap questions and review their own answers before publishing. Public links contain only a random-looking twelve-character code. A separate cryptographic browser token grants owner or participant access; the server stores its hash. It stores the private answer key and a frozen bilingual question snapshot, grades guesses without trusting client scores, discards submitted guesses, and exposes only aggregate results and the link's leaderboard. Unchanged lost-response creation retries keep the same token; edited quiz payloads use a new token so an earlier committed answer key cannot silently replace the reviewed choices.
+
+Quiz state uses `know-me:<code>` objects in the existing BATTLE_ROOMS Durable Object namespace, with a separate storage key and guards against Battle or Word Duel initialization. Dispatcher requests and alarms serialize together. No binding, D1 schema or migration is added. Existing D1 rate limits cover quiz requests.
+
+Each quiz accepts fifty completed participant identities and expires seven days after creation. The active implementation deletes expired storage on access or alarm, and the owner can close it early. An old-code rollback that does not recognize Know Me can defer alarm cleanup until compatible code is restored; use a compatible cleanup release before a prolonged old-code rollback when expiry is required during that interval. A public quiz link is a bearer invitation, not an authenticated identity system: clearing local storage or using another browser produces a different participant identity. Clear device data removes these `jakh-` access records. Storage denial falls back to tab memory with a visible warning.
+
+Shared quiz pages and redirects are noindex/no-store/no-referrer. Optional analytics is suppressed throughout Know Me pages; names, quiz codes, owner tokens and answers are not sent to analytics.
+
+The prompt bank contains 100 original bilingual Most Likely To situations and 60 bilingual Know Me questions. `docs/content-review/party-games-author-review.json` records author checks without claiming independent human approval. Regenerate the Worker-only Know Me projection with `node worker/scripts/generate-know-me-catalog.mjs` and the four standalone pages with `node scripts/generate-party-games.mjs`. CI checks both projections and fingerprint propagation. Behavioral browser fixtures cover phone layouts, Arabic, ties, sharing, retries, storage denial and keyboard/accessibility states; the Worker suite separately tests native SQLite persistence, grading, expiry, closure and legacy cross-game behavior.
+
+Deploy the compatible API from protected main before the static client. This release is code-only and must use the API workflow's compatibility phase, with no migration or domain cutover.

@@ -88,7 +88,7 @@ test('static home, games hub, and editorial pages do not load the question appli
   assert.doesNotMatch(navigation, /\bfetch\s*\(|\bimport\s*\(|XMLHttpRequest|new\s+WebSocket/u);
 });
 
-function runNavigation({ pathname, bodyClasses = [], dataPage = '', puzzlePage = '', search = '', hash = '', alternate = 'https://riddlearabia.com/ar/mind-lab/' }) {
+function runNavigation({ pathname, bodyClasses = [], dataPage = '', puzzlePage = '', partyGame = '', search = '', hash = '', alternate = 'https://riddlearabia.com/ar/mind-lab/' }) {
   const links = ['home', 'library', 'kids', 'games', 'daily'].map((key) => ({
     dataset: { nav: key },
     attributes: { 'aria-current': 'page' },
@@ -105,7 +105,7 @@ function runNavigation({ pathname, bodyClasses = [], dataPage = '', puzzlePage =
   const location = { pathname, search, hash, replace: (url) => { location.redirect = url; } };
   const document = {
     body: {
-      hasAttribute: name => name === 'data-puzzle-page' && Boolean(puzzlePage),
+      hasAttribute: name => name === 'data-puzzle-page' && Boolean(puzzlePage) || name === 'data-party-game' && Boolean(partyGame),
       matches: (selectors) => selectors.split(',').some((selector) => {
         const value = selector.trim();
         if (value.startsWith('.')) return bodyClasses.includes(value.slice(1));

@@ -8,11 +8,17 @@ import { PRESERVED_GAME_SLUGS, RIDDLE_ARABIA_GAME_CATALOG, RIDDLE_ARABIA_PUZZLE_
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (file) => fs.readFileSync(path.join(root, file), "utf8");
 
-test("the promoted game portfolio has one flagship and two secondary classics", () => {
+test("the promoted game portfolio adds two friendship games while retaining one flagship and two secondary classics", () => {
   assert.deepEqual(RIDDLE_ARABIA_GAME_CATALOG.map((game) => [game.slug, game.kind]), [
+    ["most-likely-to", "party"], ["how-well-do-you-know-me", "party"],
     ["akshifha", "featured"], ["chess", "classic"], ["backgammon", "classic"],
   ]);
+  assert.deepEqual(RIDDLE_ARABIA_GAME_CATALOG.filter(game => game.kind === "featured").map(game => game.slug), ["akshifha"]);
+  assert.deepEqual(RIDDLE_ARABIA_GAME_CATALOG.filter(game => game.kind === "classic").map(game => game.slug), ["chess", "backgammon"]);
   const play = read("play.html");
+  for (const slug of ["most-likely-to", "how-well-do-you-know-me"]) {
+    assert.equal((play.match(new RegExp(`href="/${slug}"`, "gu")) || []).length, 1, `${slug}: one friendship-game entry`);
+  }
   assert.match(play, /href="\/akshifha(?:\?[^"]*)?"/u);
   assert.match(play, /id="featuredGameTitle"/u);
   assert.match(play, /href="\/chess"/u);
@@ -20,8 +26,8 @@ test("the promoted game portfolio has one flagship and two secondary classics", 
   assert.ok(play.indexOf('href="/akshifha') < play.indexOf('href="/chess"'));
   assert.equal((play.match(/href="\/akshifha(?:\?[^"]*)?"/gu) || []).length, 1, 'one featured game entry, not duplicate promotion');
   const list = JSON.parse(play.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/u)[1]);
-  assert.equal(list.numberOfItems, 16);
-  assert.deepEqual(list.itemListElement.map((item) => new URL(item.url).pathname), [...RIDDLE_ARABIA_PUZZLE_CATALOG.map((game) => game.paths.en), "/akshifha", "/chess", "/backgammon"]);
+  assert.equal(list.numberOfItems, 18);
+  assert.deepEqual(list.itemListElement.map((item) => new URL(item.url).pathname), [...RIDDLE_ARABIA_PUZZLE_CATALOG.map((game) => game.paths.en), "/most-likely-to", "/how-well-do-you-know-me", "/akshifha", "/chess", "/backgammon"]);
 });
 
 test("legacy games are not promoted or deleted in the portfolio transition", () => {

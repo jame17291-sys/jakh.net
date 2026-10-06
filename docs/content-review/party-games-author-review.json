@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "status": "authored-and-self-reviewed",
+  "reviewedOn": "2026-10-06",
+  "reviewMethod": "Original AI authoring followed by an author editorial and bilingual equivalence pass. Independent review remains a separate release check.",
+  "coverage": {
+    "mostLikelyQuestions": 100,
+    "mostLikelyPacks": 4,
+    "knowMeQuestions": 60,
+    "knowMePacks": 3,
+    "knowMeOptions": 240,
+    "languages": [
+      "en",
+      "ar"
+    ]
+  },
+  "sourceSha256": {
+    "data/party-games.json": "4776892566e68ff2da234a1f995d294b9ec8c02a5fa57d95480da8647edd3a28"
+  },
+  "authorship": {
+    "approach": "New playful situations authored for these games; no question lists copied or closely paraphrased from the user reference sites.",
+    "mostLikelyTone": "Friendly exaggeration, imaginative outings, performances and group adventures. No boring productivity or achievement prompts.",
+    "knowMeAnswers": "All four options are subjective personal choices. The quiz creator supplies their answer; the content defines no globally correct option."
+  },
+  "automatedChecks": {
+    "uniqueIds": true,
+    "uniqueQuestionTextPerLanguage": true,
+    "uniqueOptionsPerQuestionPerLanguage": true,
+    "exactPackCounts": true,
+    "bilingualCompleteness": true,
+    "fourOptionsPerKnowMeQuestion": true,
+    "noAuthoredCorrectAnswerField": true,
+    "longestEnglishQuestionCharacters": 94,
+    "longestArabicQuestionCharacters": 79
+  },
+  "editorialChecks": [
+    "Arabic meaning matches English without literal word-for-word phrasing",
+    "Packs have distinct themes and short understandable choices",
+    "Family and teen-friendly prompts with no explicit intimacy, cruelty, criminal accusations or private disclosures",
+    "Fictional magic, aliens, costumes and superpowers are presented as playful hypothetical situations",
+    "Know Me choices are plausible preferences with no morally preferred correct answer"
+  ],
+  "limitations": "This records an author self-review, not an independent linguistic review or user playtesting. Excitement and personal fit are subjective; players should be able to skip a prompt."
+}

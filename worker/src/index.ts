@@ -2,6 +2,7 @@ import { adminAutopilot, updateAdminAutopilot, claimAutopilot, reportAutopilot, 
 import { connectBattle, createBattle } from "./battle.js";
 import { BattleRoom } from "./battle-room.js";
 import { routeWordDuel } from "./word-duel.js";
+import { routeKnowMe } from "./know-me.js";
 import {
   ApiError,
   json,
@@ -226,6 +227,7 @@ async function route(request: Request, env: Env): Promise<Response> {
   const contentMatch = /^\/api\/admin\/content\/([A-Za-z0-9_-]{2,96})$/u.exec(path);
   if (contentMatch && method === "PUT") return saveAdminContent(request, env, contentMatch[1] || "");
   if (path.startsWith("/api/word-duel/")) return routeWordDuel(request, env);
+  if (path.startsWith("/api/know-me/")) return routeKnowMe(request, env);
   if (path === "/api/battle/create" && method === "POST") return createBattle(request, env);
   return json({ error: "Not found", code: "NOT_FOUND" }, 404);
 }

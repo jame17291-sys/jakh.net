@@ -15,6 +15,7 @@ import { LETTER_SQUARES } from "../puzzle-word-data.js";
 import { runPasswordChangeRegressions } from "./password-change-browser-cases.mjs";
 import { runProfileFeedbackRegressions } from "./profile-feedback-browser-cases.mjs";
 import { runSpeechRegressions } from "./speech-browser-cases.mjs";
+import { runPartyGameRegressions } from "./party-games-browser-cases.mjs";
 
 const BROWSER_ENGINES = Object.freeze({ chromium, firefox, webkit });
 const BROWSER_ENGINE = String(process.env.JAKH_BROWSER_ENGINE || "chromium").toLowerCase();
@@ -936,6 +937,11 @@ async function main() {
     });
 
     await runSpeechRegressions({
+      browser, createContext, runTest, trackPageErrors, baseUrl, artifactManifest,
+      navigationReadyEvent: NAVIGATION_READY_EVENT,
+    });
+
+    await runPartyGameRegressions({
       browser, createContext, runTest, trackPageErrors, baseUrl, artifactManifest,
       navigationReadyEvent: NAVIGATION_READY_EVENT,
     });

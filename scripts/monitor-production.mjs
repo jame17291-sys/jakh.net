@@ -30,7 +30,7 @@ const DEFAULT_RETRY_DELAY_MS = 0;
 const WORKER_VERSION_ID = /^[0-9A-Za-z][0-9A-Za-z._-]{5,127}$/u;
 const RETIRED_SEO_REDIRECT_QUERY = "retired_seo_redirect_probe=riddlearabia";
 const PRE_TV_PUBLIC_QUESTIONS = 3_275;
-const PARTY_GAME_SLUGS = new Set(["most-likely-to", "how-well-do-you-know-me"]);
+const PARTY_GAME_SLUGS = new Set(["most-likely-to", "how-well-do-you-know-me", "secret-word-impostor", "panic-mode", "friendship-court"]);
 // The expanded bilingual sitemap includes alternate-language links for every
 // Kids activity. Bound the full XML response while accommodating that inventory.
 const SITEMAP_MAX_BYTES = 1_000_000;

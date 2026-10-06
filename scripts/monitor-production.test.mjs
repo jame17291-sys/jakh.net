@@ -559,7 +559,7 @@ test("only an exact-version release baseline accepts coherent pre-kids navigatio
 
     const candidate = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: predecessor() });
     assert.match(candidate.failures.find(({ name }) => name === "Site: Home")?.message || "", /5 destination links/u);
-    assert.match(candidate.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /78 URLs instead of 1170/u);
+    assert.match(candidate.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /78 URLs instead of 1176/u);
 
     const mixed = await runProductionMonitor({ ...options, fetchImpl: predecessor({ mixedRoute: "/ar/daily/" }) });
     assert.match(mixed.failures.find(({ name }) => name === "Site: Arabic Daily Challenge")?.message || "", /4 destination links/u);
@@ -594,7 +594,7 @@ test("only an exact-version release baseline accepts the complete 52-URL pre-puz
     assert.equal(baseline.results.find(({ name }) => name === "Site: sitemap")?.workerVersionId, FIXTURE_WORKER_VERSION);
 
     const candidate = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: fetchPredecessor });
-    assert.match(candidate.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /52 URLs instead of 1170/u);
+    assert.match(candidate.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /52 URLs instead of 1176/u);
 
     for (const paths of [
       [...PRE_PUZZLE_SITEMAP_PATHS.slice(1), "/unexpected-indexable-route"],
@@ -613,7 +613,7 @@ test("only an exact-version release baseline accepts the complete 52-URL pre-puz
   });
 });
 
-test("the exact-version pre-party release is a rollback target while current checks require all four new games", async () => {
+test("the exact-version pre-party release is a rollback target while current checks require every party game", async () => {
   await withFixture({ productionSite: true }, async (fixtureOrigin) => {
     const options = productionFixtureOptions(fixtureOrigin);
     const gamePaths = new Set(PARTY_GAME_HTML_ROUTES.map(({ path }) => path));
@@ -641,7 +641,7 @@ test("the exact-version pre-party release is a rollback target while current che
     assert.equal(proof.safe, true, JSON.stringify(proof));
 
     const current = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: predecessorFetch });
-    assert.match(current.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1166 URLs instead of 1170/u);
+    assert.match(current.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1166 URLs instead of 1176/u);
     for (const route of PARTY_GAME_HTML_ROUTES) {
       assert.ok(current.failures.some(({ name }) => name === `Site: ${route.name}`), `${route.path} must work on the candidate`);
     }
@@ -971,7 +971,7 @@ test("production monitor reserves route-migration probes for the production Ridd
 });
 
 test("production monitor follows the focused sitemap inventory", () => {
-  assert.equal(INDEXABLE_SITEMAP_PATHS.length, 1170);
+  assert.equal(INDEXABLE_SITEMAP_PATHS.length, 1176);
   assert.equal(PRE_PARTY_SITEMAP_PATHS.length, 1166);
   assert.equal(new Set(INDEXABLE_SITEMAP_PATHS).size, INDEXABLE_SITEMAP_PATHS.length);
   const actualUrls = [...readFileSync(new URL("../sitemap.xml", import.meta.url), "utf8").matchAll(/<loc>([^<]+)<\/loc>/gu)]

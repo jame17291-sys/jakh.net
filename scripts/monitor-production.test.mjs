@@ -18,6 +18,7 @@ import {
   PRE_NAVIGATION_SITEMAP_PATHS,
   PRE_PUZZLE_SITEMAP_PATHS,
   PRE_PARTY_SITEMAP_PATHS,
+  PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS,
   QUARANTINED_CATEGORY_SLUGS,
   QUARANTINED_SITE_ROUTES,
   PRIMARY_SITE_ORIGIN,
@@ -669,6 +670,33 @@ test("the exact-version pre-party release is a rollback target while current che
   });
 });
 
+test("the exact-version pre-friendship-arcade release permits the existing party games only", async () => {
+  await withFixture({ productionSite: true }, async (fixtureOrigin) => {
+    const options = productionFixtureOptions(fixtureOrigin);
+    const newGamePaths = new Set(PARTY_GAME_HTML_ROUTES.filter(({ friendshipArcade }) => friendshipArcade).map(({ path }) => path));
+    const requestedNewGames = [];
+    const predecessor = async (input, init) => {
+      const pathname = new URL(input).pathname;
+      if (pathname === "/sitemap.xml") return new Response(`<urlset>${PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS.map(path => `<url><loc>${PRIMARY_SITE_ORIGIN}${path}</loc></url>`).join("")}</urlset>`, {
+        headers: { "content-type": "application/xml", "x-jakh-worker-version": FIXTURE_WORKER_VERSION },
+      });
+      if (newGamePaths.has(pathname)) {
+        requestedNewGames.push(pathname);
+        return new Response("Not found", { status: 404, headers: { "content-type": "text/html", "x-jakh-worker-version": FIXTURE_WORKER_VERSION } });
+      }
+      return options.fetchImpl(input, init);
+    };
+    const baseline = await runProductionMonitor({ ...options, fetchImpl: predecessor });
+    assert.deepEqual(baseline.failures, []);
+    assert.deepEqual(requestedNewGames, [], "The verified predecessor predates only the new friendship arcade routes");
+    const current = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: predecessor });
+    assert.match(current.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1170 URLs instead of 1176/u);
+    for (const route of PARTY_GAME_HTML_ROUTES.filter(({ friendshipArcade }) => friendshipArcade)) {
+      assert.ok(current.failures.some(({ name }) => name === `Site: ${route.name}`), `${route.path} must work on the candidate`);
+    }
+  });
+});
+
 test("privacy controls require a real script source and verify immutable filenames against the fetched bytes", async () => {
   await withFixture({ productionSite: true }, async (fixtureOrigin) => {
     const options = productionFixtureOptions(fixtureOrigin, { siteContract: "current" });
@@ -973,6 +1001,7 @@ test("production monitor reserves route-migration probes for the production Ridd
 test("production monitor follows the focused sitemap inventory", () => {
   assert.equal(INDEXABLE_SITEMAP_PATHS.length, 1176);
   assert.equal(PRE_PARTY_SITEMAP_PATHS.length, 1166);
+  assert.equal(PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS.length, 1170);
   assert.equal(new Set(INDEXABLE_SITEMAP_PATHS).size, INDEXABLE_SITEMAP_PATHS.length);
   const actualUrls = [...readFileSync(new URL("../sitemap.xml", import.meta.url), "utf8").matchAll(/<loc>([^<]+)<\/loc>/gu)]
     .map(([, url]) => url);

@@ -1,9 +1,10 @@
 import { PARTY_COPY } from './party-games-copy.js';
 import { partyPath, escapeParty as e } from './party-games-engine.js';
+import { friendshipDirectoryCards } from './friendship-games-markup.js';
 
 export function partyDirectory(lang = 'en') {
   const t = PARTY_COPY[lang];
-  return `<!-- party-games:start --><section class="party-directory shell section-block" data-party-directory data-puzzle-directory aria-labelledby="partyDirectoryTitle"><div class="feature-panel"><h2 id="partyDirectoryTitle">${lang === 'ar' ? 'ألعاب الأصدقاء' : 'Friendship games'}</h2><p>${lang === 'ar' ? 'اجمع أصدقاءك. ابدأ الحكايات. واستعد للمفاجآت.' : 'Gather your friends. Get the stories going. Expect surprises.'}</p><div class="home-discovery-links">${['mostLikely', 'knowMe'].map(game => `<a class="ra-art-link party-directory-card" href="${partyPath(game, lang)}"><img class="ra-art ra-art-thumb" src="/assets/${game === 'mostLikely' ? 'most-likely-to' : 'how-well-do-you-know-me'}.svg" width="480" height="320" alt="" loading="lazy" decoding="async"><div><span>${e(game === 'mostLikely' ? t.mostTitle : t.knowTitle)}</span><small>${e(game === 'mostLikely' ? t.mostCard : t.knowCard)}</small></div></a>`).join('')}</div></div></section><!-- party-games:end -->`;
+  return `<!-- party-games:start --><section class="party-directory shell section-block" data-party-directory data-puzzle-directory aria-labelledby="partyDirectoryTitle"><div class="feature-panel"><h2 id="partyDirectoryTitle">${lang === 'ar' ? 'ألعاب الأصدقاء' : 'Friendship games'}</h2><p>${lang === 'ar' ? 'اجمع أصدقاءك. ابدأ الحكايات. واستعد للمفاجآت.' : 'Gather your friends. Get the stories going. Expect surprises.'}</p><div class="home-discovery-links">${['mostLikely', 'knowMe'].map(game => `<a class="ra-art-link party-directory-card" href="${partyPath(game, lang)}"><img class="ra-art ra-art-thumb" src="/assets/${game === 'mostLikely' ? 'most-likely-to' : 'how-well-do-you-know-me'}.svg" width="480" height="320" alt="" loading="lazy" decoding="async"><div><span>${e(game === 'mostLikely' ? t.mostTitle : t.knowTitle)}</span><small>${e(game === 'mostLikely' ? t.mostCard : t.knowCard)}</small></div></a>`).join('')}${friendshipDirectoryCards(lang)}</div></div></section><!-- party-games:end -->`;
 }
 
 export function partyLanding(game, lang = 'en') {

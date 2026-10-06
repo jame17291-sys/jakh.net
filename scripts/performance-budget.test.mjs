@@ -27,6 +27,7 @@ test('current initial and lazy feature assets stay inside deterministic budgets'
   assert.ok(Object.hasOwn(ASSET_BUDGETS, 'battle-selection.js'));
   assert.ok(Object.hasOwn(ASSET_BUDGETS, 'party-games.js'));
   assert.ok(Object.hasOwn(ASSET_BUDGETS, 'data/party-games.json'));
+  for (const asset of ['friendship-games.js', 'friendship-games-engine.js', 'friendship-games-copy.js', 'friendship-games-markup.js', 'friendship-games-content.js']) assert.ok(Object.hasOwn(ASSET_BUDGETS, asset));
 });
 
 test('friendship games load only on their dedicated pages and stay outside the initial application', () => {
@@ -39,6 +40,11 @@ test('friendship games load only on their dedicated pages and stay outside the i
   for (const slug of ['most-likely-to', 'how-well-do-you-know-me']) {
     const page = read(`${slug}.html`);
     assert.match(page, /src="\/party-games\.js"/u);
+    assert.match(page, /href="\/party-games\.css"/u);
+  }
+  for (const slug of ['secret-word-impostor', 'panic-mode', 'friendship-court']) {
+    const page = read(`${slug}.html`);
+    assert.match(page, /src="\/friendship-games\.js"/u);
     assert.match(page, /href="\/party-games\.css"/u);
   }
 });

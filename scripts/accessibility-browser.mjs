@@ -144,6 +144,12 @@ const ROUTES = [
   ["Arabic Most Likely To", "/ar/games/most-likely-to/"],
   ["English friendship quiz", "/how-well-do-you-know-me"],
   ["Arabic friendship quiz", "/ar/games/how-well-do-you-know-me/"],
+  ["English Secret Word Impostor", "/secret-word-impostor"],
+  ["Arabic Secret Word Impostor", "/ar/games/secret-word-impostor/"],
+  ["English Panic Mode", "/panic-mode"],
+  ["Arabic Panic Mode", "/ar/games/panic-mode/"],
+  ["English Friendship Court", "/friendship-court"],
+  ["Arabic Friendship Court", "/ar/games/friendship-court/"],
   ["English Brain Games guide", "/brain-games"],
   ["Arabic Brain Games guide", "/ar/alab-al-dimagh/"],
   ["English Mini crossword", "/mini-crossword"],
@@ -382,7 +388,7 @@ async function auditRoute(context, baseUrl, label, route, { readySelector = "" }
     await page.locator("body").waitFor({ state: "visible" });
     if (readySelector) await page.locator(readySelector).waitFor({ state: "visible" });
     else if (/\/(?:ar\/)?daily\/?$/u.test(route)) await page.locator('.daily-challenge-q').waitFor({ state: 'visible' });
-    else if (/\/(?:most-likely-to|how-well-do-you-know-me)\/?$/u.test(route)) await page.locator('#party-app[aria-busy="false"] [data-party-action="start"]:enabled').waitFor({ state: 'visible' });
+    else if (/\/(?:most-likely-to|how-well-do-you-know-me|secret-word-impostor|panic-mode|friendship-court)\/?$/u.test(route)) await page.locator('#party-app[aria-busy="false"] [data-party-action="start"]:enabled').waitFor({ state: 'visible' });
     await page.waitForTimeout(250);
     const results = await new AxeBuilder({ page }).withTags(WCAG_TAGS).analyze();
     assert.equal(
@@ -476,7 +482,7 @@ async function verifyReflow(context, baseUrl, label, route) {
     await page.goto(`${baseUrl}${route}`, { waitUntil: "domcontentloaded" });
     await page.locator("body").waitFor({ state: "visible" });
     if (/\/(?:ar\/)?daily\/?$/u.test(route)) await page.locator('.daily-challenge-q').waitFor({ state: 'visible' });
-    else if (/\/(?:most-likely-to|how-well-do-you-know-me)\/?$/u.test(route)) await page.locator('#party-app[aria-busy="false"] [data-party-action="start"]:enabled').waitFor({ state: 'visible' });
+    else if (/\/(?:most-likely-to|how-well-do-you-know-me|secret-word-impostor|panic-mode|friendship-court)\/?$/u.test(route)) await page.locator('#party-app[aria-busy="false"] [data-party-action="start"]:enabled').waitFor({ state: 'visible' });
     await page.waitForTimeout(100);
     const overflow = await page.evaluate(() => {
       const viewportWidth = document.documentElement.clientWidth;

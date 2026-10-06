@@ -313,6 +313,36 @@ export const RIDDLE_ARABIA_GAME_CATALOG = Object.freeze([
     lastModified: "2026-10-06",
   },
   {
+    slug: "secret-word-impostor",
+    kind: "party",
+    names: { en: "Secret Word Impostor", ar: "المحتال صاحب الكلمة السرية" },
+    descriptions: {
+      en: "One player does not know the secret word. Give clever clues, spot the bluff, and vote before the impostor figures it out.",
+      ar: "لا يعرف لاعب واحد الكلمة السرية. قدّموا تلميحات ذكية، واكتشفوا الخدعة، وصوّتوا قبل أن يعرفها المحتال.",
+    },
+    lastModified: "2026-10-06",
+  },
+  {
+    slug: "panic-mode",
+    kind: "party",
+    names: { en: "Panic Mode: 5 Seconds", ar: "وضع الذعر: خمس ثوانٍ" },
+    descriptions: {
+      en: "A fast friendship game: name three things before five seconds disappear, then let your friends decide if you made it.",
+      ar: "لعبة أصدقاء سريعة: اذكر ثلاثة أشياء قبل انتهاء خمس ثوانٍ، ثم يقرر أصدقاؤك إن نجحت.",
+    },
+    lastModified: "2026-10-06",
+  },
+  {
+    slug: "friendship-court",
+    kind: "party",
+    names: { en: "Friendship Court", ar: "محكمة الأصدقاء" },
+    descriptions: {
+      en: "Put playful fictional crimes on trial, hear the defence, and reveal the jury’s secret verdict on one phone.",
+      ar: "حاكموا تهمًا خيالية مرحة، واسمعوا الدفاع، ثم اكشفوا الحكم السري لهيئة المحلفين على هاتف واحد.",
+    },
+    lastModified: "2026-10-06",
+  },
+  {
     slug: "akshifha",
     kind: "featured",
     names: { en: "Akshifha — spot the contradiction", ar: "اكشفها — اكتشف التناقض" },

@@ -46,6 +46,7 @@ const ILLUSTRATION_MODULES = Object.freeze(["/site-illustrations.js", "/director
 const PARTY_ASSETS = Object.freeze([
   "/data/party-games.json",
   "/party-games-engine.js", "/party-games-copy.js", "/party-games-markup.js",
+  "/friendship-games-content.js", "/friendship-games-engine.js", "/friendship-games-copy.js", "/friendship-games-markup.js", "/friendship-games.js",
   "/party-games.css", "/party-games.js",
 ]);
 
@@ -93,7 +94,7 @@ export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
 
 const HTML_FINGERPRINT_SOURCE_PATHS = new Set([
   "/privacy-consent.js",
-  "/party-games.js", "/party-games.css",
+  "/party-games.js", "/friendship-games.js", "/party-games.css",
   "/tv-trivia.css",
   "/kids-learning.js", "/kids-learning.css",
   "/puzzle-room.js",

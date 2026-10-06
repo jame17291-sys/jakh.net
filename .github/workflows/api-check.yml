@@ -34,6 +34,8 @@ jobs:
         run: node scripts/generate-seo-pages.mjs --check
       - name: Verify generated physical Arabic routes
         run: node scripts/generate-arabic-routes.mjs --check
+      - name: Verify canonical friendship quiz projection
+        run: node worker/scripts/generate-know-me-catalog.mjs --check
       - name: Verify compact global search index
         run: node scripts/generate-search-index.mjs --check
       - name: Verify editorial review governance
@@ -73,6 +75,8 @@ jobs:
           scripts/game-selection-loader.test.mjs
           scripts/offline-cache-freshness.test.mjs
           scripts/speech-quality.test.mjs
+          scripts/party-games-integration.test.mjs
+          scripts/party-games.test.mjs
           scripts/game-content-coverage.test.mjs
           scripts/frontend-product-contract.test.mjs
           scripts/free-first-gameplay.test.mjs

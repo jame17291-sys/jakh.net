@@ -25,6 +25,22 @@ test('current initial and lazy feature assets stay inside deterministic budgets'
   assert.ok(Object.hasOwn(ASSET_BUDGETS, 'search-leaderboard.css'));
   assert.ok(Object.hasOwn(ASSET_BUDGETS, 'speech-quality.js'));
   assert.ok(Object.hasOwn(ASSET_BUDGETS, 'battle-selection.js'));
+  assert.ok(Object.hasOwn(ASSET_BUDGETS, 'party-games.js'));
+  assert.ok(Object.hasOwn(ASSET_BUDGETS, 'data/party-games.json'));
+});
+
+test('friendship games load only on their dedicated pages and stay outside the initial application', () => {
+  const app = read('app.js');
+  const home = read('index.html');
+  const hub = read('play.html');
+  assert.doesNotMatch(app, /party-games\.(?:js|json)|createMostLikely|createKnowMeDraft/u);
+  assert.doesNotMatch(home, /(?:src|href)="[^"']*party-games\.(?:js|css|json)/u);
+  assert.doesNotMatch(hub, /(?:src|href)="[^"']*party-games\.(?:js|css|json)/u);
+  for (const slug of ['most-likely-to', 'how-well-do-you-know-me']) {
+    const page = read(`${slug}.html`);
+    assert.match(page, /src="\/party-games\.js"/u);
+    assert.match(page, /href="\/party-games\.css"/u);
+  }
 });
 
 test('natural speech implementation stays outside the initial bundle', () => {

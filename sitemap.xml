@@ -57,7 +57,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/play</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/play"/>
@@ -66,7 +66,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/ar/play/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/play"/>
@@ -111,7 +111,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/privacy</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.35</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/privacy"/>
@@ -120,7 +120,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/ar/privacy/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.35</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/privacy"/>
@@ -255,7 +255,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/brain-games</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/brain-games"/>
@@ -264,12 +264,48 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/ar/alab-al-dimagh/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/brain-games"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/alab-al-dimagh/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/brain-games"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/most-likely-to</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/most-likely-to"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/most-likely-to/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/most-likely-to"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/most-likely-to/</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/most-likely-to"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/most-likely-to/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/most-likely-to"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/how-well-do-you-know-me</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/how-well-do-you-know-me"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/how-well-do-you-know-me/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/how-well-do-you-know-me"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/how-well-do-you-know-me/</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/how-well-do-you-know-me"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/how-well-do-you-know-me/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/how-well-do-you-know-me"/>
   </url>
   <url>
     <loc>https://riddlearabia.com/akshifha</loc>

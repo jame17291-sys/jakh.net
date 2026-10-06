@@ -41,6 +41,14 @@ export const FINGERPRINT_PREFIX_LENGTH = 16;
 
 const ILLUSTRATION_MODULES = Object.freeze(["/site-illustrations.js", "/directory-ui.js"]);
 
+// Keep the party-game graph leaves-first so a content or rules change also
+// changes the entry module referenced by all four bilingual game pages.
+const PARTY_ASSETS = Object.freeze([
+  "/data/party-games.json",
+  "/party-games-engine.js", "/party-games-copy.js", "/party-games-markup.js",
+  "/party-games.css", "/party-games.js",
+]);
+
 const PUZZLE_ASSETS = Object.freeze([
   "/tv-trivia-engine.js", "/tv-trivia-copy.js", "/tv-trivia-share.js", "/tv-trivia-markup.js", "/tv-trivia.css", "/tv-trivia.js",
   "/puzzle-routes.js",
@@ -52,12 +60,14 @@ const PUZZLE_ASSETS = Object.freeze([
 ]);
 
 export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
+  "/privacy-consent.js",
   "/auth-enhancements.js",
   "/speech-quality.js",
   "/auth-security.css", "/auth-security.js",
   "/kids-learning.js", "/kids-state.js", "/kids-learning.css", "/data/kids/catalog.json",
   ...ILLUSTRATION_MODULES,
   ...PUZZLE_ASSETS,
+  ...PARTY_ASSETS,
   "/app.js",
   "/site-navigation.js",
   "/akshifha.js",
@@ -82,6 +92,8 @@ export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
 ]);
 
 const HTML_FINGERPRINT_SOURCE_PATHS = new Set([
+  "/privacy-consent.js",
+  "/party-games.js", "/party-games.css",
   "/tv-trivia.css",
   "/kids-learning.js", "/kids-learning.css",
   "/puzzle-room.js",
@@ -921,6 +933,7 @@ export async function buildStaticSite({
   }
 
   for (const stableUrlPath of [
+    "/privacy-consent.js",
     "/auth-enhancements.js",
     "/speech-quality.js",
     "/auth-security.css",
@@ -952,11 +965,11 @@ export async function buildStaticSite({
 
   // Puzzle modules are ordered leaves-first. Propagate content hashes through
   // lazy imports as well as stylesheet URLs so open tabs never mix releases.
-  for (const stable of [...ILLUSTRATION_MODULES, ...PUZZLE_ASSETS]) {
+  for (const stable of [...ILLUSTRATION_MODULES, ...PUZZLE_ASSETS, ...PARTY_ASSETS]) {
     const source = sourceBytes.get(urlPathToRelative(stable));
     if (!source) continue;
     let text = source.toString("utf8");
-    for (const dependency of [...ILLUSTRATION_MODULES, ...PUZZLE_ASSETS]) {
+    for (const dependency of [...ILLUSTRATION_MODULES, ...PUZZLE_ASSETS, ...PARTY_ASSETS]) {
       const target = fingerprints[dependency];
       if (!target) continue;
       text = replaceQuotedUrl(text, dependency, target).value;

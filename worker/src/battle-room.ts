@@ -3,6 +3,8 @@ import type { BattlePlayer, BattleQuestion, BattleRoomState } from "./types.js";
 import { isPublicCard } from "./catalog.js";
 import { isQuarantinedCategory } from "./content-safety.js";
 import { WordDuelRoom, WORD_DUEL_STORAGE_KEY } from "./word-duel-room.js";
+import { KnowMeRoom } from "./know-me-room.js";
+import { KNOW_ME_STORAGE_KEY } from "./know-me-rules.js";
 
 const QUESTION_TIME_MS = 15_000;
 const REVEAL_TIME_MS = 4_000;
@@ -56,18 +58,46 @@ function isPublicRoom(room: BattleRoomState): boolean {
 
 export class BattleRoom implements DurableObject {
   private wordDuel?: WordDuelRoom;
+  private knowMe?: KnowMeRoom;
+  private dispatchQueue: Promise<unknown> = Promise.resolve();
   constructor(private readonly ctx: DurableObjectState, private readonly env: Partial<Env> = {}) {}
 
   private duelRoom(): WordDuelRoom {
     return this.wordDuel ||= new WordDuelRoom(this.ctx, this.env);
   }
 
-  async fetch(request: Request): Promise<Response> {
+  private quizRoom(): KnowMeRoom {
+    return this.knowMe ||= new KnowMeRoom(this.ctx);
+  }
+
+  private dispatch<T>(operation: () => Promise<T>): Promise<T> {
+    const next = this.dispatchQueue.then(operation);
+    this.dispatchQueue = next.catch(() => undefined);
+    return next;
+  }
+
+  fetch(request: Request): Promise<Response> {
+    // Cross-kind guards and initialization are one serialized operation, so
+    // simultaneous internal callers cannot create two games in one object.
+    return this.dispatch(() => this.routeFetch(request));
+  }
+
+  private async routeFetch(request: Request): Promise<Response> {
     const path = new URL(request.url).pathname;
+    if (path.startsWith("/know-me/")) {
+      if (await this.ctx.storage.get("room")) return new Response("Room type mismatch", { status: 409 });
+      const duel = await this.ctx.storage.get<{ kind?: string }>(WORD_DUEL_STORAGE_KEY);
+      if (duel?.kind === "word-duel") return new Response("Room type mismatch", { status: 409 });
+      const url = new URL(request.url);
+      url.pathname = path.slice("/know-me".length);
+      return this.quizRoom().fetch(new Request(url, request));
+    }
     if (path.startsWith("/word-duel/")) {
       // Public Word Duel routing uses a separate `word-duel:<code>` object name.
       // Fail closed if an internal caller ever points it at a quiz battle object.
       if (await this.ctx.storage.get("room")) return new Response("Room type mismatch", { status: 409 });
+      const quiz = await this.ctx.storage.get<{ kind?: string }>(KNOW_ME_STORAGE_KEY);
+      if (quiz?.kind === "know-me") return new Response("Room type mismatch", { status: 409 });
       const url = new URL(request.url);
       url.pathname = path.slice("/word-duel".length);
       return this.duelRoom().fetch(new Request(url, request));
@@ -75,6 +105,8 @@ export class BattleRoom implements DurableObject {
     if (path === "/init") {
       const duel = await this.ctx.storage.get<{ kind?: string }>(WORD_DUEL_STORAGE_KEY);
       if (duel?.kind === "word-duel") return new Response("Room type mismatch", { status: 409 });
+      const quiz = await this.ctx.storage.get<{ kind?: string }>(KNOW_ME_STORAGE_KEY);
+      if (quiz?.kind === "know-me") return new Response("Room type mismatch", { status: 409 });
     }
     if (path === "/init" && request.method === "POST") return this.initialize(request);
     if (path === "/connect" && request.headers.get("upgrade")?.toLowerCase() === "websocket") {
@@ -315,7 +347,13 @@ export class BattleRoom implements DurableObject {
     await this.webSocketClose(socket);
   }
 
-  async alarm(): Promise<void> {
+  alarm(): Promise<void> {
+    return this.dispatch(() => this.routeAlarm());
+  }
+
+  private async routeAlarm(): Promise<void> {
+    const quiz = await this.ctx.storage.get<{ kind?: string }>(KNOW_ME_STORAGE_KEY);
+    if (quiz?.kind === "know-me") return this.quizRoom().alarm();
     const duel = await this.ctx.storage.get<{ kind?: string }>(WORD_DUEL_STORAGE_KEY);
     if (duel?.kind === "word-duel") return this.duelRoom().alarm();
     const room = await this.ctx.storage.get<BattleRoomState>("room");

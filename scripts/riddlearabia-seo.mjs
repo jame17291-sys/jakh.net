@@ -266,7 +266,7 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   },
   {
     key: "brain-games",
-    lastModified: "2026-09-30",
+    lastModified: "2026-10-06",
     paths: { en: "/brain-games", ar: "/ar/alab-al-dimagh/" },
     kind: "games",
     titles: {
@@ -292,6 +292,26 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
 
 // This is the promoted portfolio, not a registry of every preserved game URL.
 export const RIDDLE_ARABIA_GAME_CATALOG = Object.freeze([
+  {
+    slug: "most-likely-to",
+    kind: "party",
+    names: { en: "Most Likely To", ar: "مَن الأكثر احتمالًا؟" },
+    descriptions: {
+      en: "Vote for the friend most likely to pull off each outrageous scenario. Original questions, dramatic reveals and group play on one phone, free in Arabic and English.",
+      ar: "صوّتوا للصديق الذي تتوقّعون منه كل موقف طريف ومفاجئ. أسئلة أصلية وكشف للتصويت ولعب جماعي على هاتف واحد، مجاناً بالعربية والإنجليزية.",
+    },
+    lastModified: "2026-10-06",
+  },
+  {
+    slug: "how-well-do-you-know-me",
+    kind: "party",
+    names: { en: "How Well Do You Know Me?", ar: "كم تعرفني؟" },
+    descriptions: {
+      en: "Make a ten-question friendship quiz, choose your answers and challenge friends with a link. Reveal scores and see who knows you best, free in Arabic and English.",
+      ar: "اصنع اختبار صداقة من عشرة أسئلة واختر إجاباتك وتحدَّ أصدقاءك برابط. اكشفوا النتائج واعرفوا من يعرفك أكثر، مجاناً بالعربية والإنجليزية.",
+    },
+    lastModified: "2026-10-06",
+  },
   {
     slug: "akshifha",
     kind: "featured",

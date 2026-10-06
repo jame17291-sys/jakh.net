@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { landingMarkup as tvTriviaMarkup } from '../tv-trivia-markup.js';
+import { partyDirectory } from '../party-games-markup.js';
 
 import fs from "node:fs";
 import path from "node:path";
@@ -744,12 +745,12 @@ function renderSitemap() {
     { en: "/", ar: "/ar/", lastModified: "2026-09-30", priority: "1.0" },
     { en: "/mind-lab", ar: "/ar/mind-lab/", lastModified: "2026-09-29", priority: "0.85" },
     { en: "/collections", ar: "/ar/collections/", lastModified: "2026-09-29", priority: "0.90" },
-    { en: "/play", ar: "/ar/play/", lastModified: "2026-09-30", priority: "0.75" },
+    { en: "/play", ar: "/ar/play/", lastModified: "2026-10-06", priority: "0.75" },
     { en: "/daily", ar: "/ar/daily/", priority: "0.75" },
     { en: "/about", ar: "/ar/about/", priority: "0.50" },
-    { en: "/privacy", ar: "/ar/privacy/", lastModified: "2026-09-30", priority: "0.35" },
+    { en: "/privacy", ar: "/ar/privacy/", lastModified: "2026-10-06", priority: "0.35" },
     ...RIDDLE_ARABIA_SEO_PAGES.map((page) => ({ en: page.paths.en, ar: page.paths.ar, lastModified: page.lastModified, priority: page.kind === "games" ? "0.85" : "0.80" })),
-    ...RIDDLE_ARABIA_GAME_CATALOG.map((game) => ({ en: `/${game.slug}`, ar: `/ar/games/${game.slug}/`, lastModified: { en: LAST_MODIFIED, ar: "2026-09-30" }, priority: "0.65" })),
+    ...RIDDLE_ARABIA_GAME_CATALOG.map((game) => ({ en: `/${game.slug}`, ar: `/ar/games/${game.slug}/`, lastModified: game.lastModified || { en: LAST_MODIFIED, ar: "2026-09-30" }, priority: "0.65" })),
     ...RIDDLE_ARABIA_PUZZLE_CATALOG.map((game) => ({ ...game.paths, lastModified: "2026-09-30", priority: "0.75" })),
     ...PRESERVED_GAME_SLUGS.map((slug) => ({ en: `/${slug}`, ar: `/ar/games/${slug}/`, lastModified: { en: LAST_MODIFIED, ar: "2026-09-30" }, priority: "0.35" })),
     ...kidsRoutePairs(),
@@ -769,7 +770,12 @@ ${entries.join("\n")}
 }
 
 function renderPlayCatalog() {
-  const source = fs.readFileSync(path.join(root, "play.html"), "utf8");
+  let source = fs.readFileSync(path.join(root, "play.html"), "utf8");
+  const partyMarker = /^[ \t]*<!-- party-directory:start -->[\s\S]*?<!-- party-directory:end -->[ \t]*\r?\n?/mu;
+  const partySection = `<!-- party-directory:start -->\n${partyDirectory("en")}\n<!-- party-directory:end -->`;
+  source = source.replace(partyMarker, "");
+  if (!source.includes("<!-- puzzle-room:start -->")) throw new Error("play.html: requires the puzzle directory boundary");
+  source = source.replace(/^([ \t]*)<!-- puzzle-room:start -->/mu, (_match, indent) => `${indent}${partySection}\n${indent}<!-- puzzle-room:start -->`);
   let replaced = false;
   const result = source.replace(/(<script\b[^>]*type="application\/ld\+json"[^>]*>)([\s\S]*?)(<\/script>)/gu, (match, open, body, close) => {
     const document = JSON.parse(body);

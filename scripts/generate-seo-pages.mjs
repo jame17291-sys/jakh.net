@@ -6,6 +6,7 @@
 import "./generate-site-navigation.mjs";
 import { generateKidsPages } from "./generate-kids-pages.mjs";
 generateKidsPages({ check: process.argv.includes("--check") });
+await import("./generate-party-games.mjs");
 await import("./generate-riddlearabia-seo.mjs");
 import { generatePuzzlePages } from "./generate-puzzle-pages.mjs";
 await generatePuzzlePages({ check: process.argv.includes("--check") });

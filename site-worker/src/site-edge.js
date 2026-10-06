@@ -48,6 +48,11 @@ function isPrimaryHost(hostname) {
   return hostname === APEX_HOST || hostname === WWW_HOST;
 }
 
+function isSharedPartyQuizURL(url) {
+  return ["/how-well-do-you-know-me", "/ar/games/how-well-do-you-know-me/"].includes(url.pathname)
+    && url.searchParams.has("quiz");
+}
+
 function isKidsFilterURL(url) {
   return /^\/(?:kids-riddles|ar\/topics\/kids-riddles)(?:\/|$)/u.test(url.pathname)
     && KIDS_DISCOVERY_PARAMETERS.some(name => url.searchParams.has(name));
@@ -253,10 +258,11 @@ export function applySiteHeaders(response, {
   if (etag && response.status >= 200 && response.status < 300) headers.set("etag", etag);
   // Query state is playable and shareable, but it is not a separate public
   // search destination. Do not let its headers enter a clean-page offline cache.
-  if (requestUrl && (isPuzzleStateURL(requestUrl) || isKidsFilterURL(requestUrl))) {
+  if (requestUrl && (isPuzzleStateURL(requestUrl) || isKidsFilterURL(requestUrl) || isSharedPartyQuizURL(requestUrl))) {
     headers.set("x-robots-tag", "noindex, follow");
     headers.set("cache-control", NO_STORE);
   }
+  if (requestUrl && isSharedPartyQuizURL(requestUrl)) headers.set("referrer-policy", "no-referrer");
   // Preserve the reviewed HTML and its hash-based CSP. Cloudflare's automatic
   // analytics/JSD injections cannot execute under this policy and must not add
   // unconsented scripts. This leaves WAF rules enabled; JSD-dependent rules
@@ -297,7 +303,10 @@ function redirectResponse(siteManifest, target) {
   return applySiteHeaders(new Response(null, {
     status: 301,
     headers: { location: target.href },
-  }), { siteManifest, pathname: target.pathname, cacheControl: REDIRECT_CACHE });
+  }), {
+    siteManifest, pathname: target.pathname, cacheControl: REDIRECT_CACHE,
+    requestUrl: isSharedPartyQuizURL(target) ? target : null,
+  });
 }
 
 function retiredSeoPaginationTarget(siteManifest, pathname) {

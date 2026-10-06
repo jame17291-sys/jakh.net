@@ -120,6 +120,12 @@
   }
 
   function loadAnalytics() {
+    // Friendship quizzes contain nicknames, scores and private invitation
+    // URLs. A saved analytics choice still applies to other site pages.
+    if (document.body?.dataset?.partyGame === 'knowMe') {
+      window[ANALYTICS_DISABLE_KEY] = true;
+      return;
+    }
     const existingScript = document.getElementById(ANALYTICS_SCRIPT_ID);
     if (analyticsLoaded && existingScript) return;
     analyticsLoaded = true;

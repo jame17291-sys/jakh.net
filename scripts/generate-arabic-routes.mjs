@@ -1,4 +1,5 @@
 import { puzzleMarkup } from './puzzle-markup.mjs';
+import { partyDirectory } from '../party-games-markup.js';
 import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
@@ -392,6 +393,10 @@ for (const puzzle of RIDDLE_ARABIA_PUZZLE_CATALOG) {
   sharedArabicRoutes.set(puzzle.paths.en, puzzle.paths.ar);
   sharedArabicRoutes.set(`${puzzle.paths.en}.html`, puzzle.paths.ar);
 }
+for (const game of RIDDLE_ARABIA_GAME_CATALOG) {
+  sharedArabicRoutes.set(`/${game.slug}`, `/ar/games/${game.slug}/`);
+  sharedArabicRoutes.set(`/${game.slug}.html`, `/ar/games/${game.slug}/`);
+}
 for (const route of PAGE_ROUTES) {
   if (route.englishPath !== "/") sharedArabicRoutes.set(`${route.englishPath}.html`, route.arabicPath);
 }
@@ -536,7 +541,10 @@ function renderRoute(route) {
   html = normalizeResourcePaths(html);
   html = localizeInternalLinks(html);
   html = localizeSharedNavigation(html, route);
-  if (route.englishPath === "/play") html = html.replace(/<!-- puzzle-room:start -->[\s\S]*?<!-- puzzle-room:end -->/u, puzzleMarkup("ar"));
+  if (route.englishPath === "/play") {
+    html = html.replace(/<!-- puzzle-room:start -->[\s\S]*?<!-- puzzle-room:end -->/u, puzzleMarkup("ar"));
+    html = html.replace(/<!-- party-directory:start -->[\s\S]*?<!-- party-directory:end -->/u, `<!-- party-directory:start -->\n${partyDirectory("ar")}\n<!-- party-directory:end -->`);
+  }
   return rewritePublicSiteIdentity(html.endsWith("\n") ? html : `${html}\n`);
 }
 

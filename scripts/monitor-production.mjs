@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { writeFile } from "node:fs/promises";
 import { performance } from "node:perf_hooks";
 import { fileURLToPath } from "node:url";
@@ -29,6 +30,7 @@ const DEFAULT_RETRY_DELAY_MS = 0;
 const WORKER_VERSION_ID = /^[0-9A-Za-z][0-9A-Za-z._-]{5,127}$/u;
 const RETIRED_SEO_REDIRECT_QUERY = "retired_seo_redirect_probe=riddlearabia";
 const PRE_TV_PUBLIC_QUESTIONS = 3_275;
+const PARTY_GAME_SLUGS = new Set(["most-likely-to", "how-well-do-you-know-me"]);
 // The expanded bilingual sitemap includes alternate-language links for every
 // Kids activity. Bound the full XML response while accommodating that inventory.
 const SITEMAP_MAX_BYTES = 1_000_000;
@@ -99,10 +101,18 @@ const NAVIGATION_ROUTE_UPDATES = {
   "/science": { bilingualMarker: 'class="language-route-link"' },
 };
 
+export const PARTY_GAME_HTML_ROUTES = RIDDLE_ARABIA_GAME_CATALOG
+  .filter((game) => PARTY_GAME_SLUGS.has(game.slug))
+  .flatMap((game) => [
+    { name: game.names.en, path: `/${game.slug}`, marker: `<title>${game.names.en}`, bilingualMarker: 'hreflang="ar"', partyGame: true },
+    { name: `Arabic ${game.names.en}`, path: `/ar/games/${game.slug}/`, marker: `<title>${game.names.ar}`, bilingualMarker: 'hreflang="en"', partyGame: true },
+  ]);
+
 export const HTML_ROUTES = [
   ...PRE_NAVIGATION_HTML_ROUTES.map((route) => ({ ...route, ...NAVIGATION_ROUTE_UPDATES[route.path] })),
   { name: "Daily Challenge", path: "/daily", marker: "<title>Daily Challenge", bilingualMarker: 'hreflang="ar"' },
   { name: "Arabic Daily Challenge", path: "/ar/daily/", marker: "<title>التحدي اليومي", bilingualMarker: 'hreflang="en"' },
+  ...PARTY_GAME_HTML_ROUTES,
 ];
 
 // A domain cutover proves the predecessor before the new brand and curated
@@ -132,7 +142,7 @@ export const PRE_PUZZLE_SITEMAP_PATHS = Object.freeze([
   "/privacy",
   "/ar/privacy/",
   ...RIDDLE_ARABIA_SEO_PAGES.flatMap((page) => [page.paths.en, page.paths.ar]),
-  ...RIDDLE_ARABIA_GAME_CATALOG.flatMap((game) => [
+  ...RIDDLE_ARABIA_GAME_CATALOG.filter((game) => !PARTY_GAME_SLUGS.has(game.slug)).flatMap((game) => [
     `/${game.slug}`,
     `/ar/games/${game.slug}/`,
   ]),
@@ -147,9 +157,14 @@ export const PRE_KIDS_SITEMAP_PATHS = Object.freeze([
   ...RIDDLE_ARABIA_PUZZLE_CATALOG.flatMap((puzzle) => [puzzle.paths.en, puzzle.paths.ar]),
 ]);
 
-export const INDEXABLE_SITEMAP_PATHS = Object.freeze([
+export const PRE_PARTY_SITEMAP_PATHS = Object.freeze([
   ...PRE_KIDS_SITEMAP_PATHS,
   ...kidsRoutePairs().flatMap((page) => [page.en, page.ar]),
+]);
+
+export const INDEXABLE_SITEMAP_PATHS = Object.freeze([
+  ...PRE_PARTY_SITEMAP_PATHS,
+  ...PARTY_GAME_HTML_ROUTES.map(({ path }) => path),
 ]);
 
 export const PRE_NAVIGATION_SITEMAP_PATHS = Object.freeze(
@@ -475,6 +490,9 @@ export async function runProductionMonitor(options = {}) {
   const legacyBaseline = config.siteContract === "legacy-cutover";
   let navigationLayout = legacyBaseline ? "legacy-cutover" : "current";
   let includeKidsNavigation = true;
+  let includePartyGames = true;
+  let privacyScriptFingerprint = null;
+  let privacyScriptPath = null;
   let sitePublicQuestions = CONTENT_PUBLICATION_CONTRACT.publicQuestions;
   const fetchImpl = options.fetchImpl || globalThis.fetch;
   const logger = options.logger || console;
@@ -568,8 +586,75 @@ export async function runProductionMonitor(options = {}) {
       return resource;
     });
   }
+  await check("Site: sitemap", async () => {
+    const resource = await fetchResource(
+      fetchImpl,
+      new URL("/sitemap.xml", config.siteOrigin),
+      config.timeoutMs,
+    );
+    expectStatus(resource.response, 200);
+    expectContentType(resource.response, /(?:application|text)\/xml/iu);
+    const urls = [...resource.text.matchAll(/<loc>([^<]+)<\/loc>/gu)].map((match) => match[1]);
+    // Only the exact-version predecessor gate may use a complete earlier
+    // inventory. Candidate/routine checks require all game and kids URLs;
+    // partial rollouts and different same-size sitemaps are never valid baselines.
+    // check() also verifies this response's Worker identity before it can pass.
+    const predecessorUrls = PRE_PUZZLE_SITEMAP_PATHS.map((pathname) => new URL(pathname, config.siteOrigin).href);
+    const isPuzzlePredecessor = config.siteContract === "release-baseline"
+      && navigationLayout === "current"
+      && urls.length === predecessorUrls.length
+      && predecessorUrls.every((url) => urls.includes(url));
+    const prePartyUrls = PRE_PARTY_SITEMAP_PATHS.map((pathname) => new URL(pathname, config.siteOrigin).href);
+    const isPartyPredecessor = config.siteContract === "release-baseline"
+      && navigationLayout === "current" && includeKidsNavigation
+      && urls.length === prePartyUrls.length
+      && prePartyUrls.every((url) => urls.includes(url));
+    const expectedPaths = navigationLayout === "pre-navigation" ? PRE_NAVIGATION_SITEMAP_PATHS
+      : isPuzzlePredecessor ? PRE_PUZZLE_SITEMAP_PATHS
+        : isPartyPredecessor ? PRE_PARTY_SITEMAP_PATHS
+          : !includeKidsNavigation ? PRE_KIDS_SITEMAP_PATHS : INDEXABLE_SITEMAP_PATHS;
+    const expectedUrls = expectedPaths.map((pathname) => new URL(pathname, config.siteOrigin).href);
+    if (legacyBaseline) {
+      expect(urls.length > 0, "baseline sitemap is empty");
+      expect(urls.includes(`${config.siteOrigin}/`), "baseline sitemap is missing the homepage");
+    } else {
+      expect(urls.length === expectedUrls.length, `sitemap contains ${urls.length} URLs instead of ${expectedUrls.length}`);
+    }
+    expect(new Set(urls).size === urls.length, "sitemap repeats a URL");
+    expect(
+      urls.every((url) => new URL(url).origin === config.siteOrigin),
+      "sitemap contains a URL outside the monitored primary site origin",
+    );
+    expect(!urls.some((url) => /\.html(?:$|[?#])/u.test(url)), "sitemap contains a .html URL");
+    if (!legacyBaseline) {
+      expect(
+        expectedUrls.every((url) => urls.includes(url)),
+        "sitemap is missing one or more focused Riddle Arabia routes",
+      );
+    }
+    expect(
+      QUARANTINED_CATEGORY_SLUGS.every((slug) => (
+        !urls.some((url) => {
+          const pathname = new URL(url).pathname.toLowerCase();
+          return pathname === `/${slug}`
+            || pathname === `/${slug}.html`
+            || pathname.startsWith(`/${slug}/`)
+            || pathname === `/ar/topics/${slug}`
+            || pathname.startsWith(`/ar/topics/${slug}/`);
+        })
+      )),
+      "sitemap exposes a quarantined route",
+    );
+    // This is set only by an exact recognized inventory; failures still block
+    // the report and every response remains bound to the requested Worker.
+    includePartyGames = !legacyBaseline && expectedPaths === INDEXABLE_SITEMAP_PATHS;
+    assertBudget(resource, config.siteMaxMs, SITEMAP_MAX_BYTES);
+    return resource;
+  });
+
   const htmlRoutes = legacyBaseline ? LEGACY_BASELINE_HTML_ROUTES
-    : navigationLayout === "pre-navigation" ? PRE_NAVIGATION_HTML_ROUTES : HTML_ROUTES;
+    : navigationLayout === "pre-navigation" ? PRE_NAVIGATION_HTML_ROUTES
+      : HTML_ROUTES.filter((route) => includePartyGames || !route.partyGame);
   await Promise.all(htmlRoutes.map((route) =>
     check(`Site: ${route.name}`, async () => {
       const resource = await fetchResource(
@@ -588,10 +673,16 @@ export async function runProductionMonitor(options = {}) {
           && route.baselineMarker && resource.text.includes(route.baselineMarker);
         expect(resource.text.includes(route.marker) || predecessorMarkerMatches, `missing page marker "${route.marker}"`);
       }
-      expect(
-        resource.text.includes(route.bilingualMarker),
-        `missing bilingual marker "${route.bilingualMarker}"`,
-      );
+      if (route.bilingualMarker === "privacy-consent.js") {
+        const script = resource.text.replace(/<!--[\s\S]*?-->/gu, "").match(
+          /<script\b[^>]*\ssrc=["'](\/privacy-consent(?:\.([a-f0-9]{16}))?\.js(?:\?[^"'<>]*)?)["'][^>]*>/u,
+        );
+        expect(Boolean(script), `missing bilingual marker "${route.bilingualMarker}"`);
+        privacyScriptPath = script[1];
+        privacyScriptFingerprint = script[2] || null;
+      } else {
+        expect(resource.text.includes(route.bilingualMarker), `missing bilingual marker "${route.bilingualMarker}"`);
+      }
       if (navigationLayout === "current") expectSharedNavigation(resource.text, route.path, { includeKids: includeKidsNavigation });
       if (navigationLayout === "pre-navigation") {
         expect(!/class="[^"]*\bprimary-navigation\b/iu.test(resource.text),
@@ -807,63 +898,6 @@ export async function runProductionMonitor(options = {}) {
     return resource;
   });
 
-  await check("Site: sitemap", async () => {
-    const resource = await fetchResource(
-      fetchImpl,
-      new URL("/sitemap.xml", config.siteOrigin),
-      config.timeoutMs,
-    );
-    expectStatus(resource.response, 200);
-    expectContentType(resource.response, /(?:application|text)\/xml/iu);
-    const urls = [...resource.text.matchAll(/<loc>([^<]+)<\/loc>/gu)].map((match) => match[1]);
-    // Only the exact-version predecessor gate may use a complete earlier
-    // inventory. Candidate/routine checks require all game and kids URLs;
-    // partial rollouts and different same-size sitemaps are never valid baselines.
-    // check() also verifies this response's Worker identity before it can pass.
-    const predecessorUrls = PRE_PUZZLE_SITEMAP_PATHS.map((pathname) => new URL(pathname, config.siteOrigin).href);
-    const isPuzzlePredecessor = config.siteContract === "release-baseline"
-      && navigationLayout === "current"
-      && urls.length === predecessorUrls.length
-      && predecessorUrls.every((url) => urls.includes(url));
-    const expectedPaths = navigationLayout === "pre-navigation" ? PRE_NAVIGATION_SITEMAP_PATHS
-      : isPuzzlePredecessor ? PRE_PUZZLE_SITEMAP_PATHS
-        : !includeKidsNavigation ? PRE_KIDS_SITEMAP_PATHS : INDEXABLE_SITEMAP_PATHS;
-    const expectedUrls = expectedPaths.map((pathname) => new URL(pathname, config.siteOrigin).href);
-    if (legacyBaseline) {
-      expect(urls.length > 0, "baseline sitemap is empty");
-      expect(urls.includes(`${config.siteOrigin}/`), "baseline sitemap is missing the homepage");
-    } else {
-      expect(urls.length === expectedUrls.length, `sitemap contains ${urls.length} URLs instead of ${expectedUrls.length}`);
-    }
-    expect(new Set(urls).size === urls.length, "sitemap repeats a URL");
-    expect(
-      urls.every((url) => new URL(url).origin === config.siteOrigin),
-      "sitemap contains a URL outside the monitored primary site origin",
-    );
-    expect(!urls.some((url) => /\.html(?:$|[?#])/u.test(url)), "sitemap contains a .html URL");
-    if (!legacyBaseline) {
-      expect(
-        expectedUrls.every((url) => urls.includes(url)),
-        "sitemap is missing one or more focused Riddle Arabia routes",
-      );
-    }
-    expect(
-      QUARANTINED_CATEGORY_SLUGS.every((slug) => (
-        !urls.some((url) => {
-          const pathname = new URL(url).pathname.toLowerCase();
-          return pathname === `/${slug}`
-            || pathname === `/${slug}.html`
-            || pathname.startsWith(`/${slug}/`)
-            || pathname === `/ar/topics/${slug}`
-            || pathname.startsWith(`/ar/topics/${slug}/`);
-        })
-      )),
-      "sitemap exposes a quarantined route",
-    );
-    assertBudget(resource, config.siteMaxMs, SITEMAP_MAX_BYTES);
-    return resource;
-  });
-
   await check("Site: security contact", async () => {
     const resource = await fetchResource(
       fetchImpl,
@@ -962,12 +996,16 @@ export async function runProductionMonitor(options = {}) {
     check(`Site: ${asset.name}`, async () => {
       const resource = await fetchResource(
         fetchImpl,
-        new URL(asset.path, config.siteOrigin),
+        new URL(asset.path === "/privacy-consent.js" ? privacyScriptPath || asset.path : asset.path, config.siteOrigin),
         config.timeoutMs,
       );
       expectStatus(resource.response, 200);
       expectContentType(resource.response, asset.type);
       expect(resource.text.includes(asset.marker), `missing asset marker "${asset.marker}"`);
+      if (asset.path === "/privacy-consent.js" && privacyScriptFingerprint) {
+        expect(createHash("sha256").update(Buffer.from(resource.body)).digest("hex").startsWith(privacyScriptFingerprint),
+          "privacy controls fingerprint does not match the served script bytes");
+      }
       assertBudget(resource, config.siteMaxMs, asset.maxBytes);
       return resource;
     }),

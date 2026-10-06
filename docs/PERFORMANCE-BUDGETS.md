@@ -63,6 +63,12 @@ node --test scripts/performance-budget.test.mjs
 | `battle-mode.js` | 30,000 B | 8,000 B | 7,000 B |
 | `battle-mode.css` | 12,000 B | 3,000 B | 2,500 B |
 | Shared read-aloud JavaScript | 5,000 B | 2,200 B | 1,900 B |
+| Friendship games JavaScript | 35,000 B | 11,000 B | 9,500 B |
+| Friendship games engine | 9,000 B | 3,000 B | 2,600 B |
+| Friendship games bilingual copy | 16,000 B | 6,000 B | 5,000 B |
+| Friendship games markup | 4,000 B | 1,700 B | 1,500 B |
+| Friendship games CSS | 9,000 B | 2,800 B | 2,400 B |
+| Friendship games public question bank | 100,000 B | 24,000 B | 20,000 B |
 | English search shard | 600,000 B | 210,000 B | 175,000 B |
 | Arabic search shard | 825,000 B | 230,000 B | 190,000 B |
 
@@ -79,6 +85,14 @@ voice heuristics and cleanup, the shared engine costs 548 additional gzip bytes
 over the previous implementation. Its compressed limits increase from 1,800
 gzip / 1,500 Brotli bytes to the bounds above; its raw limit and all initial
 application limits stay unchanged.
+
+The two friendship games load their own module graph and public question bank
+only on their dedicated pages. Games hub cards use the existing directory
+styles and request neither the game code nor its question bank. The party bank
+and engine feed the fingerprinted entry, which feeds all four bilingual HTML
+pages. The privacy gate is also fingerprinted: returning visitors must receive
+the quiz page's current analytics boundary rather than an older mutable cache
+entry. The existing initial application limits remain unchanged.
 
 When an intentional product change needs more bytes, first remove equivalent
 cost or document measured user impact before raising a limit. Do not silently

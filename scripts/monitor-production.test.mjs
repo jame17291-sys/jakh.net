@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import http from "node:http";
 import { readFileSync } from "node:fs";
 import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
@@ -11,10 +12,12 @@ import {
   buildMonitorReport,
   HTML_ROUTES,
   INDEXABLE_SITEMAP_PATHS,
+  PARTY_GAME_HTML_ROUTES,
   PRE_KIDS_SITEMAP_PATHS,
   PRE_NAVIGATION_HTML_ROUTES,
   PRE_NAVIGATION_SITEMAP_PATHS,
   PRE_PUZZLE_SITEMAP_PATHS,
+  PRE_PARTY_SITEMAP_PATHS,
   QUARANTINED_CATEGORY_SLUGS,
   QUARANTINED_SITE_ROUTES,
   PRIMARY_SITE_ORIGIN,
@@ -29,6 +32,7 @@ import { PUZZLE_ROUTES } from "../puzzle-routes.js";
 import { createSiteHandler } from "../site-worker/src/site-edge.js";
 import { classifyMonitorWorkflowContext } from "./monitor-workflow-context.mjs";
 import { runSmoke } from "./site-release-receipt.mjs";
+import { buildVersionBoundMonitorProof } from "./runtime-monitor-proof.mjs";
 
 const FIXTURE_WORKER_VERSION = "11111111-1111-4111-8111-111111111111";
 const FIXTURE_RELEASE_SHA = "2d98494fbc9459bb449bacb4fe9e2ef3a233cc3d";
@@ -86,7 +90,9 @@ function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false, preNa
       lang: pathname.startsWith("/ar/") ? "ar" : "en",
       alternate: pathname.startsWith("/ar/") ? "/" : "/ar/",
     }) + navigationScript;
-    return `<!doctype html><html><head>${legacySite ? "<title>JAKH Riddles" : route.marker}</title></head><body${categoryAttributes}>${route.bilingualMarker}${navigation}${categoryMount}ok</body></html>`;
+    const bilingualMarker = route.bilingualMarker === "privacy-consent.js"
+      ? '<script src="/privacy-consent.js"></script>' : route.bilingualMarker;
+    return `<!doctype html><html><head>${legacySite ? "<title>JAKH Riddles" : route.marker}</title></head><body${categoryAttributes}>${bilingualMarker}${navigation}${categoryMount}ok</body></html>`;
   }
   if (pathname === "/data/catalog.json") {
     return JSON.stringify({
@@ -553,7 +559,7 @@ test("only an exact-version release baseline accepts coherent pre-kids navigatio
 
     const candidate = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: predecessor() });
     assert.match(candidate.failures.find(({ name }) => name === "Site: Home")?.message || "", /5 destination links/u);
-    assert.match(candidate.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /78 URLs instead of 1166/u);
+    assert.match(candidate.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /78 URLs instead of 1170/u);
 
     const mixed = await runProductionMonitor({ ...options, fetchImpl: predecessor({ mixedRoute: "/ar/daily/" }) });
     assert.match(mixed.failures.find(({ name }) => name === "Site: Arabic Daily Challenge")?.message || "", /4 destination links/u);
@@ -588,7 +594,7 @@ test("only an exact-version release baseline accepts the complete 52-URL pre-puz
     assert.equal(baseline.results.find(({ name }) => name === "Site: sitemap")?.workerVersionId, FIXTURE_WORKER_VERSION);
 
     const candidate = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: fetchPredecessor });
-    assert.match(candidate.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /52 URLs instead of 1166/u);
+    assert.match(candidate.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /52 URLs instead of 1170/u);
 
     for (const paths of [
       [...PRE_PUZZLE_SITEMAP_PATHS.slice(1), "/unexpected-indexable-route"],
@@ -604,6 +610,98 @@ test("only an exact-version release baseline accepts the complete 52-URL pre-puz
     assert.match(mismatched.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /served Worker .* expected/u);
     const unidentified = await runProductionMonitor({ ...options, fetchImpl: withSitemap(PRE_PUZZLE_SITEMAP_PATHS, "") });
     assert.match(unidentified.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /lacks a valid Worker version/u);
+  });
+});
+
+test("the exact-version pre-party release is a rollback target while current checks require all four new games", async () => {
+  await withFixture({ productionSite: true }, async (fixtureOrigin) => {
+    const options = productionFixtureOptions(fixtureOrigin);
+    const gamePaths = new Set(PARTY_GAME_HTML_ROUTES.map(({ path }) => path));
+    const requestedGames = [];
+    const withPredecessor = (paths = PRE_PARTY_SITEMAP_PATHS, version = FIXTURE_WORKER_VERSION) => async (input, init) => {
+      const pathname = new URL(input).pathname;
+      if (pathname === "/sitemap.xml") return new Response(`<urlset>${paths.map(path => `<url><loc>${PRIMARY_SITE_ORIGIN}${path}</loc></url>`).join("")}</urlset>`, {
+        headers: { "content-type": "application/xml", "x-jakh-worker-version": version },
+      });
+      if (gamePaths.has(pathname)) {
+        requestedGames.push(pathname);
+        return new Response("Not found", { status: 404, headers: { "content-type": "text/html", "x-jakh-worker-version": FIXTURE_WORKER_VERSION } });
+      }
+      return options.fetchImpl(input, init);
+    };
+    const predecessorFetch = withPredecessor();
+    const baseline = await runProductionMonitor({ ...options, fetchImpl: predecessorFetch });
+    assert.deepEqual(baseline.failures, []);
+    assert.deepEqual(requestedGames, [], "The verified predecessor predates these routes");
+    const deployment = { versions: [{ version_id: FIXTURE_WORKER_VERSION, percentage: 100 }] };
+    const proof = buildVersionBoundMonitorProof({
+      targetVersion: FIXTURE_WORKER_VERSION, deploymentBefore: deployment, deploymentAfter: deployment,
+      monitorReport: buildMonitorReport(baseline), scope: "site", siteContract: "release-baseline",
+    });
+    assert.equal(proof.safe, true, JSON.stringify(proof));
+
+    const current = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: predecessorFetch });
+    assert.match(current.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1166 URLs instead of 1170/u);
+    for (const route of PARTY_GAME_HTML_ROUTES) {
+      assert.ok(current.failures.some(({ name }) => name === `Site: ${route.name}`), `${route.path} must work on the candidate`);
+    }
+    await assert.rejects(runProductionMonitor({ ...options, expectedWorkerVersion: "", fetchImpl: predecessorFetch }), /exact predecessor Worker/u);
+    for (const paths of [
+      [...PRE_PARTY_SITEMAP_PATHS, PARTY_GAME_HTML_ROUTES[0].path],
+      [...PRE_PARTY_SITEMAP_PATHS.slice(1), "/unknown-indexable-route"],
+      [...PRE_PARTY_SITEMAP_PATHS.slice(1), PRE_PARTY_SITEMAP_PATHS[1]],
+    ]) {
+      const mixed = await runProductionMonitor({ ...options, fetchImpl: withPredecessor(paths) });
+      assert.ok(mixed.failures.some(({ name }) => name === "Site: sitemap"), "Only the complete known predecessor is accepted");
+    }
+    for (const version of ["", "22222222-2222-4222-8222-222222222222"]) {
+      const drift = await runProductionMonitor({ ...options, fetchImpl: withPredecessor(PRE_PARTY_SITEMAP_PATHS, version) });
+      assert.match(drift.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /lacks a valid Worker version|served Worker .* expected/u);
+      assert.equal(buildVersionBoundMonitorProof({
+        targetVersion: FIXTURE_WORKER_VERSION, deploymentBefore: deployment, deploymentAfter: deployment,
+        monitorReport: buildMonitorReport(drift), scope: "site", siteContract: "release-baseline",
+      }).safe, false);
+    }
+    const leaked = await runProductionMonitor({ ...options, fetchImpl: (input, init) => new URL(input).pathname === "/survival"
+      ? Promise.resolve(new Response("held content", { headers: { "x-jakh-worker-version": FIXTURE_WORKER_VERSION } }))
+      : predecessorFetch(input, init) });
+    assert.ok(leaked.failures.some(({ name }) => name.startsWith("Site quarantine:")));
+  });
+});
+
+test("privacy controls require a real script source and verify immutable filenames against the fetched bytes", async () => {
+  await withFixture({ productionSite: true }, async (fixtureOrigin) => {
+    const options = productionFixtureOptions(fixtureOrigin, { siteContract: "current" });
+    const scriptBytes = staticBody("/privacy-consent.js", {});
+    const fingerprint = createHash("sha256").update(scriptBytes).digest("hex").slice(0, 16);
+    const immutable = `/privacy-consent.${fingerprint}.js`;
+    const checkPrivacy = (script, unavailable = false) => runProductionMonitor({ ...options, fetchImpl: async (input, init) => {
+      const pathname = new URL(input).pathname;
+      if (/^\/privacy-consent\.[^.]+\.js$/u.test(pathname)) {
+        const stable = await options.fetchImpl(new URL("/privacy-consent.js", PRIMARY_SITE_ORIGIN), init);
+        return new Response(scriptBytes, { status: unavailable ? 404 : 200, headers: stable.headers });
+      }
+      const response = await options.fetchImpl(input, init);
+      if (pathname !== "/privacy") return response;
+      return new Response((await response.text()).replace('<script src="/privacy-consent.js"></script>', script), {
+        status: response.status, headers: response.headers,
+      });
+    } });
+    const valid = await checkPrivacy(`<script src="${immutable}"></script>`);
+    assert.deepEqual(valid.failures, []);
+    for (const script of [
+      '<script src="/privacy-consent.not-a-fingerprint.js"></script>',
+      `<script data-src="${immutable}"></script>`,
+      `<!-- <script src="${immutable}"></script> -->`,
+      '<p>privacy-consent.js</p>',
+    ]) {
+      const invalid = await checkPrivacy(script);
+      assert.ok(invalid.failures.some(({ name }) => name === "Site: Privacy Centre"), "Unrelated text and malformed asset names cannot satisfy the privacy marker");
+    }
+    const altered = await checkPrivacy('<script src="/privacy-consent.0000000000000000.js"></script>');
+    assert.match(altered.failures.find(({ name }) => name === "Site: Privacy consent controls")?.message || "", /fingerprint does not match/u);
+    const missing = await checkPrivacy(`<script src="${immutable}"></script>`, true);
+    assert.match(missing.failures.find(({ name }) => name === "Site: Privacy consent controls")?.message || "", /expected HTTP 200, received 404/u);
   });
 });
 
@@ -873,7 +971,8 @@ test("production monitor reserves route-migration probes for the production Ridd
 });
 
 test("production monitor follows the focused sitemap inventory", () => {
-  assert.equal(INDEXABLE_SITEMAP_PATHS.length, 1166);
+  assert.equal(INDEXABLE_SITEMAP_PATHS.length, 1170);
+  assert.equal(PRE_PARTY_SITEMAP_PATHS.length, 1166);
   assert.equal(new Set(INDEXABLE_SITEMAP_PATHS).size, INDEXABLE_SITEMAP_PATHS.length);
   const actualUrls = [...readFileSync(new URL("../sitemap.xml", import.meta.url), "utf8").matchAll(/<loc>([^<]+)<\/loc>/gu)]
     .map(([, url]) => url);

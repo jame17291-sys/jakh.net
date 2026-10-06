@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { spawnSync } from 'node:child_process';
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import test from 'node:test';
 import vm from 'node:vm';
@@ -127,4 +129,32 @@ test('optional analytics cannot receive quiz invitations or participant data and
       assert.equal(context.window['ga-disable-example'], false);
     }
   }
+});
+
+test('the actual static validator rejects malformed party data and does not exempt similarly named structured banks', async t => {
+  const temporary = await mkdtemp(resolve(tmpdir(), 'riddlearabia-party-static-'));
+  t.after(() => rm(temporary, { recursive: true, force: true }));
+  const content = JSON.parse(await read('data/party-games.json'));
+  const invalid = [
+    data => { data.version = 2; },
+    data => { data.mostLikely.questions[0].text.ar = ''; },
+    data => { data.knowMe.questions[0].options.pop(); },
+    data => { data.knowMe.questions[1].id = data.knowMe.questions[0].id; },
+  ];
+  for (const [index, mutate] of invalid.entries()) {
+    const data = structuredClone(content); mutate(data);
+    const preload = resolve(temporary, `invalid-${index}.mjs`);
+    // Substitute only the public bank's filesystem read. The original
+    // validator and every other source file execute without modification.
+    await writeFile(preload, `import fs from 'node:fs';\nconst actual=fs.readFileSync;\nfs.readFileSync=(file,...args)=>String(file)===${JSON.stringify(resolve(root, 'data/party-games.json'))}?${JSON.stringify(JSON.stringify(data))}:actual(file,...args);\n`);
+    const result = spawnSync(process.execPath, ['--import', preload, 'scripts/validate-static.mjs'], { cwd: root, encoding: 'utf8', maxBuffer: 1024 * 1024 });
+    assert.notEqual(result.status, 0, `malformed bank ${index} must fail the source gate`);
+    assert.match(result.stderr, /data\/party-games\.json: invalid party game bank/u);
+  }
+  const preload = resolve(temporary, 'unrecognized-bank.mjs');
+  const unknown = resolve(root, 'data/party-games-extra.json');
+  await writeFile(preload, `import fs from 'node:fs';\nconst read=fs.readFileSync,list=fs.readdirSync;\nfs.readFileSync=(file,...args)=>String(file)===${JSON.stringify(unknown)}?${JSON.stringify(JSON.stringify(content))}:read(file,...args);\nfs.readdirSync=(dir,options)=>{const files=list(dir,options);return String(dir)===${JSON.stringify(resolve(root, 'data'))}&&!options?.withFileTypes?[...files,'party-games-extra.json']:files;};\n`);
+  const result = spawnSync(process.execPath, ['--import', preload, 'scripts/validate-static.mjs'], { cwd: root, encoding: 'utf8', maxBuffer: 1024 * 1024 });
+  assert.notEqual(result.status, 0, 'an unrecognized object bank must still fail as a malformed category');
+  assert.match(result.stderr, /data\/party-games-extra\.json: category files must be plain card arrays/u);
 });

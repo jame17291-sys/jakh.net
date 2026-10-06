@@ -76,6 +76,7 @@ jobs:
           scripts/offline-cache-freshness.test.mjs
           scripts/speech-quality.test.mjs
           scripts/party-games-integration.test.mjs
+          scripts/party-games.test.mjs
           scripts/game-content-coverage.test.mjs
           scripts/frontend-product-contract.test.mjs
           scripts/free-first-gameplay.test.mjs

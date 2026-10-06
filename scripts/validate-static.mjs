@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { validatePartyData } from "../party-games-engine.js";
 import {
   conciseScorableAnswer,
   hasScorableAnswer,
@@ -269,6 +270,16 @@ for (const file of dataFiles) {
     || file === "card-index.json"
     || /^search-index(?:\.(?:en|ar))?\.json$/u.test(file)
   ) continue;
+  // This one structured bank powers subjective party games. It is validated
+  // by their shared engine and remains outside the factual card corpus.
+  if (file === "party-games.json") {
+    try {
+      validatePartyData(parsed);
+    } catch (error) {
+      fail(`data/${file}: invalid party game bank: ${error.message}`);
+    }
+    continue;
+  }
   if (!Array.isArray(parsed)) {
     fail(`data/${file}: category files must be plain card arrays; metadata belongs in data/catalog.json`);
     continue;

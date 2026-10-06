@@ -613,15 +613,17 @@ test('public Arabic actions use concise human wording and reject known literal t
   ]) assert.match(publicActions, new RegExp(naturalAction, 'u'), naturalAction);
 });
 
-test('read-aloud prefers a natural Arabic voice and preserves Arabic mathematical wording', () => {
+test('read-aloud prefers a free installed Arabic voice and preserves Arabic mathematical wording', () => {
   const basicSaudi = { name: 'Arabic', voiceURI: 'basic-ar-sa', lang: 'ar-SA', localService: true };
-  const naturalEgyptian = {
+  const enhancedEmirati = { name: 'Arabic Enhanced', voiceURI: 'enhanced-ar-ae', lang: 'ar-AE', localService: true };
+  const cloudEgyptian = {
     name: 'Microsoft Salma Online (Natural)',
     voiceURI: 'natural-ar-eg',
     lang: 'ar-EG',
     localService: false,
   };
-  assert.equal(getBestVoice([basicSaudi, naturalEgyptian], 'ar').name, naturalEgyptian.name);
+  assert.equal(getBestVoice([basicSaudi, enhancedEmirati, cloudEgyptian], 'ar').name, enhancedEmirati.name);
+  assert.equal(getBestVoice([cloudEgyptian], 'ar'), null);
   assert.equal(prepareSpeechText('كم يساوي 5×4؟20', 'ar'), 'كم يساوي 5 في 4؟ 20');
 
   assert.equal(prepareSpeechText('ما ناتج 0.5 × 0.5؟', 'ar'), 'ما ناتج 0.5 في 0.5؟');

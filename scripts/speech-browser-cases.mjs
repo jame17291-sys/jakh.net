@@ -342,7 +342,7 @@ export async function runSpeechRegressions({ browser, createContext, runTest, tr
         await h.page.waitForFunction(() => window.__speech.records.length > 0);
         const records = await h.page.evaluate(() => window.__speech.records);
         assert.ok(records.every(record => record.activation), `${kind}: every chunk was queued during the original tap`);
-        assert.ok(records.every(record => record.lang === 'ar-EG' && record.voice === 'Microsoft Salma Online (Natural)'));
+        assert.ok(records.every(record => record.lang === 'ar-SA' && record.voice === 'Arabic device'));
         results.push({ voice: records[0].voice, lang: records[0].lang, rate: records[0].rate, pitch: records[0].pitch });
         if (kind === 'card') {
           assert.equal(records.map(record => record.text).join(' '), 'من يُشتهر بقانون الجاذبية الكونية بعد مشاهدة سقوط تفاحة؟');

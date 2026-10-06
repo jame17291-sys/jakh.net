@@ -388,7 +388,7 @@ async function auditRoute(context, baseUrl, label, route, { readySelector = "" }
     await page.locator("body").waitFor({ state: "visible" });
     if (readySelector) await page.locator(readySelector).waitFor({ state: "visible" });
     else if (/\/(?:ar\/)?daily\/?$/u.test(route)) await page.locator('.daily-challenge-q').waitFor({ state: 'visible' });
-    else if (/\/(?:most-likely-to|how-well-do-you-know-me|secret-word-impostor|panic-mode|friendship-court)\/?$/u.test(route)) await page.locator('#party-app[aria-busy="false"] [data-party-action="start"]:enabled').waitFor({ state: 'visible' });
+    else if (/\/(?:most-likely-to|how-well-do-you-know-me|secret-word-impostor|panic-mode|friendship-court)\/?$/u.test(route)) await page.locator('#party-app[aria-busy="false"] [data-party-action="start"]:enabled, #party-app[aria-busy="false"] [data-party-action="setup"]:enabled').waitFor({ state: 'visible' });
     await page.waitForTimeout(250);
     const results = await new AxeBuilder({ page }).withTags(WCAG_TAGS).analyze();
     assert.equal(
@@ -482,7 +482,7 @@ async function verifyReflow(context, baseUrl, label, route) {
     await page.goto(`${baseUrl}${route}`, { waitUntil: "domcontentloaded" });
     await page.locator("body").waitFor({ state: "visible" });
     if (/\/(?:ar\/)?daily\/?$/u.test(route)) await page.locator('.daily-challenge-q').waitFor({ state: 'visible' });
-    else if (/\/(?:most-likely-to|how-well-do-you-know-me|secret-word-impostor|panic-mode|friendship-court)\/?$/u.test(route)) await page.locator('#party-app[aria-busy="false"] [data-party-action="start"]:enabled').waitFor({ state: 'visible' });
+    else if (/\/(?:most-likely-to|how-well-do-you-know-me|secret-word-impostor|panic-mode|friendship-court)\/?$/u.test(route)) await page.locator('#party-app[aria-busy="false"] [data-party-action="start"]:enabled, #party-app[aria-busy="false"] [data-party-action="setup"]:enabled').waitFor({ state: 'visible' });
     await page.waitForTimeout(100);
     const overflow = await page.evaluate(() => {
       const viewportWidth = document.documentElement.clientWidth;

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { WordDuelRoom } from '../dist/word-duel-room.js';
+import { WordDuelRoom, verifyEnglishWord } from '../dist/word-duel-room.js';
 import { makeDeck, normalizeWord, playAction, privateSnapshot, scorePlacement, vocabulary } from '../dist/word-duel-rules.js';
 
 function room(overrides = {}) {
@@ -9,6 +9,19 @@ function room(overrides = {}) {
     bag: [...'aaeeiissttnn'], phase: 'playing', turn: 0, revision: 1, scoreless: 0, turns: 0, expiresAt: Date.now() + 100000, createdAt: Date.now(), lastMove: null, ...overrides };
 }
 const cat = [{ row: 4, col: 3, letter: 'c' }, { row: 4, col: 4, letter: 'a' }, { row: 4, col: 5, letter: 't' }];
+const crate = [...'crate'].map((letter, index) => ({ row: 4, col: 2 + index, letter }));
+test('English dictionary checks accept any verified spelling without accepting malformed words', async () => {
+  const valid = await verifyEnglishWord('scone', async () => new Response(JSON.stringify([{ word: 'scone', meanings: [{}] }]), { status: 200 }));
+  const invalid = await verifyEnglishWord('zzqzx', async () => new Response(JSON.stringify({ title: 'No Definitions Found' }), { status: 404 }));
+  assert.equal(valid, true); assert.equal(invalid, false);
+  assert.equal(await verifyEnglishWord('wrong', async () => new Response(JSON.stringify([{ word: 'different' }]), { status: 200 })), false);
+  assert.equal(await verifyEnglishWord('two words', async () => { throw Error('must not fetch'); }), false);
+});
+test('scoring accepts a dictionary-verified English word outside the house list', () => {
+  const initial = room();
+  assert.throws(() => scorePlacement(initial, initial.players[0], crate), { code: 'WORD_NOT_LISTED' });
+  assert.deepEqual(scorePlacement(initial, initial.players[0], crate, () => true).words, ['crate']);
+});
 test('opening words cover center, consume a private rack and score the word bonus once', () => {
   const initial = room();
   const next = playAction(initial, 'p1', { revision: 1, kind: 'place', placements: cat });

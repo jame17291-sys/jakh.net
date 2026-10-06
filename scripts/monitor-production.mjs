@@ -30,7 +30,8 @@ const DEFAULT_RETRY_DELAY_MS = 0;
 const WORKER_VERSION_ID = /^[0-9A-Za-z][0-9A-Za-z._-]{5,127}$/u;
 const RETIRED_SEO_REDIRECT_QUERY = "retired_seo_redirect_probe=riddlearabia";
 const PRE_TV_PUBLIC_QUESTIONS = 3_275;
-const PARTY_GAME_SLUGS = new Set(["most-likely-to", "how-well-do-you-know-me", "secret-word-impostor", "panic-mode", "friendship-court"]);
+const FRIENDSHIP_ARCADE_SLUGS = new Set(["secret-word-impostor", "panic-mode", "friendship-court"]);
+const PARTY_GAME_SLUGS = new Set(["most-likely-to", "how-well-do-you-know-me", ...FRIENDSHIP_ARCADE_SLUGS]);
 // The expanded bilingual sitemap includes alternate-language links for every
 // Kids activity. Bound the full XML response while accommodating that inventory.
 const SITEMAP_MAX_BYTES = 1_000_000;
@@ -104,8 +105,8 @@ const NAVIGATION_ROUTE_UPDATES = {
 export const PARTY_GAME_HTML_ROUTES = RIDDLE_ARABIA_GAME_CATALOG
   .filter((game) => PARTY_GAME_SLUGS.has(game.slug))
   .flatMap((game) => [
-    { name: game.names.en, path: `/${game.slug}`, marker: `<title>${game.names.en}`, bilingualMarker: 'hreflang="ar"', partyGame: true },
-    { name: `Arabic ${game.names.en}`, path: `/ar/games/${game.slug}/`, marker: `<title>${game.names.ar}`, bilingualMarker: 'hreflang="en"', partyGame: true },
+    { name: game.names.en, path: `/${game.slug}`, marker: `<title>${game.names.en}`, bilingualMarker: 'hreflang="ar"', partyGame: true, friendshipArcade: FRIENDSHIP_ARCADE_SLUGS.has(game.slug) },
+    { name: `Arabic ${game.names.en}`, path: `/ar/games/${game.slug}/`, marker: `<title>${game.names.ar}`, bilingualMarker: 'hreflang="en"', partyGame: true, friendshipArcade: FRIENDSHIP_ARCADE_SLUGS.has(game.slug) },
   ]);
 
 export const HTML_ROUTES = [
@@ -160,6 +161,14 @@ export const PRE_KIDS_SITEMAP_PATHS = Object.freeze([
 export const PRE_PARTY_SITEMAP_PATHS = Object.freeze([
   ...PRE_KIDS_SITEMAP_PATHS,
   ...kidsRoutePairs().flatMap((page) => [page.en, page.ar]),
+]);
+
+// The production predecessor already includes the first two party games. A
+// release that introduces the friendship arcade must prove that exact state
+// before the new six routes can be deployed.
+export const PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS = Object.freeze([
+  ...PRE_PARTY_SITEMAP_PATHS,
+  ...PARTY_GAME_HTML_ROUTES.filter((route) => !route.friendshipArcade).map(({ path }) => path),
 ]);
 
 export const INDEXABLE_SITEMAP_PATHS = Object.freeze([
@@ -490,7 +499,7 @@ export async function runProductionMonitor(options = {}) {
   const legacyBaseline = config.siteContract === "legacy-cutover";
   let navigationLayout = legacyBaseline ? "legacy-cutover" : "current";
   let includeKidsNavigation = true;
-  let includePartyGames = true;
+  let partyGameInventory = "current";
   let privacyScriptFingerprint = null;
   let privacyScriptPath = null;
   let sitePublicQuestions = CONTENT_PUBLICATION_CONTRACT.publicQuestions;
@@ -609,10 +618,16 @@ export async function runProductionMonitor(options = {}) {
       && navigationLayout === "current" && includeKidsNavigation
       && urls.length === prePartyUrls.length
       && prePartyUrls.every((url) => urls.includes(url));
+    const preFriendshipArcadeUrls = PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS.map((pathname) => new URL(pathname, config.siteOrigin).href);
+    const isFriendshipArcadePredecessor = config.siteContract === "release-baseline"
+      && navigationLayout === "current" && includeKidsNavigation
+      && urls.length === preFriendshipArcadeUrls.length
+      && preFriendshipArcadeUrls.every((url) => urls.includes(url));
     const expectedPaths = navigationLayout === "pre-navigation" ? PRE_NAVIGATION_SITEMAP_PATHS
       : isPuzzlePredecessor ? PRE_PUZZLE_SITEMAP_PATHS
         : isPartyPredecessor ? PRE_PARTY_SITEMAP_PATHS
-          : !includeKidsNavigation ? PRE_KIDS_SITEMAP_PATHS : INDEXABLE_SITEMAP_PATHS;
+          : isFriendshipArcadePredecessor ? PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS
+            : !includeKidsNavigation ? PRE_KIDS_SITEMAP_PATHS : INDEXABLE_SITEMAP_PATHS;
     const expectedUrls = expectedPaths.map((pathname) => new URL(pathname, config.siteOrigin).href);
     if (legacyBaseline) {
       expect(urls.length > 0, "baseline sitemap is empty");
@@ -647,14 +662,17 @@ export async function runProductionMonitor(options = {}) {
     );
     // This is set only by an exact recognized inventory; failures still block
     // the report and every response remains bound to the requested Worker.
-    includePartyGames = !legacyBaseline && expectedPaths === INDEXABLE_SITEMAP_PATHS;
+    partyGameInventory = legacyBaseline || expectedPaths === PRE_PARTY_SITEMAP_PATHS ? "none"
+      : expectedPaths === PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS ? "pre-friendship-arcade" : "current";
     assertBudget(resource, config.siteMaxMs, SITEMAP_MAX_BYTES);
     return resource;
   });
 
   const htmlRoutes = legacyBaseline ? LEGACY_BASELINE_HTML_ROUTES
     : navigationLayout === "pre-navigation" ? PRE_NAVIGATION_HTML_ROUTES
-      : HTML_ROUTES.filter((route) => includePartyGames || !route.partyGame);
+      : HTML_ROUTES.filter((route) => !route.partyGame
+        || partyGameInventory === "current"
+        || (partyGameInventory === "pre-friendship-arcade" && !route.friendshipArcade));
   await Promise.all(htmlRoutes.map((route) =>
     check(`Site: ${route.name}`, async () => {
       const resource = await fetchResource(

@@ -1,10 +1,33 @@
 import { ApiError, json, parseJson } from "./http.js";
 import { randomToken, sha256 } from "./security.js";
-import { DuelError, makeDeck, VOCABULARY_VERSION, playAction, rematchAction, privateSnapshot, type DuelRoomState } from "./word-duel-rules.js";
+import { DuelError, makeDeck, VOCABULARY_VERSION, playAction, rematchAction, privateSnapshot, scorePlacement, type DuelRoomState } from "./word-duel-rules.js";
 
 import { pushConfigured, pushReady, sendDuelPush, validateSubscription, type PushConfig } from "./word-duel-push.js";
 
 const TOKEN_PATTERN = /^[A-Za-z0-9_-]{43}$/u;
+const ENGLISH_WORD = /^[a-z]{2,9}$/u;
+const dictionaryChecks = new Map<string, Promise<boolean>>();
+
+export async function verifyEnglishWord(word: string, lookup: typeof fetch = fetch): Promise<boolean> {
+  if (!ENGLISH_WORD.test(word)) return false;
+  const existing = dictionaryChecks.get(word);
+  if (existing) return existing;
+  const request = (async () => {
+    try {
+      const response = await lookup(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`, { headers: { accept: "application/json" } });
+      if (response.status === 404) return false;
+      if (!response.ok) throw new Error("dictionary unavailable");
+      const entries = await response.json() as unknown;
+      return Array.isArray(entries) && entries.some(entry => entry && typeof entry === "object" && (entry as { word?: unknown }).word === word);
+    } catch {
+      dictionaryChecks.delete(word);
+      throw new DuelError("DICTIONARY_UNAVAILABLE", "English word checking is temporarily unavailable. Please try again.", 503);
+    }
+  })();
+  dictionaryChecks.set(word, request);
+  if (dictionaryChecks.size > 256) dictionaryChecks.delete(dictionaryChecks.keys().next().value!);
+  return request;
+}
 export const WORD_DUEL_STORAGE_KEY = "word-duel-room";
 const RATE_STORAGE_KEY = "word-duel-rates";
 type Rate = { start: number; count: number };
@@ -132,7 +155,11 @@ export class WordDuelRoom {
     if (!player) throw new DuelError("UNAUTHORIZED", "Room access could not be verified. Resume from the device that joined.", 403);
     if (path === "/state") return json(privateSnapshot(room, player.id));
     if (path === "/action") {
-      room = playAction(room, player.id, body, now);
+      if (body.kind === "place" && room.lang === "en") {
+        const candidate = scorePlacement(room, player, body.placements, word => ENGLISH_WORD.test(word));
+        for (const word of candidate.words) if (!await verifyEnglishWord(word)) throw new DuelError("WORD_NOT_LISTED", `“${word}” is not a correctly spelled English word.`);
+        room = playAction(room, player.id, body, now, () => true);
+      } else room = playAction(room, player.id, body, now);
       this.queueReminder(room, player.id);
       await this.save(room);
       return json(privateSnapshot(room, player.id));

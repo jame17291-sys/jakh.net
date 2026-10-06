@@ -1,6 +1,7 @@
 import { ARABIC_WORDS } from "./word-duel-arabic.js";
 import type { DuelReminder } from "./word-duel-push.js";
-// Original, intentionally curated house vocabulary. No third-party game data.
+// Arabic keeps its reviewed lexicon. English words are verified at play time
+// against the free public dictionary service in word-duel-room.ts.
 export type DuelLanguage = "en" | "ar";
 export const BOARD_SIZE = 9;
 export const RACK_SIZE = 7;
@@ -27,6 +28,10 @@ const wordSets = { en: new Set(vocabularies.en), ar: new Set(vocabularies.ar) };
 const legacyArabic = [...new Set(ARABIC.split(/\s+/u).map(word => normalizeWord(word, "ar", 1)))].sort();
 const legacyArabicSet = new Set(legacyArabic);
 export function vocabulary(lang: DuelLanguage, version = VOCABULARY_VERSION): string[] { return lang === "ar" && version === 1 ? legacyArabic : vocabularies[lang]; }
+export type WordValidator = (word: string) => boolean;
+export function isCuratedWord(room: DuelRoomState, word: string): boolean {
+  return (room.lang === "ar" && (room.vocabularyVersion || 1) === 1 ? legacyArabicSet : wordSets[room.lang]).has(word);
+}
 export function letterValue(letter: string, lang: DuelLanguage): number {
   if (lang === "ar") return "اظضظغثذؤئء".includes(letter) ? 3 : "جحخقشطزص".includes(letter) ? 2 : 1;
   return "QZ".includes(letter.toUpperCase()) ? 8 : "JKX".includes(letter.toUpperCase()) ? 5 : "BCFHVWY".includes(letter.toUpperCase()) ? 3 : "DGMP".includes(letter.toUpperCase()) ? 2 : 1;
@@ -75,7 +80,7 @@ export function makeDeck(lang: DuelLanguage): { racks: string[][]; bag: string[]
 function ensure(condition: unknown, code: string, message: string): asserts condition {
   if (!condition) throw new DuelError(code, message);
 }
-export function scorePlacement(room: DuelRoomState, player: DuelPlayer, input: unknown): { placements: Placement[]; score: number; words: string[]; rack: string[] } {
+export function scorePlacement(room: DuelRoomState, player: DuelPlayer, input: unknown, isAllowedWord: WordValidator = word => isCuratedWord(room, word)): { placements: Placement[]; score: number; words: string[]; rack: string[] } {
   ensure(Array.isArray(input) && input.length > 0 && input.length <= RACK_SIZE, "INVALID_TILES", "Place between one and seven tiles.");
   const placements: Placement[] = [];
   const rack = [...player.rack];
@@ -124,7 +129,7 @@ export function scorePlacement(room: DuelRoomState, player: DuelPlayer, input: u
   const words: string[] = [];
   for (const cells of formed.values()) {
     const word = cells.map((index) => board[index]).join("");
-    ensure((room.lang === "ar" && (room.vocabularyVersion || 1) === 1 ? legacyArabicSet : wordSets[room.lang]).has(word), "WORD_NOT_LISTED", `“${word}” is outside this room’s curated vocabulary.`);
+    ensure(isAllowedWord(word), "WORD_NOT_LISTED", `“${word}” is not an accepted word.`);
     let points = 0, multiplier = 1;
     for (const index of cells) {
       const bonus = used.has(index) ? premium(index) : "";
@@ -186,7 +191,7 @@ export function rematchAction(room: DuelRoomState, playerId: string, action: Rec
   state.revision++;
   return state;
 }
-export function playAction(room: DuelRoomState, playerId: string, action: Record<string, unknown>, now = Date.now()): DuelRoomState {
+export function playAction(room: DuelRoomState, playerId: string, action: Record<string, unknown>, now = Date.now(), isAllowedWord?: WordValidator): DuelRoomState {
   const state = structuredClone(room);
   ensure(state.phase === "playing", "NOT_PLAYING", "This match is not in progress.");
   ensure(Number.isInteger(action.revision) && action.revision === state.revision, "STALE_REVISION", "The board changed. Review it and try again.");
@@ -204,7 +209,7 @@ export function playAction(room: DuelRoomState, playerId: string, action: Record
   ensure(index === state.turn, "NOT_YOUR_TURN", "Wait for your turn.");
   let score = 0, words: string[] = [], cells: number[] = [];
   if (action.kind === "place") {
-    const result = scorePlacement(state, player, action.placements);
+    const result = scorePlacement(state, player, action.placements, isAllowedWord);
     ({ score, words } = result);
     player.rack = result.rack; player.score += score;
     for (const p of result.placements) { const cell = p.row * BOARD_SIZE + p.col; state.board[cell] = p.letter; cells.push(cell); }

@@ -21,7 +21,7 @@ const errors = {
   NOT_STRAIGHT: ['Place your tiles in one row or column.', 'ضع حروفك في صف واحد أو عمود واحد.'],
   GAP: ['Fill every square between your new tiles.', 'املأ الفراغات بين حروفك الجديدة.'],
   WORD_TOO_SHORT: ['Make a word of at least two letters.', 'كوّن كلمة من حرفين على الأقل.'],
-  WORD_NOT_LISTED: ['Every word you form must be in the curated vocabulary below.', 'يجب أن تكون كل كلمة تكوّنها ضمن قائمة الكلمات المختارة أدناه.'],
+  WORD_NOT_LISTED: ['Every word you form must be correctly spelled English.', 'يجب أن تكون كل كلمة تكوّنها ضمن قائمة الكلمات المختارة أدناه.'],
   BAG_TOO_SMALL: ['Exchange needs at least seven tiles left in the bag.', 'يتطلب التبديل بقاء سبعة أحرف على الأقل في الكيس.'],
   INVALID_TILES: ['Choose letters from your rack and place them on the board.', 'اختر أحرفاً من رصيدك وضعها على اللوحة.'],
   OCCUPIED_CELL: ['That square is already occupied.', 'هذه الخانة مشغولة.'],
@@ -192,9 +192,17 @@ export function mount(root, context) {
       try { await navigator.clipboard.writeText(inviteURL()); notify(t('Invitation copied. Send it to your friend.', 'نُسخت الدعوة. أرسلها لصديقك.')); }
       catch { root.querySelector('#pd-duel-invite-link').select(); notify(t('Select and copy the invitation link.', 'حدد رابط الدعوة وانسخه.')); }
     });
-    root.querySelector('.pd-duel-dictionary').addEventListener('toggle', event => { dictionaryOpen = event.target.open; if (dictionaryOpen) loadVocabulary(); });
-    root.querySelector('#pd-duel-word-search').addEventListener('input', showWords);
-    showWords();
+    const dictionary = root.querySelector('.pd-duel-dictionary');
+    if (state.lang === 'en') {
+      dictionary.innerHTML = `<summary>${t('English word rules', 'قواعد الكلمات الإنجليزية')}</summary><p>${t('Use any correctly spelled English word that your tiles can make. The game checks every completed English word when you submit your move.', 'استخدم أي كلمة إنجليزية مكتوبة بشكل صحيح يمكن تكوينها من أحرفك.')}</p>`;
+      const rules = root.querySelector('.pd-duel-rules p');
+      if (rules) rules.textContent = t('Make words using your rack. The opening word crosses the star; later moves connect to the board. Place new tiles in one row or column with no gaps. Every completed word must be correctly spelled English.', 'كوّن كلمات بأحرفك. تمر كلمة البداية بالنجمة، ثم تتصل كل حركة باللوحة. ضع الحروف الجديدة في صف أو عمود واحد دون فراغات.');
+    }
+    else {
+      dictionary.addEventListener('toggle', event => { dictionaryOpen = event.target.open; if (dictionaryOpen) loadVocabulary(); });
+      root.querySelector('#pd-duel-word-search').addEventListener('input', showWords);
+      showWords();
+    }
     if (focusIndex !== undefined && focusIndex !== null) root.querySelector(`[data-${focusType}="${focusIndex}"]`)?.focus({ preventScroll: true });
   }
   function on(selector, callback) { root.querySelector(selector)?.addEventListener('click', callback); }
@@ -252,6 +260,7 @@ export function mount(root, context) {
   }
   async function loadVocabulary() {
     const lang = gameLanguage(), version = state?.vocabularyVersion || 1;
+    if (lang === 'en') return;
     if (vocabularyLang === lang && vocabularyVersion === version && vocabulary.length) { showWords(); return; }
     if (vocabRequest) return;
     vocabRequest = api(`vocabulary?lang=${lang}&version=${version}`);

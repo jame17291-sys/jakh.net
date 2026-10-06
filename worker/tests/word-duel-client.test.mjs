@@ -97,7 +97,6 @@ async function settle() { await new Promise(resolve => setImmediate(resolve)); }
 async function loaded(options) {
   const h = harness(options);
   h.next('/state').resolve(snapshot()); await settle();
-  h.next('/vocabulary').resolve({ lang: 'en', words: ['cat', 'at', 'car', 'cart', 'art'] }); await settle();
   return h;
 }
 
@@ -182,7 +181,7 @@ test('temporary disconnect disables moves then restores the same draft on reconn
   assert.equal(h.root.querySelectorAll('.pd-duel-draft').length, 1);
   assert.equal(h.root.querySelector('#pd-duel-submit').disabled, false); h.cleanup();
 });
-test('board shortcuts preserve browser modifier keys and cleanup aborts outstanding vocabulary work', async () => {
+test('board shortcuts preserve browser modifier keys and cleanup removes listeners', async () => {
   const h = await loaded();
   const cell = h.root.querySelector('[data-cell="40"]');
   for (const modifier of ['ctrlKey', 'metaKey', 'altKey']) {
@@ -191,9 +190,8 @@ test('board shortcuts preserve browser modifier keys and cleanup aborts outstand
   }
   h.cleanup();
   const second = harness(); second.next('/state').resolve(snapshot()); await settle();
-  const vocabulary = second.next('/vocabulary'); second.cleanup();
-  assert.equal(vocabulary.options.signal.aborted, true); assert.equal(second.listeners.has('visibilitychange'), false);
-  vocabulary.resolve({ lang: 'en', words: ['cat'] }); await settle();
+  second.cleanup();
+  assert.equal(second.listeners.has('visibilitychange'), false);
 });
 
 test('finishing a pending move preserves room-menu edits and re-enables room actions', async () => {

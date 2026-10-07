@@ -504,18 +504,26 @@ export async function runProductionMonitor(options = {}) {
   let privacyScriptPath = null;
   let sitePublicQuestions = CONTENT_PUBLICATION_CONTRACT.publicQuestions;
   const sourceFetchImpl = options.fetchImpl || globalThis.fetch;
-  // Cloudflare can retain a static asset at an edge briefly after the Worker
-  // version itself has changed. Bind versioned release probes to a harmless,
-  // cache-isolated URL so a verified new Worker is checked against its own
-  // asset set rather than a preceding sitemap or HTML cache entry. Requests
-  // that already carry a purpose-specific query retain that query unchanged.
-  const fetchImpl = config.expectedWorkerVersion
+  // Check the serving Worker before parsing its content contract. During
+  // propagation a predecessor can legitimately have a different sitemap or
+  // page title; that response must reach the bounded version retry instead
+  // of failing the candidate's content assertion first. Content failures from
+  // the expected Worker and missing/invalid identities remain strict.
+  const fetchImpl = config.expectedWorkerVersion && config.scope !== "pages"
     ? async (input, init) => {
+      const response = await sourceFetchImpl(input, init);
       const url = new URL(input);
-      if (url.origin === config.siteOrigin && !url.pathname.startsWith("/api/") && !url.search) {
-        url.searchParams.set("__riddlearabia_monitor", config.expectedWorkerVersion);
+      if (url.origin === config.siteOrigin && !url.pathname.startsWith("/api/")) {
+        const workerVersionId = response.headers.get("x-jakh-worker-version");
+        if (WORKER_VERSION_ID.test(workerVersionId || "") && workerVersionId !== config.expectedWorkerVersion) {
+          // The retry does not consume this response; release its stream.
+          await response.body?.cancel();
+          throw new RetryableCheckError(
+            `served Worker ${workerVersionId}, expected ${config.expectedWorkerVersion}`,
+          );
+        }
       }
-      return sourceFetchImpl(url, init);
+      return response;
     }
     : sourceFetchImpl;
   const logger = options.logger || console;

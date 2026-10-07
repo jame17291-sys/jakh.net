@@ -204,27 +204,6 @@ test("unlisted paths cannot rely on static-asset URL normalization", async () =>
   assertSecurityHeaders(response);
 });
 
-test("version-bound monitor probes reach a separate asset-cache entry without varying normal visitor queries", async () => {
-  const requestedUrls = [];
-  const observedEnvironment = environment({
-    ASSETS: {
-      async fetch(request) {
-        requestedUrls.push(new URL(request.url));
-        return new Response("asset", { headers: { "content-type": "text/html; charset=utf-8" } });
-      },
-    },
-  });
-
-  await handler.fetch(new Request(`${PRIMARY_ORIGIN}/sitemap.xml?__riddlearabia_monitor=fdc1013e-d09d-412a-a6ae-00bb93385ca5`), observedEnvironment);
-  await handler.fetch(new Request(`${PRIMARY_ORIGIN}/sitemap.xml?utm_source=release-note`), observedEnvironment);
-  await handler.fetch(new Request(`${PRIMARY_ORIGIN}/sitemap.xml?__riddlearabia_monitor=bad`), observedEnvironment);
-
-  assert.equal(requestedUrls[0].pathname, "/sitemap.xml");
-  assert.equal(requestedUrls[0].searchParams.get("__riddlearabia_monitor"), "fdc1013e-d09d-412a-a6ae-00bb93385ca5");
-  assert.equal(requestedUrls[1].search, "");
-  assert.equal(requestedUrls[2].search, "");
-});
-
 test("success, 404, method errors, and conditional responses all carry policy", async () => {
   const success = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/`), environment());
   assert.equal(success.status, 200);

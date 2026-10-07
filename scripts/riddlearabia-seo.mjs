@@ -7,6 +7,8 @@
 
 import { PUZZLES } from "../puzzle-catalog.js";
 import { PUZZLE_ROUTES } from "../puzzle-routes.js";
+import { PARTY_COPY } from "../party-games-copy.js";
+import { FRIENDSHIP_COPY } from "../friendship-games-copy.js";
 
 // Use the playable catalog's identities, copy and routes so the search-facing
 // directory cannot silently fall behind the actual puzzle library.
@@ -295,52 +297,52 @@ export const RIDDLE_ARABIA_GAME_CATALOG = Object.freeze([
   {
     slug: "most-likely-to",
     kind: "party",
-    names: { en: "Most Likely To", ar: "مَن الأكثر احتمالًا؟" },
+    names: { en: PARTY_COPY.en.mostTitle, ar: PARTY_COPY.ar.mostTitle },
     descriptions: {
       en: "Vote for the friend most likely to pull off each outrageous scenario. Original questions, dramatic reveals and group play on one phone, free in Arabic and English.",
       ar: "صوّتوا للصديق الذي تتوقّعون منه كل موقف طريف ومفاجئ. أسئلة أصلية وكشف للتصويت ولعب جماعي على هاتف واحد، مجاناً بالعربية والإنجليزية.",
     },
-    lastModified: "2026-10-06",
+    lastModified: "2026-10-07",
   },
   {
     slug: "how-well-do-you-know-me",
     kind: "party",
-    names: { en: "How Well Do You Know Me?", ar: "كم تعرفني؟" },
+    names: { en: PARTY_COPY.en.knowTitle, ar: PARTY_COPY.ar.knowTitle },
     descriptions: {
       en: "Make a ten-question friendship quiz, choose your answers and challenge friends with a link. Reveal scores and see who knows you best, free in Arabic and English.",
       ar: "اصنع اختبار صداقة من عشرة أسئلة واختر إجاباتك وتحدَّ أصدقاءك برابط. اكشفوا النتائج واعرفوا من يعرفك أكثر، مجاناً بالعربية والإنجليزية.",
     },
-    lastModified: "2026-10-06",
+    lastModified: "2026-10-07",
   },
   {
     slug: "secret-word-impostor",
     kind: "party",
-    names: { en: "Secret Word Impostor", ar: "المحتال صاحب الكلمة السرية" },
+    names: { en: FRIENDSHIP_COPY.en.impostor.title, ar: FRIENDSHIP_COPY.ar.impostor.title },
     descriptions: {
       en: "One player does not know the secret word. Give clever clues, spot the bluff, and vote before the impostor figures it out.",
-      ar: "لا يعرف لاعب واحد الكلمة السرية. قدّموا تلميحات ذكية، واكتشفوا الخدعة، وصوّتوا قبل أن يعرفها المحتال.",
+      ar: "لا يعرف لاعب واحد الكلمة السرية. قدّموا تلميحات دون ذكرها، ثم صوّتوا لاكتشاف المندسّ.",
     },
-    lastModified: "2026-10-06",
+    lastModified: "2026-10-07",
   },
   {
     slug: "panic-mode",
     kind: "party",
-    names: { en: "Panic Mode: 5 Seconds", ar: "وضع الذعر: خمس ثوانٍ" },
+    names: { en: FRIENDSHIP_COPY.en.panic.title, ar: FRIENDSHIP_COPY.ar.panic.title },
     descriptions: {
       en: "A fast friendship game: name three things before five seconds disappear, then let your friends decide if you made it.",
       ar: "لعبة أصدقاء سريعة: اذكر ثلاثة أشياء قبل انتهاء خمس ثوانٍ، ثم يقرر أصدقاؤك إن نجحت.",
     },
-    lastModified: "2026-10-06",
+    lastModified: "2026-10-07",
   },
   {
     slug: "friendship-court",
     kind: "party",
-    names: { en: "Friendship Court", ar: "محكمة الأصدقاء" },
+    names: { en: FRIENDSHIP_COPY.en.court.title, ar: FRIENDSHIP_COPY.ar.court.title },
     descriptions: {
       en: "Put playful fictional crimes on trial, hear the defence, and reveal the jury’s secret verdict on one phone.",
-      ar: "حاكموا تهمًا خيالية مرحة، واسمعوا الدفاع، ثم اكشفوا الحكم السري لهيئة المحلفين على هاتف واحد.",
+      ar: "اقرأوا التهمة الطريفة واستمعوا إلى دفاع المتهم، ثم مرّروا الهاتف ليصوّت بقية اللاعبين سرًا.",
     },
-    lastModified: "2026-10-06",
+    lastModified: "2026-10-07",
   },
   {
     slug: "akshifha",

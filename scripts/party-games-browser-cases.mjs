@@ -163,13 +163,13 @@ export async function runPartyGameRegressions({browser,createContext,runTest,tra
         assert.match(await page.locator('#party-app h2').innerText(),new RegExp(names[1],'u'));assert.equal(await action(page,'vote').count(),0);assert.equal(await page.locator('.party-reveal').count(),0);
         await action(page,'ready').click();await action(page,'vote').nth(1).click();
         assert.equal(await page.locator('.party-reveal h3').innerText(),t.tie);assert.equal(await page.locator('.party-reveal li').count(),2);
-        for(const row of await page.locator('.party-reveal li').allInnerTexts())assert.ok(row.includes(`1 ${t.votes}`));
+        for(const row of await page.locator('.party-reveal li').allInnerTexts())assert.ok(row.includes(`${t.votes}: 1`));
         await axe(page,`${lang}: private reveal`);await assertFits(page,`${lang}: private reveal`);
         await action(page,'next-round').click();await action(page,'skip').click();assert.equal(await page.locator('.party-reveal h3').innerText(),t.skipped);await action(page,'next-round').click();
         await action(page,'begin-votes').click();for(let voter=0;voter<2;voter++){await action(page,'ready').click();await action(page,'vote').nth(0).click();}await action(page,'next-round').click();
         for(let index=3;index<10;index++){await action(page,'skip').click();await action(page,'next-round').click();}
         assert.equal(await page.locator('#party-app h2').innerText(),t.highlights);
-        const results=await page.locator('.party-leaderboard li').allInnerTexts();assert.ok(results[0].includes(names[0])&&results[0].includes(`2 ${t.picks}`));assert.ok(results[1].includes(names[1])&&results[1].includes(`1 ${t.picks}`));
+        const results=await page.locator('.party-leaderboard li').allInnerTexts();assert.ok(results[0].includes(names[0])&&results[0].includes(`${t.picks}: 2`));assert.ok(results[1].includes(names[1])&&results[1].includes(`${t.picks}: 1`));
         await axe(page,`${lang}: private final results`);noErrors();
       }finally{await context.close();}
     }
@@ -185,7 +185,7 @@ export async function runPartyGameRegressions({browser,createContext,runTest,tra
         await action(page,'next-round').click();await action(page,'begin-votes').click();await page.locator('[data-party-pick="0"]').check();await action(page,'ask-exit').click();assert.equal(await page.locator('.party-confirm').count(),1);
         await action(page,'cancel-confirm').click();assert.equal(await page.locator('.party-confirm').count(),0);assert.equal(await page.locator('[data-party-pick="0"]').isChecked(),true,'cancel retains the pending group pick');assert.equal(await action(page,'reveal-point').isDisabled(),false);assert.equal(await action(page,'ask-exit').evaluate(button=>document.activeElement===button),true,'cancel returns keyboard focus to its opener');await action(page,'reveal-point').click();assert.equal(await page.locator('.party-reveal li').count(),1);await action(page,'next-round').click();
         for(let index=2;index<10;index++){await action(page,'skip').click();await action(page,'next-round').click();}
-        const results=await page.locator('.party-leaderboard li').allInnerTexts();assert.ok(results[0].includes(`2 ${t.picks}`));assert.ok(results[1].includes(`1 ${t.picks}`));
+        const results=await page.locator('.party-leaderboard li').allInnerTexts();assert.ok(results[0].includes(`${t.picks}: 2`));assert.ok(results[1].includes(`${t.picks}: 1`));
         await action(page,'setup').click();await page.locator('#party-setup textarea').fill('Omar,Lina');await page.locator('#party-setup button[type="submit"]').click();await action(page,'ask-exit').click();await action(page,'confirm').click();assert.equal(await page.locator('#party-setup').count(),1);noErrors();
       }finally{await context.close();}
     }

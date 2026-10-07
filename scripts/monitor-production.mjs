@@ -102,11 +102,18 @@ const NAVIGATION_ROUTE_UPDATES = {
   "/science": { bilingualMarker: 'class="language-route-link"' },
 };
 
+const PRE_CLARITY_PARTY_ARABIC_TITLES = {
+  "most-likely-to": "مَن الأكثر احتمالًا؟",
+  "how-well-do-you-know-me": "كم تعرفني؟",
+  "secret-word-impostor": "المحتال صاحب الكلمة السرية",
+  "panic-mode": "وضع الذعر: خمس ثوانٍ",
+};
+
 export const PARTY_GAME_HTML_ROUTES = RIDDLE_ARABIA_GAME_CATALOG
   .filter((game) => PARTY_GAME_SLUGS.has(game.slug))
   .flatMap((game) => [
-    { name: game.names.en, path: `/${game.slug}`, marker: `<title>${game.names.en}`, bilingualMarker: 'hreflang="ar"', partyGame: true, friendshipArcade: FRIENDSHIP_ARCADE_SLUGS.has(game.slug) },
-    { name: `Arabic ${game.names.en}`, path: `/ar/games/${game.slug}/`, marker: `<title>${game.names.ar}`, bilingualMarker: 'hreflang="en"', partyGame: true, friendshipArcade: FRIENDSHIP_ARCADE_SLUGS.has(game.slug) },
+    { name: game.names.en, path: `/${game.slug}`, marker: `<title>${game.names.en}`, ...(game.slug === 'most-likely-to' ? { baselineMarker: '<title>Most Likely To' } : {}), bilingualMarker: 'hreflang="ar"', partyGame: true, friendshipArcade: FRIENDSHIP_ARCADE_SLUGS.has(game.slug) },
+    { name: `Arabic ${game.names.en}`, path: `/ar/games/${game.slug}/`, marker: `<title>${game.names.ar}`, ...(PRE_CLARITY_PARTY_ARABIC_TITLES[game.slug] ? { baselineMarker: `<title>${PRE_CLARITY_PARTY_ARABIC_TITLES[game.slug]}` } : {}), bilingualMarker: 'hreflang="en"', partyGame: true, friendshipArcade: FRIENDSHIP_ARCADE_SLUGS.has(game.slug) },
   ]);
 
 export const HTML_ROUTES = [

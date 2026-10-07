@@ -532,7 +532,7 @@ test("previous SEO titles are accepted only by the version-bound release baselin
     const candidate = await runProductionMonitor({
       ...options, siteContract: "current", fetchImpl: fetchPredecessor,
     });
-    for (const name of ["Home", "Riddles & Quizzes", "Brain Games", "Games"]) {
+    for (const name of HTML_ROUTES.filter(route => route.baselineMarker).map(route => route.name)) {
       assert.ok(candidate.failures.some((failure) => failure.name === `Site: ${name}`),
         `${name} must require current SEO metadata after deployment`);
     }

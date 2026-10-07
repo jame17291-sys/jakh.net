@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "status": "authored-and-self-reviewed",
-  "reviewedOn": "2026-10-06",
-  "reviewMethod": "Original AI authoring followed by an author editorial and bilingual equivalence pass. Independent review remains a separate release check.",
+  "reviewedOn": "2026-10-07",
+  "reviewMethod": "Original AI authoring followed by an author editorial and bilingual equivalence pass. Arabic wording clarified against the unchanged English questions and answer meanings on 2026-10-07. This records AI editing and self-review, not human linguistic approval.",
   "coverage": {
     "mostLikelyQuestions": 100,
     "mostLikelyPacks": 4,
@@ -15,7 +15,7 @@
     ]
   },
   "sourceSha256": {
-    "data/party-games.json": "4776892566e68ff2da234a1f995d294b9ec8c02a5fa57d95480da8647edd3a28"
+    "data/party-games.json": "83552613a31d8bc146b21eb9c480cb99a0051045b3120922de483648a099bd74"
   },
   "authorship": {
     "approach": "New playful situations authored for these games; no question lists copied or closely paraphrased from the user reference sites.",

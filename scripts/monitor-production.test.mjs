@@ -1392,12 +1392,17 @@ test("production monitor waits for every static route to converge on the expecte
   });
 });
 
-test("version-bound static checks bypass a preceding edge asset cache", async () => {
+test("a predecessor sitemap retries its Worker identity before candidate content assertions", async () => {
   await withFixture({}, async (fixtureOrigin) => {
-    const probes = [];
+    let sitemapAttempts = 0;
     const fetchImpl = async (input, options) => {
       const url = new URL(input);
-      probes.push(url);
+      assert.equal(url.searchParams.has("__riddlearabia_monitor"), false);
+      if (url.pathname === "/sitemap.xml" && ++sitemapAttempts === 1) {
+        return new Response(`<urlset>${PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS.map(path => `<url><loc>${fixtureOrigin}${path}</loc></url>`).join("")}</urlset>`, {
+          headers: { "content-type": "application/xml", "x-jakh-worker-version": "22222222-2222-4222-8222-222222222222" },
+        });
+      }
       return fetch(input, options);
     };
 
@@ -1405,7 +1410,7 @@ test("version-bound static checks bypass a preceding edge asset cache", async ()
       siteOrigin: fixtureOrigin,
       apiOrigin: fixtureOrigin,
       expectedWorkerVersion: FIXTURE_WORKER_VERSION,
-      maxCheckAttempts: 1,
+      maxCheckAttempts: 2,
       fetchImpl,
       timeoutMs: 2_000,
       siteMaxMs: 1_000,
@@ -1414,10 +1419,35 @@ test("version-bound static checks bypass a preceding edge asset cache", async ()
     });
 
     assert.equal(summary.failures.length, 0);
-    const sitemapProbe = probes.find(({ pathname }) => pathname === "/sitemap.xml");
-    assert.equal(sitemapProbe?.searchParams.get("__riddlearabia_monitor"), FIXTURE_WORKER_VERSION);
-    const apiHealthProbe = probes.find(({ pathname }) => pathname === "/api/health");
-    assert.equal(apiHealthProbe?.searchParams.has("__riddlearabia_monitor"), false);
+    assert.equal(sitemapAttempts, 2);
+    assert.equal(summary.results.find(({ name }) => name === "Site: sitemap")?.attempts, 2);
+    assert.equal(summary.results.find(({ name }) => name === "Site: sitemap")?.workerVersionId, FIXTURE_WORKER_VERSION);
+  });
+});
+
+test("an incomplete sitemap from the expected Worker fails without a propagation retry", async () => {
+  await withFixture({}, async (fixtureOrigin) => {
+    let sitemapAttempts = 0;
+    const summary = await runProductionMonitor({
+      siteOrigin: fixtureOrigin,
+      apiOrigin: fixtureOrigin,
+      scope: "site",
+      expectedWorkerVersion: FIXTURE_WORKER_VERSION,
+      maxCheckAttempts: 3,
+      throwOnFailure: false,
+      fetchImpl: async (input, init) => {
+        if (new URL(input).pathname !== "/sitemap.xml") return fetch(input, init);
+        sitemapAttempts += 1;
+        return new Response(`<urlset>${PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS.map(path => `<url><loc>${fixtureOrigin}${path}</loc></url>`).join("")}</urlset>`, {
+          headers: { "content-type": "application/xml", "x-jakh-worker-version": FIXTURE_WORKER_VERSION },
+        });
+      },
+      timeoutMs: 2_000,
+      siteMaxMs: 1_000,
+      logger: quietLogger(),
+    });
+    assert.equal(sitemapAttempts, 1);
+    assert.match(summary.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1170 URLs instead of 1176/u);
   });
 });
 

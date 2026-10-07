@@ -1392,6 +1392,35 @@ test("production monitor waits for every static route to converge on the expecte
   });
 });
 
+test("version-bound static checks bypass a preceding edge asset cache", async () => {
+  await withFixture({}, async (fixtureOrigin) => {
+    const probes = [];
+    const fetchImpl = async (input, options) => {
+      const url = new URL(input);
+      probes.push(url);
+      return fetch(input, options);
+    };
+
+    const summary = await runProductionMonitor({
+      siteOrigin: fixtureOrigin,
+      apiOrigin: fixtureOrigin,
+      expectedWorkerVersion: FIXTURE_WORKER_VERSION,
+      maxCheckAttempts: 1,
+      fetchImpl,
+      timeoutMs: 2_000,
+      siteMaxMs: 1_000,
+      apiMaxMs: 1_000,
+      logger: quietLogger(),
+    });
+
+    assert.equal(summary.failures.length, 0);
+    const sitemapProbe = probes.find(({ pathname }) => pathname === "/sitemap.xml");
+    assert.equal(sitemapProbe?.searchParams.get("__riddlearabia_monitor"), FIXTURE_WORKER_VERSION);
+    const apiHealthProbe = probes.find(({ pathname }) => pathname === "/api/health");
+    assert.equal(apiHealthProbe?.searchParams.has("__riddlearabia_monitor"), false);
+  });
+});
+
 test("production monitor fails after one retry when a transient status persists", async () => {
   await withFixture({}, async (fixtureOrigin) => {
     let socialPreviewAttempts = 0;

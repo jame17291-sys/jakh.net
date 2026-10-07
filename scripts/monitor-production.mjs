@@ -503,7 +503,21 @@ export async function runProductionMonitor(options = {}) {
   let privacyScriptFingerprint = null;
   let privacyScriptPath = null;
   let sitePublicQuestions = CONTENT_PUBLICATION_CONTRACT.publicQuestions;
-  const fetchImpl = options.fetchImpl || globalThis.fetch;
+  const sourceFetchImpl = options.fetchImpl || globalThis.fetch;
+  // Cloudflare can retain a static asset at an edge briefly after the Worker
+  // version itself has changed. Bind versioned release probes to a harmless,
+  // cache-isolated URL so a verified new Worker is checked against its own
+  // asset set rather than a preceding sitemap or HTML cache entry. Requests
+  // that already carry a purpose-specific query retain that query unchanged.
+  const fetchImpl = config.expectedWorkerVersion
+    ? async (input, init) => {
+      const url = new URL(input);
+      if (url.origin === config.siteOrigin && !url.pathname.startsWith("/api/") && !url.search) {
+        url.searchParams.set("__riddlearabia_monitor", config.expectedWorkerVersion);
+      }
+      return sourceFetchImpl(url, init);
+    }
+    : sourceFetchImpl;
   const logger = options.logger || console;
   const results = [];
   const failures = [];

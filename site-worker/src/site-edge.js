@@ -9,6 +9,8 @@ const APEX_HOST = "riddlearabia.com";
 const WWW_HOST = "www.riddlearabia.com";
 const LEGACY_HOSTS = new Set(["jakh.net", "www.jakh.net"]);
 const MTA_STS_HOSTS = new Set(["mta-sts.riddlearabia.com", "mta-sts.jakh.net"]);
+const VERSION_BOUND_MONITOR_QUERY = "__riddlearabia_monitor";
+const WORKER_VERSION_ID = /^[0-9A-Za-z][0-9A-Za-z._-]{5,127}$/u;
 const MTA_STS_PATH = "/.well-known/mta-sts.txt";
 const HTML_CACHE = "public, max-age=0, must-revalidate";
 const MUTABLE_ASSET_CACHE = "public, max-age=3600, must-revalidate";
@@ -520,7 +522,15 @@ export function createSiteHandler({ siteManifest, mtaStsPolicy }) {
         // Always ask the asset binding for the exact manifest file. This keeps
         // its HTML/path normalization from turning an unreviewed request alias
         // into a deployed file after the quarantine check has already run.
-        const assetRequest = new Request(new URL(served.path, url), request);
+        const assetUrl = new URL(served.path, url);
+        // The release monitor binds a unique Worker version to this query so
+        // Cloudflare must read the candidate asset instead of a prior edge
+        // entry. Keep ordinary visitor queries out of the asset cache key.
+        const monitorVersion = url.searchParams.get(VERSION_BOUND_MONITOR_QUERY);
+        if (WORKER_VERSION_ID.test(monitorVersion || "")) {
+          assetUrl.searchParams.set(VERSION_BOUND_MONITOR_QUERY, monitorVersion);
+        }
+        const assetRequest = new Request(assetUrl, request);
         const asset = await env.ASSETS.fetch(assetRequest);
         const response = method === "HEAD"
           ? new Response(null, { status: asset.status, statusText: asset.statusText, headers: asset.headers })

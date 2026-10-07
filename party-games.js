@@ -104,7 +104,7 @@ function renderMost() {
   const q = round.questions[round.index];
   if (round.phase === 'finished') {
     const scores = round.players.map((name, i) => ({ name, score: round.scores[i] })).sort((a, b) => b.score - a.score);
-    root.innerHTML = heading(t.highlights, t.scoreHint) + `<ol class="party-leaderboard">${scores.map(p => `<li>${avatar(p.name)}<bdi>${e(p.name)}</bdi><strong>${p.score} ${t.picks}</strong></li>`).join('')}</ol><div class="party-actions">${button(t.again, 'setup', { primary: true })}${button(t.games, 'games')}</div>`; return;
+    root.innerHTML = heading(t.highlights, t.scoreHint) + `<ol class="party-leaderboard">${scores.map(p => `<li>${avatar(p.name)}<bdi>${e(p.name)}</bdi><strong>${t.picks}: ${p.score}</strong></li>`).join('')}</ol><div class="party-actions">${button(t.again, 'setup', { primary: true })}${button(t.games, 'games')}</div>`; return;
   }
   const top = `<div class="party-round-top"><span>${t.question} ${round.index + 1} ${t.of} ${round.questions.length}</span>${button(t.exit, 'ask-exit')}</div>`;
   if (round.phase === 'handoff') {
@@ -116,7 +116,7 @@ function renderMost() {
   if (round.phase === 'voting') root.insertAdjacentHTML('beforeend', `<p class="party-small">${t.voting}</p><div class="party-options names">${round.players.map((name, i) => `<button type="button" class="party-option" data-party-action="vote" data-index="${i}">${avatar(name)}<bdi>${e(name)}</bdi></button>`).join('')}</div>${button(t.skip, 'skip')}`);
   if (round.phase === 'reveal') {
     const item = round.history.at(-1);
-    root.insertAdjacentHTML('beforeend', `<div class="party-reveal"><h3>${item.skipped ? t.skipped : round.selected.length > 1 ? t.tie : t.picked}</h3><ul>${round.selected.map(i => `<li>${avatar(round.players[i])} <bdi>${e(round.players[i])}</bdi>${item.counts ? ` <strong>${item.counts[i]} ${t.votes}</strong>` : ''}</li>`).join('')}</ul></div>${button(round.index === round.questions.length - 1 ? t.finish : t.next, 'next-round', { primary: true })}`);
+    root.insertAdjacentHTML('beforeend', `<div class="party-reveal"><h3>${item.skipped ? t.skipped : round.selected.length > 1 ? t.tie : t.picked}</h3><ul>${round.selected.map(i => `<li>${avatar(round.players[i])} <bdi>${e(round.players[i])}</bdi>${item.counts ? ` <strong>${t.votes}: ${item.counts[i]}</strong>` : ''}</li>`).join('')}</ul></div>${button(round.index === round.questions.length - 1 ? t.finish : t.next, 'next-round', { primary: true })}`);
   }
 }
 function renderDraft() {

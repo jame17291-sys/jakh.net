@@ -147,6 +147,12 @@ for (const relative of generatedFiles) {
 
 for (const relative of ['play.html', 'ar/play/index.html']) {
   const html = fs.readFileSync(path.join(root, relative), 'utf8');
+  for (const slug of ['secret-word-impostor', 'panic-mode', 'friendship-court']) {
+    for (const width of [480, 960]) {
+      const asset = `assets/friendship/${slug}-${width}.webp`;
+      if (!fs.existsSync(path.join(root, asset)) || !html.includes(`/${asset}`)) failures.push(`${relative}: missing responsive friendship cover ${asset}`);
+    }
+  }
   for (const game of PUZZLES) {
     const card = [...html.matchAll(/<a class="puzzle-card"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gu)].find(([, href]) => href === puzzlePath(game.id, relative.startsWith('ar/') ? 'ar' : 'en'));
     const art = gameIllustrationId(game.id);

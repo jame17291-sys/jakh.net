@@ -23,7 +23,8 @@ export const ASSET_BUDGETS = Object.freeze({
   'data/party-games.json': Object.freeze({ raw: 100_000, gzip: 24_000, brotli: 20_000 }),
   'friendship-games.js': Object.freeze({ raw: 11_000, gzip: 3_500, brotli: 3_000 }),
   'friendship-games-engine.js': Object.freeze({ raw: 4_500, gzip: 1_500, brotli: 1_250 }),
-  'friendship-games-copy.js': Object.freeze({ raw: 6_500, gzip: 2_900, brotli: 2_400 }),
+  // Includes covered role handoffs and explicit bilingual voting/scoring rules.
+  'friendship-games-copy.js': Object.freeze({ raw: 9_500, gzip: 3_600, brotli: 2_900 }),
   'friendship-games-markup.js': Object.freeze({ raw: 2_000, gzip: 1_100, brotli: 900 }),
   'friendship-games-content.js': Object.freeze({ raw: 5_000, gzip: 2_100, brotli: 1_700 }),
   'data/search-index.en.json': Object.freeze({ raw: 625_000, gzip: 220_000, brotli: 180_000 }),

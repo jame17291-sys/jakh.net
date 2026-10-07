@@ -2068,8 +2068,17 @@ a, button, .riddle-card, .category-card {
   -webkit-tap-highlight-color: transparent;
 }
 
-input, select, textarea {
+input:not([type="checkbox"]):not([type="radio"]), select, textarea {
   -webkit-appearance: none;
+}
+
+#bgOuter .bg-mode-toggle { min-height: 44px; padding-inline: 8px; }
+#bgOuter .bg-mode-toggle > input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  flex: none;
+  accent-color: var(--accent);
 }
 
 .riddle-card, .category-card {

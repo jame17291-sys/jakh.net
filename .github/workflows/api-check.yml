@@ -83,6 +83,7 @@ jobs:
           scripts/speech-quality.test.mjs
           scripts/party-games-integration.test.mjs
           scripts/party-games.test.mjs
+          scripts/friendship-games.test.mjs
           scripts/game-content-coverage.test.mjs
           scripts/frontend-product-contract.test.mjs
           scripts/free-first-gameplay.test.mjs
@@ -190,6 +191,15 @@ jobs:
           npm run test:autopilot:browser
       - name: Build the exact site for accessibility validation
         run: npm run build:site
+      - name: Test friendship games and cover images in the built artifact
+        env:
+          JAKH_QA_STRICT: "1"
+          JAKH_QA_ONLY_ARCADE: "1"
+          JAKH_SITE_ROOT: site-worker/dist
+          JAKH_SITE_MANIFEST: site-worker/generated/site-manifest.json
+        run: |
+          node scripts/friendship-qa-browser.mjs
+          node scripts/friendship-qa-covers.mjs
       - name: Validate WCAG browser contracts before merge
         env:
           JAKH_SITE_ROOT: ${{ github.workspace }}/site-worker/dist

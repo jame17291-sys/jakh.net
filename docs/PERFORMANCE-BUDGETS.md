@@ -62,7 +62,7 @@ node --test scripts/performance-budget.test.mjs
 | Search + leaderboard CSS | 8,000 B | 2,200 B | 1,800 B |
 | `battle-mode.js` | 30,000 B | 8,000 B | 7,000 B |
 | `battle-mode.css` | 12,000 B | 3,000 B | 2,500 B |
-| Shared read-aloud JavaScript | 5,000 B | 2,200 B | 1,900 B |
+| Shared read-aloud JavaScript | 6,500 B | 2,700 B | 2,300 B |
 | Friendship games JavaScript | 35,000 B | 11,000 B | 9,500 B |
 | Friendship games engine | 9,000 B | 3,000 B | 2,600 B |
 | Friendship games bilingual copy | 16,000 B | 6,000 B | 5,000 B |
@@ -76,15 +76,17 @@ The search shards are separately budgeted because they load only when global
 search opens. The gate measures the exact checked-in bytes with fixed compression
 settings, so results are repeatable across runs.
 
-The reader loads on pages that offer read-aloud controls. Its 4,969 raw bytes,
-1,966 gzip bytes and 1,663 Brotli bytes include synchronous mobile activation,
+The reader loads on pages that offer read-aloud controls. Its 6,435 raw bytes,
+2,546 gzip bytes and 2,138 Brotli bytes include synchronous mobile activation,
 retained chunks for long instructions, startup timeout, cancellation and error
-recovery. Replacing separate Kids speech handling also gives both areas the
-same voice selection and Arabic number preparation. After removing redundant
-voice heuristics and cleanup, the shared engine costs 548 additional gzip bytes
-over the previous implementation. Its compressed limits increase from 1,800
-gzip / 1,500 Brotli bytes to the bounds above; its raw limit and all initial
-application limits stay unchanged.
+recovery. Both cards and Kids use the same voice selection and text preparation.
+Exact Arabic pronunciations of C++, C#, DNA, RNA and pH prevent technical tokens
+from being misread as arithmetic or arbitrary foreign words. Sentence-aware
+chunks preserve complete questions and avoid isolated final-word utterances.
+These corrections add 580 gzip bytes over the previously deployed reader. Only
+this separately loaded feature budget increases; all initial application
+limits stay unchanged. This input preparation does not establish the acoustic
+quality of a device voice or a generated recording.
 
 The two friendship games load their own module graph and public question bank
 only on their dedicated pages. Games hub cards use the existing directory

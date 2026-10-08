@@ -366,6 +366,42 @@ export async function runSpeechRegressions({ browser, createContext, runTest, tr
     assert.deepEqual(results[0], results[1], 'sections do not apply different Arabic voice or speed policies');
   });
 
+  await runTest('real Arabic question buttons pronounce technical names and sentence-ending fractions', async () => {
+    const context = await createContext(browser, options);
+    await installSpeech(context);
+    const page = await context.newPage(), noErrors = trackPageErrors(page);
+    const cases = [
+      ['coding-and-design', 'coding-and-design-025', 'في بناء سي بلس بلس المعتاد بالترجمة المسبقة، هل يُترجم المصدر قبل تشغيل الملف التنفيذي الناتج؟'],
+      ['math', 'math-062', 'خزان ممتلئ إلى 3 على 5 من سعته. بعد إضافة 24 لتراً أصبح ممتلئاً إلى 9 على 10. ما سعة الخزان؟'],
+      ['biology', 'biology-003', 'ماذا يعني اختصار دي إن إيه؟'],
+      ['chemistry', 'chemistry-049', 'عند 25 درجة مئوية، ماذا تعني قيمة بي إتش 7 لمحلول مائي، وهل يقتصر بي إتش حتماً على 0–14؟'],
+      ['logic-puzzles', 'logic-puzzles-036', null],
+    ];
+    try {
+      for (const [category, id, expected] of cases) {
+        await page.goto(`${baseUrl}/ar/topics/${category}/?card=${id}`, { waitUntil: navigationReadyEvent });
+        const card = page.locator(`.riddle-card[data-id="${id}"]`);
+        await card.locator('.card-back [data-action="flip"]').click();
+        await readyControl(page, 'card');
+        const control = card.locator('.card-audio-btn');
+        await control.click();
+        await page.waitForFunction(() => window.__speech.records.length > 0);
+        const records = await page.evaluate(() => window.__speech.records);
+        const spoken = records.map(record => record.text).join(' ');
+        assert.equal(spoken, expected || await card.locator('.card-question').textContent(), `${id}: the actual button reads the complete question`);
+        assert.ok(records.every(record => record.activation && record.lang === 'ar-SA'));
+        assert.ok(records.every(record => record.text.length <= 220));
+        if (id === 'logic-puzzles-036') {
+          assert.ok(records.length > 1);
+          assert.ok(records.at(-1).text.endsWith('أيهما يفوز أكثر: التبديل دائمًا أم البقاء دائمًا؟'));
+        }
+        await control.click();
+        await assertStopped(control, 'card', 'اقرأ بصوت عالٍ');
+        noErrors();
+      }
+    } finally { await context.close(); }
+  });
+
   await runTest('mobile speech errors reset English and Arabic controls and a later tap retries locally', async () => {
     for (const kind of ['card', 'kids']) for (const lang of ['en', 'ar']) {
       const h = await open({ kind, lang });

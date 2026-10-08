@@ -81,6 +81,7 @@ jobs:
           scripts/game-selection-loader.test.mjs
           scripts/offline-cache-freshness.test.mjs
           scripts/speech-quality.test.mjs
+          scripts/speech-pronunciation.test.mjs
           scripts/party-games-integration.test.mjs
           scripts/party-games.test.mjs
           scripts/friendship-games.test.mjs

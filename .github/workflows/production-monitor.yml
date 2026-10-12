@@ -58,7 +58,7 @@ jobs:
         env:
           JAKH_SITE_ORIGIN: https://riddlearabia.com
           JAKH_API_ORIGIN: https://api.riddlearabia.com
-          JAKH_MONITOR_LEGACY_SITE_ORIGINS: https://jakh.net,https://www.jakh.net
+          JAKH_MONITOR_LEGACY_SITE_ORIGINS: "none"
           JAKH_MONITOR_TIMEOUT_MS: "10000"
           JAKH_SITE_MAX_MS: "5000"
           JAKH_API_MAX_MS: "5000"

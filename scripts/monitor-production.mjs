@@ -15,10 +15,9 @@ import { kidsRoutePairs } from "./generate-kids-pages.mjs";
 
 export const PRIMARY_SITE_ORIGIN = "https://riddlearabia.com";
 export const PRIMARY_API_ORIGIN = "https://api.riddlearabia.com";
-export const LEGACY_SITE_ORIGINS = Object.freeze([
-  "https://jakh.net",
-  "https://www.jakh.net",
-]);
+// Retired domains do not participate in Riddle Arabia's availability contract.
+// Explicit legacySiteOrigins remains available for a separately requested check.
+export const LEGACY_SITE_ORIGINS = Object.freeze([]);
 const DEFAULT_SITE_ORIGIN = PRIMARY_SITE_ORIGIN;
 const DEFAULT_API_ORIGIN = PRIMARY_API_ORIGIN;
 const DEFAULT_TIMEOUT_MS = 10_000;

@@ -11,10 +11,6 @@
     {
       "pattern": "api.riddlearabia.com",
       "custom_domain": true
-    },
-    {
-      "pattern": "api.jakh.net",
-      "custom_domain": true
     }
   ],
   "observability": {
@@ -24,7 +20,7 @@
     "crons": ["17 * * * *"]
   },
   "vars": {
-    "ALLOWED_ORIGINS": "https://riddlearabia.com,https://www.riddlearabia.com,https://jakh.net,https://www.jakh.net",
+    "ALLOWED_ORIGINS": "https://riddlearabia.com,https://www.riddlearabia.com",
     "STATIC_ORIGIN": "https://riddlearabia.com"
   },
   "secrets": {

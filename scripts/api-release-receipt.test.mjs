@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { execFileSync } from "node:child_process";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
@@ -420,29 +421,42 @@ test("final receipt cannot hide a failed exact Worker rollback", () => {
   assert.equal(receipt.result, "post-deploy-verification-failed-without-confirmed-rollback");
 });
 
-test("both API phases retain working legacy content during cutover and use the new host normally", async () => {
+test("both API phases use the independent primary content origin without a legacy CLI override", async () => {
   const [workflow, config] = await Promise.all([
     readFile(new URL("../.github/workflows/api-deploy.yml", import.meta.url), "utf8"),
     readFile(new URL("../worker/wrangler.jsonc", import.meta.url), "utf8"),
   ]);
   const defaultOrigin = config.match(/"STATIC_ORIGIN"\s*:\s*"([^"]+)"/u)?.[1];
+  assert.equal(defaultOrigin, "https://riddlearabia.com");
   const deploySteps = [...workflow.matchAll(
     /id: (deploy_compatibility|deploy_final)\n[\s\S]*?command: ([^\n]+)/gu,
   )];
   assert.deepEqual(deploySteps.map(match => match[1]), ["deploy_compatibility", "deploy_final"]);
   for (const [, phase, command] of deploySteps) {
     assert.match(command, /^deploy --strict --message /u, phase);
-    for (const domainCutover of [true, false]) {
-      // Resolve the boolean branches passed to wrangler-action, then inspect
-      // the effective CLI override rather than merely checking a host string.
-      const resolvedCommand = command.replace(
-        /\$\{\{\s*inputs\.domain_cutover\s*&&\s*'([^']*)'\s*\|\|\s*'([^']*)'\s*\}\}/gu,
-        (_expression, enabled, disabled) => domainCutover ? enabled : disabled,
-      );
-      const overrides = [...resolvedCommand.matchAll(/--var\s+STATIC_ORIGIN:([^\s]+)/gu)];
-      assert.equal(overrides.length, domainCutover ? 1 : 0, `${phase}: cutover=${domainCutover}`);
-      const effectiveOrigin = overrides.at(-1)?.[1] || defaultOrigin;
-      assert.equal(effectiveOrigin, domainCutover ? "https://jakh.net" : "https://riddlearabia.com");
+    assert.doesNotMatch(command, /--var\s+STATIC_ORIGIN:|inputs\.domain_cutover/u, phase);
+  }
+  assert.doesNotMatch(workflow, /https:\/\/(?:api\.|www\.)?jakh\.net\b/u);
+});
+
+test("API and static authorization reject retired cutovers before protected release work", async () => {
+  for (const filename of ["api-deploy.yml", "static-site.yml"]) {
+    const workflow = await readFile(new URL(`../.github/workflows/${filename}`, import.meta.url), "utf8");
+    const guard = /      - name: Reject retired domain cutover\n[\s\S]*?        run: \|\n([\s\S]*?)(?=      - )/u.exec(workflow)?.[1];
+    assert.ok(guard, `${filename}: explicit cutover rejection is present`);
+    assert.ok(workflow.indexOf("Reject retired domain cutover") < workflow.indexOf("uses: actions/checkout"),
+      `${filename}: rejection precedes checkout and release actions`);
+    assert.match(workflow, /DOMAIN_CUTOVER: \$\{\{ inputs\.domain_cutover \}\}/u);
+    assert.match(workflow, /description: "Retired input: keep false\./u);
+    const shell = guard.replace(/^          /gmu, "");
+    assert.doesNotThrow(() => execFileSync("bash", ["-c", shell], {
+      env: { DOMAIN_CUTOVER: "false" }, stdio: "pipe",
+    }), `${filename}: normal and Autopilot false input stays supported`);
+    for (const value of ["true", ""]) {
+      assert.throws(() => execFileSync("bash", ["-c", shell], {
+        env: { DOMAIN_CUTOVER: value }, stdio: "pipe",
+      }), error => error.status === 1 && /Domain cutover is retired/u.test(String(error.stdout)),
+      `${filename}: ${JSON.stringify(value)} fails closed`);
     }
   }
 });

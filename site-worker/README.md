@@ -1,12 +1,12 @@
 # JAKH static edge Worker
 
-This package deploys the complete static site and its edge policy as one versioned Cloudflare Worker. It is deliberately separate from `worker/`, which serves `api.jakh.net` and owns D1.
+This package deploys the complete static site and its edge policy as one versioned Cloudflare Worker. It is deliberately separate from `worker/`, which serves `api.riddlearabia.com` and owns D1. Its custom domains are `riddlearabia.com` and `www.riddlearabia.com`; the `jakh.net` aliases are retired for reuse by another project.
 
 ## Safety model
 
 - `scripts/build-static-site.mjs` copies only allow-listed, Git-tracked public files. Local untracked files, repository tooling, documents, packages, and both Worker source trees cannot leak into the artifact.
 - The generated `docs/content-review/production-quarantine.json` is a release contract, not an editorial deletion. The build keeps the full 3,553-card source corpus intact but emits only 51 categories and 3,275 cards. All five held route families and datasets are omitted from the artifact; direct, encoded, malformed, recursively encoded, and cached requests fail closed with `410`, `no-store`, no-index/no-archive policy, and cache clearing before redirect or asset lookup.
-- This quarantine controls only runtime publication at `jakh.net`, `api.jakh.net`, and their generated deployment artifacts. The repository is currently public, so the full corpus remains reachable through GitHub source, raw-content URLs, commit history, and possible forks, caches, or copies; this Worker cannot retract them. Any repository/history containment is a separate owner-approved governance operation and must not be represented as accomplished by this release.
+- This quarantine controls only runtime publication at `riddlearabia.com`, `api.riddlearabia.com`, and their generated deployment artifacts. The repository is currently public, so the full corpus remains reachable through GitHub source, raw-content URLs, commit history, and possible forks, caches, or copies; this Worker cannot retract them. Any repository/history containment is a separate owner-approved governance operation and must not be represented as accomplished by this release.
 - The service worker uses the same exact five-category contract, never warms held data, returns the same quarantine response before online/offline cache lookup, and purges held entries during activation. The release manifest binds the exact policy digest and public/held totals into the build identity, and Worker startup refuses category drift or a held path in the graph.
 - A SHA-256 build identity covers every final deployed byte. The Worker returns that identity in `X-JAKH-Site-Version` and content-derived weak ETags.
 - The build retains stable compatibility assets, emits 16-hex SHA-256 fingerprinted variants for the initial app/CSS, privacy CSS, both lazy feature pairs, and both search shards, then rewrites only the artifact dependency graph. `site-manifest.json` exposes and validates every stable-to-fingerprinted mapping.
@@ -36,11 +36,15 @@ and rollback boundary.
 
 ## Production activation
 
-The Static Site workflow is manual and requires protected-main and protected-environment approval. Its normal-release preflight deliberately refuses a first release unless `jakh.net` is already serving a verified baseline `jakh-site` Worker with an exact Worker version and `X-JAKH-Site-Version` build identity. Do not weaken that preflight to make the first migration convenient.
+The Static Site workflow is manual and requires protected-main and protected-environment approval. Its normal-release preflight requires `riddlearabia.com` to serve a verified baseline `jakh-site` Worker with an exact Worker version and `X-JAKH-Site-Version` build identity. The baseline and post-deployment checks do not depend on retired domain redirects. Keep `domain_cutover` false; its one-time migration mode is retired. Do not weaken baseline, version, schema or rollback safeguards.
 
 The legacy GitHub Pages workflow is manual-only and must not be run after the custom domains point at this Worker.
 
 ### One-time baseline cutover runbook
+
+The following procedure is historical. The migration is complete; do not use it
+to restore `jakh.net` or `www.jakh.net` attachments. Normal releases use the
+independent Riddle Arabia configuration above.
 
 This is a separate, owner-approved migration procedure, not a normal release. Record this exact confirmation in the change ticket before touching DNS:
 
@@ -120,6 +124,6 @@ The relevant Cloudflare operations are the [Custom Domains API](https://develope
 
 ## MTA-STS capability
 
-The Worker contains a dedicated handler and policy asset for `mta-sts.jakh.net/.well-known/mta-sts.txt`, but the custom domain is intentionally absent and `MTA_STS_ENABLED` defaults to `false`. The bundled `mode: none` policy makes no unverified MX claim.
+The Worker contains a dedicated handler and policy asset for `mta-sts.riddlearabia.com/.well-known/mta-sts.txt`, but the custom domain is intentionally absent and `MTA_STS_ENABLED` defaults to `false`. The bundled `mode: none` policy makes no unverified MX claim. Domain separation does not change mail records or activate this capability.
 
 Mail ownership must first approve the actual Google Workspace MX patterns, enforcement mode, reporting destination, rollout, and rollback. Then replace `assets/mta-sts.txt`, add the custom-domain route, set `MTA_STS_ENABLED=true`, and publish the separately approved `_mta-sts` and `_smtp._tls` DNS records. Do not invent a TLS-RPT recipient.

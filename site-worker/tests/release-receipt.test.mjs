@@ -92,6 +92,18 @@ test("source manifest and single-version preflight are fail-closed", () => {
   assert.match(exactNoOp.errors.join("\n"), /commit and static build are already live/u);
 });
 
+test("independent-domain preflight rejects the retired cutover mode", () => {
+  const result = buildPreflight({
+    manifest,
+    deployment: deployment(OLD_VERSION),
+    baselineSmoke: smoke(OLD_BUILD),
+    environment: { ...RELEASE_ENV, JAKH_DOMAIN_CUTOVER: "true" },
+  });
+  assert.equal(result.receipt.result, "preflight-failed");
+  assert.match(result.errors.join("\n"), /domain cutover is retired/u);
+  assert.equal(result.receipt.safety.automaticRollback, false);
+});
+
 test("post-deploy binds exact version, build, commit, and smoke", () => {
   const receipt = preflight();
   const message = `JAKH site abc123 build ${manifest.buildId} run 98765`;
@@ -193,7 +205,7 @@ test("smoke probe enforces one-hop redirects and a single build identity", async
   };
   const report = await runSmoke({ expectedBuildId: buildId, fetchImpl: fakeFetch });
   assert.equal(report.ok, true, report.errors.join("\n"));
-  assert.equal(report.probes.length, 20);
+  assert.equal(report.probes.length, 18);
 });
 
 test("workflow contains exact rollback and required browser gates", async () => {
@@ -203,7 +215,10 @@ test("workflow contains exact rollback and required browser gates", async () => 
   assert.match(workflow, /workflow_dispatch:/u);
   assert.match(workflow, /DEPLOY riddlearabia\.com FROM protected main/u);
   assert.match(workflow, /domain_cutover:/u);
-  assert.match(workflow, /--legacy-site-origins https:\/\/jakh\.net,https:\/\/www\.jakh\.net/u);
+  assert.match(workflow, /--legacy-site-origins none/u);
+  assert.match(workflow, /JAKH_MONITOR_LEGACY_SITE_ORIGINS: "none"/u);
+  assert.match(workflow, /JAKH_MONITOR_SITE_CONTRACT: release-baseline/u);
+  assert.doesNotMatch(workflow, /https:\/\/(?:api\.|www\.)?jakh\.net\b/u);
   assert.match(workflow, /github\.ref_protected/u);
   // Manual releases retain the reviewer-protected production environment.
   // Only a nonempty, independently authorized reservation selects Autopilot.

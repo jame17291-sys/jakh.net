@@ -14,10 +14,8 @@ const RECEIPT_FORMAT_VERSION = 2;
 const BUILD_ID_PATTERN = /^[a-f0-9]{64}$/u;
 const WORKER_VERSION_PATTERN = /^[0-9A-Za-z][0-9A-Za-z._-]{5,127}$/u;
 export const PRIMARY_SITE_ORIGIN = "https://riddlearabia.com";
-export const LEGACY_SITE_ORIGINS = Object.freeze([
-  "https://jakh.net",
-  "https://www.jakh.net",
-]);
+// A primary-site release and rollback must not depend on retired domains.
+export const LEGACY_SITE_ORIGINS = Object.freeze([]);
 
 function invariant(condition, message) {
   if (!condition) throw new Error(message);
@@ -367,6 +365,7 @@ export function buildPreflight({ manifest, deployment, baselineSmoke, environmen
     ...validateManifest(manifest),
     ...validateSmokeReport(baselineSmoke),
   ];
+  if (domainCutover) errors.push("domain cutover is retired; release the independent Riddle Arabia origins");
   let activeVersion = null;
   try {
     activeVersion = extractActiveVersion(deployment);

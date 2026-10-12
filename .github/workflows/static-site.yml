@@ -17,7 +17,7 @@ on:
         required: true
         type: string
       domain_cutover:
-        description: "Set true only for the one-time jakh.net → riddlearabia.com cutover; automatic rollback will be withheld."
+        description: "Retired input: keep false. Riddle Arabia releases do not use legacy domains."
         required: true
         default: false
         type: boolean
@@ -43,6 +43,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - name: Reject retired domain cutover
+        env:
+          DOMAIN_CUTOVER: ${{ inputs.domain_cutover }}
+        run: |
+          set -euo pipefail
+          if [ "$DOMAIN_CUTOVER" != "false" ]; then
+            echo "::error title=Production deployment blocked::Domain cutover is retired. Keep domain_cutover false to release Riddle Arabia."
+            exit 1
+          fi
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         if: ${{ inputs.autopilot_run_id != '' }}
         with:
@@ -345,8 +354,8 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
           JAKH_DOMAIN_CUTOVER: ${{ inputs.domain_cutover }}
-          BASELINE_SITE_ORIGIN: ${{ inputs.domain_cutover && 'https://jakh.net' || 'https://riddlearabia.com' }}
-          BASELINE_LEGACY_SITE_ORIGINS: ${{ inputs.domain_cutover && 'none' || 'https://jakh.net,https://www.jakh.net' }}
+          BASELINE_SITE_ORIGIN: https://riddlearabia.com
+          BASELINE_LEGACY_SITE_ORIGINS: "none"
           WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-site-wrangler-preflight.log
         run: |
           set -euo pipefail
@@ -376,10 +385,10 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
           JAKH_MONITOR_SCOPE: site
-          JAKH_SITE_ORIGIN: ${{ inputs.domain_cutover && 'https://jakh.net' || 'https://riddlearabia.com' }}
-          JAKH_API_ORIGIN: ${{ inputs.domain_cutover && 'https://api.jakh.net' || 'https://api.riddlearabia.com' }}
-          JAKH_MONITOR_SITE_CONTRACT: ${{ inputs.domain_cutover && 'legacy-cutover' || 'release-baseline' }}
-          JAKH_MONITOR_LEGACY_SITE_ORIGINS: ${{ inputs.domain_cutover && 'none' || 'https://jakh.net,https://www.jakh.net' }}
+          JAKH_SITE_ORIGIN: https://riddlearabia.com
+          JAKH_API_ORIGIN: https://api.riddlearabia.com
+          JAKH_MONITOR_SITE_CONTRACT: release-baseline
+          JAKH_MONITOR_LEGACY_SITE_ORIGINS: "none"
           JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-site-release/rollback-target-monitor.json
           JAKH_MONITOR_EXPECTED_WORKER_VERSION: ${{ steps.preflight.outputs.rollback-version }}
           JAKH_MONITOR_MAX_ATTEMPTS: 12
@@ -479,7 +488,7 @@ jobs:
             --expected-worker-version "${{ steps.candidate_identity.outputs.worker-version }}" \
             --output "$RECEIPT_DIR/smoke-after.json" \
             --site-origin https://riddlearabia.com \
-            --legacy-site-origins https://jakh.net,https://www.jakh.net \
+            --legacy-site-origins none \
             --attempts 8 \
             --delay-ms 10000
 
@@ -540,7 +549,7 @@ jobs:
           JAKH_MONITOR_SCOPE: site
           JAKH_SITE_ORIGIN: https://riddlearabia.com
           JAKH_API_ORIGIN: https://api.riddlearabia.com
-          JAKH_MONITOR_LEGACY_SITE_ORIGINS: https://jakh.net,https://www.jakh.net
+          JAKH_MONITOR_LEGACY_SITE_ORIGINS: "none"
           JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-site-release/runtime-monitor.json
           JAKH_MONITOR_EXPECTED_WORKER_VERSION: ${{ steps.candidate_identity.outputs.worker-version }}
           JAKH_MONITOR_MAX_ATTEMPTS: 12

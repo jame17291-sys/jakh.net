@@ -7,8 +7,7 @@ import { legacyPuzzleTarget, isPuzzleStateURL } from "../../puzzle-routes.js";
 
 const APEX_HOST = "riddlearabia.com";
 const WWW_HOST = "www.riddlearabia.com";
-const LEGACY_HOSTS = new Set(["jakh.net", "www.jakh.net"]);
-const MTA_STS_HOSTS = new Set(["mta-sts.riddlearabia.com", "mta-sts.jakh.net"]);
+const MTA_STS_HOSTS = new Set(["mta-sts.riddlearabia.com"]);
 const MTA_STS_PATH = "/.well-known/mta-sts.txt";
 const HTML_CACHE = "public, max-age=0, must-revalidate";
 const MUTABLE_ASSET_CACHE = "public, max-age=3600, must-revalidate";
@@ -329,14 +328,10 @@ export function retiredSeoRedirectTarget(siteManifest, pathname) {
 }
 
 export function canonicalRedirect(siteManifest, requestUrl) {
+  if (!isPrimaryHost(requestUrl.hostname)) return null;
   const target = new URL(requestUrl.href);
   let changed = false;
-  if (LEGACY_HOSTS.has(target.hostname)) {
-    target.hostname = APEX_HOST;
-    target.protocol = "https:";
-    target.port = "";
-    changed = true;
-  } else if (target.hostname === WWW_HOST) {
+  if (target.hostname === WWW_HOST) {
     target.hostname = APEX_HOST;
     target.port = "";
     changed = true;
@@ -461,6 +456,9 @@ export function createSiteHandler({ siteManifest, mtaStsPolicy }) {
       }
       if (MTA_STS_HOSTS.has(url.hostname)) {
         return mtaStsResponse(siteManifest, env, url.pathname, mtaStsPolicy);
+      }
+      if (!isPrimaryHost(url.hostname)) {
+        return errorResponse(siteManifest, url.pathname, 404, "Not found");
       }
       if (isQuarantinedPath(siteManifest, url.pathname)) {
         return quarantineResponse(siteManifest, url.pathname, method);

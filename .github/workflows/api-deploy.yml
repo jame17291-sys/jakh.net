@@ -573,7 +573,7 @@ jobs:
           fi
       - name: Upload compatibility receipt
         if: ${{ always() }}
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: api-compatibility-${{ github.run_id }}-${{ github.run_attempt }}
           # Exact evidence allowlist: never upload a directory or backup database.
@@ -743,7 +743,7 @@ jobs:
           PRIVATE_BACKUP_DIR: ${{ runner.temp }}/jakh-api-backup-plaintext
         run: rm -rf -- "$PRIVATE_BACKUP_DIR"
       - name: Store the tested encrypted backup off-account before mutation
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: pre-migration-d1-backup-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
@@ -1115,7 +1115,7 @@ jobs:
           fi
       - name: Upload final release receipt
         if: ${{ always() }}
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: api-final-${{ github.run_id }}-${{ github.run_attempt }}
           # Exact evidence allowlist: never upload a directory or backup database.

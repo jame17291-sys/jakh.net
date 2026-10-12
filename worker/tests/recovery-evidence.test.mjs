@@ -59,8 +59,17 @@ test("quarterly workflow requires a protected real restore drill", async () => {
   assert.match(workflow, /PRIMARY_API_ORIGIN: https:\/\/api\.riddlearabia\.com/u);
   assert.match(workflow, /PRIMARY_SITE_ORIGIN: https:\/\/riddlearabia\.com/u);
   assert.match(workflow, /"\$PRIMARY_API_ORIGIN\/api\/health"/u);
-  assert.match(workflow, /for legacy_host in jakh\.net www\.jakh\.net/u);
-  assert.match(workflow, /Legacy redirect drift/u);
+  assert.match(workflow, /"\$PRIMARY_SITE_ORIGIN\/\?recovery_site_probe=weekly-backup"/u);
+  assert.doesNotMatch(workflow, /for legacy_host|Legacy redirect drift|legacy-.*redirect\.headers/u);
+  assert.doesNotMatch(workflow, /https:\/\/(?:api\.|www\.)?jakh\.net\b/u);
+  // Domain retirement does not relax encrypted export, isolated restore or Time Travel proof.
+  for (const command of [
+    "d1 export DB --remote --skip-confirmation",
+    "d1-backup.mjs encrypt", "d1-backup.mjs verify", "d1-backup.mjs attest",
+    "d1 execute DB --local", "recovery-evidence.mjs bookmark",
+  ]) assert.ok(workflow.includes(command), `recovery retains ${command}`);
+  assert.match(workflow, /Plaintext backup retained/u);
+  assert.match(workflow, /retention-days: 35/u);
 });
 
 test("restore guard requires the dedicated name, a different UUID, and typed confirmation", () => {

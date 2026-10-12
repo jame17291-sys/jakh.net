@@ -1,6 +1,6 @@
 # JAKH API
 
-Cloudflare Worker backend for the static JAKH site. It provides:
+Cloudflare Worker backend for Riddle Arabia. It provides:
 
 - Username/password sessions using HttpOnly cookies, plus one-time offline
   recovery codes (only SHA-256 digests are stored)
@@ -16,10 +16,12 @@ Cloudflare Worker backend for the static JAKH site. It provides:
 - Durable Object binding: `BATTLE_ROOMS`
 - Password-hashing Durable Object binding: `PASSWORD_HASHERS`
 - Secrets: `PASSWORD_PEPPER`, `IP_HASH_SALT`
-- Public API host: `https://api.jakh.net`
+- Public API host: `https://api.riddlearabia.com`
 
-The frontend stays on GitHub Pages. `api.jakh.net` must be a Cloudflare Worker
-custom domain so cookies remain first-party to JAKH.
+The frontend runs on the separate static Worker at `riddlearabia.com`.
+`api.riddlearabia.com` is its API custom domain, and the allowed browser origins
+are the Riddle Arabia apex and `www` host. The `jakh.net` aliases are retired
+for reuse by another project; do not add them to routes or credentialed CORS.
 
 Password derivation runs inside a SQLite Durable Object so the strong PBKDF2
 work factor does not exceed the Free Worker HTTP CPU limit. Card scores and
@@ -116,9 +118,10 @@ For code-only releases, use `compatibility`; when D1 is already at the source
 schema, `migrate-final` deliberately refuses. Do not bypass this protocol with a
 manual `wrangler d1 migrations apply` followed by `wrangler deploy`.
 
-The canonical production API hostname is `api.riddlearabia.com`. The legacy
-`api.jakh.net` custom domain remains connected to the same Worker for
-compatibility and serves API responses directly; it is not a hostname redirect.
+The canonical production API hostname is `api.riddlearabia.com`. Production
+configuration declares only that API hostname and uses `riddlearabia.com` for
+room invitations and shared links. Keep `domain_cutover` false: the former
+one-time migration path is retired.
 Keep `workers_dev` disabled to avoid an additional `workers.dev` endpoint.
 
 Never commit `.dev.vars`, Cloudflare tokens, or generated secrets.

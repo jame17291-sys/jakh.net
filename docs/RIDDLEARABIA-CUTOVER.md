@@ -1,5 +1,13 @@
 # Riddle Arabia domain cutover
 
+This document records the completed, historical migration. The current
+configuration uses only `riddlearabia.com`, `www.riddlearabia.com`, and
+`api.riddlearabia.com`. Normal releases keep `domain_cutover` false and do not
+require `jakh.net` redirects; that domain is being separated for another
+project. Do not execute the retired cutover instructions below or restore its
+domain attachments. Production approvals, exact-version rollback, schema and
+backup safeguards remain required.
+
 This is a one-time production migration from `jakh.net` to
 `riddlearabia.com`. It preserves the existing Cloudflare Workers, D1 database,
 Durable Object Battle rooms, and GitHub repository. The public site and API

@@ -50,11 +50,12 @@ A passing structural check does not mean the content has completed review.
 Do not lift the safety quarantine or claim complete editorial verification.
 
 The canonical static host is `riddlearabia.com`.
-`www.riddlearabia.com`, `jakh.net`, and `www.jakh.net` normalize to it.
-The legacy API host `api.jakh.net` remains a compatible API endpoint on the
-same Worker; it is not a static-host redirect.
-Normal releases keep `domain_cutover=false`.
-DNS and hostname cutovers require their own reviewed procedure.
+`www.riddlearabia.com` normalizes to it, and the API uses
+`api.riddlearabia.com`. The `jakh.net` website and API aliases are retired
+for reuse by another project; production configuration must not reclaim them
+or grant their browser origins credentialed API access.
+Normal releases keep `domain_cutover=false`; the former one-time cutover mode
+is retired. Release and recovery checks use only the Riddle Arabia hosts.
 
 ## Phase 0: Verify existing authorization and protection
 
@@ -493,13 +494,11 @@ Useful supplemental read-only probes are:
 ```sh
 curl --fail --silent --show-error --head https://riddlearabia.com/
 curl --silent --show-error --head https://www.riddlearabia.com/
-curl --silent --show-error --head https://jakh.net/
-curl --silent --show-error --head https://www.jakh.net/
 curl --fail --silent --show-error https://api.riddlearabia.com/api/health
 ```
 
 The canonical site should serve successfully with `X-JAKH-Site-Version`.
-Normalization hosts should redirect to the canonical site, preserving paths
+The `www.riddlearabia.com` host should redirect to the canonical site, preserving paths
 and queries according to the smoke contract; do not expect every host to be 200.
 Require the served build ID and HTTP Worker version to match the active state.
 Check HTML, stable assets, fingerprinted assets, service-worker behavior,

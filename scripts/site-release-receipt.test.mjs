@@ -78,9 +78,9 @@ function headersFor(definition, { wrongLegacyTarget = false, wrongRetiredSeoTarg
   return headers;
 }
 
-function smokeFetch({ wrongLegacyTarget = false, wrongRetiredSeoTarget = false, notFoundCache = "no-store" } = {}) {
+function smokeFetch({ wrongLegacyTarget = false, wrongRetiredSeoTarget = false, notFoundCache = "no-store", legacySiteOrigins = [] } = {}) {
   const definitions = new Map(
-    smokeDefinitions("aaaaaaaaaaaaaaaa").map((definition) => [definition.url, definition]),
+    smokeDefinitions("aaaaaaaaaaaaaaaa", { legacySiteOrigins }).map((definition) => [definition.url, definition]),
   );
   return async (input) => {
     const url = String(input);
@@ -107,8 +107,9 @@ test("404 smoke accepts legacy and transformation-safe storage denial while reje
   }
 });
 
-test("post-cutover smoke requires direct legacy redirects to the new canonical host", async () => {
-  const definitions = smokeDefinitions("aaaaaaaaaaaaaaaa");
+test("separately requested legacy smoke requires direct redirects to the canonical host", async () => {
+  const legacySiteOrigins = ["https://old.example", "https://www.old.example"];
+  const definitions = smokeDefinitions("aaaaaaaaaaaaaaaa", { legacySiteOrigins });
   assert.deepEqual(
     definitions
       .filter((definition) => definition.name.includes("legacy-"))
@@ -122,20 +123,42 @@ test("post-cutover smoke requires direct legacy redirects to the new canonical h
   const report = await runSmoke({
     expectedBuildId: BUILD_ID,
     expectedWorkerVersionId: WORKER_VERSION,
-    fetchImpl: smokeFetch(),
+    legacySiteOrigins,
+    fetchImpl: smokeFetch({ legacySiteOrigins }),
   });
   assert.equal(report.ok, true);
   assert.equal(report.probes.filter(({ name }) => name.includes("legacy-")).length, 2);
 });
 
-test("post-cutover smoke rejects a legacy redirect that is not direct to riddlearabia.com", async () => {
+test("separately requested legacy smoke rejects redirects that do not reach the primary host", async () => {
+  const legacySiteOrigins = ["https://old.example"];
   const report = await runSmoke({
     expectedBuildId: BUILD_ID,
     expectedWorkerVersionId: WORKER_VERSION,
-    fetchImpl: smokeFetch({ wrongLegacyTarget: true }),
+    legacySiteOrigins,
+    fetchImpl: smokeFetch({ wrongLegacyTarget: true, legacySiteOrigins }),
   });
   assert.equal(report.ok, false);
-  assert.match(report.errors.join("\n"), /legacy-jakh\.net-direct-redirect: Location/u);
+  assert.match(report.errors.join("\n"), /legacy-old\.example-direct-redirect: Location/u);
+});
+
+test("primary release and rollback smoke succeed without reaching unavailable retired domains", async () => {
+  const checkedOrigins = new Set();
+  const primaryFetch = smokeFetch();
+  const report = await runSmoke({
+    expectedBuildId: BUILD_ID,
+    expectedWorkerVersionId: WORKER_VERSION,
+    fetchImpl: (input, options) => {
+      const origin = new URL(input).origin;
+      checkedOrigins.add(origin);
+      if (/\.jakh\.net$|^https:\/\/jakh\.net$/u.test(origin)) throw new Error("retired domain is unavailable");
+      return primaryFetch(input, options);
+    },
+  });
+  assert.equal(report.ok, true, report.errors.join("\n"));
+  assert.deepEqual(report.legacySiteOrigins, []);
+  assert.equal(report.probes.some(({ name }) => name.startsWith("legacy-")), false);
+  assert.deepEqual([...checkedOrigins].sort(), ["https://riddlearabia.com", "https://www.riddlearabia.com"]);
 });
 
 test("post-cutover smoke verifies all retired SEO routes reach their curated replacements in one hop", async () => {

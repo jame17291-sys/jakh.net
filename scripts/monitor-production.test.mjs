@@ -982,6 +982,28 @@ test("production monitor requires one-hop legacy redirects to the new primary si
   });
 });
 
+test("independent production defaults pass when retired jakh domains cannot resolve", async () => {
+  await withFixture({ productionSite: true }, async fixtureOrigin => {
+    const options = productionFixtureOptions(fixtureOrigin);
+    delete options.legacySiteOrigins;
+    const fixtureFetch = options.fetchImpl;
+    const seenOrigins = new Set();
+    options.fetchImpl = (input, init) => {
+      const url = new URL(input);
+      seenOrigins.add(url.origin);
+      if (url.hostname === "jakh.net" || url.hostname.endsWith(".jakh.net")) {
+        throw new Error("retired DNS hostname is unavailable");
+      }
+      return fixtureFetch(input, init);
+    };
+    const summary = await runProductionMonitor(options);
+    assert.equal(summary.failures.length, 0, JSON.stringify(summary.failures));
+    assert.deepEqual(summary.config.legacySiteOrigins, []);
+    assert.equal(summary.results.some(({ name }) => /legacy .*direct redirect/u.test(name)), false);
+    assert.deepEqual([...seenOrigins], [PRIMARY_SITE_ORIGIN]);
+  });
+});
+
 test("production monitor reserves route-migration probes for the production Riddle Arabia host", () => {
   assert.deepEqual(retiredSeoRedirectProbeDefinitions("http://127.0.0.1:8787"), []);
   const definitions = retiredSeoRedirectProbeDefinitions(PRIMARY_SITE_ORIGIN);

@@ -79,24 +79,31 @@ test("primary physical aliases and www normalize in one query-preserving 301", a
   assert.equal(direct, null);
 });
 
-test("legacy hosts redirect directly to the new canonical route and preserve query strings", async () => {
+test("detached domains cannot redirect to or serve the Riddle Arabia artifact", async () => {
   const cases = [
-    ["https://jakh.net/science.html?battle=ABCD1234", `${PRIMARY_ORIGIN}/science?battle=ABCD1234`],
-    ["https://www.jakh.net/ar/topics/science/index.html?x=1", `${PRIMARY_ORIGIN}/ar/topics/science/?x=1`],
-    ["https://jakh.net/ar/topics/classic-riddles?card=classic-riddles-001", `${PRIMARY_ORIGIN}/ar/topics/classic-riddles/?card=classic-riddles-001`],
-    ["http://jakh.net/collections/?ref=legacy", `${PRIMARY_ORIGIN}/collections?ref=legacy`],
+    "https://jakh.net/science.html?battle=ABCD1234",
+    "https://www.jakh.net/ar/topics/science/index.html?x=1",
+    "https://jakh.net/ar/topics/classic-riddles?card=classic-riddles-001",
+    "http://jakh.net/collections/?ref=legacy",
+    "https://unrelated.example/",
+    "https://jakh.net/en/riddles-with-answers/",
+    "https://jakh.net/survival",
   ];
-  for (const [source, destination] of cases) {
-    const response = await handler.fetch(new Request(source), environment());
-    assert.equal(response.status, 301);
-    assert.equal(response.headers.get("location"), destination);
+  let assetFetches = 0;
+  const env = environment({ ASSETS: { async fetch() { assetFetches++; throw new Error('detached host reached assets'); } } });
+  for (const source of cases) {
+    const response = await handler.fetch(new Request(source), env);
+    assert.equal(response.status, 404, source);
+    assert.equal(response.headers.get("location"), null, source);
+    assert.equal(canonicalRedirect(siteManifest, new URL(source)), null);
     assertSecurityHeaders(response);
   }
+  assert.equal(assetFetches, 0);
 });
 
 test("retired SEO entry points and pagination redirect once to their retained Riddle Arabia routes", async () => {
   const cases = [
-    ["https://jakh.net/en/riddles-with-answers/?ref=google", `${PRIMARY_ORIGIN}/riddles?ref=google`],
+    [`${PRIMARY_ORIGIN}/en/riddles-with-answers/?ref=google`, `${PRIMARY_ORIGIN}/riddles?ref=google`],
     [`${PRIMARY_ORIGIN}/en/kids-riddles-with-answers/index.html?x=1`, `${PRIMARY_ORIGIN}/family-riddles?x=1`],
     [`${PRIMARY_ORIGIN}/en/logic-puzzles-with-answers/?x=1`, `${PRIMARY_ORIGIN}/logic-challenges?x=1`],
     [`${PRIMARY_ORIGIN}/en/general-knowledge-quiz-questions/?x=1`, `${PRIMARY_ORIGIN}/general-knowledge?x=1`],
@@ -400,6 +407,6 @@ test("MTA-STS handler is valid but fail-closed until mail-owner activation", asy
     new Request("https://mta-sts.jakh.net/.well-known/mta-sts.txt"),
     environment({ MTA_STS_ENABLED: "true" }),
   );
-  assert.equal(legacyEnabled.status, 200);
-  assert.equal(await legacyEnabled.text(), mtaStsPolicy);
+  assert.equal(legacyEnabled.status, 404);
+  assert.equal(legacyEnabled.headers.get("location"), null);
 });

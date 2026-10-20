@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "Your friend says they had a difficult day. Which response invites them to explain without guessing the cause? A: “Would you like to tell me what happened?” B: “Your manager must have upset you again.”",
-      "ar": "يقول صديقك إن يومه كان صعبًا. أيّ رد يدعوه إلى الشرح دون افتراض السبب؟ A: «هل ترغب في إخباري بما حدث؟» B: «لا بد أن مديرك أزعجك مجددًا.»"
+      "ar": "صاحبك قال إن يومه كان صعب. أي رد يخلّيه يشرح من غير ما تفترض السبب؟ A: «تحب تحكيلي شو صار؟» B: «أكيد مديرك ضايقك مرة ثانية.»"
     },
     "answer": {
       "en": "A — It asks for their account instead of assuming an explanation.",
@@ -36,7 +36,7 @@
     },
     "question": {
       "en": "Which response checks that you understood a friend’s message? A: “I know exactly what you mean; no need to explain.” B: “It sounds like the changed plan bothered you. Did I understand correctly?”",
-      "ar": "أيّ رد يتحقق من فهمك لرسالة صديق؟ A: «أعرف تمامًا ما تقصده؛ لا داعي للشرح.» B: «يبدو أن تغيير الخطة أزعجك. هل فهمت بصورة صحيحة؟»"
+      "ar": "أي رد يتأكد إنك فهمت رسالة صاحبك صح؟ A: «فاهم عليك تمامًا؛ ما في داعي تشرح.» B: «يبان إن تغيير الخطة ضايقك. فهمتك صح؟»"
     },
     "answer": {
       "en": "B — It offers a summary and invites correction.",
@@ -64,7 +64,7 @@
     },
     "question": {
       "en": "Which sentence names a specific behavior instead of judging someone’s whole character? A: “You arrived 20 minutes after our agreed time.” B: “You are always selfish.”",
-      "ar": "أيّ جملة تصف سلوكًا محددًا بدل الحكم على شخصية الشخص كلها؟ A: «وصلت بعد الموعد المتفق عليه بعشرين دقيقة.» B: «أنت أناني دائمًا.»"
+      "ar": "أي جملة توصف تصرف محدد بدل ما تحكم على شخصية الإنسان كلها؟ A: «وصلت بعد الموعد اللي اتفقنا عليه بعشرين دقيقة.» B: «إنت دايمًا أناني.»"
     },
     "answer": {
       "en": "A — It describes an observable event without a global label.",
@@ -92,7 +92,7 @@
     },
     "question": {
       "en": "Which reply asks whether a friend wants advice before giving it? A: “Would you prefer that I listen, or would ideas be useful?” B: “Here is what you must do.”",
-      "ar": "أيّ رد يسأل الصديق هل يريد نصيحة قبل تقديمها؟ A: «هل تفضل أن أستمع، أم تفيدك بعض الأفكار؟» B: «إليك ما يجب عليك فعله.»"
+      "ar": "أي رد يسأل صاحبك إذا يبي نصيحة قبل ما تعطيه؟ A: «تفضّل أسمعك بس، ولا تفيدك شوية أفكار؟» B: «هذا اللي لازم تسويه.»"
     },
     "answer": {
       "en": "A — It lets the friend state what kind of support they want.",
@@ -120,7 +120,7 @@
     },
     "question": {
       "en": "You want to discuss an important issue. Which opener checks timing? A: “We are discussing this now, whatever you are doing.” B: “Is now a good time to talk for ten minutes?”",
-      "ar": "تريد مناقشة مسألة مهمة. أيّ بداية تتحقق من ملاءمة الوقت؟ A: «سنناقش هذا الآن مهما كنت تفعل.» B: «هل يناسبك أن نتحدث عشر دقائق الآن؟»"
+      "ar": "تبي تحكي بموضوع مهم. أي بداية تتأكد إن الوقت مناسب؟ A: «بنحكي فيه الحين مهما كنت مشغول.» B: «يناسبك نحكي عشر دقايق الحين؟»"
     },
     "answer": {
       "en": "B — It asks whether the other person is available.",
@@ -148,7 +148,7 @@
     },
     "question": {
       "en": "Which sentence expresses a feeling and a specific request without calling the other person a name? A: “You are inconsiderate and never think.” B: “I felt worried when the plan changed. Could you message me next time?”",
-      "ar": "أيّ جملة تعبّر عن شعور وطلب محدد دون إهانة الشخص الآخر؟ A: «أنت عديم المراعاة ولا تفكر أبدًا.» B: «شعرت بالقلق عندما تغيرت الخطة. هل يمكنك مراسلتي في المرة القادمة؟»"
+      "ar": "أي جملة تعبّر عن شعورك وطلب محدد من غير ما تهين الثاني؟ A: «إنت ما تراعي أبدًا وما تفكّر.» B: «قلقت لما تغيّرت الخطة. تقدر تراسلني المرة الجاية؟»"
     },
     "answer": {
       "en": "B — It links a feeling to an event and asks for a concrete action.",
@@ -176,7 +176,7 @@
     },
     "question": {
       "en": "Your friend is speaking and you disagree. Which response lets them finish before you give your view? A: “Please finish your thought; then I would like to explain my view.” B: “Stop. I already know what you are going to say.”",
-      "ar": "يتحدث صديقك وأنت تختلف معه. أيّ رد يترك له فرصة الإكمال قبل عرض رأيك؟ A: «أكمل فكرتك، ثم أود أن أوضح وجهة نظري.» B: «توقف؛ أعرف مسبقًا ما ستقوله.»"
+      "ar": "صاحبك يحكي وإنت مختلف معه. أي رد يخلّيه يكمّل قبل ما تقول رأيك؟ A: «كمّل فكرتك، وبعدين ودّي أوضح وجهة نظري.» B: «وقّف؛ أنا عارف شو بتقول.»"
     },
     "answer": {
       "en": "A — It preserves a turn for each person.",
@@ -204,7 +204,7 @@
     },
     "question": {
       "en": "A short message seems rude to you. Which response checks intent rather than assuming it? A: “You wrote “fine” because you wanted to insult me.” B: “When you wrote “fine,” did you mean the plan works for you?”",
-      "ar": "تبدو لك رسالة قصيرة فظة. أيّ رد يتحقق من المقصود بدل افتراضه؟ A: «كتبت «حسنًا» لأنك أردت إهانتي.» B: «عندما كتبت «حسنًا»، هل قصدت أن الخطة تناسبك؟»"
+      "ar": "جاتك رسالة قصيرة وحسّيتها جافة. أي رد يتأكد من المقصود بدل ما يفترضه؟ A: «كتبت «تمام» لأنك تبي تهينّي.» B: «لما كتبت «تمام»، قصدك إن الخطة تناسبك؟»"
     },
     "answer": {
       "en": "B — It treats the interpretation as a question, not a fact.",
@@ -232,7 +232,7 @@
     },
     "question": {
       "en": "Which response acknowledges a feeling without necessarily agreeing with the person’s interpretation of events? A: “If I disagree with your explanation, your feelings cannot be real.” B: “I can hear that you felt left out; tell me more.”",
-      "ar": "أيّ رد يعترف بالشعور دون أن يوافق بالضرورة على تفسير الشخص للأحداث؟ A: «إذا اختلفت مع تفسيرك فلا يمكن أن تكون مشاعرك حقيقية.» B: «أفهم من كلامك أنك شعرت بالاستبعاد؛ أخبرني أكثر.»"
+      "ar": "أي رد يعترف بالشعور من غير ما يوافق بالضرورة على تفسير الشخص للي صار؟ A: «إذا ما اتفقت مع تفسيرك، يعني مشاعرك مش حقيقية.» B: «فهمت من كلامك إنك حسّيت إنك مستبعد؛ احكيلي أكثر.»"
     },
     "answer": {
       "en": "B — Acknowledging a reported feeling is different from endorsing every factual claim.",
@@ -260,7 +260,7 @@
     },
     "question": {
       "en": "Which request is more concrete and observable? A: “Please put the shared keys on the hook after using them.” B: “Be a better person around the house.”",
-      "ar": "أيّ طلب أكثر تحديدًا وقابلية للملاحظة؟ A: «ضع المفاتيح المشتركة على العلاقة بعد استخدامها من فضلك.» B: «كن شخصًا أفضل في المنزل.»"
+      "ar": "أي طلب أوضح وتقدر تلاحظ إذا تنفّذ؟ A: «حط المفاتيح المشتركة على العلّاقة بعد ما تستخدمها لو سمحت.» B: «كن شخص أحسن بالبيت.»"
     },
     "answer": {
       "en": "A — It names a specific action and when to do it.",
@@ -288,7 +288,7 @@
     },
     "question": {
       "en": "You remember an agreement differently. Which reply separates your memory from certainty? A: “I remember Tuesday, but I may be mistaken. Can we check the message?” B: “My memory is perfect, so you must be lying.”",
-      "ar": "تتذكر اتفاقًا بصورة مختلفة. أيّ رد يميز ذاكرتك عن اليقين؟ A: «أتذكر الثلاثاء، لكن قد أكون مخطئًا. هل نراجع الرسالة؟» B: «ذاكرتي كاملة، إذن لا بد أنك تكذب.»"
+      "ar": "تتذكّر اتفاق بشكل مختلف. أي رد يفرّق بين ذاكرتك واليقين؟ A: «أتذكّر الثلاثاء، بس يمكن أكون غلطان. نرجع للرسالة؟» B: «ذاكرتي ما تغلط، يعني أكيد إنت تكذب.»"
     },
     "answer": {
       "en": "A — It allows error and proposes checking shared evidence.",
@@ -316,7 +316,7 @@
     },
     "question": {
       "en": "Which question is open-ended rather than answerable only with yes or no? A: “Do you want to change the plan?” B: “What part of the plan would you like to change?”",
-      "ar": "أيّ سؤال مفتوح بدلًا من الاقتصار على نعم أو لا؟ A: «هل تريد تغيير الخطة؟» B: «أيّ جزء من الخطة ترغب في تغييره؟»"
+      "ar": "أي سؤال مفتوح، مش بس جوابه نعم أو لا؟ A: «تبي تغيّر الخطة؟» B: «أي جزء من الخطة تحب تغيّره؟»"
     },
     "answer": {
       "en": "B — It asks for details, not just confirmation.",
@@ -344,7 +344,7 @@
     },
     "question": {
       "en": "You are unavailable after 9 p.m. Which statement describes your own availability rather than controlling the other person’s whole evening? A: “You are not allowed to talk to anyone after 9 p.m.” B: “I will respond to non-urgent messages in the morning.”",
-      "ar": "أنت غير متاح بعد التاسعة مساءً. أيّ عبارة تصف تفرغك بدل التحكم في مساء الشخص الآخر كله؟ A: «لا يُسمح لك بالتحدث مع أيّ شخص بعد التاسعة.» B: «سأرد على الرسائل غير العاجلة صباحًا.»"
+      "ar": "إنت مش متاح بعد الساعة تسعة بالليل. أي جملة توصف وقتك إنت بدل ما تتحكم بمساء الثاني كله؟ A: «ممنوع تحكي مع أي أحد بعد تسعة.» B: «برد على الرسائل اللي مش مستعجلة الصبح.»"
     },
     "answer": {
       "en": "B — It states what you will do rather than imposing unrelated control.",
@@ -372,7 +372,7 @@
     },
     "question": {
       "en": "A friend declines an invitation. Which reply accepts the refusal without pressure? A: “Thanks for letting me know. Perhaps another time.” B: “If you cared about me, you would come.”",
-      "ar": "يرفض صديق دعوة. أيّ رد يقبل الرفض دون ضغط؟ A: «شكرًا لإخباري؛ ربما في وقت آخر.» B: «لو كنت تهتم بي لأتيت.»"
+      "ar": "صاحبك اعتذر عن عزيمة. أي رد يقبل الرفض من غير ضغط؟ A: «شكرًا إنك خبّرتني؛ يمكن مرة ثانية.» B: «لو كنت تهتم فيني كان جيت.»"
     },
     "answer": {
       "en": "A — It does not make affection conditional on accepting the invitation.",
@@ -400,7 +400,7 @@
     },
     "question": {
       "en": "Before posting a photograph that clearly shows your friend, which action seeks their permission? A: “Assume that posing for the photo permits every future use.” B: “Ask whether they are comfortable with that photo being posted.”",
-      "ar": "قبل نشر صورة يظهر فيها صديقك بوضوح، أيّ تصرف يطلب إذنه؟ A: «افترض أن الوقوف للصورة يسمح بكل استخدام لاحق لها.» B: «اسأله هل يرتاح لنشر هذه الصورة.»"
+      "ar": "قبل ما تنشر صورة فيها صاحبك واضح، أي تصرف يطلب إذنه؟ A: «افترض إنه لما وقف للصورة يعني موافق على أي استخدام بعدين.» B: «اسأله إذا مرتاح إنك تنشر هالصورة.»"
     },
     "answer": {
       "en": "B — Being photographed and agreeing to publication are separate choices.",
@@ -428,7 +428,7 @@
     },
     "question": {
       "en": "Which reply clearly declines a request without inventing an excuse? A: “Maybe, I suppose, although I know I will not do it.” B: “I cannot take that on this week.”",
-      "ar": "أيّ رد يرفض طلبًا بوضوح دون اختلاق عذر؟ A: «ربما، أظن ذلك، مع أنني أعلم أنني لن أفعله.» B: «لا أستطيع تولّي ذلك هذا الأسبوع.»"
+      "ar": "أي رد يرفض طلب بوضوح من غير ما تختلق عذر؟ A: «يمكن، أظن، مع إني عارف إني ما بسويها.» B: «ما أقدر أتكفّل فيها هالأسبوع.»"
     },
     "answer": {
       "en": "B — It communicates the decision directly.",
@@ -456,7 +456,7 @@
     },
     "question": {
       "en": "A friend wants to borrow an item you do not lend out. Which reply states the boundary without attacking them? A: “I do not lend this item, but I can help you find another option.” B: “Only an irresponsible person would ask.”",
-      "ar": "يريد صديق استعارة غرض لا تعيره لأحد. أيّ رد يوضح الحد دون مهاجمته؟ A: «لا أعير هذا الغرض، لكن يمكنني مساعدتك في إيجاد بديل.» B: «لا يطلب ذلك إلا شخص غير مسؤول.»"
+      "ar": "صاحبك يبي يستعير شي إنت ما تعيره لأحد. أي رد يوضح حدّك من غير ما تهاجمه؟ A: «ما أعير هالشي، بس أقدر أساعدك تلاقي بديل.» B: «ما يطلب هالشي إلا واحد مش مسؤول.»"
     },
     "answer": {
       "en": "A — It states the rule without judging the friend’s character.",
@@ -484,7 +484,7 @@
     },
     "question": {
       "en": "Someone previously agreed to a social activity but now says they no longer want to take part. Which reply acknowledges the changed choice? A: “Your earlier yes means you can never change your mind.” B: “I understand that you have changed your mind; let us discuss any practical arrangements.”",
-      "ar": "وافق شخص سابقًا على نشاط اجتماعي لكنه يقول الآن إنه لا يريد المشاركة. أيّ رد يعترف بتغيّر اختياره؟ A: «موافقتك السابقة تعني أنك لا تستطيع تغيير رأيك أبدًا.» B: «أفهم أنك غيّرت رأيك؛ لنتحدث عن الترتيبات العملية إن وجدت.»"
+      "ar": "شخص وافق قبل على طلعة، بس الحين يقول ما يبي يشارك. أي رد يحترم إنه غيّر رأيه؟ A: «موافقتك الأولى تعني إنك ما تقدر تغيّر رأيك أبدًا.» B: «فاهم إنك غيّرت رأيك؛ خلّنا نحكي عن الترتيبات العملية إذا في شي.»"
     },
     "answer": {
       "en": "B — It acknowledges the present choice without ignoring practical consequences.",
@@ -512,7 +512,7 @@
     },
     "question": {
       "en": "You need quiet time after work. Which request gives a clear time boundary? A: “Could I have 20 minutes alone, then we can talk at 7?” B: “Go away until I feel different, whenever that is.”",
-      "ar": "تحتاج وقتًا هادئًا بعد العمل. أيّ طلب يحدد مدة واضحة؟ A: «هل يمكن أن أبقى وحدي عشرين دقيقة ثم نتحدث عند السابعة؟» B: «ابتعد حتى يتغير شعوري، مهما طال ذلك.»"
+      "ar": "تحتاج وقت هادي بعد الدوام. أي طلب يحدد مدة واضحة؟ A: «ممكن أقعد لحالي عشرين دقيقة وبعدين نحكي الساعة سبعة؟» B: «ابعد عني لحد ما يتغير مزاجي، مهما طوّل.»"
     },
     "answer": {
       "en": "A — It names a duration and a proposed time to reconnect.",
@@ -540,7 +540,7 @@
     },
     "question": {
       "en": "Your friend says a joke about them is unwelcome. Which reply responds to the stated limit rather than debating their right to have it? A: “You must learn to enjoy it because I find it funny.” B: “I hear you. I will stop making that joke about you.”",
-      "ar": "يقول صديق إن مزحة عنه غير مرغوبة. أيّ رد يستجيب للحد الذي أوضحه بدل مجادلة حقه فيه؟ A: «يجب أن تتعلم الاستمتاع بها لأنني أجدها مضحكة.» B: «سمعت ما قلت؛ سأتوقف عن هذه المزحة عنك.»"
+      "ar": "صاحبك قال إن مزحة عنه ما تعجبه. أي رد يحترم الحد اللي وضّحه بدل ما تجادله؟ A: «لازم تتعلم تستمتع فيها لأني أشوفها مضحكة.» B: «سمعتك؛ بوقّف هالمزحة عنك.»"
     },
     "answer": {
       "en": "B — It addresses the behavior the friend asked to stop.",
@@ -568,7 +568,7 @@
     },
     "question": {
       "en": "A guest repeatedly arrives without notice. Which statement asks for a specific change? A: “You should already know every time I am busy.” B: “Please check with me before visiting so we can agree on a time.”",
-      "ar": "يأتي ضيف مرارًا دون إشعار. أيّ عبارة تطلب تغييرًا محددًا؟ A: «يفترض أن تعرف مسبقًا كل أوقات انشغالي.» B: «تواصل معي قبل الزيارة من فضلك لنتفق على وقت.»"
+      "ar": "ضيف يجي كل مرة من غير ما يخبّر. أي جملة تطلب تغيير محدد؟ A: «المفروض تعرف من قبل كل الأوقات اللي أكون فيها مشغول.» B: «لو سمحت كلّمني قبل الزيارة عشان نتفق على وقت.»"
     },
     "answer": {
       "en": "B — It gives an actionable request instead of expecting mind-reading.",
@@ -596,7 +596,7 @@
     },
     "question": {
       "en": "You want to decline discussing a private topic. Which reply states that limit directly? A: “I would rather keep that private. Can we talk about something else?” B: “I will answer only if you first reveal something equally private.”",
-      "ar": "تريد رفض مناقشة موضوع خاص. أيّ رد يوضح هذا الحد مباشرة؟ A: «أفضل إبقاء ذلك خاصًا. هل نتحدث عن شيء آخر؟» B: «لن أجيب إلا إذا كشفت أولًا شيئًا خاصًا بالقدر نفسه.»"
+      "ar": "ما تبي تحكي بموضوع خاص. أي رد يوضح هالحد مباشرة؟ A: «أفضّل أخلّيه خاص. نحكي بشي ثاني؟» B: «ما بجاوب إلا إذا كشفت إنت أول شي خاص بنفس القدر.»"
     },
     "answer": {
       "en": "A — It expresses privacy without demanding a trade of disclosures.",
@@ -624,7 +624,7 @@
     },
     "question": {
       "en": "Two housemates disagree about guests. Which proposal creates a shared rule rather than a unilateral demand? A: “Only my preferences count because I mentioned the problem first.” B: “Let us agree on notice, visiting hours and how either of us can raise a concern.”",
-      "ar": "يختلف شريكا سكن حول الضيوف. أيّ اقتراح ينشئ قاعدة مشتركة بدل أمر أحادي؟ A: «تُحتسب تفضيلاتي وحدها لأنني طرحت المشكلة أولًا.» B: «لنتفق على الإشعار المسبق ومواعيد الزيارة وكيف يطرح أيّ منا اعتراضًا.»"
+      "ar": "شريكين بالسكن مختلفين على موضوع الضيوف. أي اقتراح يعمل قاعدة مشتركة بدل أمر من طرف واحد؟ A: «رأيي بس هو اللي ينحسب لأني أنا اللي طرحت المشكلة أول.» B: «خلّنا نتفق على إنا نخبّر قبل، وعلى مواعيد الزيارة، وكيف أي واحد فينا يعترض.»"
     },
     "answer": {
       "en": "B — It invites both people to define the agreement.",
@@ -652,7 +652,7 @@
     },
     "question": {
       "en": "Which statement distinguishes a request from a demand by allowing the other person to decline? A: “Would you be willing to help Saturday? It is okay if you cannot.” B: “You may say no, but I will punish you if you do.”",
-      "ar": "أيّ عبارة تميز الطلب عن الأمر بالسماح للطرف الآخر بالرفض؟ A: «هل يمكنك المساعدة السبت؟ لا بأس إن لم تستطع.» B: «يمكنك الرفض، لكنني سأعاقبك إن فعلت.»"
+      "ar": "أي جملة تفرّق بين الطلب والأمر لأنها تسمح للثاني يرفض؟ A: «تقدر تساعدني السبت؟ عادي إذا ما تقدر.» B: «تقدر ترفض، بس بعاقبك إذا رفضت.»"
     },
     "answer": {
       "en": "A — It leaves a genuine option to decline.",
@@ -680,7 +680,7 @@
     },
     "question": {
       "en": "An agreed apology format has three parts: name your action, acknowledge its effect, and offer a repair. “I interrupted twice, so you could not finish. I am sorry.” Which part is still missing?",
-      "ar": "يتكوّن نموذج اعتذار متفق عليه من ثلاثة أجزاء: تسمية فعلك، والإقرار بأثره، واقتراح إصلاح. «قاطعتك مرتين، فلم تستطع إكمال كلامك. أنا آسف». ما الجزء الذي ما زال ناقصاً؟"
+      "ar": "نموذج الاعتذار اللي اتفقوا عليه فيه ثلاث أجزاء: تسمّي اللي سويته، تعترف بأثره، وتقترح تصليح. «قاطعتك مرتين، وما قدرت تكمّل كلامك. أنا آسف». شو الجزء اللي لسّا ناقص؟"
     },
     "answer": {
       "en": "A repair offer, such as: “Please finish; I will listen without interrupting.”",
@@ -700,7 +700,7 @@
     },
     "question": {
       "en": "Two friends agree to this discussion sequence: describe the issue → listener summarizes → speaker confirms or corrects → discuss solutions. The listener has just summarized. What comes next under their agreement?",
-      "ar": "اتفق صديقان على هذا التسلسل للنقاش: وصف المشكلة ← تلخيص المستمع ← تأكيد المتحدث أو تصحيحه ← مناقشة الحلول. انتهى المستمع الآن من التلخيص. ما الخطوة التالية وفق اتفاقهما؟"
+      "ar": "صاحبين اتفقوا على هالترتيب للنقاش: توصيف المشكلة ← المستمع يلخّص ← المتكلم يأكد أو يصحّح ← يناقشون الحلول. المستمع خلّص التلخيص الحين. شو الخطوة الجاية حسب اتفاقهم؟"
     },
     "answer": {
       "en": "The original speaker confirms or corrects the summary before either person proposes solutions.",
@@ -720,7 +720,7 @@
     },
     "question": {
       "en": "Which sentence stays with the current disagreement rather than introducing an unrelated past complaint? A: “This reminds me of everything you did wrong last year.” B: “Let us first decide how to divide tonight’s cleanup.”",
-      "ar": "أيّ جملة تبقى ضمن الخلاف الحالي بدل إدخال شكوى قديمة لا تتعلق به؟ A: «هذا يذكرني بكل ما فعلته خطأ العام الماضي.» B: «لنقرر أولًا كيف نقسم ترتيب المكان الليلة.»"
+      "ar": "أي جملة تخلّيك بالخلاف الحالي بدل ما تجيب شكوى قديمة ما لها علاقة؟ A: «هذا يذكّرني بكل شي سويته غلط السنة اللي فاتت.» B: «خلّنا أول شي نقرر كيف نقسم ترتيب المكان الليلة.»"
     },
     "answer": {
       "en": "B — It keeps the immediate problem defined.",
@@ -748,7 +748,7 @@
     },
     "question": {
       "en": "“I meant the comment as a joke.” “I felt embarrassed when you said it in front of the group.” Which statement describes intent, and which describes reported impact?",
-      "ar": "«قصدتُ التعليق مزاحاً». «شعرتُ بالإحراج عندما قلته أمام المجموعة». أي العبارتين تصف النية، وأيهما تصف الأثر المعبَّر عنه؟"
+      "ar": "«كنت أقصد التعليق مزح». «انحرجت لما قلته قدام المجموعة». أي جملة توصف النية، وأيها توصف الأثر اللي انحس؟"
     },
     "answer": {
       "en": "The first describes intent; the second reports impact. They can both be true.",
@@ -768,7 +768,7 @@
     },
     "question": {
       "en": "Maya suggests a café because she wants somewhere quiet. Sam suggests a park because he needs a free outing. Before comparing venues, what two underlying needs should their plan address?",
-      "ar": "تقترح مايا مقهى لأنها تريد مكاناً هادئاً. ويقترح سام حديقة لأنه يحتاج إلى نزهة بلا تكلفة. قبل مقارنة الأماكن، ما الاحتياجان اللذان ينبغي أن تعالجهما خطتهما؟"
+      "ar": "مايا تقترح مقهى لأنها تبي مكان هادي. وسام يقترح حديقة لأنه يحتاج طلعة ببلاش. قبل ما يقارنون الأماكن، شو الحاجتين اللي لازم خطتهم تغطيها؟"
     },
     "answer": {
       "en": "A quiet setting and no cost; the café and park are proposed solutions, not the underlying needs.",
@@ -788,7 +788,7 @@
     },
     "question": {
       "en": "Two housemates are checking an incident before discussing a recurring pattern. Both confirm that yesterday's dishes were left overnight; they disagree about earlier weeks. What can they record as agreed, and what remains unresolved?",
-      "ar": "يتحقق شريكا سكن من واقعة قبل مناقشة نمط متكرر. كلاهما يؤكد أن أطباق الأمس بقيت طوال الليل، لكنهما يختلفان بشأن الأسابيع السابقة. ماذا يسجّلان كواقعة متفق عليها، وما الذي يبقى دون حسم؟"
+      "ar": "شريكين بالسكن يتأكدون من حادثة قبل ما يحكون عن شي يتكرر. الاثنين متفقين إن صحون أمس ظلّت طول الليل، بس مختلفين على الأسابيع اللي قبل. شو يسجّلون كحادثة متفق عليها، وشو اللي يظل مش محسوم؟"
     },
     "answer": {
       "en": "Agreed: yesterday's dishes remained overnight. Unresolved: whether this is a recurring pattern.",
@@ -808,7 +808,7 @@
     },
     "question": {
       "en": "You forgot to collect a friend's parcel. They say, “It closes at 6; I need the parcel today.” Which offer addresses both constraints? A: Collect it tomorrow morning. B: Collect it at 5 today.",
-      "ar": "نسيت استلام طرد لصديق. يقول: «يغلق المكان عند السادسة؛ وأحتاج الطرد اليوم». أي عرض يلبّي الشرطين؟ A: استلامه صباح الغد. B: استلامه اليوم عند الخامسة."
+      "ar": "نسيت تستلم طرد لصاحبك. يقول: «المكان يسكّر الساعة ستة؛ وأحتاج الطرد اليوم». أي عرض يحقق الشرطين؟ A: تستلمه بكرة الصبح. B: تستلمه اليوم الساعة خمسة."
     },
     "answer": {
       "en": "B: collect it at 5 today, before closing and on the requested day.",
@@ -836,7 +836,7 @@
     },
     "question": {
       "en": "Which reply asks for a concrete example instead of turning a complaint into a character judgment? A: “Anyone who complains like this is impossible to talk to.” B: “Can you give an example of when you felt I was not listening?”",
-      "ar": "أيّ رد يطلب مثالًا محددًا بدل تحويل الشكوى إلى حكم على الشخصية؟ A: «كل من يشتكي هكذا يستحيل الحديث معه.» B: «هل تعطيني مثالًا على موقف شعرت فيه بأنني لم أستمع؟»"
+      "ar": "أي رد يطلب مثال محدد بدل ما يحوّل الشكوى لحكم على الشخصية؟ A: «كل واحد يشتكي كذا مستحيل تتفاهم معه.» B: «تعطيني مثال على موقف حسّيت فيه إني ما سمعتك؟»"
     },
     "answer": {
       "en": "B — It seeks information about a situation.",
@@ -864,7 +864,7 @@
     },
     "question": {
       "en": "Housemates will test a new cleaning schedule for one week. They agree to review it on Sunday but have not defined what success means. What should they add so the review is not based only on impressions?",
-      "ar": "سيجرّب شريكا سكن جدول تنظيف جديداً لأسبوع، واتفقا على مراجعته الأحد لكنهما لم يحددا معنى النجاح. ماذا يضيفان كي لا تقوم المراجعة على الانطباعات وحدها؟"
+      "ar": "شريكين بالسكن بيجرّبون جدول تنظيف جديد لمدة أسبوع، واتفقوا يراجعونه يوم الأحد، بس ما حدّدوا شو يعني النجاح. شو يضيفون عشان المراجعة ما تعتمد على الانطباعات وبس؟"
     },
     "answer": {
       "en": "An agreed measure, such as whether each assigned task was completed by its deadline.",
@@ -884,7 +884,7 @@
     },
     "question": {
       "en": "Classify these as observation, interpretation, or request: 1 “We spoke for five minutes.” 2 “You wanted to avoid me.” 3 “Could we set aside half an hour tomorrow?”",
-      "ar": "صنّف العبارات إلى ملاحظة أو تفسير أو طلب: 1 «تحدثنا خمس دقائق». 2 «أردتَ تجنّبي». 3 «هل نخصص نصف ساعة غداً؟»"
+      "ar": "صنّف الجمل: ملاحظة ولا تفسير ولا طلب: 1 «حكينا خمس دقايق». 2 «كنت تبي تتجنّبني». 3 «نخصص نص ساعة بكرة؟»"
     },
     "answer": {
       "en": "1: observation. 2: interpretation of motive. 3: request.",
@@ -904,7 +904,7 @@
     },
     "question": {
       "en": "Two friends remember agreeing on different meeting times. A shared message says only, “Let's meet after work.” What can that message establish, and what must they still clarify?",
-      "ar": "يتذكر صديقان أنهما اتفقا على وقتين مختلفين للقاء. وتقول الرسالة المشتركة فقط: «لنلتقِ بعد العمل». ماذا يمكن أن تثبته الرسالة، وما الذي يحتاج إلى توضيح؟"
+      "ar": "صاحبين يتذكّرون إنهم اتفقوا على وقتين مختلفين للقاء. والرسالة اللي بينهم مكتوب فيها بس: «نلتقي بعد الدوام». شو تقدر تثبته الرسالة، وشو اللي يحتاج توضيح؟"
     },
     "answer": {
       "en": "It supports meeting after work but does not establish an exact time. They still need to agree on a time.",
@@ -924,7 +924,7 @@
     },
     "question": {
       "en": "Both friends know a train takes 40 minutes and a bus takes 70. One values saving time; the other values the bus's lower fare. Is the remaining disagreement about the travel-time facts or about priorities?",
-      "ar": "يعرف الصديقان أن القطار يستغرق 40 دقيقة والحافلة 70. يفضّل أحدهما توفير الوقت، والآخر انخفاض أجرة الحافلة. هل الخلاف المتبقي حول معلومات مدة الرحلة أم حول الأولويات؟"
+      "ar": "الصاحبين يعرفون إن القطار ياخذ 40 دقيقة والباص 70. واحد يفضّل يوفّر وقت، والثاني يفضّل إن الباص أرخص. الخلاف الباقي على معلومات مدة الطريق ولا على الأولويات؟"
     },
     "answer": {
       "en": "Priorities: they agree on the times but weigh time and cost differently.",
@@ -944,7 +944,7 @@
     },
     "question": {
       "en": "A friend asks, “Help me work out what matters most; please don't rank the options for me yet.” Which reply meets that request? A: “How would you rank the pay, location and working hours?” B: “Shall we compare which job has the most advantages?”",
-      "ar": "يقول صديق: «ساعدني في تحديد الأهم لي؛ ولا ترتّب الخيارات عني الآن». أي رد يلبّي طلبه؟ A: «كيف ترتّب أهمية الراتب والموقع وساعات العمل؟» B: «هل نقارن أي الوظائف تملك مزايا أكثر؟»"
+      "ar": "صاحبك يقول: «ساعدني أحدد شو الأهم بالنسبة لي؛ ولا ترتّب الخيارات بدالي الحين». أي رد يلبّي طلبه؟ A: «كيف ترتّب أهمية الراتب والمكان وساعات الدوام؟» B: «نقارن أي وظيفة فيها مزايا أكثر؟»"
     },
     "answer": {
       "en": "A: it elicits the friend's priorities before evaluating the jobs.",
@@ -972,7 +972,7 @@
     },
     "question": {
       "en": "The agreed task-list format is “task + owner + deadline.” The entry says, “Sam will buy the groceries.” Which required field is missing?",
-      "ar": "الصيغة المتفق عليها لقائمة المهام هي «المهمة + المسؤول عنها + الموعد النهائي». يقول البند: «سيشتري سام البقالة». ما العنصر المطلوب الناقص؟"
+      "ar": "الصيغة المتفق عليها لقائمة المهام هي «المهمة + المسؤول عنها + آخر موعد». البند مكتوب: «سام بيشتري الأغراض». شو العنصر الناقص؟"
     },
     "answer": {
       "en": "The deadline: when Sam has agreed to complete the shopping.",
@@ -992,7 +992,7 @@
     },
     "question": {
       "en": "Two friends may use their shared car only if both approve the same trip plan. One approves Saturday, 9–12. The other approves Saturday, 10–1. Have they met their rule? If not, what remains to be agreed?",
-      "ar": "يشترط صديقان لاستخدام سيارتهما المشتركة أن يوافقا على خطة الرحلة نفسها. يوافق أحدهما على السبت من 9 إلى 12، والآخر على السبت من 10 إلى 1. هل تحققت القاعدة؟ وإن لم تتحقق، فعلى ماذا ينبغي أن يتفقا؟"
+      "ar": "صاحبين يشترطون عشان يستخدمون سيارتهم المشتركة إنهم يتفقون على نفس خطة المشوار. واحد موافق على السبت من 9 لـ12، والثاني على السبت من 10 لـ1. القاعدة تحققت؟ وإذا لا، على شو لازم يتفقون؟"
     },
     "answer": {
       "en": "No. Their approvals cover different time windows; both must approve one common plan, not an assumed overlap.",
@@ -1012,7 +1012,7 @@
     },
     "question": {
       "en": "Housemates chose two review criteria: weekly time spent on chores and whether fixed deadlines were met. One completed six ten-minute tasks; the other completed two one-hour tasks. All deadlines were met. Does task count alone answer their review question?",
-      "ar": "اختار شريكا سكن معيارين للمراجعة: الوقت الأسبوعي للأعمال المنزلية والالتزام بالمواعيد. أنجز أحدهما ست مهام، كل منها عشر دقائق، والآخر مهمتين، كل منهما ساعة. أُنجزت كلها في موعدها. هل يكفي عدد المهام للمراجعة؟"
+      "ar": "شريكين بالسكن اختاروا معيارين للمراجعة: الوقت الأسبوعي لشغل البيت والالتزام بالمواعيد. واحد خلّص ست مهام، كل وحدة عشر دقايق، والثاني مهمتين، كل وحدة ساعة. كلها خلصت بوقتها. هل عدد المهام يكفي للمراجعة؟"
     },
     "answer": {
       "en": "No. The recorded times are 60 versus 120 minutes. They should review those totals, without assuming task count measures effort.",
@@ -1032,7 +1032,7 @@
     },
     "question": {
       "en": "You want to thank a friend for helping. Which response describes the specific contribution? A: “You are useful when you do what I want.” B: “Thank you for collecting the keys; it let me finish the appointment on time.”",
-      "ar": "تريد شكر صديق على مساعدته. أيّ رد يصف المساهمة المحددة؟ A: «أنت مفيد عندما تفعل ما أريد.» B: «شكرًا لإحضار المفاتيح؛ فقد ساعدني ذلك على إتمام الموعد في وقته.»"
+      "ar": "تبي تشكر صاحبك على مساعدته. أي رد يوصف مساهمته بالتحديد؟ A: «إنت مفيد لما تسوي اللي أبيه.» B: «شكرًا إنك جبت المفاتيح؛ ساعدتني ألحق الموعد بوقته.»"
     },
     "answer": {
       "en": "B — It names the helpful action without making appreciation conditional on obedience.",
@@ -1060,7 +1060,7 @@
     },
     "question": {
       "en": "A friend is quieter than usual. Which response avoids diagnosing them from one observation? A: “Your silence proves you have a psychological disorder.” B: “You seem quieter today. Would you like to talk, or would you prefer some space?”",
-      "ar": "صديق أهدأ من المعتاد. أيّ رد يتجنب تشخيصه انطلاقًا من ملاحظة واحدة؟ A: «صمتك يثبت أن لديك اضطرابًا نفسيًا.» B: «تبدو أهدأ اليوم. هل تود الحديث أم تفضل بعض المساحة؟»"
+      "ar": "صاحبك أهدى من العادة. أي رد ما يشخّصه من ملاحظة وحدة؟ A: «سكوتك يثبت إن عندك اضطراب نفسي.» B: «تبان أهدى اليوم. تحب نحكي ولا تفضّل شوية مساحة؟»"
     },
     "answer": {
       "en": "B — It checks what the friend wants without making a diagnosis.",
@@ -1088,7 +1088,7 @@
     },
     "question": {
       "en": "Your friend needs someone to collect a document today and deliver it tomorrow. You are available tomorrow only. Which offer states your capacity while preserving today's collection deadline? A: “I can deliver it tomorrow if someone else collects it today.” B: “I can collect and deliver it tomorrow.”",
-      "ar": "يحتاج صديق إلى استلام مستند اليوم وتسليمه غداً، وأنت متاح غداً فقط. أي عرض يوضح قدرتك ويحافظ على موعد الاستلام اليوم؟ A: «أستطيع تسليمه غداً إذا استلمه شخص آخر اليوم». B: «أستطيع استلامه وتسليمه غداً»."
+      "ar": "صاحبك يحتاج أحد يستلم مستند اليوم ويسلّمه بكرة، وإنت فاضي بكرة بس. أي عرض يوضح قدرتك ويحافظ على موعد الاستلام اليوم؟ A: «أقدر أسلّمه بكرة إذا أحد ثاني استلمه اليوم». B: «أقدر أستلمه وأسلّمه بكرة»."
     },
     "answer": {
       "en": "A: it offers the part you can do while keeping today's collection requirement explicit.",
@@ -1116,7 +1116,7 @@
     },
     "question": {
       "en": "Two friends prefer different ways of celebrating. Which question explores both preferences? A: “Why can you not enjoy things exactly as I do?” B: “What would make the occasion enjoyable for each of us?”",
-      "ar": "يفضل صديقان طريقتين مختلفتين للاحتفال. أيّ سؤال يستكشف تفضيلاتهما معًا؟ A: «لماذا لا تستمتع بالأشياء بالطريقة نفسها التي أستمتع بها؟» B: «ما الذي يجعل المناسبة ممتعة لكل منا؟»"
+      "ar": "صاحبين يحبون يحتفلون بطريقتين مختلفتين. أي سؤال يستكشف اللي يحبه كل واحد؟ A: «ليش ما تستمتع بالأشياء بنفس طريقتي؟» B: «شو اللي يخلّي المناسبة حلوة لكل واحد فينا؟»"
     },
     "answer": {
       "en": "B — It leaves room for different preferences.",
@@ -1144,7 +1144,7 @@
     },
     "question": {
       "en": "A friend permits you to send one photograph to Noor by private message, without reposting it. Which action stays within that permission? A: Send it to Noor privately. B: Add it to a private group that includes Noor. C: Post it without naming the friend.",
-      "ar": "يسمح لك صديق بإرسال صورة واحدة إلى نور برسالة خاصة دون إعادة نشرها. أي تصرف يبقى ضمن الإذن؟ A: إرسالها إلى نور على انفراد. B: وضعها في مجموعة خاصة تضم نور. C: نشرها دون ذكر اسم الصديق."
+      "ar": "صاحبك سمح لك تبعت صورة وحدة لنور برسالة خاصة، من غير ما تنشرها. أي تصرف يظل ضمن الإذن؟ A: تبعتها لنور على الخاص. B: تحطها بمجموعة خاصة فيها نور. C: تنشرها من غير ما تذكر اسم صاحبك."
     },
     "answer": {
       "en": "A. The permission specifies one recipient and a private message; a group or unnamed post extends the audience.",
@@ -1172,7 +1172,7 @@
     },
     "question": {
       "en": "A friend privately shares news. Which action checks whether you may pass it on? A: “Ask who, if anyone, they are comfortable with you telling.” B: “Assume that telling you means permission to tell a group chat.”",
-      "ar": "يشاركك صديق خبرًا على انفراد. أيّ تصرف يتحقق من جواز نقله؟ A: «اسأله مَن يقبل أن تخبره، إن كان يقبل إخبار أحد.» B: «افترض أن إخبارك يعني السماح بالنشر في مجموعة دردشة.»"
+      "ar": "صاحبك قال لك خبر على انفراد. أي تصرف يتأكد إذا ينفع تنقله؟ A: «اسأله مين يقبل إنك تقوله، إذا يقبل أصلًا.» B: «افترض إنه لما قالك يعني موافق تنشره بمجموعة الدردشة.»"
     },
     "answer": {
       "en": "A — Private disclosure does not itself specify permission for wider sharing.",
@@ -1200,7 +1200,7 @@
     },
     "question": {
       "en": "The group agreed: book only after all three people explicitly confirm both the date and venue. Noor confirms Friday at Café X; Sam confirms Friday but asks about another venue; Lina has not replied. What confirmations are still needed?",
-      "ar": "اتفقت المجموعة على ألّا تحجز إلا بعد أن يؤكد الأشخاص الثلاثة صراحةً الموعد والمكان معاً. تؤكد نور الجمعة في مقهى X؛ ويؤكد سام الجمعة لكنه يسأل عن مكان آخر؛ ولم ترد لينا. ما التأكيدات التي ما زالت مطلوبة؟"
+      "ar": "المجموعة اتفقت ما تحجز إلا لما الثلاثة يأكدون صراحة الموعد والمكان مع بعض. نور أكدت الجمعة في مقهى X؛ وسام أكد الجمعة بس سأل عن مكان ثاني؛ ولينا ما ردّت. شو التأكيدات اللي لسّا مطلوبة؟"
     },
     "answer": {
       "en": "Sam must confirm the venue, and Lina must confirm both date and venue. Any changed plan needs renewed confirmation from everyone.",
@@ -1220,7 +1220,7 @@
     },
     "question": {
       "en": "A chat shows “read at 2:10.” By 2:30 there is no reply. Name one observation the record supports and one conclusion about motive it does not establish.",
-      "ar": "تُظهر الدردشة «قُرئت عند 2:10»، ولا يوجد رد عند 2:30. اذكر ملاحظة يدعمها السجل واستنتاجاً عن الدافع لا يثبته."
+      "ar": "الدردشة تبيّن «انقرأت الساعة 2:10»، وما في رد لحد 2:30. اذكر ملاحظة يدعمها السجل، واستنتاج عن السبب ما يثبته السجل."
     },
     "answer": {
       "en": "Observation: no reply appears by 2:30. Not established: that the person is deliberately ignoring or upsetting the sender.",
@@ -1240,7 +1240,7 @@
     },
     "question": {
       "en": "You agree to remove a friend's photo. You control your own post, but another person has already shared a copy. Which update accurately distinguishes an action from an uncertain outcome? A: “I removed my post and asked them to remove theirs.” B: “The photo is now gone everywhere.”",
-      "ar": "وافقت على إزالة صورة لصديق. تتحكم في منشورك، لكن شخصاً آخر سبق أن شارك نسخة. أي تحديث يميّز الإجراء المنفّذ عن نتيجة غير مؤكدة؟ A: «أزلت منشوري وطلبت منه إزالة نسخته». B: «اختفت الصورة الآن من كل مكان»."
+      "ar": "وافقت تشيل صورة لصاحبك. منشورك إنت تتحكم فيه، بس في شخص ثاني سبق وشارك نسخة. أي تحديث يفرّق بين اللي سويته فعلًا والنتيجة اللي مش مأكدة؟ A: «شلت منشوري وطلبت منه يشيل نسخته». B: «الصورة اختفت الحين من كل مكان»."
     },
     "answer": {
       "en": "A. Removing your post and requesting another removal does not establish that every copy has disappeared.",
@@ -1268,7 +1268,7 @@
     },
     "question": {
       "en": "Two friends agree: routine messages receive a reply within one day; time-sensitive matters use a phone call. One needs an answer within an hour but has sent only a routine message. What step follows their agreed process without assuming instant availability?",
-      "ar": "اتفق صديقان على الرد على الرسائل العادية خلال يوم، واستخدام الاتصال الهاتفي للأمور الحساسة للوقت. يحتاج أحدهما إلى جواب خلال ساعة لكنه أرسل رسالة عادية فقط. ما الخطوة الموافقة لاتفاقهما دون افتراض التفرغ الفوري؟"
+      "ar": "صاحبين اتفقوا يردّون على الرسائل العادية خلال يوم، ويتصلون بالتلفون للأمور المستعجلة. واحد منهم يحتاج جواب خلال ساعة بس بعت رسالة عادية. شو الخطوة اللي تتماشى مع اتفاقهم من غير ما يفترض إن الثاني فاضي فورًا؟"
     },
     "answer": {
       "en": "Try the agreed phone call and explain the deadline; a call still does not guarantee the other person can answer immediately.",

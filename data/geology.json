@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "What is the name of the outermost solid layer of the Earth?",
-      "ar": "ما اسم الطبقة الصلبة الخارجية للأرض؟"
+      "ar": "شو اسم الطبقة الصلبة الخارجية للأرض؟"
     },
     "answer": {
       "en": "The crust.",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "What is the name of the thick layer between the crust and the core?",
-      "ar": "ما اسم الطبقة السميكة الواقعة بين القشرة واللب؟"
+      "ar": "شو اسم الطبقة السميكة اللي بين القشرة واللب؟"
     },
     "answer": {
       "en": "The mantle.",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "What is the term for molten rock that is still beneath the Earth's surface?",
-      "ar": "ما المصطلح الذي يُطلق على الصخر المنصهر الموجود تحت سطح الأرض؟"
+      "ar": "شو نسمّي الصخر المنصهر اللي تحت سطح الأرض؟"
     },
     "answer": {
       "en": "Magma.",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "What do we call magma after it has erupted onto the surface?",
-      "ar": "بماذا نسمي الصهارة بعد خروجها إلى سطح الأرض؟"
+      "ar": "شو نسمّي الصهارة لما تطلع على سطح الأرض؟"
     },
     "answer": {
       "en": "Lava.",
@@ -84,7 +84,7 @@
     },
     "question": {
       "en": "What type of rock is formed when magma or lava cools and solidifies?",
-      "ar": "ما نوع الصخور التي تتكوّن عندما تبرد الصهارة أو الحمم وتتصلب؟"
+      "ar": "شو نوع الصخور اللي تتكوّن لما تبرد الصهارة أو الحمم وتتصلّب؟"
     },
     "answer": {
       "en": "Igneous rock.",
@@ -103,7 +103,7 @@
     },
     "question": {
       "en": "What type of rock forms from layers of compressed sediment over time?",
-      "ar": "ما نوع الصخور التي تتكوّن من طبقات من الرواسب المضغوطة عبر الزمن؟"
+      "ar": "شو نوع الصخور اللي تتكوّن من طبقات رواسب انضغطت مع الوقت؟"
     },
     "answer": {
       "en": "Sedimentary rock.",
@@ -122,7 +122,7 @@
     },
     "question": {
       "en": "What is the name for rocks that have been changed by intense heat and pressure?",
-      "ar": "ما اسم الصخور التي تغيّرت بفعل الحرارة الشديدة والضغط؟"
+      "ar": "شو اسم الصخور اللي تغيّرت بسبب حرارة وضغط عاليين كثير؟"
     },
     "answer": {
       "en": "Metamorphic rock.",
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "What is the hardest natural mineral on the Mohs scale?",
-      "ar": "ما أصلب معدن طبيعي على مقياس موس؟"
+      "ar": "شو أقسى معدن طبيعي على مقياس موس؟"
     },
     "answer": {
       "en": "Diamond, with a hardness of 10.",
@@ -160,7 +160,7 @@
     },
     "question": {
       "en": "What is the term for the point on the Earth's surface directly above where an earthquake originates?",
-      "ar": "ما المصطلح الذي يُطلق على النقطة الموجودة على سطح الأرض مباشرةً فوق بؤرة الزلزال؟"
+      "ar": "شو نسمّي النقطة على سطح الأرض اللي فوق بؤرة الزلزال مباشرة؟"
     },
     "answer": {
       "en": "The epicenter.",
@@ -179,7 +179,7 @@
     },
     "question": {
       "en": "What is the process called when rocks and soil are worn away and carried elsewhere by water, wind, or ice?",
-      "ar": "ما العملية التي تتآكل فيها الصخور والتربة وتُنقل بفعل الماء أو الرياح أو الجليد؟"
+      "ar": "شو العملية اللي تتآكل فيها الصخور والتربة وتنتقل بالمي أو الريح أو الجليد؟"
     },
     "answer": {
       "en": "Erosion.",
@@ -198,7 +198,7 @@
     },
     "question": {
       "en": "What are the slowly moving slabs of lithosphere, made of crust and rigid uppermost mantle, called?",
-      "ar": "ما اسم ألواح الغلاف الصخري البطيئة الحركة، المكوّنة من القشرة والجزء الأعلى الصلب من الوشاح؟"
+      "ar": "شو اسم ألواح الغلاف الصخري اللي تتحرك ببطء، ومكوّنة من القشرة والجزء الصلب الفوقاني من الوشاح؟"
     },
     "answer": {
       "en": "Tectonic plates.",
@@ -217,7 +217,7 @@
     },
     "question": {
       "en": "What very common mineral is made of silicon and oxygen and is found in sand?",
-      "ar": "ما المعدن الشائع جدًا المصنوع من السيليكون والأكسجين والموجود في الرمال؟"
+      "ar": "شو المعدن المنتشر كثير، المكوّن من السيليكون والأكسجين، واللي نلاقيه بالرمل؟"
     },
     "answer": {
       "en": "Quartz.",
@@ -236,7 +236,7 @@
     },
     "question": {
       "en": "What is the term for a crack in the Earth's crust where two blocks of rock have moved past each other?",
-      "ar": "ما المصطلح الذي يُطلق على شق في القشرة الأرضية تحرّك عنده كتلتا صخر متجاوزتَين؟"
+      "ar": "شو نسمّي الشق في قشرة الأرض اللي تحرّكت عنده كتلتين صخر جنب بعض؟"
     },
     "answer": {
       "en": "A fault.",
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "What is the preserved remains or trace of an ancient organism found in rock called?",
-      "ar": "ما الاسم الذي يُطلق على بقايا أو آثار كائن قديم محفوظة في الصخر؟"
+      "ar": "شو نسمّي بقايا أو آثار كائن قديم محفوظة بالصخر؟"
     },
     "answer": {
       "en": "A fossil.",
@@ -274,7 +274,7 @@
     },
     "question": {
       "en": "What dense, dark volcanic rock covers much of the ocean floor?",
-      "ar": "ما الصخر البركاني الكثيف الداكن الذي يغطي معظم قاع المحيط؟"
+      "ar": "شو الصخر البركاني الغامق والكثيف اللي يغطي أغلب قاع المحيط؟"
     },
     "answer": {
       "en": "Basalt.",
@@ -293,7 +293,7 @@
     },
     "question": {
       "en": "What is the process called when one tectonic plate slides beneath another into the mantle?",
-      "ar": "ما العملية التي تنزلق فيها صفيحة تكتونية تحت أخرى إلى داخل الوشاح؟"
+      "ar": "شو العملية اللي تنزلق فيها صفيحة تكتونية تحت صفيحة ثانية وتدخل الوشاح؟"
     },
     "answer": {
       "en": "Subduction.",
@@ -312,7 +312,7 @@
     },
     "question": {
       "en": "What coarse-grained igneous rock, often pink or grey, is widely used in construction?",
-      "ar": "ما الصخر الناري خشن الحبيبات، الذي يكون في الغالب ورديًا أو رماديًا، والمستخدم على نطاق واسع في البناء؟"
+      "ar": "شو الصخر الناري الخشن، اللي غالبًا لونه وردي أو رمادي، وينستخدم كثير بالبناء؟"
     },
     "answer": {
       "en": "Granite.",
@@ -331,7 +331,7 @@
     },
     "question": {
       "en": "Which earthquake magnitude scale was introduced in 1935 for local earthquakes using seismograph amplitudes?",
-      "ar": "ما مقياس مقدار الزلزال الذي أُدخل عام 1935 للزلازل المحلية اعتماداً على سعات التسجيل الزلزالي؟"
+      "ar": "شو مقياس قوة الزلزال اللي ظهر سنة 1935 للزلازل المحلية، ويعتمد على حجم الموجات بأجهزة الرصد؟"
     },
     "answer": {
       "en": "The Richter scale.",
@@ -350,7 +350,7 @@
     },
     "question": {
       "en": "What is the name of the supercontinent that contained most of Earth's landmasses about 300 million years ago?",
-      "ar": "ما اسم القارة الأم التي ضمّت معظم كتل اليابسة على الأرض منذ نحو 300 مليون سنة؟"
+      "ar": "شو اسم القارة الأم اللي كانت تجمع أغلب يابسة الأرض قبل حوالي 300 مليون سنة؟"
     },
     "answer": {
       "en": "Pangaea.",
@@ -369,7 +369,7 @@
     },
     "question": {
       "en": "What is the scale used to measure the hardness of minerals, ranging from 1 (talc) to 10 (diamond)?",
-      "ar": "ما المقياس المستخدم لقياس صلابة المعادن، الذي يتراوح بين 1 (التلك) و10 (الماس)؟"
+      "ar": "شو المقياس اللي يقيس صلابة المعادن من 1 (التلك) لـ10 (الألماس)؟"
     },
     "answer": {
       "en": "The Mohs hardness scale.",
@@ -388,7 +388,7 @@
     },
     "question": {
       "en": "What type of tectonic boundary occurs where two plates move apart from each other?",
-      "ar": "ما نوع الحدود التكتونية التي تنجم عن تحرّك صفيحتين بعيدًا عن بعضهما؟"
+      "ar": "شو نوع الحدود التكتونية اللي تصير لما صفيحتين يبعدون عن بعض؟"
     },
     "answer": {
       "en": "A divergent boundary (also called a constructive margin).",
@@ -407,7 +407,7 @@
     },
     "question": {
       "en": "What geological feature forms at a divergent boundary on the ocean floor?",
-      "ar": "ما المعلم الجيولوجي الذي يتشكّل عند الحدود المتباعدة في قاع المحيط؟"
+      "ar": "شو المعلم الجيولوجي اللي يتكوّن عند الحدود المتباعدة بقاع المحيط؟"
     },
     "answer": {
       "en": "A mid-ocean ridge.",
@@ -426,7 +426,7 @@
     },
     "question": {
       "en": "What are the two types of igneous rock based on where they solidify?",
-      "ar": "ما النوعان من الصخور النارية بناءً على مكان تصلّبها؟"
+      "ar": "حسب مكان تصلّبها، شو النوعين من الصخور النارية؟"
     },
     "answer": {
       "en": "Intrusive or plutonic rocks solidify underground; extrusive or volcanic rocks solidify at the surface.",
@@ -445,7 +445,7 @@
     },
     "question": {
       "en": "What are the two main types of seismic body waves that travel through Earth's interior?",
-      "ar": "ما النوعان الرئيسيان للموجات الزلزالية الجسمية التي تنتقل داخل الأرض؟"
+      "ar": "شو النوعين الأساسيين من الموجات الزلزالية اللي تمشي جوّا الأرض؟"
     },
     "answer": {
       "en": "P-waves (primary/compressional waves) and S-waves (secondary/shear waves).",
@@ -464,7 +464,7 @@
     },
     "question": {
       "en": "What method uses the decay of radioactive isotopes to determine the age of rocks and fossils?",
-      "ar": "ما الطريقة التي تستخدم تحلّل النظائر المشعة لتحديد عمر الصخور والأحافير؟"
+      "ar": "شو الطريقة اللي تستخدم تحلّل النظائر المشعة عشان تعرف عمر الصخور والأحافير؟"
     },
     "answer": {
       "en": "Radiometric (radioactive) dating.",
@@ -483,7 +483,7 @@
     },
     "question": {
       "en": "Which mineral class includes quartz and feldspars and dominates Earth's crust?",
-      "ar": "ما فئة المعادن التي تضم الكوارتز والفلسبارات وتسود في القشرة الأرضية؟"
+      "ar": "أي فئة معادن فيها الكوارتز والفلسبار، وهي الأكثر بقشرة الأرض؟"
     },
     "answer": {
       "en": "Silicate minerals.",
@@ -502,7 +502,7 @@
     },
     "question": {
       "en": "What is the name of the ring of volcanoes and seismic activity that encircles the Pacific Ocean?",
-      "ar": "ما اسم حلقة البراكين والنشاط الزلزالي التي تحيط بالمحيط الهادئ؟"
+      "ar": "شو اسم الحلقة اللي فيها براكين وزلازل كثير حوالين المحيط الهادئ؟"
     },
     "answer": {
       "en": "The Ring of Fire.",
@@ -521,7 +521,7 @@
     },
     "question": {
       "en": "In the rock cycle, what process converts sedimentary rock into metamorphic rock?",
-      "ar": "في دورة الصخور، ما العملية التي تحوّل الصخور الرسوبية إلى صخور متحوّلة؟"
+      "ar": "في دورة الصخور، شو العملية اللي تحوّل الصخور الرسوبية لصخور متحوّلة؟"
     },
     "answer": {
       "en": "Intense heat and pressure deep within the Earth (typically at subduction zones or mountain-building regions).",
@@ -540,7 +540,7 @@
     },
     "question": {
       "en": "What is the geological term for the deposition of eroded material in a new location?",
-      "ar": "ما المصطلح الجيولوجي لترسّب المواد المتآكلة في موضع جديد؟"
+      "ar": "جيولوجيًا، شو نسمّي لما المواد المتآكلة تترسّب بمكان جديد؟"
     },
     "answer": {
       "en": "Sedimentation (or deposition).",
@@ -559,7 +559,7 @@
     },
     "question": {
       "en": "What is a horst in geology?",
-      "ar": "ما المقصود بالهورست في الجيولوجيا؟"
+      "ar": "في الجيولوجيا، شو المقصود بـ«الهورست»؟"
     },
     "answer": {
       "en": "A crustal block standing higher than adjacent blocks between normal faults. Relative elevation can result from the neighboring blocks subsiding.",
@@ -578,7 +578,7 @@
     },
     "question": {
       "en": "What is the difference between a shield volcano and a stratovolcano?",
-      "ar": "ما الفرق بين البركان الدرعي والبركان الطباقي؟"
+      "ar": "شو الفرق بين البركان الدرعي والبركان الطبقي؟"
     },
     "answer": {
       "en": "A shield volcano has gentle slopes and erupts low-viscosity lava over large areas. A stratovolcano (composite volcano) has steep sides and erupts thick lava, ash, and pyroclastic material explosively.",
@@ -597,7 +597,7 @@
     },
     "question": {
       "en": "What type of boundary is the San Andreas Fault in California?",
-      "ar": "ما نوع الحدود التي يمثّلها صدع سان أندرياس في كاليفورنيا؟"
+      "ar": "صدع سان أندرياس في كاليفورنيا أي نوع حدود؟"
     },
     "answer": {
       "en": "A transform plate boundary dominated by horizontal strike-slip motion: the plates slide past each other.",
@@ -616,7 +616,7 @@
     },
     "question": {
       "en": "Which era of geological time is known as the 'Age of Dinosaurs'?",
-      "ar": "أي حقبة من الزمن الجيولوجي تُعرف بـ 'عصر الديناصورات'؟"
+      "ar": "أي حقبة جيولوجية معروفة بإنها «عصر الديناصورات»؟"
     },
     "answer": {
       "en": "The Mesozoic Era (comprising the Triassic, Jurassic, and Cretaceous periods).",
@@ -635,7 +635,7 @@
     },
     "question": {
       "en": "What is an aquifer?",
-      "ar": "ما الطبقة الحاملة للمياه الجوفية؟"
+      "ar": "شو نسمّي الطبقة اللي تحمل المي الجوفية؟"
     },
     "answer": {
       "en": "A permeable geological formation that stores and transmits groundwater in usable quantities.",
@@ -654,7 +654,7 @@
     },
     "question": {
       "en": "What mineral property describes how a mineral breaks along flat planes?",
-      "ar": "ما خاصية المعدن التي تصف انكساره على طول مستويات مستوية؟"
+      "ar": "شو خاصية المعدن اللي توصف إنه ينكسر على مستويات مستوية؟"
     },
     "answer": {
       "en": "Cleavage.",
@@ -673,7 +673,7 @@
     },
     "question": {
       "en": "What is a caldera?",
-      "ar": "ما هو الكالديرا؟"
+      "ar": "شو هي «الكالديرا»؟"
     },
     "answer": {
       "en": "A large volcanic depression commonly formed when the ground collapses into a magma chamber after substantial magma withdrawal.",
@@ -692,7 +692,7 @@
     },
     "question": {
       "en": "What physical process breaks rock into smaller pieces without changing its chemical composition?",
-      "ar": "ما العملية الفيزيائية التي تكسر الصخر إلى قطع أصغر دون تغيير تركيبه الكيميائي؟"
+      "ar": "شو العملية الفيزيائية اللي تكسّر الصخر لقطع أصغر من غير ما يتغير تركيبه الكيميائي؟"
     },
     "answer": {
       "en": "Mechanical (physical) weathering.",
@@ -711,7 +711,7 @@
     },
     "question": {
       "en": "What is the geomorphological term for a steep-sided flat-topped hill formed by erosion in arid regions?",
-      "ar": "ما المصطلح الجيومورفولوجي للتلة ذات الجوانب الشديدة الانحدار والقمة المسطحة المتكوّنة بالتعرية في المناطق الجافة؟"
+      "ar": "شو نسمّي التلة اللي جوانبها منحدرة كثير وقمّتها مسطحة، وتتكوّن بالتعرية بالمناطق الجافة؟"
     },
     "answer": {
       "en": "A mesa (if large) or a butte (if smaller and narrower).",
@@ -730,7 +730,7 @@
     },
     "question": {
       "en": "What is isostasy in geology?",
-      "ar": "ما المقصود بالإيزوستاسيا في الجيولوجيا؟"
+      "ar": "في الجيولوجيا، شو المقصود بـ«الإيزوستاسي» (التوازن الأيزوستاتي)؟"
     },
     "answer": {
       "en": "The gravitational balance in which lithosphere is supported by the underlying mantle. Differences in thickness and density help explain differences in surface elevation.",
@@ -749,7 +749,7 @@
     },
     "question": {
       "en": "How does moment magnitude differ from the original Richter local magnitude scale?",
-      "ar": "كيف يختلف مقياس مقدار العزم الزلزالي عن مقياس ريختر المحلي الأصلي؟"
+      "ar": "كيف يختلف مقياس «العزم الزلزالي» عن مقياس ريختر المحلي الأصلي؟"
     },
     "answer": {
       "en": "Moment magnitude derives from seismic moment, related to fault area, slip, and rock rigidity. Richter local magnitude uses recorded wave amplitude and distance corrections; it becomes less suitable for very large earthquakes.",
@@ -768,7 +768,7 @@
     },
     "question": {
       "en": "During chemical weathering of feldspar, which common fine-grained mineral group can form?",
-      "ar": "أثناء التجوية الكيميائية للفلسبار، ما مجموعة المعادن الدقيقة الحبيبات التي يمكن أن تتكوّن؟"
+      "ar": "لما يتجوّى الفلسبار كيميائيًا، شو مجموعة المعادن الناعمة اللي ممكن تتكوّن؟"
     },
     "answer": {
       "en": "Clay minerals, such as kaolinite.",
@@ -787,7 +787,7 @@
     },
     "question": {
       "en": "What is an ophiolite and why is it geologically significant?",
-      "ar": "ما الأوفيوليت ولماذا هو ذو أهمية جيولوجية؟"
+      "ar": "شو هو «الأوفيوليت»، وليش مهم جيولوجيًا؟"
     },
     "answer": {
       "en": "An ophiolite is a section of oceanic crust and upper mantle that has been thrust onto continental crust during subduction. They are significant because they provide geologists with direct access to material from the ocean floor and upper mantle.",
@@ -806,7 +806,7 @@
     },
     "question": {
       "en": "What is the concept of 'uniformitarianism' proposed by James Hutton?",
-      "ar": "ما مفهوم 'التوحيدية' الذي اقترحه جيمس هوتن؟"
+      "ar": "شو فكرة «الوتيرة الواحدة» (Uniformitarianism) اللي اقترحها جيمس هاتون؟"
     },
     "answer": {
       "en": "The principle that natural laws and processes observed today also operated in the past. It does not require their rates or intensities to have remained constant.",
@@ -825,7 +825,7 @@
     },
     "question": {
       "en": "What materials make up a pyroclastic flow?",
-      "ar": "ما المواد التي يتكون منها تدفق الفتات البركاني الحار؟"
+      "ar": "من شو يتكوّن «التدفق الفتاتي البركاني» الحار؟"
     },
     "answer": {
       "en": "A rapidly moving mixture of hot gas, ash, and volcanic rock fragments flowing close to the ground.",
@@ -844,7 +844,7 @@
     },
     "question": {
       "en": "Which radioactive process inside Earth contributes heat that helps sustain mantle convection?",
-      "ar": "ما العملية الإشعاعية داخل الأرض التي تسهم بحرارة تساعد على استمرار الحمل الحراري في الوشاح؟"
+      "ar": "شو العملية الإشعاعية داخل الأرض اللي تعطي حرارة تساعد حركة الحمل بالوشاح تستمر؟"
     },
     "answer": {
       "en": "Radioactive decay of isotopes such as uranium, thorium, and potassium 40.",
@@ -863,7 +863,7 @@
     },
     "question": {
       "en": "Which impact structure in the Yucatán region is associated with the asteroid linked to the end-Cretaceous mass extinction?",
-      "ar": "ما فوهة الاصطدام في منطقة يوكاتان المرتبطة بالكويكب الذي ارتبط بالانقراض الجماعي في نهاية العصر الطباشيري؟"
+      "ar": "شو الفوهة اللي في يوكاتان المرتبطة بالكويكب اللي ارتبط بالانقراض الجماعي آخر العصر الطباشيري؟"
     },
     "answer": {
       "en": "The Chicxulub impact crater.",
@@ -882,7 +882,7 @@
     },
     "question": {
       "en": "What are Love waves and Rayleigh waves?",
-      "ar": "ما أمواج لاف وأمواج رالي؟"
+      "ar": "شو هي «موجات لاف» و«موجات رايلي»؟"
     },
     "answer": {
       "en": "They are surface seismic waves. Love waves cause horizontal shaking perpendicular to the direction of travel. Rayleigh waves cause a rolling elliptical motion at the surface. Both are slower than body waves (P and S) but cause most of the damage during earthquakes.",
@@ -901,7 +901,7 @@
     },
     "question": {
       "en": "What is the difference between partial melting and fractional crystallization in magma genesis?",
-      "ar": "ما الفرق بين الانصهار الجزئي والتبلور الجزئي في تكوّن الصهارة؟"
+      "ar": "في تكوّن الصهارة، شو الفرق بين «الانصهار الجزئي» و«التبلور الجزئي»؟"
     },
     "answer": {
       "en": "Partial melting occurs when rock in the mantle or crust melts partially, with different minerals melting at different temperatures — producing magma of a different composition from the source rock. Fractional crystallization occurs as magma cools, with minerals crystallizing out in sequence, progressively changing the composition of the remaining melt.",
@@ -920,7 +920,7 @@
     },
     "question": {
       "en": "What is the geomagnetic reversal and how is it recorded in rocks?",
-      "ar": "ما الانعكاس الجيومغناطيسي وكيف يُسجَّل في الصخور؟"
+      "ar": "شو هو «الانعكاس المغناطيسي الأرضي»، وكيف ينحفظ بالصخور؟"
     },
     "answer": {
       "en": "A geomagnetic reversal is when Earth's magnetic north and south poles swap positions. It is recorded in igneous rocks: as magma cools, magnetic minerals align with the current field direction and are locked in place. Alternating stripes of normal and reversed polarity on the ocean floor were key evidence for seafloor spreading.",
@@ -939,7 +939,7 @@
     },
     "question": {
       "en": "In an undisturbed sedimentary sequence, layerA lies beneath layerB. Which is older under the principle of superposition?",
-      "ar": "في تتابع رسوبي غير مضطرب تقع الطبقة A أسفل الطبقة B. أيهما أقدم وفق مبدأ التراكب الطبقي؟"
+      "ar": "في طبقات رسوبية ما تحرّكت، الطبقة A تحت الطبقة B. أيهم أقدم حسب مبدأ التراكب؟"
     },
     "answer": {
       "en": "LayerA is older than layerB.",

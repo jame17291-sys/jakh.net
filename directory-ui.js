@@ -13,9 +13,18 @@ export function createDirectoryUi({
   let bound = false;
   let searchTimer = null;
 
+  // Kids Riddles opens the Kids hub, which already has its own menu entry, so
+  // topics with listedInDirectory: false keep their section but get no card.
+  function listedSections() {
+    return getDirectorySections().map((section) => {
+      const categories = section.categories.filter((category) => category.listedInDirectory !== false);
+      return { ...section, categories, categoryCount: categories.length };
+    }).filter((section) => section.categoryCount > 0);
+  }
+
   function renderDirectory() {
     if (!els.categoryDirectoryGrid || !state.catalog) return;
-    const sections = getDirectorySections();
+    const sections = listedSections();
     const searchTerm = state.directorySearch;
     const isAr = state.lang === 'ar';
     const visibleSections = state.cluster === 'all'
@@ -63,11 +72,11 @@ export function createDirectoryUi({
       : '';
     const focusKey = focusCluster || activeCluster;
     const isAr = state.lang === 'ar';
-    const sections = getDirectorySections();
+    const sections = listedSections();
     const tabs = [{
       key: 'all',
       title: { en: 'All topics', ar: 'كل الموضوعات' },
-      categoryCount: state.catalog.categories.length,
+      categoryCount: sections.reduce((total, section) => total + section.categoryCount, 0),
     }, ...sections];
     tabBar.innerHTML = tabs.map((section) => {
       const name = section.title[state.lang] || section.title.en;

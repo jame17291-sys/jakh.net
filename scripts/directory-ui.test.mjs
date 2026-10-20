@@ -18,6 +18,9 @@ const sections = catalog.sections.map((section) => ({
   categories: section.members.map((slug) => categories.get(slug)),
   categoryCount: section.members.length,
 }));
+// Kids Riddles keeps its section but is reached from the Kids menu, not a directory card.
+const listedMembers = (section) => section.members.filter((slug) => categories.get(slug).listedInDirectory !== false);
+const listedSlugs = sections.flatMap(listedMembers);
 const escapeHtml = (value) => String(value ?? '').replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 
 function element() {
@@ -92,14 +95,15 @@ function withTabs(run) {
 test('All topics displays every public topic without a hidden featured subset', () => {
   const { ui, els, calls } = fixture();
   ui.renderDirectory();
-  assert.equal(calls.cards.length, 51);
-  assert.equal(new Set(calls.cards).size, 51);
+  assert.equal(calls.cards.length, 50);
+  assert.equal(new Set(calls.cards).size, 50);
+  assert.equal(calls.cards.includes('kids-riddles'), false, 'Kids Riddles is reached from the Kids menu, not the directory');
   const images = [...els.categoryDirectoryGrid.innerHTML.matchAll(/class="ra-art ra-art-directory" data-illustration="([^"]+)"/gu)];
-  assert.equal(images.length, 51, 'interactive cards retain every topic picture');
-  assert.equal(new Set(images.map(([, id]) => id)).size, 51, 'interactive cards never duplicate a picture');
-  assert.deepEqual(new Set(calls.cards), new Set(catalog.categories.map((category) => category.slug)));
+  assert.equal(images.length, 50, 'interactive cards retain every topic picture');
+  assert.equal(new Set(images.map(([, id]) => id)).size, 50, 'interactive cards never duplicate a picture');
+  assert.deepEqual(new Set(calls.cards), new Set(listedSlugs));
   for (const slug of quarantine.categorySlugs) assert.equal(calls.cards.includes(slug), false);
-  assert.equal(els.directoryResultsLabel.textContent, '51 topics in 5 sections.');
+  assert.equal(els.directoryResultsLabel.textContent, '50 topics in 5 sections.');
   assert.equal(els.categoryDirectoryGrid.attributes['aria-labelledby'], 'directory-tab-all');
 });
 
@@ -107,10 +111,10 @@ test('subject filters and section totals match the public catalog', () => {
   for (const section of sections) {
     const { ui, els, calls } = fixture({ cluster: section.key });
     ui.renderDirectory();
-    assert.deepEqual(calls.cards, section.members);
-    assert.equal(els.directoryResultsLabel.textContent, `${section.members.length} topics in 1 section.`);
+    assert.deepEqual(calls.cards, listedMembers(section));
+    assert.equal(els.directoryResultsLabel.textContent, `${listedMembers(section).length} topics in 1 section.`);
     assert.equal(els.categoryDirectoryGrid.attributes['aria-labelledby'], `directory-tab-${section.key}`);
-    const questionCount = section.categories.reduce((sum, category) => sum + category.count, 0);
+    const questionCount = listedMembers(section).reduce((sum, slug) => sum + categories.get(slug).count, 0);
     assert.ok(els.categoryDirectoryGrid.innerHTML.includes(`${questionCount} questions`));
   }
 });
@@ -136,11 +140,11 @@ test('tabs expose truthful counts, one keyboard stop, and a labeled panel', () =
   ui.renderTabs();
   assert.equal(tabBar.tabs.length, 6);
   assert.equal(tabBar.tabs.filter((tab) => tab.attributes.tabindex === '0').length, 1);
-  assert.match(tabBar.tabs[0].innerHTML, /51 topics/);
+  assert.match(tabBar.tabs[0].innerHTML, /50 topics/);
   for (const tab of tabBar.tabs) {
     assert.equal(tab.attributes.id, `directory-tab-${tab.dataset.cluster}`);
     assert.equal(tab.attributes['aria-controls'], 'categoryDirectoryGrid');
-    const count = tab.dataset.cluster === 'all' ? 51 : sections.find((section) => section.key === tab.dataset.cluster).categoryCount;
+    const count = tab.dataset.cluster === 'all' ? 50 : listedMembers(sections.find((section) => section.key === tab.dataset.cluster)).length;
     assert.ok(tab.innerHTML.includes(`${count} topics`));
   }
 }));
@@ -176,9 +180,9 @@ test('reset restores all public topics and binding is idempotent', () => withTab
   assert.equal(state.cluster, 'all');
   assert.equal(state.directorySearch, '');
   assert.equal(els.categorySearchInput.value, '');
-  assert.equal(calls.cards.length, 51);
+  assert.equal(calls.cards.length, 50);
   assert.deepEqual(calls.toasts, ['directoryResetDone']);
-  assert.match(els.directoryResultsLabel.textContent, /51 موضوعًا/);
+  assert.match(els.directoryResultsLabel.textContent, /50 موضوعًا/);
 }));
 
 test('directory document puts search first and exposes collections without an extra promotion', () => {

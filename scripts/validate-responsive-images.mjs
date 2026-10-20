@@ -90,10 +90,11 @@ for (const relative of generatedFiles) {
       failures.push(`${relative}: expected one responsive decorative image per section`);
     }
     const cards = [...directory.matchAll(/<a class="category-card compact-topic-card" href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gu)];
-    if (cards.length !== (catalog.categories || []).length || new Set(cards.map(([, href]) => href)).size !== cards.length) {
+    const listed = (catalog.categories || []).filter((category) => category.listedInDirectory !== false);
+    if (cards.length !== listed.length || new Set(cards.map(([, href]) => href)).size !== cards.length) {
       failures.push(`${relative}: expected one compact no-script link per source topic`);
     }
-    for (const category of catalog.categories || []) {
+    for (const category of listed) {
       const expected = relative.startsWith("ar/") ? `/ar/topics/${category.slug}/` : `/${category.slug}`;
       const card = cards.find(([, href]) => href === expected);
       if (!card) failures.push(`${relative}: missing compact topic link ${expected}`);

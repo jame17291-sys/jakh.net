@@ -515,10 +515,9 @@ function escapeProjectedHtml(value) {
 function rewritePublishedSectionTotals(html, publicCatalog) {
   const isArabic = /<html\b[^>]*\blang=["']ar["']/iu.test(html);
   const language = isArabic ? "ar" : "en";
-  const categoriesBySlug = new Map(
-    (publicCatalog.categories || []).map((category) => [category.slug, category]),
-  );
-  const totalCategories = (publicCatalog.categories || []).length;
+  const listed = (publicCatalog.categories || []).filter((category) => category.listedInDirectory !== false);
+  const categoriesBySlug = new Map(listed.map((category) => [category.slug, category]));
+  const totalCategories = listed.length;
   let rewritten = html;
   const tabCount = (count) => isArabic ? `${count} موضوعًا` : `${count} topics`;
   const sectionCount = (count, questions) => isArabic

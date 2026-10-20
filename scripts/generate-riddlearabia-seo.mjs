@@ -611,8 +611,11 @@ function categoryRoute(category, lang) {
 function renderMindLabDirectory() {
   // Keep the no-script directory in step with the compact runtime cards.
   // Publication applies its existing quarantine projection to this source list.
+  // Topics with listedInDirectory: false (Kids Riddles, which is the Kids
+  // Learning & Play hub) stay in their section but are not listed as cards.
   const markup = (catalog.sections || []).map((section) => {
-    const members = (section.members || []).map((slug) => categoryBySlug.get(slug)).filter(Boolean);
+    const members = (section.members || []).map((slug) => categoryBySlug.get(slug))
+      .filter((category) => category && category.listedInDirectory !== false);
     const questions = members.reduce((total, category) => total + Number(category.count || 0), 0);
     const cards = members.map((category) => {
       const topics = (category.topics || []).slice(0, 3).map((topic) => escapeHtml(topic.en)).filter(Boolean);

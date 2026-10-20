@@ -138,7 +138,7 @@ test("daily history fails closed for malformed or conflicting cached identities"
   );
 });
 
-test("runtime gates history before first render and clears paired held daily state", () => {
+test("runtime gates history before first render and drops held cards from saved shuffle rounds", () => {
   assert.match(
     application,
     /await Promise\.all\(\[[\s\S]*loadCardIndex\(\)\.catch\(\(\) => null\)[\s\S]*\]\);[\s\S]*rerender\(\);/u,
@@ -149,10 +149,9 @@ test("runtime gates history before first render and clears paired held daily sta
     application,
     /safeStorageRemove\('local', GUEST_KEYS\.solved\);\s*safeStorageRemove\('local', GUEST_KEYS\.favorites\);\s*return true;/u,
   );
-  assert.match(
-    application,
-    /safeStorageRemove\('session', cacheKey\);[\s\S]{0,320}safeStorageRemove\('local', outcomeKey\);/u,
-  );
+  const shuffle = fs.readFileSync(path.join(root, "shuffle-challenge.js"), "utf8");
+  assert.match(shuffle, /restoreRound\(api\.loadJson\(KEYS\.round, null\), api\.isRecordUnavailable\)/u);
+  assert.match(application, /isRecordUnavailable: dailyRecordIsUnavailable/u);
   assert.match(
     application,
     /if \(!cloudMutationMayPublish\(item, publicCardIds\)\) \{[\s\S]*remaining\.push\(item\);[\s\S]*continue;/u,

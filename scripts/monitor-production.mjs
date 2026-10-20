@@ -117,8 +117,8 @@ export const PARTY_GAME_HTML_ROUTES = RIDDLE_ARABIA_GAME_CATALOG
 
 export const HTML_ROUTES = [
   ...PRE_NAVIGATION_HTML_ROUTES.map((route) => ({ ...route, ...NAVIGATION_ROUTE_UPDATES[route.path] })),
-  { name: "Daily Challenge", path: "/daily", marker: "<title>Daily Challenge", bilingualMarker: 'hreflang="ar"' },
-  { name: "Arabic Daily Challenge", path: "/ar/daily/", marker: "<title>التحدي اليومي", bilingualMarker: 'hreflang="en"' },
+  { name: "Shuffle Challenge", path: "/daily", marker: "<title>Shuffle Challenge", baselineMarker: "<title>Daily Challenge", bilingualMarker: 'hreflang="ar"' },
+  { name: "Arabic Shuffle Challenge", path: "/ar/daily/", marker: "<title>تحدي الخلطة", baselineMarker: "<title>التحدي اليومي", bilingualMarker: 'hreflang="en"' },
   ...PARTY_GAME_HTML_ROUTES,
 ];
 
@@ -186,7 +186,11 @@ export const PRE_NAVIGATION_SITEMAP_PATHS = Object.freeze(
   PRE_PUZZLE_SITEMAP_PATHS.filter((path) => !["/daily", "/ar/daily/"].includes(path)),
 );
 
-function expectSharedNavigation(html, pathname, { includeKids = true } = {}) {
+// An exact-version release baseline may still serve the label from before
+// Shuffle Challenge replaced the daily question; candidates need the new one.
+const PREDECESSOR_DAILY_LABELS = Object.freeze({ en: "Daily Challenge", ar: "التحدي اليومي" });
+
+function expectSharedNavigation(html, pathname, { includeKids = true, allowPredecessorDaily = false } = {}) {
   const isAr = pathname.startsWith("/ar/");
   const navs = [...html.matchAll(/<nav\b[^>]*class="[^"]*\bprimary-navigation\b[^"]*"[^>]*>([\s\S]*?)<\/nav>/giu)];
   expect(navs.length === 1, "page must expose exactly one shared primary navigation landmark");
@@ -199,11 +203,13 @@ function expectSharedNavigation(html, pathname, { includeKids = true } = {}) {
     ["library", isAr ? "/ar/mind-lab/" : "/mind-lab", isAr ? "ألغاز واختبارات" : "Riddles &amp; Quizzes"],
     ...(includeKids ? [["kids", isAr ? "/ar/topics/kids-riddles/" : "/kids-riddles", isAr ? "الأطفال" : "Kids"]] : []),
     ["games", isAr ? "/ar/play/" : "/play", isAr ? "الألعاب" : "Games"],
-    ["daily", isAr ? "/ar/daily/" : "/daily", isAr ? "التحدي اليومي" : "Daily Challenge"],
+    ["daily", isAr ? "/ar/daily/" : "/daily", isAr ? "تحدي الخلطة" : "Shuffle Challenge"],
   ];
   expect(links.length === expected.length, `primary navigation must contain ${expected.length} destination links`);
   expected.forEach(([key, href, label], index) => {
-    expect(links[index]?.["data-nav"] === key && links[index]?.href === href && links[index]?.label === label,
+    const predecessorLabel = allowPredecessorDaily && key === "daily"
+      && links[index]?.label === PREDECESSOR_DAILY_LABELS[isAr ? "ar" : "en"];
+    expect(links[index]?.["data-nav"] === key && links[index]?.href === href && (links[index]?.label === label || predecessorLabel),
       `primary navigation ${key} destination or label is incorrect`);
   });
   expect(/<a\b[^>]*class="[^"]*\blanguage-route-link\b[^"]*"[^>]*href="[^"]+"[^>]*hreflang="(?:en|ar)"/iu.test(html),
@@ -613,7 +619,7 @@ export async function runProductionMonitor(options = {}) {
         // navigation. Every remaining HTML probe must use that same generation.
         const navigation = resource.text.match(/<nav\b[^>]*class="primary-navigation"[^>]*>([\s\S]*?)<\/nav>/iu)?.[1] || "";
         includeKidsNavigation = /\bdata-nav="kids"/u.test(navigation);
-        expectSharedNavigation(resource.text, "/", { includeKids: includeKidsNavigation });
+        expectSharedNavigation(resource.text, "/", { includeKids: includeKidsNavigation, allowPredecessorDaily: true });
         navigationLayout = "current";
       } else {
         expect(resource.text.includes('id="langSelect"'), "unrecognized predecessor navigation");
@@ -729,7 +735,12 @@ export async function runProductionMonitor(options = {}) {
       } else {
         expect(resource.text.includes(route.bilingualMarker), `missing bilingual marker "${route.bilingualMarker}"`);
       }
-      if (navigationLayout === "current") expectSharedNavigation(resource.text, route.path, { includeKids: includeKidsNavigation });
+      if (navigationLayout === "current") {
+        expectSharedNavigation(resource.text, route.path, {
+          includeKids: includeKidsNavigation,
+          allowPredecessorDaily: config.siteContract === "release-baseline",
+        });
+      }
       if (navigationLayout === "pre-navigation") {
         expect(!/class="[^"]*\bprimary-navigation\b/iu.test(resource.text),
           "predecessor pages must use one coherent pre-navigation contract");

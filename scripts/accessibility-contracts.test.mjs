@@ -135,11 +135,16 @@ test('shared CSS does not reference undeclared design tokens', () => {
   }
 });
 
-test('completed daily challenge remains fully opaque with contrast-safe completion styling', () => {
-  assert.match(sharedCss, /\.daily-done\s*\{[^}]*border-color:\s*color-mix\(in srgb, var\(--easy\)/su);
-  assert.doesNotMatch(sharedCss, /\.daily-done\s*\{[^}]*opacity\s*:/su);
-  assert.match(sharedCss, /\.daily-done-badge\s*\{[^}]*color:\s*var\(--easy\)/su);
-  assert.match(sharedCss, /\.daily-done-badge\s*\{[^}]*background:\s*color-mix\(in srgb, var\(--easy\)[^;]*var\(--panel\)/su);
+test('Shuffle Challenge cards keep visible focus, reduced motion and declared tokens', () => {
+  const shuffleCss = fs.readFileSync(path.join(root, 'shuffle-challenge.css'), 'utf8');
+  const declarations = new Set([...css.matchAll(/--([\w-]+)\s*:/gu)].map(match => match[1]));
+  const runtimeTokens = new Set(['topic-color', 'level-color']);
+  const undefinedTokens = [...new Set([...shuffleCss.matchAll(/var\(\s*--([\w-]+)/gu)].map(match => match[1]))]
+    .filter(name => !declarations.has(name) && !runtimeTokens.has(name));
+  assert.deepEqual(undefinedTokens, []);
+  assert.match(shuffleCss, /\.shuffle-level-option:has\(input:focus-visible\)\s*\{[^}]*outline:\s*3px solid/su);
+  assert.match(shuffleCss, /@media \(prefers-reduced-motion: reduce\)\s*\{[^}]*animation:\s*none/su);
+  assert.doesNotMatch(shuffleCss, /opacity:\s*0\.[0-4]/u);
 });
 
 test('privacy focus indicators use a solid contrast-safe token and external stylesheet', () => {

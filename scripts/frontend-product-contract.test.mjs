@@ -263,30 +263,31 @@ test('Quick Fire answer/timeout races record exactly one completed response', ()
   assert.equal(advances, 1);
 });
 
-test('daily reveal is not completion; only explicit outcome buttons persist', () => {
-  const daily = topLevelFunction('renderDailyChallenge');
-  const flipHandler = daily.slice(daily.indexOf("getElementById('flipDailyBtn')"), daily.indexOf('const recordOutcome'));
-  assert.doesNotMatch(flipHandler, /saveJson|safeStorageSet/u);
-  assert.match(daily, /id="dailyKnewBtn"/u);
-  assert.match(daily, /id="dailyReviewBtn"/u);
-  assert.match(daily, /saveJson\(outcomeKey, \{ cardId: card\.id, categoryId: card\.categorySlug, result/u);
-  assert.doesNotMatch(daily, /createReviewMarkup|card-review/u);
+test('Shuffle Challenge filters held cards and reuses the public category loader', () => {
+  const loader = topLevelFunction('loadShuffleTopicCards');
+  assert.match(loader, /fetchJson\(categoryAssetPath\(meta\)\)/u);
+  assert.match(loader, /mergePublishedContentOverrides/u);
+  assert.match(loader, /dailyRecordIsUnavailable\(\{ cardId: card\?\.id, categorySlug: slug \}\)/u);
+  const start = topLevelFunction('startShuffleChallenge');
+  assert.match(start, /import\('\/shuffle-challenge\.js'\)/u);
+  assert.match(start, /isRecordUnavailable: dailyRecordIsUnavailable/u);
+  assert.match(start, /filter\(category => !categoryIsQuarantined\(category\.slug\)\)/u);
 });
 
-test('daily content is loaded only when its dedicated page mounts the challenge', async () => {
+test('Shuffle Challenge loads only when its dedicated page mounts the game', async () => {
   for (const hasDailyMount of [false, true]) {
     let dailyLoads = 0;
     const context = vm.createContext({
       state: { page: hasDailyMount ? 'daily' : 'home' },
       location: { pathname: hasDailyMount ? '/daily' : '/mind-lab', search: '' },
-      document: { getElementById: (id) => id === 'dailyChallengeMount' && hasDailyMount ? {} : null },
+      document: { getElementById: (id) => id === 'shuffleChallenge' && hasDailyMount ? {} : null },
       URLSearchParams,
       cacheEls() {}, initializeFromStorage: () => true, requestPathIsQuarantined: () => false,
       categoryIsQuarantined: () => false, applyDocumentLanguage() {}, bindCommonEvents() {},
       applyCapabilityVisibility() {}, loadCatalog: async () => {}, loadCategoryIfNeeded: async () => {},
       loadCardIndex: async () => {}, applyStaticCopy() {}, rerender() {}, injectBackToTop() {},
-      checkNewAchievements() {}, renderDailyChallenge() {}, renderCategoryPlayModes() {},
-      loadDailyChallenge: async () => { dailyLoads += 1; },
+      checkNewAchievements() {}, renderCategoryPlayModes() {},
+      startShuffleChallenge: async () => { dailyLoads += 1; },
       hydrateCloudCapabilities: async () => {},
     });
     vm.runInContext(`${topLevelFunction('init')}\nthis.initialize = init;`, context);

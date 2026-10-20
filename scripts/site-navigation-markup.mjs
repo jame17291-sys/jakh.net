@@ -8,7 +8,7 @@ export function siteHeader({ lang = 'en', alternate = '/', active = '' } = {}) {
     ['library', ar ? '/ar/mind-lab/' : '/mind-lab', ar ? 'ألغاز واختبارات' : 'Riddles &amp; Quizzes'],
     ['kids', ar ? '/ar/topics/kids-riddles/' : '/kids-riddles', ar ? 'الأطفال' : 'Kids'],
     ['games', ar ? '/ar/play/' : '/play', ar ? 'الألعاب' : 'Games'],
-    ['daily', ar ? '/ar/daily/' : '/daily', ar ? 'التحدي اليومي' : 'Daily Challenge'],
+    ['daily', ar ? '/ar/daily/' : '/daily', ar ? 'تحدي الخلطة' : 'Shuffle Challenge'],
   ];
   return `<header class="site-header shell unified-header">
       <a href="${ar ? '/ar/' : '/'}" class="brand" aria-label="${ar ? 'الصفحة الرئيسية لريدل أرابيا' : 'Riddle Arabia home'}"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>

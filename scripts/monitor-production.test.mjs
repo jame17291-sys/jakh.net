@@ -476,7 +476,7 @@ test("only an explicit version-bound baseline accepts the complete predecessor l
     assert.ok(baseline.results.every(({ workerVersionId }) => workerVersionId === FIXTURE_WORKER_VERSION));
 
     const candidate = await runProductionMonitor({ ...options, siteContract: "current" });
-    for (const name of ["Site: Home", "Site: Riddles & Quizzes", "Site: Daily Challenge", "Site: sitemap", "Site: Shared navigation"]) {
+    for (const name of ["Site: Home", "Site: Riddles & Quizzes", "Site: Shuffle Challenge", "Site: sitemap", "Site: Shared navigation"]) {
       assert.ok(candidate.failures.some((failure) => failure.name === name), `${name} must reject the predecessor`);
     }
 
@@ -502,7 +502,7 @@ test("a current predecessor still requires the complete current navigation contr
     const baseline = await runProductionMonitor(options);
     assert.deepEqual(baseline.failures, []);
     assert.equal(baseline.navigationLayout, "current");
-    assert.ok(baseline.results.some(({ name }) => name === "Site: Daily Challenge"));
+    assert.ok(baseline.results.some(({ name }) => name === "Site: Shuffle Challenge"));
     const broken = await runProductionMonitor({ ...options, fetchImpl: async (input, init) => {
       const response = await options.fetchImpl(input, init);
       if (new URL(input).pathname !== "/daily") return response;
@@ -510,7 +510,7 @@ test("a current predecessor still requires the complete current navigation contr
         status: response.status, headers: response.headers,
       });
     } });
-    assert.ok(broken.failures.some(({ name, message }) => name === "Site: Daily Challenge" && /games destination/u.test(message)));
+    assert.ok(broken.failures.some(({ name, message }) => name === "Site: Shuffle Challenge" && /games destination/u.test(message)));
   });
 });
 
@@ -539,6 +539,26 @@ test("previous SEO titles are accepted only by the version-bound release baselin
   });
 });
 
+test("the Daily Challenge menu label is accepted only by the version-bound release baseline", async () => {
+  await withFixture({ productionSite: true }, async (fixtureOrigin) => {
+    const options = productionFixtureOptions(fixtureOrigin);
+    const fetchPredecessor = async (input, init) => {
+      const response = await options.fetchImpl(input, init);
+      if (!response.headers.get("content-type")?.startsWith("text/html")) return response;
+      const html = (await response.text())
+        .replace(/(data-nav="daily"[^>]*>)Shuffle Challenge</gu, "$1Daily Challenge<")
+        .replace(/(data-nav="daily"[^>]*>)تحدي الخلطة</gu, "$1التحدي اليومي<");
+      return new Response(html, { status: response.status, headers: response.headers });
+    };
+    const baseline = await runProductionMonitor({ ...options, fetchImpl: fetchPredecessor });
+    assert.deepEqual(baseline.failures, []);
+    const candidate = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: fetchPredecessor });
+    for (const name of ["Site: Home", "Site: Arabic Shuffle Challenge"]) {
+      assert.match(candidate.failures.find((failure) => failure.name === name)?.message || "", /daily destination or label/u, name);
+    }
+  });
+});
+
 test("only an exact-version release baseline accepts coherent pre-kids navigation and its complete sitemap", async () => {
   await withFixture({ productionSite: true }, async (fixtureOrigin) => {
     const options = productionFixtureOptions(fixtureOrigin);
@@ -563,7 +583,7 @@ test("only an exact-version release baseline accepts coherent pre-kids navigatio
     assert.match(candidate.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /78 URLs instead of 1176/u);
 
     const mixed = await runProductionMonitor({ ...options, fetchImpl: predecessor({ mixedRoute: "/ar/daily/" }) });
-    assert.match(mixed.failures.find(({ name }) => name === "Site: Arabic Daily Challenge")?.message || "", /4 destination links/u);
+    assert.match(mixed.failures.find(({ name }) => name === "Site: Arabic Shuffle Challenge")?.message || "", /4 destination links/u);
 
     for (const paths of [
       [...PRE_KIDS_SITEMAP_PATHS.slice(1), "/unexpected-indexable-route"],

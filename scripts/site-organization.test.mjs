@@ -83,7 +83,7 @@ test('static home, games hub, and editorial pages do not load the question appli
     assert.equal(scriptSources.some((source) => /(?:^|\/)(?:app|directory-ui|search-leaderboard|content-overrides|battle-mode)\.js(?:\?|$)/u.test(source)), false, file);
     assert.doesNotMatch(html, /<link\b[^>]*\brel="(?:preload|prefetch|modulepreload)"[^>]*\bhref="\/data\//u, file);
     assert.doesNotMatch(html, /fetch\([^)]*(?:\/data\/|\/api\/)/u, file);
-    assert.doesNotMatch(html, /id="dailyChallengeMount"|id="authModal"/u, file);
+    assert.doesNotMatch(html, /id="shuffleChallenge"|id="dailyChallengeMount"|id="authModal"/u, file);
   }
   assert.doesNotMatch(navigation, /\bfetch\s*\(|\bimport\s*\(|XMLHttpRequest|new\s+WebSocket/u);
 });

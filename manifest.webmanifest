@@ -45,9 +45,9 @@
   "categories": ["education", "entertainment", "games"],
   "shortcuts": [
     {
-      "name": "Daily Challenge",
-      "short_name": "Daily",
-      "description": "Open today's challenge",
+      "name": "Shuffle Challenge",
+      "short_name": "Shuffle",
+      "description": "Ten random cards from all topics",
       "url": "/daily",
       "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
     }

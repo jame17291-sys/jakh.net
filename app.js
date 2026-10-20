@@ -220,12 +220,11 @@ function localizeSharedRuntimeLinks(root = document) {
 
 const UI = {
   en: {
-    dailyNote: "The selection changes at midnight UTC and may revisit existing questions.",
-    dailyIntro: "One question selected from our library each day. Take your time, make a guess, then reveal the answer.",
-    dailyTitle: "Daily Challenge",
-    dailyLoading: "Loading today’s question…",
+    dailyIntro: "Ten cards, ten different topics, all picked at random. Choose your level, guess each answer, then reveal it.",
+    dailyTitle: "Shuffle Challenge",
+    dailyLoading: "Shuffling the deck…",
     directoryInitialSummary: "51 topics in 5 sections.",
-    dailyNoScript: 'Turn on JavaScript for the daily selection, or <a href="/riddles">try the short riddles collection</a>.',
+    dailyNoScript: 'Turn on JavaScript to play, or <a href="/riddles">try the short riddles collection</a>.',
     playJoin: "Join with a room code",
     playBattle: "Choose a topic for Battle Room",
     playQuickFire: "Choose a topic for Quick Fire",
@@ -234,9 +233,9 @@ const UI = {
     homeFeatureCta: "Explore the casebook",
     homeFeatureText: "Two stages. One host. Eleven small mysteries to explore—connect two clues and see what follows.",
     homeFeatureTitle: "Featured: Akshifha",
-    homeDailyCta: "Open Daily Challenge",
-    homeDailyText: "One question from the library, selected daily. Guess first, then check your answer.",
-    homeDailyTitle: "A little challenge, every day",
+    homeDailyCta: "Play Shuffle Challenge",
+    homeDailyText: "Ten random cards from all 51 topics. Pick your level, guess, then reveal each answer.",
+    homeDailyTitle: "Shuffle the whole library",
     homeCollectionTriviaTitle: "Arabic trivia & general knowledge",
     homeCollectionTriviaMeta: "Try eight questions in Arabic or English",
     homeGameText: "Try crosswords, Sudoku and word games, or invite a friend to Word Duel.",
@@ -642,12 +641,11 @@ const UI = {
     streakFreezeLabel: '🧊 Freeze',
   },
   ar: {
-    dailyNote: "يتغيّر السؤال عند منتصف الليل بالتوقيت العالمي، وقد يتكرر سؤال من المكتبة.",
-    dailyIntro: "سؤال يُختار من مكتبتنا كل يوم. خذ وقتك وحاول الإجابة ثم اكشف الحل.",
-    dailyTitle: "التحدي اليومي",
-    dailyLoading: "جارٍ تحميل سؤال اليوم…",
+    dailyIntro: "عشر بطاقات من عشرة مواضيع مختلفة، كلها مختارة عشوائيًا. اختر مستواك، وخمّن كل إجابة، ثم اكشفها.",
+    dailyTitle: "تحدي الخلطة",
+    dailyLoading: "جارٍ خلط البطاقات…",
     directoryInitialSummary: "51 موضوعًا في 5 أقسام.",
-    dailyNoScript: 'فعّل JavaScript لعرض سؤال اليوم، أو <a href="/ar/alghaz/">جرّب مجموعة الألغاز القصيرة</a>.',
+    dailyNoScript: 'فعّل JavaScript لتلعب، أو <a href="/ar/alghaz/">جرّب مجموعة الألغاز القصيرة</a>.',
     playJoin: "انضم برمز الغرفة",
     playBattle: "اختر موضوعًا لغرفة المعركة",
     playQuickFire: "اختر موضوعًا للسباق السريع",
@@ -656,9 +654,9 @@ const UI = {
     homeFeatureCta: "استكشف دفتر القضايا",
     homeFeatureText: "فقرتان ومقدّمة واحدة. استكشف إحدى عشرة قضية قصيرة، واربط دليلين لتصل إلى النتيجة.",
     homeFeatureTitle: "اللعبة المميّزة: اكشفها",
-    homeDailyCta: "افتح التحدي اليومي",
-    homeDailyText: "سؤال من المكتبة يُختار يوميًا. حاول أولًا ثم تحقّق من إجابتك.",
-    homeDailyTitle: "تحدٍ صغير كل يوم",
+    homeDailyCta: "العب تحدي الخلطة",
+    homeDailyText: "عشر بطاقات عشوائية من بين 51 موضوعًا. اختر مستواك، وخمّن، ثم اكشف كل إجابة.",
+    homeDailyTitle: "اخلط المكتبة كلها",
     homeCollectionTriviaTitle: "أسئلة معلومات عامة مع الإجابات",
     homeCollectionTriviaMeta: "جرّب ثمانية أسئلة بالعربية أو الإنجليزية",
     homeGameText: "جرّب الكلمات المتقاطعة وسودوكو وألعاب الكلمات، أو ادعُ صديقاً إلى مبارزة الكلمات.",
@@ -1086,7 +1084,6 @@ const state = {
   cardPage: 1,
   streak: 0,
   freezeCount: 0,
-  dailyCard: null,
   sharedCardHandled: false,
   storageDurable: true,
   capabilityMessage: '',
@@ -2582,7 +2579,7 @@ function bindCommonEvents() {
 
 function rerender() {
   if (state.page === 'daily') {
-    renderDailyChallenge();
+    shuffleChallenge?.refresh();
   } else if (state.page === 'home') {
     renderHome();
   } else {
@@ -2595,7 +2592,6 @@ function renderHome() {
   if (els.badgeCategories) els.badgeCategories.textContent = state.catalog.categories.length;
   if (els.badgeQuestions) els.badgeQuestions.textContent = state.catalog.site.totalQuestions.toLocaleString();
   renderAccountSummary(els.accountSummaryMount);
-  renderDailyChallenge();
   if (els.categoryDirectoryGrid) {
     void loadDirectoryUi().then((directoryUi) => {
       directoryUi.bind();
@@ -4331,96 +4327,27 @@ function stopAnalyticsHeartbeat() {
 
 
 function dailyRecordIsUnavailable(record) { return dailyRecordIsUnavailableForPublication(record, publicCardIds, QUARANTINED_CATEGORY_SLUGS, publicCardIndexReady); }
-function storedDailyRecord(area, key) { try { return JSON.parse(safeStorageGet(area, key) || 'null'); } catch (_) { return {}; } }
-function purgeUnavailableDailyState(today) {
-  const cacheKey = `jakh-daily-${today}`, outcomeKey = `jakh-daily-outcome-${today}`;
-  const cached = storedDailyRecord('session', cacheKey);
-  if (cached && dailyRecordIsUnavailable(cached)) {
-    safeStorageRemove('session', cacheKey);
-    safeStorageRemove('local', outcomeKey);
-  }
-  const outcome = storedDailyRecord('local', outcomeKey);
-  if (outcome && dailyRecordIsUnavailable(outcome)) safeStorageRemove('local', outcomeKey);
-  if (state.dailyCard && dailyRecordIsUnavailable(state.dailyCard)) state.dailyCard = null;
+
+let shuffleChallenge = null;
+async function loadShuffleTopicCards(slug) {
+  const meta = state.catalog?.categories?.find(category => category.slug === slug);
+  const [raw, overrideModule] = await Promise.all([fetchJson(categoryAssetPath(meta)), loadContentOverridesModule()]);
+  if (!Array.isArray(raw)) throw new Error('Topic is unavailable');
+  const overrides = await overrideModule.loadPublishedContentOverrides(apiFetch, slug);
+  return overrideModule.mergePublishedContentOverrides(raw, overrides)
+    .filter(card => !dailyRecordIsUnavailable({ cardId: card?.id, categorySlug: slug }));
 }
 
-async function loadDailyChallenge() {
-  if (state.dailyCard) return;
-  const today = new Date().toISOString().split('T')[0], key = `jakh-daily-${today}`;
-  purgeUnavailableDailyState(today);
-  try {
-    const cached = safeStorageGet('session', key);
-    if (cached) {
-      const card = JSON.parse(cached);
-      if (!dailyRecordIsUnavailable(card)) {
-        state.dailyCard = card;
-        return;
-      }
-      safeStorageRemove('session', key);
-      safeStorageRemove('local', `jakh-daily-outcome-${today}`);
-    }
-    if (!state.catalog) return;
-    const hash = Math.abs(today.split('').reduce((h, c) => ((h * 31) + c.charCodeAt(0)) | 0, 0));
-    const cats = state.catalog.categories.filter(c => c.count >= 15 && c.mode !== 'story');
-    const cat = cats[hash % cats.length];
-    const overrideModulePromise = loadContentOverridesModule();
-    const [raw, overrideModule] = await Promise.all([
-      fetchJson(categoryAssetPath(cat)),
-      overrideModulePromise,
-    ]);
-    if (!Array.isArray(raw)) return;
-    const overrides = await overrideModule.loadPublishedContentOverrides(apiFetch, cat.slug);
-    const cards = overrideModule.mergePublishedContentOverrides(raw, overrides).filter(c =>
-      c.difficulty === 'easy' || c.difficulty === 'medium'
-    );
-    if (!cards.length) return;
-    const card = cards[(hash >> 4) % cards.length];
-    state.dailyCard = { ...card, categorySlug: cat.slug, categoryTitle: cat.title, categoryEmoji: cat.emoji || '🎯' };
-    safeStorageSet('session', key, JSON.stringify(state.dailyCard));
-  } catch (e) { state.dailyCard = null; }
-}
-
-function renderDailyChallenge() {
-  const mount = document.getElementById('dailyChallengeMount');
-  if (!mount) return;
-  const today = new Date().toISOString().split('T')[0];
-  purgeUnavailableDailyState(today);
-  if (!state.dailyCard) { mount.innerHTML = ''; return; }
-  const card = state.dailyCard, lang = state.lang, ar = lang === 'ar';
-  const outcomeKey = `jakh-daily-outcome-${today}`, outcome = loadJson(outcomeKey, null);
-  const done = outcome?.cardId === card.id && ['correct', 'review'].includes(outcome?.result), flipped = state.flipped.has('__daily__');
-  const href = categoryRouteForLanguage(card.categorySlug, lang);
-  mount.innerHTML = `<section class="shell daily-challenge-section">
-  <div class="daily-challenge-card ${done ? 'daily-done' : ''}">
-    <div>
-      <p class="daily-challenge-eyebrow">🎯 ${ar ? 'تحدي اليوم' : "Today's Challenge"}${done ? ` <span class="daily-done-badge">${ar ? '✓ مكتمل' : '✓ Done'}</span>` : ''}</p>
-      <p class="daily-challenge-meta">${escapeHtml(card.categoryEmoji)} ${escapeHtml(card.categoryTitle[lang])} &nbsp;·&nbsp; ${escapeHtml(t(card.difficulty === 'very-advanced' ? 'veryAdvanced' : card.difficulty))}</p>
-      <p class="daily-challenge-q">${escapeHtml(card.question[lang])}</p>
-      ${flipped ? `<div class="daily-challenge-answer" role="status">💡 ${escapeHtml(card.answer[lang])}</div>` : ''}
-      ${flipped && !done ? `<div class="daily-outcome-actions" aria-label="${ar ? 'سجّل نتيجة إجابتك' : 'Record your answer outcome'}">
-        <button class="primary-btn mini-btn" id="dailyKnewBtn">✓ ${ar ? 'كنت أعرفها' : 'I knew it'}</button>
-        <button class="ghost-btn mini-btn" id="dailyReviewBtn">↻ ${ar ? 'راجعها مرة أخرى' : 'Review again'}</button>
-      </div>` : ''}
-      ${done ? `<p class="daily-outcome-note">${outcome.result === 'correct'
-        ? (ar ? 'سُجلت كإجابة عرفتها.' : 'Recorded as an answer you knew.')
-        : (ar ? 'سُجلت للمراجعة مرة أخرى.' : 'Recorded to review again.')}</p>` : ''}
-    </div>
-    <div class="daily-challenge-btns">
-      <button class="primary-btn mini-btn" id="flipDailyBtn">${flipped ? escapeHtml(t('backToQuestion')) : escapeHtml(t('flipForAnswer'))}</button>
-      <a class="ghost-btn mini-btn" href="${escapeHtml(href)}">${ar ? 'المزيد ←' : 'Full category →'}</a>
-    </div>
-  </div>
-</section>`;
-  document.getElementById('flipDailyBtn')?.addEventListener('click', () => {
-    if (state.flipped.has('__daily__')) state.flipped.delete('__daily__'); else state.flipped.add('__daily__');
-    renderDailyChallenge();
+async function startShuffleChallenge() {
+  const { createShuffleChallenge } = await import('/shuffle-challenge.js');
+  shuffleChallenge = createShuffleChallenge({
+    state, loadJson, saveJson, escapeHtml, trackEvent, loadCardIndex,
+    isRecordUnavailable: dailyRecordIsUnavailable,
+    loadTopicCards: loadShuffleTopicCards,
+    topicRoute: categoryRouteForLanguage,
+    levelLabel: level => t(level === 'very-advanced' ? 'veryAdvanced' : level),
+    topics: () => (state.catalog?.categories || []).filter(category => !categoryIsQuarantined(category.slug)),
   });
-  const recordOutcome = (result) => {
-    saveJson(outcomeKey, { cardId: card.id, categoryId: card.categorySlug, result, recordedAt: new Date().toISOString() });
-    renderDailyChallenge();
-  };
-  document.getElementById('dailyKnewBtn')?.addEventListener('click', () => recordOutcome('correct'));
-  document.getElementById('dailyReviewBtn')?.addEventListener('click', () => recordOutcome('review'));
 }
 
 
@@ -5230,10 +5157,11 @@ async function init() {
   injectBackToTop();
   applyCapabilityVisibility();
   checkNewAchievements();
-  if (document.getElementById('dailyChallengeMount')) {
-    loadDailyChallenge()
-      .then(() => renderDailyChallenge())
-      .catch(() => {});
+  if (document.getElementById('shuffleChallenge')) {
+    startShuffleChallenge().catch(() => {
+      const mount = document.getElementById('shuffleChallenge');
+      if (mount) mount.replaceChildren();
+    });
   }
   hydrateCloudCapabilities().catch(() => {
     state.apiAvailable = false;

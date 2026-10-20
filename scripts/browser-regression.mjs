@@ -1044,7 +1044,7 @@ async function main() {
       }
     });
 
-    await runTest("Daily Challenge is one bilingual destination with persistent local outcomes", async () => {
+    await runTest("Shuffle Challenge deals ten bilingual cards across topics and resumes after reload", async () => {
       for (const language of ['en', 'ar']) {
         const context = await createContext(browser, { viewport: { width: 360, height: 800 }, serviceWorkers: 'block' });
         await setCurrentDeniedConsent(context);
@@ -1055,19 +1055,32 @@ async function main() {
           await page.goto(`${baseUrl}${language === 'ar' ? '/ar/' : '/'}`, { waitUntil: NAVIGATION_READY_EVENT });
           await page.locator('.primary-navigation [data-nav="daily"]').click();
           await page.waitForURL(`${baseUrl}${dailyRoute}`);
-          await page.locator('.daily-challenge-q').waitFor({ state: 'visible' });
-          const question = await page.locator('.daily-challenge-q').innerText();
-          assert(question.trim().length > 0);
           assert.equal(await page.locator('.primary-navigation [aria-current="page"]').getAttribute('data-nav'), 'daily');
           assert.equal(await page.locator('html').getAttribute('lang'), language);
-          await page.locator('#flipDailyBtn').click();
-          await page.locator('.daily-challenge-answer').waitFor({ state: 'visible' });
-          assert((await page.locator('.daily-challenge-answer').innerText()).trim().length > 0);
-          await page.locator('#dailyKnewBtn').click();
-          await page.locator('.daily-done').waitFor({ state: 'visible' });
+          await page.locator('input[name="shuffleLevel"][value="easy"]').check();
+          await page.locator('.shuffle-setup [data-shuffle="start"]').click();
+          await page.locator('.shuffle-question').waitFor({ state: 'visible' });
+          assert((await page.locator('.shuffle-question').innerText()).trim().length > 0);
+          assert.equal(await page.evaluate(() => document.activeElement?.classList.contains('shuffle-question')), true);
+          await page.locator('[data-shuffle="reveal"]').click();
+          await page.locator('.shuffle-answer-text').waitFor({ state: 'visible' });
+          assert((await page.locator('.shuffle-answer-text').innerText()).trim().length > 0);
+          await page.locator('[data-shuffle="knew"]').click();
+          await page.locator('.shuffle-question').waitFor({ state: 'visible' });
+          const stored = await page.evaluate(() => JSON.parse(localStorage.getItem('ra-shuffle-round-v1')));
+          assert.equal(stored.level, 'easy');
+          assert.equal(stored.position, 1);
+          assert.equal(new Set(stored.items.map((item) => item.slug)).size, 10);
           await page.reload({ waitUntil: NAVIGATION_READY_EVENT });
-          await page.locator('.daily-done').waitFor({ state: 'visible' });
-          assert.equal(await page.locator('.daily-challenge-q').innerText(), question);
+          await page.locator('.shuffle-question').waitFor({ state: 'visible' });
+          assert.match(await page.locator('.shuffle-progress-count').innerText(), /\b2\b/u);
+          assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), true);
+          for (let card = 2; card <= 10; card++) await page.locator('[data-shuffle="skip"]').click();
+          await page.locator('#shuffleSummaryTitle').waitFor({ state: 'visible' });
+          assert.match(await page.locator('#shuffleSummaryTitle').innerText(), /\b1\b/u);
+          assert.equal(await page.locator('.shuffle-recap-item').count(), 10);
+          assert.equal(await page.locator('.shuffle-recap-item.is-knew').count(), 1);
+          assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem('ra-shuffle-best-v1'))?.easy), 1);
           assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), true);
           assertNoPageErrors();
         } finally {

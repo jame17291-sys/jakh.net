@@ -52,6 +52,7 @@ const PARTY_ASSETS = Object.freeze([
 
 const PUZZLE_ASSETS = Object.freeze([
   "/tv-trivia-engine.js", "/tv-trivia-copy.js", "/tv-trivia-share.js", "/tv-trivia-markup.js", "/tv-trivia.css", "/tv-trivia.js",
+  "/shuffle-challenge-engine.js", "/shuffle-challenge.css", "/shuffle-challenge.js",
   "/puzzle-routes.js",
   "/puzzle-arabic-words.js", "/puzzle-hive-data.js", "/puzzle-square-data.js", "/puzzle-group-data.js",
   "/puzzle-word-data.js", "/puzzle-catalog.js", "/puzzle-daily.js",
@@ -96,6 +97,7 @@ const HTML_FINGERPRINT_SOURCE_PATHS = new Set([
   "/privacy-consent.js",
   "/party-games.js", "/friendship-games.js", "/party-games.css",
   "/tv-trivia.css",
+  "/shuffle-challenge.css",
   "/kids-learning.js", "/kids-learning.css",
   "/puzzle-room.js",
   "/puzzle-room.css",
@@ -240,6 +242,7 @@ function rewriteApplication(source, fingerprints) {
     "/speech-quality.js",
     "/auth-security.js",
     "/tv-trivia.js",
+    "/shuffle-challenge.js",
     "/directory-ui.js",
     "/battle-mode.js",
     "/battle-mode.css",

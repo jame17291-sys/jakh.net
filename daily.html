@@ -4,15 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#fff9ed" />
-  <title>Daily Challenge | Riddle Arabia</title>
-  <meta name="description" content="A daily question from Riddle Arabia’s bilingual question library. Guess first, reveal the answer, and explore its topic." />
+  <title>Shuffle Challenge | Riddle Arabia</title>
+  <meta name="description" content="Ten random question cards from all 51 Riddle Arabia topics. Pick a level, reveal each answer, and see how many you knew." />
   <link rel="canonical" href="https://riddlearabia.com/daily" />
   <link rel="alternate" hreflang="en" href="https://riddlearabia.com/daily" />
   <link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/daily/" />
   <link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/daily" />
   <meta name="robots" content="index,follow" />
-  <meta property="og:title" content="Daily Challenge | Riddle Arabia" />
-  <meta property="og:description" content="Try one daily question from our bilingual library. Make a guess, reveal the answer, and explore its topic." />
+  <meta property="og:title" content="Shuffle Challenge | Riddle Arabia" />
+  <meta property="og:description" content="Ten random cards from 51 topics, in Arabic and English. Pick a level and see how many you know." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://riddlearabia.com/daily" />
   <meta property="og:image" content="https://riddlearabia.com/assets/riddlearabia-og-image.png" />
@@ -24,12 +24,13 @@
   <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="ar_AE" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Daily Challenge | Riddle Arabia" />
-  <meta name="twitter:description" content="Try one daily question from our bilingual library. Make a guess, reveal the answer, and explore its topic." />
+  <meta name="twitter:title" content="Shuffle Challenge | Riddle Arabia" />
+  <meta name="twitter:description" content="Ten random cards from 51 topics, in Arabic and English. Pick a level and see how many you know." />
   <meta name="twitter:image" content="https://riddlearabia.com/assets/riddlearabia-og-image.png" />
   <meta name="twitter:image:alt" content="Riddle Arabia — bilingual riddles and free browser games" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/styles.css?v=2026091102" />
+  <link rel="stylesheet" href="/shuffle-challenge.css" />
   <link rel="manifest" href="/manifest.webmanifest" />
   <script defer src="/privacy-consent.js?v=2026080101"></script>
 </head>
@@ -42,7 +43,7 @@
         <a href="/mind-lab" data-nav="library">Riddles &amp; Quizzes</a>
         <a href="/kids-riddles" data-nav="kids">Kids</a>
         <a href="/play" data-nav="games">Games</a>
-        <a href="/daily" data-nav="daily" aria-current="page">Daily Challenge</a>
+        <a href="/daily" data-nav="daily" aria-current="page">Shuffle Challenge</a>
       </nav>
       <div class="site-utilities">
         <a class="language-route-link" href="/ar/daily/" hreflang="ar" lang="ar" dir="rtl" aria-label="اقرأ هذه الصفحة بالعربية">العربية</a>
@@ -52,12 +53,11 @@
   <main id="top">
     <section class="page-intro shell">
       <img class="ra-art ra-art-topic" src="/assets/illustrations/daily-challenge-480.webp" srcset="/assets/illustrations/daily-challenge-480.webp 480w, /assets/illustrations/daily-challenge-960.webp 960w" sizes="(max-width: 600px) 100px, 180px" width="960" height="640" alt="" loading="eager" decoding="async" fetchpriority="high" />
-      <h1 data-i18n="dailyTitle">Daily Challenge</h1>
-      <p class="intro-description" data-i18n="dailyIntro">One question selected from our library each day. Take your time, make a guess, then reveal the answer.</p>
-      <p class="muted" data-i18n="dailyNote">The selection changes at midnight UTC and may revisit existing questions.</p>
+      <h1 data-i18n="dailyTitle">Shuffle Challenge</h1>
+      <p class="intro-description" data-i18n="dailyIntro">Ten cards, ten different topics, all picked at random. Choose your level, guess each answer, then reveal it.</p>
     </section>
-    <div id="dailyChallengeMount" aria-live="polite"><p class="shell" data-i18n="dailyLoading">Loading today’s question…</p></div>
-    <noscript><p class="shell" data-i18n-html="dailyNoScript">Turn on JavaScript for the daily selection, or <a href="/riddles">try the short riddles collection</a>.</p></noscript>
+    <div id="shuffleChallenge" class="shuffle-root"><p class="shuffle-card shuffle-message" data-i18n="dailyLoading">Shuffling the deck…</p></div>
+    <noscript><p class="shell" data-i18n-html="dailyNoScript">Turn on JavaScript to play, or <a href="/riddles">try the short riddles collection</a>.</p></noscript>
     <section class="shell section-block"><a class="ghost-btn" href="/mind-lab" data-i18n="navCategories">Riddles &amp; Quizzes</a></section>
   </main>
   <footer class="site-footer shell"><nav class="footer-site-links" aria-label="Riddle Arabia information"><a href="/collections" data-i18n="mindCalloutCta">Short collections</a><a href="/about" data-i18n="footerAbout">About &amp; content standards</a><a href="/privacy" data-i18n="footerPrivacy">Privacy Centre</a></nav></footer>

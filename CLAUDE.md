@@ -47,6 +47,9 @@ Riddle Arabia is unrelated to the owner's JAKH ERP/Odoo project.
   scoring, leaderboard, Battle rooms, Kids Learning & Play (480 activities), Akshifha, puzzle and
   word games, board games, Most Likely To, How Well Do You Know Me, Friendship Court, Panic Mode,
   Secret Word Impostor, accounts/privacy, admin workspace with Content Studio and Autopilot.
+- Shuffle Challenge (at `/daily` and `/ar/daily/`) replaced the old one-question Daily Challenge:
+  10 random cards from 10 different public topics at a chosen level. Logic in
+  `shuffle-challenge-engine.js`, page module `shuffle-challenge.js`, styles `shuffle-challenge.css`.
 - Five categories are quarantined (economics-and-finance, law-middle-east, medical-questions,
   pharmacy, survival). Keep the hold consistent across HTML, JSON, search, API, edge and service
   worker. A passing validator or AI review is not factual or bilingual approval.

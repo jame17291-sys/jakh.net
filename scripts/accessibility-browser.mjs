@@ -12,9 +12,13 @@ const SITE_ROOT = resolve(process.env.JAKH_SITE_ROOT || REPOSITORY_ROOT);
 const SITE_MANIFEST_PATH = process.env.JAKH_SITE_MANIFEST
   ? resolve(process.env.JAKH_SITE_MANIFEST)
   : null;
-const ACCESSIBILITY_DAILY_CARD = JSON.parse(
+const ACCESSIBILITY_SHUFFLE_ITEMS = JSON.parse(
   readFileSync(resolve(REPOSITORY_ROOT, "data/science.json"), "utf8"),
-)[0];
+).slice(0, 10).map((card) => ({ slug: "science", id: card.id }));
+const SHUFFLE_STATES = Object.freeze({
+  revealed: { v: 1, level: "mixed", position: 0, revealed: true, items: ACCESSIBILITY_SHUFFLE_ITEMS.map((item) => ({ ...item, result: null })) },
+  finished: { v: 1, level: "mixed", position: 10, revealed: false, items: ACCESSIBILITY_SHUFFLE_ITEMS.map((item, index) => ({ ...item, result: ["knew", "missed", "skipped"][index % 3] })) },
+});
 const WCAG_TAGS = ["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"];
 const CONTENT_STUDIO_CATALOG = Object.freeze({
   categories: [{
@@ -135,8 +139,8 @@ const ROUTES = [
   ["Arabic collections", "/ar/collections/"],
   ["English short riddles", "/riddles"],
   ["Arabic short riddles", "/ar/alghaz/"],
-  ["English daily challenge", "/daily"],
-  ["Arabic daily challenge", "/ar/daily/"],
+  ["English Shuffle Challenge", "/daily"],
+  ["Arabic Shuffle Challenge", "/ar/daily/"],
   ["English quiz", "/science"],
   ["Arabic quiz", "/ar/topics/science/"],
   ["game hub", "/play"],
@@ -172,8 +176,8 @@ const ROUTES = [
   ["offline fallback", "/offline"],
 ];
 
-async function configureContext(context, { completedDaily = false, ownerAdmin = false } = {}) {
-  await context.addInitScript(({ seedCompletedDaily, dailyCard }) => {
+async function configureContext(context, { shuffleState = "", ownerAdmin = false } = {}) {
+  await context.addInitScript(({ shuffleRound }) => {
     localStorage.setItem("jakh-consent-v1", JSON.stringify({
       version: 2,
       noticeVersion: "2026-08-01",
@@ -181,24 +185,8 @@ async function configureContext(context, { completedDaily = false, ownerAdmin = 
       updatedAt: new Date(0).toISOString(),
       source: "accessibility-browser",
     }));
-    if (seedCompletedDaily) {
-      const today = new Date().toISOString().split("T")[0];
-      const card = {
-        ...dailyCard,
-        cardId: dailyCard.id,
-        categorySlug: "science",
-        categoryTitle: { en: "Science", ar: "العلوم" },
-        categoryEmoji: "🔬",
-      };
-      sessionStorage.setItem(`jakh-daily-${today}`, JSON.stringify(card));
-      localStorage.setItem(`jakh-daily-outcome-${today}`, JSON.stringify({
-        cardId: card.id,
-        categoryId: card.categorySlug,
-        result: "correct",
-        recordedAt: new Date(0).toISOString(),
-      }));
-    }
-  }, { seedCompletedDaily: completedDaily, dailyCard: ACCESSIBILITY_DAILY_CARD });
+    if (shuffleRound) localStorage.setItem("ra-shuffle-round-v1", JSON.stringify(shuffleRound));
+  }, { shuffleRound: SHUFFLE_STATES[shuffleState] || null });
   if (ownerAdmin) {
     await context.route(/\/data\/catalog(?:\.[a-f0-9]{16})?\.json(?:\?.*)?$/u, async (route) => {
       await route.fulfill({
@@ -387,7 +375,7 @@ async function auditRoute(context, baseUrl, label, route, { readySelector = "" }
     assert.equal(response?.status(), 200, `${label} returned ${response?.status()}`);
     await page.locator("body").waitFor({ state: "visible" });
     if (readySelector) await page.locator(readySelector).waitFor({ state: "visible" });
-    else if (/\/(?:ar\/)?daily\/?$/u.test(route)) await page.locator('.daily-challenge-q').waitFor({ state: 'visible' });
+    else if (/\/(?:ar\/)?daily\/?$/u.test(route)) await page.locator('.shuffle-setup [data-shuffle="start"]').waitFor({ state: 'visible' });
     else if (/\/(?:most-likely-to|how-well-do-you-know-me|secret-word-impostor|panic-mode|friendship-court)\/?$/u.test(route)) await page.locator('#party-app[aria-busy="false"] [data-party-action="start"]:enabled, #party-app[aria-busy="false"] [data-party-action="setup"]:enabled').waitFor({ state: 'visible' });
     await page.waitForTimeout(250);
     const results = await new AxeBuilder({ page }).withTags(WCAG_TAGS).analyze();
@@ -481,7 +469,7 @@ async function verifyReflow(context, baseUrl, label, route) {
   try {
     await page.goto(`${baseUrl}${route}`, { waitUntil: "domcontentloaded" });
     await page.locator("body").waitFor({ state: "visible" });
-    if (/\/(?:ar\/)?daily\/?$/u.test(route)) await page.locator('.daily-challenge-q').waitFor({ state: 'visible' });
+    if (/\/(?:ar\/)?daily\/?$/u.test(route)) await page.locator('.shuffle-setup [data-shuffle="start"]').waitFor({ state: 'visible' });
     else if (/\/(?:most-likely-to|how-well-do-you-know-me|secret-word-impostor|panic-mode|friendship-court)\/?$/u.test(route)) await page.locator('#party-app[aria-busy="false"] [data-party-action="start"]:enabled, #party-app[aria-busy="false"] [data-party-action="setup"]:enabled').waitFor({ state: 'visible' });
     await page.waitForTimeout(100);
     const overflow = await page.evaluate(() => {
@@ -574,17 +562,17 @@ async function main() {
     }
     await zoomContext.close();
 
-    const completedDailyContext = await browser.newContext({ viewport: { width: 1280, height: 800 } });
-    await configureContext(completedDailyContext, { completedDaily: true });
-    rulesPassed += await auditRoute(
-      completedDailyContext,
-      baseUrl,
-      "completed daily challenge",
-      "/daily",
-      { readySelector: ".daily-challenge-card.daily-done .daily-done-badge" },
-    );
-    console.log("PASS axe state: completed daily challenge");
-    await completedDailyContext.close();
+    for (const [state, label, route, readySelector] of [
+      ["revealed", "revealed Shuffle Challenge card", "/daily", ".shuffle-answer-text"],
+      ["revealed", "revealed Arabic Shuffle Challenge card", "/ar/daily/", ".shuffle-answer-text"],
+      ["finished", "finished Shuffle Challenge round", "/daily", "#shuffleSummaryTitle"],
+    ]) {
+      const shuffleContext = await browser.newContext({ viewport: { width: 390, height: 844 } });
+      await configureContext(shuffleContext, { shuffleState: state });
+      rulesPassed += await auditRoute(shuffleContext, baseUrl, label, route, { readySelector });
+      console.log(`PASS axe state: ${label}`);
+      await shuffleContext.close();
+    }
 
     const ownerAdminContext = await browser.newContext({ viewport: { width: 1280, height: 900 } });
     await configureContext(ownerAdminContext, { ownerAdmin: true });
@@ -596,7 +584,7 @@ async function main() {
     }
     await ownerAdminContext.close();
 
-    console.log(`Accessibility browser audit passed: ${ROUTES.length} standard routes, ${ROUTES.length} forced-color routes, ${ROUTES.length} zoom checks, 1 completed-daily state, ${adminTabFixtures} OWNER-admin tab states, ${rulesPassed} Axe rule passes.`);
+    console.log(`Accessibility browser audit passed: ${ROUTES.length} standard routes, ${ROUTES.length} forced-color routes, ${ROUTES.length} zoom checks, 3 Shuffle Challenge states, ${adminTabFixtures} OWNER-admin tab states, ${rulesPassed} Axe rule passes.`);
   } finally {
     await browser.close();
     await server.close();

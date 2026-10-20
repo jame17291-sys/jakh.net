@@ -19,7 +19,7 @@ Imagegen tool; the complete subject briefs and prompts are preserved in
 | Riddles & Quizzes | 51 individual topic pictures, overview, five section accents, suggest-a-topic |
 | Games | 13 puzzle/collection cards, three bonus variations, Akshifha, chess, Backgammon, Quick Fire, Battle Room |
 | Individual games | Compact Akshifha, chess, Backgammon introductions |
-| Daily Challenge | Daily challenge introduction |
+| Shuffle Challenge (`/daily`) | Shuffle Challenge introduction |
 | Collections | Artwork for each collection card and collection introduction |
 | Topics | Every public topic introduction uses the same exclusive picture as its directory card |
 | About and brain games collection | Shared play |

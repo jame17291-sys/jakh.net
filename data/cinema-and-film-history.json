@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "Which Los Angeles district is strongly associated with the American film industry?",
-      "ar": "أي حي في لوس أنجلوس يرتبط اسمه بصناعة السينما الأمريكية؟"
+      "ar": "أي حي في لوس أنجلوس اسمه مرتبط بصناعة السينما الأمريكية؟"
     },
     "answer": {
       "en": "Hollywood",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "What nickname is commonly used for the Academy Awards?",
-      "ar": "ما الاسم الشائع لجوائز الأكاديمية الأمريكية للفنون والعلوم السينمائية؟"
+      "ar": "شو الاسم الشائع لجوائز الأكاديمية الأمريكية لفنون وعلوم السينما؟"
     },
     "answer": {
       "en": "The Oscars",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "Who is the famous silent film actor known as 'The Little Tramp'?",
-      "ar": "من هو ممثل الأفلام الصامتة الشهير المعروف بلقب 'المتسكع الصغير'؟"
+      "ar": "مين ممثل الأفلام الصامتة المشهور اللي لقبه «المتشرّد الصغير»؟"
     },
     "answer": {
       "en": "Charlie Chaplin",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "What does 'CGI' stand for in movies?",
-      "ar": "إلى ماذا يرمز اختصار 'CGI' في الأفلام؟"
+      "ar": "في الأفلام، شو معنى اختصار «CGI»؟"
     },
     "answer": {
       "en": "Computer-Generated Imagery",
@@ -84,7 +84,7 @@
     },
     "question": {
       "en": "Which 1977 movie started a massive space opera franchise?",
-      "ar": "أي فيلم في عام 1977 بدأ سلسلة أفلام 'أوبرا الفضاء' الضخمة؟"
+      "ar": "أي فيلم سنة 1977 بدأ سلسلة أفلام «أوبرا الفضاء» الضخمة؟"
     },
     "answer": {
       "en": "Star Wars",
@@ -103,7 +103,7 @@
     },
     "question": {
       "en": "What is the name of the green screen technique used for special effects?",
-      "ar": "ما اسم تقنية الشاشة الخضراء المستخدمة للمؤثرات الخاصة؟"
+      "ar": "شو اسم تقنية الشاشة الخضرا المستخدمة بالمؤثرات الخاصة؟"
     },
     "answer": {
       "en": "Chroma Key",
@@ -122,7 +122,7 @@
     },
     "question": {
       "en": "Who directed the movie 'Jaws'?",
-      "ar": "من أخرج فيلم 'الفك المفترس' (Jaws)؟"
+      "ar": "مين أخرج فيلم «الفك المفترس» (Jaws)؟"
     },
     "answer": {
       "en": "Steven Spielberg",
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "What was Disney's first feature-length animated film?",
-      "ar": "ما أول فيلم رسوم متحركة طويل أصدرته ديزني؟"
+      "ar": "شو أول فيلم رسوم متحركة طويل طلّعته ديزني؟"
     },
     "answer": {
       "en": "Snow White and the Seven Dwarfs",
@@ -160,7 +160,7 @@
     },
     "question": {
       "en": "What do we call the person who oversees the entire creative vision of a film?",
-      "ar": "ماذا نسمي الشخص الذي يشرف على الرؤية الإبداعية الكاملة للفيلم؟"
+      "ar": "شو نسمّي الشخص اللي يشرف على الرؤية الإبداعية للفيلم كله؟"
     },
     "answer": {
       "en": "Director",
@@ -179,7 +179,7 @@
     },
     "question": {
       "en": "Which movie features the famous line 'I'll be back'?",
-      "ar": "أي فيلم تظهر فيه الجملة الشهيرة 'سأعود' (I'll be back)؟"
+      "ar": "بأي فيلم ظهرت الجملة المشهورة «سأعود» (I'll be back)؟"
     },
     "answer": {
       "en": "The Terminator",
@@ -198,7 +198,7 @@
     },
     "question": {
       "en": "Who directed the classic crime film 'The Godfather'?",
-      "ar": "من أخرج فيلم الجريمة الكلاسيكي 'العراب' (The Godfather)؟"
+      "ar": "مين أخرج فيلم الجريمة الكلاسيكي «العرّاب» (The Godfather)؟"
     },
     "answer": {
       "en": "Francis Ford Coppola",
@@ -217,7 +217,7 @@
     },
     "question": {
       "en": "What is the term for a drawing that represents a shot in a film?",
-      "ar": "ما هو المصطلح الذي يطلق على رسم يمثل لقطة في الفيلم؟"
+      "ar": "شو نسمّي الرسمة اللي تمثّل لقطة من الفيلم قبل التصوير؟"
     },
     "answer": {
       "en": "Storyboard",
@@ -236,7 +236,7 @@
     },
     "question": {
       "en": "Which 1927 Al Jolson film became a landmark in the transition from silent features to talking pictures?",
-      "ar": "أي فيلم لآل جولسون صدر عام 1927 وأصبح علامة بارزة في الانتقال من الأفلام الصامتة إلى الناطقة؟"
+      "ar": "أي فيلم لآل جولسون نزل سنة 1927 وصار علامة فارقة بالانتقال من الأفلام الصامتة للناطقة؟"
     },
     "answer": {
       "en": "The Jazz Singer",
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "In storytelling, what is a MacGuffin?",
-      "ar": "ما المقصود بعنصر «ماكغافن» في السرد السينمائي؟"
+      "ar": "في السرد السينمائي، شو المقصود بعنصر «الماكغفن»؟"
     },
     "answer": {
       "en": "An object or goal that drives the characters' pursuit, while its particular nature may matter little to the audience",
@@ -274,7 +274,7 @@
     },
     "question": {
       "en": "Which director is known for the 'master of suspense' title?",
-      "ar": "أي مخرج يلقب بـ 'سيد التشويق'؟"
+      "ar": "أي مخرج لقبه «سيد التشويق»؟"
     },
     "answer": {
       "en": "Alfred Hitchcock",
@@ -293,7 +293,7 @@
     },
     "question": {
       "en": "What is the name of the sound effects technique used to reproduce everyday sounds in post-production?",
-      "ar": "ما اسم تقنية المؤثرات الصوتية المستخدمة لإعادة إنتاج الأصوات اليومية في مرحلة ما بعد الإنتاج؟"
+      "ar": "شو اسم تقنية المؤثرات الصوتية اللي تعيد تسجيل أصوات الحياة اليومية بعد التصوير؟"
     },
     "answer": {
       "en": "Foley",
@@ -312,7 +312,7 @@
     },
     "question": {
       "en": "Who played the character of Joker in the 2008 film 'The Dark Knight'?",
-      "ar": "من لعب شخصية الجوكر في فيلم 'فارس الظلام' عام 2008؟"
+      "ar": "مين لعب دور الجوكر في فيلم «فارس الظلام» سنة 2008؟"
     },
     "answer": {
       "en": "Heath Ledger",
@@ -331,7 +331,7 @@
     },
     "question": {
       "en": "What is the term for a movie that is filmed in one continuous take (or edited to look like it)?",
-      "ar": "ما هو المصطلح الذي يطلق على فيلم تم تصويره في لقطة واحدة مستمرة (أو تم تعديله ليبدو كذلك)؟"
+      "ar": "شو نسمّي الفيلم المصوّر بلقطة وحدة متواصلة (أو متعدّل عشان يبان كذا)؟"
     },
     "answer": {
       "en": "One-Shot (or Long Take)",
@@ -350,7 +350,7 @@
     },
     "question": {
       "en": "Which 1941 film is often cited by critics as the greatest film ever made?",
-      "ar": "أي فيلم من عام 1941 غالباً ما يستشهد به النقاد كأفضل فيلم تم إنتاجه على الإطلاق؟"
+      "ar": "أي فيلم من سنة 1941 كثير من النقاد يعتبرونه أعظم فيلم انعمل؟"
     },
     "answer": {
       "en": "Citizen Kane",
@@ -369,7 +369,7 @@
     },
     "question": {
       "en": "What is the name of the famous film festival held annually in France?",
-      "ar": "ما اسم مهرجان السينما الشهير الذي يقام سنوياً في فرنسا؟"
+      "ar": "شو اسم مهرجان السينما المشهور اللي ينقام كل سنة في فرنسا؟"
     },
     "answer": {
       "en": "Cannes Film Festival",
@@ -388,7 +388,7 @@
     },
     "question": {
       "en": "What is the 'Auteur Theory' in film studies?",
-      "ar": "ما هي 'نظرية المؤلف' (Auteur Theory) في دراسات السينما؟"
+      "ar": "في دراسات السينما، شو هي «نظرية المؤلف» (Auteur Theory)؟"
     },
     "answer": {
       "en": "The idea that the director is the primary creative force of a film",
@@ -407,7 +407,7 @@
     },
     "question": {
       "en": "Which Japanese director made 'Seven Samurai' and 'Rashomon'?",
-      "ar": "أي مخرج ياباني أخرج 'الساموراي السبعة' و 'راشومون'؟"
+      "ar": "أي مخرج ياباني أخرج «الساموراي السبعة» و«راشومون»؟"
     },
     "answer": {
       "en": "Akira Kurosawa",
@@ -426,7 +426,7 @@
     },
     "question": {
       "en": "What was the Hollywood Production Code, commonly called the Hays Code?",
-      "ar": "ما مدونة الإنتاج الهوليوودية المعروفة باسم مدونة هايز؟"
+      "ar": "شو هي مدوّنة الإنتاج الهوليوودية المعروفة بـ«مدوّنة هايز»؟"
     },
     "answer": {
       "en": "An industry code governing film content, adopted in 1930 and strictly enforced from 1934",
@@ -445,7 +445,7 @@
     },
     "question": {
       "en": "How is a frame divided when using the rule of thirds in cinematography?",
-      "ar": "كيف يُقسّم الإطار عند تطبيق قاعدة الأثلاث في التصوير السينمائي؟"
+      "ar": "لما نطبّق «قاعدة الأثلاث» في التصوير، كيف نقسم الكادر؟"
     },
     "answer": {
       "en": "Into a three-by-three grid, with important elements near the lines or their intersections",
@@ -464,7 +464,7 @@
     },
     "question": {
       "en": "Which director is famous for his 'Spaghetti Western' films like 'The Good, the Bad and the Ugly'?",
-      "ar": "أي مخرج اشتهر بأفلام 'ويسترن سباغيتي' مثل 'الطيب والشرس والقبيح'؟"
+      "ar": "أي مخرج اشتهر بأفلام «ويسترن سباغيتي» مثل «الطيب والشرس والقبيح»؟"
     },
     "answer": {
       "en": "Sergio Leone",
@@ -483,7 +483,7 @@
     },
     "question": {
       "en": "What is 'Diegetic Sound' in a movie?",
-      "ar": "ما هو 'الصوت الداخلي' (Diegetic Sound) في الفيلم؟"
+      "ar": "في الفيلم، شو هو «الصوت الداخلي» (Diegetic Sound)؟"
     },
     "answer": {
       "en": "Sound that originates from within the story world",
@@ -502,7 +502,7 @@
     },
     "question": {
       "en": "Who won the two directing awards at the first Academy Awards: Dramatic Picture and Comedy Picture?",
-      "ar": "من فازا بجائزتي الإخراج في أول حفل أوسكار: الفيلم الدرامي والفيلم الكوميدي؟"
+      "ar": "مين اللي فازوا بجائزتي الإخراج بأول حفل أوسكار: الدراما والكوميديا؟"
     },
     "answer": {
       "en": "Frank Borzage for Dramatic Picture and Lewis Milestone for Comedy Picture",
@@ -521,7 +521,7 @@
     },
     "question": {
       "en": "What is the 'Kuleshov Effect'?",
-      "ar": "ما هو 'تأثير كولشوف'؟"
+      "ar": "شو هو «تأثير كوليشوف»؟"
     },
     "answer": {
       "en": "A mental phenomenon where viewers derive more meaning from the interaction of two sequential shots",
@@ -540,7 +540,7 @@
     },
     "question": {
       "en": "Which movement in cinema was characterized by gritty realism and filming on location in post-WWII Italy?",
-      "ar": "أي حركة سينمائية تميزت بالواقعية الخام والتصوير في المواقع الحقيقية في إيطاليا بعد الحرب العالمية الثانية؟"
+      "ar": "أي حركة سينمائية في إيطاليا بعد الحرب العالمية الثانية تميّزت بالواقعية الخام والتصوير بالأماكن الحقيقية؟"
     },
     "answer": {
       "en": "Italian Neorealism",
@@ -559,7 +559,7 @@
     },
     "question": {
       "en": "What aspect ratio is commonly used for modern anamorphic theatrical releases?",
-      "ar": "ما نسبة العرض إلى الارتفاع الشائعة في العروض السينمائية الحديثة بتقنية الأنمورفيك؟"
+      "ar": "كم نسبة العرض للارتفاع الشائعة بالعروض السينمائية الحديثة بتقنية الأنامورفيك؟"
     },
     "answer": {
       "en": "Approximately 2.39:1",
@@ -578,7 +578,7 @@
     },
     "question": {
       "en": "What was the name of the first full-length color movie using the three-strip Technicolor process?",
-      "ar": "ما اسم أول فيلم ملون كامل الطول استخدم عملية تكنيكولور ثلاثية الشرائح؟"
+      "ar": "شو اسم أول فيلم طويل ملوّن بالكامل استخدم تقنية تكنيكولور بثلاث شرائح؟"
     },
     "answer": {
       "en": "Becky Sharp (1935)",
@@ -597,7 +597,7 @@
     },
     "question": {
       "en": "Who won the Best Actress Oscar for Two Women at the 1962 Academy Awards?",
-      "ar": "من فازت بأوسكار أفضل ممثلة عن فيلم امرأتان في حفل عام 1962؟"
+      "ar": "مين فازت بأوسكار أفضل ممثلة عن فيلم «امرأتان» بحفل سنة 1962؟"
     },
     "answer": {
       "en": "Sophia Loren",
@@ -616,7 +616,7 @@
     },
     "question": {
       "en": "What is the 'Dutch Angle' (or Canted Angle) shot used to convey?",
-      "ar": "ماذا تعبر لقطة 'الزاوية الهولندية' (أو الزاوية المائلة)؟"
+      "ar": "شو اللي تعبّر عنه لقطة «الزاوية الهولندية» (أو الزاوية المايلة)؟"
     },
     "answer": {
       "en": "Psychological uneasiness or tension",
@@ -635,7 +635,7 @@
     },
     "question": {
       "en": "What is the name of the camera movement where the camera moves forward but the lens zooms out?",
-      "ar": "ما اسم حركة الكاميرا حيث تتحرك الكاميرا للأمام بينما تقوم العدسة بعمل تصغير (zoom out)؟"
+      "ar": "شو اسم حركة الكاميرا اللي تتقدّم فيها الكاميرا لقدّام والعدسة تبعّد الزوم بنفس الوقت؟"
     },
     "answer": {
       "en": "Dolly Zoom (or Vertigo effect)",
@@ -654,7 +654,7 @@
     },
     "question": {
       "en": "Which 1927 sci-fi epic by Fritz Lang is famous for its depiction of a dystopian future city?",
-      "ar": "أي ملحمة خيال علمي من عام 1927 لفريتز لانج اشتهرت بتصويرها لمدينة مستقبلية بائسة؟"
+      "ar": "أي ملحمة خيال علمي لفريتز لانغ سنة 1927 اشتهرت بتصوير مدينة مستقبلية بائسة؟"
     },
     "answer": {
       "en": "Metropolis",
@@ -673,7 +673,7 @@
     },
     "question": {
       "en": "What is the term for a transition where one shot is replaced by another along a moving line?",
-      "ar": "ما هو المصطلح الذي يطلق على انتقال حيث يتم استبدال لقطة بأخرى على طول خط متحرك؟"
+      "ar": "شو نسمّي الانتقال اللي تحلّ فيه لقطة مكان الثانية على طول خط يتحرك؟"
     },
     "answer": {
       "en": "Wipe",
@@ -692,7 +692,7 @@
     },
     "question": {
       "en": "Who served as cinematographer on both '1917' and 'Blade Runner 2049'?",
-      "ar": "من تولّى إدارة التصوير في فيلمَي «1917» و«بليد رانر 2049»؟"
+      "ar": "مين كان مدير التصوير في فيلمَي «1917» و«بليد رانر 2049»؟"
     },
     "answer": {
       "en": "Roger Deakins",
@@ -725,7 +725,7 @@
     },
     "question": {
       "en": "What is 'Deep Focus' cinematography?",
-      "ar": "ما هو التصوير السينمائي بـ 'التركيز العميق' (Deep Focus)؟"
+      "ar": "شو هو التصوير بـ«التركيز العميق» (Deep Focus)؟"
     },
     "answer": {
       "en": "Technique where everything from the foreground to the background is in sharp focus",
@@ -744,7 +744,7 @@
     },
     "question": {
       "en": "Which film movement in France (late 1950s) was led by Godard and Truffaut?",
-      "ar": "أي حركة سينمائية في فرنسا (أواخر الخمسينيات) قادها غودارد وتروفو؟"
+      "ar": "أي حركة سينمائية في فرنسا (آخر الخمسينيات) قادها غودار وتروفو؟"
     },
     "answer": {
       "en": "French New Wave (Nouvelle Vague)",
@@ -763,7 +763,7 @@
     },
     "question": {
       "en": "Which light is used to soften shadows created by the key light?",
-      "ar": "ما الضوء الذي يُستخدم لتخفيف الظلال التي يُحدثها الضوء الرئيسي؟"
+      "ar": "شو الضوء اللي نستخدمه عشان نخفّف الظلال اللي يعملها الضوء الرئيسي؟"
     },
     "answer": {
       "en": "Fill light",

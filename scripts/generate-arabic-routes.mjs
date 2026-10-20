@@ -497,8 +497,11 @@ function localizeMindLabDirectory(html) {
     });
   }
 
+  const listedMembers = (section) => (section?.members || [])
+    .map((slug) => categoriesBySlug.get(slug))
+    .filter((category) => category && category.listedInDirectory !== false);
   for (const [key, section] of sectionsByKey) {
-    const categories = (section.members || []).map((slug) => categoriesBySlug.get(slug)).filter(Boolean);
+    const categories = listedMembers(section);
     const questionCount = categories.reduce((total, category) => total + Number(category.count || 0), 0);
     const sectionMatcher = new RegExp(`<section\\b(?=[^>]*\\bid=["']section-${key}["'])[^>]*>[\\s\\S]*?<\\/section>`, "iu");
     html = html.replace(sectionMatcher, (block) => {
@@ -513,7 +516,9 @@ function localizeMindLabDirectory(html) {
   for (const [key, title] of tabTitles) {
     const tabMatcher = new RegExp(`<button\\b(?=[^>]*\\bdata-cluster=["']${key}["'])[^>]*>[\\s\\S]*?<\\/button>`, "iu");
     html = html.replace(tabMatcher, (block) => {
-      const count = key === "all" ? categoriesBySlug.size : (sectionsByKey.get(key)?.members || []).length;
+      const count = key === "all"
+        ? [...sectionsByKey.values()].reduce((total, entry) => total + listedMembers(entry).length, 0)
+        : listedMembers(sectionsByKey.get(key)).length;
       let localized = replaceAttribute(block, "aria-label", title);
       localized = replaceInnerByClass(localized, "ml-cluster-tab-name", title);
       localized = replaceInnerByClass(localized, "ml-cluster-tab-count", `${count} موضوعًا`);

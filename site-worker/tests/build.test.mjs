@@ -385,7 +385,8 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   }
 
   const sectionContracts = [
-    ["mind", 8, 480],
+    // Kids Riddles (30 questions) is the Kids hub and has no directory card.
+    ["mind", 7, 450],
     ["science", 9, 730],
     ["tech", 11, 420],
     ["world", 11, 570],
@@ -393,8 +394,8 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   ];
   const mindLab = await readFile(join(repositoryRoot, "site-worker/dist/mind-lab.html"), "utf8");
   const arabicMindLab = await readFile(join(repositoryRoot, "site-worker/dist/ar/mind-lab/index.html"), "utf8");
-  assert.match(mindLab, /data-cluster="all"[\s\S]*?class="ml-cluster-tab-count">51 topics</u);
-  assert.match(arabicMindLab, /data-cluster="all"[\s\S]*?class="ml-cluster-tab-count">51 موضوعًا</u);
+  assert.match(mindLab, /data-cluster="all"[\s\S]*?class="ml-cluster-tab-count">50 topics</u);
+  assert.match(arabicMindLab, /data-cluster="all"[\s\S]*?class="ml-cluster-tab-count">50 موضوعًا</u);
   for (const [section, topics, questions] of sectionContracts) {
     assert.match(mindLab, new RegExp(`data-cluster="${section}"[\\s\\S]*?class="ml-cluster-tab-count">${topics} topics`, "u"));
     assert.match(mindLab, new RegExp(`id="section-${section}"[\\s\\S]*?class="directory-section-count">${topics} topics · ${questions.toLocaleString("en-US")} questions`, "u"));

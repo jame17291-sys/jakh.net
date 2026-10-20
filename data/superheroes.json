@@ -3,7 +3,7 @@
     "id": "superheroes-1",
     "question": {
       "en": "What is Superman's real name on his home planet Krypton?",
-      "ar": "ما هو اسم سوبرمان الحقيقي على كوكبه الأم كريبتون؟"
+      "ar": "شو اسم سوبرمان الحقيقي على كوكبه الأصلي كريبتون؟"
     },
     "answer": {
       "en": "Kal-El",
@@ -22,7 +22,7 @@
     "id": "superheroes-2",
     "question": {
       "en": "Who is Bruce Wayne's crime-fighting alter ego?",
-      "ar": "من هي الشخصية البديلة لبروس واين التي تحارب الجريمة؟"
+      "ar": "شو الشخصية اللي يتحول لها بروس واين عشان يحارب الجريمة؟"
     },
     "answer": {
       "en": "Batman",
@@ -41,7 +41,7 @@
     "id": "superheroes-3",
     "question": {
       "en": "Which superhero gains his powers from a bite by a radioactive spider?",
-      "ar": "أي بطل خارق يكتسب قواه من لدغة عنكبوت مشع؟"
+      "ar": "أي بطل خارق أخذ قواه من لدغة عنكبوت مشع؟"
     },
     "answer": {
       "en": "Spider-Man",
@@ -60,7 +60,7 @@
     "id": "superheroes-4",
     "question": {
       "en": "What is the name of Wonder Woman's homeland?",
-      "ar": "ما هو اسم موطن وندر وومان؟"
+      "ar": "شو اسم موطن «وندر وومان»؟"
     },
     "answer": {
       "en": "Themyscira",
@@ -79,7 +79,7 @@
     "id": "superheroes-5",
     "question": {
       "en": "Which Marvel superhero uses a shield made of vibranium?",
-      "ar": "أي بطل خارق من مارفل يستخدم درعًا مصنوعًا من الفيبرانيوم؟"
+      "ar": "أي بطل من مارفل يستخدم درع مصنوع من الفيبرانيوم؟"
     },
     "answer": {
       "en": "Captain America",
@@ -98,7 +98,7 @@
     "id": "superheroes-6",
     "question": {
       "en": "What is the real name of the superhero Iron Man?",
-      "ar": "ما هو الاسم الحقيقي للبطل الخارق أيرون مان؟"
+      "ar": "شو الاسم الحقيقي لـ«أيرون مان»؟"
     },
     "answer": {
       "en": "Tony Stark",
@@ -117,7 +117,7 @@
     "id": "superheroes-7",
     "question": {
       "en": "Which superhero team includes Thor, Hulk, and Black Widow?",
-      "ar": "أي فريق أبطال خارقين يضم ثور، هالك، والأرملة السوداء؟"
+      "ar": "أي فريق أبطال فيه ثور وهالك والأرملة السوداء؟"
     },
     "answer": {
       "en": "The Avengers",
@@ -136,7 +136,7 @@
     "id": "superheroes-8",
     "question": {
       "en": "What is the primary weakness of Superman?",
-      "ar": "ما هي نقطة الضعف الأساسية لسوبرمان؟"
+      "ar": "شو نقطة ضعف سوبرمان الأساسية؟"
     },
     "answer": {
       "en": "Kryptonite",
@@ -155,7 +155,7 @@
     "id": "superheroes-9",
     "question": {
       "en": "Who is Batman's archenemy, known for his clown-like appearance?",
-      "ar": "من هو العدو اللدود لباتمان، والمعروف بمظهره الذي يشبه المهرج؟"
+      "ar": "مين عدو باتمان اللدود اللي شكله مثل المهرج؟"
     },
     "answer": {
       "en": "The Joker",
@@ -174,7 +174,7 @@
     "id": "superheroes-10",
     "question": {
       "en": "Which X-Men character has metal claws and the ability to heal rapidly?",
-      "ar": "أي شخصية من إكس-من لديها مخالب معدنية وقدرة على الشفاء السريع؟"
+      "ar": "أي شخصية من «إكس-مين» عندها مخالب معدنية وتتعافى بسرعة؟"
     },
     "answer": {
       "en": "Wolverine",
@@ -193,7 +193,7 @@
     "id": "superheroes-11",
     "question": {
       "en": "What superhero name is used by Superman's cousin Kara Zor-El?",
-      "ar": "ما الاسم البطولي الذي تستخدمه قريبة سوبرمان كارا زور-إل؟"
+      "ar": "شو اسم البطلة اللي تستخدمه كارا زور-إل، قريبة سوبرمان؟"
     },
     "answer": {
       "en": "Supergirl",
@@ -212,7 +212,7 @@
     "id": "superheroes-12",
     "question": {
       "en": "Who founded the X-Men in the original Marvel comics?",
-      "ar": "من أسس فريق إكس من في قصص مارفل المصورة الأصلية؟"
+      "ar": "مين أسّس فريق «إكس-مين» في قصص مارفل الأصلية؟"
     },
     "answer": {
       "en": "Professor Charles Xavier",
@@ -231,7 +231,7 @@
     "id": "superheroes-13",
     "question": {
       "en": "Which superhero is known as the 'Scarlet Speedster'?",
-      "ar": "أي بطل خارق يُعرف بـ 'العداء القرمزي'؟"
+      "ar": "أي بطل خارق لقبه «العدّاء القرمزي»؟"
     },
     "answer": {
       "en": "The Flash",
@@ -250,7 +250,7 @@
     "id": "superheroes-14",
     "question": {
       "en": "What is the name of the Wakandan king portrayed by Chadwick Boseman as Black Panther?",
-      "ar": "ما اسم ملك واكاندا الذي جسده تشادويك بوزمان بشخصية النمر الأسود؟"
+      "ar": "شو اسم ملك واكاندا اللي لعب دوره تشادويك بوزمان بشخصية «النمر الأسود»؟"
     },
     "answer": {
       "en": "T'Challa",
@@ -269,7 +269,7 @@
     "id": "superheroes-15",
     "question": {
       "en": "Which DC character wields a power ring powered by willpower?",
-      "ar": "أي شخصية من دي سي تستخدم خاتم قوة مدعومًا بقوة الإرادة؟"
+      "ar": "أي شخصية من دي سي تستخدم خاتم قوة يشتغل بقوة الإرادة؟"
     },
     "answer": {
       "en": "Green Lantern",
@@ -288,7 +288,7 @@
     "id": "superheroes-16",
     "question": {
       "en": "Who is the adoptive brother and frequent enemy of Thor?",
-      "ar": "من هو الأخ المتبنى والعدو المتكرر لثور؟"
+      "ar": "مين أخو ثور بالتبنّي وعدوه اللي يرجع كل مرة؟"
     },
     "answer": {
       "en": "Loki",
@@ -307,7 +307,7 @@
     "id": "superheroes-17",
     "question": {
       "en": "What alien race is Gamora from Guardians of the Galaxy a part of?",
-      "ar": "ما هو العرق الفضائي الذي تنتمي إليه جامورا من حراس المجرة؟"
+      "ar": "من أي عرق فضائي جامورا من «حراس المجرة»؟"
     },
     "answer": {
       "en": "Zen-Whoberis",
@@ -326,7 +326,7 @@
     "id": "superheroes-18",
     "question": {
       "en": "Which villain snapped his fingers and wiped out half of all life in the Marvel Cinematic Universe?",
-      "ar": "أي شرير طقطق بأصابعه ومحا نصف الحياة في عالم مارفل السينمائي؟"
+      "ar": "أي شرير طقطق بأصابعه ومسح نص الكائنات الحية في عالم مارفل السينمائي؟"
     },
     "answer": {
       "en": "Thanos",
@@ -345,7 +345,7 @@
     "id": "superheroes-19",
     "question": {
       "en": "What is the name of Aquaman's underwater kingdom?",
-      "ar": "ما اسم مملكة أكوامان تحت الماء؟"
+      "ar": "شو اسم مملكة أكوامان تحت البحر؟"
     },
     "answer": {
       "en": "Atlantis",
@@ -364,7 +364,7 @@
     "id": "superheroes-20",
     "question": {
       "en": "Who killed Bruce Wayne's parents in the mainstream Batman comics origin?",
-      "ar": "من قتل والدي بروس واين في قصة منشأ باتمان في الاستمرارية الرئيسية للقصص المصورة؟"
+      "ar": "في قصة بداية باتمان بالقصص المصورة الأساسية، مين قتل أهل بروس واين؟"
     },
     "answer": {
       "en": "Joe Chill",
@@ -383,7 +383,7 @@
     "id": "superheroes-21",
     "question": {
       "en": "What was the title of Timely Comics' first comic book, published in 1939 and featuring the Human Torch and Namor?",
-      "ar": "ما عنوان أول عدد أصدرته تايملي كوميكس عام 1939، وضم الشعلة البشرية ونامور؟"
+      "ar": "شو عنوان أول عدد طلّعته «تايملي كوميكس» سنة 1939، وكان فيه الشعلة البشرية ونامور؟"
     },
     "answer": {
       "en": "Marvel Comics #1",
@@ -402,7 +402,7 @@
     "id": "superheroes-22",
     "question": {
       "en": "Which DC villain broke Batman's back in the 'Knightfall' storyline?",
-      "ar": "أي شرير من دي سي كسر ظهر باتمان في قصة 'نايتفول'؟"
+      "ar": "أي شرير من دي سي كسر ظهر باتمان في قصة «نايتفول»؟"
     },
     "answer": {
       "en": "Bane",
@@ -421,7 +421,7 @@
     "id": "superheroes-23",
     "question": {
       "en": "What is the name of the metal bonded to Wolverine's skeleton?",
-      "ar": "ما اسم المعدن المرتبط بهيكل وولفرين العظمي؟"
+      "ar": "شو اسم المعدن اللي مغلّف هيكل وولفرين العظمي؟"
     },
     "answer": {
       "en": "Adamantium",
@@ -440,7 +440,7 @@
     "id": "superheroes-24",
     "question": {
       "en": "Who was the original Robin before he became Nightwing?",
-      "ar": "من كان روبن الأصلي قبل أن يصبح نايتوينج؟"
+      "ar": "مين كان «روبن» الأصلي قبل ما يصير «نايتوينغ»؟"
     },
     "answer": {
       "en": "Dick Grayson",
@@ -459,7 +459,7 @@
     "id": "superheroes-25",
     "question": {
       "en": "What cosmic entity in the Marvel Universe is known as the 'Devourer of Worlds'?",
-      "ar": "ما هو الكيان الكوني في عالم مارفل المعروف بـ 'ملتهم العوالم'؟"
+      "ar": "شو الكيان الكوني في عالم مارفل اللي لقبه «ملتهم العوالم»؟"
     },
     "answer": {
       "en": "Galactus",
@@ -478,7 +478,7 @@
     "id": "superheroes-26",
     "question": {
       "en": "Which superhero's real name is Wade Wilson?",
-      "ar": "أي بطل خارق اسمه الحقيقي هو ويد ويلسون؟"
+      "ar": "أي بطل خارق اسمه الحقيقي ويد ويلسون؟"
     },
     "answer": {
       "en": "Deadpool",
@@ -497,7 +497,7 @@
     "id": "superheroes-27",
     "question": {
       "en": "What is the name of the daily newspaper where Clark Kent and Lois Lane work?",
-      "ar": "ما اسم الصحيفة اليومية التي يعمل فيها كلارك كينت ولويس لين؟"
+      "ar": "شو اسم الجريدة اليومية اللي يشتغل فيها كلارك كينت ولويس لين؟"
     },
     "answer": {
       "en": "The Daily Planet",
@@ -516,7 +516,7 @@
     "id": "superheroes-28",
     "question": {
       "en": "Which Marvel superhero team operates out of the Baxter Building?",
-      "ar": "أي فريق أبطال خارقين من مارفل يتخذ من مبنى باكستر مقراً له؟"
+      "ar": "أي فريق أبطال من مارفل مقرّه مبنى باكستر؟"
     },
     "answer": {
       "en": "The Fantastic Four",
@@ -535,7 +535,7 @@
     "id": "superheroes-29",
     "question": {
       "en": "In classic Silver Age Superman stories, which colour of kryptonite causes temporary, unpredictable transformations?",
-      "ar": "أي لون من الكريبتونيت يسبب تحولات مؤقتة وغير متوقعة في قصص سوبرمان الكلاسيكية من العصر الفضي؟"
+      "ar": "في قصص سوبرمان الكلاسيكية من العصر الفضي، أي لون كريبتونيت يسبب تحولات مؤقتة وغريبة؟"
     },
     "answer": {
       "en": "Red kryptonite",
@@ -554,7 +554,7 @@
     "id": "superheroes-30",
     "question": {
       "en": "Who is the founding member of the Justice League that originates from Mars?",
-      "ar": "من هو العضو المؤسس لفرقة العدالة الذي ينحدر من المريخ؟"
+      "ar": "مين العضو المؤسس في «فرقة العدالة» اللي أصله من المريخ؟"
     },
     "answer": {
       "en": "Martian Manhunter",
@@ -573,7 +573,7 @@
     "id": "superheroes-31",
     "question": {
       "en": "In DC Comics, what is the 'Anti-Life Equation'?",
-      "ar": "في دي سي كوميكس، ما هي 'معادلة معاداة الحياة'؟"
+      "ar": "في دي سي كوميكس، شو هي «معادلة معاداة الحياة»؟"
     },
     "answer": {
       "en": "A formula that gives complete control over the minds of all sentient beings",
@@ -592,7 +592,7 @@
     "id": "superheroes-32",
     "question": {
       "en": "What is the true identity of the Marvel villain Doctor Doom?",
-      "ar": "ما هي الهوية الحقيقية لشرير مارفل دكتور دووم؟"
+      "ar": "شو الهوية الحقيقية لشرير مارفل «دكتور دوم»؟"
     },
     "answer": {
       "en": "Victor von Doom",
@@ -611,7 +611,7 @@
     "id": "superheroes-33",
     "question": {
       "en": "Which Green Lantern was an architect and a former US Marine?",
-      "ar": "أي فانوس أخضر كان مهندسًا معماريًا وجندي مشاة بحرية أمريكي سابق؟"
+      "ar": "أي «فانوس أخضر» كان مهندس معماري وجندي سابق بمشاة البحرية الأمريكية؟"
     },
     "answer": {
       "en": "John Stewart",
@@ -630,7 +630,7 @@
     "id": "superheroes-34",
     "question": {
       "en": "What is the name of the magical dimension ruled by Dormammu?",
-      "ar": "ما اسم البعد السحري الذي يحكمه دورمامو؟"
+      "ar": "شو اسم البُعد السحري اللي يحكمه دورمامو؟"
     },
     "answer": {
       "en": "The Dark Dimension",
@@ -649,7 +649,7 @@
     "id": "superheroes-35",
     "question": {
       "en": "Which DC heroine uses the Lasso of Truth?",
-      "ar": "أي بطلة من دي سي تستخدم حبل الحقيقة؟"
+      "ar": "أي بطلة من دي سي تستخدم «حبل الحقيقة»؟"
     },
     "answer": {
       "en": "Wonder Woman",
@@ -668,7 +668,7 @@
     "id": "superheroes-36",
     "question": {
       "en": "Which element is used in Tony Stark's early arc-reactor core in the Iron Man films?",
-      "ar": "ما العنصر المستخدم في نواة مفاعل القوس المبكر لتوني ستارك في أفلام أيرون مان؟"
+      "ar": "في أفلام «أيرون مان»، شو العنصر اللي كان بقلب أول مفاعل قوسي عند توني ستارك؟"
     },
     "answer": {
       "en": "Palladium",
@@ -687,7 +687,7 @@
     "id": "superheroes-37",
     "question": {
       "en": "In the Flashpoint storyline, who takes on the mantle of Batman after Bruce Wayne is killed?",
-      "ar": "في قصة فلاش بوينت، من يتولى عباءة باتمان بعد مقتل بروس واين؟"
+      "ar": "في قصة «فلاش بوينت»، مين يلبس عباءة باتمان بعد ما ينقتل بروس واين؟"
     },
     "answer": {
       "en": "Thomas Wayne (Bruce's father)",
@@ -706,7 +706,7 @@
     "id": "superheroes-38",
     "question": {
       "en": "Which Marvel gauntlet holds the six Infinity Gems in the comics?",
-      "ar": "ما القفاز الذي يحمل جواهر اللانهاية الست في قصص مارفل المصورة؟"
+      "ar": "في قصص مارفل، شو القفاز اللي يحمل أحجار اللانهاية الستة؟"
     },
     "answer": {
       "en": "The Infinity Gauntlet",
@@ -725,7 +725,7 @@
     "id": "superheroes-39",
     "question": {
       "en": "What is the name of the alien symbiote that bonded with Eddie Brock?",
-      "ar": "ما اسم الكائن الفضائي المتكافل الذي اندمج مع إيدي بروك؟"
+      "ar": "شو اسم الكائن الفضائي المتكافل اللي اندمج مع إيدي بروك؟"
     },
     "answer": {
       "en": "Venom",
@@ -744,7 +744,7 @@
     "id": "superheroes-40",
     "question": {
       "en": "Which 1985–86 DC event merged multiple parallel Earths into a new shared continuity?",
-      "ar": "ما حدث دي سي الذي صدر بين 1985 و1986 ودمج عدة أراضٍ متوازية في استمرارية مشتركة جديدة؟"
+      "ar": "شو حدث دي سي اللي نزل بين 1985 و1986 ودمج عوالم موازية كثيرة في قصة وحدة جديدة؟"
     },
     "answer": {
       "en": "Crisis on Infinite Earths",

@@ -3,7 +3,7 @@
     "id": "true-crime-1",
     "question": {
       "en": "What famous serial killer was known as the 'Whitechapel Murderer'?",
-      "ar": "ما هو السفاح الشهير الذي عُرف باسم 'قاتل وايت تشابل'؟"
+      "ar": "مين السفاح الشهير اللي انعرف بلقب «قاتل وايت تشابل»؟"
     },
     "answer": {
       "en": "Jack the Ripper",
@@ -22,7 +22,7 @@
     "id": "true-crime-2",
     "question": {
       "en": "Who was the infamous mob boss known as 'Scarface'?",
-      "ar": "من هو زعيم المافيا سيئ السمعة المعروف باسم 'الوجه ذو الندبة'؟"
+      "ar": "مين زعيم المافيا سيئ السمعة اللي لقبه «الوجه ذو الندبة»؟"
     },
     "answer": {
       "en": "Al Capone",
@@ -41,7 +41,7 @@
     "id": "true-crime-3",
     "question": {
       "en": "Which former federal prison stands on an island in San Francisco Bay?",
-      "ar": "ما السجن الفيدرالي السابق القائم على جزيرة في خليج سان فرانسيسكو؟"
+      "ar": "شو اسم السجن الفيدرالي القديم اللي على جزيرة في خليج سان فرانسيسكو؟"
     },
     "answer": {
       "en": "Alcatraz.",
@@ -60,7 +60,7 @@
     "id": "true-crime-4",
     "question": {
       "en": "Who assassinated US President Abraham Lincoln?",
-      "ar": "من اغتال الرئيس الأمريكي أبراهام لينكولن؟"
+      "ar": "مين اغتال الرئيس الأمريكي أبراهام لينكولن؟"
     },
     "answer": {
       "en": "John Wilkes Booth",
@@ -79,7 +79,7 @@
     "id": "true-crime-5",
     "question": {
       "en": "What was the name of the cult leader responsible for the 1969 Tate-LaBianca murders?",
-      "ar": "ما كان اسم زعيم الطائفة المسؤول عن جرائم قتل تيت-لابيانكا عام 1969؟"
+      "ar": "مين زعيم الطائفة المسؤول عن جرائم قتل تيت-لابيانكا سنة 1969؟"
     },
     "answer": {
       "en": "Charles Manson",
@@ -98,7 +98,7 @@
     "id": "true-crime-6",
     "question": {
       "en": "What famous pirate was known for his thick black beard?",
-      "ar": "ما هو القرصان الشهير الذي عُرف بلحيته السوداء الكثيفة؟"
+      "ar": "مين القرصان الشهير اللي انعرف بلحيته السودا الكثيفة؟"
     },
     "answer": {
       "en": "Blackbeard",
@@ -117,7 +117,7 @@
     "id": "true-crime-7",
     "question": {
       "en": "Which American outlaw pair went on a crime spree during the Great Depression?",
-      "ar": "من هما الثنائي الأمريكي الخارج عن القانون الذي قام بسلسلة جرائم خلال الكساد الكبير؟"
+      "ar": "مين الثنائي الأمريكي الخارج عن القانون اللي عملوا سلسلة جرائم وقت الكساد الكبير؟"
     },
     "answer": {
       "en": "Bonnie and Clyde",
@@ -136,7 +136,7 @@
     "id": "true-crime-8",
     "question": {
       "en": "What name is given to the 1692 witchcraft trials in Massachusetts that led to the execution of both women and men?",
-      "ar": "ما الاسم الذي يُطلق على محاكمات السحر في ماساتشوستس عام 1692، والتي أدت إلى إعدام نساء ورجال؟"
+      "ar": "شو اسم محاكمات السحر اللي صارت في ماساتشوستس سنة 1692 وانعدم فيها رجال ونساء؟"
     },
     "answer": {
       "en": "The Salem witch trials.",
@@ -155,7 +155,7 @@
     "id": "true-crime-9",
     "question": {
       "en": "Which Colombian drug trafficker led the Medellín cartel?",
-      "ar": "أي تاجر مخدرات كولومبي قاد كارتل ميديلين؟"
+      "ar": "أي تاجر مخدرات كولومبي كان يقود كارتل ميديلين؟"
     },
     "answer": {
       "en": "Pablo Escobar.",
@@ -174,7 +174,7 @@
     "id": "true-crime-10",
     "question": {
       "en": "What unknown hijacker parachuted out of a plane with $200,000 in 1971?",
-      "ar": "ما هو الخاطف المجهول الذي قفز بمظلة من طائرة وبحوزته 200,000 دولار عام 1971؟"
+      "ar": "مين الخاطف المجهول اللي نط بالمظلة من طيارة ومعه 200,000 دولار سنة 1971؟"
     },
     "answer": {
       "en": "D.B. Cooper",
@@ -193,7 +193,7 @@
     "id": "true-crime-11",
     "question": {
       "en": "Which serial killer was known as the 'Milwaukee Cannibal'?",
-      "ar": "أي سفاح عُرف باسم 'أكل لحوم البشر في ميلووكي'؟"
+      "ar": "أي سفاح انعرف بلقب «آكل لحوم البشر في ميلووكي»؟"
     },
     "answer": {
       "en": "Jeffrey Dahmer",
@@ -212,7 +212,7 @@
     "id": "true-crime-12",
     "question": {
       "en": "What cipher-using killer terrorized Northern California in the late 1960s?",
-      "ar": "ما هو القاتل الذي استخدم الشفرات وأرهب شمال كاليفورنيا في أواخر الستينيات؟"
+      "ar": "مين القاتل اللي كان يبعت رسائل مشفّرة ورعّب شمال كاليفورنيا آخر الستينيات؟"
     },
     "answer": {
       "en": "The Zodiac Killer",
@@ -231,7 +231,7 @@
     "id": "true-crime-13",
     "question": {
       "en": "What forensic technique compares genetic markers in biological samples?",
-      "ar": "ما التقنية الجنائية التي تقارن مؤشرات وراثية في العينات البيولوجية؟"
+      "ar": "شو التقنية الجنائية اللي تقارن علامات وراثية في العينات البيولوجية؟"
     },
     "answer": {
       "en": "DNA profiling, also called DNA fingerprinting.",
@@ -250,7 +250,7 @@
     "id": "true-crime-14",
     "question": {
       "en": "What was the name of the infamous 1932 kidnapping of a famous aviator's baby?",
-      "ar": "ما كان اسم عملية الاختطاف سيئة السمعة عام 1932 لطفل طيار شهير؟"
+      "ar": "شو كان اسم قضية الخطف المشهورة سنة 1932 لطفل طيار معروف؟"
     },
     "answer": {
       "en": "Lindbergh kidnapping",
@@ -269,7 +269,7 @@
     "id": "true-crime-15",
     "question": {
       "en": "Which Italian-American Mafia family was John Gotti the boss of?",
-      "ar": "أي عائلة مافيا إيطالية أمريكية كان جون جوتي زعيماً لها؟"
+      "ar": "أي عائلة مافيا إيطالية أمريكية كان جون جوتي زعيمها؟"
     },
     "answer": {
       "en": "The Gambino family",
@@ -288,7 +288,7 @@
     "id": "true-crime-16",
     "question": {
       "en": "What famous painting was stolen from the Louvre in 1911?",
-      "ar": "ما هي اللوحة الشهيرة التي سُرقت من متحف اللوفر عام 1911؟"
+      "ar": "شو اللوحة المشهورة اللي انسرقت من متحف اللوفر سنة 1911؟"
     },
     "answer": {
       "en": "The Mona Lisa",
@@ -307,7 +307,7 @@
     "id": "true-crime-17",
     "question": {
       "en": "According to the Warren Commission's 1964 report, who shot President John F. Kennedy?",
-      "ar": "وفقاً لتقرير لجنة وارن الصادر عام 1964، من أطلق النار على الرئيس جون إف كينيدي؟"
+      "ar": "حسب تقرير لجنة وارن سنة 1964، مين أطلق النار على الرئيس جون إف كينيدي؟"
     },
     "answer": {
       "en": "Lee Harvey Oswald. This is the commission's conclusion, not a criminal-trial verdict.",
@@ -326,7 +326,7 @@
     "id": "true-crime-18",
     "question": {
       "en": "In which Washington, D.C. complex were Democratic National Committee offices burgled in June 1972?",
-      "ar": "في أي مجمّع بواشنطن اقتُحمت مكاتب اللجنة الوطنية للحزب الديمقراطي في يونيو 1972؟"
+      "ar": "في أي مجمّع بواشنطن انقتحمت مكاتب اللجنة الوطنية للحزب الديمقراطي في يونيو 1972؟"
     },
     "answer": {
       "en": "The Watergate complex.",
@@ -345,7 +345,7 @@
     "id": "true-crime-19",
     "question": {
       "en": "Which serial killer was known as the 'Night Stalker'?",
-      "ar": "أي سفاح عُرف باسم 'المطارد الليلي'؟"
+      "ar": "أي سفاح انعرف بلقب «المطارد الليلي»؟"
     },
     "answer": {
       "en": "Richard Ramirez",
@@ -364,7 +364,7 @@
     "id": "true-crime-20",
     "question": {
       "en": "Which organization was led by Jim Jones and associated with the 1978 mass murder-suicide at Jonestown?",
-      "ar": "ما المنظمة التي قادها جيم جونز وارتبطت بالقتل والانتحار الجماعيين في جونزتاون عام 1978؟"
+      "ar": "شو المنظمة اللي قادها جيم جونز وارتبطت بالقتل والانتحار الجماعي في جونزتاون سنة 1978؟"
     },
     "answer": {
       "en": "Peoples Temple.",
@@ -383,7 +383,7 @@
     "id": "true-crime-21",
     "question": {
       "en": "What is the name of the forensic technique that analyzes blood patterns at a crime scene?",
-      "ar": "ما هو اسم تقنية الطب الشرعي التي تحلل أنماط الدم في مسرح الجريمة؟"
+      "ar": "شو اسم تقنية الطب الشرعي اللي تحلّل شكل بقع الدم في مسرح الجريمة؟"
     },
     "answer": {
       "en": "Bloodstain pattern analysis (BPA)",
@@ -402,7 +402,7 @@
     "id": "true-crime-22",
     "question": {
       "en": "Who was the 'Unabomber'?",
-      "ar": "من كان 'يونابومبر'؟"
+      "ar": "مين كان «اليونابومبر»؟"
     },
     "answer": {
       "en": "Ted Kaczynski",
@@ -421,7 +421,7 @@
     "id": "true-crime-23",
     "question": {
       "en": "What famous American bank robber was declared 'Public Enemy No. 1' by the FBI in 1934?",
-      "ar": "ما هو سارق البنوك الأمريكي الشهير الذي أعلنه مكتب التحقيقات الفيدرالي 'عدو الشعب رقم 1' عام 1934؟"
+      "ar": "مين سارق البنوك الأمريكي الشهير اللي سمّاه مكتب التحقيقات الفيدرالي «عدو الشعب رقم 1» سنة 1934؟"
     },
     "answer": {
       "en": "John Dillinger",
@@ -440,7 +440,7 @@
     "id": "true-crime-24",
     "question": {
       "en": "Which field analyzes drugs and poisons in biological samples for legal investigations?",
-      "ar": "ما المجال الذي يحلّل الأدوية والسموم في العينات البيولوجية لأغراض التحقيقات القانونية؟"
+      "ar": "شو المجال اللي يحلّل الأدوية والسموم في العينات البيولوجية عشان التحقيقات القانونية؟"
     },
     "answer": {
       "en": "Forensic toxicology.",
@@ -459,7 +459,7 @@
     "id": "true-crime-25",
     "question": {
       "en": "Which Boston museum lost thirteen works of art in a 1990 theft?",
-      "ar": "أي متحف في بوسطن سُرق منه ثلاثة عشر عملاً فنياً عام 1990؟"
+      "ar": "أي متحف في بوسطن انسرق منه 13 عمل فني سنة 1990؟"
     },
     "answer": {
       "en": "The Isabella Stewart Gardner Museum.",
@@ -478,7 +478,7 @@
     "id": "true-crime-26",
     "question": {
       "en": "Which convicted murderer performed as a clown at community events and became known in media as the 'Killer Clown'?",
-      "ar": "أي قاتل مُدان كان يؤدي دور مهرج في مناسبات مجتمعية واشتهر إعلامياً بلقب «المهرج القاتل»؟"
+      "ar": "أي قاتل مُدان كان يطلع كمهرج في مناسبات الحي، واشتهر بالإعلام بلقب «المهرج القاتل»؟"
     },
     "answer": {
       "en": "John Wayne Gacy; the nickname does not mean he wore the costume during the murders.",
@@ -497,7 +497,7 @@
     "id": "true-crime-27",
     "question": {
       "en": "What infamous French penal colony in South America was known as the 'Green Hell'?",
-      "ar": "ما هي المستعمرة العقابية الفرنسية سيئة السمعة في أمريكا الجنوبية والتي عُرفت باسم 'الجحيم الأخضر'؟"
+      "ar": "شو المستعمرة العقابية الفرنسية المرعبة في أمريكا الجنوبية اللي كانوا يسمّونها «الجحيم الأخضر»؟"
     },
     "answer": {
       "en": "Devil's Island",
@@ -516,7 +516,7 @@
     "id": "true-crime-28",
     "question": {
       "en": "What was the real name of 'Black Dahlia', the victim of a famous 1947 unsolved murder?",
-      "ar": "ما كان الاسم الحقيقي لـ 'الداليا السوداء'، ضحية جريمة القتل غير المحلولة الشهيرة عام 1947؟"
+      "ar": "شو كان الاسم الحقيقي لـ«الداليا السوداء»، ضحية جريمة القتل الشهيرة اللي ما انحلّت سنة 1947؟"
     },
     "answer": {
       "en": "Elizabeth Short",
@@ -535,7 +535,7 @@
     "id": "true-crime-29",
     "question": {
       "en": "Which mob boss helped establish the Mafia's Commission in the United States in 1931?",
-      "ar": "أي زعيم مافيا ساهم في تأسيس «اللجنة» المنظمة لعائلات المافيا في الولايات المتحدة عام 1931؟"
+      "ar": "أي زعيم مافيا ساهم بتأسيس «اللجنة» اللي تنظّم عائلات المافيا في أمريكا سنة 1931؟"
     },
     "answer": {
       "en": "Charles 'Lucky' Luciano.",
@@ -554,7 +554,7 @@
     "id": "true-crime-30",
     "question": {
       "en": "Which element, found in compounds used in historical poisonings, can be detected with the Marsh test?",
-      "ar": "ما العنصر الذي وُجد في مركّبات استُخدمت في حوادث تسميم تاريخية ويمكن كشفه باختبار مارش؟"
+      "ar": "شو العنصر اللي كان موجود بمركّبات استُخدمت في حوادث تسميم قديمة، وممكن ينكشف باختبار مارش؟"
     },
     "answer": {
       "en": "Arsenic.",
@@ -573,7 +573,7 @@
     "id": "true-crime-31",
     "question": {
       "en": "Which fly family often colonizes exposed remains early and is studied in forensic entomology?",
-      "ar": "أي فصيلة من الذباب تستوطن البقايا المكشوفة مبكراً في كثير من الظروف وتُدرس في علم الحشرات الجنائي؟"
+      "ar": "أي فصيلة ذباب توصل بدري للجثث المكشوفة في ظروف كثيرة، ويدرسها علم الحشرات الجنائي؟"
     },
     "answer": {
       "en": "Calliphoridae, the blowflies. Arrival depends on temperature, access and other conditions.",
@@ -592,7 +592,7 @@
     "id": "true-crime-32",
     "question": {
       "en": "What was the name of the cryptogram sent by the Zodiac Killer that took 51 years to decipher?",
-      "ar": "ما كان اسم التشفير الذي أرسله زودياك السفاح واستغرق 51 عاماً لفك رموزه؟"
+      "ar": "شو اسم الشيفرة اللي بعتها سفّاح زودياك واحتاجت 51 سنة عشان تنفكّ؟"
     },
     "answer": {
       "en": "Z340 cipher",
@@ -611,7 +611,7 @@
     "id": "true-crime-33",
     "question": {
       "en": "What debated popular term, named after a 1973 bank robbery, describes an emotional attachment a captive may develop toward a captor?",
-      "ar": "ما المصطلح الشعبي المختلف عليه، المرتبط بسطو على بنك عام 1973، الذي يصف تعلقاً عاطفياً قد ينشأ لدى أسير تجاه آسره؟"
+      "ar": "شو المصطلح الشعبي المختلف عليه، المرتبط بسطو على بنك سنة 1973، اللي يوصف تعلّق الرهينة عاطفيًا بخاطفها؟"
     },
     "answer": {
       "en": "Stockholm syndrome; it is not a universally accepted clinical diagnosis.",
@@ -630,7 +630,7 @@
     "id": "true-crime-34",
     "question": {
       "en": "What is the documented record of who collected, transferred, stored and examined an item of evidence called?",
-      "ar": "ماذا يُسمّى السجل الموثّق لمن جمع قطعة دليل ونقلها وحفظها وفحصها؟"
+      "ar": "شو نسمّي السجل الموثّق اللي يبيّن مين جمع الدليل ونقله وحفظه وفحصه؟"
     },
     "answer": {
       "en": "The chain of custody.",
@@ -649,7 +649,7 @@
     "id": "true-crime-35",
     "question": {
       "en": "What highly toxic protein, extracted from castor beans, was used to assassinate Georgi Markov via an umbrella in 1978?",
-      "ar": "ما هو البروتين شديد السمية، المستخرج من حبوب الخروع، الذي استخدم لاغتيال جورجي ماركوف عبر مظلة في عام 1978؟"
+      "ar": "شو البروتين شديد السمّية، المستخرج من بذور الخروع، اللي اغتالوا فيه جورجي ماركوف بمظلة سنة 1978؟"
     },
     "answer": {
       "en": "Ricin",
@@ -668,7 +668,7 @@
     "id": "true-crime-36",
     "question": {
       "en": "In forensic ballistics, what is the term for the spiral grooves inside a gun barrel that impart spin to a bullet?",
-      "ar": "في المقذوفات الجنائية، ما هو المصطلح الذي يطلق على الأخاديد الحلزونية داخل سبطانة البندقية التي تضفي الدوران على الرصاصة؟"
+      "ar": "في علم المقذوفات، شو اسم الأخاديد الحلزونية داخل ماسورة البندقية اللي تخلّي الرصاصة تدور؟"
     },
     "answer": {
       "en": "Rifling",
@@ -687,7 +687,7 @@
     "id": "true-crime-37",
     "question": {
       "en": "Which Italian criminal organization originated in Calabria?",
-      "ar": "أي منظمة إجرامية إيطالية نشأت في كالابريا؟"
+      "ar": "أي منظمة إجرامية إيطالية بدأت في كالابريا؟"
     },
     "answer": {
       "en": "The 'Ndrangheta.",
@@ -706,7 +706,7 @@
     "id": "true-crime-38",
     "question": {
       "en": "In a criminal investigation, what is an alibi?",
-      "ar": "ما المقصود بدفع الغياب عن مسرح الجريمة في التحقيق الجنائي؟"
+      "ar": "في التحقيق الجنائي، شو يعني إن المتهم يدفع بأنه «ما كان موجود» بمسرح الجريمة؟"
     },
     "answer": {
       "en": "An account or evidence that a person was elsewhere when the offence occurred; its reliability must be assessed.",
@@ -725,7 +725,7 @@
     "id": "true-crime-39",
     "question": {
       "en": "Which forensic specialty uses dental records to help identify deceased people?",
-      "ar": "ما التخصص الجنائي الذي يستخدم سجلات الأسنان للمساعدة في تحديد هوية المتوفين؟"
+      "ar": "شو التخصص الجنائي اللي يستخدم سجلات الأسنان عشان يتعرّف على هوية المتوفّين؟"
     },
     "answer": {
       "en": "Forensic odontology. Dental-record identification is distinct from disputed identification using bite marks on skin.",
@@ -744,7 +744,7 @@
     "id": "true-crime-40",
     "question": {
       "en": "Which mathematical law about leading-digit frequencies can help forensic accountants flag anomalies in suitable numerical datasets?",
-      "ar": "ما القانون الرياضي المتعلق بتوزيع الأرقام الأولى الذي قد يساعد المحاسبين الجنائيين في رصد الشذوذ في مجموعات بيانات عددية مناسبة؟"
+      "ar": "شو القانون الرياضي عن توزيع أول رقم في الأعداد، اللي ممكن يساعد المحاسبين الجنائيين يكتشفون أرقام غريبة بالبيانات المناسبة؟"
     },
     "answer": {
       "en": "Benford's law. An unusual pattern is a lead for investigation, not proof of fraud.",

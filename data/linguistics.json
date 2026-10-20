@@ -3,7 +3,7 @@
     "id": "linguistics-1",
     "question": {
       "en": "Arabic and Hebrew belong to which branch of the Afro-Asiatic language family?",
-      "ar": "تنتمي العربية والعبرية إلى أيّ فرع من عائلة اللغات الأفروآسيوية؟"
+      "ar": "العربية والعبرية من أي فرع في عائلة اللغات الأفروآسيوية؟"
     },
     "answer": {
       "en": "The Semitic branch",
@@ -22,7 +22,7 @@
     "id": "linguistics-2",
     "question": {
       "en": "Which language is primarily spoken in Brazil?",
-      "ar": "ما هي اللغة الأساسية التي يتم التحدث بها في البرازيل؟"
+      "ar": "شو اللغة الأساسية اللي يحكيها الناس في البرازيل؟"
     },
     "answer": {
       "en": "Portuguese",
@@ -41,7 +41,7 @@
     "id": "linguistics-3",
     "question": {
       "en": "What punctuation mark is used to ask a question?",
-      "ar": "ما هي علامة الترقيم المستخدمة لطرح سؤال؟"
+      "ar": "شو علامة الترقيم اللي نستخدمها لما نسأل سؤال؟"
     },
     "answer": {
       "en": "Question mark (?)",
@@ -60,7 +60,7 @@
     "id": "linguistics-4",
     "question": {
       "en": "How many letters are in the English alphabet?",
-      "ar": "كم عدد الأحرف في الأبجدية الإنجليزية؟"
+      "ar": "كم حرف في الأبجدية الإنجليزية؟"
     },
     "answer": {
       "en": "26",
@@ -79,7 +79,7 @@
     "id": "linguistics-5",
     "question": {
       "en": "What is a word that has the same pronunciation as another word but a different meaning called?",
-      "ar": "ماذا تُسمّى الكلمة التي تُنطق بالطريقة نفسها التي تُنطق بها كلمة أخرى، لكن يختلف معناها؟"
+      "ar": "شو نسمّي الكلمة اللي تنلفظ نفس كلمة ثانية بس معناها مختلف؟"
     },
     "answer": {
       "en": "A homophone",
@@ -98,7 +98,7 @@
     "id": "linguistics-6",
     "question": {
       "en": "Which language uses characters called Kanji?",
-      "ar": "أي لغة تستخدم الحروف المعروفة باسم الكانجي (Kanji)؟"
+      "ar": "أي لغة تستخدم حروف «الكانجي» (Kanji)؟"
     },
     "answer": {
       "en": "Japanese",
@@ -117,7 +117,7 @@
     "id": "linguistics-7",
     "question": {
       "en": "What does 'bilingual' mean?",
-      "ar": "ماذا يعني مصطلح 'ثنائي اللغة'؟"
+      "ar": "شو يعني إن الشخص «ثنائي اللغة»؟"
     },
     "answer": {
       "en": "Speaking two languages",
@@ -136,7 +136,7 @@
     "id": "linguistics-8",
     "question": {
       "en": "From which ancient language did the Romance languages, including French, Spanish and Italian, develop?",
-      "ar": "من أيّ لغة قديمة تطورت اللغات الرومانسية، ومنها الفرنسية والإسبانية والإيطالية؟"
+      "ar": "من أي لغة قديمة طلعت الفرنسية والإسبانية والإيطالية؟"
     },
     "answer": {
       "en": "Latin",
@@ -155,7 +155,7 @@
     "id": "linguistics-9",
     "question": {
       "en": "What is a prefix?",
-      "ar": "ما هي البادئة (Prefix)؟"
+      "ar": "شو هي «البادئة» (Prefix)؟"
     },
     "answer": {
       "en": "Letters added to the beginning of a word",
@@ -174,7 +174,7 @@
     "id": "linguistics-10",
     "question": {
       "en": "What is the official language of Egypt?",
-      "ar": "ما هي اللغة الرسمية لمصر؟"
+      "ar": "شو اللغة الرسمية في مصر؟"
     },
     "answer": {
       "en": "Arabic",
@@ -193,7 +193,7 @@
     "id": "linguistics-11",
     "question": {
       "en": "What is the study of language structure and sounds called?",
-      "ar": "ماذا تسمى دراسة بنية اللغة وأصواتها؟"
+      "ar": "شو اسم العلم اللي يدرس تركيب اللغة وأصواتها؟"
     },
     "answer": {
       "en": "Linguistics",
@@ -212,7 +212,7 @@
     "id": "linguistics-12",
     "question": {
       "en": "Which language family does English belong to?",
-      "ar": "إلى أي عائلة لغوية تنتمي اللغة الإنجليزية؟"
+      "ar": "من أي عائلة لغات الإنجليزية؟"
     },
     "answer": {
       "en": "Indo-European (Germanic)",
@@ -231,7 +231,7 @@
     "id": "linguistics-13",
     "question": {
       "en": "What is a palindrome?",
-      "ar": "ما هو القلب المستوي (Palindrome)؟"
+      "ar": "شو هو «القلب المستوي» (Palindrome)؟"
     },
     "answer": {
       "en": "A word or phrase that reads the same backward as forward",
@@ -250,7 +250,7 @@
     "id": "linguistics-14",
     "question": {
       "en": "What is the term for a local variation of a language?",
-      "ar": "ما هو مصطلح التباين المحلي للغة؟"
+      "ar": "شو نسمّي الشكل المحلي للغة في منطقة معيّنة؟"
     },
     "answer": {
       "en": "Dialect",
@@ -269,7 +269,7 @@
     "id": "linguistics-15",
     "question": {
       "en": "What type of writing system records mainly consonants, as Arabic and Hebrew traditionally do?",
-      "ar": "ما نوع نظام الكتابة الذي يسجّل الحروف الساكنة أساساً، كما في العربية والعبرية تقليدياً؟"
+      "ar": "شو نوع نظام الكتابة اللي يكتب الحروف الساكنة بالأساس، مثل العربية والعبرية تقليديًا؟"
     },
     "answer": {
       "en": "An abjad",
@@ -288,7 +288,7 @@
     "id": "linguistics-16",
     "question": {
       "en": "What is semantics the study of?",
-      "ar": "ما الذي يدرسه علم الدلالة (Semantics)؟"
+      "ar": "شو اللي يدرسه «علم الدلالة» (Semantics)؟"
     },
     "answer": {
       "en": "Meaning in language",
@@ -307,7 +307,7 @@
     "id": "linguistics-17",
     "question": {
       "en": "What term describes a language acquired from early childhood, rather than one first learned later in life?",
-      "ar": "ما المصطلح الذي يصف لغة يكتسبها الشخص منذ طفولته المبكرة، لا لغة يبدأ تعلمها لاحقًا؟"
+      "ar": "شو نسمّي اللغة اللي يتعلمها الواحد من وهو صغير، مش اللي يتعلمها بعدين؟"
     },
     "answer": {
       "en": "A first or native language. A person can acquire more than one.",
@@ -326,7 +326,7 @@
     "id": "linguistics-18",
     "question": {
       "en": "What is a portmanteau?",
-      "ar": "ما هو النحت اللغوي (Portmanteau)؟"
+      "ar": "شو هو «النحت اللغوي» (Portmanteau)؟"
     },
     "answer": {
       "en": "A word blending the sounds and combining the meanings of two others",
@@ -345,7 +345,7 @@
     "id": "linguistics-19",
     "question": {
       "en": "Esperanto is an example of what kind of language?",
-      "ar": "تعتبر لغة الإسبرانتو مثالاً على أي نوع من اللغات؟"
+      "ar": "الإسبرانتو مثال على أي نوع من اللغات؟"
     },
     "answer": {
       "en": "Constructed language (Conlang)",
@@ -364,7 +364,7 @@
     "id": "linguistics-20",
     "question": {
       "en": "What is syntax?",
-      "ar": "ما هو بناء الجملة (Syntax)؟"
+      "ar": "شو يعني «بناء الجملة» (Syntax)؟"
     },
     "answer": {
       "en": "The arrangement of words and phrases to create well-formed sentences",
@@ -383,7 +383,7 @@
     "id": "linguistics-21",
     "question": {
       "en": "Which linguist is closely associated with the development of generative grammar and wrote Syntactic Structures?",
-      "ar": "أيّ لغوي يرتبط بتطوير النحو التوليدي وألّف كتاب «البنى التركيبية»؟"
+      "ar": "مين عالم اللغة المرتبط بالنحو التوليدي، واللي كتب «البنى التركيبية»؟"
     },
     "answer": {
       "en": "Noam Chomsky",
@@ -402,7 +402,7 @@
     "id": "linguistics-22",
     "question": {
       "en": "What is the process called when a lexical word gradually becomes a grammatical marker?",
-      "ar": "ماذا تُسمّى العملية التي تتحول فيها كلمة معجمية تدريجياً إلى علامة نحوية؟"
+      "ar": "شو نسمّي لما كلمة عادية تتحول شوي شوي لأداة نحوية؟"
     },
     "answer": {
       "en": "Grammaticalization",
@@ -421,7 +421,7 @@
     "id": "linguistics-23",
     "question": {
       "en": "Which language underwent a modern revival as an everyday native spoken language after continuing for centuries in religious and scholarly use?",
-      "ar": "أيّ لغة شهدت إحياءً حديثًا بوصفها لغة محكية يومية أمًّا، بعدما استمر استخدامها قرونًا في الدين والدراسة؟"
+      "ar": "أي لغة رجعت لغة حكي يومي ولغة أم بالعصر الحديث، بعد قرون كانت فيها للدين والدراسة بس؟"
     },
     "answer": {
       "en": "Hebrew",
@@ -440,7 +440,7 @@
     "id": "linguistics-24",
     "question": {
       "en": "What is 'morphology' in linguistics?",
-      "ar": "ما هو 'علم الصرف' (Morphology) في اللغويات؟"
+      "ar": "شو هو «علم الصرف» (Morphology)؟"
     },
     "answer": {
       "en": "The study of words, how they are formed, and their relationship to other words",
@@ -459,7 +459,7 @@
     "id": "linguistics-25",
     "question": {
       "en": "Which script is used to write Russian, Bulgarian, and Serbian?",
-      "ar": "ما هو الخط المستخدم لكتابة الروسية والبلغارية والصربية؟"
+      "ar": "شو الخط اللي تنكتب فيه الروسية والبلغارية والصربية؟"
     },
     "answer": {
       "en": "Cyrillic",
@@ -478,7 +478,7 @@
     "id": "linguistics-26",
     "question": {
       "en": "A speaker switches between Arabic and English within a conversation. What is this linguistic practice commonly called?",
-      "ar": "ينتقل متحدث بين العربية والإنجليزية أثناء محادثة. ماذا تُسمّى هذه الممارسة اللغوية عادةً؟"
+      "ar": "واحد ينقّل بين العربية والإنجليزية وهو يحكي. شو اسم هالعادة اللغوية؟"
     },
     "answer": {
       "en": "Code-switching",
@@ -497,7 +497,7 @@
     "id": "linguistics-27",
     "question": {
       "en": "What class of consonants includes the dental sound represented by the IPA symbol ǀ?",
-      "ar": "ما فئة الأصوات الصامتة التي تضم الصوت الأسناني الذي يمثله الرمز ǀ في الأبجدية الصوتية الدولية؟"
+      "ar": "الرمز ǀ في الأبجدية الصوتية الدولية يمثّل صوت أسناني. من أي فئة أصوات هو؟"
     },
     "answer": {
       "en": "Click consonants",
@@ -516,7 +516,7 @@
     "id": "linguistics-28",
     "question": {
       "en": "What does 'pragmatics' study?",
-      "ar": "ماذا تدرس 'التداولية' (Pragmatics)؟"
+      "ar": "شو اللي تدرسه «التداولية» (Pragmatics)؟"
     },
     "answer": {
       "en": "How context contributes to meaning",
@@ -535,7 +535,7 @@
     "id": "linguistics-29",
     "question": {
       "en": "The Rosetta Stone helped scholars decipher which ancient Egyptian writing system that uses pictorial signs?",
-      "ar": "ساعد حجر رشيد الباحثين على فك رموز أيّ نظام كتابة مصري قديم يستخدم علامات تصويرية؟"
+      "ar": "حجر رشيد ساعد الباحثين يفكّون أي كتابة مصرية قديمة تعتمد على الرسوم؟"
     },
     "answer": {
       "en": "Egyptian hieroglyphic writing",
@@ -554,7 +554,7 @@
     "id": "linguistics-30",
     "question": {
       "en": "What is an 'agglutinative' language?",
-      "ar": "ما هي اللغة 'الإلصاقية' (Agglutinative)؟"
+      "ar": "شو يعني إن اللغة «إلصاقية» (Agglutinative)؟"
     },
     "answer": {
       "en": "A language type in which words are typically built by joining morphemes, with each affix tending to express a relatively distinct grammatical function. Morphemes are meaning-bearing units, not necessarily syllables.",
@@ -573,7 +573,7 @@
     "id": "linguistics-31",
     "question": {
       "en": "What is the loss of a sound from inside a word called, as in an English pronunciation of camera as “camra”?",
-      "ar": "ماذا يُسمّى حذف صوت من داخل كلمة، مثل نطق الكلمة الإنجليزية camera على صورة «camra»؟"
+      "ar": "شو نسمّي حذف صوت من نص الكلمة، مثل لما تنقال camera «camra»؟"
     },
     "answer": {
       "en": "Syncope",
@@ -592,7 +592,7 @@
     "id": "linguistics-32",
     "question": {
       "en": "Which ancient Indo-European language, discovered in Anatolia, provided crucial evidence for the laryngeal theory?",
-      "ar": "أي لغة هندو-أوروبية قديمة، اكتُشفت في الأناضول، قدمت دليلاً حاسماً لنظرية الحنجرة؟"
+      "ar": "أي لغة هندو-أوروبية قديمة انكشفت في الأناضول، وأعطت دليل حاسم لنظرية الحنجرة؟"
     },
     "answer": {
       "en": "Hittite",
@@ -611,7 +611,7 @@
     "id": "linguistics-33",
     "question": {
       "en": "What is 'Grimm's Law' primarily about?",
-      "ar": "ما هو المحور الأساسي لـ 'قانون جريم'؟"
+      "ar": "عن شو يتكلم «قانون جريم» بالأساس؟"
     },
     "answer": {
       "en": "The set of sound laws describing the Proto-Indo-European stop consonants as they developed in Proto-Germanic",
@@ -630,7 +630,7 @@
     "id": "linguistics-34",
     "question": {
       "en": "A speech sound is articulated using both lips, as with [b]. What is this place of articulation called?",
-      "ar": "يُنطق صوت باستخدام الشفتين معًا، كما في [b]. ماذا يُسمّى هذا المخرج؟"
+      "ar": "لما تطلع صوت بالشفتين مع بعض، مثل [b]، شو اسم هالمخرج؟"
     },
     "answer": {
       "en": "Bilabial",
@@ -649,7 +649,7 @@
     "id": "linguistics-35",
     "question": {
       "en": "What is the exact term for a word that is its own antonym (e.g., 'cleave' meaning to stick together or to split apart)?",
-      "ar": "ما هو المصطلح الدقيق للكلمة التي تكون مضاداً لنفسها (مثل 'cleave')؟"
+      "ar": "شو اسم الكلمة اللي تحمل معنى وعكسه (مثل «cleave»)؟"
     },
     "answer": {
       "en": "Contranym (or auto-antonym)",
@@ -668,7 +668,7 @@
     "id": "linguistics-36",
     "question": {
       "en": "What typological term describes languages in which a single complex word can combine many morphemes and express information that requires a whole sentence in another language?",
-      "ar": "ما المصطلح التصنيفي الذي يصف لغات قد تجمع فيها كلمة مركبة واحدة وحدات صرفية كثيرة وتعبّر عن معلومات تحتاج جملة كاملة في لغة أخرى؟"
+      "ar": "شو نسمّي اللغات اللي ممكن كلمة وحدة فيها تجمع أجزاء كثيرة، وتعطي معنى يحتاج جملة كاملة بلغة ثانية؟"
     },
     "answer": {
       "en": "Polysynthetic",
@@ -687,7 +687,7 @@
     "id": "linguistics-37",
     "question": {
       "en": "What is the 'bouba/kiki effect'?",
-      "ar": "ما هو 'تأثير بوبا/كيكي'؟"
+      "ar": "شو هو «تأثير بوبا/كيكي»؟"
     },
     "answer": {
       "en": "A tendency for people to associate sounds such as “bouba” with rounded shapes and “kiki” with angular shapes. It illustrates an association between speech sounds and visual form.",
@@ -706,7 +706,7 @@
     "id": "linguistics-38",
     "question": {
       "en": "In syntax, what does Chomsky's 'X-bar theory' seek to explain?",
-      "ar": "في بناء الجملة، ما الذي تسعى 'نظرية X-bar' لتشومسكي إلى شرحه؟"
+      "ar": "في بناء الجملة، شو اللي تحاول «نظرية X-bar» لتشومسكي تشرحه؟"
     },
     "answer": {
       "en": "A syntactic model describing shared patterns of phrase structure organized around a head, with intermediate and phrase-level projections. It is a theoretical model rather than proof that all languages are identical.",
@@ -725,7 +725,7 @@
     "id": "linguistics-39",
     "question": {
       "en": "What is a 'shibboleth'?",
-      "ar": "ما هو 'الشيبولث' (Shibboleth)؟"
+      "ar": "شو هو «الشيبولث» (Shibboleth)؟"
     },
     "answer": {
       "en": "In linguistics, a word, pronunciation or other language feature used as a marker of group membership.",
@@ -744,7 +744,7 @@
     "id": "linguistics-40",
     "question": {
       "en": "Which ancient language has a writing system known as Linear B, deciphered by Michael Ventris?",
-      "ar": "أي لغة قديمة لها نظام كتابة يُعرف باسم Linear B، والذي فك رموزه مايكل فينتريس؟"
+      "ar": "أي لغة قديمة كانت تنكتب بخط «Linear B» اللي فكّ رموزه مايكل فينتريس؟"
     },
     "answer": {
       "en": "Mycenaean Greek",

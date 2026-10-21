@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "What ancient civilization of Mesopotamia is credited with creating the world's earliest known writing system?",
-      "ar": "ما الحضارة القديمة في بلاد الرافدين التي تُنسب إليها أقدم نظام كتابة معروف في العالم؟"
+      "ar": "أي حضارة قديمة في بلاد الرافدين ينسب لها أقدم نظام كتابة معروف بالعالم؟"
     },
     "answer": {
       "en": "The Sumerians, who developed cuneiform writing around 3200 BC.",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "What ancient empire was based in Persia and at its peak stretched from Egypt to India?",
-      "ar": "ما الإمبراطورية القديمة التي كانت قائمة في بلاد فارس وامتدت في أوجها من مصر إلى الهند؟"
+      "ar": "أي إمبراطورية قديمة كانت في بلاد فارس، ووقت قوتها امتدت من مصر للهند؟"
     },
     "answer": {
       "en": "The Achaemenid (Persian) Empire, founded by Cyrus the Great in 550 BC.",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "In which city was Prophet Muhammad (PBUH) born?",
-      "ar": "في أي مدينة وُلد النبي محمد صلى الله عليه وسلم؟"
+      "ar": "بأي مدينة انولد النبي محمد صلى الله عليه وسلم؟"
     },
     "answer": {
       "en": "Mecca (Makkah), in the Arabian Peninsula, around 570 CE.",
@@ -84,7 +84,7 @@
     },
     "question": {
       "en": "What year did the Prophet Muhammad migrate from Mecca to Medina, marking the start of the Islamic calendar?",
-      "ar": "في أي عام هاجر النبي محمد من مكة إلى المدينة، مما شكّل بداية التقويم الإسلامي؟"
+      "ar": "بأي سنة هاجر النبي محمد من مكة للمدينة، وصارت بداية التقويم الهجري؟"
     },
     "answer": {
       "en": "622 CE — the Hijra. The Islamic calendar (AH) is dated from this event.",
@@ -103,7 +103,7 @@
     },
     "question": {
       "en": "What was the first Islamic caliphate, and who were its first four caliphs?",
-      "ar": "ما أول خلافة إسلامية ومن كان خلفاؤها الأربعة الأوائل؟"
+      "ar": "شو أول خلافة إسلامية، ومين خلفاؤها الأربعة الأوائل؟"
     },
     "answer": {
       "en": "The Rashidun Caliphate (632–661 CE). The four caliphs were Abu Bakr al-Siddiq, Umar ibn al-Khattab, Uthman ibn Affan, and Ali ibn Abi Talib.",
@@ -122,7 +122,7 @@
     },
     "question": {
       "en": "Which dynasty made Damascus its capital and ruled the early Islamic caliphate from 661 to 750 CE?",
-      "ar": "أي أسرة حاكمة اتخذت دمشق عاصمةً لها وحكمت الخلافة الإسلامية من 661 إلى 750 م؟"
+      "ar": "أي أسرة حاكمة خلّت دمشق عاصمتها وحكمت الخلافة من 661 لـ750 م؟"
     },
     "answer": {
       "en": "The Umayyad dynasty.",
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "Which caliphate succeeded the Umayyads in 750 CE and later made Baghdad its capital?",
-      "ar": "أي خلافة خلفت الأمويين عام 750 م واتخذت بغداد لاحقاً عاصمةً لها؟"
+      "ar": "أي خلافة إجت بعد الأمويين سنة 750 م، وبعدين خلّت بغداد عاصمتها؟"
     },
     "answer": {
       "en": "The Abbasid Caliphate. Its rule in Baghdad ended in 1258; Abbasid caliphs later held a largely ceremonial position in Cairo.",
@@ -160,7 +160,7 @@
     },
     "question": {
       "en": "Into which language were many Greek scientific and philosophical works translated during the Abbasid translation movement?",
-      "ar": "إلى أي لغة تُرجمت أعمال علمية وفلسفية يونانية كثيرة خلال حركة الترجمة في العصر العباسي؟"
+      "ar": "خلال حركة الترجمة بالعصر العباسي، لأي لغة انترجمت كتب يونانية كثيرة بالعلوم والفلسفة؟"
     },
     "answer": {
       "en": "Arabic.",
@@ -179,7 +179,7 @@
     },
     "question": {
       "en": "Who was Saladin and what is he best known for in history?",
-      "ar": "من صلاح الدين وبِمَ يشتهر في التاريخ؟"
+      "ar": "مين صلاح الدين، وبشو اشتهر بالتاريخ؟"
     },
     "answer": {
       "en": "Saladin (Salah al-Din al-Ayyubi) was the Muslim Kurdish leader who founded the Ayyubid dynasty and is most famous for recapturing Jerusalem from the Crusaders in 1187.",
@@ -198,7 +198,7 @@
     },
     "question": {
       "en": "What empire ruled much of the Middle East and North Africa for about 400 years until World War I?",
-      "ar": "ما الإمبراطورية التي حكمت معظم الشرق الأوسط وشمال أفريقيا نحو 400 عام حتى الحرب العالمية الأولى؟"
+      "ar": "شو الإمبراطورية اللي حكمت أغلب الشرق الأوسط وشمال إفريقيا حوالي 400 سنة لحد الحرب العالمية الأولى؟"
     },
     "answer": {
       "en": "The Ottoman Empire, centered in Constantinople (Istanbul).",
@@ -217,7 +217,7 @@
     },
     "question": {
       "en": "In which year was the Republic of Turkey proclaimed?",
-      "ar": "في أي عام أُعلنت الجمهورية التركية؟"
+      "ar": "بأي سنة انعلنت الجمهورية التركية؟"
     },
     "answer": {
       "en": "1923. The Ottoman sultanate had been abolished in 1922.",
@@ -236,7 +236,7 @@
     },
     "question": {
       "en": "What document issued in 1917 by Britain expressed support for a Jewish homeland in Palestine?",
-      "ar": "ما الوثيقة التي أصدرتها بريطانيا عام 1917 وأعربت فيها عن دعمها لوطن قومي يهودي في فلسطين؟"
+      "ar": "شو الوثيقة اللي أصدرتها بريطانيا سنة 1917 وأعلنت فيها دعمها لوطن قومي يهودي في فلسطين؟"
     },
     "answer": {
       "en": "The Balfour Declaration, issued by British Foreign Secretary Arthur Balfour on November 2, 1917.",
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "In what year was the State of Israel declared?",
-      "ar": "في أي عام أُعلنت دولة إسرائيل؟"
+      "ar": "بأي سنة انعلنت دولة إسرائيل؟"
     },
     "answer": {
       "en": "1948 — declared on May 14, 1948, by David Ben-Gurion.",
@@ -274,7 +274,7 @@
     },
     "question": {
       "en": "What was the Suez Crisis of 1956?",
-      "ar": "ما أزمة السويس عام 1956؟"
+      "ar": "شو هي أزمة السويس سنة 1956؟"
     },
     "answer": {
       "en": "Egypt's President Nasser nationalized the Suez Canal, prompting a military attack by Britain, France, and Israel. US and Soviet pressure forced them to withdraw, marking a major shift in post-colonial power and Egypt's rise as a regional leader.",
@@ -293,7 +293,7 @@
     },
     "question": {
       "en": "What name is commonly given to the wave of protests and uprisings that began in Tunisia in late 2010 and spread across several Arab countries?",
-      "ar": "ما الاسم الشائع لموجة الاحتجاجات والانتفاضات التي بدأت في تونس أواخر 2010 وانتشرت في عدة دول عربية؟"
+      "ar": "شو الاسم الشائع لموجة الاحتجاجات والانتفاضات اللي بدأت بتونس آخر 2010 وانتشرت بكذا دولة عربية؟"
     },
     "answer": {
       "en": "The Arab Spring. Causes, responses and outcomes differed by country.",
@@ -312,7 +312,7 @@
     },
     "question": {
       "en": "In which year did Iraq invade Kuwait, triggering the Gulf War?",
-      "ar": "في أي عام غزا العراق الكويت مما أشعل فتيل حرب الخليج؟"
+      "ar": "بأي سنة غزا العراق الكويت وبدأت حرب الخليج؟"
     },
     "answer": {
       "en": "1990 — Iraq invaded Kuwait on August 2, 1990. The US-led coalition liberated Kuwait in early 1991.",
@@ -331,7 +331,7 @@
     },
     "question": {
       "en": "Which Syrian city is famous for a large citadel standing on a mound in its historic centre?",
-      "ar": "أي مدينة سورية تشتهر بقلعة كبيرة قائمة على تل في مركزها التاريخي؟"
+      "ar": "أي مدينة سورية مشهورة بقلعة كبيرة فوق تل بنص المدينة القديمة؟"
     },
     "answer": {
       "en": "Aleppo.",
@@ -350,7 +350,7 @@
     },
     "question": {
       "en": "What country did the United States and a coalition invade in 2003, toppling the government?",
-      "ar": "ما الدولة التي غزتها الولايات المتحدة وتحالف دولي عام 2003 وأسقطت حكومتها؟"
+      "ar": "أي دولة غزتها أمريكا مع تحالف دولي سنة 2003 وأسقطت حكومتها؟"
     },
     "answer": {
       "en": "Iraq — the 2003 invasion led to the fall of Saddam Hussein's government.",
@@ -369,7 +369,7 @@
     },
     "question": {
       "en": "In what year did Egypt and Israel sign a historic peace treaty?",
-      "ar": "في أي عام وقّعت مصر وإسرائيل معاهدة سلام تاريخية؟"
+      "ar": "بأي سنة وقّعت مصر وإسرائيل معاهدة السلام التاريخية؟"
     },
     "answer": {
       "en": "1979 — the Egypt-Israel Peace Treaty was signed on March 26, 1979, making Egypt the first Arab country to formally recognize Israel.",
@@ -388,7 +388,7 @@
     },
     "question": {
       "en": "At which battle in 490 BCE did Athenian forces and their allies defeat a Persian invasion force?",
-      "ar": "في أي معركة عام 490 ق.م هزمت القوات الأثينية وحلفاؤها جيشاً فارسياً غازياً؟"
+      "ar": "بأي معركة سنة 490 ق.م انتصر الأثينيون وحلفاؤهم على جيش فارسي غازي؟"
     },
     "answer": {
       "en": "The Battle of Marathon.",
@@ -407,7 +407,7 @@
     },
     "question": {
       "en": "Whose death at Karbala in 680 CE is commemorated by Shia Muslims during Ashura?",
-      "ar": "من يُحيي المسلمون الشيعة ذكرى مقتله في كربلاء عام 680 م خلال عاشوراء؟"
+      "ar": "مين اللي يحيي المسلمين الشيعة ذكرى استشهاده في كربلاء سنة 680 م خلال عاشوراء؟"
     },
     "answer": {
       "en": "Husayn ibn Ali, the grandson of Prophet Muhammad.",
@@ -426,7 +426,7 @@
     },
     "question": {
       "en": "Which North African historian wrote the Muqaddimah and analyzed group solidarity, or asabiyyah?",
-      "ar": "أي مؤرخ من شمال أفريقيا ألّف «المقدمة» وحلّل مفهوم العصبية؟"
+      "ar": "أي مؤرخ من شمال إفريقيا كتب «المقدمة» وحلّل فكرة «العصبية»؟"
     },
     "answer": {
       "en": "Ibn Khaldun.",
@@ -445,7 +445,7 @@
     },
     "question": {
       "en": "Which two powers negotiated the 1916 Sykes-Picot Agreement?",
-      "ar": "ما القوتان اللتان تفاوضتا على اتفاقية سايكس–بيكو عام 1916؟"
+      "ar": "شو القوتين اللي تفاوضوا على اتفاقية سايكس–بيكو سنة 1916؟"
     },
     "answer": {
       "en": "Britain and France. The proposed zones of control and influence did not simply become today's national borders.",
@@ -464,7 +464,7 @@
     },
     "question": {
       "en": "What was the 1967 Six-Day War?",
-      "ar": "ما حرب الأيام الستة 1967؟"
+      "ar": "شو هي حرب الأيام الستة سنة 1967؟"
     },
     "answer": {
       "en": "A war in which Israel defeated Egypt, Jordan, and Syria in six days, capturing the Sinai Peninsula, Gaza Strip, West Bank, East Jerusalem, and Golan Heights. It fundamentally reshaped the Israeli-Palestinian conflict and the broader regional balance of power.",
@@ -483,7 +483,7 @@
     },
     "question": {
       "en": "Which Iranian ruler was overthrown in the 1979 revolution?",
-      "ar": "أي حاكم إيراني أُطيح به في ثورة عام 1979؟"
+      "ar": "أي حاكم إيراني انطاح فيه بثورة سنة 1979؟"
     },
     "answer": {
       "en": "Shah Mohammad Reza Pahlavi.",
@@ -502,7 +502,7 @@
     },
     "question": {
       "en": "What was the Oslo Accords (1993) and what was its significance?",
-      "ar": "ما اتفاقيات أوسلو (1993) وما أهميتها؟"
+      "ar": "شو هي اتفاقيات أوسلو (1993)، وشو أهميتها؟"
     },
     "answer": {
       "en": "A peace framework between Israel and the PLO, signed in Washington, where the PLO recognized Israel and Israel recognized the PLO as the representative of Palestinians. It established the Palestinian Authority but left final status issues (Jerusalem, borders, refugees) unresolved.",
@@ -521,7 +521,7 @@
     },
     "question": {
       "en": "What was the Lebanon Civil War and how long did it last?",
-      "ar": "ما الحرب الأهلية اللبنانية وكم امتدت؟"
+      "ar": "شو هي الحرب الأهلية اللبنانية، وكم طوّلت؟"
     },
     "answer": {
       "en": "A multi-factional civil war in Lebanon from 1975 to 1990, involving Lebanese political factions, Palestinian groups, Israel, Syria, and later various militias. It killed an estimated 120,000–150,000 people.",
@@ -540,7 +540,7 @@
     },
     "question": {
       "en": "Which organization was established by six Arab Gulf states at a meeting in Abu Dhabi in May 1981?",
-      "ar": "ما المنظمة التي أسّستها ست دول خليجية عربية في اجتماع بأبوظبي في مايو 1981؟"
+      "ar": "شو المنظمة اللي أسّستها ست دول خليجية عربية باجتماع في أبوظبي في مايو 1981؟"
     },
     "answer": {
       "en": "The Gulf Cooperation Council (GCC).",
@@ -559,7 +559,7 @@
     },
     "question": {
       "en": "What was the Code of Hammurabi and why is it historically significant?",
-      "ar": "ما مدوّنة حمورابي ولماذا هي مهمة تاريخيًا؟"
+      "ar": "شو هي «شريعة حمورابي»، وليش مهمة تاريخيًا؟"
     },
     "answer": {
       "en": "One of the earliest and most complete written legal codes, created by the Babylonian king Hammurabi around 1754 BC. It codified 282 laws covering trade, property, family, and criminal matters and established the principle that the state enforces law — not just the aggrieved party.",
@@ -578,7 +578,7 @@
     },
     "question": {
       "en": "Who led the Frankish forces against an Umayyad army at the Battle of Tours in 732 CE?",
-      "ar": "من قاد قوات الفرنجة ضد جيش أموي في معركة بلاط الشهداء، أو تور، عام 732 م؟"
+      "ar": "مين قاد جيوش الفرنجة ضد جيش أموي في معركة بلاط الشهداء (تور) سنة 732 م؟"
     },
     "answer": {
       "en": "Charles Martel.",
@@ -597,7 +597,7 @@
     },
     "question": {
       "en": "What were the Tanzimat reforms of the 19th-century Ottoman Empire?",
-      "ar": "ما إصلاحات التنظيمات في الإمبراطورية العثمانية في القرن التاسع عشر؟"
+      "ar": "شو هي إصلاحات «التنظيمات» بالدولة العثمانية في القرن التاسع عشر؟"
     },
     "answer": {
       "en": "A series of modernizing reforms (1839–1876) that reorganized the military, bureaucracy, taxation, and courts; granted legal equality to non-Muslims; and introduced a secular penal code — representing the Ottoman Empire's attempt to modernize and compete with European powers.",
@@ -616,7 +616,7 @@
     },
     "question": {
       "en": "Which international organization supervised the mandate system established after World War I?",
-      "ar": "ما المنظمة الدولية التي أشرفت على نظام الانتداب الذي أُنشئ بعد الحرب العالمية الأولى؟"
+      "ar": "شو المنظمة الدولية اللي أشرفت على نظام الانتداب اللي انعمل بعد الحرب العالمية الأولى؟"
     },
     "answer": {
       "en": "The League of Nations.",
@@ -635,7 +635,7 @@
     },
     "question": {
       "en": "Which two countries formed the United Arab Republic in 1958?",
-      "ar": "أي دولتين شكّلتا الجمهورية العربية المتحدة عام 1958؟"
+      "ar": "أي دولتين كوّنوا الجمهورية العربية المتحدة سنة 1958؟"
     },
     "answer": {
       "en": "Egypt and Syria; their union ended in 1961.",
@@ -654,7 +654,7 @@
     },
     "question": {
       "en": "What was the Crusades and how did they affect the Middle East?",
-      "ar": "ما الحروب الصليبية وكيف أثّرت في الشرق الأوسط؟"
+      "ar": "شو هي الحروب الصليبية، وكيف أثّرت على الشرق الأوسط؟"
     },
     "answer": {
       "en": "A series of religious military campaigns (1095–1291) launched by European Christians to recover the Holy Land from Muslim rule. They established short-lived Crusader states in Palestine, Lebanon, and Syria. The conflict produced significant cultural exchange but also great violence — ultimately ending with Muslim reconquest. Their legacy shaped Muslim-Christian relations for centuries.",
@@ -673,7 +673,7 @@
     },
     "question": {
       "en": "Which two countries fought the war that lasted from 1980 to 1988 and involved disputes over the Shatt al-Arab waterway?",
-      "ar": "ما الدولتان اللتان خاضتا الحرب بين 1980 و1988، والتي ارتبطت بنزاعات حول شط العرب؟"
+      "ar": "أي دولتين تحاربوا من 1980 لـ1988، بحرب ارتبطت بخلافات على شط العرب؟"
     },
     "answer": {
       "en": "Iraq and Iran.",
@@ -692,7 +692,7 @@
     },
     "question": {
       "en": "Which Egyptian and Israeli leaders negotiated the 1978 Camp David Accords with US President Jimmy Carter?",
-      "ar": "من الزعيمان المصري والإسرائيلي اللذان تفاوضا على اتفاقيات كامب ديفيد عام 1978 مع الرئيس الأمريكي جيمي كارتر؟"
+      "ar": "مين الزعيمين المصري والإسرائيلي اللي تفاوضوا على اتفاقيات كامب ديفيد سنة 1978 مع الرئيس الأمريكي جيمي كارتر؟"
     },
     "answer": {
       "en": "Anwar Sadat and Menachem Begin.",
@@ -711,7 +711,7 @@
     },
     "question": {
       "en": "Which well is associated with the 1938 discovery of commercial oil in Saudi Arabia?",
-      "ar": "ما البئر المرتبطة باكتشاف النفط بكميات تجارية في السعودية عام 1938؟"
+      "ar": "شو البئر المرتبطة باكتشاف النفط بكميات تجارية في السعودية سنة 1938؟"
     },
     "answer": {
       "en": "Dammam Well No. 7, also known as the Prosperity Well.",
@@ -730,7 +730,7 @@
     },
     "question": {
       "en": "What was the significance of the 1973 Yom Kippur War (October War)?",
-      "ar": "ما أهمية حرب أكتوبر 1973 (حرب يوم الغفران)؟"
+      "ar": "شو أهمية حرب أكتوبر 1973 (حرب يوم الغفران)؟"
     },
     "answer": {
       "en": "Egypt and Syria launched a surprise attack against Israel on Yom Kippur to recover territories lost in 1967. Initial Arab gains were reversed but the war restored Arab military credibility, led to the Arab oil embargo (1973 oil crisis) that shocked Western economies, and ultimately paved the way for the Camp David peace process.",
@@ -749,7 +749,7 @@
     },
     "question": {
       "en": "What was the Nabataean Kingdom and what is its most famous city?",
-      "ar": "ما المملكة النبطية وما أشهر مدنها؟"
+      "ar": "شو هي المملكة النبطية، وشو أشهر مدنها؟"
     },
     "answer": {
       "en": "The Nabataeans were an Arab people who built a prosperous trading kingdom in the Negev desert and Jordan from around 300 BC to 106 AD, controlling incense and spice trade routes. Their most famous city is Petra, the rock-carved city in modern Jordan.",
@@ -768,7 +768,7 @@
     },
     "question": {
       "en": "Under the Oslo II framework, what letters label the three administrative areas of the West Bank?",
-      "ar": "وفق إطار أوسلو الثانية، ما الحروف التي تسمّي المناطق الإدارية الثلاث في الضفة الغربية؟"
+      "ar": "حسب إطار أوسلو الثانية، شو الحروف اللي تسمّي المناطق الإدارية الثلاث في الضفة الغربية؟"
     },
     "answer": {
       "en": "Areas A, B and C. The framework assigned different civil and security responsibilities to each.",
@@ -787,7 +787,7 @@
     },
     "question": {
       "en": "Which two Gulf states signed agreements to normalize relations with Israel at the White House in September 2020?",
-      "ar": "ما الدولتان الخليجيتان اللتان وقّعتا في البيت الأبيض اتفاقيات لتطبيع العلاقات مع إسرائيل في سبتمبر 2020؟"
+      "ar": "أي دولتين خليجيتين وقّعوا بالبيت الأبيض اتفاقيات تطبيع العلاقات مع إسرائيل في سبتمبر 2020؟"
     },
     "answer": {
       "en": "The United Arab Emirates and Bahrain.",
@@ -806,7 +806,7 @@
     },
     "question": {
       "en": "What was the Phoenician civilization known for?",
-      "ar": "بِمَ اشتهرت الحضارة الفينيقية؟"
+      "ar": "بشو اشتهرت الحضارة الفينيقية؟"
     },
     "answer": {
       "en": "The Phoenicians, based in the eastern Mediterranean (modern Lebanon), were master traders and seafarers who established colonies across the Mediterranean including Carthage. Most significantly, they developed an early alphabet that became the ancestor of most modern alphabets including Arabic, Greek, Latin, and Hebrew.",
@@ -825,7 +825,7 @@
     },
     "question": {
       "en": "In which city did the first Palestinian National Council meet in 1964 when the PLO was established?",
-      "ar": "في أي مدينة انعقد المجلس الوطني الفلسطيني الأول عام 1964 عند تأسيس منظمة التحرير الفلسطينية؟"
+      "ar": "بأي مدينة انعقد أول مجلس وطني فلسطيني سنة 1964 لما تأسست منظمة التحرير؟"
     },
     "answer": {
       "en": "Jerusalem.",
@@ -844,7 +844,7 @@
     },
     "question": {
       "en": "Which dynasty founded Cairo in 969 CE and made it its capital?",
-      "ar": "أي أسرة حاكمة أسّست القاهرة عام 969 م واتخذتها عاصمةً لها؟"
+      "ar": "أي أسرة حاكمة أسّست القاهرة سنة 969 م وخلّتها عاصمتها؟"
     },
     "answer": {
       "en": "The Fatimid dynasty.",
@@ -863,7 +863,7 @@
     },
     "question": {
       "en": "What was the Mihna introduced by the Abbasid caliph al-Ma'mun in 833 CE concerned with?",
-      "ar": "بأي مسألة تعلّقت المحنة التي بدأها الخليفة العباسي المأمون عام 833 م؟"
+      "ar": "بأي قضية تعلّقت «المحنة» اللي بدأها الخليفة العباسي المأمون سنة 833 م؟"
     },
     "answer": {
       "en": "Enforcing acceptance of the theological doctrine that the Quran was created.",
@@ -882,7 +882,7 @@
     },
     "question": {
       "en": "What Ottoman term referred to recognized religious communities with their own communal leadership?",
-      "ar": "ما المصطلح العثماني الذي أُطلق على الطوائف الدينية المعترف بها ذات القيادات الجماعية الخاصة؟"
+      "ar": "شو المصطلح العثماني للطوائف الدينية المعترف فيها اللي لها قيادتها الخاصة؟"
     },
     "answer": {
       "en": "Millet (plural: millets). Their institutions and degree of autonomy varied over time.",
@@ -901,7 +901,7 @@
     },
     "question": {
       "en": "What is an oil embargo?",
-      "ar": "ما الحظر النفطي؟"
+      "ar": "شو هو «الحظر النفطي»؟"
     },
     "answer": {
       "en": "A restriction on oil sales or shipments to specified countries, often used to exert political or economic pressure.",
@@ -920,7 +920,7 @@
     },
     "question": {
       "en": "Which Mongol commander led the capture of Baghdad in 1258?",
-      "ar": "من القائد المغولي الذي قاد الاستيلاء على بغداد عام 1258؟"
+      "ar": "مين القائد المغولي اللي قاد سقوط بغداد سنة 1258؟"
     },
     "answer": {
       "en": "Hulagu Khan.",
@@ -939,7 +939,7 @@
     },
     "question": {
       "en": "In which country did President Zine El Abidine Ben Ali leave power in January 2011 following mass protests?",
-      "ar": "في أي دولة غادر الرئيس زين العابدين بن علي السلطة في يناير 2011 عقب احتجاجات واسعة؟"
+      "ar": "بأي دولة ترك الرئيس زين العابدين بن علي الحكم في يناير 2011 بعد احتجاجات واسعة؟"
     },
     "answer": {
       "en": "Tunisia.",

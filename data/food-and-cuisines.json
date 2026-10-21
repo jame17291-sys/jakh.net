@@ -4,7 +4,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What is the main ingredient of traditional Italian Pasta?",
-      "ar": "ما هو المكون الرئيسي للباستا الإيطالية التقليدية؟"
+      "ar": "شو المكوّن الأساسي للباستا الإيطالية التقليدية؟"
     },
     "answer": {
       "en": "Wheat Flour (Durum)",
@@ -23,7 +23,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which red fruit appears to have its seeds on its outer surface?",
-      "ar": "أي فاكهة حمراء تبدو بذورها موزعةً على سطحها الخارجي؟"
+      "ar": "أي فاكهة حمرا بذورها ظاهرة على سطحها من برّا؟"
     },
     "answer": {
       "en": "Strawberry",
@@ -42,7 +42,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which legume is blended with tahini to make traditional hummus dip?",
-      "ar": "ما البقول التي تُطحن مع الطحينة لصنع طبق الحمص بالطحينة التقليدي؟"
+      "ar": "شو الحبوب اللي تنطحن مع الطحينة عشان نسوي الحمص بالطحينة؟"
     },
     "answer": {
       "en": "Chickpeas",
@@ -61,7 +61,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which country is famous for Sushi?",
-      "ar": "أي بلد يشتهر بالسوشي؟"
+      "ar": "أي بلد مشهور بالسوشي؟"
     },
     "answer": {
       "en": "Japan",
@@ -80,7 +80,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What do we call a person who does not eat any animal products?",
-      "ar": "ماذا نسمي الشخص الذي لا يأكل أي منتجات حيوانية؟"
+      "ar": "شو نسمّي الشخص اللي ما ياكل أي منتجات حيوانية؟"
     },
     "answer": {
       "en": "Vegan",
@@ -99,7 +99,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What is the most consumed beverage in the world after water?",
-      "ar": "ما هو المشروب الأكثر استهلاكاً في العالم بعد الماء؟"
+      "ar": "شو أكثر مشروب ينشرب بالعالم بعد المي؟"
     },
     "answer": {
       "en": "Tea",
@@ -118,7 +118,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which spice is known as the 'King of Spices'?",
-      "ar": "أي نوع من التوابل يلقب بـ 'ملك التوابل'؟"
+      "ar": "أي نوع بهارات لقبه «ملك البهارات»؟"
     },
     "answer": {
       "en": "Black Pepper",
@@ -137,7 +137,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What is the primary leavening agent used in bread making?",
-      "ar": "ما هو عامل الرفع الأساسي المستخدم في صنع الخبز؟"
+      "ar": "شو المادة الأساسية اللي تخلّي الخبز يرتفع؟"
     },
     "answer": {
       "en": "Yeast",
@@ -156,7 +156,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which long green vegetable is commonly pickled whole to make dill pickles?",
-      "ar": "ما الخضار الأخضر الطويل الذي يُخلّل كاملاً عادةً مع الشبت؟"
+      "ar": "شو الخضار الأخضر الطويل اللي عادةً نخلّله كامل مع الشبت؟"
     },
     "answer": {
       "en": "Cucumber",
@@ -175,7 +175,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What is the main source of chocolate?",
-      "ar": "ما هو المصدر الرئيسي للشوكولاتة؟"
+      "ar": "شو المصدر الأساسي للشوكولاتة؟"
     },
     "answer": {
       "en": "Cacao Beans",
@@ -194,7 +194,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What is the term for a French cooking technique involving cutting vegetables into long thin strips?",
-      "ar": "ما هو المصطلح الذي يطلق على تقنية طبخ فرنسية تتضمن تقطيع الخضار إلى شرائح طويلة ورقيقة؟"
+      "ar": "شو اسم طريقة التقطيع الفرنسية اللي تقطّع فيها الخضار لشرائح طويلة ورفيعة؟"
     },
     "answer": {
       "en": "Julienne",
@@ -213,7 +213,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which spice is made from the dried stigmas of Crocus sativus flowers?",
-      "ar": "ما التابل الذي يُصنع من المياسم المجففة لزهور Crocus sativus؟"
+      "ar": "شو البهار اللي ينصنع من المياسم المجففة لزهرة Crocus sativus؟"
     },
     "answer": {
       "en": "Saffron",
@@ -232,7 +232,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What does 'Al Dente' mean in relation to cooking pasta?",
-      "ar": "ماذا يعني مصطلح 'Al Dente' فيما يتعلق بطبخ الباستا؟"
+      "ar": "لما نطبخ الباستا، شو معنى «Al Dente»؟"
     },
     "answer": {
       "en": "Firm to the bite",
@@ -251,7 +251,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What is the process of heating milk to kill bacteria called?",
-      "ar": "ماذا تسمى عملية تسخين الحليب لقتل البكتيريا؟"
+      "ar": "شو اسم عملية تسخين الحليب عشان نقتل البكتيريا؟"
     },
     "answer": {
       "en": "Pasteurization",
@@ -270,7 +270,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which nut is traditionally ground with sugar to make marzipan?",
-      "ar": "ما نوع المكسرات الذي يُطحن تقليدياً مع السكر لصنع المارزيبان؟"
+      "ar": "أي نوع مكسرات ينطحن تقليديًا مع السكر عشان نسوي المرزبان؟"
     },
     "answer": {
       "en": "Almonds",
@@ -289,7 +289,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What is the term for cooking food in a vacuum-sealed bag in a water bath?",
-      "ar": "ما هو المصطلح الذي يطلق على طبخ الطعام في كيس مفرغ من الهواء في حمام مائي؟"
+      "ar": "شو اسم طريقة الطبخ اللي تحط فيها الأكل بكيس مفرّغ من الهوا وتطبخه بحمّام مي؟"
     },
     "answer": {
       "en": "Sous-vide",
@@ -308,7 +308,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What is the primary ingredient of Tofu?",
-      "ar": "ما هو المكون الأساسي للتوفو؟"
+      "ar": "شو المكوّن الأساسي للتوفو؟"
     },
     "answer": {
       "en": "Soybeans (Soy milk)",
@@ -327,7 +327,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What process turns green coffee beans brown and develops their familiar aroma before brewing?",
-      "ar": "ما العملية التي تحوّل حبوب البن الخضراء إلى بنية وتُظهر رائحتها المألوفة قبل تحضير القهوة؟"
+      "ar": "شو العملية اللي تحوّل حبوب البن الخضرا لبنّية وتطلّع ريحتها المعروفة قبل ما نسوي القهوة؟"
     },
     "answer": {
       "en": "Roasting",
@@ -346,7 +346,7 @@
     "difficulty": "medium",
     "question": {
       "en": "In classical meat-based cooking, which is typically simmered mainly from bones: stock or broth?",
-      "ar": "في الطهي التقليدي المعتمد على اللحوم، أيهما يُحضّر عادةً أساساً من العظام: Stock أم Broth؟"
+      "ar": "في الطبخ التقليدي باللحم، أيهم يتحضّر عادةً من العظام بالأساس: Stock ولا Broth؟"
     },
     "answer": {
       "en": "Stock",
@@ -365,7 +365,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What is the main flavor of Earl Grey tea?",
-      "ar": "ما هي النكهة الرئيسية لشاي إيرل غري؟"
+      "ar": "شو النكهة الأساسية في شاي «إيرل غراي»؟"
     },
     "answer": {
       "en": "Bergamot",
@@ -384,7 +384,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What is the 'Maillard Reaction' in cooking?",
-      "ar": "ما هو 'تفاعل مايار' في الطبخ؟"
+      "ar": "في الطبخ، شو هو «تفاعل مايار»؟"
     },
     "answer": {
       "en": "A chemical reaction between amino acids and reducing sugars that gives browned food its flavor",
@@ -403,7 +403,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which unit expresses a chilli pepper's pungency on the Scoville scale?",
-      "ar": "ما الوحدة التي تعبّر عن شدة لذع الفلفل على مقياس سكوفيل؟"
+      "ar": "شو الوحدة اللي تقيس حرارة الفلفل على مقياس سكوفيل؟"
     },
     "answer": {
       "en": "Scoville Heat Units (SHU)",
@@ -422,7 +422,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What is 'Molecular Gastronomy'?",
-      "ar": "ما هي 'فن الطهي الجزيئي'؟"
+      "ar": "شو هو «فن الطهي الجزيئي»؟"
     },
     "answer": {
       "en": "A subdiscipline of food science that explores the physical and chemical transformations of ingredients",
@@ -441,7 +441,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which fungus, often found near oak trees, is one of the most expensive ingredients in the world?",
-      "ar": "أي فطر يوجد غالباً بالقرب من أشجار البلوط ويعتبر من أغلى المكونات في العالم؟"
+      "ar": "أي فطر يطلع غالبًا قريب من شجر البلوط ويعتبر من أغلى المكوّنات بالعالم؟"
     },
     "answer": {
       "en": "Truffle",
@@ -460,7 +460,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What is the term for a Japanese style of multi-course dining?",
-      "ar": "ما هو المصطلح الذي يطلق على نمط ياباني من العشاء المكون من عدة أطباق؟"
+      "ar": "شو اسم العشاء الياباني اللي يتكوّن من أطباق كثيرة ورا بعض؟"
     },
     "answer": {
       "en": "Kaiseki",
@@ -479,7 +479,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What is 'Tempering' in chocolate making?",
-      "ar": "ما هو 'التقسية' (Tempering) في صنع الشوكولاتة؟"
+      "ar": "في صناعة الشوكولاتة، شو هو «التقسية» (Tempering)؟"
     },
     "answer": {
       "en": "The process of heating and cooling chocolate to specific temperatures to ensure it has a glossy finish and snap",
@@ -498,7 +498,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What is 'Ceviche'?",
-      "ar": "ما هو 'السيفيتشي' (Ceviche)؟"
+      "ar": "شو هو «السيفيتشي» (Ceviche)؟"
     },
     "answer": {
       "en": "A dish made from fresh raw fish cured in citrus juices",
@@ -517,7 +517,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which spice consists of the dried, unopened flower buds of Syzygium aromaticum?",
-      "ar": "ما التابل الذي يتكوّن من براعم الزهور المجففة غير المتفتحة لشجرة Syzygium aromaticum؟"
+      "ar": "شو البهار اللي هو براعم زهور مجففة ما تفتّحت لشجرة Syzygium aromaticum؟"
     },
     "answer": {
       "en": "Cloves",
@@ -536,7 +536,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which basic taste is associated with glutamate and often described as savoury or brothy?",
-      "ar": "ما المذاق الأساسي المرتبط بالغلوتامات والذي يُوصف بأنه شبيه بطعم المرق أو اللحم؟"
+      "ar": "شو الطعم الأساسي المرتبط بالغلوتامات، اللي نوصفه إنه مثل طعم المرق أو اللحم؟"
     },
     "answer": {
       "en": "Umami",
@@ -555,7 +555,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What is the main difference between 'Baking Soda' and 'Baking Powder'?",
-      "ar": "ما هو الفرق الرئيسي بين 'صودا الخبز' و 'بيكنج باودر'؟"
+      "ar": "شو الفرق الأساسي بين «صودا الخبز» و«البيكنغ باودر»؟"
     },
     "answer": {
       "en": "Baking soda needs an acid to activate; baking powder contains its own acid",
@@ -574,7 +574,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What is the chemical name of the compound responsible for the heat in chili peppers?",
-      "ar": "ما هو الاسم الكيميائي للمركب المسؤول عن الحرارة في الفلفل الحار؟"
+      "ar": "شو الاسم الكيميائي للمادة اللي تعطي الفلفل الحار حرارته؟"
     },
     "answer": {
       "en": "Capsaicin",
@@ -593,7 +593,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which group of bacteria produces much of sourdough's acidity, alongside yeasts that help the dough rise?",
-      "ar": "ما المجموعة البكتيرية التي تنتج قسماً كبيراً من حموضة العجين المخمر، إلى جانب الخمائر التي تساعده على الارتفاع؟"
+      "ar": "شو مجموعة البكتيريا اللي تطلّع جزء كبير من حموضة العجينة المخمّرة، مع الخمائر اللي تساعدها ترتفع؟"
     },
     "answer": {
       "en": "Lactic acid bacteria",
@@ -612,7 +612,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is 'Spherification' in modern cooking?",
-      "ar": "ما هو 'التكوير' (Spherification) في الطبخ الحديث؟"
+      "ar": "في الطبخ الحديث، شو هو «التكوير» (Spherification)؟"
     },
     "answer": {
       "en": "A technique using sodium alginate and calcium chloride to create spheres that burst in the mouth",
@@ -631,7 +631,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Does the Scoville scale measure physical temperature or the pungency of chilli peppers?",
-      "ar": "هل يقيس مقياس سكوفيل درجة الحرارة الفيزيائية أم شدة لذع الفلفل؟"
+      "ar": "مقياس سكوفيل يقيس درجة الحرارة الفعلية ولا قوة حرارة الفلفل؟"
     },
     "answer": {
       "en": "Pungency",
@@ -650,7 +650,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is the specific name of the mold used to make Camembert and Brie cheese?",
-      "ar": "ما هو الاسم المحدد للعفن المستخدم لصنع جبن الكاميمبير والبري؟"
+      "ar": "شو اسم العفن المستخدم بصناعة جبن الكاممبير والبري؟"
     },
     "answer": {
       "en": "Penicillium camemberti",
@@ -669,7 +669,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is 'Conching' in the chocolate manufacturing process?",
-      "ar": "ما هو 'الكونشنج' (Conching) في عملية تصنيع الشوكولاتة؟"
+      "ar": "في صناعة الشوكولاتة، شو هو «الكونشنغ» (Conching)؟"
     },
     "answer": {
       "en": "A process of mixing and aerating chocolate to refine texture and develop flavor",
@@ -688,7 +688,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which certified Japanese beef comes from eligible Tajima cattle raised in Hyogo Prefecture?",
-      "ar": "ما اسم اللحم البقري الياباني المعتمد الذي يأتي من أبقار تاجيما المستوفية للشروط والمربّاة في محافظة هيوغو؟"
+      "ar": "شو اسم اللحم البقري الياباني المعتمد اللي يجي من أبقار تاجيما المطابقة للشروط والمربّاة في محافظة هيوغو؟"
     },
     "answer": {
       "en": "Kobe beef",
@@ -707,7 +707,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which French mother sauce is an emulsion traditionally made with egg yolks and butter, flavoured with lemon juice or vinegar?",
-      "ar": "ما الصلصة الفرنسية الأم التي تتكوّن تقليدياً من مستحلب صفار البيض والزبدة مع عصير الليمون أو الخل؟"
+      "ar": "شو الصلصة الفرنسية الأم اللي تتكوّن تقليديًا من صفار البيض والزبدة مع عصير ليمون أو خل؟"
     },
     "answer": {
       "en": "Hollandaise",
@@ -726,7 +726,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which French mother sauce is made by thickening milk with a white roux?",
-      "ar": "ما الصلصة الفرنسية الأم التي تُحضّر بتكثيف الحليب بمزيج أبيض من الزبدة والدقيق؟"
+      "ar": "شو الصلصة الفرنسية الأم اللي تنعمل بتكثيف الحليب بخليط أبيض من الزبدة والطحين؟"
     },
     "answer": {
       "en": "Béchamel",
@@ -745,7 +745,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What Japanese culinary name refers to pufferfish dishes?",
-      "ar": "ما الاسم الياباني المستخدم لأطباق سمك النفاخ؟"
+      "ar": "شو الاسم الياباني لأطباق سمك النفّاخ؟"
     },
     "answer": {
       "en": "Fugu",

@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "Which Athenian philosopher is associated with a method of questioning explored in many of Plato’s dialogues?",
-      "ar": "أيّ فيلسوف أثيني يرتبط بمنهج التساؤل الذي تعرضه محاورات كثيرة لأفلاطون؟"
+      "ar": "أي فيلسوف أثيني مرتبط بطريقة السؤال والحوار اللي نشوفها بمحاورات أفلاطون الكثيرة؟"
     },
     "answer": {
       "en": "Socrates",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "What is Plato's theory of Forms?",
-      "ar": "ما نظرية المُثُل (الأفكار) عند أفلاطون؟"
+      "ar": "شو هي «نظرية المُثُل» عند أفلاطون؟"
     },
     "answer": {
       "en": "Plato argued that the physical world is an imperfect copy of a higher realm of perfect, eternal abstract entities called Forms or Ideas. For example, all beautiful things participate in the Form of Beauty itself, which exists independently of any physical example.",
@@ -56,7 +56,7 @@
     },
     "question": {
       "en": "What is Aristotle's concept of the 'Golden Mean'?",
-      "ar": "ما مفهوم أرسطو عن 'الوسط الذهبي'؟"
+      "ar": "شو فكرة «الوسط الذهبي» عند أرسطو؟"
     },
     "answer": {
       "en": "The ethical principle that virtue lies between two extremes (excess and deficiency). For example, courage is the mean between cowardice (deficiency) and recklessness (excess). This is part of his virtue ethics framework.",
@@ -85,7 +85,7 @@
     },
     "question": {
       "en": "What is René Descartes' most famous philosophical statement?",
-      "ar": "ما أشهر عبارة فلسفية لرينيه ديكارت؟"
+      "ar": "شو أشهر جملة فلسفية قالها رينيه ديكارت؟"
     },
     "answer": {
       "en": "'Cogito, ergo sum' — 'I think, therefore I am.' It was his foundational certainty: even if everything else could be doubted, the very act of doubting proves the existence of a thinking subject.",
@@ -114,7 +114,7 @@
     },
     "question": {
       "en": "What is utilitarianism?",
-      "ar": "ما المذهب النفعي (الأوتيليتارية)؟"
+      "ar": "شو هو المذهب النفعي؟"
     },
     "answer": {
       "en": "A family of ethical theories that evaluates actions by their consequences for overall welfare or utility. Maximizing total utility is not always the same as benefiting the largest headcount.",
@@ -133,7 +133,7 @@
     },
     "question": {
       "en": "What is Immanuel Kant's categorical imperative?",
-      "ar": "ما الأمر المطلق عند إيمانويل كانط؟"
+      "ar": "شو هو «الأمر المطلق» عند إيمانويل كانط؟"
     },
     "answer": {
       "en": "Kant's supreme principle of morality: 'Act only according to that maxim by which you can at the same time will that it should become a universal law.' In other words, only do what you could will everyone to do.",
@@ -152,7 +152,7 @@
     },
     "question": {
       "en": "What is epistemology?",
-      "ar": "ما نظرية المعرفة (الإبستمولوجيا)؟"
+      "ar": "شو هي «نظرية المعرفة» (الإبستمولوجيا)؟"
     },
     "answer": {
       "en": "The branch of philosophy that studies the nature, sources, scope, and limits of knowledge. Key questions: What is knowledge? How do we know anything? What is the difference between belief and justified belief?",
@@ -171,7 +171,7 @@
     },
     "question": {
       "en": "What is the mind-body problem in philosophy?",
-      "ar": "ما مشكلة العقل والجسد في الفلسفة؟"
+      "ar": "في الفلسفة، شو هي «مشكلة العقل والجسد»؟"
     },
     "answer": {
       "en": "The problem of how mental experience relates to the physical body and brain. Different theories disagree about whether mental states are physical, nonphysical or understood in another way.",
@@ -190,7 +190,7 @@
     },
     "question": {
       "en": "What did Plato's allegory of the cave illustrate?",
-      "ar": "ما الذي توضّحه أسطورة الكهف عند أفلاطون؟"
+      "ar": "شو اللي توضّحه «أسطورة الكهف» عند أفلاطون؟"
     },
     "answer": {
       "en": "Prisoners in a cave see only shadows on a wall and think this is reality. When one escapes and sees the real world and sun, he returns to tell the others who refuse to believe him. It illustrates how most people mistake appearances for reality, and how true knowledge requires philosophical 'enlightenment'.",
@@ -209,7 +209,7 @@
     },
     "question": {
       "en": "What is the social contract theory associated with Locke, Hobbes, and Rousseau?",
-      "ar": "ما نظرية العقد الاجتماعي المرتبطة بلوك وهوبز وروسو؟"
+      "ar": "شو هي نظرية «العقد الاجتماعي» المرتبطة بلوك وهوبز وروسو؟"
     },
     "answer": {
       "en": "The theory that legitimate political authority derives from an agreement (explicit or implicit) among individuals to form a society and give up certain freedoms to a government in exchange for security and social order.",
@@ -228,7 +228,7 @@
     },
     "question": {
       "en": "What is Stoicism?",
-      "ar": "ما الرواقية؟"
+      "ar": "شو هي «الرواقية»؟"
     },
     "answer": {
       "en": "An ancient philosophical school associated with Zeno of Citium, emphasizing virtue, judgment and distinguishing what is within our control from what is not.",
@@ -247,7 +247,7 @@
     },
     "question": {
       "en": "What is a logical fallacy?",
-      "ar": "ما المغالطة المنطقية؟"
+      "ar": "شو هي «المغالطة المنطقية»؟"
     },
     "answer": {
       "en": "An error in reasoning that makes an argument invalid or misleading. Examples: ad hominem (attacking the person rather than the argument), straw man (misrepresenting an opponent's argument), false dichotomy (presenting only two options when more exist).",
@@ -266,7 +266,7 @@
     },
     "question": {
       "en": "What is the trolley problem in ethics?",
-      "ar": "ما مسألة العربة (Trolley Problem) في الأخلاق؟"
+      "ar": "في الأخلاق، شو هي «معضلة العربة» (Trolley Problem)؟"
     },
     "answer": {
       "en": "A thought experiment about diverting a runaway trolley from several people toward one person. It explores tensions between consequences, duties and responsibility; the quiz identifies the problem, not a mandatory moral choice.",
@@ -285,7 +285,7 @@
     },
     "question": {
       "en": "Who was Ibn Rushd (Averroes) and why was he significant in the history of philosophy?",
-      "ar": "من ابن رشد (أفيرويس) ولماذا كان بارزًا في تاريخ الفلسفة؟"
+      "ar": "مين ابن رشد، وليش كان مهم بتاريخ الفلسفة؟"
     },
     "answer": {
       "en": "Ibn Rushd (1126–1198) was an Andalusian Muslim philosopher who wrote extensive commentaries on Aristotle. His work transmitted Aristotle's philosophy to medieval Europe, influencing Aquinas and scholasticism. He argued for the compatibility of reason and faith, believing philosophy and theology could be reconciled.",
@@ -304,7 +304,7 @@
     },
     "question": {
       "en": "What is the Gettier problem in epistemology?",
-      "ar": "ما مشكلة غيتيه في نظرية المعرفة؟"
+      "ar": "في نظرية المعرفة، شو هي «مشكلة غيتييه»؟"
     },
     "answer": {
       "en": "Edmund Gettier’s counterexamples challenge whether justified true belief is sufficient for knowledge: a belief may be justified and true partly through luck.",
@@ -323,7 +323,7 @@
     },
     "question": {
       "en": "What is the difference between deontological and consequentialist ethics?",
-      "ar": "ما الفرق بين الأخلاق الواجبية والأخلاق العواقبية؟"
+      "ar": "شو الفرق بين الأخلاق الواجبية والأخلاق اللي تحكم بالنتائج؟"
     },
     "answer": {
       "en": "Deontological ethics (Kant) judges actions as right or wrong based on whether they follow moral rules or duties — regardless of consequences. Consequentialist ethics (utilitarianism) judges actions by their outcomes — an action is right if it produces good consequences.",
@@ -352,7 +352,7 @@
     },
     "question": {
       "en": "What is John Rawls' 'veil of ignorance' thought experiment?",
-      "ar": "ما تجربة 'حجاب الجهل' الفكرية عند جون رولز؟"
+      "ar": "شو تجربة «حجاب الجهل» الفكرية عند جون رولز؟"
     },
     "answer": {
       "en": "Rawls asked: what principles of justice would rational people choose if they didn't know their own position in society (their wealth, class, race, talents)? Behind this 'veil of ignorance,' he argued, people would choose equal basic liberties and arrange inequalities to benefit the least advantaged — his 'difference principle.'",
@@ -381,7 +381,7 @@
     },
     "question": {
       "en": "What is Leibniz's principle of the identity of indiscernibles?",
-      "ar": "ما مبدأ ليبنيز عن هوية المتشابهات (التماثل)?"
+      "ar": "شو مبدأ لايبنتز عن «هوية الأشياء اللي ما تتميّز عن بعض»؟"
     },
     "answer": {
       "en": "The principle that if two things are indistinguishable in all their properties, they are in fact the same thing. In other words, there cannot be two numerically distinct objects that are qualitatively identical in every respect.",
@@ -400,7 +400,7 @@
     },
     "question": {
       "en": "Which book did Ibn Rushd write in response to Al-Ghazali’s The Incoherence of the Philosophers?",
-      "ar": "أيّ كتاب ألّفه ابن رشد ردًا على كتاب الغزالي «تهافت الفلاسفة»؟"
+      "ar": "أي كتاب ألّفه ابن رشد ردًا على كتاب الغزالي «تهافت الفلاسفة»؟"
     },
     "answer": {
       "en": "The Incoherence of the Incoherence (Tahafut al-Tahafut). The exchange was through texts, not a meeting between the two men.",
@@ -419,7 +419,7 @@
     },
     "question": {
       "en": "What is Karl Popper's criterion of falsifiability?",
-      "ar": "ما معيار قابلية الدحض عند كارل بوبر؟"
+      "ar": "شو معيار «قابلية التكذيب» عند كارل بوبر؟"
     },
     "answer": {
       "en": "Popper proposed that a scientific theory should be open to possible refutation by observations or tests. This is his influential demarcation proposal, not an uncontested complete definition of science.",
@@ -438,7 +438,7 @@
     },
     "question": {
       "en": "What is virtue ethics and how does it differ from Kantian ethics?",
-      "ar": "ما أخلاق الفضيلة وكيف تختلف عن الأخلاق الكانطية؟"
+      "ar": "شو هي «أخلاق الفضيلة»، وكيف تختلف عن أخلاق كانط؟"
     },
     "answer": {
       "en": "Virtue ethics emphasizes character and practical wisdom; Kantian ethics emphasizes duty and moral principles. This is a contrast in emphasis, not a claim that either ignores actions or character entirely.",
@@ -457,7 +457,7 @@
     },
     "question": {
       "en": "What is Hume's problem of induction?",
-      "ar": "ما مشكلة الاستقراء عند هيوم؟"
+      "ar": "شو هي «مشكلة الاستقراء» عند هيوم؟"
     },
     "answer": {
       "en": "Hume argued that inductive reasoning (inferring general laws from observed cases — e.g. 'the sun has always risen, therefore it will rise tomorrow') cannot be logically justified. We have no rational basis to assume the future will resemble the past — we rely on habit and custom, not reason. This challenges the foundations of science and causation.",
@@ -486,7 +486,7 @@
     },
     "question": {
       "en": "What is the 'hard problem of consciousness' described by David Chalmers?",
-      "ar": "ما 'المشكلة الصعبة للوعي' التي وصفها ديفيد تشالمرز؟"
+      "ar": "شو هي «المشكلة الصعبة للوعي» اللي وصفها ديفيد تشالمرز؟"
     },
     "answer": {
       "en": "The hard problem asks why physical brain processes give rise to subjective, first-person experience (qualia) — the 'what it is like' to see red, feel pain, or hear music. The 'easy problems' (explaining cognitive functions) seem tractable in principle; the hard problem — why any physical process produces inner experience at all — may be fundamentally beyond materialist explanation.",
@@ -515,7 +515,7 @@
     },
     "question": {
       "en": "What is Peter Singer's argument for effective altruism?",
-      "ar": "ما حجة بيتر سينغر للإيثار الفعّال؟"
+      "ar": "شو حجة بيتر سينغر لـ«الإيثار الفعّال»؟"
     },
     "answer": {
       "en": "Singer argues that if we can prevent something bad from happening without sacrificing anything of comparable moral importance, we ought to do it — regardless of distance. This leads to the conclusion that wealthy people in developed countries have a strong moral obligation to give significantly to reduce extreme global poverty, since geographic distance has no moral relevance.",
@@ -534,7 +534,7 @@
     },
     "question": {
       "en": "What is the ship of Theseus paradox?",
-      "ar": "ما مفارقة سفينة ثيسيوس؟"
+      "ar": "شو هي مفارقة «سفينة ثيسيوس»؟"
     },
     "answer": {
       "en": "It asks whether a ship remains the same ship as its parts are replaced, and what happens if the original parts form another ship. It is a problem of identity through change, not a settled biological claim.",
@@ -553,7 +553,7 @@
     },
     "question": {
       "en": "Which philosopher is associated with the concept “will to power”?",
-      "ar": "أيّ فيلسوف يرتبط بمفهوم «إرادة القوة»؟"
+      "ar": "أي فيلسوف مرتبط بفكرة «إرادة القوة»؟"
     },
     "answer": {
       "en": "Friedrich Nietzsche",
@@ -572,7 +572,7 @@
     },
     "question": {
       "en": "What is Thomas Kuhn's concept of scientific paradigm shifts?",
-      "ar": "ما مفهوم توماس كون عن التحولات في النموذج العلمي (باراديم)؟"
+      "ar": "شو فكرة توماس كون عن «تحوّل النموذج» (الباراديم) في العلم؟"
     },
     "answer": {
       "en": "Kuhn distinguished normal science within a shared paradigm from scientific revolutions that change that framework. His account includes both puzzle-solving within paradigms and periods of fundamental change.",
@@ -591,7 +591,7 @@
     },
     "question": {
       "en": "What is the ontological argument for God's existence and who formulated it?",
-      "ar": "ما البرهان الأنطولوجي (الوجودي) على وجود الله ومن صاغه؟"
+      "ar": "شو هو «البرهان الوجودي» على وجود الله، ومين صاغه؟"
     },
     "answer": {
       "en": "Formulated by Anselm of Canterbury (11th century): God is 'that than which nothing greater can be conceived.' If God existed only in the mind, something greater (one that also exists in reality) could be conceived — contradiction. Therefore God must exist in reality. Kant famously criticized it: 'existence is not a predicate.'",
@@ -610,7 +610,7 @@
     },
     "question": {
       "en": "For a consistent, effectively axiomatized formal theory strong enough to express elementary arithmetic, what limitation does Gödel’s first incompleteness theorem establish?",
-      "ar": "بالنسبة إلى نظرية صورية متسقة ذات بديهيات قابلة للتعداد الفعّال وقوية بما يكفي للتعبير عن الحساب الأولي، ما القيد الذي تثبته مبرهنة غودل الأولى لعدم الاكتمال؟"
+      "ar": "لنظرية صورية متّسقة، بديهياتها قابلة للعدّ الفعّال وقوية كفاية تعبّر عن الحساب الأساسي، شو القيد اللي تثبته مبرهنة غودل الأولى لعدم الاكتمال؟"
     },
     "answer": {
       "en": "Such a theory is incomplete: there is an arithmetic statement it can neither prove nor refute. The conclusion depends on those assumptions and is not a claim that all mathematical reasoning fails.",
@@ -629,7 +629,7 @@
     },
     "question": {
       "en": "What is the naturalistic fallacy in ethics, identified by G.E. Moore?",
-      "ar": "ما المغالطة الطبيعانية في الأخلاق التي حدّدها جورج إدوارد مور؟"
+      "ar": "في الأخلاق، شو هي «المغالطة الطبيعية» اللي حدّدها جورج إدوارد مور؟"
     },
     "answer": {
       "en": "Moore challenged defining good in terms of another property, using the open-question argument: it can still be meaningful to ask whether that property is good. His position is a philosophical argument, not an uncontested fact.",
@@ -648,7 +648,7 @@
     },
     "question": {
       "en": "What is Ibn Sina's (Avicenna's) 'floating man' thought experiment?",
-      "ar": "ما تجربة ابن سينا الفكرية عن 'الإنسان الطائر'؟"
+      "ar": "شو تجربة ابن سينا الفكرية عن «الإنسان الطائر»؟"
     },
     "answer": {
       "en": "Ibn Sina asks whether a newly created person without sensory contact would still be aware of their own existence. He argues yes, using this to support his account of self-awareness and the soul.",
@@ -667,7 +667,7 @@
     },
     "question": {
       "en": "What is Wittgenstein's private language argument?",
-      "ar": "ما حجة فتغنشتاين عن اللغة الخاصة؟"
+      "ar": "شو حجة فيتغنشتاين عن «اللغة الخاصة»؟"
     },
     "answer": {
       "en": "The late Wittgenstein argued that a 'private language' — one that refers to inner experiences only the speaker can access — is impossible. Language requires public criteria for correct usage; without the possibility of public checking, there is no difference between 'using a word correctly' and 'thinking one is using it correctly.' This challenges Cartesian privacy of mind.",
@@ -686,7 +686,7 @@
     },
     "question": {
       "en": "What is Hannah Arendt's concept of the 'banality of evil'?",
-      "ar": "ما مفهوم حنا أرنت عن 'ابتذال الشر'؟"
+      "ar": "شو فكرة حنّة أرندت عن «تفاهة الشر»؟"
     },
     "answer": {
       "en": "Arendt used the phrase when interpreting Eichmann’s trial, emphasizing thoughtlessness and bureaucratic compliance in grave wrongdoing. It should not be turned into a universal claim that every evil act has one simple cause.",
@@ -705,7 +705,7 @@
     },
     "question": {
       "en": "What is the principle of sufficient reason (PSR)?",
-      "ar": "ما مبدأ السبب الكافي؟"
+      "ar": "شو هو «مبدأ السبب الكافي»؟"
     },
     "answer": {
       "en": "A principle associated with Leibniz that things or facts have a sufficient reason or explanation. Philosophers disagree about its scope and whether it admits exceptions or unexplained basic facts.",
@@ -724,7 +724,7 @@
     },
     "question": {
       "en": "What is the paradox of the heap (sorites paradox)?",
-      "ar": "ما مفارقة الكومة (مفارقة السوريتس)؟"
+      "ar": "شو هي «مفارقة الكومة» (السوريتس)؟"
     },
     "answer": {
       "en": "Removing one grain seems unable to turn a heap into a non-heap, but repeating the step eventually leaves no heap. The puzzle concerns vague boundaries; competing theories offer different responses.",
@@ -743,7 +743,7 @@
     },
     "question": {
       "en": "What is the is-ought problem identified by David Hume?",
-      "ar": "ما مشكلة 'الواقع والواجب' التي حدّدها ديفيد هيوم؟"
+      "ar": "شو هي مشكلة «ما هو كائن وما يجب أن يكون» اللي حدّدها ديفيد هيوم؟"
     },
     "answer": {
       "en": "Hume observed that many moral arguments make an unjustified jump from descriptive facts ('is') to normative conclusions ('ought'). From 'humans evolved to be social' you cannot derive 'humans ought to behave socially' without additional premises. This gap — the is-ought gap — is a foundational challenge in metaethics.",
@@ -772,7 +772,7 @@
     },
     "question": {
       "en": "What is Sartre's concept of 'existence precedes essence'?",
-      "ar": "ما مفهوم سارتر 'الوجود يسبق الماهية'؟"
+      "ar": "شو فكرة سارتر «الوجود يسبق الماهية»؟"
     },
     "answer": {
       "en": "Sartre argued that humans are not born with a predetermined nature or purpose (essence). We exist first, then create our own essence through choices and actions. This is radically liberating but also terrifying — we are 'condemned to be free' and fully responsible for who we become.",
@@ -791,7 +791,7 @@
     },
     "question": {
       "en": "Does Bostrom’s simulation argument claim to prove that we certainly live in a simulation?",
-      "ar": "هل تزعم حجة المحاكاة عند بوستروم أنها تثبت يقينًا أننا نعيش في محاكاة؟"
+      "ar": "هل حجة المحاكاة عند بوستروم تقول إنها تثبت يقينًا إننا عايشين في محاكاة؟"
     },
     "answer": {
       "en": "No. Under its assumptions, it argues that at least one of three propositions holds, involving civilizations' survival, their simulation activity, or the prevalence of simulated observers. It does not establish which alternative is true.",
@@ -810,7 +810,7 @@
     },
     "question": {
       "en": "In philosophy of mind, what defines a mental state according to functionalism?",
-      "ar": "في فلسفة العقل، ما الذي يعرّف الحالة الذهنية وفق الوظيفانية؟"
+      "ar": "في فلسفة العقل، كيف تعرّف «الوظيفية» الحالة الذهنية؟"
     },
     "answer": {
       "en": "Its functional or causal role: its relations to inputs, other mental states and outputs, rather than a specific physical material alone.",
@@ -829,7 +829,7 @@
     },
     "question": {
       "en": "How does moral particularism contrast with moral generalism?",
-      "ar": "كيف تختلف الخصوصانية الأخلاقية عن العمومية الأخلاقية؟"
+      "ar": "كيف تختلف «الخصوصية الأخلاقية» عن «العمومية الأخلاقية»؟"
     },
     "answer": {
       "en": "Moral particularism holds that a consideration’s moral relevance can change with context. Moral generalism gives moral principles a more central role in explaining or determining judgments.",
@@ -848,7 +848,7 @@
     },
     "question": {
       "en": "What is epistemic injustice and what are its two main forms as described by Miranda Fricker?",
-      "ar": "ما الظلم المعرفي وما صورتاه الرئيسيتان كما وصفتهما ميراندا فريكر؟"
+      "ar": "شو هو «الظلم المعرفي»، وشو شكليه الأساسيين حسب ميراندا فريكر؟"
     },
     "answer": {
       "en": "Epistemic injustice is a wrong done to someone specifically in their capacity as a knower. Miranda Fricker identifies: (1) Testimonial injustice — giving a speaker deflated credibility due to identity prejudice (e.g. disbelieving someone because of their gender or race); (2) Hermeneutical injustice — having inadequate conceptual resources to understand one's own experience (e.g. having no concept for 'sexual harassment' before it was named).",
@@ -877,7 +877,7 @@
     },
     "question": {
       "en": "Compare “Necessarily, the winner is a winner” with “This actual winner could not have lost.” Which claim places necessity on the proposition, and which on a particular person?",
-      "ar": "قارن «بالضرورة، الفائز فائز» مع «هذا الشخص الذي فاز فعلًا لم يكن يمكنه أن يخسر». أيّهما يضع الضرورة على القضية، وأيّهما على شخص معيّن؟"
+      "ar": "قارن بين «بالضرورة، الفائز فائز» و«هذا الشخص اللي فاز فعلًا ما كان ممكن يخسر». أيهم يحط الضرورة على القضية، وأيهم على شخص معيّن؟"
     },
     "answer": {
       "en": "The first is de dicto: necessity applies to the proposition. The second is de re: it attributes a necessary property to a particular person. The second does not follow from the first.",
@@ -896,7 +896,7 @@
     },
     "question": {
       "en": "What is the Duhem-Quine thesis in philosophy of science?",
-      "ar": "ما أطروحة ديهم-كواين في فلسفة العلم؟"
+      "ar": "في فلسفة العلم، شو هي «أطروحة دوهيم–كواين»؟"
     },
     "answer": {
       "en": "The thesis that scientific hypotheses cannot be tested in isolation — any test involves auxiliary hypotheses (background assumptions, instrument calibration, ceteris paribus conditions). When a prediction fails, we cannot know if the main hypothesis is wrong or one of the auxiliaries is at fault. This means no single experiment can definitively refute a theory — only a whole web of beliefs can be tested as a unit.",
@@ -915,7 +915,7 @@
     },
     "question": {
       "en": "What is the difference between negative and positive liberty as described by Isaiah Berlin?",
-      "ar": "ما الفرق بين الحرية السلبية والحرية الإيجابية كما وصفهما إيزايا برلين؟"
+      "ar": "شو الفرق بين «الحرية السلبية» و«الحرية الإيجابية» حسب إيزايا برلين؟"
     },
     "answer": {
       "en": "Negative liberty: freedom from external constraints and interference (the absence of obstacles). Positive liberty: freedom to actually pursue one's goals and realize one's potential — which may require resources and conditions. Berlin warned that positive liberty can be co-opted by authoritarian regimes to justify imposing a 'true' freedom on citizens.",
@@ -944,7 +944,7 @@
     },
     "question": {
       "en": "What is the repugnant conclusion in population ethics (Derek Parfit)?",
-      "ar": "ما الاستنتاج المقيت في أخلاقيات السكان عند ديريك بارفيت؟"
+      "ar": "في أخلاقيات السكان، شو هو «الاستنتاج المقيت» عند ديريك بارفيت؟"
     },
     "answer": {
       "en": "The implication, under total-welfare comparisons, that a sufficiently large population with lives barely worth living can rank above a smaller very happy population. Parfit used it to expose a difficult problem in population ethics.",
@@ -963,7 +963,7 @@
     },
     "question": {
       "en": "What is Kripke's causal theory of reference and how does it challenge Frege-Russell descriptivism?",
-      "ar": "ما نظرية كريبكي السببية للإشارة وكيف تطعن في الوصفية الفريجية الراسلية؟"
+      "ar": "شو نظرية كريبكي السببية للإشارة، وكيف تتحدى «الوصفية» عند فريغه ورسل؟"
     },
     "answer": {
       "en": "Frege-Russell descriptivism held that proper names refer by being associated with descriptions (Aristotle = 'the teacher of Alexander'). Kripke argued names are 'rigid designators' — they refer to the same object in all possible worlds, regardless of which descriptions are true. Reference is fixed causally: an initial baptism creates a chain of communication. Names still refer even when all believed descriptions are false.",
@@ -982,7 +982,7 @@
     },
     "question": {
       "en": "What is the separateness of persons objection to utilitarianism?",
-      "ar": "ما اعتراض 'انفصالية الأشخاص' على النفعية؟"
+      "ar": "شو هو اعتراض «انفصال الأشخاص» على النفعية؟"
     },
     "answer": {
       "en": "Rawls and Nozick argued that utilitarianism fails to take seriously the fact that people are distinct individuals. Maximizing aggregate welfare can justify sacrificing one person for the benefit of many — treating people as mere vessels of utility rather than ends in themselves. This fails to respect the separateness of persons — you cannot compensate my suffering with someone else's happiness, because they are not the same person.",
@@ -1011,7 +1011,7 @@
     },
     "question": {
       "en": "What is the debate between presentism and eternalism in the philosophy of time?",
-      "ar": "ما الجدل بين الحاضرية والأزلية (الأبدية) في فلسفة الزمن؟"
+      "ar": "في فلسفة الزمن، شو الجدل بين «الحاضرية» و«الأزلية»؟"
     },
     "answer": {
       "en": "Presentism holds that only the present moment exists — the past is gone and the future does not yet exist. Eternalism (block universe theory) holds that all times — past, present, and future — are equally real and co-exist in a four-dimensional spacetime block. Eternalism is compatible with special relativity (which shows simultaneity is relative), while presentism struggles to accommodate relativity theory.",
@@ -1030,7 +1030,7 @@
     },
     "question": {
       "en": "What is structural realism in philosophy of science and how does it respond to the pessimistic meta-induction?",
-      "ar": "ما الواقعية البنيوية في فلسفة العلم وكيف ترد على الاستقراء التشاؤمي؟"
+      "ar": "في فلسفة العلم، شو هي «الواقعية البنيوية»، وكيف ترد على «الاستقراء التشاؤمي»؟"
     },
     "answer": {
       "en": "Structural realism argues that some relational or mathematical structure can be preserved through theory change, responding to worries raised by the failure of past successful theories. This is a philosophical response, not proof that all structure survives.",
@@ -1049,7 +1049,7 @@
     },
     "question": {
       "en": "What is the distinction between agent-relative and agent-neutral reasons in ethics?",
-      "ar": "ما الفرق بين الأسباب الأخلاقية النسبية للفاعل والمحايدة للفاعل؟"
+      "ar": "شو الفرق بين الأسباب الأخلاقية «النسبية للفاعل» و«المحايدة للفاعل»؟"
     },
     "answer": {
       "en": "Agent-neutral reasons apply independently of the agent’s identity; agent-relative reasons can depend on that person’s commitments or relationships, such as special obligations to their own child.",

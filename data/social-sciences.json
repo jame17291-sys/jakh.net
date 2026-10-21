@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "Which French thinker coined the term sociology in the nineteenth century?",
-      "ar": "أي مفكر فرنسي صاغ مصطلح علم الاجتماع في القرن التاسع عشر؟"
+      "ar": "أي مفكّر فرنسي اخترع مصطلح «علم الاجتماع» بالقرن التاسع عشر؟"
     },
     "answer": {
       "en": "Auguste Comte.",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "What does gross domestic product (GDP) measure?",
-      "ar": "ماذا يقيس الناتج المحلي الإجمالي؟"
+      "ar": "شو اللي يقيسه الناتج المحلي الإجمالي؟"
     },
     "answer": {
       "en": "The monetary value of final goods and services produced within an economy during a specified period, avoiding double-counting intermediate production.",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "What is the basic distinction between democracy and autocracy?",
-      "ar": "ما الفرق الأساسي بين الديمقراطية والأوتوقراطية؟"
+      "ar": "شو الفرق الأساسي بين الديمقراطية والحكم الفردي (الأوتوقراطية)؟"
     },
     "answer": {
       "en": "Democracy places authority with the people, directly or through representatives; autocracy concentrates power in a single ruler with limited accountability.",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "What is culture in anthropological terms?",
-      "ar": "ما المقصود بالثقافة في المصطلح الأنثروبولوجي؟"
+      "ar": "في الأنثروبولوجيا، شو المقصود بـ«الثقافة»؟"
     },
     "answer": {
       "en": "The shared beliefs, values, norms, practices, symbols, and knowledge transmitted across generations within a human group.",
@@ -94,7 +94,7 @@
     },
     "question": {
       "en": "What is social stratification?",
-      "ar": "ما التطبق الاجتماعي؟"
+      "ar": "شو هو «التدرّج الاجتماعي» (التطبّق)؟"
     },
     "answer": {
       "en": "The hierarchical arrangement of individuals or groups in society based on wealth, power, prestige, or other criteria.",
@@ -123,7 +123,7 @@
     },
     "question": {
       "en": "What is inflation?",
-      "ar": "ما التضخم؟"
+      "ar": "شو هو التضخّم؟"
     },
     "answer": {
       "en": "The rate at which the general level of prices for goods and services rises, reducing the purchasing power of money.",
@@ -152,7 +152,7 @@
     },
     "question": {
       "en": "What is the separation of powers in government?",
-      "ar": "ما مبدأ الفصل بين السلطات في الحكم؟"
+      "ar": "في الحكم، شو هو مبدأ «الفصل بين السلطات»؟"
     },
     "answer": {
       "en": "The division of government authority into three branches — legislative (makes laws), executive (enforces laws), and judicial (interprets laws) — to prevent any one branch from becoming too powerful.",
@@ -171,7 +171,7 @@
     },
     "question": {
       "en": "What is ethnography?",
-      "ar": "ما الإثنوغرافيا؟"
+      "ar": "شو هي «الإثنوغرافيا»؟"
     },
     "answer": {
       "en": "A qualitative research method in which an anthropologist immerses themselves in a community over an extended period to observe and document its way of life.",
@@ -190,7 +190,7 @@
     },
     "question": {
       "en": "What does the term 'social norms' mean?",
-      "ar": "ماذا يعني مصطلح 'المعايير الاجتماعية'؟"
+      "ar": "شو معنى «المعايير الاجتماعية»؟"
     },
     "answer": {
       "en": "Shared rules and expectations within a group or society that guide behaviour — e.g., shaking hands when greeting, queuing in line.",
@@ -209,7 +209,7 @@
     },
     "question": {
       "en": "In a standard competitive-market model, what is the equilibrium price?",
-      "ar": "ما سعر التوازن في نموذج السوق التنافسية المعتاد؟"
+      "ar": "في السوق التنافسي العادي، شو هو «سعر التوازن»؟"
     },
     "answer": {
       "en": "The price at which the quantity buyers are willing and able to purchase equals the quantity sellers are willing to supply.",
@@ -228,7 +228,7 @@
     },
     "question": {
       "en": "What is the United Nations and when was it founded?",
-      "ar": "ما الأمم المتحدة ومتى تأسست؟"
+      "ar": "شو هي الأمم المتحدة، ومتى تأسست؟"
     },
     "answer": {
       "en": "An international organisation founded in 1945 after World War II to promote peace, security, and international cooperation among its member states.",
@@ -247,7 +247,7 @@
     },
     "question": {
       "en": "What is socialisation in sociology?",
-      "ar": "ما التنشئة الاجتماعية في علم الاجتماع؟"
+      "ar": "في علم الاجتماع، شو هي «التنشئة الاجتماعية»؟"
     },
     "answer": {
       "en": "The lifelong process by which individuals learn and internalise the values, norms, and behaviours appropriate to their culture and social positions.",
@@ -266,7 +266,7 @@
     },
     "question": {
       "en": "What is cultural relativism?",
-      "ar": "ما النسبية الثقافية؟"
+      "ar": "شو هي «النسبية الثقافية»؟"
     },
     "answer": {
       "en": "The principle of understanding a culture on its own terms rather than judging it by the standards of another culture.",
@@ -295,7 +295,7 @@
     },
     "question": {
       "en": "In Max Weber's sociology, is an ideal type a model of moral perfection or an analytical comparison tool?",
-      "ar": "هل النمط المثالي في علم اجتماع ماكس فيبر نموذج للكمال الأخلاقي أم أداة للمقارنة التحليلية؟"
+      "ar": "«النمط المثالي» في علم اجتماع ماكس فيبر، هو نموذج للكمال الأخلاقي ولا أداة للمقارنة والتحليل؟"
     },
     "answer": {
       "en": "An analytical tool that emphasizes selected features to compare with real cases; it is not a moral ideal.",
@@ -314,7 +314,7 @@
     },
     "question": {
       "en": "What is the difference between microeconomics and macroeconomics?",
-      "ar": "ما الفرق بين الاقتصاد الجزئي والاقتصاد الكلي؟"
+      "ar": "شو الفرق بين الاقتصاد الجزئي والاقتصاد الكلي؟"
     },
     "answer": {
       "en": "Microeconomics studies individual economic agents (firms, households) and their decisions. Macroeconomics studies the economy as a whole — national output, unemployment, inflation, monetary policy.",
@@ -343,7 +343,7 @@
     },
     "question": {
       "en": "In Locke's social-contract theory, what central duty gives government its legitimacy?",
-      "ar": "ما الواجب المركزي الذي يمنح الحكومة شرعيتها في نظرية العقد الاجتماعي لدى لوك؟"
+      "ar": "في نظرية العقد الاجتماعي عند لوك، شو الواجب الأساسي اللي يعطي الحكومة شرعيتها؟"
     },
     "answer": {
       "en": "Protecting people's natural rights, including life, liberty and property.",
@@ -362,7 +362,7 @@
     },
     "question": {
       "en": "What does Durkheim's concept of anomie describe?",
-      "ar": "ماذا يصف مفهوم اللامعيارية عند دوركهايم؟"
+      "ar": "شو اللي يوصفه مفهوم «اللامعيارية» (الأنومي) عند دوركهايم؟"
     },
     "answer": {
       "en": "A weakening or breakdown of social norms and regulation, especially during rapid change.",
@@ -381,7 +381,7 @@
     },
     "question": {
       "en": "How does the weak version of linguistic relativity differ from linguistic determinism?",
-      "ar": "كيف تختلف الصيغة الضعيفة للنسبية اللغوية عن الحتمية اللغوية؟"
+      "ar": "كيف تختلف النسخة الضعيفة من «النسبية اللغوية» عن «الحتمية اللغوية»؟"
     },
     "answer": {
       "en": "Linguistic relativity proposes that language can influence thought; determinism claims it determines or limits thought. Evidence for particular influences does not establish total determination.",
@@ -400,7 +400,7 @@
     },
     "question": {
       "en": "What idea is commonly associated with Adam Smith's metaphor of an invisible hand?",
-      "ar": "ما الفكرة المرتبطة عادةً باستعارة اليد الخفية لدى آدم سميث؟"
+      "ar": "شو الفكرة اللي ترتبط عادةً بتشبيه «اليد الخفية» عند آدم سميث؟"
     },
     "answer": {
       "en": "Individuals pursuing their own interests can unintentionally benefit society under suitable conditions; this is not a guarantee that every market outcome benefits everyone.",
@@ -419,7 +419,7 @@
     },
     "question": {
       "en": "What is the difference between a federal and a unitary state?",
-      "ar": "ما الفرق بين الدولة الفيدرالية والدولة الموحدة؟"
+      "ar": "شو الفرق بين الدولة الفيدرالية والدولة الموحّدة؟"
     },
     "answer": {
       "en": "In a federal state, power is divided between a central government and regional/state governments (e.g., USA, Germany). In a unitary state, the central government holds supreme authority and sub-national governments operate under its delegation (e.g., France, UK).",
@@ -448,7 +448,7 @@
     },
     "question": {
       "en": "In Bourdieu's framework, which form of cultural capital includes books, artworks and other cultural objects?",
-      "ar": "في إطار بورديو، أي شكل من رأس المال الثقافي يشمل الكتب والأعمال الفنية والأشياء الثقافية الأخرى؟"
+      "ar": "في إطار بورديو، أي شكل من «رأس المال الثقافي» يشمل الكتب والأعمال الفنية وغيرها من الأشياء الثقافية؟"
     },
     "answer": {
       "en": "Objectified cultural capital.",
@@ -467,7 +467,7 @@
     },
     "question": {
       "en": "What is the 'nature vs. nurture' debate in the context of human behaviour?",
-      "ar": "ما جدل 'الطبيعة مقابل التنشئة' في سياق السلوك البشري؟"
+      "ar": "في السلوك البشري، شو هو جدل «الطبيعة مقابل التنشئة»؟"
     },
     "answer": {
       "en": "Whether human characteristics, abilities, and behaviours are primarily determined by genetics ('nature') or by environment, upbringing, and experience ('nurture'). Modern consensus: both interact — genes set potentials, environment shapes expression.",
@@ -486,7 +486,7 @@
     },
     "question": {
       "en": "What is the difference between monetary policy and fiscal policy?",
-      "ar": "ما الفرق بين السياسة النقدية والسياسة المالية؟"
+      "ar": "شو الفرق بين السياسة النقدية والسياسة المالية؟"
     },
     "answer": {
       "en": "Monetary policy is managed by central banks (interest rates, money supply) to control inflation and growth. Fiscal policy is managed by governments (taxation and spending) to influence the economy.",
@@ -505,7 +505,7 @@
     },
     "question": {
       "en": "What is 'soft power' in international relations, as defined by Joseph Nye?",
-      "ar": "ما 'القوة الناعمة' في العلاقات الدولية كما عرّفها جوزيف ناي؟"
+      "ar": "في العلاقات الدولية، شو هي «القوة الناعمة» حسب تعريف جوزيف ناي؟"
     },
     "answer": {
       "en": "The ability to shape the preferences of others through appeal and attraction rather than coercion or payment ('hard power'). It relies on culture, political values, and foreign policy legitimacy. E.g., the global appeal of American pop culture.",
@@ -524,7 +524,7 @@
     },
     "question": {
       "en": "What is 'labelling theory' in criminology and sociology?",
-      "ar": "ما 'نظرية الوصم' في علم الجريمة وعلم الاجتماع؟"
+      "ar": "في علم الجريمة والاجتماع، شو هي «نظرية الوصم»؟"
     },
     "answer": {
       "en": "The theory (associated with Howard Becker) that deviance is not inherent in an act but is constructed when society labels a person as deviant. Being labelled criminal can become a self-fulfilling prophecy, pushing individuals into further deviance.",
@@ -543,7 +543,7 @@
     },
     "question": {
       "en": "What is a rite of passage in anthropology?",
-      "ar": "ما طقس العبور في الأنثروبولوجيا؟"
+      "ar": "في الأنثروبولوجيا، شو هي «طقوس العبور»؟"
     },
     "answer": {
       "en": "A ritual marking a transition between social statuses, such as a coming-of-age or marriage ceremony.",
@@ -562,7 +562,7 @@
     },
     "question": {
       "en": "What is intersectionality and who developed the concept?",
-      "ar": "ما التقاطعية ومن طوّر المفهوم؟"
+      "ar": "شو هي «التقاطعية»، ومين طوّر المفهوم؟"
     },
     "answer": {
       "en": "Developed by Kimberlé Crenshaw (1989), intersectionality is the framework for understanding how different aspects of a person's social and political identities (race, gender, class, sexuality, disability) combine to create overlapping systems of discrimination or privilege.",
@@ -591,7 +591,7 @@
     },
     "question": {
       "en": "What distinction separates an open-access resource from a community-governed commons?",
-      "ar": "ما الفرق بين مورد مفتوح الوصول ومورد مشترك تديره جماعة؟"
+      "ar": "شو الفرق بين مورد مفتوح للكل ومورد مشترك تديره جماعة؟"
     },
     "answer": {
       "en": "Open access lacks effective exclusion or management; a governed commons has rules about access and use. Shared ownership does not necessarily mean unmanaged use.",
@@ -610,7 +610,7 @@
     },
     "question": {
       "en": "What is Huntington's 'Clash of Civilizations' thesis and what are its main criticisms?",
-      "ar": "ما أطروحة هنتنغتون 'صراع الحضارات' وما أبرز انتقاداتها؟"
+      "ar": "شو أطروحة هنتنغتون «صراع الحضارات»، وشو أبرز الانتقادات عليها؟"
     },
     "answer": {
       "en": "Huntington (1993) argued that post-Cold War conflicts would be driven by cultural and religious differences between civilisational blocs rather than ideology. Critics argue it essentialises culture, ignores intra-civilisational conflicts, oversimplifies diversity within blocs, and can become a self-fulfilling prophecy that justifies conflict.",
@@ -629,7 +629,7 @@
     },
     "question": {
       "en": "In Goffman's dramaturgical model, how do frontstage and backstage behaviour differ?",
-      "ar": "كيف يختلف السلوك أمام الجمهور وخلف الكواليس في نموذج غوفمان المسرحي؟"
+      "ar": "في نموذج غوفمان المسرحي، كيف يختلف السلوك قدّام الناس عن السلوك ورا الكواليس؟"
     },
     "answer": {
       "en": "Frontstage behaviour manages impressions for an audience; backstage settings allow people to relax or prepare that performance.",
@@ -648,7 +648,7 @@
     },
     "question": {
       "en": "What is 'market failure' and what are its main causes?",
-      "ar": "ما 'فشل السوق' وما أسبابه الرئيسية؟"
+      "ar": "شو هو «فشل السوق»، وشو أسبابه الرئيسية؟"
     },
     "answer": {
       "en": "Market failure occurs when free markets fail to allocate resources efficiently. Main causes: externalities (spillover costs/benefits not priced, e.g., pollution), public goods (non-rival, non-excludable), information asymmetry, and monopoly power.",
@@ -677,7 +677,7 @@
     },
     "question": {
       "en": "What is Marcel Mauss's concept of 'the gift' and how does it challenge economic rationality?",
-      "ar": "ما مفهوم مارسيل موس عن 'الهدية' وكيف يتحدى العقلانية الاقتصادية؟"
+      "ar": "شو فكرة مارسيل موس عن «الهدية»، وكيف تتحدى العقلانية الاقتصادية؟"
     },
     "answer": {
       "en": "In 'The Gift' (1925), Mauss argued that gift exchange in many societies is not voluntary or free — it creates binding obligations to receive, reciprocate, and give again (the 'spirit of the gift'). This challenges rational self-interest models by showing social bonds are built through obligated generosity, not market transactions.",
@@ -696,7 +696,7 @@
     },
     "question": {
       "en": "What relationship does democratic peace theory propose between established liberal democracies?",
-      "ar": "ما العلاقة التي تقترحها نظرية السلام الديمقراطي بين الديمقراطيات الليبرالية الراسخة؟"
+      "ar": "شو العلاقة اللي تقترحها «نظرية السلام الديمقراطي» بين الديمقراطيات الليبرالية الراسخة؟"
     },
     "answer": {
       "en": "That they rarely fight wars against one another. Definitions of democracy and war, and explanations for the pattern, remain debated.",
@@ -715,7 +715,7 @@
     },
     "question": {
       "en": "Which term did Stanley Cohen use for a disproportionate public reaction to a perceived threat to social values?",
-      "ar": "ما المصطلح الذي استخدمه ستانلي كوهين لوصف رد فعل عام مبالغ فيه تجاه تهديد متصوَّر للقيم الاجتماعية؟"
+      "ar": "شو المصطلح اللي استخدمه ستانلي كوهين لوصف ردة فعل عامة مبالغ فيها تجاه خطر متخيَّل على قيم المجتمع؟"
     },
     "answer": {
       "en": "Moral panic; his classic study examined reactions to the Mods and Rockers in Britain.",
@@ -734,7 +734,7 @@
     },
     "question": {
       "en": "What is behavioural economics and how does it challenge classical economic theory?",
-      "ar": "ما الاقتصاد السلوكي وكيف يتحدى النظرية الاقتصادية الكلاسيكية؟"
+      "ar": "شو هو «الاقتصاد السلوكي»، وكيف يتحدى النظرية الاقتصادية الكلاسيكية؟"
     },
     "answer": {
       "en": "Behavioural economics incorporates psychological insights to model real human decision-making. It challenges the 'rational economic man' assumption by demonstrating systematic biases: loss aversion (losses hurt more than equivalent gains), anchoring, present bias, and framing effects (Kahneman & Tversky).",
@@ -753,7 +753,7 @@
     },
     "question": {
       "en": "What is the central claim of the recent African origin model of modern humans?",
-      "ar": "ما الفكرة الأساسية لنموذج الأصل الأفريقي الحديث للإنسان المعاصر؟"
+      "ar": "شو الفكرة الأساسية لنموذج «الخروج من إفريقيا» عن أصل الإنسان الحديث؟"
     },
     "answer": {
       "en": "Homo sapiens originated in Africa, and later migrations contributed much of the ancestry of populations outside Africa, with some interbreeding with archaic humans.",
@@ -772,7 +772,7 @@
     },
     "question": {
       "en": "In Gramsci's theory, how does hegemony help dominant groups maintain power?",
-      "ar": "كيف تساعد الهيمنة الفئات المسيطرة على الاحتفاظ بالسلطة في نظرية غرامشي؟"
+      "ar": "في نظرية غرامشي، كيف «الهيمنة» تساعد الفئات المسيطرة تحافظ على سلطتها؟"
     },
     "answer": {
       "en": "By securing consent through culture and ideas as well as using coercion; a dominant worldview can come to seem like common sense.",
@@ -791,7 +791,7 @@
     },
     "question": {
       "en": "What is Michel Foucault's concept of 'biopower'?",
-      "ar": "ما مفهوم 'السلطة الحيوية' عند ميشيل فوكو؟"
+      "ar": "شو فكرة «السلطة الحيوية» عند ميشيل فوكو؟"
     },
     "answer": {
       "en": "Biopower is Foucault's term for the way modern states regulate populations by controlling biological life — through medicine, public health, demographics, sexuality, and reproduction. It operates at two levels: disciplining individual bodies (anatomo-politics) and managing the population as a whole (biopolitics).",
@@ -810,7 +810,7 @@
     },
     "question": {
       "en": "What is the main warning of the Lucas critique for evaluating economic policy?",
-      "ar": "ما التحذير الأساسي الذي يقدّمه نقد لوكاس عند تقييم السياسة الاقتصادية؟"
+      "ar": "شو التحذير الأساسي اللي يقدّمه «نقد لوكاس» لما نقيّم السياسة الاقتصادية؟"
     },
     "answer": {
       "en": "Historical statistical relationships may change when a new policy changes people's expectations and behaviour.",
@@ -829,7 +829,7 @@
     },
     "question": {
       "en": "What is 'structuration theory' (Anthony Giddens) and how does it resolve the agency-structure debate?",
-      "ar": "ما 'نظرية التهيكل' (أنتوني غيدنز) وكيف تحل جدل الفاعلية والبنية؟"
+      "ar": "شو «نظرية التهيكل» عند أنتوني غيدنز، وكيف تحل جدل الفاعل والبنية؟"
     },
     "answer": {
       "en": "Giddens argued that structure and agency are mutually constitutive, not opposed — he called this the 'duality of structure'. Social structures (rules and resources) are both the medium of action and its outcome: agents draw on structures to act, and in doing so reproduce or transform those structures. Neither pure structuralism nor pure voluntarism is sufficient.",
@@ -858,7 +858,7 @@
     },
     "question": {
       "en": "What is 'principal-agent theory' and how does it explain problems of democratic governance?",
-      "ar": "ما 'نظرية الموكّل والوكيل' وكيف تُفسّر مشكلات الحوكمة الديمقراطية؟"
+      "ar": "شو «نظرية الموكِّل والوكيل»، وكيف تفسّر مشاكل الحوكمة الديمقراطية؟"
     },
     "answer": {
       "en": "Principal-agent theory analyses situations where one party (principal, e.g., voters) delegates work to another (agent, e.g., elected officials) but faces information asymmetry and misaligned incentives. In democratic governance, agents may act in self-interest rather than the principal's interest (moral hazard). Solutions: monitoring, transparency, electoral accountability, and institutional design.",
@@ -877,7 +877,7 @@
     },
     "question": {
       "en": "What distinguishes thick description from a brief record of an observed action?",
-      "ar": "ما الذي يميّز الوصف الكثيف عن تسجيل سطحي لفعل ملاحظ؟"
+      "ar": "شو اللي يميّز «الوصف الكثيف» عن مجرد تسجيل سطحي لتصرف شفناه؟"
     },
     "answer": {
       "en": "Thick description explains the cultural context and meanings of the action, not merely what happened.",
@@ -896,7 +896,7 @@
     },
     "question": {
       "en": "What is 'world-systems theory' (Immanuel Wallerstein) and how does it critique modernisation theory?",
-      "ar": "ما 'نظرية النظم العالمية' (إيمانويل والرشتاين) وكيف تنتقد نظرية التحديث؟"
+      "ar": "شو «نظرية النظم العالمية» عند إيمانويل والرشتاين، وكيف تنتقد نظرية التحديث؟"
     },
     "answer": {
       "en": "Wallerstein argued that the capitalist world-economy is structured around core (wealthy, industrialised) and periphery (poor, raw-material exporting) nations linked by unequal exchange — with a semi-periphery in between. Contra modernisation theory, peripheral nations are not 'behind' on a developmental ladder; they are structurally underdeveloped by their role in the system.",
@@ -915,7 +915,7 @@
     },
     "question": {
       "en": "What is 'comparative advantage' (Ricardo) and how does it differ from absolute advantage?",
-      "ar": "ما 'الميزة النسبية' (ريكاردو) وكيف تختلف عن الميزة المطلقة؟"
+      "ar": "شو «الميزة النسبية» عند ريكاردو، وكيف تختلف عن الميزة المطلقة؟"
     },
     "answer": {
       "en": "Absolute advantage: producing more of a good using the same resources. Comparative advantage: producing a good at a lower opportunity cost — even if a country is worse at everything in absolute terms, it gains by specialising in what it does relatively best and trading. This underpins the economic case for free trade.",
@@ -944,7 +944,7 @@
     },
     "question": {
       "en": "What is path dependence in political science?",
-      "ar": "ما الاعتماد على المسار في العلوم السياسية؟"
+      "ar": "في العلوم السياسية، شو هو «الاعتماد على المسار»؟"
     },
     "answer": {
       "en": "Earlier decisions shape later options, for example when established institutions persist because rules, expectations and switching costs make alternatives difficult.",
@@ -963,7 +963,7 @@
     },
     "question": {
       "en": "What is 'post-colonialism' as a theoretical framework and who are its key thinkers?",
-      "ar": "ما 'ما بعد الاستعمارية' كإطار نظري ومن أبرز مفكريها؟"
+      "ar": "شو هي «ما بعد الاستعمارية» كإطار نظري، ومين أبرز مفكّريها؟"
     },
     "answer": {
       "en": "Post-colonialism examines how colonial power shapes culture, identity, knowledge, and politics — and how its legacies persist after formal independence. Key thinkers: Frantz Fanon (The Wretched of the Earth — psychology of colonised peoples), Edward Said (Orientalism — Western discursive construction of 'the East'), Homi Bhabha (hybridity, ambivalence, mimicry), Gayatri Spivak ('Can the Subaltern Speak?').",
@@ -982,7 +982,7 @@
     },
     "question": {
       "en": "What role does aggregate demand play in Keynesian explanations of a recession?",
-      "ar": "ما دور الطلب الكلي في التفسير الكينزي للركود؟"
+      "ar": "في التفسير الكينزي للركود، شو دور الطلب الكلي؟"
     },
     "answer": {
       "en": "Insufficient aggregate demand can reduce short-run output and employment; public spending may help when private demand is weak.",
@@ -1001,7 +1001,7 @@
     },
     "question": {
       "en": "What is 'structural functionalism' (Radcliffe-Brown, Parsons) and what are its main criticisms?",
-      "ar": "ما 'البنيوية الوظيفية' (رادكليف-براون، بارسونز) وما أبرز انتقاداتها؟"
+      "ar": "شو هي «البنيوية الوظيفية» (رادكليف-براون، بارسونز)، وشو أبرز الانتقادات عليها؟"
     },
     "answer": {
       "en": "Structural functionalism views society as a system of interrelated parts (institutions) each fulfilling functions that maintain social stability. Criticisms: (1) it is teleological (explaining institutions by their effects, not causes); (2) it overstates consensus and ignores conflict; (3) it has a conservative bias, treating change as disruptive; (4) it cannot explain social change well (Merton's critique).",
@@ -1020,7 +1020,7 @@
     },
     "question": {
       "en": "What is 'deliberative democracy' and how does it differ from aggregative (majoritarian) democracy?",
-      "ar": "ما 'الديمقراطية التداولية' وكيف تختلف عن الديمقراطية التجميعية (الأغلبية)؟"
+      "ar": "شو هي «الديمقراطية التداولية»، وكيف تختلف عن ديمقراطية جمع الأصوات (الأغلبية)؟"
     },
     "answer": {
       "en": "Aggregative democracy collects and tallies pre-formed preferences (voting). Deliberative democracy (Habermas, Rawls) holds that legitimate political decisions emerge from reasoned public debate among free and equal citizens, allowing preferences to be transformed through rational discourse — not just counted.",
@@ -1049,7 +1049,7 @@
     },
     "question": {
       "en": "What does Ulrich Beck's concept of a risk society emphasize?",
-      "ar": "على ماذا يركّز مفهوم مجتمع المخاطرة لدى أولريش بيك؟"
+      "ar": "على شو يركّز مفهوم «مجتمع المخاطر» عند أولريش بيك؟"
     },
     "answer": {
       "en": "Modern societies must manage risks produced by technological and industrial activity, such as nuclear accidents, alongside natural hazards.",

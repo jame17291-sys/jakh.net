@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "What is the largest continent on Earth by land area?",
-      "ar": "ما أكبر قارة على الأرض من حيث المساحة؟"
+      "ar": "شو أكبر قارة على الأرض من ناحية المساحة؟"
     },
     "answer": {
       "en": "Asia",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "On which continent is the Nile River located?",
-      "ar": "في أي قارة يقع نهر النيل؟"
+      "ar": "بأي قارة يجري نهر النيل؟"
     },
     "answer": {
       "en": "Africa",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "What is the capital city of France?",
-      "ar": "ما عاصمة فرنسا؟"
+      "ar": "شو عاصمة فرنسا؟"
     },
     "answer": {
       "en": "Paris",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "What is the deepest ocean on Earth?",
-      "ar": "ما أعمق محيط على الأرض؟"
+      "ar": "شو أعمق محيط على الأرض؟"
     },
     "answer": {
       "en": "The Pacific Ocean",
@@ -84,7 +84,7 @@
     },
     "question": {
       "en": "In which European mountain range would you find Mont Blanc?",
-      "ar": "في أي سلسلة جبال أوروبية يقع جبل مونبلان؟"
+      "ar": "بأي سلسلة جبال أوروبية موجود جبل مون بلان؟"
     },
     "answer": {
       "en": "The Alps",
@@ -103,7 +103,7 @@
     },
     "question": {
       "en": "Which country includes the island state of Tasmania?",
-      "ar": "أي دولة تضم الولاية الجزرية تسمانيا؟"
+      "ar": "أي دولة فيها ولاية جزيرة تسمانيا؟"
     },
     "answer": {
       "en": "Australia.",
@@ -122,7 +122,7 @@
     },
     "question": {
       "en": "Which two continents does the Red Sea separate?",
-      "ar": "أي قارتين يفصل البحر الأحمر بينهما؟"
+      "ar": "البحر الأحمر يفصل بين أي قارتين؟"
     },
     "answer": {
       "en": "Africa and Asia",
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "Which type of map emphasizes national borders and cities rather than physical terrain?",
-      "ar": "أي نوع من الخرائط يركّز على حدود الدول والمدن بدلاً من التضاريس الطبيعية؟"
+      "ar": "أي نوع خرايط يركّز على حدود الدول والمدن بدل التضاريس الطبيعية؟"
     },
     "answer": {
       "en": "A political map",
@@ -160,7 +160,7 @@
     },
     "question": {
       "en": "Which city is known as the 'Big Apple'?",
-      "ar": "أي مدينة تُعرف بـ'التفاحة الكبيرة'؟"
+      "ar": "أي مدينة لقبها «التفاحة الكبيرة»؟"
     },
     "answer": {
       "en": "New York City",
@@ -179,7 +179,7 @@
     },
     "question": {
       "en": "Which pole is located in the middle of the Arctic Ocean?",
-      "ar": "أي قطب يقع في منتصف المحيط المتجمد الشمالي؟"
+      "ar": "أي قطب موجود بنص المحيط المتجمد الشمالي؟"
     },
     "answer": {
       "en": "The North Pole",
@@ -198,7 +198,7 @@
     },
     "question": {
       "en": "Which is the largest landlocked country in the world?",
-      "ar": "ما أكبر دولة حبيسة لا تطل على البحر في العالم؟"
+      "ar": "شو أكبر دولة بالعالم ما لها أي بحر؟"
     },
     "answer": {
       "en": "Kazakhstan",
@@ -217,7 +217,7 @@
     },
     "question": {
       "en": "Which man-made waterway connects the Atlantic and Pacific Oceans?",
-      "ar": "أي ممر مائي من صنع الإنسان يربط المحيطين الأطلسي والهادئ؟"
+      "ar": "أي ممر مائي من صنع الإنسان يربط المحيط الأطلسي بالهادئ؟"
     },
     "answer": {
       "en": "The Panama Canal",
@@ -236,7 +236,7 @@
     },
     "question": {
       "en": "What is the highest mountain in the world above sea level?",
-      "ar": "ما أعلى جبل في العالم فوق مستوى سطح البحر؟"
+      "ar": "شو أعلى جبل بالعالم فوق مستوى سطح البحر؟"
     },
     "answer": {
       "en": "Mount Everest",
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "Which European country is famously partially below sea level?",
-      "ar": "أي دولة أوروبية تقع بعض أجزائها دون مستوى سطح البحر؟"
+      "ar": "أي دولة أوروبية بعض أجزائها تحت مستوى سطح البحر؟"
     },
     "answer": {
       "en": "The Netherlands",
@@ -274,7 +274,7 @@
     },
     "question": {
       "en": "What is the land area in which all surface water drains toward the same river, lake, or outlet called?",
-      "ar": "ماذا تُسمّى مساحة اليابسة التي تصب جميع مياهها السطحية نحو النهر أو البحيرة أو المخرج نفسه؟"
+      "ar": "شو نسمّي مساحة الأرض اللي كل مياهها السطحية تصب بنفس النهر أو البحيرة أو المخرج؟"
     },
     "answer": {
       "en": "A drainage basin (watershed)",
@@ -293,7 +293,7 @@
     },
     "question": {
       "en": "Through which London borough does the historic Prime Meridian at the Royal Observatory pass?",
-      "ar": "عبر أي حي في لندن يمر خط الطول الرئيسي التاريخي عند المرصد الملكي؟"
+      "ar": "خط الطول الرئيسي التاريخي يمر بالمرصد الملكي بأي حي في لندن؟"
     },
     "answer": {
       "en": "Greenwich.",
@@ -312,7 +312,7 @@
     },
     "question": {
       "en": "Which Southeast Asian archipelagic country has Manila as its capital?",
-      "ar": "ما الدولة الأرخبيلية في جنوب شرق آسيا التي عاصمتها مانيلا؟"
+      "ar": "شو الدولة الأرخبيلية في جنوب شرق آسيا اللي عاصمتها مانيلا؟"
     },
     "answer": {
       "en": "The Philippines.",
@@ -331,7 +331,7 @@
     },
     "question": {
       "en": "Which country has the most natural lakes in the world?",
-      "ar": "أي دولة تمتلك أكبر عدد من البحيرات الطبيعية في العالم؟"
+      "ar": "أي دولة فيها أكثر بحيرات طبيعية بالعالم؟"
     },
     "answer": {
       "en": "Canada",
@@ -350,7 +350,7 @@
     },
     "question": {
       "en": "Which two countries share the longest international border?",
-      "ar": "أي دولتان تشتركان في أطول حدود دولية؟"
+      "ar": "أي دولتين بينهم أطول حدود دولية؟"
     },
     "answer": {
       "en": "USA and Canada",
@@ -369,7 +369,7 @@
     },
     "question": {
       "en": "Which hypersaline lake between Jordan and the West Bank/Israel has shores among the world's lowest exposed land?",
-      "ar": "ما البحيرة شديدة الملوحة الواقعة بين الأردن والضفة الغربية وإسرائيل، والتي تقع شواطئها ضمن أخفض اليابسة المكشوفة في العالم؟"
+      "ar": "شو البحيرة المالحة كثير اللي بين الأردن والضفة الغربية وإسرائيل، وشواطئها من أوطى يابسة مكشوفة بالعالم؟"
     },
     "answer": {
       "en": "The Dead Sea.",
@@ -388,7 +388,7 @@
     },
     "question": {
       "en": "What is the tiny country entirely surrounded by the city of Rome?",
-      "ar": "ما الدولة الصغيرة المحاطة بالكامل بمدينة روما؟"
+      "ar": "شو الدولة الصغيرة اللي روما محيطة فيها بالكامل؟"
     },
     "answer": {
       "en": "Vatican City",
@@ -407,7 +407,7 @@
     },
     "question": {
       "en": "What latitude is the Equator?",
-      "ar": "عند أي خط عرض يقع خط الاستواء؟"
+      "ar": "خط الاستواء على أي خط عرض؟"
     },
     "answer": {
       "en": "0 degrees latitude.",
@@ -426,7 +426,7 @@
     },
     "question": {
       "en": "If measured from the ocean floor, what is the tallest mountain on Earth?",
-      "ar": "إذا قِيس من قاع المحيط، ما أطول جبل على الأرض؟"
+      "ar": "إذا قسنا من قاع المحيط، شو أطول جبل على الأرض؟"
     },
     "answer": {
       "en": "Mauna Kea",
@@ -445,7 +445,7 @@
     },
     "question": {
       "en": "What is the southernmost capital city in the world?",
-      "ar": "ما أقصى عاصمة جنوباً في العالم؟"
+      "ar": "شو أبعد عاصمة جنوبًا بالعالم؟"
     },
     "answer": {
       "en": "Wellington, New Zealand",
@@ -464,7 +464,7 @@
     },
     "question": {
       "en": "Name one of the two 'doubly landlocked' countries — surrounded only by landlocked countries.",
-      "ar": "اذكر إحدى الدولتين 'المحاطتين بالكامل بدول حبيسة'."
+      "ar": "اذكر وحدة من الدولتين اللي «محاطة بالكامل بدول ما لها بحر»."
     },
     "answer": {
       "en": "Liechtenstein or Uzbekistan",
@@ -483,7 +483,7 @@
     },
     "question": {
       "en": "Which river discharges the most water into the ocean?",
-      "ar": "أي نهر يصرف أكبر كمية من المياه في المحيط؟"
+      "ar": "أي نهر يصب أكبر كمية مي بالمحيط؟"
     },
     "answer": {
       "en": "The Amazon River",
@@ -502,7 +502,7 @@
     },
     "question": {
       "en": "What is the name of the largely submerged geological continent that includes New Zealand?",
-      "ar": "ما اسم القارة الجيولوجية المغمورة في معظمها والتي تضم نيوزيلندا؟"
+      "ar": "شو اسم القارة الجيولوجية اللي أغلبها غارق تحت المي، وفيها نيوزيلندا؟"
     },
     "answer": {
       "en": "Zealandia.",
@@ -521,7 +521,7 @@
     },
     "question": {
       "en": "Which city is the highest administrative capital in the world?",
-      "ar": "أي مدينة هي أعلى عاصمة إدارية في العالم؟"
+      "ar": "أي مدينة هي أعلى عاصمة إدارية بالعالم؟"
     },
     "answer": {
       "en": "La Paz, Bolivia",
@@ -540,7 +540,7 @@
     },
     "question": {
       "en": "What is the smallest country in the world by land area?",
-      "ar": "ما أصغر دولة في العالم من حيث المساحة؟"
+      "ar": "شو أصغر دولة بالعالم من ناحية المساحة؟"
     },
     "answer": {
       "en": "Vatican City",
@@ -559,7 +559,7 @@
     },
     "question": {
       "en": "What is the southernmost point of the African continent?",
-      "ar": "ما أقصى نقطة جنوبية في القارة الأفريقية؟"
+      "ar": "شو أبعد نقطة جنوبًا بقارة إفريقيا؟"
     },
     "answer": {
       "en": "Cape Agulhas",
@@ -578,7 +578,7 @@
     },
     "question": {
       "en": "What is the capital of Japan?",
-      "ar": "ما عاصمة اليابان؟"
+      "ar": "شو عاصمة اليابان؟"
     },
     "answer": {
       "en": "Tokyo",
@@ -597,7 +597,7 @@
     },
     "question": {
       "en": "What is the largest country in the world by area?",
-      "ar": "ما أكبر دولة في العالم من حيث المساحة؟"
+      "ar": "شو أكبر دولة بالعالم من ناحية المساحة؟"
     },
     "answer": {
       "en": "Russia",
@@ -616,7 +616,7 @@
     },
     "question": {
       "en": "What is a group or chain of islands called?",
-      "ar": "ماذا تُسمّى مجموعة أو سلسلة من الجزر؟"
+      "ar": "شو نسمّي مجموعة أو سلسلة جزر؟"
     },
     "answer": {
       "en": "An archipelago",
@@ -635,7 +635,7 @@
     },
     "question": {
       "en": "What is the capital of Brazil?",
-      "ar": "ما عاصمة البرازيل؟"
+      "ar": "شو عاصمة البرازيل؟"
     },
     "answer": {
       "en": "Brasília",
@@ -654,7 +654,7 @@
     },
     "question": {
       "en": "On which continent is most of Egypt located?",
-      "ar": "في أي قارة يقع معظم أراضي مصر؟"
+      "ar": "أغلب أراضي مصر بأي قارة؟"
     },
     "answer": {
       "en": "Africa; the Sinai Peninsula is in Asia",
@@ -673,7 +673,7 @@
     },
     "question": {
       "en": "What is the capital of Australia?",
-      "ar": "ما عاصمة أستراليا؟"
+      "ar": "شو عاصمة أستراليا؟"
     },
     "answer": {
       "en": "Canberra",
@@ -692,7 +692,7 @@
     },
     "question": {
       "en": "What is the largest ocean on Earth?",
-      "ar": "ما أكبر محيط على وجه الأرض؟"
+      "ar": "شو أكبر محيط على الأرض؟"
     },
     "answer": {
       "en": "The Pacific Ocean",
@@ -711,7 +711,7 @@
     },
     "question": {
       "en": "What is the capital of Canada?",
-      "ar": "ما عاصمة كندا؟"
+      "ar": "شو عاصمة كندا؟"
     },
     "answer": {
       "en": "Ottawa",
@@ -749,7 +749,7 @@
     },
     "question": {
       "en": "What is the capital of Germany?",
-      "ar": "ما عاصمة ألمانيا؟"
+      "ar": "شو عاصمة ألمانيا؟"
     },
     "answer": {
       "en": "Berlin",
@@ -768,7 +768,7 @@
     },
     "question": {
       "en": "What is the longest river in South America?",
-      "ar": "ما أطول نهر في أمريكا الجنوبية؟"
+      "ar": "شو أطول نهر بأمريكا الجنوبية؟"
     },
     "answer": {
       "en": "The Amazon River",
@@ -787,7 +787,7 @@
     },
     "question": {
       "en": "What is the largest hot desert in the world?",
-      "ar": "ما أكبر صحراء حارة في العالم؟"
+      "ar": "شو أكبر صحرا حارّة بالعالم؟"
     },
     "answer": {
       "en": "The Sahara Desert",
@@ -806,7 +806,7 @@
     },
     "question": {
       "en": "What is the capital of Saudi Arabia?",
-      "ar": "ما عاصمة المملكة العربية السعودية؟"
+      "ar": "شو عاصمة السعودية؟"
     },
     "answer": {
       "en": "Riyadh",
@@ -825,7 +825,7 @@
     },
     "question": {
       "en": "Which continent has the most countries?",
-      "ar": "أي قارة تضم أكبر عدد من الدول؟"
+      "ar": "أي قارة فيها أكثر عدد دول؟"
     },
     "answer": {
       "en": "Africa",
@@ -844,7 +844,7 @@
     },
     "question": {
       "en": "What is a broad, mostly flat area of land at a high elevation called?",
-      "ar": "ماذا تُسمّى مساحة واسعة ومسطحة غالباً من الأرض تقع على ارتفاع عالٍ؟"
+      "ar": "شو نسمّي الأرض الواسعة والمسطّحة غالبًا اللي تكون على ارتفاع عالي؟"
     },
     "answer": {
       "en": "A plateau",
@@ -863,7 +863,7 @@
     },
     "question": {
       "en": "What is the deepest lake in the world?",
-      "ar": "ما أعمق بحيرة في العالم؟"
+      "ar": "شو أعمق بحيرة بالعالم؟"
     },
     "answer": {
       "en": "Lake Baikal",
@@ -882,7 +882,7 @@
     },
     "question": {
       "en": "What is the dry region on the leeward side of a mountain range called?",
-      "ar": "ماذا تُسمّى المنطقة الجافة الواقعة على الجانب المعاكس للرياح من سلسلة جبلية؟"
+      "ar": "شو نسمّي المنطقة الجافة اللي على الجهة اللي ما تواجه الريح من سلسلة جبال؟"
     },
     "answer": {
       "en": "A rain shadow",
@@ -901,7 +901,7 @@
     },
     "question": {
       "en": "What is the highest mountain in Africa?",
-      "ar": "ما أعلى جبل في أفريقيا؟"
+      "ar": "شو أعلى جبل بإفريقيا؟"
     },
     "answer": {
       "en": "Mount Kilimanjaro",
@@ -920,7 +920,7 @@
     },
     "question": {
       "en": "What is the capital of New Zealand?",
-      "ar": "ما عاصمة نيوزيلندا؟"
+      "ar": "شو عاصمة نيوزيلندا؟"
     },
     "answer": {
       "en": "Wellington",
@@ -939,7 +939,7 @@
     },
     "question": {
       "en": "Why can people float particularly easily in the Dead Sea?",
-      "ar": "لماذا يسهل الطفو على نحو خاص في البحر الميت؟"
+      "ar": "ليش الطفو سهل بشكل خاص في البحر الميت؟"
     },
     "answer": {
       "en": "Its high salt content makes its water dense, increasing buoyancy.",
@@ -958,7 +958,7 @@
     },
     "question": {
       "en": "What is the capital of Argentina?",
-      "ar": "ما عاصمة الأرجنتين؟"
+      "ar": "شو عاصمة الأرجنتين؟"
     },
     "answer": {
       "en": "Buenos Aires",
@@ -977,7 +977,7 @@
     },
     "question": {
       "en": "What is the capital of South Korea?",
-      "ar": "ما عاصمة كوريا الجنوبية؟"
+      "ar": "شو عاصمة كوريا الجنوبية؟"
     },
     "answer": {
       "en": "Seoul",
@@ -996,7 +996,7 @@
     },
     "question": {
       "en": "What is the capital of Nigeria?",
-      "ar": "ما عاصمة نيجيريا؟"
+      "ar": "شو عاصمة نيجيريا؟"
     },
     "answer": {
       "en": "Abuja",
@@ -1015,7 +1015,7 @@
     },
     "question": {
       "en": "What is the capital of Turkey?",
-      "ar": "ما عاصمة تركيا؟"
+      "ar": "شو عاصمة تركيا؟"
     },
     "answer": {
       "en": "Ankara",
@@ -1034,7 +1034,7 @@
     },
     "question": {
       "en": "Which ocean borders Africa on the east?",
-      "ar": "أي محيط يحدّ أفريقيا من الشرق؟"
+      "ar": "أي محيط على حدود إفريقيا من الشرق؟"
     },
     "answer": {
       "en": "The Indian Ocean",
@@ -1053,7 +1053,7 @@
     },
     "question": {
       "en": "What is the capital of Mexico?",
-      "ar": "ما عاصمة المكسيك؟"
+      "ar": "شو عاصمة المكسيك؟"
     },
     "answer": {
       "en": "Mexico City",
@@ -1072,7 +1072,7 @@
     },
     "question": {
       "en": "Which East Asian country includes the islands Honshu, Hokkaido, Kyushu and Shikoku?",
-      "ar": "أي دولة في شرق آسيا تضم جزر هونشو وهوكايدو وكيوشو وشيكوكو؟"
+      "ar": "أي دولة بشرق آسيا فيها جزر هونشو وهوكايدو وكيوشو وشيكوكو؟"
     },
     "answer": {
       "en": "Japan.",
@@ -1110,7 +1110,7 @@
     },
     "question": {
       "en": "What is the highest mountain in Europe (excluding Caucasus)?",
-      "ar": "ما أعلى جبل في أوروبا (باستثناء القوقاز)؟"
+      "ar": "شو أعلى جبل بأوروبا (من غير القوقاز)؟"
     },
     "answer": {
       "en": "Mont Blanc",
@@ -1129,7 +1129,7 @@
     },
     "question": {
       "en": "What is the capital of Egypt?",
-      "ar": "ما عاصمة مصر؟"
+      "ar": "شو عاصمة مصر؟"
     },
     "answer": {
       "en": "Cairo",
@@ -1148,7 +1148,7 @@
     },
     "question": {
       "en": "What is the capital of Myanmar?",
-      "ar": "ما عاصمة ميانمار؟"
+      "ar": "شو عاصمة ميانمار؟"
     },
     "answer": {
       "en": "Naypyidaw",
@@ -1167,7 +1167,7 @@
     },
     "question": {
       "en": "What strait separates Africa from Europe?",
-      "ar": "ما المضيق الذي يفصل أفريقيا عن أوروبا؟"
+      "ar": "شو المضيق اللي يفصل إفريقيا عن أوروبا؟"
     },
     "answer": {
       "en": "The Strait of Gibraltar",
@@ -1186,7 +1186,7 @@
     },
     "question": {
       "en": "What is the capital of Kazakhstan?",
-      "ar": "ما عاصمة كازاخستان؟"
+      "ar": "شو عاصمة كازاخستان؟"
     },
     "answer": {
       "en": "Astana",
@@ -1205,7 +1205,7 @@
     },
     "question": {
       "en": "Which African country has more ancient pyramids than Egypt?",
-      "ar": "أي دولة أفريقية تمتلك عدداً من الأهرامات القديمة يفوق مصر؟"
+      "ar": "أي دولة إفريقية فيها أهرامات قديمة أكثر من مصر؟"
     },
     "answer": {
       "en": "Sudan",
@@ -1224,7 +1224,7 @@
     },
     "question": {
       "en": "What is the name of the deepest point on Earth?",
-      "ar": "ما اسم أعمق نقطة على الأرض؟"
+      "ar": "شو اسم أعمق نقطة على الأرض؟"
     },
     "answer": {
       "en": "Challenger Deep",
@@ -1243,7 +1243,7 @@
     },
     "question": {
       "en": "How many degrees of longitude does Earth rotate through in one hour on average?",
-      "ar": "كم درجة من خطوط الطول تدور الأرض خلال ساعة واحدة في المتوسط؟"
+      "ar": "كم درجة طول تدور الأرض بساعة وحدة بالمتوسط؟"
     },
     "answer": {
       "en": "About 15 degrees, which helps explain the basic idea of time zones.",
@@ -1262,7 +1262,7 @@
     },
     "question": {
       "en": "What is the world's longest continental mountain range on land?",
-      "ar": "ما أطول سلسلة جبلية قارية على اليابسة في العالم؟"
+      "ar": "شو أطول سلسلة جبال قارية على اليابسة بالعالم؟"
     },
     "answer": {
       "en": "The Andes.",
@@ -1281,7 +1281,7 @@
     },
     "question": {
       "en": "What is the capital of Bhutan?",
-      "ar": "ما عاصمة بوتان؟"
+      "ar": "شو عاصمة بوتان؟"
     },
     "answer": {
       "en": "Thimphu",
@@ -1300,7 +1300,7 @@
     },
     "question": {
       "en": "Which country is known as the Land of a Thousand Lakes?",
-      "ar": "أي دولة تُعرف ببلد الألف بحيرة؟"
+      "ar": "أي دولة معروفة بإنها «بلد الألف بحيرة»؟"
     },
     "answer": {
       "en": "Finland",
@@ -1319,7 +1319,7 @@
     },
     "question": {
       "en": "Which river forms part of the border between Texas and Mexico?",
-      "ar": "أي نهر يشكّل جزءاً من الحدود بين تكساس والمكسيك؟"
+      "ar": "أي نهر جزء من الحدود بين تكساس والمكسيك؟"
     },
     "answer": {
       "en": "The Rio Grande, also called Río Bravo in Mexico.",
@@ -1338,7 +1338,7 @@
     },
     "question": {
       "en": "What is the capital of Eritrea?",
-      "ar": "ما عاصمة إريتريا؟"
+      "ar": "شو عاصمة إريتريا؟"
     },
     "answer": {
       "en": "Asmara",
@@ -1357,7 +1357,7 @@
     },
     "question": {
       "en": "What is the capital of Laos?",
-      "ar": "ما عاصمة لاوس؟"
+      "ar": "شو عاصمة لاوس؟"
     },
     "answer": {
       "en": "Vientiane",
@@ -1376,7 +1376,7 @@
     },
     "question": {
       "en": "Which mainland African country has coasts on both the Atlantic and Indian oceans?",
-      "ar": "أي دولة في البر الرئيسي لأفريقيا لها سواحل على المحيطين الأطلسي والهندي؟"
+      "ar": "أي دولة بالبر الرئيسي لإفريقيا لها سواحل على المحيطين الأطلسي والهندي؟"
     },
     "answer": {
       "en": "South Africa.",
@@ -1395,7 +1395,7 @@
     },
     "question": {
       "en": "What sea lies between Italy and the Balkans?",
-      "ar": "أي بحر يقع بين إيطاليا وشبه جزيرة البلقان؟"
+      "ar": "أي بحر بين إيطاليا وشبه جزيرة البلقان؟"
     },
     "answer": {
       "en": "The Adriatic Sea",
@@ -1414,7 +1414,7 @@
     },
     "question": {
       "en": "In which countries is the Gobi Desert located?",
-      "ar": "في أي دولتين تقع صحراء الغوبي؟"
+      "ar": "بأي دولتين موجودة صحرا غوبي؟"
     },
     "answer": {
       "en": "China and Mongolia",
@@ -1433,7 +1433,7 @@
     },
     "question": {
       "en": "What is the world's northernmost national capital?",
-      "ar": "ما أبعد عاصمة وطنية نحو الشمال في العالم؟"
+      "ar": "شو أبعد عاصمة وطنية شمالًا بالعالم؟"
     },
     "answer": {
       "en": "Reykjavik, Iceland",
@@ -1452,7 +1452,7 @@
     },
     "question": {
       "en": "Which country has coastlines on both the Caspian Sea and the Gulf of Oman?",
-      "ar": "أي دولة لها سواحل على كل من بحر قزوين وخليج عُمان؟"
+      "ar": "أي دولة لها سواحل على بحر قزوين وعلى خليج عُمان؟"
     },
     "answer": {
       "en": "Iran.",
@@ -1471,7 +1471,7 @@
     },
     "question": {
       "en": "What strait connects the Black Sea to the Sea of Marmara?",
-      "ar": "ما المضيق الذي يصل البحر الأسود ببحر مرمرة؟"
+      "ar": "شو المضيق اللي يوصل البحر الأسود ببحر مرمرة؟"
     },
     "answer": {
       "en": "The Bosphorus",
@@ -1490,7 +1490,7 @@
     },
     "question": {
       "en": "Which small republic is surrounded by Italy and is associated with Mount Titano?",
-      "ar": "ما الجمهورية الصغيرة التي تحيط بها إيطاليا وترتبط بجبل تيتانو؟"
+      "ar": "شو الجمهورية الصغيرة اللي إيطاليا محيطة فيها ومرتبطة بجبل تيتانو؟"
     },
     "answer": {
       "en": "San Marino.",
@@ -1509,7 +1509,7 @@
     },
     "question": {
       "en": "Which ocean current moderates the climate of Western Europe?",
-      "ar": "أي تيار محيطي يلطّف مناخ غرب أوروبا؟"
+      "ar": "أي تيار بحري يلطّف جو غرب أوروبا؟"
     },
     "answer": {
       "en": "The Gulf Stream",
@@ -1528,7 +1528,7 @@
     },
     "question": {
       "en": "What is a landform surrounded by water on most sides but connected to a larger landmass called?",
-      "ar": "ماذا يُسمّى شكل اليابسة الذي تحيط به المياه من معظم الجهات لكنه يتصل بكتلة برية أكبر؟"
+      "ar": "شو نسمّي قطعة الأرض اللي المي محيطة فيها من أغلب الجهات بس متصلة بيابسة أكبر؟"
     },
     "answer": {
       "en": "A peninsula.",
@@ -1547,7 +1547,7 @@
     },
     "question": {
       "en": "How many countries share a border with China?",
-      "ar": "كم دولة تشترك في حدود برية مع الصين؟"
+      "ar": "كم دولة لها حدود برية مع الصين؟"
     },
     "answer": {
       "en": "14 countries",
@@ -1566,7 +1566,7 @@
     },
     "question": {
       "en": "What is the world's largest coral reef system?",
-      "ar": "ما أكبر نظام شعاب مرجانية في العالم؟"
+      "ar": "شو أكبر نظام شعاب مرجانية بالعالم؟"
     },
     "answer": {
       "en": "The Great Barrier Reef",
@@ -1585,7 +1585,7 @@
     },
     "question": {
       "en": "What is the name of the line at 23.5° North latitude?",
-      "ar": "ما اسم الخط الواقع عند درجة 23.5 شمالاً؟"
+      "ar": "شو اسم الخط اللي على 23.5 درجة شمال؟"
     },
     "answer": {
       "en": "Tropic of Cancer",
@@ -1604,7 +1604,7 @@
     },
     "question": {
       "en": "What is the name of the narrow strip of land connecting North and South America?",
-      "ar": "ما اسم شريط الأرض الضيق الذي يصل أمريكا الشمالية بالجنوبية؟"
+      "ar": "شو اسم الشريط الضيّق من الأرض اللي يوصل أمريكا الشمالية بالجنوبية؟"
     },
     "answer": {
       "en": "Isthmus of Panama",
@@ -1623,7 +1623,7 @@
     },
     "question": {
       "en": "What is the capital of the Maldives?",
-      "ar": "ما عاصمة جزر المالديف؟"
+      "ar": "شو عاصمة جزر المالديف؟"
     },
     "answer": {
       "en": "Malé",
@@ -1642,7 +1642,7 @@
     },
     "question": {
       "en": "Which country was formerly called Southern Rhodesia and later Rhodesia?",
-      "ar": "أي دولة كانت تُسمّى سابقاً روديسيا الجنوبية ثم روديسيا؟"
+      "ar": "أي دولة كان اسمها قبل روديسيا الجنوبية وبعدين روديسيا؟"
     },
     "answer": {
       "en": "Zimbabwe.",
@@ -1661,7 +1661,7 @@
     },
     "question": {
       "en": "Which two countries share the main area of the Bengal delta?",
-      "ar": "أي دولتين تتقاسمان الجزء الرئيسي من دلتا البنغال؟"
+      "ar": "أي دولتين يتقاسمون الجزء الأساسي من دلتا البنغال؟"
     },
     "answer": {
       "en": "Bangladesh and India.",
@@ -1680,7 +1680,7 @@
     },
     "question": {
       "en": "What is a pass in a mountain range?",
-      "ar": "ما الممر الجبلي؟"
+      "ar": "شو هو «الممر الجبلي»؟"
     },
     "answer": {
       "en": "A relatively low route through or across a mountain range.",
@@ -1699,7 +1699,7 @@
     },
     "question": {
       "en": "In which sea off northeastern Australia is the Great Barrier Reef located?",
-      "ar": "في أي بحر قبالة شمال شرقي أستراليا يقع الحاجز المرجاني العظيم؟"
+      "ar": "الحاجز المرجاني العظيم بأي بحر قبال شمال شرق أستراليا؟"
     },
     "answer": {
       "en": "The Coral Sea.",
@@ -1718,7 +1718,7 @@
     },
     "question": {
       "en": "Which UN organization maintains the World Heritage List?",
-      "ar": "ما منظمة الأمم المتحدة المسؤولة عن قائمة التراث العالمي؟"
+      "ar": "شو منظمة الأمم المتحدة المسؤولة عن قائمة التراث العالمي؟"
     },
     "answer": {
       "en": "UNESCO.",
@@ -1737,7 +1737,7 @@
     },
     "question": {
       "en": "Approximately how deep is the Mariana Trench?",
-      "ar": "ما العمق التقريبي لخندق ماريانا؟"
+      "ar": "تقريبًا كم عمق خندق ماريانا؟"
     },
     "answer": {
       "en": "About 11,000 metres (36,000 feet)",
@@ -1756,7 +1756,7 @@
     },
     "question": {
       "en": "In which country is Mount Olympus located?",
-      "ar": "في أي دولة يقع جبل أوليمبوس؟"
+      "ar": "بأي دولة جبل أوليمبوس؟"
     },
     "answer": {
       "en": "Greece",
@@ -1775,7 +1775,7 @@
     },
     "question": {
       "en": "What is the capital of Burkina Faso?",
-      "ar": "ما عاصمة بوركينا فاسو؟"
+      "ar": "شو عاصمة بوركينا فاسو؟"
     },
     "answer": {
       "en": "Ouagadougou",
@@ -1794,7 +1794,7 @@
     },
     "question": {
       "en": "The Caspian Sea is bordered by how many countries?",
-      "ar": "كم دولة تحدّ بحر قزوين؟"
+      "ar": "كم دولة على حدود بحر قزوين؟"
     },
     "answer": {
       "en": "Five (Russia, Kazakhstan, Turkmenistan, Iran, Azerbaijan)",
@@ -1813,7 +1813,7 @@
     },
     "question": {
       "en": "What Portuguese short name does the country commonly called Cape Verde use internationally?",
-      "ar": "ما الاسم المختصر بالبرتغالية الذي تستخدمه دولياً الدولة المعروفة بالرأس الأخضر؟"
+      "ar": "شو الاسم المختصر بالبرتغالي اللي تستخدمه دوليًا الدولة المعروفة بـ«الرأس الأخضر»؟"
     },
     "answer": {
       "en": "Cabo Verde.",
@@ -1832,7 +1832,7 @@
     },
     "question": {
       "en": "Which European river flows through or along the borders of ten countries before reaching the Black Sea?",
-      "ar": "أي نهر أوروبي يجري داخل عشر دول أو بمحاذاة حدودها قبل أن يصب في البحر الأسود؟"
+      "ar": "أي نهر أوروبي يمر بعشر دول أو على حدودها قبل ما يصب في البحر الأسود؟"
     },
     "answer": {
       "en": "The Danube.",
@@ -1851,7 +1851,7 @@
     },
     "question": {
       "en": "Approximately what latitude marks the Arctic Circle?",
-      "ar": "عند أي خط عرض تقريباً تقع الدائرة القطبية الشمالية؟"
+      "ar": "تقريبًا على أي خط عرض الدائرة القطبية الشمالية؟"
     },
     "answer": {
       "en": "About 66.5° north; the precise latitude slowly changes with Earth's axial tilt.",
@@ -1870,7 +1870,7 @@
     },
     "question": {
       "en": "What is a wadi in the geography of arid regions?",
-      "ar": "ما الوادي في جغرافية المناطق الجافة؟"
+      "ar": "في جغرافيا المناطق الجافة، شو هو «الوادي»؟"
     },
     "answer": {
       "en": "A valley or channel that may be dry for long periods and carry water after rainfall.",
@@ -1889,7 +1889,7 @@
     },
     "question": {
       "en": "What is the capital of Kyrgyzstan?",
-      "ar": "ما عاصمة قيرغيزستان؟"
+      "ar": "شو عاصمة قيرغيزستان؟"
     },
     "answer": {
       "en": "Bishkek",

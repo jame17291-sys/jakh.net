@@ -4,7 +4,7 @@
     "difficulty": "easy",
     "question": {
       "en": "In which modern-day country would you find the Great Pyramids of Giza?",
-      "ar": "في أي بلد حديث تجد أهرامات الجيزة الكبرى؟"
+      "ar": "وين موجودة أهرامات الجيزة اليوم؟ يعني بأي دولة؟"
     },
     "answer": {
       "en": "Egypt",
@@ -23,7 +23,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which Chinese dynasty built many of the brick-and-stone sections of the Great Wall that survive today?",
-      "ar": "أي سلالة صينية بنت كثيراً من الأجزاء الحجرية والآجرية الباقية من سور الصين العظيم اليوم؟"
+      "ar": "أي سلالة صينية بنت أغلب الأجزاء الحجرية والطوب الباقية من سور الصين العظيم؟"
     },
     "answer": {
       "en": "The Ming dynasty.",
@@ -42,7 +42,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What was the name of the ancient city in Italy famous for its gladiatorial games at the Colosseum?",
-      "ar": "ما اسم المدينة القديمة في إيطاليا المشهورة بألعاب المصارعة في الكولوسيوم؟"
+      "ar": "شو المدينة القديمة في إيطاليا المشهورة بألعاب المصارعة في الكولوسيوم؟"
     },
     "answer": {
       "en": "Rome",
@@ -61,7 +61,7 @@
     "difficulty": "easy",
     "question": {
       "en": "In which ancient civilization did the Olympic Games originate?",
-      "ar": "في أي حضارة قديمة نشأت الألعاب الأولمبية؟"
+      "ar": "بأي حضارة قديمة بدأت الألعاب الأولمبية؟"
     },
     "answer": {
       "en": "Ancient Greece.",
@@ -80,7 +80,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What system of writing used picture-like symbols in Ancient Egypt?",
-      "ar": "ما هو نظام الكتابة الذي استخدم رموزاً تشبه الصور في مصر القديمة؟"
+      "ar": "شو نظام الكتابة اللي كان يستخدم رموز مثل الصور في مصر القديمة؟"
     },
     "answer": {
       "en": "Hieroglyphics",
@@ -99,7 +99,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Between which two rivers did the Mesopotamian civilization develop?",
-      "ar": "بين أي نهرين نشأت حضارة بلاد ما بين النهرين؟"
+      "ar": "بين أي نهرين نشأت حضارة بلاد الرافدين؟"
     },
     "answer": {
       "en": "Tigris and Euphrates",
@@ -118,7 +118,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which precolonial American civilization built Machu Picchu in the fifteenth century?",
-      "ar": "أي حضارة أمريكية قبل الاستعمار بنت ماتشو بيتشو في القرن الخامس عشر؟"
+      "ar": "أي حضارة أمريكية قبل الاستعمار بنت ماتشو بيتشو بالقرن الخامس عشر؟"
     },
     "answer": {
       "en": "The Inca civilization.",
@@ -137,7 +137,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What was the title of the ancient rulers of Egypt?",
-      "ar": "ما هو لقب الحكام القدامى لمصر؟"
+      "ar": "شو لقب حكّام مصر القدماء؟"
     },
     "answer": {
       "en": "Pharaoh",
@@ -156,7 +156,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which Mesoamerican civilization used a shell-shaped sign for zero in its numerical notation?",
-      "ar": "أي حضارة في أمريكا الوسطى استخدمت علامة تشبه الصدفة للدلالة على الصفر في تدوين الأعداد؟"
+      "ar": "أي حضارة في أمريكا الوسطى كانت تستخدم علامة تشبه الصدفة للصفر في الأرقام؟"
     },
     "answer": {
       "en": "The Maya.",
@@ -175,7 +175,7 @@
     "difficulty": "easy",
     "question": {
       "en": "With which ancient city are the Hanging Gardens traditionally associated?",
-      "ar": "بأي مدينة قديمة ترتبط الجنائن المعلقة في الرواية التقليدية؟"
+      "ar": "حسب الرواية المعروفة، بأي مدينة قديمة كانت الحدائق المعلّقة؟"
     },
     "answer": {
       "en": "Babylon; their exact location and historical existence remain debated.",
@@ -194,7 +194,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What were canopic jars used for in ancient Egyptian mummification?",
-      "ar": "فيمَ كانت تُستخدم الأواني الكانوبية في التحنيط المصري القديم؟"
+      "ar": "في التحنيط المصري القديم، شو كانت فايدة الأواني الكانوبية؟"
     },
     "answer": {
       "en": "To preserve organs removed from the body",
@@ -213,7 +213,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which famous stone was key to deciphering Egyptian hieroglyphics?",
-      "ar": "أي حجر شهير كان مفتاحاً لفك رموز الهيروغليفية المصرية؟"
+      "ar": "أي حجر مشهور كان المفتاح لفكّ رموز الهيروغليفية المصرية؟"
     },
     "answer": {
       "en": "Rosetta Stone",
@@ -232,7 +232,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What was the 'Silk Road'?",
-      "ar": "ما هو 'طريق الحرير'؟"
+      "ar": "شو هو «طريق الحرير»؟"
     },
     "answer": {
       "en": "A network of trade routes connecting East and West",
@@ -251,7 +251,7 @@
     "difficulty": "medium",
     "question": {
       "en": "The 'Code of Hammurabi' is one of the oldest sets of laws from which city-state?",
-      "ar": "تعتبر 'شريعة حمورابي' واحدة من أقدم مجموعات القوانين، من أي مدينة-دولة؟"
+      "ar": "«شريعة حمورابي» من أقدم مجموعات القوانين. من أي مدينة-دولة؟"
     },
     "answer": {
       "en": "Babylon",
@@ -270,7 +270,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Who was the first emperor of a unified China?",
-      "ar": "من كان أول إمبراطور للصين الموحدة؟"
+      "ar": "مين أول إمبراطور للصين بعد ما توحّدت؟"
     },
     "answer": {
       "en": "Qin Shi Huang",
@@ -289,7 +289,7 @@
     "difficulty": "medium",
     "question": {
       "en": "In which present-day country is the Valley of the Kings burial site?",
-      "ar": "في أي دولة حالية يقع موقع الدفن المعروف بوادي الملوك؟"
+      "ar": "«وادي الملوك» اللي كانوا يدفنون فيه، بأي بلد حديث موجود؟"
     },
     "answer": {
       "en": "Egypt.",
@@ -308,7 +308,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which civilization built the city of Chichén Itzá?",
-      "ar": "أي حضارة بنت مدينة 'تشيتشن إيتزا'؟"
+      "ar": "أي حضارة بنت مدينة «تشيتشن إيتزا»؟"
     },
     "answer": {
       "en": "Maya",
@@ -327,7 +327,7 @@
     "difficulty": "medium",
     "question": {
       "en": "The 'Great Library' of the ancient world was located in which city?",
-      "ar": "أين كانت تقع 'المكتبة الكبرى' في العالم القديم؟"
+      "ar": "وين كانت «المكتبة الكبرى» في العالم القديم؟"
     },
     "answer": {
       "en": "Alexandria",
@@ -346,7 +346,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which seafaring people spread an influential consonantal alphabet around the ancient Mediterranean?",
-      "ar": "أي شعب بحري نشر أبجدية صامتة مؤثرة حول البحر المتوسط القديم؟"
+      "ar": "أي شعب بحري نشر أبجدية للحروف الساكنة أثّرت كثير حول البحر المتوسط القديم؟"
     },
     "answer": {
       "en": "The Phoenicians; earlier alphabetic writing already existed.",
@@ -365,7 +365,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What were the 'Punic Wars' fought over?",
-      "ar": "على ماذا نشبت 'الحروب البونيقية'؟"
+      "ar": "على شو قامت «الحروب البونيقية»؟"
     },
     "answer": {
       "en": "Control of the Mediterranean (Rome vs. Carthage)",
@@ -384,7 +384,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What does the modern historical label 'Sea Peoples' refer to?",
-      "ar": "إلى ماذا تشير التسمية التاريخية الحديثة «شعوب البحر»؟"
+      "ar": "على مين تطلق التسمية التاريخية الحديثة «شعوب البحر»؟"
     },
     "answer": {
       "en": "Several groups mentioned in late Bronze Age records of conflict in the eastern Mediterranean; their origins and relationships remain debated.",
@@ -403,7 +403,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which empire was the primary rival of the Ancient Egyptians during the reign of Ramses II?",
-      "ar": "أي إمبراطورية كانت المنافس الرئيسي للمصريين القدماء في عهد رمسيس الثاني؟"
+      "ar": "أي إمبراطورية كانت المنافس الأكبر للمصريين أيام رمسيس الثاني؟"
     },
     "answer": {
       "en": "The Hittite Empire",
@@ -422,7 +422,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What kind of work is the Epic of Gilgamesh?",
-      "ar": "ما نوع العمل المعروف بملحمة جلجامش؟"
+      "ar": "«ملحمة جلجامش» أي نوع من الأعمال؟"
     },
     "answer": {
       "en": "An ancient Mesopotamian literary epic about Gilgamesh, among the oldest surviving epics.",
@@ -441,7 +441,7 @@
     "difficulty": "hard",
     "question": {
       "en": "The 'Olmec' civilization is often called the 'Mother Culture' of which region?",
-      "ar": "غالباً ما تسمى حضارة 'الأولمك' بـ 'الثقافة الأم' لأي منطقة؟"
+      "ar": "حضارة «الأولمك» يسمّونها كثير «الثقافة الأم» لأي منطقة؟"
     },
     "answer": {
       "en": "Mesoamerica",
@@ -460,7 +460,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which Bronze Age civilization built cities such as Mohenjo-daro with extensive drainage systems?",
-      "ar": "أي حضارة من العصر البرونزي بنت مدناً مثل موهينجو دارو ذات شبكات تصريف واسعة؟"
+      "ar": "أي حضارة من العصر البرونزي بنت مدن مثل موهينجو دارو بشبكات صرف كبيرة؟"
     },
     "answer": {
       "en": "The Indus Valley, or Harappan, civilization.",
@@ -479,7 +479,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What was the 'Stela of Aksum'?",
-      "ar": "ما هي 'مسلة أكسوم'؟"
+      "ar": "شو هي «مسلّة أكسوم»؟"
     },
     "answer": {
       "en": "A massive stone monument from the Kingdom of Aksum in modern-day Ethiopia",
@@ -498,7 +498,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which famous philosopher was the tutor of Alexander the Great?",
-      "ar": "من هو الفيلسوف الشهير الذي كان معلماً للإسكندر الأكبر؟"
+      "ar": "مين الفيلسوف المشهور اللي كان معلّم الإسكندر الأكبر؟"
     },
     "answer": {
       "en": "Aristotle",
@@ -517,7 +517,7 @@
     "difficulty": "hard",
     "question": {
       "en": "The 'Terracotta Army' was buried with which emperor?",
-      "ar": "مع أي إمبراطور دفن 'جيش التراكوتا'؟"
+      "ar": "«جيش التيراكوتا» اندفن مع أي إمبراطور؟"
     },
     "answer": {
       "en": "Qin Shi Huang",
@@ -536,7 +536,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What is the name of the step-pyramid structures found in ancient Mesopotamia?",
-      "ar": "ما اسم الهياكل الهرمية المدرجة الموجودة في بلاد ما بين النهرين القديمة؟"
+      "ar": "شو اسم المباني الهرمية المدرّجة اللي كانت في بلاد الرافدين القديمة؟"
     },
     "answer": {
       "en": "Ziggurat",
@@ -555,7 +555,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which civilization is known for building the city of Petra in modern Jordan?",
-      "ar": "أي حضارة تشتهر ببناء مدينة البتراء في الأردن الحديث؟"
+      "ar": "أي حضارة معروفة إنها بنت مدينة البتراء في الأردن؟"
     },
     "answer": {
       "en": "The Nabataeans",
@@ -574,7 +574,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is 'Linear B'?",
-      "ar": "ما هي الكتابة 'الخطية ب' (Linear B)؟"
+      "ar": "شو هي كتابة «الخطية ب» (Linear B)؟"
     },
     "answer": {
       "en": "The oldest preserved form of written Greek, used by the Mycenaean civilization",
@@ -593,7 +593,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Which two ancient powers later concluded a peace treaty after fighting at Kadesh?",
-      "ar": "ما القوتان القديمتان اللتان عقدتا معاهدة سلام بعد سنوات من قتالهما في قادش؟"
+      "ar": "شو القوتين القديمتين اللي وقّعوا معاهدة سلام بعد سنين من معركتهم في قادش؟"
     },
     "answer": {
       "en": "Egypt and the Hittite Empire.",
@@ -612,7 +612,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "The 'Kipus' (or Quipu) were a system of recording information using what materials?",
-      "ar": "كان 'الكيبو' (Quipu) نظاماً لتسجيل المعلومات باستخدام أي مواد؟"
+      "ar": "«الكيبو» (Quipu) نظام لتسجيل المعلومات باستخدام شو؟"
     },
     "answer": {
       "en": "Knotted strings (used by the Incas)",
@@ -631,7 +631,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Who was 'Enheduanna' in ancient history?",
-      "ar": "من هي 'إنخيدوانا' في التاريخ القديم؟"
+      "ar": "مين هي «إنخيدوانا» في التاريخ القديم؟"
     },
     "answer": {
       "en": "The world's first known author/poet, daughter of Sargon of Akkad",
@@ -650,7 +650,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is the 'Antikythera Mechanism'?",
-      "ar": "ما هي 'آلية أنتيكيثيرا'؟"
+      "ar": "شو هي «آلية أنتيكيثيرا»؟"
     },
     "answer": {
       "en": "An ancient Greek analog computer used to predict astronomical positions",
@@ -669,7 +669,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Which ancient civilization used a base-60 (sexagesimal) number system?",
-      "ar": "أي حضارة قديمة استخدمت نظام عد ستيني (قاعدته 60)؟"
+      "ar": "أي حضارة قديمة كانت تعدّ بنظام ستّيني (أساسه 60)؟"
     },
     "answer": {
       "en": "Sumerians/Babylonians",
@@ -688,7 +688,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Which pre-Roman civilization flourished in Etruria, in what is now central Italy?",
-      "ar": "أي حضارة سابقة لهيمنة روما ازدهرت في إتروريا، بوسط إيطاليا الحالية؟"
+      "ar": "أي حضارة ازدهرت في إتروريا، بوسط إيطاليا اليوم، قبل ما تسيطر روما؟"
     },
     "answer": {
       "en": "The Etruscans; their civilization overlapped in time with early Rome.",
@@ -707,7 +707,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Which famous Minoan palace complex is located near modern Heraklion on Crete?",
-      "ar": "ما مجمّع القصور المينوي الشهير الواقع قرب هيراكليون الحالية في كريت؟"
+      "ar": "شو مجمّع القصور المينوي المشهور القريب من هيراكليون اليوم في كريت؟"
     },
     "answer": {
       "en": "Knossos.",
@@ -726,7 +726,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "In Ancient Egypt, the 'Ba' and the 'Ka' were components of what?",
-      "ar": "في مصر القديمة، ماذا كانت تمثل الـ 'با' والـ 'كا'؟"
+      "ar": "في مصر القديمة، شو كانت تمثّل «البا» و«الكا»؟"
     },
     "answer": {
       "en": "The Soul",
@@ -745,7 +745,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "The 'Royal Standard of Ur' provides rare insight into the social structure of which civilization?",
-      "ar": "يوفر 'راية أور الملكية' نظرة نادرة في البنية الاجتماعية لأي حضارة؟"
+      "ar": "«راية أور الملكية» تعطينا نظرة نادرة على المجتمع في أي حضارة؟"
     },
     "answer": {
       "en": "Sumerian",

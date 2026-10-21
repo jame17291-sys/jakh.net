@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "When you stand in sunlight, I copy your outline on the ground but have no face. What am I?",
-      "ar": "حين تقف في ضوء الشمس، أرسم هيئتك على الأرض من دون أن يكون لي وجه. ما أنا؟"
+      "ar": "لما توقف بالشمس، أرسم شكلك على الأرض ومع هذا ما لي وجه. شو أنا؟"
     },
     "answer": {
       "en": "Your shadow",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "I am a curved mark with a dot below, placed at the end of a written question. What am I?",
-      "ar": "أنا علامة منحنية تحتها نقطة، وأوضع في نهاية السؤال المكتوب. ما أنا؟"
+      "ar": "أنا علامة معوجة تحتها نقطة، وأنحط بآخر السؤال المكتوب. شو أنا؟"
     },
     "answer": {
       "en": "A question mark",
@@ -68,7 +68,7 @@
     },
     "question": {
       "en": "I have a zipper for a mouth, carry books in my belly, and ride on your back. What am I?",
-      "ar": "لي سحّاب كالفم، وأحمل الكتب في بطني، وأركب على ظهرك. ما أنا؟"
+      "ar": "عندي سحّاب مثل التمّ، أشيل الكتب ببطني، وأركب على ظهرك. شو أنا؟"
     },
     "answer": {
       "en": "A backpack",
@@ -109,7 +109,7 @@
     },
     "question": {
       "en": "I am always coming but never arrive. What am I?",
-      "ar": "أنا دائماً قادم لكنني لا أصل أبداً. ما أنا؟"
+      "ar": "أنا دايمًا جاي بس عمري ما أوصل. شو أنا؟"
     },
     "answer": {
       "en": "Tomorrow",
@@ -150,7 +150,7 @@
     },
     "question": {
       "en": "I have a lid, a handle and a spout. I am made for steeping tea leaves and pouring tea into cups. What am I?",
-      "ar": "لي غطاء ومقبض وفوهة، وأنا مخصص لنقع أوراق الشاي وسكبه في الأكواب. ما أنا؟"
+      "ar": "عندي غطا ومسكة وبزبوز، وشغلتي أنقع ورق الشاي وأصبّه بالكاسات. شو أنا؟"
     },
     "answer": {
       "en": "A teapot",
@@ -191,7 +191,7 @@
     },
     "question": {
       "en": "My keys write letters instead of opening locks, and my longest key inserts a gap between words. What am I?",
-      "ar": "مفاتيحي تكتب الحروف بدلًا من فتح الأقفال، وأطولها يُدخل فراغًا بين الكلمات. ما أنا؟"
+      "ar": "مفاتيحي تكتب حروف بدل ما تفتح أقفال، وأطولها يحط فراغ بين الكلمات. شو أنا؟"
     },
     "answer": {
       "en": "A keyboard",
@@ -210,7 +210,7 @@
     },
     "question": {
       "en": "I am the number a bank app shows for the money in your account. Deposits increase me and payments decrease me. What am I?",
-      "ar": "أنا الرقم الذي يعرضه تطبيق البنك لمقدار المال في حسابك. تزيدني الإيداعات وتقللني المدفوعات. ما أنا؟"
+      "ar": "أنا الرقم اللي يطلّعه تطبيق البنك لكم فلوس في حسابك. الإيداعات تزيدني والمدفوعات تنقّصني. شو أنا؟"
     },
     "answer": {
       "en": "Your account balance",
@@ -251,7 +251,7 @@
     },
     "question": {
       "en": "Call out in an empty valley, and I may repeat your words without a mouth. What am I?",
-      "ar": "نادِ في وادٍ خالٍ، وقد أكرر كلماتك من دون فم. ما أنا؟"
+      "ar": "نادِ بوادي فاضي، ويمكن أكرر كلامك من غير تمّ. شو أنا؟"
     },
     "answer": {
       "en": "An echo",
@@ -270,7 +270,7 @@
     },
     "question": {
       "en": "I am tall when I'm young and short when I'm old. What am I?",
-      "ar": "أنا طويل حين أكون صغيراً وقصير حين أكبر. ما أنا؟"
+      "ar": "أكون طويل وأنا صغير، وقصير لما أكبر. شو أنا؟"
     },
     "answer": {
       "en": "A candle",
@@ -289,7 +289,7 @@
     },
     "question": {
       "en": "We are two curved marks that hug extra words inside a sentence. What are we?",
-      "ar": "نحن علامتان منحنيتان تعانقان الكلمات الإضافية داخل الجملة. ما نحن؟"
+      "ar": "إحنا علامتين معوجّتين نحضن الكلام الزايد داخل الجملة. شو إحنا؟"
     },
     "answer": {
       "en": "Parentheses",
@@ -308,7 +308,7 @@
     },
     "question": {
       "en": "Layla points to a boy and says, “His mother is the only daughter of my mother.” Layla has no sisters. Who is the boy to Layla?",
-      "ar": "تشير ليلى إلى صبي وتقول: «أمه هي الابنة الوحيدة لأمي». وليس لليلى أخوات. ما صلة الصبي بليلى؟"
+      "ar": "ليلى تأشّر على ولد وتقول: «أمه هي البنت الوحيدة لأمي». وليلى ما عندها خوات. شو صلة الولد بليلى؟"
     },
     "answer": {
       "en": "He is her son",
@@ -349,7 +349,7 @@
     },
     "question": {
       "en": "I flow through a long channel, pass towns without walking, and may empty into a sea. What am I?",
-      "ar": "أجري في مجرى طويل، وأمرّ بالمدن بلا قدمين، وقد أصبّ في بحر. ما أنا؟"
+      "ar": "أجري بمجرى طويل، وأمرّ على المدن من غير رجلين، ويمكن أصبّ في بحر. شو أنا؟"
     },
     "answer": {
       "en": "A river",
@@ -368,7 +368,7 @@
     },
     "question": {
       "en": "I drift across the sky without wings and can release rain without eyes. What am I?",
-      "ar": "أنجرف في السماء بلا أجنحة، وقد أمطر بلا عيون. ما أنا؟"
+      "ar": "أسرح بالسما من غير جناحين، ويمكن أمطر من غير عيون. شو أنا؟"
     },
     "answer": {
       "en": "A cloud",
@@ -387,7 +387,7 @@
     },
     "question": {
       "en": "I have no life, but I can die. I have no lungs, but I need air. What am I?",
-      "ar": "لا حياة لي لكنني أموت. لا رئتان لي لكنني أحتاج الهواء. ما أنا؟"
+      "ar": "ما فيني حياة بس أموت. ما عندي رئتين بس أحتاج الهوا. شو أنا؟"
     },
     "answer": {
       "en": "A fire",
@@ -406,7 +406,7 @@
     },
     "question": {
       "en": "I show pictures made from tiny colored pixels. Press a button drawn on my surface with your fingertip, and the device can respond. What am I?",
-      "ar": "أعرض صوراً تتكون من بكسلات ملوّنة صغيرة. إذا ضغطت بإصبعك زراً مرسوماً على سطحي، يستجيب الجهاز. ما أنا؟"
+      "ar": "أعرض صور مكوّنة من بكسلات ملوّنة صغيرة. لما تكبس بإصبعك على زر مرسوم عليّ، الجهاز يستجيب. شو أنا؟"
     },
     "answer": {
       "en": "A touchscreen",
@@ -425,7 +425,7 @@
     },
     "question": {
       "en": "I rest between pages so you can find where you stopped reading. I never read a word myself. What am I?",
-      "ar": "أستريح بين الصفحات كي تعرف موضع توقفك عن القراءة، مع أنني لا أقرأ كلمة. ما أنا؟"
+      "ar": "أرتاح بين الصفحات عشان تعرف وين وقفت قراءة، مع إني ما أقرأ ولا كلمة. شو أنا؟"
     },
     "answer": {
       "en": "A bookmark",
@@ -444,7 +444,7 @@
     },
     "question": {
       "en": "My rocky slopes rise above the land around me. Climbers may reach my summit, but I have no stairs of my own. What am I?",
-      "ar": "ترتفع سفوحي الصخرية فوق الأرض المحيطة بي. قد يبلغ المتسلقون قمتي، لكن ليس لي درج. ما أنا؟"
+      "ar": "جوانبي الصخرية عالية فوق الأرض اللي حوالي. المتسلّقين ممكن يوصلون قمّتي، بس ما عندي درج. شو أنا؟"
     },
     "answer": {
       "en": "A mountain",
@@ -463,7 +463,7 @@
     },
     "question": {
       "en": "Three consecutive whole numbers have a total of 72. What are the numbers?",
-      "ar": "مجموع ثلاثة أعداد صحيحة متتالية يساوي 72. ما هذه الأعداد؟"
+      "ar": "مجموع ثلاث أعداد صحيحة ورا بعض يساوي 72. شو هالأعداد؟"
     },
     "answer": {
       "en": "23, 24, and 25",
@@ -504,7 +504,7 @@
     },
     "question": {
       "en": "What has a thumb and four fingers but no flesh or bone?",
-      "ar": "ما الذي له إبهام وأربعة أصابع لكن لا لحم ولا عظم؟"
+      "ar": "شو الشي اللي عنده إبهام وأربع أصابع، بس ما فيه لحم ولا عظم؟"
     },
     "answer": {
       "en": "A glove",
@@ -545,7 +545,7 @@
     },
     "question": {
       "en": "I stay still while people use my steps to go up and down. What am I?",
-      "ar": "أبقى ثابتاً بينما يستخدم الناس درجاتي للصعود والنزول. ما أنا؟"
+      "ar": "أظل ثابت والناس يستخدمون درجاتي عشان يطلعون وينزلون. شو أنا؟"
     },
     "answer": {
       "en": "A staircase",
@@ -564,7 +564,7 @@
     },
     "question": {
       "en": "What walks on four legs in the morning, two in the afternoon, and three in the evening?",
-      "ar": "ما الذي يمشي على أربع في الصباح، واثنتين في الظهر، وثلاث في المساء؟"
+      "ar": "شو الشي اللي يمشي على أربع الصبح، وعلى ثنتين الظهر، وعلى ثلاث المسا؟"
     },
     "answer": {
       "en": "Man (baby, adult, elder with cane)",
@@ -583,7 +583,7 @@
     },
     "question": {
       "en": "My needle turns while I stay in your hand. It points toward magnetic north to help you find your way. What am I?",
-      "ar": "تدور إبرتي وأنا في يدك، وتشير نحو الشمال المغناطيسي لتساعدك على معرفة الاتجاه. ما أنا؟"
+      "ar": "إبرتي تدور وأنا بإيدك، وتأشّر للشمال المغناطيسي عشان تعرف الاتجاه. شو أنا؟"
     },
     "answer": {
       "en": "A compass",
@@ -602,7 +602,7 @@
     },
     "question": {
       "en": "What is so fragile that even saying its name breaks it?",
-      "ar": "ما الشيء الهش لدرجة أن مجرد نطق اسمه يكسره؟"
+      "ar": "شو الشي الحسّاس لدرجة إنك بس لما تقول اسمه ينكسر؟"
     },
     "answer": {
       "en": "Silence",
@@ -643,7 +643,7 @@
     },
     "question": {
       "en": "The more of this there is, the less you see. What is it?",
-      "ar": "كلما ازداد منه كلما رأيت أقل. ما هو؟"
+      "ar": "كل ما زاد، كل ما شفت أقل. شو هو؟"
     },
     "answer": {
       "en": "Darkness",
@@ -662,7 +662,7 @@
     },
     "question": {
       "en": "Two rows of teeth join when you pull my slider up, closing a jacket without biting anyone. What am I?",
-      "ar": "يلتحم صفّان من أسناني عندما تسحب منزلقِي إلى أعلى، فأغلق السترة دون أن أعضّ أحدًا. ما أنا؟"
+      "ar": "صفّين من أسناني يتشابكون لما تسحب الزلّاقة لفوق، فأسكّر الجاكيت من غير ما أعض أحد. شو أنا؟"
     },
     "answer": {
       "en": "A zipper",
@@ -681,7 +681,7 @@
     },
     "question": {
       "en": "I am a past experience held in your mind. Recalling me may make you smile or cry, though the moment itself is over. What am I?",
-      "ar": "أنا تجربة ماضية تحتفظ بها في ذهنك. قد يجعلك استرجاعي تبتسم أو تبكي، مع أن اللحظة نفسها انتهت. ما أنا؟"
+      "ar": "أنا تجربة من الماضي محفوظة ببالك. لما تتذكّرني يمكن تبتسم أو تبكي، مع إن اللحظة نفسها خلصت. شو أنا؟"
     },
     "answer": {
       "en": "A memory",
@@ -700,7 +700,7 @@
     },
     "question": {
       "en": "A bag of feathers weighs one ordinary pound, defined here as 453.59237 grams. Gold weighs one troy pound, defined here as 373.2417216 grams. Which is heavier?",
-      "ar": "يزن كيس ريش رطلًا عاديًا قدره هنا 453.59237 غرامًا، ويزن الذهب رطلًا ترويسيًا قدره هنا 373.2417216 غرامًا. أيهما أثقل؟"
+      "ar": "كيس ريش وزنه رطل عادي، يساوي هنا 453.59237 غرام، والذهب وزنه رطل ترويسي، يساوي هنا 373.2417216 غرام. أيهم أثقل؟"
     },
     "answer": {
       "en": "The feathers. The two pounds are different units, and 453.59237 is greater than 373.2417216.",
@@ -719,7 +719,7 @@
     },
     "question": {
       "en": "My hard shell protects a yolk and white inside. A cook may crack me before making an omelet. What am I?",
-      "ar": "تحمي قشرتي الصلبة صفارًا وبياضًا في داخلي. قد يكسرني الطاهي قبل إعداد عجة. ما أنا؟"
+      "ar": "قشرتي القاسية تحمي صفار وبياض جوّاي. ويمكن الطبّاخ يكسرني قبل ما يسوي عجّة. شو أنا؟"
     },
     "answer": {
       "en": "An egg",
@@ -738,7 +738,7 @@
     },
     "question": {
       "en": "I am a four-digit number. My first digit is twice my last, my second is one more than my last, my third is two more than my last, and all my digits add to 18. What number am I?",
-      "ar": "أنا عدد من أربعة أرقام. رقمي الأول ضعف الأخير، والثاني أكبر من الأخير بواحد، والثالث أكبر منه باثنين، ومجموع أرقامي 18. ما العدد؟"
+      "ar": "أنا رقم من أربع خانات. أول رقم ضعف آخر رقم، والثاني أكبر من الأخير بواحد، والثالث أكبر منه بثنين، ومجموع أرقامي 18. شو الرقم؟"
     },
     "answer": {
       "en": "6453",
@@ -757,7 +757,7 @@
     },
     "question": {
       "en": "Only you know me. If you tell everyone, I am no longer hidden information. What am I?",
-      "ar": "لا يعرفني سواك. إذا أخبرت الجميع بي لم أعد معلومة خفية. ما أنا؟"
+      "ar": "ما يعرفني غيرك. إذا قلتني للكل ما عدت شي مخفي. شو أنا؟"
     },
     "answer": {
       "en": "A secret",
@@ -776,7 +776,7 @@
     },
     "question": {
       "en": "Two pointers move around my numbered face: one marks hours and the other minutes. I have no eyes. What am I?",
-      "ar": "يدور عقربان حول وجهي المرقّم: أحدهما للساعات والآخر للدقائق، وليس لي عينان. ما أنا؟"
+      "ar": "عقربين يدورون حول وجهي المرقّم: واحد للساعات والثاني للدقايق، وما عندي عيون. شو أنا؟"
     },
     "answer": {
       "en": "An analog clock",
@@ -795,7 +795,7 @@
     },
     "question": {
       "en": "I am full of holes but can hold water. What am I?",
-      "ar": "أنا مليء بالثقوب لكن يمكنني الاحتفاظ بالماء. ما أنا؟"
+      "ar": "أنا مليان ثقوب بس أقدر أحتفظ بالمي. شو أنا؟"
     },
     "answer": {
       "en": "A sponge",
@@ -836,7 +836,7 @@
     },
     "question": {
       "en": "What goes up but never comes down?",
-      "ar": "ما الذي يصعد ولا ينزل قط؟"
+      "ar": "شو الشي اللي يطلع وعمره ما ينزل؟"
     },
     "answer": {
       "en": "Your age",
@@ -855,7 +855,7 @@
     },
     "question": {
       "en": "I have two blades that cross, two finger holes, and I open and close to cut paper. What am I?",
-      "ar": "لي شفرتان متقاطعتان وفتحتان للأصابع، وأفتح وأغلق لأقص الورق. ما أنا؟"
+      "ar": "عندي شفرتين متقاطعتين وفتحتين للأصابع، وأنفتح وأتسكّر عشان أقص الورق. شو أنا؟"
     },
     "answer": {
       "en": "Scissors",
@@ -874,7 +874,7 @@
     },
     "question": {
       "en": "Every step you take across wet sand leaves another of me behind. What am I?",
-      "ar": "كل خطوة تخطوها على الرمل الرطب تترك واحدًا آخر مني وراءك. ما أنا؟"
+      "ar": "كل خطوة تمشيها على الرمل المبلول تترك واحد ثاني مني وراك. شو أنا؟"
     },
     "answer": {
       "en": "A footprint",
@@ -893,7 +893,7 @@
     },
     "question": {
       "en": "On a musical staff I am a symbol; when sung or played I become a sound with a pitch. What am I?",
-      "ar": "أكون رمزًا على المدرّج الموسيقي، وعندما أُغنّى أو أُعزف أصبح صوتًا ذا طبقة. ما أنا؟"
+      "ar": "أكون رمز على المدرج الموسيقي، ولما ينغنّى أو ينعزف أصير صوت له طبقة. شو أنا؟"
     },
     "answer": {
       "en": "A musical note",
@@ -912,7 +912,7 @@
     },
     "question": {
       "en": "What has one eye but cannot see?",
-      "ar": "ما الذي له عين واحدة لكنه لا يرى؟"
+      "ar": "شو الشي اللي له عين وحدة بس ما يشوف؟"
     },
     "answer": {
       "en": "A needle",
@@ -931,7 +931,7 @@
     },
     "question": {
       "en": "I have a neck but no head. What am I?",
-      "ar": "لديّ رقبة لكن ليس لديّ رأس. ما أنا؟"
+      "ar": "عندي رقبة بس ما عندي راس. شو أنا؟"
     },
     "answer": {
       "en": "A bottle",
@@ -950,7 +950,7 @@
     },
     "question": {
       "en": "I fall as tiny crystals, rest as a white blanket, and leave as water when the air warms. What am I?",
-      "ar": "أسقط على هيئة بلورات صغيرة، وأستقر كغطاء أبيض، وأرحل ماءً عندما يدفأ الجو. ما أنا؟"
+      "ar": "أنزل على شكل بلّورات صغيرة، وأتكوّم مثل غطا أبيض، وأروح مي لما الجو يدفى. شو أنا؟"
     },
     "answer": {
       "en": "Snow",
@@ -969,7 +969,7 @@
     },
     "question": {
       "en": "I have legs but cannot walk. What am I?",
-      "ar": "لديّ أرجل لكنني لا أمشي. ما أنا؟"
+      "ar": "عندي رجول بس ما أمشي. شو أنا؟"
     },
     "answer": {
       "en": "A table or chair",
@@ -988,7 +988,7 @@
     },
     "question": {
       "en": "What is always in front of you but cannot be seen?",
-      "ar": "ما الذي يكون دائماً أمامك لكن لا يمكن رؤيته؟"
+      "ar": "شو الشي اللي دايمًا قدّامك بس ما تقدر تشوفه؟"
     },
     "answer": {
       "en": "The future",
@@ -1007,7 +1007,7 @@
     },
     "question": {
       "en": "I am a small opening in a door lock. A key can enter me, but I never move through the doorway. What am I?",
-      "ar": "أنا فتحة صغيرة في قفل باب. يدخل المفتاح فيّ، لكنني لا أعبر الباب أبدًا. ما أنا؟"
+      "ar": "أنا فتحة صغيرة بقفل الباب. المفتاح يدخل فيني، بس عمري ما أعدّي الباب. شو أنا؟"
     },
     "answer": {
       "en": "A keyhole",
@@ -1026,7 +1026,7 @@
     },
     "question": {
       "en": "The more you use me the smaller I get. What am I?",
-      "ar": "كلما استخدمتني، أصبحت أصغر. ما أنا؟"
+      "ar": "كل ما استخدمتني، صغرت. شو أنا؟"
     },
     "answer": {
       "en": "A bar of soap (or a pencil/candle)",
@@ -1045,7 +1045,7 @@
     },
     "question": {
       "en": "What has teeth but cannot bite?",
-      "ar": "ما الذي له أسنان لكنه لا يعض؟"
+      "ar": "شو الشي اللي عنده أسنان بس ما يعض؟"
     },
     "answer": {
       "en": "A comb",
@@ -1064,7 +1064,7 @@
     },
     "question": {
       "en": "I am the air you draw into your lungs and let out again. You can pause me briefly, but breathing must resume. What am I?",
-      "ar": "أنا الهواء الذي تُدخله إلى رئتيك ثم تخرجه. يمكنك إيقافي قليلاً، لكن التنفس يجب أن يُستأنف. ما أنا؟"
+      "ar": "أنا الهوا اللي تدخّله لرئتيك وبعدين تطلّعه. تقدر توقّفني شوي، بس لازم ترجع تتنفس. شو أنا؟"
     },
     "answer": {
       "en": "A breath",
@@ -1083,7 +1083,7 @@
     },
     "question": {
       "en": "Each side of a square café table seats one guest. If two such tables are pushed together along one full side, how many guests can sit around the exposed sides?",
-      "ar": "يتسع كل ضلع من طاولة مقهى مربعة لضيف واحد. إذا دُمجت طاولتان كهاتين على طول ضلع كامل، فكم ضيفاً يمكنه الجلوس حول الأضلاع المكشوفة؟"
+      "ar": "طاولة مقهى مربعة، كل ضلع فيها يتسع لضيف واحد. إذا لزّقنا طاولتين مثلها على طول ضلع كامل، كم ضيف يقدر يقعد حوالين الأضلاع المكشوفة؟"
     },
     "answer": {
       "en": "6 guests",
@@ -1102,7 +1102,7 @@
     },
     "question": {
       "en": "I have a spine and many leaves, but I am neither an animal nor a tree. My pages carry a story. What am I?",
-      "ar": "لي كعب وصفحات كثيرة، لكنني لست قدمًا. تحمل أوراقي حكاية تقرؤها. ما أنا؟"
+      "ar": "عندي كعب وصفحات كثير، بس مش رجل. أوراقي فيها قصة تقراها. شو أنا؟"
     },
     "answer": {
       "en": "A book",
@@ -1121,7 +1121,7 @@
     },
     "question": {
       "en": "A three-digit code uses 0, 4, and 7 exactly once. Zero is not first, 7 is left of 4, and 0 is right of 4. What is the code?",
-      "ar": "رمز من ثلاثة أرقام يستخدم 0 و4 و7 مرة واحدة لكل منها. الصفر ليس أولاً، و7 يقع يسار 4، و0 يقع يمين 4. ما الرمز؟"
+      "ar": "رمز من ثلاث أرقام يستخدم 0 و4 و7، كل واحد مرة. الصفر مش أول رقم، و7 على يسار 4، و0 على يمين 4. شو الرمز؟"
     },
     "answer": {
       "en": "740",
@@ -1140,7 +1140,7 @@
     },
     "question": {
       "en": "I show cities, mountains and rivers on a flat surface, but no one can live in my cities or swim in my rivers. What am I?",
-      "ar": "أعرض مدنًا وجبالًا وأنهارًا على سطح مسطّح، لكن لا يمكن لأحد السكن في مدني أو السباحة في أنهاري. ما أنا؟"
+      "ar": "أعرض مدن وجبال وأنهار على سطح مسطّح، بس ولا أحد يقدر يسكن بمدني أو يسبح بأنهاري. شو أنا؟"
     },
     "answer": {
       "en": "A map",
@@ -1159,7 +1159,7 @@
     },
     "question": {
       "en": "Which five-letter English word is still pronounced the same after four of its letters are removed?",
-      "ar": "ما الكلمة الإنجليزية المكوّنة من خمسة أحرف التي يبقى نطقها كما هو بعد حذف أربعة من أحرفها؟"
+      "ar": "شو الكلمة الإنجليزية اللي فيها خمس حروف، ونطقها يظل نفسه بعد ما تحذف أربع حروف منها؟"
     },
     "answer": {
       "en": "Queue — remove 'ueue' and the remaining Q is still pronounced 'queue'",
@@ -1178,7 +1178,7 @@
     },
     "question": {
       "en": "Using the numbers 2, 3, and 4 exactly once, and only addition and multiplication, how can you make 14?",
-      "ar": "باستخدام الأعداد 2 و3 و4 مرة واحدة لكل منها، وبالجمع والضرب فقط، كيف تحصل على 14؟"
+      "ar": "باستخدام 2 و3 و4، كل رقم مرة، وبالجمع والضرب بس، كيف توصل لـ14؟"
     },
     "answer": {
       "en": "3×4+2 = 14",
@@ -1197,7 +1197,7 @@
     },
     "question": {
       "en": "What can you hold in your right hand but not your left?",
-      "ar": "ما الذي يمكنك إمساكه بيدك اليمنى لكن لا بيدك اليسرى؟"
+      "ar": "شو الشي اللي تقدر تمسكه بإيدك اليمين بس ما تقدر بإيدك اليسار؟"
     },
     "answer": {
       "en": "Your left hand",
@@ -1216,7 +1216,7 @@
     },
     "question": {
       "en": "Every tulip in a vase has only yellow petals. A flower with red petals is taken from that same vase. Can it be a tulip, if the rule is true?",
-      "ar": "في مزهرية، كل زهرة توليب بتلاتها صفراء فقط. أُخذت من المزهرية نفسها زهرة ذات بتلات حمراء. هل يمكن أن تكون توليب إذا كانت القاعدة صحيحة؟"
+      "ar": "في مزهرية، كل زهرة توليب بتلاتها صفرا بس. انشالت من نفس المزهرية زهرة بتلاتها حمرا. إذا القاعدة صحيحة، ممكن تكون توليب؟"
     },
     "answer": {
       "en": "No — it would contradict the given rule",
@@ -1235,7 +1235,7 @@
     },
     "question": {
       "en": "I turn a blank wall into a window onto another place, but when I am unplugged the wall becomes plain again. What am I?",
-      "ar": "أحوّل الجدار الفارغ إلى نافذة على مكان آخر، لكن عندما يُفصل التيار عني يعود الجدار عادياً. ما أنا؟"
+      "ar": "أحوّل الحيطة الفاضية لشباك على مكان ثاني، بس لما ينقطع عني الكهربا ترجع الحيطة عادية. شو أنا؟"
     },
     "answer": {
       "en": "A projector",
@@ -1254,7 +1254,7 @@
     },
     "question": {
       "en": "What gets bigger the more you take from it?",
-      "ar": "ما الذي يكبر كلما أخذت منه؟"
+      "ar": "شو الشي اللي يكبر كل ما أخذت منه؟"
     },
     "answer": {
       "en": "A hole",
@@ -1273,7 +1273,7 @@
     },
     "question": {
       "en": "I open above your head to keep rain off, then fold into a narrow bundle when the sky clears. What am I?",
-      "ar": "أُفتح فوق رأسك لأحجب المطر، ثم أُطوى في حزمة ضيقة عندما تصحو السماء. ما أنا؟"
+      "ar": "أنفتح فوق راسك عشان أحجب المطر، وبعدين أنطوي لحزمة صغيرة لما تصحى السما. شو أنا؟"
     },
     "answer": {
       "en": "An umbrella",
@@ -1292,7 +1292,7 @@
     },
     "question": {
       "en": "I am the only month that can have 28 days in one year and 29 in another in the Gregorian calendar. Who am I?",
-      "ar": "أنا الشهر الوحيد الذي قد يكون 28 يومًا في سنة و29 يومًا في أخرى في التقويم الميلادي. مَن أنا؟"
+      "ar": "أنا الشهر الوحيد اللي ممكن يكون 28 يوم بسنة و29 يوم بسنة ثانية بالتقويم الميلادي. مين أنا؟"
     },
     "answer": {
       "en": "February",
@@ -1311,7 +1311,7 @@
     },
     "question": {
       "en": "You put a written message inside me, seal my flap, and write an address on my outside. What am I?",
-      "ar": "تضع رسالة مكتوبة داخلي، وتغلق لساني، وتكتب عنوانًا على وجهي الخارجي. ما أنا؟"
+      "ar": "تحط رسالة مكتوبة جوّاي، تسكّر لساني، وتكتب عنوان على وجهي من برّا. شو أنا؟"
     },
     "answer": {
       "en": "An envelope",
@@ -1330,7 +1330,7 @@
     },
     "question": {
       "en": "I am a short funny story told to make people laugh. My ending often contains a surprise. What am I?",
-      "ar": "أنا حكاية قصيرة مضحكة تُروى لإضحاك الناس، وغالبًا ما تحمل نهايتي مفاجأة. ما أنا؟"
+      "ar": "أنا قصة قصيرة مضحكة تنقال عشان تضحّك الناس، وغالبًا نهايتي فيها مفاجأة. شو أنا؟"
     },
     "answer": {
       "en": "A joke",
@@ -1349,7 +1349,7 @@
     },
     "question": {
       "en": "Cards numbered 1 through 9 are in a box. How many different unordered pairs of distinct cards add to 10?",
-      "ar": "في صندوق بطاقات مرقّمة من 1 إلى 9. كم زوجاً مختلفاً غير مرتّب من بطاقتين مختلفتين مجموعه 10؟"
+      "ar": "في صندوق بطاقات مرقّمة من 1 لـ9. كم زوج مختلف (من غير ترتيب) من بطاقتين مختلفتين مجموعهم 10؟"
     },
     "answer": {
       "en": "4 pairs: 1+9, 2+8, 3+7, and 4+6",
@@ -1368,7 +1368,7 @@
     },
     "question": {
       "en": "I am a small shallow dish with a raised rim and a hollow in the middle that fits the base of a teacup. I catch its drips. What am I?",
-      "ar": "أنا صحن صغير ضحل له حافة مرتفعة وتجويف في الوسط يلائم قاعدة فنجان الشاي. ألتقط قطراته. ما أنا؟"
+      "ar": "أنا صحن صغير مسطّح حافّته مرفوعة وبنصه تجويف يناسب قاعدة فنجان الشاي. ألقّط قطراته. شو أنا؟"
     },
     "answer": {
       "en": "A saucer",
@@ -1387,7 +1387,7 @@
     },
     "question": {
       "en": "You have 3 stoves, 3 gas burners, and 3 electric burners — but only one match. Which do you light first?",
-      "ar": "لديك 3 مواقد، 3 شعلات غاز، و3 شعلات كهربائية — لكن عندك عود كبريت واحد فقط. ماذا تشعل أولاً؟"
+      "ar": "عندك 3 مواقد، 3 شعلات غاز، و3 شعلات كهربا — بس عندك عود كبريت واحد بس. شو تشعل أول؟"
     },
     "answer": {
       "en": "The match",
@@ -1406,7 +1406,7 @@
     },
     "question": {
       "en": "I may have many branches in a city, but none grows leaves. People visit them to deposit or withdraw money. What am I?",
-      "ar": "قد تكون لي فروع كثيرة في مدينة، لكن لا تنمو عليها أوراق شجر. يزورها الناس لإيداع المال أو سحبه. ما أنا؟"
+      "ar": "ممكن يكون لي فروع كثيرة بالمدينة، بس ما يطلع عليها ورق شجر. الناس يزورونها عشان يودعون فلوس أو يسحبون. شو أنا؟"
     },
     "answer": {
       "en": "A bank",
@@ -1425,7 +1425,7 @@
     },
     "question": {
       "en": "I divide two rooms but can let you walk between them when opened. I turn on hinges rather than wheels. What am I?",
-      "ar": "أفصل بين غرفتين، وأسمح لك بالمرور بينهما عند فتحي. أدور على مفصلات لا على عجلات. ما أنا؟"
+      "ar": "أفصل بين غرفتين، وأخلّيك تمر بينهم لما أنفتح. أدور على مفصّلات مش على عجلات. شو أنا؟"
     },
     "answer": {
       "en": "A door",
@@ -1444,7 +1444,7 @@
     },
     "question": {
       "en": "I am a dark mineral enclosed in wood. When my sharpened point rubs on paper, I leave a mark and lose a little of myself. What am I?",
-      "ar": "أنا معدن داكن يحيط بي الخشب. عندما يحتك طرفي المبري بالورق، أترك أثرًا وأفقد قليلًا من نفسي. ما أنا؟"
+      "ar": "أنا معدن غامق والخشب حواليّ. لما راسي المبري يحتك بالورق، أترك أثر وأخسر شوية من نفسي. شو أنا؟"
     },
     "answer": {
       "en": "Pencil graphite",
@@ -1463,7 +1463,7 @@
     },
     "question": {
       "en": "What can travel around the world while staying in a corner?",
-      "ar": "ما الذي يستطيع أن يطوف العالم وهو في الزاوية؟"
+      "ar": "شو الشي اللي يلف العالم وهو قاعد بالزاوية؟"
     },
     "answer": {
       "en": "A stamp",
@@ -1482,7 +1482,7 @@
     },
     "question": {
       "en": "What 4-digit number has the same result whether you add 3 to it or multiply it by 3?",
-      "ar": "ما الرقم المكوّن من 4 أرقام الذي يعطي نفس النتيجة سواء جمعت إليه 3 أو ضربته في 3؟"
+      "ar": "شو الرقم اللي من 4 خانات ويعطي نفس النتيجة إذا زدت عليه 3 أو ضربته بـ3؟"
     },
     "answer": {
       "en": "There is no 4-digit number with that property — the riddle highlights the impossibility: only 1.5 satisfies x+3=3x",
@@ -1501,7 +1501,7 @@
     },
     "question": {
       "en": "I am a small round piece of metal used as money. I have two faces, but neither can smile. What am I?",
-      "ar": "أنا قطعة معدنية صغيرة مستديرة تُستخدم نقودًا. لي وجهان، لكن لا يبتسم أيّ منهما. ما أنا؟"
+      "ar": "أنا قطعة معدن صغيرة مدوّرة ننستخدمها فلوس. عندي وجهين، بس ولا واحد فيهم يبتسم. شو أنا؟"
     },
     "answer": {
       "en": "A coin",
@@ -1520,7 +1520,7 @@
     },
     "question": {
       "en": "Five tiles numbered 1 through 5 stand in a row. Tile 3 is at the far right, 2 is immediately left of 3, 5 is immediately left of 1, and 4 is left of 5. What is the order?",
-      "ar": "خمس قطع مرقّمة من 1 إلى 5 مصطفّة. القطعة 3 في أقصى اليمين، و2 يسار 3 مباشرة، و5 يسار 1 مباشرة، و4 يسار 5. ما الترتيب؟"
+      "ar": "خمس قطع مرقّمة من 1 لـ5 مصفوفة. القطعة 3 بأقصى اليمين، و2 على يسار 3 على طول، و5 على يسار 1 على طول، و4 على يسار 5. شو الترتيب؟"
     },
     "answer": {
       "en": "4, 5, 1, 2, 3",
@@ -1539,7 +1539,7 @@
     },
     "question": {
       "en": "The person who makes it, sells it. The person who buys it never uses it. The person who uses it doesn't know they're using it. What is it?",
-      "ar": "من يصنعه يبيعه. من يشتريه لا يستخدمه. من يستخدمه لا يعلم أنه يستخدمه. ما هو؟"
+      "ar": "اللي يصنعه يبيعه. اللي يشتريه ما يستخدمه. واللي يستخدمه ما يدري إنه يستخدمه. شو هو؟"
     },
     "answer": {
       "en": "A coffin",
@@ -1558,7 +1558,7 @@
     },
     "question": {
       "en": "What is the smallest positive number that leaves remainder 3 when divided by 4, remainder 4 when divided by 5, and remainder 5 when divided by 6?",
-      "ar": "ما أصغر عدد موجب يكون باقي قسمته على 4 هو 3، وعلى 5 هو 4، وعلى 6 هو 5؟"
+      "ar": "شو أصغر رقم موجب لما تقسمه على 4 يبقى 3، وعلى 5 يبقى 4، وعلى 6 يبقى 5؟"
     },
     "answer": {
       "en": "59",
@@ -1577,7 +1577,7 @@
     },
     "question": {
       "en": "Place me to the right of a whole number and its value becomes ten times larger. Place me to its left and its value stays the same. What digit am I?",
-      "ar": "ضعني يمين عدد صحيح فتزداد قيمته عشرة أضعاف، وضعني يساره فتبقى قيمته كما هي. أي رقم أنا؟"
+      "ar": "حطني يمين رقم صحيح فتصير قيمته عشر أضعاف، وحطني يساره فتظل قيمته نفسها. أي رقم أنا؟"
     },
     "answer": {
       "en": "0",
@@ -1596,7 +1596,7 @@
     },
     "question": {
       "en": "I have a narrow neck and a wide body, and I hold flowers in water instead of taking a drink myself. What am I?",
-      "ar": "لي عنق ضيق وجسم واسع، وأحمل الأزهار في الماء بدلًا من أن أشربه. ما أنا؟"
+      "ar": "رقبتي ضيقة وجسمي واسع، وأشيل الورد بالمي بدل ما أشربها. شو أنا؟"
     },
     "answer": {
       "en": "A flower vase",
@@ -1615,7 +1615,7 @@
     },
     "question": {
       "en": "I span part of the sky in colored bands when sunlight and raindrops meet. You cannot walk across me like a bridge. What am I?",
-      "ar": "أمتد في جزء من السماء بأشرطة ملوّنة عندما يلتقي ضوء الشمس بقطرات المطر. لا يمكنك المشي فوقي مثل الجسر. ما أنا؟"
+      "ar": "أمتد بجزء من السما بخطوط ملوّنة لما ضوء الشمس يلتقي بقطرات المطر. ما تقدر تمشي عليّ مثل الجسر. شو أنا؟"
     },
     "answer": {
       "en": "A rainbow",
@@ -1634,7 +1634,7 @@
     },
     "question": {
       "en": "In a non-leap year, January 1 is a Monday. What day of the week is March 1?",
-      "ar": "في سنة غير كبيسة، يوافق 1 يناير يوم الاثنين. أي يوم من الأسبوع يوافق 1 مارس؟"
+      "ar": "بسنة مش كبيسة، 1 يناير كان يوم اثنين. أي يوم بالأسبوع يكون 1 مارس؟"
     },
     "answer": {
       "en": "Thursday",
@@ -1653,7 +1653,7 @@
     },
     "question": {
       "en": "I carry people vertically inside a building, stopping at floors when my buttons are pressed. What am I?",
-      "ar": "أنقل الناس رأسيًا داخل المبنى، وأتوقف عند الطوابق عند ضغط أزراري. ما أنا؟"
+      "ar": "أنقل الناس فوق وتحت داخل المبنى، وأوقف عند الطوابق لما تكبس أزراري. شو أنا؟"
     },
     "answer": {
       "en": "An elevator",
@@ -1672,7 +1672,7 @@
     },
     "question": {
       "en": "You have weights of 1, 3, 9, and 27 units and a two-pan balance. Weights may be placed on either pan. How can you balance an object weighing 20 units?",
-      "ar": "لديك أثقال أوزانها 1 و3 و9 و27 وحدة وميزان ذو كفتين، ويمكن وضع الأثقال في أي كفة. كيف توازن جسماً وزنه 20 وحدة؟"
+      "ar": "عندك أثقال أوزانها 1 و3 و9 و27 وحدة وميزان كفتين، وتقدر تحط الأثقال بأي كفة. كيف توازن شي وزنه 20 وحدة؟"
     },
     "answer": {
       "en": "Put the object with the 9- and 1-unit weights on one pan, and the 27- and 3-unit weights on the other: 20+9+1 = 27+3",
@@ -1691,7 +1691,7 @@
     },
     "question": {
       "en": "I am a 3-digit number. My tens digit is five more than my ones digit. My hundreds digit is eight less than my tens digit. What number am I?",
-      "ar": "أنا رقم مكوّن من 3 أرقام. رقم العشرات أكبر بخمسة من رقم الآحاد. رقم المئات أصغر بثمانية من رقم العشرات. ما أنا؟"
+      "ar": "أنا رقم من 3 خانات. رقم العشرات أكبر بخمسة من رقم الآحاد، ورقم المئات أصغر بثمانية من رقم العشرات. شو أنا؟"
     },
     "answer": {
       "en": "194 (tens=9, ones=4, hundreds=1)",
@@ -1710,7 +1710,7 @@
     },
     "question": {
       "en": "Find the three distinct digits: 571 has one correct and placed; 183 has one correct but misplaced; 120 has two correct, both misplaced; 765 has none; 248 has one correct but misplaced. What is the code?",
-      "ar": "أوجد أرقام الرمز الثلاثة المختلفة: في 571 رقم صحيح وفي مكانه؛ وفي 183 رقم صحيح لكنه في مكان خاطئ؛ وفي 120 رقمان صحيحان وكلاهما في مكان خاطئ؛ وفي 765 لا رقم صحيح؛ وفي 248 رقم صحيح لكنه في مكان خاطئ. ما الرمز؟"
+      "ar": "لاقِ أرقام الرمز الثلاثة المختلفة: في 571 رقم صح وبمكانه؛ وفي 183 رقم صح بس بمكان غلط؛ وفي 120 رقمين صح والاثنين بمكان غلط؛ وفي 765 ولا رقم صح؛ وفي 248 رقم صح بس بمكان غلط. شو الرمز؟"
     },
     "answer": {
       "en": "401",
@@ -1729,7 +1729,7 @@
     },
     "question": {
       "en": "I travel inside a camera as stored information. You can copy me without removing the original and print me without moving the scene I show. What am I?",
-      "ar": "أُخزَّن معلوماتٍ داخل كاميرا. يمكنك نسخي دون حذف الأصل وطباعتي دون تحريك المشهد الذي أعرضه. ما أنا؟"
+      "ar": "أنحفظ معلومات داخل الكاميرا. تقدر تنسخني من غير ما تحذف الأصل، وتطبعني من غير ما تحرّك المشهد اللي أعرضه. شو أنا؟"
     },
     "answer": {
       "en": "A digital photograph",
@@ -1748,7 +1748,7 @@
     },
     "question": {
       "en": "A, B and C are Truth, Lie and Random in an unknown order. Truth always answers truthfully, Lie always falsely, and Random may answer yes or no arbitrarily. They understand the questions and know each other’s types. Using three yes/no questions, identify all three.",
-      "ar": "الأشخاص A وB وC هم الصادق والكاذب والعشوائي بترتيب مجهول. الصادق يصدق دائمًا، والكاذب يكذب دائمًا، والعشوائي يختار نعم أو لا كيفما اتفق. يفهمون الأسئلة ويعرفون أنواع بعضهم. حدّدهم بثلاثة أسئلة نعم/لا."
+      "ar": "الأشخاص A وB وC هم الصادق والكاذب والعشوائي بترتيب مش معروف. الصادق دايمًا يصدق، والكاذب دايمًا يكذب، والعشوائي يقول نعم أو لا على كيفه. كلهم يفهمون الأسئلة ويعرفون أنواع بعض. حدّدهم بثلاث أسئلة نعم/لا."
     },
     "answer": {
       "en": "Use N(Q): “If I asked you Q, would you say yes?” For a non-random person, N(Q) answers Q truthfully. Ask A N(“Is B Random?”). If yes, choose X=C; if no, choose X=B. X is certainly non-random: if A is Random both others are safe; otherwise its normalized answer excludes Random. Ask X N(“Is A Random?”). If yes, A is Random; if no, the unchosen member of B and C is Random. Finally ask X N(“Are you Truth?”). If yes, X is Truth; if no, X is Lie. The remaining non-random person has the opposite type.",
@@ -1767,7 +1767,7 @@
     },
     "question": {
       "en": "What is the smallest positive integer that is divisible by 7 and leaves remainder 1 when divided by each of 2, 3, 4, 5, and 6?",
-      "ar": "ما أصغر عدد صحيح موجب يقبل القسمة على 7 ويكون باقي قسمته 1 عند القسمة على كل من 2 و3 و4 و5 و6؟"
+      "ar": "شو أصغر عدد صحيح موجب ينقسم على 7، ولما تقسمه على 2 و3 و4 و5 و6 يبقى 1 كل مرة؟"
     },
     "answer": {
       "en": "301",
@@ -1786,7 +1786,7 @@
     },
     "question": {
       "en": "Five runners are Amal, Basel, Dana, Hadi, and Lina. Dana finishes immediately after Amal; Hadi is last; Amal finishes before Lina; Lina finishes before Basel; and Basel is not second. What is the finishing order?",
-      "ar": "خمسة عدّائين هم أمل وباسل ودانا وهادي ولينا. تنهي دانا السباق مباشرة بعد أمل؛ وهادي أخير؛ وأمل قبل لينا؛ ولينا قبل باسل؛ وباسل ليس ثانياً. ما ترتيب الوصول؟"
+      "ar": "خمس عدّائين: أمل وباسل ودانا وهادي ولينا. دانا تخلّص السباق على طول بعد أمل؛ وهادي آخر واحد؛ وأمل قبل لينا؛ ولينا قبل باسل؛ وباسل مش الثاني. شو ترتيب الوصول؟"
     },
     "answer": {
       "en": "Amal, Dana, Lina, Basel, Hadi",
@@ -1805,7 +1805,7 @@
     },
     "question": {
       "en": "I have a handle and a row of stiff bristles. I sweep crumbs into a pile but never eat them. What am I?",
-      "ar": "لي مقبض وصفّ من شعيرات صلبة. أجمع الفتات في كومة دون أن آكله. ما أنا؟"
+      "ar": "عندي مسكة وصف من شعر قاسي. أجمع الفتات بكومة من غير ما آكله. شو أنا؟"
     },
     "answer": {
       "en": "A hand brush",
@@ -1824,7 +1824,7 @@
     },
     "question": {
       "en": "An 8-liter container is full, while unmarked 5-liter and 3-liter containers are empty. By pouring only until a container is full or empty, how can you split the water into two equal 4-liter portions?",
-      "ar": "وعاء سعته 8 لترات ممتلئ، ووعاءان غير مدرّجين سعتهما 5 و3 لترات فارغان. بالصب حتى يمتلئ وعاء أو يفرغ فقط، كيف تقسّم الماء إلى حصتين متساويتين من 4 لترات؟"
+      "ar": "وعاء سعته 8 لتر مليان، ووعاءين بدون تدريج سعتهم 5 و3 لتر فاضيين. إذا ما تصب إلا لحد ما يمتلي وعاء أو يفضى، كيف تقسم المي لحصتين متساويتين، كل وحدة 4 لتر؟"
     },
     "answer": {
       "en": "Track amounts as (8L,5L,3L): (8,0,0) → (3,5,0) → (3,2,3) → (6,2,0) → (6,0,2) → (1,5,2) → (1,4,3) → (4,4,0)",
@@ -1843,7 +1843,7 @@
     },
     "question": {
       "en": "I am a three-digit number whose digits increase by 2 from left to right. Reversing my digits makes the number 396 larger, and my digits add to 15. What number am I?",
-      "ar": "أنا عدد من ثلاثة أرقام تزداد أرقامي بمقدار 2 من اليسار إلى اليمين. عند عكس أرقامي يصبح العدد أكبر بـ396، ومجموع أرقامي 15. ما العدد؟"
+      "ar": "أنا رقم من ثلاث خانات، أرقامي تزيد بـ2 من اليسار لليمين. لما تعكس أرقامي يصير الرقم أكبر بـ396، ومجموع أرقامي 15. شو الرقم؟"
     },
     "answer": {
       "en": "357",
@@ -1862,7 +1862,7 @@
     },
     "question": {
       "en": "You measure me with clocks, spend me on work or play, and cannot return to a moment of me that has passed. What am I?",
-      "ar": "تقيسني بالساعات وتقضيني في العمل أو اللعب، ولا تستطيع العودة إلى لحظة مضت مني. ما أنا؟"
+      "ar": "تقيسني بالساعات وتقضيني بالشغل أو اللعب، وما تقدر ترجع للحظة راحت مني. شو أنا؟"
     },
     "answer": {
       "en": "Time",
@@ -1881,7 +1881,7 @@
     },
     "question": {
       "en": "Ten discs of different sizes are stacked largest to smallest on one of three pegs. Move them to another peg, moving one top disc at a time and never placing a larger disc on a smaller one. What is the minimum number of moves?",
-      "ar": "عشرة أقراص مختلفة الحجم مرتبة من الأكبر في الأسفل إلى الأصغر في الأعلى على أحد ثلاثة أوتاد. انقلها إلى وتد آخر، بتحريك قرص علوي واحد في كل مرة، دون وضع الأكبر على الأصغر. ما أقل عدد من الحركات؟"
+      "ar": "عشر أقراص بأحجام مختلفة مرتّبة من الأكبر تحت للأصغر فوق على واحد من ثلاث أعمدة. انقلهم لعمود ثاني، وكل مرة تحرّك القرص اللي فوق بس، ومن غير ما تحط كبير على صغير. شو أقل عدد حركات؟"
     },
     "answer": {
       "en": "1,023. To move n discs, move n−1 aside, move the largest, then move n−1 onto it: T(n)=2T(n−1)+1, with T(1)=1. Thus T(10)=2¹⁰−1.",
@@ -1900,7 +1900,7 @@
     },
     "question": {
       "en": "I am made of many pieces that fit together. When you finish arranging me, one picture appears instead of a scattered collection. What am I?",
-      "ar": "أتكوّن من قطع كثيرة تتداخل معًا. عند إكمال ترتيبي تظهر صورة واحدة بدلًا من قطع مبعثرة. ما أنا؟"
+      "ar": "أتكوّن من قطع كثيرة تتداخل مع بعض. لما يكتمل ترتيبي تبان صورة وحدة بدل قطع متبعثرة. شو أنا؟"
     },
     "answer": {
       "en": "A jigsaw puzzle",
@@ -1919,7 +1919,7 @@
     },
     "question": {
       "en": "I look like a cat, but I am sewn from fabric and stuffing. I never eat or breathe. What am I?",
-      "ar": "أشبه القطة، لكنني مخيط من قماش ومحشوّ. لا آكل ولا أتنفس. ما أنا؟"
+      "ar": "أشبه القطوة، بس أنا مخيّط من قماش ومحشي. ما آكل ولا أتنفس. شو أنا؟"
     },
     "answer": {
       "en": "A stuffed toy cat",
@@ -1938,7 +1938,7 @@
     },
     "question": {
       "en": "A, B, and C are each either always truthful or always lying. A says, “B is truthful.” B says, “C is lying.” C says, “A and B are different types.” Which type is each person?",
-      "ar": "كل من A وB وC إما صادق دائماً أو كاذب دائماً. يقول A: «B صادق». ويقول B: «C كاذب». ويقول C: «A وB من نوعين مختلفين». ما نوع كل شخص؟"
+      "ar": "كل واحد من A وB وC يا دايمًا يصدق يا دايمًا يكذب. A يقول: «B صادق». وB يقول: «C كاذب». وC يقول: «A وB من نوعين مختلفين». شو نوع كل واحد؟"
     },
     "answer": {
       "en": "A and B are truthful; C is lying",
@@ -1957,7 +1957,7 @@
     },
     "question": {
       "en": "In 8,549,176,320, each digit occurs once. What ordering rule do the English names of those digits follow?",
-      "ar": "في العدد 8,549,176,320 يظهر كل رقم مرة واحدة. ما قاعدة ترتيب أسماء هذه الأرقام باللغة الإنجليزية؟"
+      "ar": "في الرقم 8,549,176,320 كل رقم يظهر مرة وحدة. شو قاعدة ترتيب أسماء هالأرقام بالإنجليزي؟"
     },
     "answer": {
       "en": "It contains each digit (0–9) exactly once and the digits are in alphabetical order (eight, five, four, nine, one, seven, six, three, two, zero)",
@@ -1976,7 +1976,7 @@
     },
     "question": {
       "en": "I keep rain out of a house from above, yet I am not an umbrella. Chimneys may rise through me. What am I?",
-      "ar": "أمنع المطر من دخول المنزل من أعلى، ولست مظلة. قد تخترقني مداخن. ما أنا؟"
+      "ar": "أمنع المطر يدخل البيت من فوق، وأنا مش مظلة. ممكن تخترقني مداخن. شو أنا؟"
     },
     "answer": {
       "en": "A roof",
@@ -1995,7 +1995,7 @@
     },
     "question": {
       "en": "I show your face without drawing it. Move closer and the face you see moves closer too. What am I?",
-      "ar": "أُظهر وجهك دون أن أرسمه. إذا اقتربت اقترب الوجه الذي تراه أيضًا. ما أنا؟"
+      "ar": "أبيّن وجهك من غير ما أرسمه. إذا قرّبت، الوجه اللي تشوفه يقرّب كمان. شو أنا؟"
     },
     "answer": {
       "en": "A mirror",
@@ -2014,7 +2014,7 @@
     },
     "question": {
       "en": "A tank contains 100 fish. Ten die but remain in the tank. Fifteen other fish are removed, and five of those are returned. Counting living and dead fish, how many are now in the tank?",
-      "ar": "في حوض 100 سمكة. تموت عشر وتبقى فيه. تُخرج 15 سمكة أخرى ثم تعاد خمس منها. مع احتساب الحي والميت، كم سمكة في الحوض الآن؟"
+      "ar": "بحوض فيه 100 سمكة. عشرة ماتوا وظلّوا فيه. طلّعت 15 سمكة ثانية وبعدين رجّعت خمس منهم. إذا حسبنا الحي والميت، كم سمكة بالحوض الحين؟"
     },
     "answer": {
       "en": "90 fish: the ten dead fish still count, so 100 − 15 + 5 = 90.",
@@ -2033,7 +2033,7 @@
     },
     "question": {
       "en": "What is the smallest odd positive integer that has exactly six positive divisors?",
-      "ar": "ما أصغر عدد صحيح موجب فردي له ستة قواسم موجبة بالضبط؟"
+      "ar": "شو أصغر عدد صحيح موجب فردي عنده ستة قواسم موجبة بالضبط؟"
     },
     "answer": {
       "en": "45 — its divisors are 1, 3, 5, 9, 15, and 45",
@@ -2052,7 +2052,7 @@
     },
     "question": {
       "en": "I am a two-digit number equal to four times the sum of my digits. Reversing my digits makes me 9 larger. What number am I?",
-      "ar": "أنا عدد من رقمين أساوي أربعة أضعاف مجموع رقميّ. عند عكس رقميّ يصبح العدد أكبر مني بـ9. ما العدد؟"
+      "ar": "أنا رقم من خانتين، أساوي أربع أضعاف مجموع رقمَيّ. لما تعكس رقمَيّ يصير الرقم أكبر مني بـ9. شو الرقم؟"
     },
     "answer": {
       "en": "12",
@@ -2071,7 +2071,7 @@
     },
     "question": {
       "en": "What English word has three consecutive double letters?",
-      "ar": "ما الكلمة الإنجليزية التي تحتوي على ثلاثة أزواج متتالية من الأحرف المزدوجة؟"
+      "ar": "شو الكلمة الإنجليزية اللي فيها ثلاث أزواج حروف مكرّرة ورا بعض؟"
     },
     "answer": {
       "en": "Bookkeeper (oo, kk, ee)",
@@ -2090,7 +2090,7 @@
     },
     "question": {
       "en": "Gear A has 12 teeth and drives gear B with 18 teeth. B shares an axle with gear C, which has 10 teeth and drives gear D with 25 teeth. If A turns 15 times clockwise, how many times and in which direction does D turn?",
-      "ar": "للترس A اثنا عشر سناً ويقود الترس B ذي الثمانية عشر سناً. يشترك B في محور مع الترس C ذي العشرة أسنان، ويقود C الترس D ذي الخمسة والعشرين سناً. إذا دار A خمس عشرة دورة مع عقارب الساعة، فكم دورة يدور D وفي أي اتجاه؟"
+      "ar": "الترس A فيه 12 سن ويحرّك الترس B اللي فيه 18 سن. B على نفس المحور مع الترس C اللي فيه 10 أسنان، وC يحرّك الترس D اللي فيه 25 سن. إذا A دار 15 دورة مع عقارب الساعة، كم دورة يدور D وبأي اتجاه؟"
     },
     "answer": {
       "en": "4 clockwise rotations",
@@ -2109,7 +2109,7 @@
     },
     "question": {
       "en": "If there are 6 apples and you take away 4, how many apples do YOU have?",
-      "ar": "إذا كان هناك 6 تفاحات وأخذت 4، كم تفاحة لديك أنت؟"
+      "ar": "إذا في 6 تفاحات وإنت أخذت 4، كم تفاحة عندك إنت؟"
     },
     "answer": {
       "en": "4 — you took 4, so you have 4",

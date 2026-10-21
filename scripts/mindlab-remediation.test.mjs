@@ -5,12 +5,14 @@ import test from 'node:test';
 import os from 'node:os';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
+import { beforeArabicRewrite } from './arabic-everyday-ledger.mjs';
 const read = filename => JSON.parse(fs.readFileSync(new URL(`../${filename}`,import.meta.url),'utf8'));
 const plan = read('docs/content-review/mindlab-remediation-2026-09-23.json');
 const tvAmendment = read('docs/content-review/tv-trivia-2026-09-30.json');
 const tvExpansion = read('docs/content-review/tv-trivia-expansion-2026-09-30.json');
 const tvFollowup = read('docs/content-review/tv-trivia-followup-2026-09-30.json');
 const gameChoiceAmendment = read('docs/content-review/game-choice-availability-2026-10-05.json');
+const arabicRewrite = read('docs/content-review/arabic-everyday-2026-10-21.json');
 const cards = new Map(plan.scope.flatMap(topic => read(`data/${topic.slug}.json`)).map(card=>[card.id,card]));
 const hash = card => crypto.createHash('sha256').update(JSON.stringify(card)).digest('hex');
 
@@ -54,7 +56,10 @@ test('all 1,241 audit findings are repaired without deleting or renumbering the 
       assert.equal(gameChoice.beforeHash, latestHistoricalHash, `${change.id}: preserve historical repair chain before authoring choices`);
       assert.ok(gameChoice.reason?.trim(), `${change.id}: documented choice authoring`);
     }
-    assert.equal(hash(cards.get(change.id)),gameChoice?.afterHash || latestHistoricalHash,`${change.id}: patch not applied`);
+    const settled = gameChoice?.afterHash || latestHistoricalHash;
+    const rewrite = arabicRewrite.changes.find(c => c.id === change.id);
+    if (rewrite) assert.equal(rewrite.beforeHash, settled, `${change.id}: Arabic rewrite preserves the repair chain`);
+    assert.equal(hash(cards.get(change.id)),rewrite?.afterHash || settled,`${change.id}: patch not applied`);
     assert.ok(change.reason?.trim(),change.id);
     assert.notEqual(change.patch.review?.status,'reviewed',`${change.id}: must not manufacture certification`);
   }
@@ -87,10 +92,13 @@ test('game-choice amendment records all thirty additions while preserving each o
     assert.match(change.beforeHash, /^[a-f0-9]{64}$/u);
     assert.match(change.afterHash, /^[a-f0-9]{64}$/u);
     assert.notEqual(change.beforeHash, change.afterHash, `${change.id}: not a real amendment`);
-    assert.equal(hash(card), change.afterHash, `${change.id}: current card must match documented amendment`);
+    // Later Arabic-wording edits are reversed from their own ledger before checking this amendment.
+    const rewrite = arabicRewrite.changes.find(c => c.id === change.id);
+    const amended = rewrite ? beforeArabicRewrite(card, rewrite) : card;
+    assert.equal(hash(amended), change.afterHash, `${change.id}: current card must match documented amendment`);
     const fields = aliasCards.has(change.id) ? ['acceptedAnswers', 'quickFire'] : ['quickFire'];
     assert.deepEqual([...change.fieldsAdded].sort(), fields, `${change.id}: strictly additive choice authoring`);
-    const reconstructed = {...card};
+    const reconstructed = {...amended};
     for (const field of change.fieldsAdded) {
       assert.ok(Object.hasOwn(reconstructed, field), `${change.id}: missing declared addition ${field}`);
       delete reconstructed[field];

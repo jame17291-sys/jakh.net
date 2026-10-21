@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "I am made of colored wax, wear a paper jacket, and leave a bright trail on a page. What am I?",
-      "ar": "أنا مصنوع من شمع ملوّن، وأرتدي غلافاً ورقياً، وأترك خطاً زاهياً على الصفحة. ما أنا؟"
+      "ar": "أنا مصنوع من شمع ملوّن، لابس غلاف ورق، وأترك خط زاهي على الصفحة. مين أنا؟"
     },
     "answer": {
       "en": "A crayon",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "I am orange, grow underground, and rabbits often eat me. What am I?",
-      "ar": "أنا برتقالي اللون، أنمو تحت الأرض، وكثيرًا ما تأكلني الأرانب. ما أنا؟"
+      "ar": "لوني برتقالي، أكبر تحت الأرض، والأرانب تحب تاكلني. مين أنا؟"
     },
     "answer": {
       "en": "A carrot",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "Which craft turns a sheet of paper into shapes such as birds by folding it?",
-      "ar": "ما الفن الذي يحوّل ورقة إلى أشكال، مثل الطيور، بطيّها؟"
+      "ar": "شو اسم الفن اللي يحوّل الورقة لأشكال، مثل الطيور، بس بالطي؟"
     },
     "answer": {
       "en": "Origami, the art of paper folding.",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "I stand beside a bed with one foot and a shade. Touch my switch and I make a small sun indoors. What am I?",
-      "ar": "أقف بجانب السرير على قدم واحدة ولي غطاء. المس مفتاحي فأصنع شمساً صغيرة داخل الغرفة. ما أنا؟"
+      "ar": "أوقف جنب السرير على رجل وحدة وعندي غطاء. لما تلمس المفتاح، أعمل شمس صغيرة جوّا الغرفة. مين أنا؟"
     },
     "answer": {
       "en": "A bedside lamp",
@@ -84,7 +84,7 @@
     },
     "question": {
       "en": "We are soft twins that guard your feet, but we hide whenever your shoes arrive. What are we?",
-      "ar": "نحن توأمان ناعمان نحمي قدميك، لكننا نختبئ كلما حضرت الأحذية. ما نحن؟"
+      "ar": "إحنا توأم ناعم نحمي رجليك، بس نختفي لما تلبس الحذاء. مين إحنا؟"
     },
     "answer": {
       "en": "A pair of socks",
@@ -103,7 +103,7 @@
     },
     "question": {
       "en": "I sit on your nose with two clear windows and help fuzzy letters become sharp. What am I?",
-      "ar": "أجلس على أنفك بنافذتين شفافتين، وأجعل الحروف الضبابية واضحة. ما أنا؟"
+      "ar": "أقعد على أنفك بنافذتين شفافتين، وأخلّي الحروف المغبّشة واضحة. مين أنا؟"
     },
     "answer": {
       "en": "Eyeglasses",
@@ -122,7 +122,7 @@
     },
     "question": {
       "en": "Sunlight makes my outline appear on the ground beside you. I move when you move, but disappear when that sunlight is blocked. What am I?",
-      "ar": "يرسم ضوء الشمس شكلي على الأرض بجانبك. أتحرك معك، وأختفي عندما يُحجب ضوء الشمس الذي يصنعني. ما أنا؟"
+      "ar": "ضوء الشمس يرسمني على الأرض جنبك. أمشي معك، وأختفي لما ينحجب الضوء اللي يصنعني. مين أنا؟"
     },
     "answer": {
       "en": "A shadow",
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "I start with empty pages. After every drawing, I remember a picture without taking a photograph. What am I?",
-      "ar": "أبدأ بصفحات فارغة، وبعد كل رسمة أحفظ صورة من دون أن ألتقطها بكاميرا. ما أنا؟"
+      "ar": "أبدأ بصفحات فاضية، وبعد كل رسمة أحتفظ بصورة من غير كاميرا. مين أنا؟"
     },
     "answer": {
       "en": "A sketchbook",
@@ -160,7 +160,7 @@
     },
     "question": {
       "en": "I wear a cap, carry ink instead of blood, and leave words wherever my tip walks. What am I?",
-      "ar": "أرتدي غطاءً، وأحمل حبراً بدلاً من الدم، وأترك كلمات حيثما سار رأسي. ما أنا؟"
+      "ar": "لابس غطاء، وجوّاي حبر بدل الدم، وأترك كلمات وين ما يمشي راسي. مين أنا؟"
     },
     "answer": {
       "en": "A pen",
@@ -179,7 +179,7 @@
     },
     "question": {
       "en": "I have a tongue that never tastes and laces that never tie themselves. Your foot lives inside me. What am I?",
-      "ar": "لي لسان لا يتذوق، وأربطة لا تعقد نفسها، وتسكن قدمك بداخلي. ما أنا؟"
+      "ar": "عندي لسان ما يذوق، وأربطة ما تربط نفسها، ورجلك تسكن جوّاي. مين أنا؟"
     },
     "answer": {
       "en": "A shoe",
@@ -198,7 +198,7 @@
     },
     "question": {
       "en": "You have six red blocks. You take away two, then put one blue block on each red block that remains. How many blocks are in the four stacks?",
-      "ar": "لديك ستة مكعبات حمراء. تُبعد مكعبين، ثم تضع مكعباً أزرق فوق كل مكعب أحمر متبقٍّ. كم مكعباً يوجد في الأكوام الأربعة؟"
+      "ar": "عندك ستة مكعبات حمرا. شلت منها مكعبين، وبعدين حطيت مكعب أزرق فوق كل مكعب أحمر باقي. كم مكعب صار عندك في الأكوام الأربعة؟"
     },
     "answer": {
       "en": "8 blocks — four red and four blue",
@@ -217,7 +217,7 @@
     },
     "question": {
       "en": "I divide a year into twelve named parts and give every date its own square. What am I?",
-      "ar": "أقسّم السنة إلى اثني عشر جزءاً له أسماء، وأمنح كل تاريخ مربعاً خاصاً به. ما أنا؟"
+      "ar": "أقسّم السنة لاثني عشر جزء لكل واحد اسم، وأعطي كل تاريخ مربع خاص فيه. مين أنا؟"
     },
     "answer": {
       "en": "A calendar",
@@ -236,7 +236,7 @@
     },
     "question": {
       "en": "What can you break even if you never pick it up or touch it?",
-      "ar": "ما الذي يمكنك كسره حتى دون أن تلمسه؟"
+      "ar": "شو الشي اللي تقدر تكسره من غير ما تلمسه؟"
     },
     "answer": {
       "en": "A promise",
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "I am spoken backward before a rocket rises — three, two, one — and I end exactly when the journey begins. What am I?",
-      "ar": "أُقال بترتيب عكسي قبل انطلاق الصاروخ — ثلاثة، اثنان، واحد — وأنتهي لحظة بدء الرحلة. ما أنا؟"
+      "ar": "أنقال بالعكس قبل ما ينطلق الصاروخ — ثلاثة، اثنين، واحد — وأخلص لحظة ما تبدأ الرحلة. مين أنا؟"
     },
     "answer": {
       "en": "A countdown",
@@ -274,7 +274,7 @@
     },
     "question": {
       "en": "If today is two days before Friday, what day is today?",
-      "ar": "إذا كان اليوم يسبق يوم الجمعة بيومين، فما اليوم؟"
+      "ar": "إذا اليوم قبل الجمعة بيومين، شو اليوم؟"
     },
     "answer": {
       "en": "Wednesday",
@@ -293,7 +293,7 @@
     },
     "question": {
       "en": "I fit in a pocket, wake with a passcode, and hold maps, messages, and games without using shelves. What am I?",
-      "ar": "أدخل في الجيب، وأستيقظ برمز مرور، وأحمل خرائط ورسائل وألعاباً من دون رفوف. ما أنا؟"
+      "ar": "أدخل بالجيب، وأصحى برمز سري، وأحمل خرايط ورسائل وألعاب من غير رفوف. مين أنا؟"
     },
     "answer": {
       "en": "A smartphone",
@@ -312,7 +312,7 @@
     },
     "question": {
       "en": "I grow smaller whenever I remove a pencil mistake, yet I never write anything myself. What am I?",
-      "ar": "أصغر كلما أزلت خطأً بالقلم الرصاص، ومع ذلك لا أكتب شيئاً بنفسي. ما أنا؟"
+      "ar": "أصغر كل ما تمسح غلط بقلم الرصاص، ومع هذا ما أكتب شي بنفسي. مين أنا؟"
     },
     "answer": {
       "en": "An eraser",
@@ -331,7 +331,7 @@
     },
     "question": {
       "en": "I have one handle and an open mouth. I hold your drink quietly until you tilt me. What am I?",
-      "ar": "لي مقبض واحد وفم مفتوح، وأحمل شرابك بهدوء حتى تميلني. ما أنا؟"
+      "ar": "عندي مسكة وحدة وتمّ مفتوح، وأشيل مشروبك بهدوء لحد ما تميّلني. مين أنا؟"
     },
     "answer": {
       "en": "A mug",
@@ -350,7 +350,7 @@
     },
     "question": {
       "en": "A three-digit code has a middle digit of 3. Its first digit is twice its last, and all three digits add to 9. What is the code?",
-      "ar": "رمز من ثلاثة أرقام، رقمه الأوسط 3. الرقم الأول يساوي ضعف الأخير، ومجموع الأرقام الثلاثة 9. ما الرمز؟"
+      "ar": "رمز من ثلاث أرقام، الرقم اللي بالنص 3. أول رقم ضعف آخر رقم، ومجموع الثلاثة 9. شو الرمز؟"
     },
     "answer": {
       "en": "432",
@@ -369,7 +369,7 @@
     },
     "question": {
       "en": "I have 64 alternating light and dark squares. Two sets of chess pieces start on opposite sides of me. What am I?",
-      "ar": "لديّ 64 مربعًا تتناوب بين الفاتح والداكن. تبدأ مجموعتا قطع الشطرنج على جانبين متقابلين مني. ما أنا؟"
+      "ar": "عندي 64 مربع، فاتح وغامق ورا بعض. فريقين قطع الشطرنج يبدون من جهتين متقابلتين عليّ. مين أنا؟"
     },
     "answer": {
       "en": "A chessboard",
@@ -388,7 +388,7 @@
     },
     "question": {
       "en": "My two digits add to 9. I am 27 greater than the number made by reversing my digits. What number am I?",
-      "ar": "مجموع رقميّ يساوي 9، وأنا أكبر بـ27 من العدد الناتج عن عكس ترتيبهما. ما العدد؟"
+      "ar": "مجموع رقمَيّ 9، وأنا أكبر بـ27 من الرقم اللي يطلع لما تعكس ترتيبهم. شو الرقم؟"
     },
     "answer": {
       "en": "63",
@@ -407,7 +407,7 @@
     },
     "question": {
       "en": "The numbers 2, 6, 12, and 20 are made by multiplying neighboring whole numbers: 1×2, 2×3, 3×4, 4×5. What comes next?",
-      "ar": "الأعداد 2 و6 و12 و20 ناتجة عن ضرب عددين صحيحين متتاليين: 1×2، 2×3، 3×4، 4×5. ما العدد التالي؟"
+      "ar": "الأرقام 2 و6 و12 و20 تطلع من ضرب رقمين ورا بعض: 1×2، 2×3، 3×4، 4×5. شو الرقم اللي بعدهم؟"
     },
     "answer": {
       "en": "30 — from 5×6",
@@ -426,7 +426,7 @@
     },
     "question": {
       "en": "A square garden has a lamp at each corner and one lamp halfway along each side. How many lamps are there altogether?",
-      "ar": "في حديقة مربعة مصباح عند كل زاوية ومصباح في منتصف كل ضلع. كم مصباحاً يوجد بالمجموع؟"
+      "ar": "حديقة مربعة فيها لمبة عند كل زاوية ولمبة بنص كل ضلع. كم لمبة بالمجموع؟"
     },
     "answer": {
       "en": "8 lamps",
@@ -445,7 +445,7 @@
     },
     "question": {
       "en": "I am less than 50, divisible by both 6 and 8, and my digits add to 6. What number am I?",
-      "ar": "أنا أقل من 50، وأقبل القسمة على 6 وعلى 8، ومجموع رقميّ يساوي 6. ما العدد؟"
+      "ar": "أنا أقل من 50، وأنقسم على 6 وعلى 8، ومجموع رقمَيّ 6. شو الرقم؟"
     },
     "answer": {
       "en": "24",
@@ -464,7 +464,7 @@
     },
     "question": {
       "en": "A toy robot faces west. It turns a quarter-turn right, a half-turn right, then a quarter-turn left. Which direction does it face?",
-      "ar": "روبوت لعبة يواجه الغرب. يدور ربع دورة يميناً، ثم نصف دورة يميناً، ثم ربع دورة يساراً. أي اتجاه يواجه الآن؟"
+      "ar": "روبوت لعبة وجهه للغرب. لفّ ربع لفة يمين، وبعدين نص لفة يمين، وبعدين ربع لفة يسار. لأي اتجاه وجهه الحين؟"
     },
     "answer": {
       "en": "East",
@@ -483,7 +483,7 @@
     },
     "question": {
       "en": "The pages of a 12-page comic are numbered from 1 through 12. How many times is the digit 1 printed?",
-      "ar": "صفحات قصة مصوّرة من 12 صفحة مرقّمة من 1 إلى 12. كم مرة طُبع الرقم 1؟"
+      "ar": "قصة مصوّرة فيها 12 صفحة مرقّمة من 1 لـ12. كم مرة انطبع الرقم 1؟"
     },
     "answer": {
       "en": "5 times — on pages 1, 10, twice on 11, and on 12",
@@ -502,7 +502,7 @@
     },
     "question": {
       "en": "A lock code uses the digits 1, 2, and 3 exactly once. It is greater than 300, it is even, and its middle digit is 1. What is the code?",
-      "ar": "رمز قفل يستخدم الأرقام 1 و2 و3 مرة واحدة لكل منها. هو أكبر من 300، وعدد زوجي، ورقمه الأوسط 1. ما الرمز؟"
+      "ar": "رمز قفل فيه الأرقام 1 و2 و3، كل رقم مرة وحدة. أكبر من 300، وزوجي، والرقم اللي بالنص 1. شو الرمز؟"
     },
     "answer": {
       "en": "312",
@@ -521,7 +521,7 @@
     },
     "question": {
       "en": "Two cups hold 10 marbles altogether. One cup has four more marbles than the other. How many marbles are in each cup?",
-      "ar": "يحتوي كوبان على 10 كرات صغيرة بالمجموع. في أحدهما أربع كرات أكثر من الآخر. كم كرة في كل كوب؟"
+      "ar": "كاستين فيهم 10 كرات صغيرة بالمجموع. وحدة فيها أربع كرات أكثر من الثانية. كم كرة في كل كاسة؟"
     },
     "answer": {
       "en": "7 marbles and 3 marbles",
@@ -540,7 +540,7 @@
     },
     "question": {
       "en": "A clock chimes once at 1, twice at 2, and so on. How many chimes does it make from 1 through 5?",
-      "ar": "تدق الساعة مرة عند الواحدة، ومرتين عند الثانية، وهكذا. كم دقة تصدر من الواحدة حتى الخامسة؟"
+      "ar": "الساعة تدقّ مرة عند الوحدة، ومرتين عند الثنتين، وهكذا. كم دقة تدق من الوحدة لحد الخمسة؟"
     },
     "answer": {
       "en": "15 chimes",
@@ -559,7 +559,7 @@
     },
     "question": {
       "en": "I have a round face and two moving pointers. I hang on a wall and help you know when school starts. What am I?",
-      "ar": "لي وجه دائري وعقربان يتحركان. أُعلَّق على الحائط وأساعدك على معرفة موعد بدء المدرسة. ما أنا؟"
+      "ar": "عندي وجه مدوّر وعقربين يتحركون. أتعلّق على الحيطة وأساعدك تعرف متى تبدأ المدرسة. مين أنا؟"
     },
     "answer": {
       "en": "An analog wall clock",

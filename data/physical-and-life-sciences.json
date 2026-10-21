@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "What is the speed of light in a vacuum?",
-      "ar": "ما سرعة الضوء في الفراغ؟"
+      "ar": "كم سرعة الضوء في الفراغ؟"
     },
     "answer": {
       "en": "Approximately 300,000 km/s (299,792,458 m/s).",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "What region of a bacterial cell contains its chromosome?",
-      "ar": "أي منطقة في الخلية البكتيرية تحتوي على كروموسومها؟"
+      "ar": "وين موجود الكروموسوم في الخلية البكتيرية؟"
     },
     "answer": {
       "en": "The nucleoid. Unlike a eukaryotic nucleus, it is not enclosed by a membrane.",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "In an aqueous solution, which substance is the solvent?",
-      "ar": "في المحلول المائي، ما المادة التي تكون المذيب؟"
+      "ar": "في المحلول المائي، شو المادة اللي تكون المذيب؟"
     },
     "answer": {
       "en": "Water. The term aqueous means that a substance is dissolved in water.",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "Which blood components form the initial plug that helps stop bleeding?",
-      "ar": "ما مكوّنات الدم التي تكوّن السدادة الأولية للمساعدة على وقف النزيف؟"
+      "ar": "شو مكوّنات الدم اللي تعمل السدادة الأولى عشان توقف النزيف؟"
     },
     "answer": {
       "en": "Platelets. They adhere to damaged blood vessels and aggregate to form a platelet plug.",
@@ -84,7 +84,7 @@
     },
     "question": {
       "en": "How are the frequency f and period T of a repeating wave related?",
-      "ar": "ما العلاقة بين تردد الموجة الدورية f وزمنها الدوري T؟"
+      "ar": "شو العلاقة بين تردد الموجة الدورية f وزمنها الدوري T؟"
     },
     "answer": {
       "en": "They are reciprocals: f = 1/T. A longer period therefore means a lower frequency.",
@@ -103,7 +103,7 @@
     },
     "question": {
       "en": "What is the most abundant gas in Earth's atmosphere?",
-      "ar": "ما الغاز الأكثر وفرة في الغلاف الجوي للأرض؟"
+      "ar": "شو أكثر غاز موجود بالغلاف الجوي للأرض؟"
     },
     "answer": {
       "en": "Nitrogen (about 78%).",
@@ -122,7 +122,7 @@
     },
     "question": {
       "en": "What molecule carries genetic information in living cells?",
-      "ar": "ما الجزيء الذي يحمل المعلومات الجينية في الخلايا الحية؟"
+      "ar": "شو الجزيء اللي يحمل المعلومات الوراثية في الخلايا الحية؟"
     },
     "answer": {
       "en": "DNA (deoxyribonucleic acid).",
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "Which type of lens brings parallel light rays to a focus?",
-      "ar": "أي نوع من العدسات يجمع أشعة الضوء المتوازية في بؤرة؟"
+      "ar": "أي نوع عدسات يجمع أشعة الضوء المتوازية في بؤرة؟"
     },
     "answer": {
       "en": "A convex, or converging, lens.",
@@ -160,7 +160,7 @@
     },
     "question": {
       "en": "What is the pH of a neutral solution at 25 °C?",
-      "ar": "ما قيمة pH للمحلول المتعادل عند 25 درجة مئوية؟"
+      "ar": "كم قيمة pH للمحلول المتعادل عند 25 درجة مئوية؟"
     },
     "answer": {
       "en": "7.",
@@ -179,7 +179,7 @@
     },
     "question": {
       "en": "How do root hairs help a plant absorb water and minerals?",
-      "ar": "كيف تساعد الشعيرات الجذرية النبات على امتصاص الماء والمعادن؟"
+      "ar": "كيف الشعيرات الجذرية تساعد النبات يمتص المي والمعادن؟"
     },
     "answer": {
       "en": "They greatly increase the root's surface area in contact with the soil.",
@@ -198,7 +198,7 @@
     },
     "question": {
       "en": "According to Newton's first law, what happens to an object at rest if no net force acts on it?",
-      "ar": "وفقاً لقانون نيوتن الأول، ماذا يحدث للجسم الساكن إذا لم تؤثر عليه قوة محصلة؟"
+      "ar": "حسب قانون نيوتن الأول، شو يصير للجسم الساكن إذا ما أثّرت عليه قوة محصّلة؟"
     },
     "answer": {
       "en": "It remains at rest (law of inertia).",
@@ -217,7 +217,7 @@
     },
     "question": {
       "en": "What property of minerals is ranked by the Mohs scale?",
-      "ar": "ما الخاصية المعدنية التي يرتبها مقياس موهس؟"
+      "ar": "مقياس موس يرتّب المعادن حسب أي خاصية؟"
     },
     "answer": {
       "en": "Scratch hardness: resistance to being scratched by another material.",
@@ -236,7 +236,7 @@
     },
     "question": {
       "en": "Which molecule serves as the immediate energy currency of cells?",
-      "ar": "أي جزيء يُعد عملة الطاقة الفورية في الخلايا؟"
+      "ar": "أي جزيء يعتبر «عملة الطاقة» الفورية في الخلايا؟"
     },
     "answer": {
       "en": "ATP (adenosine triphosphate). Cells release usable energy when ATP is hydrolyzed.",
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "What does Einstein's famous equation E = mc² represent?",
-      "ar": "ماذا تعبر معادلة أينشتاين الشهيرة E = mc²؟"
+      "ar": "شو اللي تعبّر عنه معادلة أينشتاين المشهورة E = mc²؟"
     },
     "answer": {
       "en": "Energy equals mass times the speed of light squared — mass and energy are equivalent and interconvertible.",
@@ -274,7 +274,7 @@
     },
     "question": {
       "en": "What is Avogadro's number and what does it represent?",
-      "ar": "ما عدد أفوجادرو وماذا يمثل؟"
+      "ar": "شو هو عدد أفوغادرو، وشو يمثّل؟"
     },
     "answer": {
       "en": "6.022 × 10²³; it is the number of atoms, molecules, or ions in one mole of a substance.",
@@ -293,7 +293,7 @@
     },
     "question": {
       "en": "Starting with one diploid cell, how do the usual chromosome numbers of mitosis and meiosis products differ?",
-      "ar": "بدءاً بخلية ثنائية الصيغة الصبغية، كيف تختلف الصيغة الصبغية المعتادة لنواتج الانقسام المتساوي والاختزالي؟"
+      "ar": "إذا بدأنا بخلية ثنائية الصبغيات، كيف يختلف عدد الصبغيات المعتاد بين نواتج الانقسام المتساوي والانقسام الاختزالي؟"
     },
     "answer": {
       "en": "Mitosis preserves diploidy; meiosis halves the chromosome number to produce haploid products. Not all meiotic products necessarily become functional gametes.",
@@ -312,7 +312,7 @@
     },
     "question": {
       "en": "What is the Doppler effect?",
-      "ar": "ما تأثير دوبلر؟"
+      "ar": "شو هو «تأثير دوبلر»؟"
     },
     "answer": {
       "en": "The change in observed frequency of a wave when the source or observer is moving; e.g., a siren sounds higher-pitched as it approaches and lower as it recedes.",
@@ -331,7 +331,7 @@
     },
     "question": {
       "en": "What is an exothermic reaction?",
-      "ar": "ما التفاعل الطارد للحرارة؟"
+      "ar": "شو هو التفاعل الطارد للحرارة؟"
     },
     "answer": {
       "en": "A reaction that releases heat energy to the surroundings, resulting in a negative ΔH.",
@@ -350,7 +350,7 @@
     },
     "question": {
       "en": "What is natural selection?",
-      "ar": "ما الانتقاء الطبيعي؟"
+      "ar": "شو هو «الانتقاء الطبيعي»؟"
     },
     "answer": {
       "en": "The process by which organisms with traits better suited to their environment survive and reproduce more successfully, driving evolution over generations.",
@@ -369,7 +369,7 @@
     },
     "question": {
       "en": "What is the difference between a scalar and a vector quantity?",
-      "ar": "ما الفرق بين الكمية القياسية والكمية المتجهة؟"
+      "ar": "شو الفرق بين الكمية القياسية والكمية المتجهة؟"
     },
     "answer": {
       "en": "A scalar has magnitude only, such as temperature. A vector has magnitude and direction, such as force or velocity.",
@@ -388,7 +388,7 @@
     },
     "question": {
       "en": "What causes a rain shadow on the leeward side of a mountain range?",
-      "ar": "ما الذي يسبب ظل المطر على الجانب المعاكس للرياح من سلسلة جبلية؟"
+      "ar": "شو اللي يسبب «ظل المطر» على الجهة اللي ما تواجه الريح من سلسلة جبال؟"
     },
     "answer": {
       "en": "Moist air rises and rains on the windward side; the descending air on the leeward side warms and becomes drier.",
@@ -407,7 +407,7 @@
     },
     "question": {
       "en": "What is the difference between ionic and covalent bonds?",
-      "ar": "ما الفرق بين الرابطة الأيونية والرابطة التساهمية؟"
+      "ar": "شو الفرق بين الرابطة الأيونية والرابطة التساهمية؟"
     },
     "answer": {
       "en": "An ionic bond is electrostatic attraction between oppositely charged ions. A covalent bond involves shared electron density, commonly represented by shared electron pairs.",
@@ -426,7 +426,7 @@
     },
     "question": {
       "en": "What is the role of ribosomes in the cell?",
-      "ar": "ما دور الريبوسومات في الخلية؟"
+      "ar": "شو دور الريبوسومات في الخلية؟"
     },
     "answer": {
       "en": "Ribosomes synthesize proteins by translating messenger RNA (mRNA) into amino acid chains.",
@@ -445,7 +445,7 @@
     },
     "question": {
       "en": "An object of mass 2 kg accelerates at 3 m/s². What net force acts on it?",
-      "ar": "يتسارع جسم كتلته 2 كغ بمقدار 3 م/ث². ما محصلة القوة المؤثرة فيه؟"
+      "ar": "جسم كتلته 2 كغ يتسارع بـ3 م/ث². كم القوة المحصّلة عليه؟"
     },
     "answer": {
       "en": "6 N, using F=ma=2×3.",
@@ -464,7 +464,7 @@
     },
     "question": {
       "en": "What is Le Chatelier's principle?",
-      "ar": "ما مبدأ لو شاتيليه؟"
+      "ar": "شو هو «مبدأ لو شاتلييه»؟"
     },
     "answer": {
       "en": "If a system at equilibrium is disturbed (by changing concentration, pressure, or temperature), the equilibrium will shift to partially oppose the change.",
@@ -483,7 +483,7 @@
     },
     "question": {
       "en": "What is the function of the endoplasmic reticulum (ER) in a eukaryotic cell?",
-      "ar": "ما وظيفة الشبكة الإندوبلازمية في الخلية حقيقية النواة؟"
+      "ar": "شو وظيفة الشبكة الإندوبلازمية في الخلية حقيقية النواة؟"
     },
     "answer": {
       "en": "The rough ER (studded with ribosomes) synthesizes and folds proteins; the smooth ER synthesizes lipids and detoxifies compounds.",
@@ -502,7 +502,7 @@
     },
     "question": {
       "en": "What does Heisenberg's Uncertainty Principle state?",
-      "ar": "ماذا ينص مبدأ هايزنبرغ للشك؟"
+      "ar": "شو يقول «مبدأ عدم اليقين» لهايزنبرغ؟"
     },
     "answer": {
       "en": "It is impossible to simultaneously know both the exact position and exact momentum of a particle with arbitrary precision; Δx·Δp ≥ ℏ/2.",
@@ -521,7 +521,7 @@
     },
     "question": {
       "en": "What is the difference between nuclear fission and nuclear fusion?",
-      "ar": "ما الفرق بين الانشطار النووي والاندماج النووي؟"
+      "ar": "شو الفرق بين الانشطار النووي والاندماج النووي؟"
     },
     "answer": {
       "en": "Fission splits a heavy nucleus into smaller ones (used in nuclear reactors); fusion merges light nuclei into heavier ones (powers the Sun). Both release enormous energy.",
@@ -540,7 +540,7 @@
     },
     "question": {
       "en": "What is the usual sequence-information pathway during gene expression from DNA to protein?",
-      "ar": "ما المسار المعتاد لمعلومات التسلسل أثناء التعبير الجيني من DNA إلى البروتين؟"
+      "ar": "أثناء التعبير الجيني، شو الطريق المعتاد للمعلومات من DNA للبروتين؟"
     },
     "answer": {
       "en": "DNA is transcribed into RNA, then messenger RNA is translated into protein: DNA→RNA→protein. This does not exclude reverse transcription from RNA to DNA.",
@@ -559,7 +559,7 @@
     },
     "question": {
       "en": "What does the second law of thermodynamics say about the entropy of an isolated macroscopic system?",
-      "ar": "ماذا يقول القانون الثاني للديناميكا الحرارية عن إنتروبيا نظام عياني معزول؟"
+      "ar": "شو يقول القانون الثاني للديناميكا الحرارية عن إنتروبيا نظام كبير معزول؟"
     },
     "answer": {
       "en": "Its entropy cannot decrease in a spontaneous process; it increases in irreversible processes and remains constant in an ideal reversible process.",
@@ -578,7 +578,7 @@
     },
     "question": {
       "en": "What is a catalyst and how does it speed up a reaction without being consumed?",
-      "ar": "ما المحفّز وكيف يُسرّع التفاعل دون أن يُستهلك؟"
+      "ar": "شو هو المحفّز، وكيف يسرّع التفاعل من غير ما يُستهلك؟"
     },
     "answer": {
       "en": "A catalyst provides an alternative reaction pathway with a lower activation energy. It participates in intermediates but is regenerated by the end of the reaction.",
@@ -597,7 +597,7 @@
     },
     "question": {
       "en": "What is allosteric regulation of an enzyme?",
-      "ar": "ما التنظيم الألوستيري للإنزيم؟"
+      "ar": "شو هو «التنظيم الألوستيري» للإنزيم؟"
     },
     "answer": {
       "en": "A regulator binds at a site other than the active site and changes the enzyme's activity by altering its shape.",
@@ -616,7 +616,7 @@
     },
     "question": {
       "en": "What is wave-particle duality?",
-      "ar": "ما ازدواجية الموجة والجسيم؟"
+      "ar": "شو هي «ازدواجية الموجة والجسيم»؟"
     },
     "answer": {
       "en": "Quantum objects (electrons, photons) exhibit both wave-like and particle-like behaviour depending on how they are observed. The double-slit experiment demonstrates this duality.",
@@ -635,7 +635,7 @@
     },
     "question": {
       "en": "What is the difference between a strong acid and a weak acid?",
-      "ar": "ما الفرق بين الحمض القوي والحمض الضعيف؟"
+      "ar": "شو الفرق بين الحمض القوي والحمض الضعيف؟"
     },
     "answer": {
       "en": "In water, a strong acid such as HCl ionizes essentially completely. A weak acid such as acetic acid ionizes only partly and reaches an equilibrium with its conjugate base.",
@@ -654,7 +654,7 @@
     },
     "question": {
       "en": "How does the CRISPR-Cas9 system work?",
-      "ar": "كيف يعمل نظام CRISPR-Cas9؟"
+      "ar": "كيف يشتغل نظام CRISPR-Cas9؟"
     },
     "answer": {
       "en": "A guide RNA (gRNA) directs the Cas9 protein to a specific DNA sequence, where Cas9 makes a double-strand cut. The cell's repair mechanisms can then delete, correct, or insert genes.",
@@ -673,7 +673,7 @@
     },
     "question": {
       "en": "What is the greenhouse effect and how does it cause climate change?",
-      "ar": "ما تأثير الاحتباس الحراري وكيف يتسبب في تغير المناخ؟"
+      "ar": "شو هو «الاحتباس الحراري»، وكيف يسبب تغيّر المناخ؟"
     },
     "answer": {
       "en": "Greenhouse gases (CO₂, CH₄, N₂O) trap infrared radiation re-emitted by Earth's surface. Increased anthropogenic emissions enhance this effect, raising global average temperatures and disrupting climate systems.",
@@ -692,7 +692,7 @@
     },
     "question": {
       "en": "Why was the photoelectric effect important to the development of quantum theory?",
-      "ar": "لماذا كان التأثير الكهروضوئي مهماً في تطور نظرية الكم؟"
+      "ar": "ليش كان التأثير الكهروضوئي مهم بتطور نظرية الكم؟"
     },
     "answer": {
       "en": "Electron emission depends on a threshold light frequency. Einstein explained it using light quanta with energy E=hf, where classical wave theory alone could not explain the observations.",
@@ -711,7 +711,7 @@
     },
     "question": {
       "en": "What is epigenetics?",
-      "ar": "ما علم التخلق (الإيبيجينيتيكس)؟"
+      "ar": "شو هو «علم التخلّق» (الإيبيجينيتكس)؟"
     },
     "answer": {
       "en": "The study of heritable changes in gene expression that do not involve changes to the DNA sequence itself — caused by mechanisms such as DNA methylation and histone modification.",
@@ -730,7 +730,7 @@
     },
     "question": {
       "en": "Can measurements of entangled particles be used to send a controllable message faster than light?",
-      "ar": "هل يمكن استخدام قياسات جسيمات متشابكة لإرسال رسالة يمكن التحكم فيها أسرع من الضوء؟"
+      "ar": "هل نقدر نستخدم قياسات جسيمات متشابكة عشان نبعت رسالة نتحكم فيها أسرع من الضوء؟"
     },
     "answer": {
       "en": "No. Entanglement produces nonclassical correlations, but comparing outcomes still requires ordinary communication subject to the light-speed limit.",
@@ -749,7 +749,7 @@
     },
     "question": {
       "en": "If Ψ is an electron's normalized spatial wavefunction, what expression gives its position probability density?",
-      "ar": "إذا كانت Ψ دالة الموجة المكانية المطبّعة لإلكترون، فما التعبير الذي يعطي كثافة احتمال موضعه؟"
+      "ar": "إذا Ψ هي دالة الموجة المكانية المطبّعة لإلكترون، شو التعبير اللي يعطي كثافة احتمال مكانه؟"
     },
     "answer": {
       "en": "|Ψ|²=Ψ*Ψ, where Ψ* is the complex conjugate. Ψ² alone is not generally correct.",
@@ -768,7 +768,7 @@
     },
     "question": {
       "en": "What evidence supports the endosymbiotic origin of mitochondria and chloroplasts?",
-      "ar": "ما الأدلة التي تدعم الأصل التكافلي الداخلي للميتوكوندريا والبلاستيدات الخضراء؟"
+      "ar": "شو الأدلة اللي تدعم إن الميتوكوندريا والبلاستيدات الخضراء أصلها من «التعايش الداخلي»؟"
     },
     "answer": {
       "en": "They retain their own genomes, bacterial-like ribosomes, and division mechanisms resembling bacteria, consistent with descent from bacterial ancestors living inside host cells.",
@@ -787,7 +787,7 @@
     },
     "question": {
       "en": "Which bosons mediate the electromagnetic, weak, and strong interactions in the Standard Model?",
-      "ar": "ما البوزونات التي تتوسط التآثرات الكهرومغناطيسية والضعيفة والقوية في النموذج المعياري؟"
+      "ar": "في النموذج المعياري، شو البوزونات اللي تنقل التفاعلات الكهرومغناطيسية والضعيفة والقوية؟"
     },
     "answer": {
       "en": "The photon mediates electromagnetism, W and Z bosons the weak interaction, and gluons the strong interaction. The Higgs boson is a separate scalar particle.",
@@ -806,7 +806,7 @@
     },
     "question": {
       "en": "Why can two enantiomers of a chiral molecule have different biological effects?",
-      "ar": "لماذا قد يكون لمتماكبين مرآويين لجزيء كيرالي تأثيران حيويان مختلفان؟"
+      "ar": "ليش ممكن نسختين مرآويتين لجزيء «كيرالي» يكون لهم تأثير حيوي مختلف؟"
     },
     "answer": {
       "en": "Enantiomers are non-superimposable mirror images. Biological targets such as enzymes are also chiral, so the two forms may bind or react differently.",
@@ -825,7 +825,7 @@
     },
     "question": {
       "en": "What is the role of telomeres in aging and cancer?",
-      "ar": "ما دور التيلوميرات في الشيخوخة والسرطان؟"
+      "ar": "شو دور «التيلوميرات» في الشيخوخة والسرطان؟"
     },
     "answer": {
       "en": "Telomeres are repetitive DNA caps protecting chromosome ends. They shorten with each cell division; when critically short, cells enter senescence or apoptosis. Cancer cells often upregulate telomerase to maintain telomere length and achieve replicative immortality.",
@@ -844,7 +844,7 @@
     },
     "question": {
       "en": "What is the key difference between special and general relativity in their treatment of spacetime and gravity?",
-      "ar": "ما الفرق الأساسي بين النسبية الخاصة والعامة في وصف الزمكان والجاذبية؟"
+      "ar": "شو الفرق الأساسي بين النسبية الخاصة والنسبية العامة في وصف الزمكان والجاذبية؟"
     },
     "answer": {
       "en": "Special relativity describes physics in flat spacetime, including accelerated motion. General relativity describes gravity through curved spacetime shaped by mass-energy.",
@@ -863,7 +863,7 @@
     },
     "question": {
       "en": "What is a Grignard reagent and how is it used in organic synthesis?",
-      "ar": "ما كاشف غرينيار وكيف يُستخدم في التركيب العضوي؟"
+      "ar": "شو هو «كاشف غرينيار»، وكيف ينستخدم بالتركيب العضوي؟"
     },
     "answer": {
       "en": "A Grignard reagent is an organomagnesium halide (RMgX) formed by reacting an alkyl or aryl halide with magnesium in dry ether. As a strong nucleophile/base, it attacks carbonyl groups (aldehydes, ketones, esters) to form new C–C bonds, enabling construction of complex alcohols.",
@@ -882,7 +882,7 @@
     },
     "question": {
       "en": "What is apoptosis and how does the intrinsic pathway trigger it?",
-      "ar": "ما موت الخلية المبرمج وكيف يُحرّكه المسار الداخلي؟"
+      "ar": "شو هو «موت الخلية المبرمج»، وكيف يحرّكه المسار الداخلي؟"
     },
     "answer": {
       "en": "Apoptosis is programmed cell death. The intrinsic pathway is triggered by cellular stress (DNA damage, oxidative stress) → pro-apoptotic Bcl-2 proteins (Bax, Bak) overcome anti-apoptotic ones (Bcl-2, Bcl-xL) → cytochrome c released from mitochondria → apoptosome complex → caspase-9 activation → effector caspases (3, 7) → cell dismantled without inflammation.",
@@ -901,7 +901,7 @@
     },
     "question": {
       "en": "What characterizes a Bose–Einstein condensate in a dilute gas cooled to extremely low temperature?",
-      "ar": "ما الخاصية المميزة لمكثف بوز–أينشتاين في غاز مخفف بُرّد إلى حرارة شديدة الانخفاض؟"
+      "ar": "شو الخاصية المميزة لـ«مكثّف بوز–أينشتاين» في غاز مخفّف انبرد لدرجة حرارة منخفضة جدًا؟"
     },
     "answer": {
       "en": "A macroscopic fraction of the bosons occupies the same lowest-energy quantum state. Bosons have integer spin.",
@@ -920,7 +920,7 @@
     },
     "question": {
       "en": "How do the basic mechanisms of SN1 and SN2 substitution differ?",
-      "ar": "كيف تختلف الآليتان الأساسيتان للاستبدال SN1 وSN2؟"
+      "ar": "كيف تختلف آليتين الاستبدال الأساسيتين SN1 وSN2؟"
     },
     "answer": {
       "en": "SN1 forms a carbocation intermediate before nucleophile attack and often gives partial racemization. SN2 is concerted: backside attack and leaving-group departure occur together, with inversion at the reacting stereocenter.",
@@ -939,7 +939,7 @@
     },
     "question": {
       "en": "What distinguishes synthetic biology from merely observing naturally occurring biological systems?",
-      "ar": "ما الذي يميز الأحياء التركيبية عن مجرد رصد الأنظمة الحيوية الموجودة طبيعياً؟"
+      "ar": "شو اللي يميّز «الأحياء التركيبية» عن مجرد مراقبة الأنظمة الحية الموجودة بالطبيعة؟"
     },
     "answer": {
       "en": "It applies engineering principles to design or redesign biological components and systems for specified functions.",

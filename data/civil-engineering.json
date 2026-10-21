@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "What type of bridge is the Golden Gate Bridge?",
-      "ar": "ما نوع جسر البوابة الذهبية؟"
+      "ar": "شو نوع جسر البوابة الذهبية؟"
     },
     "answer": {
       "en": "Suspension Bridge",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "What are the three basic ingredients in concrete?",
-      "ar": "ما المكونات الثلاثة الأساسية للخرسانة؟"
+      "ar": "شو المكوّنات الأساسية الثلاثة للخرسانة؟"
     },
     "answer": {
       "en": "Water, aggregate, and cement",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "What material forms the steel reinforcement that commonly carries tension in reinforced concrete?",
-      "ar": "ما المادة التي تتكون منها قضبان التسليح التي تحمل الشد عادةً في الخرسانة المسلحة؟"
+      "ar": "في الخرسانة المسلحة، من أي مادة تكون عادةً قضبان التسليح اللي تتحمّل الشدّ؟"
     },
     "answer": {
       "en": "Steel.",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "What does the acronym 'CAD' stand for?",
-      "ar": "ماذا تعني اختصار CAD؟"
+      "ar": "شو معنى اختصار CAD؟"
     },
     "answer": {
       "en": "Computer-Aided Design",
@@ -84,7 +84,7 @@
     },
     "question": {
       "en": "What is the main purpose of a dam?",
-      "ar": "ما الغرض الرئيسي من بناء السد؟"
+      "ar": "شو الهدف الأساسي من بناء السد؟"
     },
     "answer": {
       "en": "Water storage or hydroelectric power",
@@ -103,7 +103,7 @@
     },
     "question": {
       "en": "What is the lowest part of a building that transfers its weight to the ground?",
-      "ar": "ما الجزء الأدنى من المبنى الذي ينقل وزنه إلى الأرض؟"
+      "ar": "شو الجزء اللي تحت المبنى وينقل وزنه للأرض؟"
     },
     "answer": {
       "en": "Foundation",
@@ -122,7 +122,7 @@
     },
     "question": {
       "en": "What instrument do surveyors use to measure angles in horizontal and vertical planes?",
-      "ar": "ما الأداة التي يستخدمها المساحون لقياس الزوايا في المستويين الأفقي والعمودي؟"
+      "ar": "شو الأداة اللي يستخدمها المسّاحين عشان يقيسون الزوايا الأفقية والعمودية؟"
     },
     "answer": {
       "en": "Theodolite",
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "Why is an arch a strong shape for a bridge?",
-      "ar": "لماذا يعدّ القوس شكلاً قوياً للجسور؟"
+      "ar": "ليش القوس شكل قوي للجسور؟"
     },
     "answer": {
       "en": "A suitable arch transfers loads mainly through compression toward its supports or abutments, which must resist the outward thrust.",
@@ -160,7 +160,7 @@
     },
     "question": {
       "en": "What is the structure that channels water beneath a road called?",
-      "ar": "ماذا تُسمّى المنشأة التي تمرّر المياه من تحت الطريق؟"
+      "ar": "شو اسم المنشأة اللي تمرّر المي من تحت الطريق؟"
     },
     "answer": {
       "en": "A culvert",
@@ -179,7 +179,7 @@
     },
     "question": {
       "en": "What do you call a machine used to excavate tunnels through soil and rock?",
-      "ar": "ما اسم الآلة المستخدمة لحفر الأنفاق عبر التربة والصخر؟"
+      "ar": "شو اسم الآلة اللي تحفر الأنفاق في التربة والصخر؟"
     },
     "answer": {
       "en": "TBM - Tunnel Boring Machine",
@@ -198,7 +198,7 @@
     },
     "question": {
       "en": "What does Young's Modulus measure in a material?",
-      "ar": "ماذا يقيس معامل يونغ في المادة؟"
+      "ar": "شو اللي يقيسه «معامل يونغ» في المادة؟"
     },
     "answer": {
       "en": "Axial elastic stiffness of a material: the ratio of normal stress to strain in the linear-elastic range.",
@@ -217,7 +217,7 @@
     },
     "question": {
       "en": "What is 'Rebar' short for?",
-      "ar": "ما الاختصار الذي يُشير إليه مصطلح Rebar؟"
+      "ar": "كلمة «Rebar» اختصار لشو؟"
     },
     "answer": {
       "en": "Reinforcing bar",
@@ -236,7 +236,7 @@
     },
     "question": {
       "en": "What is the term for when soil loses strength and behaves like a liquid during an earthquake?",
-      "ar": "ما مصطلح فقدان التربة لمتانتها وتصرفها كسائل أثناء الزلزال؟"
+      "ar": "شو نسمّي لما التربة تفقد صلابتها وتتصرف مثل السائل وقت الزلزال؟"
     },
     "answer": {
       "en": "Liquefaction",
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "What is the pressure of water at rest called?",
-      "ar": "ما اسم ضغط الماء في حالة السكون؟"
+      "ar": "شو اسم ضغط المي لما تكون ساكنة؟"
     },
     "answer": {
       "en": "Hydrostatic pressure",
@@ -274,7 +274,7 @@
     },
     "question": {
       "en": "What do you call a beam supported at only one end?",
-      "ar": "ماذا تُسمّى الكمرة المدعومة من طرف واحد فقط؟"
+      "ar": "شو نسمّي الكمرة اللي مسنودة من طرف واحد بس؟"
     },
     "answer": {
       "en": "Cantilever",
@@ -293,7 +293,7 @@
     },
     "question": {
       "en": "In a structure in equilibrium, what must the sum of all forces equal?",
-      "ar": "في هيكل متوازن، إلى ماذا يجب أن يساوي مجموع جميع القوى؟"
+      "ar": "في هيكل متوازن، مجموع كل القوى لازم يساوي كم؟"
     },
     "answer": {
       "en": "Zero",
@@ -312,7 +312,7 @@
     },
     "question": {
       "en": "What geometric shape is the fundamental building block of a truss?",
-      "ar": "ما الشكل الهندسي الأساسي لبناء الجمالون (الترس)؟"
+      "ar": "شو الشكل الهندسي الأساسي اللي ينبني منه الجمالون؟"
     },
     "answer": {
       "en": "Triangle",
@@ -331,7 +331,7 @@
     },
     "question": {
       "en": "What is the difference between 'Dead Load' and 'Live Load'?",
-      "ar": "ما الفرق بين الحمل الميت والحمل الحي؟"
+      "ar": "شو الفرق بين الحمل الميت والحمل الحي؟"
     },
     "answer": {
       "en": "Dead load is the structure's own weight; live load is people/objects",
@@ -350,7 +350,7 @@
     },
     "question": {
       "en": "What is the term for a fixed point of known elevation used as a reference?",
-      "ar": "ما مصطلح النقطة الثابتة ذات الارتفاع المعروف المستخدمة كمرجع؟"
+      "ar": "شو نسمّي النقطة الثابتة اللي ارتفاعها معروف ونرجع لها كمرجع؟"
     },
     "answer": {
       "en": "Benchmark",
@@ -369,7 +369,7 @@
     },
     "question": {
       "en": "What does 'LOS' stand for in traffic engineering?",
-      "ar": "ماذا يعني اختصار LOS في هندسة المرور؟"
+      "ar": "في هندسة المرور، شو معنى اختصار LOS؟"
     },
     "answer": {
       "en": "Level of Service",
@@ -388,7 +388,7 @@
     },
     "question": {
       "en": "What geometric cross-section property I appears in the flexural rigidity EI of a beam?",
-      "ar": "ما الخاصية الهندسية للمقطع I التي تظهر في جساءة انحناء الكمرة EI؟"
+      "ar": "في المقطع I، أي خاصية هندسية تظهر في جساءة انحناء الكمرة EI؟"
     },
     "answer": {
       "en": "The second moment of area about the bending axis. It describes the distribution of cross-sectional area relative to that axis.",
@@ -407,7 +407,7 @@
     },
     "question": {
       "en": "What is the purpose of 'pre-tensioning' concrete?",
-      "ar": "ما الغرض من الشد المسبق في الخرسانة؟"
+      "ar": "شو الفايدة من الشدّ المسبق في الخرسانة؟"
     },
     "answer": {
       "en": "To introduce compressive stress to counteract tensile stress from loads",
@@ -426,7 +426,7 @@
     },
     "question": {
       "en": "In steady incompressible inviscid flow along a streamline at constant elevation with no pump, how does pressure change when speed increases?",
-      "ar": "في جريان مستقر غير قابل للانضغاط وغير لزج على خط انسياب بارتفاع ثابت ودون مضخة، كيف يتغير الضغط عند ازدياد السرعة؟"
+      "ar": "في جريان مستقر وغير قابل للانضغاط ومن غير لزوجة، على خط انسياب بنفس الارتفاع ومن غير مضخة، شو يصير للضغط لما تزيد السرعة؟"
     },
     "answer": {
       "en": "Pressure decreases, according to Bernoulli's equation.",
@@ -445,7 +445,7 @@
     },
     "question": {
       "en": "What is the typical range for Poisson's Ratio for common construction materials?",
-      "ar": "ما النطاق المعتاد لنسبة بواسون في مواد البناء الشائعة؟"
+      "ar": "كم المدى المعتاد لنسبة بواسون في مواد البناء الشائعة؟"
     },
     "answer": {
       "en": "0.1 to 0.5",
@@ -464,7 +464,7 @@
     },
     "question": {
       "en": "In a smooth region of a beam's bending-moment diagram, what shear force corresponds to a stationary bending moment?",
-      "ar": "في جزء أملس من مخطط عزم انحناء كمرة، ما قيمة قوة القص عند نقطة يكون فيها العزم ساكناً محلياً؟"
+      "ar": "في جزء أملس من مخطط عزم الانحناء للكمرة، كم قوة القص عند نقطة يكون فيها العزم ثابت محليًا (قيمة قصوى أو دنيا)؟"
     },
     "answer": {
       "en": "Zero shear, because V=dM/dx. The stationary moment may be a local maximum or minimum depending on the loading.",
@@ -483,7 +483,7 @@
     },
     "question": {
       "en": "Under a stationary annual flood model, what does a 100-year return period mean?",
-      "ar": "وفق نموذج سنوي ثابت الخصائص للفيضانات، ماذا تعني فترة عودة 100 سنة؟"
+      "ar": "لو افترضنا خصائص الفيضانات ثابتة كل سنة، شو معنى «فترة عودة 100 سنة»؟"
     },
     "answer": {
       "en": "A1% chance of exceeding that flood magnitude in any given year. It does not mean floods occur exactly 100 years apart.",
@@ -502,7 +502,7 @@
     },
     "question": {
       "en": "What is the 'Stiffness Method' also known as?",
-      "ar": "بماذا يُعرف 'طريقة الصلابة' أيضاً؟"
+      "ar": "بأي اسم ثاني تنعرف «طريقة الصلابة»؟"
     },
     "answer": {
       "en": "The Displacement Method",
@@ -521,7 +521,7 @@
     },
     "question": {
       "en": "What are 'Atterberg Limits' used to classify?",
-      "ar": "لتصنيف ماذا تُستخدم حدود أتربرج؟"
+      "ar": "حدود أتربرج نستخدمها عشان نصنّف شو؟"
     },
     "answer": {
       "en": "Fine-grained soils",
@@ -540,7 +540,7 @@
     },
     "question": {
       "en": "For saturated soil under the conventional Terzaghi formulation, how is effective normal stress related to total stress and pore-water pressure?",
-      "ar": "في تربة مشبعة وفق صياغة ترزاغي المعتادة، كيف يرتبط الإجهاد العمودي الفعّال بالإجهاد الكلي وضغط ماء المسام؟"
+      "ar": "في التربة المشبعة حسب صياغة ترزاغي، كيف يرتبط الإجهاد الفعّال بالإجهاد الكلي وضغط مي المسام؟"
     },
     "answer": {
       "en": "σ' = σ - u (total stress minus pore water pressure)",
@@ -559,7 +559,7 @@
     },
     "question": {
       "en": "What is the purpose of a 'roundabout' from a traffic engineering perspective?",
-      "ar": "ما الغرض من الدوار من منظور هندسة المرور؟"
+      "ar": "من ناحية هندسة المرور، شو الهدف من الدوّار؟"
     },
     "answer": {
       "en": "Reduce conflict points and improve traffic flow at intersections",

@@ -1,8 +1,18 @@
 # JAKH Arabic editorial style guide
 
-JAKH uses clear, contemporary Modern Standard Arabic (العربية الفصحى المعاصرة). The goal is wording that a fluent Arabic editor would naturally write, not a literal copy of the English sentence. Meaning, answer alignment, and difficulty must remain identical across both languages.
+Riddle Arabia question cards use **light everyday Arabic** (a friendly "white" Arabic close to how people speak in the Gulf and Levant, still readable across the Arab world). This was an owner decision on 2026-10-21 because the earlier formal wording read as machine-translated. Interface copy (menus, buttons, policies, legal and privacy text) stays in clear contemporary Modern Standard Arabic. In both registers the goal is wording a fluent Arabic speaker would naturally say, not a literal copy of the English sentence. Meaning, answer alignment, and difficulty must remain identical across both languages.
 
-## Voice and grammar
+## Question cards: light everyday Arabic
+
+- Use the everyday question words consistently: `شو` (what), `مين` (who), `وين` (where), `ليش` (why), `كم` (how many/much), `أي` (which), and `اللي` for relative clauses. Prefer `سنة` over `عام` in questions.
+- Keep sentences short and spoken: `شو اسم اللعبة اللي تبني فيها بالمكعبات؟`, not `ما هي لعبة الفيديو الشهيرة التي تتضمن البناء بالكتل؟`.
+- Put titles of shows, books, films and songs in «», and keep established names and the Latin form in parentheses only where it helps.
+- Trick riddles and logic puzzles must keep their exact mechanism (for example «ماتوا كلهم إلا 9»), and multiple-choice options keep their letters and meaning.
+- Write abbreviations without an attached article (`قيمة pH`, not `الـpH`) so read-aloud stays natural.
+- Answers stay short and may remain in Modern Standard Arabic; change an answer only together with its `quickFire` and `acceptedAnswers` copies.
+- Every wording change is recorded in a content-review ledger with before/after card hashes (see `arabic-everyday-2026-10-21.json`).
+
+## Interface copy (Modern Standard Arabic): voice and grammar
 
 - Address the reader directly and simply. Prefer `اختر`، `اكتشف`، `جرّب`، and `أجب` over passive or bureaucratic phrasing.
 - Write a complete question that ends with the Arabic question mark `؟`. Do not use the Latin `?` in Arabic copy.

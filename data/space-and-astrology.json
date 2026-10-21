@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "Which planet is known as the 'Red Planet'?",
-      "ar": "أي كوكب يُعرف بـ'الكوكب الأحمر'؟"
+      "ar": "أي كوكب لقبه «الكوكب الأحمر»؟"
     },
     "answer": {
       "en": "Mars",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "Which planet has the shortest orbital period around the Sun?",
-      "ar": "أي كوكب يملك أقصر مدة مدارية حول الشمس؟"
+      "ar": "أي كوكب ياخذ أقصر وقت عشان يدور حوالين الشمس؟"
     },
     "answer": {
       "en": "Mercury, completing one orbit in about 88 Earth days.",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "What is the name of the star at the center of our solar system?",
-      "ar": "ما اسم النجم في مركز مجموعتنا الشمسية؟"
+      "ar": "شو اسم النجم اللي بنص مجموعتنا الشمسية؟"
     },
     "answer": {
       "en": "The Sun",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "What is the name of the galaxy we live in?",
-      "ar": "ما اسم المجرة التي نعيش فيها؟"
+      "ar": "شو اسم المجرة اللي عايشين فيها؟"
     },
     "answer": {
       "en": "The Milky Way",
@@ -84,7 +84,7 @@
     },
     "question": {
       "en": "How many moons does Earth have?",
-      "ar": "كم قمراً للأرض؟"
+      "ar": "كم قمر عند الأرض؟"
     },
     "answer": {
       "en": "One",
@@ -103,7 +103,7 @@
     },
     "question": {
       "en": "Which planet is most famous for its visible rings?",
-      "ar": "أي كوكب يشتهر بحلقاته المرئية؟"
+      "ar": "أي كوكب مشهور بحلقاته اللي تنشاف؟"
     },
     "answer": {
       "en": "Saturn",
@@ -122,7 +122,7 @@
     },
     "question": {
       "en": "Which force keeps the planets in orbit around the Sun?",
-      "ar": "أي قوة تُبقي الكواكب في مداراتها حول الشمس؟"
+      "ar": "شو القوة اللي تخلّي الكواكب تظل بمداراتها حوالين الشمس؟"
     },
     "answer": {
       "en": "Gravity",
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "Which planet rotates with an axial tilt of about 98°, appearing to spin on its side?",
-      "ar": "أي كوكب يدور بميل محوري يقارب 98 درجة فيبدو كأنه يدور على جانبه؟"
+      "ar": "أي كوكب محوره مايل حوالي 98 درجة، فيبان كأنه يدور على جنبه؟"
     },
     "answer": {
       "en": "Uranus.",
@@ -160,7 +160,7 @@
     },
     "question": {
       "en": "Is Pluto currently classified as a planet or a dwarf planet?",
-      "ar": "هل يُصنَّف بلوتو حالياً كوكباً أم كوكباً قزماً؟"
+      "ar": "بلوتو الحين يعتبر كوكب ولا كوكب قزم؟"
     },
     "answer": {
       "en": "Dwarf planet",
@@ -179,7 +179,7 @@
     },
     "question": {
       "en": "What travels at the universal local speed limit c in a vacuum?",
-      "ar": "ما الذي ينتقل بسرعة الحد الكوني المحلي c في الفراغ؟"
+      "ar": "شو اللي يمشي بسرعة الحد الكوني المحلي c في الفراغ؟"
     },
     "answer": {
       "en": "Light, including all electromagnetic radiation in vacuum.",
@@ -198,7 +198,7 @@
     },
     "question": {
       "en": "What distance does one astronomical unit represent?",
-      "ar": "ما المسافة التي تمثلها الوحدة الفلكية الواحدة؟"
+      "ar": "الوحدة الفلكية الوحدة تساوي أي مسافة؟"
     },
     "answer": {
       "en": "Exactly 149,597,870,700 metres, approximately the average Earth-Sun distance.",
@@ -217,7 +217,7 @@
     },
     "question": {
       "en": "Which planet is the hottest in our solar system due to its thick atmosphere?",
-      "ar": "أي كوكب هو الأشد حرارة في مجموعتنا الشمسية بسبب غلافه الجوي الكثيف؟"
+      "ar": "أي كوكب هو الأسخن بمجموعتنا الشمسية بسبب غلافه الجوي الكثيف؟"
     },
     "answer": {
       "en": "Venus",
@@ -236,7 +236,7 @@
     },
     "question": {
       "en": "Name the four giant outer planets in our solar system.",
-      "ar": "اذكر الكواكب الخارجية العملاقة الأربعة في نظامنا الشمسي."
+      "ar": "اذكر الكواكب العملاقة الأربعة البعيدة بمجموعتنا الشمسية."
     },
     "answer": {
       "en": "Jupiter and Saturn are gas giants; Uranus and Neptune are ice giants.",
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "Which famous comet returns to Earth's vicinity every 75-76 years?",
-      "ar": "أي مذنب شهير يعود إلى مجاورة الأرض كل 75-76 سنة؟"
+      "ar": "أي مذنّب مشهور يرجع قريب من الأرض كل 75-76 سنة؟"
     },
     "answer": {
       "en": "Halley's Comet",
@@ -274,7 +274,7 @@
     },
     "question": {
       "en": "What is the name of the famous space telescope launched in 1990?",
-      "ar": "ما اسم تلسكوب الفضاء الشهير الذي أُطلق عام 1990؟"
+      "ar": "شو اسم تلسكوب الفضاء المشهور اللي انطلق سنة 1990؟"
     },
     "answer": {
       "en": "Hubble Space Telescope",
@@ -293,7 +293,7 @@
     },
     "question": {
       "en": "What is the boundary of a black hole from inside which light cannot escape to distant observers?",
-      "ar": "ما حد الثقب الأسود الذي لا يستطيع الضوء من داخله الإفلات إلى الراصدين البعيدين؟"
+      "ar": "شو اسم حد الثقب الأسود اللي الضوء من جوّاه ما يقدر يفلت للمراقبين البعيدين؟"
     },
     "answer": {
       "en": "Event Horizon",
@@ -312,7 +312,7 @@
     },
     "question": {
       "en": "Name one of the NASA rovers that has explored the surface of Mars.",
-      "ar": "اذكر اسم أحد المركبات الجوالة لناسا التي استكشفت سطح المريخ."
+      "ar": "اذكر اسم مركبة جوّالة من ناسا استكشفت سطح المريخ."
     },
     "answer": {
       "en": "Curiosity, Perseverance, Spirit, or Opportunity",
@@ -331,7 +331,7 @@
     },
     "question": {
       "en": "Which constellation contains the seven-star Big Dipper asterism?",
-      "ar": "أي كوكبة تضم مجموعة النجوم السبعة المعروفة بالمغرفة الكبرى؟"
+      "ar": "أي كوكبة فيها النجوم السبعة المعروفة بـ«المغرفة الكبيرة»؟"
     },
     "answer": {
       "en": "Ursa Major, the Great Bear.",
@@ -350,7 +350,7 @@
     },
     "question": {
       "en": "What is the term for a planet that orbits a star outside our solar system?",
-      "ar": "ما مصطلح الكوكب الذي يدور حول نجم خارج مجموعتنا الشمسية؟"
+      "ar": "شو نسمّي الكوكب اللي يدور حوالين نجم برّا مجموعتنا الشمسية؟"
     },
     "answer": {
       "en": "Exoplanet",
@@ -369,7 +369,7 @@
     },
     "question": {
       "en": "What is a nebula?",
-      "ar": "ما السديم؟"
+      "ar": "شو هو «السديم»؟"
     },
     "answer": {
       "en": "A giant cloud of dust and gas in space",
@@ -388,7 +388,7 @@
     },
     "question": {
       "en": "What is the theoretical point of infinite density at the center of a black hole?",
-      "ar": "ما النقطة النظرية ذات الكثافة اللانهائية في مركز الثقب الأسود؟"
+      "ar": "شو اسم النقطة النظرية اللي كثافتها لا نهائية بنص الثقب الأسود؟"
     },
     "answer": {
       "en": "Singularity",
@@ -407,7 +407,7 @@
     },
     "question": {
       "en": "What equation estimates the number of active communicative civilizations in the galaxy?",
-      "ar": "أي معادلة تُقدِّر عدد الحضارات الفضائية المتواصلة في المجرة؟"
+      "ar": "أي معادلة تحاول تقدّر عدد الحضارات الفضائية اللي ممكن نتواصل معها في المجرة؟"
     },
     "answer": {
       "en": "Drake Equation",
@@ -426,7 +426,7 @@
     },
     "question": {
       "en": "Unlike Hubble, what part of the spectrum does James Webb primarily observe?",
-      "ar": "على عكس هابل، ما جزء الطيف الذي يرصده تلسكوب جيمس ويب بصورة رئيسية؟"
+      "ar": "عكس هابل، أي جزء من الطيف يرصده تلسكوب جيمس ويب بالأساس؟"
     },
     "answer": {
       "en": "Infrared",
@@ -445,7 +445,7 @@
     },
     "question": {
       "en": "What is the name of the region beyond Neptune containing many small icy bodies?",
-      "ar": "ما اسم المنطقة الممتدة خارج نبتون التي تحتوي على أجسام جليدية صغيرة كثيرة؟"
+      "ar": "شو اسم المنطقة اللي بعد نبتون وفيها أجسام جليدية صغيرة كثير؟"
     },
     "answer": {
       "en": "The Kuiper Belt",
@@ -464,7 +464,7 @@
     },
     "question": {
       "en": "Which fusion process supplies most of the Sun's energy?",
-      "ar": "أي عملية اندماج توفر معظم طاقة الشمس؟"
+      "ar": "أي عملية اندماج تعطي أغلب طاقة الشمس؟"
     },
     "answer": {
       "en": "The proton-proton chain, which ultimately converts hydrogen nuclei into helium.",
@@ -483,7 +483,7 @@
     },
     "question": {
       "en": "What name is given to the inferred component associated with the accelerated expansion of the universe?",
-      "ar": "ما اسم المكوّن المستدل عليه والمرتبط بالتمدد المتسارع للكون؟"
+      "ar": "شو اسم المكوّن اللي نستدل عليه ومرتبط بتمدّد الكون المتسارع؟"
     },
     "answer": {
       "en": "Dark Energy",
@@ -502,7 +502,7 @@
     },
     "question": {
       "en": "How many light-years are approximately in one parsec?",
-      "ar": "كم سنة ضوئية تقريباً في فرسخ فلكي واحد (parsec)؟"
+      "ar": "تقريبًا كم سنة ضوئية في «فرسخ فلكي» واحد (parsec)؟"
     },
     "answer": {
       "en": "3.26 light-years",
@@ -521,7 +521,7 @@
     },
     "question": {
       "en": "What is a celestial body's Hill sphere?",
-      "ar": "ما كرة هيل الخاصة بجسم سماوي؟"
+      "ar": "شو هي «كرة هيل» لجسم سماوي؟"
     },
     "answer": {
       "en": "The region around it where its gravity dominates over a larger body's tidal influence enough for satellites to remain bound.",
@@ -540,7 +540,7 @@
     },
     "question": {
       "en": "What is the name of the theoretical cloud of icy objects surrounding the solar system?",
-      "ar": "ما اسم السحابة النظرية من الأجسام الجليدية المحيطة بالمجموعة الشمسية؟"
+      "ar": "شو اسم السحابة النظرية من الأجسام الجليدية اللي محيطة بالمجموعة الشمسية؟"
     },
     "answer": {
       "en": "The Oort Cloud",
@@ -559,7 +559,7 @@
     },
     "question": {
       "en": "What does 'CMB' stand for in cosmology?",
-      "ar": "ماذا تعني CMB في علم الكون؟"
+      "ar": "في علم الكون، شو معنى CMB؟"
     },
     "answer": {
       "en": "Cosmic Microwave Background",
@@ -578,7 +578,7 @@
     },
     "question": {
       "en": "How many planets are in our solar system?",
-      "ar": "كم كوكباً يوجد في نظامنا الشمسي؟"
+      "ar": "كم كوكب في مجموعتنا الشمسية؟"
     },
     "answer": {
       "en": "8",
@@ -597,7 +597,7 @@
     },
     "question": {
       "en": "How long does light from the Sun take to reach Earth?",
-      "ar": "كم يستغرق الضوء من الشمس للوصول إلى الأرض؟"
+      "ar": "كم ياخذ ضوء الشمس عشان يوصل للأرض؟"
     },
     "answer": {
       "en": "About 8 minutes",
@@ -616,7 +616,7 @@
     },
     "question": {
       "en": "On which planet did Voyager 2 observe the Great Dark Spot?",
-      "ar": "على أي كوكب رصدت فوياجر 2 البقعة المظلمة العظمى؟"
+      "ar": "على أي كوكب رصدت «فوياجر 2» البقعة المظلمة العظيمة؟"
     },
     "answer": {
       "en": "Neptune.",
@@ -635,7 +635,7 @@
     },
     "question": {
       "en": "Which planet is home to Olympus Mons, a giant shield volcano?",
-      "ar": "أي كوكب يضم جبل أوليمبوس، وهو بركان درعي عملاق؟"
+      "ar": "أي كوكب فيه جبل أوليمبوس، البركان الدرعي العملاق؟"
     },
     "answer": {
       "en": "Mars.",
@@ -654,7 +654,7 @@
     },
     "question": {
       "en": "Which is the largest planet in our solar system?",
-      "ar": "أي كوكب هو الأكبر في نظامنا الشمسي؟"
+      "ar": "أي كوكب هو الأكبر بمجموعتنا الشمسية؟"
     },
     "answer": {
       "en": "Jupiter",
@@ -673,7 +673,7 @@
     },
     "question": {
       "en": "What is the closest star to Earth (excluding the Sun)?",
-      "ar": "ما أقرب نجم إلى الأرض (باستثناء الشمس)؟"
+      "ar": "شو أقرب نجم للأرض (غير الشمس)؟"
     },
     "answer": {
       "en": "Proxima Centauri",
@@ -692,7 +692,7 @@
     },
     "question": {
       "en": "Which planet's moon Titan has a thick nitrogen-rich atmosphere?",
-      "ar": "أي كوكب يتبعه القمر تيتان ذو الغلاف الجوي الكثيف الغني بالنيتروجين؟"
+      "ar": "القمر «تيتان» اللي غلافه الجوي كثيف ومليان نيتروجين، يدور حوالين أي كوكب؟"
     },
     "answer": {
       "en": "Saturn.",
@@ -711,7 +711,7 @@
     },
     "question": {
       "en": "What was the name of the first artificial satellite launched into space?",
-      "ar": "ما اسم أول قمر صناعي أُطلق في الفضاء؟"
+      "ar": "شو اسم أول قمر صناعي انطلق للفضاء؟"
     },
     "answer": {
       "en": "Sputnik 1 (1957)",
@@ -730,7 +730,7 @@
     },
     "question": {
       "en": "What is a star made of?",
-      "ar": "من ماذا يتكوّن النجم؟"
+      "ar": "من شو يتكوّن النجم؟"
     },
     "answer": {
       "en": "Plasma, primarily hydrogen and helium undergoing nuclear fusion",
@@ -749,7 +749,7 @@
     },
     "question": {
       "en": "Which planet is closest to the Sun?",
-      "ar": "أي كوكب أقرب إلى الشمس؟"
+      "ar": "أي كوكب أقرب للشمس؟"
     },
     "answer": {
       "en": "Mercury",
@@ -768,7 +768,7 @@
     },
     "question": {
       "en": "What is a galaxy?",
-      "ar": "ما المجرة؟"
+      "ar": "شو هي «المجرة»؟"
     },
     "answer": {
       "en": "A gravitationally bound system of stars, gas, dust, and usually dark matter. Galaxies vary enormously in size and star count.",
@@ -787,7 +787,7 @@
     },
     "question": {
       "en": "What are the rings of Saturn made of?",
-      "ar": "مِمَّ تتكوّن حلقات زحل؟"
+      "ar": "من شو تتكوّن حلقات زحل؟"
     },
     "answer": {
       "en": "Mostly ice and rock particles",
@@ -806,7 +806,7 @@
     },
     "question": {
       "en": "How long does it take the Moon to orbit the Earth?",
-      "ar": "كم يستغرق القمر للدوران حول الأرض؟"
+      "ar": "كم ياخذ القمر عشان يدور حوالين الأرض؟"
     },
     "answer": {
       "en": "About 27.3 days",
@@ -825,7 +825,7 @@
     },
     "question": {
       "en": "What is the Big Bang theory?",
-      "ar": "ما نظرية الانفجار الكبير؟"
+      "ar": "شو هي نظرية «الانفجار العظيم»؟"
     },
     "answer": {
       "en": "The prevailing theory that the universe originated from an extremely hot, dense state about 13.8 billion years ago",
@@ -844,7 +844,7 @@
     },
     "question": {
       "en": "What is the Milky Way?",
-      "ar": "ما درب التبانة؟"
+      "ar": "شو هي «درب التبانة»؟"
     },
     "answer": {
       "en": "The galaxy that contains our solar system — a barred spiral galaxy with 200–400 billion stars",
@@ -863,7 +863,7 @@
     },
     "question": {
       "en": "What is the asteroid belt and where is it located?",
-      "ar": "ما حزام الكويكبات وأين يقع؟"
+      "ar": "شو هو «حزام الكويكبات»، ووين موجود؟"
     },
     "answer": {
       "en": "A region between Mars and Jupiter containing millions of rocky bodies",
@@ -882,7 +882,7 @@
     },
     "question": {
       "en": "What is a neutron star?",
-      "ar": "ما النجم النيوتروني؟"
+      "ar": "شو هو «النجم النيوتروني»؟"
     },
     "answer": {
       "en": "The dense remnant of a massive star after a supernova, composed almost entirely of neutrons",
@@ -901,7 +901,7 @@
     },
     "question": {
       "en": "What is dark matter?",
-      "ar": "ما المادة المظلمة؟"
+      "ar": "شو هي «المادة المظلمة»؟"
     },
     "answer": {
       "en": "Matter inferred mainly from its gravitational effects that does not emit or absorb detectable light. Its gravity can still bend the paths of light.",
@@ -920,7 +920,7 @@
     },
     "question": {
       "en": "What is the International Space Station (ISS)?",
-      "ar": "ما محطة الفضاء الدولية (ISS)؟"
+      "ar": "شو هي محطة الفضاء الدولية (ISS)؟"
     },
     "answer": {
       "en": "A habitable space station in low Earth orbit, a collaborative project between NASA, Roscosmos, ESA, JAXA, and CSA",
@@ -939,7 +939,7 @@
     },
     "question": {
       "en": "What is a supernova?",
-      "ar": "ما المستعر الأعظم (السوبرنوفا)؟"
+      "ar": "شو هو «المستعر الأعظم» (السوبرنوفا)؟"
     },
     "answer": {
       "en": "A powerful stellar explosion, arising either from the collapse of a massive star's core or a thermonuclear explosion involving a white dwarf.",
@@ -958,7 +958,7 @@
     },
     "question": {
       "en": "Why was Pluto reclassified as a dwarf planet?",
-      "ar": "لماذا أُعيد تصنيف بلوتو كوكباً قزماً؟"
+      "ar": "ليش صار بلوتو «كوكب قزم» بعد ما كان كوكب؟"
     },
     "answer": {
       "en": "It has not cleared its orbital neighbourhood of other debris — one of the three criteria for being a planet (IAU 2006)",
@@ -977,7 +977,7 @@
     },
     "question": {
       "en": "What is a light-year?",
-      "ar": "ما السنة الضوئية؟"
+      "ar": "شو هي «السنة الضوئية»؟"
     },
     "answer": {
       "en": "The distance light travels in one year — about 9.46 trillion kilometres",
@@ -996,7 +996,7 @@
     },
     "question": {
       "en": "What was the Apollo 13 mission?",
-      "ar": "ما مهمة أبولو 13؟"
+      "ar": "شو كانت مهمة «أبولو 13»؟"
     },
     "answer": {
       "en": "A 1970 Moon mission that was aborted after an oxygen tank exploded — crew returned safely using the lunar module as a lifeboat",
@@ -1015,7 +1015,7 @@
     },
     "question": {
       "en": "What is the Hertzsprung-Russell diagram?",
-      "ar": "ما مخطط هيرتسبرونغ-راسل؟"
+      "ar": "شو هو «مخطط هيرتزبرونغ-راسل»؟"
     },
     "answer": {
       "en": "A scatter plot of stars showing their luminosity versus temperature, used to classify stars and track their evolution",
@@ -1034,7 +1034,7 @@
     },
     "question": {
       "en": "What is the cosmic microwave background (CMB)?",
-      "ar": "ما إشعاع الخلفية الكونية الميكروي (CMB)؟"
+      "ar": "شو هو «إشعاع الخلفية الكونية الميكروي» (CMB)؟"
     },
     "answer": {
       "en": "Relic thermal radiation from the early universe, now nearly uniform across the sky but containing small, measurable variations.",
@@ -1053,7 +1053,7 @@
     },
     "question": {
       "en": "What is the Kuiper Belt?",
-      "ar": "ما حزام كايبر؟"
+      "ar": "شو هو «حزام كايبر»؟"
     },
     "answer": {
       "en": "A region beyond Neptune filled with icy bodies including Pluto, comets, and other dwarf planets",
@@ -1072,7 +1072,7 @@
     },
     "question": {
       "en": "What is nuclear fusion?",
-      "ar": "ما الاندماج النووي؟"
+      "ar": "شو هو «الاندماج النووي»؟"
     },
     "answer": {
       "en": "The process by which light atomic nuclei combine to form heavier nuclei, releasing enormous energy — how stars generate power",
@@ -1091,7 +1091,7 @@
     },
     "question": {
       "en": "What is the Hubble Space Telescope?",
-      "ar": "ما تلسكوب هابل الفضائي؟"
+      "ar": "شو هو «تلسكوب هابل الفضائي»؟"
     },
     "answer": {
       "en": "A space telescope launched in 1990 providing unprecedented optical images of the universe",
@@ -1110,7 +1110,7 @@
     },
     "question": {
       "en": "What is the observable universe's estimated diameter?",
-      "ar": "ما القطر التقديري للكون المرئي؟"
+      "ar": "تقريبًا كم قطر الكون اللي نقدر نرصده؟"
     },
     "answer": {
       "en": "About 93 billion light-years",
@@ -1129,7 +1129,7 @@
     },
     "question": {
       "en": "What causes the seasons on Earth?",
-      "ar": "ما الذي يسبّب الفصول على الأرض؟"
+      "ar": "شو اللي يسبب الفصول على الأرض؟"
     },
     "answer": {
       "en": "Earth's axis is tilted about 23.5° from the perpendicular to its orbital plane. This changes sunlight angle and day length through the year.",
@@ -1148,7 +1148,7 @@
     },
     "question": {
       "en": "What is the event horizon of a black hole?",
-      "ar": "ما أفق الحدث للثقب الأسود؟"
+      "ar": "شو هو «أفق الحدث» للثقب الأسود؟"
     },
     "answer": {
       "en": "The boundary around a black hole beyond which nothing — including light — can escape its gravitational pull",
@@ -1167,7 +1167,7 @@
     },
     "question": {
       "en": "What is the Chandrasekhar limit?",
-      "ar": "ما حدّ شاندراسيخار؟"
+      "ar": "شو هو «حد شاندراسيخار»؟"
     },
     "answer": {
       "en": "The maximum mass (~1.4 solar masses) a white dwarf star can have before collapsing — key to understanding Type Ia supernovae",
@@ -1186,7 +1186,7 @@
     },
     "question": {
       "en": "What is gravitational lensing?",
-      "ar": "ما العدسة الجاذبية؟"
+      "ar": "شو هي «عدسة الجاذبية»؟"
     },
     "answer": {
       "en": "The bending of light from distant objects around massive bodies, predicted by General Relativity",
@@ -1205,7 +1205,7 @@
     },
     "question": {
       "en": "What is the Voyager 1 spacecraft notable for?",
-      "ar": "بماذا تتميّز مركبة فوياجر 1؟"
+      "ar": "بشو تتميّز مركبة «فوياجر 1»؟"
     },
     "answer": {
       "en": "It is the most distant human-made object — launched in 1977, it entered interstellar space in 2012",
@@ -1224,7 +1224,7 @@
     },
     "question": {
       "en": "What is a pulsar?",
-      "ar": "ما النجم النابض؟"
+      "ar": "شو هو «النجم النابض»؟"
     },
     "answer": {
       "en": "A rapidly rotating neutron star emitting beams of electromagnetic radiation, detected as regular pulses",
@@ -1243,7 +1243,7 @@
     },
     "question": {
       "en": "What is Hubble's Law?",
-      "ar": "ما قانون هابل؟"
+      "ar": "شو هو «قانون هابل»؟"
     },
     "answer": {
       "en": "On large scales, galaxies' recession speeds are approximately proportional to their distances: v=H₀d. Nearby galaxies can deviate because of local gravitational motion.",
@@ -1262,7 +1262,7 @@
     },
     "question": {
       "en": "What is Roche limit?",
-      "ar": "ما حدّ روش؟"
+      "ar": "شو هو «حد روش»؟"
     },
     "answer": {
       "en": "The minimum distance at which a celestial body, held together by its own gravity, can orbit a larger body without being torn apart by tidal forces",
@@ -1281,7 +1281,7 @@
     },
     "question": {
       "en": "What is Hawking radiation?",
-      "ar": "ما إشعاع هوكينغ؟"
+      "ar": "شو هو «إشعاع هوكينغ»؟"
     },
     "answer": {
       "en": "Theoretical thermal radiation emitted by black holes due to quantum effects near the event horizon, causing them to slowly evaporate",
@@ -1300,7 +1300,7 @@
     },
     "question": {
       "en": "What is the CNO cycle?",
-      "ar": "ما دورة CNO؟"
+      "ar": "شو هي «دورة CNO»؟"
     },
     "answer": {
       "en": "A catalytic nuclear fusion cycle in massive stars where carbon, nitrogen, and oxygen act as catalysts to fuse hydrogen into helium",
@@ -1319,7 +1319,7 @@
     },
     "question": {
       "en": "What are quasars?",
-      "ar": "ما الكوازارات؟"
+      "ar": "شو هي «الكوازارات»؟"
     },
     "answer": {
       "en": "Extremely luminous active galactic nuclei powered by supermassive black holes accreting matter",
@@ -1338,7 +1338,7 @@
     },
     "question": {
       "en": "What is the James Webb Space Telescope designed to observe?",
-      "ar": "ما الذي صُمّم تلسكوب جيمس ويب الفضائي لرصده؟"
+      "ar": "شو اللي انصمم تلسكوب جيمس ويب الفضائي عشان يرصده؟"
     },
     "answer": {
       "en": "The first galaxies, exoplanet atmospheres, and stars forming in dust clouds using infrared wavelengths",
@@ -1357,7 +1357,7 @@
     },
     "question": {
       "en": "How do meteoroid, meteor, and meteorite differ?",
-      "ar": "ما الفرق بين الجسيم النيزكي والشهاب والحجر النيزكي؟"
+      "ar": "شو الفرق بين «النيزك الصغير» و«الشهاب» و«الحجر النيزكي»؟"
     },
     "answer": {
       "en": "A meteoroid is a small space body; a meteor is the luminous phenomenon during atmospheric entry; a meteorite is material that survives to reach the ground.",
@@ -1376,7 +1376,7 @@
     },
     "question": {
       "en": "What is the weak anthropic principle?",
-      "ar": "ما المبدأ الإنساني الضعيف؟"
+      "ar": "شو هو «المبدأ الإنساني الضعيف»؟"
     },
     "answer": {
       "en": "Our observations are conditioned by the requirement that observers can exist at the place and time of observation.",
@@ -1395,7 +1395,7 @@
     },
     "question": {
       "en": "What is a magnetar?",
-      "ar": "ما النجم المغناطيسي؟"
+      "ar": "شو هو «النجم المغناطيسي»؟"
     },
     "answer": {
       "en": "A type of neutron star with an extremely powerful magnetic field — the strongest known magnets in the universe",
@@ -1414,7 +1414,7 @@
     },
     "question": {
       "en": "Why does a spacecraft near the Sun–Earth L2 point need occasional stationkeeping maneuvers?",
-      "ar": "لماذا تحتاج مركبة قرب نقطة L2 في نظام الشمس والأرض إلى مناورات دورية للمحافظة على موقعها؟"
+      "ar": "ليش المركبة اللي قريبة من نقطة L2 بنظام الشمس والأرض تحتاج تعديلات بين فترة وفترة عشان تحافظ على مكانها؟"
     },
     "answer": {
       "en": "L2 is an unstable equilibrium in the rotating frame, so small deviations can grow. Thruster corrections keep the spacecraft near its intended orbit.",
@@ -1433,7 +1433,7 @@
     },
     "question": {
       "en": "What is the information paradox of black holes?",
-      "ar": "ما مفارقة المعلومات في الثقوب السوداء؟"
+      "ar": "شو هي «مفارقة المعلومات» في الثقوب السوداء؟"
     },
     "answer": {
       "en": "The conflict between quantum mechanics (information cannot be destroyed) and black hole physics (Hawking radiation appears to destroy information)",
@@ -1452,7 +1452,7 @@
     },
     "question": {
       "en": "What is inflationary cosmology?",
-      "ar": "ما الكوزمولوجيا التضخّمية؟"
+      "ar": "شو هو «علم الكون التضخّمي»؟"
     },
     "answer": {
       "en": "The theory that the universe underwent exponential expansion in the first fraction of a second after the Big Bang, explaining the flatness and horizon problems",
@@ -1471,7 +1471,7 @@
     },
     "question": {
       "en": "What is the Tolman-Oppenheimer-Volkoff (TOV) limit?",
-      "ar": "ما حدّ تولمان-أوبنهايمر-فولكوف (TOV)؟"
+      "ar": "شو هو «حد تولمان-أوبنهايمر-فولكوف» (TOV)؟"
     },
     "answer": {
       "en": "The maximum mass of a cold, non-rotating neutron star (about 2–3 solar masses) beyond which it collapses into a black hole",
@@ -1490,7 +1490,7 @@
     },
     "question": {
       "en": "What is the holographic principle?",
-      "ar": "ما مبدأ الهولوغرافيك؟"
+      "ar": "شو هو «المبدأ الهولوغرافي»؟"
     },
     "answer": {
       "en": "The idea that all information within a volume of space can be described by information on its boundary surface — inspired by black hole thermodynamics",
@@ -1509,7 +1509,7 @@
     },
     "question": {
       "en": "What is the Parker Solar Probe mission?",
-      "ar": "ما مهمة المسبار الشمسي باركر؟"
+      "ar": "شو مهمة «مسبار باركر الشمسي»؟"
     },
     "answer": {
       "en": "A NASA spacecraft launched in 2018 to study the Sun's corona and solar wind by flying closer to the Sun than any previous spacecraft",
@@ -1528,7 +1528,7 @@
     },
     "question": {
       "en": "What is the Penrose process?",
-      "ar": "ما عملية بنروز؟"
+      "ar": "شو هي «عملية بنروز»؟"
     },
     "answer": {
       "en": "A theoretical mechanism to extract rotational energy from a Kerr (rotating) black hole using the ergosphere region",
@@ -1547,7 +1547,7 @@
     },
     "question": {
       "en": "What are Population I, II, and III stars?",
-      "ar": "ما نجوم السكان I وII وIII؟"
+      "ar": "شو هي نجوم «الجمهرة» I وII وIII؟"
     },
     "answer": {
       "en": "Pop III: first metal-free stars; Pop II: old, metal-poor stars in galactic halos; Pop I: young, metal-rich stars like our Sun",
@@ -1566,7 +1566,7 @@
     },
     "question": {
       "en": "What is the cosmological constant (Λ)?",
-      "ar": "ما الثابت الكوني (Λ)؟"
+      "ar": "شو هو «الثابت الكوني» (Λ)؟"
     },
     "answer": {
       "en": "A term in Einstein's field equations representing the energy density of empty space — reintroduced to explain the accelerating expansion of the universe",
@@ -1585,7 +1585,7 @@
     },
     "question": {
       "en": "What is the Drake Equation?",
-      "ar": "ما معادلة درايك؟"
+      "ar": "شو هي «معادلة دريك»؟"
     },
     "answer": {
       "en": "A probabilistic formula estimating the number of active, communicating civilisations in the Milky Way using factors like star formation rate, habitable planets, and life emergence probability",
@@ -1604,7 +1604,7 @@
     },
     "question": {
       "en": "What are gravitational waves and who first detected them?",
-      "ar": "ما موجات الجاذبية ومن اكتشفها أوّلاً؟"
+      "ar": "شو هي «موجات الجاذبية»، ومين أول من اكتشفها؟"
     },
     "answer": {
       "en": "Ripples in spacetime caused by accelerating massive objects — first directly detected by LIGO in 2015 from two merging black holes",
@@ -1623,7 +1623,7 @@
     },
     "question": {
       "en": "What is the s-process vs r-process in stellar nucleosynthesis?",
-      "ar": "ما الفرق بين العملية s والعملية r في التوليف النووي النجمي؟"
+      "ar": "في تكوين العناصر داخل النجوم، شو الفرق بين «العملية s» و«العملية r»؟"
     },
     "answer": {
       "en": "s-process (slow): neutron capture over long periods in AGB stars; r-process (rapid): fast neutron capture in supernovae or neutron star mergers — creates heavy elements",
@@ -1642,7 +1642,7 @@
     },
     "question": {
       "en": "What is the Fermi Paradox?",
-      "ar": "ما مفارقة فيرمي؟"
+      "ar": "شو هي «مفارقة فيرمي»؟"
     },
     "answer": {
       "en": "The apparent tension between expectations that technological civilizations might be common and the lack of confirmed evidence of them. Their actual probability is not established.",
@@ -1661,7 +1661,7 @@
     },
     "question": {
       "en": "What is spaghettification near a black hole?",
-      "ar": "ما الاستطالة الشبيهة بالمعكرونة قرب الثقب الأسود؟"
+      "ar": "شو هو التمدّد اللي يشبه المعكرونة قرب الثقب الأسود؟"
     },
     "answer": {
       "en": "Extreme tidal forces stretch an object along one direction and compress it sideways, producing a long, thin shape.",
@@ -1680,7 +1680,7 @@
     },
     "question": {
       "en": "What is the concept of stellar evolution and the main sequence?",
-      "ar": "ما مفهوم التطور النجمي والتسلسل الرئيسي؟"
+      "ar": "شو فكرة «التطور النجمي» و«التسلسل الرئيسي»؟"
     },
     "answer": {
       "en": "Stars spend most of their lives on the main sequence fusing hydrogen in their cores; mass determines lifespan and end state (white dwarf, neutron star, or black hole)",
@@ -1699,7 +1699,7 @@
     },
     "question": {
       "en": "What is the multiverse hypothesis?",
-      "ar": "ما فرضية الكون المتعدد؟"
+      "ar": "شو هي فرضية «الأكوان المتعددة»؟"
     },
     "answer": {
       "en": "The theoretical proposition that multiple universes exist beyond our observable universe, each potentially with different physical laws",
@@ -1718,7 +1718,7 @@
     },
     "question": {
       "en": "What is the Artemis programme?",
-      "ar": "ما برنامج أرتيميس؟"
+      "ar": "شو هو برنامج «أرتميس»؟"
     },
     "answer": {
       "en": "NASA's programme to return humans to the Moon and establish a sustainable presence, as a stepping stone to Mars",
@@ -1737,7 +1737,7 @@
     },
     "question": {
       "en": "In the standard classical description, which three quantities characterize a stationary isolated black hole?",
-      "ar": "في الوصف الكلاسيكي القياسي، ما الكميات الثلاث التي تميز ثقباً أسود معزولاً ومستقراً زمنياً؟"
+      "ar": "في الوصف الكلاسيكي المعتاد، شو الثلاث كميات اللي تميّز ثقب أسود معزول وثابت مع الزمن؟"
     },
     "answer": {
       "en": "Mass, electric charge, and angular momentum.",
@@ -1756,7 +1756,7 @@
     },
     "question": {
       "en": "What are Cepheid variables and why are they important?",
-      "ar": "ما النجوم القيفاوية المتغيّرة ولماذا تكون مهمة؟"
+      "ar": "شو هي «النجوم القيفاوية المتغيّرة»، وليش مهمة؟"
     },
     "answer": {
       "en": "Stars with pulsating luminosity in a period-luminosity relationship, used as 'standard candles' to measure cosmic distances",
@@ -1775,7 +1775,7 @@
     },
     "question": {
       "en": "What is the Sunyaev-Zel'dovich effect?",
-      "ar": "ما تأثير سونياييف-زيلدوفيتش؟"
+      "ar": "شو هو «تأثير سونيايف-زيلدوفيتش»؟"
     },
     "answer": {
       "en": "The distortion of the cosmic microwave background radiation by inverse Compton scattering of photons off electrons in galaxy clusters",
@@ -1794,7 +1794,7 @@
     },
     "question": {
       "en": "What is the Tsiolkovsky rocket equation?",
-      "ar": "ما معادلة تسيولكوفسكي للصاروخ؟"
+      "ar": "شو هي «معادلة تسيولكوفسكي للصاروخ»؟"
     },
     "answer": {
       "en": "Δv = ve × ln(m₀/mf) — relates rocket velocity change to exhaust velocity and mass ratio, fundamental to all space travel",
@@ -1813,7 +1813,7 @@
     },
     "question": {
       "en": "Which black hole's shadow appeared in the Event Horizon Telescope image released in 2019?",
-      "ar": "ظل أي ثقب أسود ظهر في صورة تلسكوب أفق الحدث التي نُشرت عام 2019؟"
+      "ar": "ظل أي ثقب أسود ظهر بصورة «تلسكوب أفق الحدث» اللي انتشرت سنة 2019؟"
     },
     "answer": {
       "en": "M87*, at the center of galaxyM 87. The image used observations from 2017 and shows surrounding emission and the central shadow.",
@@ -1832,7 +1832,7 @@
     },
     "question": {
       "en": "What is the Big Rip hypothesis?",
-      "ar": "ما فرضية التمزّق الكبير؟"
+      "ar": "شو هي فرضية «التمزّق الكبير»؟"
     },
     "answer": {
       "en": "A cosmological model where dark energy causes the universe's expansion to accelerate until it tears apart all matter, from galaxy clusters down to atoms",
@@ -1851,7 +1851,7 @@
     },
     "question": {
       "en": "What is the Kelvin-Helmholtz mechanism?",
-      "ar": "ما آلية كلفن-هلمهولتز؟"
+      "ar": "شو هي «آلية كلفن-هيلمهولتز»؟"
     },
     "answer": {
       "en": "The gravitational contraction of a gas cloud releasing energy as heat and light — the original proposed power source of the Sun before nuclear fusion was understood",
@@ -1870,7 +1870,7 @@
     },
     "question": {
       "en": "What is baryon acoustic oscillation (BAO)?",
-      "ar": "ما التذبذبات الصوتية للباريون (BAO)؟"
+      "ar": "شو هي «التذبذبات الصوتية الباريونية» (BAO)؟"
     },
     "answer": {
       "en": "Imprinted patterns in the distribution of matter in the universe from sound waves in the early universe — used as a 'standard ruler' to measure cosmic distances",
@@ -1889,7 +1889,7 @@
     },
     "question": {
       "en": "What is the Cosmic Microwave Background (CMB) temperature?",
-      "ar": "ما درجة حرارة إشعاع الخلفية الكونية الميكروي (CMB)؟"
+      "ar": "كم درجة حرارة «إشعاع الخلفية الكونية الميكروي» (CMB)؟"
     },
     "answer": {
       "en": "About 2.725 Kelvin (−270.4°C) — the remnant temperature from the Big Bang, nearly uniform across the sky",

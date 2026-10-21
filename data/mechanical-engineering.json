@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "What is the name of the support point about which a lever turns?",
-      "ar": "ما اسم نقطة الدعم التي تدور الرافعة حولها؟"
+      "ar": "شو اسم نقطة الارتكاز اللي تدور حولها الرافعة؟"
     },
     "answer": {
       "en": "The Fulcrum",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "What is the SI unit for force?",
-      "ar": "ما وحدة القياس الدولية للقوة؟"
+      "ar": "شو وحدة القوة في النظام الدولي؟"
     },
     "answer": {
       "en": "Newton (N)",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "A ramp is an example of which simple machine?",
-      "ar": "الرامب (المنحدر) مثال على أي آلة بسيطة؟"
+      "ar": "المنحدر (الرامب) مثال على أي آلة بسيطة؟"
     },
     "answer": {
       "en": "Inclined plane",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "If a large gear drives a smaller gear, does the smaller gear spin faster or slower?",
-      "ar": "إذا قادت تروس كبيرة تروساً أصغر، هل تدور الأصغر بسرعة أكبر أم أقل؟"
+      "ar": "إذا ترس كبير دوّر ترس أصغر منه، الصغير بيدور أسرع ولا أبطأ؟"
     },
     "answer": {
       "en": "Faster",
@@ -84,7 +84,7 @@
     },
     "question": {
       "en": "Which tool is specifically designed to tighten or loosen bolts?",
-      "ar": "ما الأداة المصممة خصيصاً لشدّ البراغي أو إرخائها؟"
+      "ar": "شو الأداة المصمّمة بالذات لشدّ البراغي أو فكّها؟"
     },
     "answer": {
       "en": "Wrench / Spanner",
@@ -103,7 +103,7 @@
     },
     "question": {
       "en": "What type of energy does an object possess due to its motion?",
-      "ar": "ما نوع الطاقة التي يمتلكها الجسم بسبب حركته؟"
+      "ar": "شو نوع الطاقة اللي عند الجسم بسبب حركته؟"
     },
     "answer": {
       "en": "Kinetic energy",
@@ -122,7 +122,7 @@
     },
     "question": {
       "en": "Is steel an alloy or a pure element?",
-      "ar": "هل الفولاذ سبيكة أم عنصر خالص؟"
+      "ar": "الفولاذ سبيكة ولا عنصر نقي؟"
     },
     "answer": {
       "en": "Alloy (iron and carbon)",
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "What tool measures the thickness of an object with high precision?",
-      "ar": "ما الأداة التي تقيس سماكة الجسم بدقة عالية؟"
+      "ar": "شو الأداة اللي تقيس سماكة الشي بدقة عالية؟"
     },
     "answer": {
       "en": "Caliper or Micrometer",
@@ -160,7 +160,7 @@
     },
     "question": {
       "en": "What substance is added to machines to reduce friction between moving parts?",
-      "ar": "ما المادة التي تُضاف للآلات لتقليل الاحتكاك بين الأجزاء المتحركة؟"
+      "ar": "شو المادة اللي نحطها بالآلات عشان نقلّل الاحتكاك بين القطع المتحركة؟"
     },
     "answer": {
       "en": "Lubricant / Oil",
@@ -179,7 +179,7 @@
     },
     "question": {
       "en": "What is the formula for pressure?",
-      "ar": "ما صيغة حساب الضغط؟"
+      "ar": "كيف نحسب الضغط؟"
     },
     "answer": {
       "en": "P = Force / Area",
@@ -198,7 +198,7 @@
     },
     "question": {
       "en": "Which ideal thermodynamic cycle models a spark-ignition gasoline engine?",
-      "ar": "ما الدورة الديناميكية الحرارية المثالية التي تمثل محرك بنزين يعمل بالإشعال بالشرارة؟"
+      "ar": "شو الدورة الحرارية المثالية اللي تمثّل محرك البنزين اللي يشتغل بالشرارة؟"
     },
     "answer": {
       "en": "The Otto Cycle",
@@ -217,7 +217,7 @@
     },
     "question": {
       "en": "What is the ratio of change in length to the original length of a material?",
-      "ar": "ما نسبة التغير في الطول إلى الطول الأصلي للمادة؟"
+      "ar": "شو نسمّي نسبة التغيّر في الطول للطول الأصلي في المادة؟"
     },
     "answer": {
       "en": "Strain",
@@ -236,7 +236,7 @@
     },
     "question": {
       "en": "What does the First Law of Thermodynamics state about energy?",
-      "ar": "ماذا ينص القانون الأول للديناميكا الحرارية بشأن الطاقة؟"
+      "ar": "شو يقول القانون الأول للديناميكا الحرارية عن الطاقة؟"
     },
     "answer": {
       "en": "Energy cannot be created or destroyed, only transformed",
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "A20-tooth driving gear meshes with a 60-tooth driven gear. What is the driving-speed to driven-speed ratio?",
-      "ar": "يتعشق ترس قائد ذو 20 سناً مع ترس مقاد ذي 60 سناً. ما نسبة سرعة القائد إلى سرعة المقاد؟"
+      "ar": "ترس قائد فيه 20 سن معشّق مع ترس مقاد فيه 60 سن. كم نسبة سرعة القائد لسرعة المقاد؟"
     },
     "answer": {
       "en": "3:1. The driven gear rotates at one-third the driving gear's speed.",
@@ -274,7 +274,7 @@
     },
     "question": {
       "en": "Pascal's Law states that pressure applied to a confined fluid is transmitted how?",
-      "ar": "ينص قانون باسكال على أن الضغط المُطبَّق على سائل محصور ينتقل كيف؟"
+      "ar": "حسب قانون باسكال، كيف ينتقل الضغط اللي ننطبّقه على سائل محصور؟"
     },
     "answer": {
       "en": "Undiminished in all directions",
@@ -293,7 +293,7 @@
     },
     "question": {
       "en": "What is the term for a material's ability to be stretched into a wire without breaking?",
-      "ar": "ما المصطلح الذي يصف قدرة المادة على السحب إلى سلك دون كسر؟"
+      "ar": "شو نسمّي قدرة المادة إنها تنسحب لسلك من غير ما تنكسر؟"
     },
     "answer": {
       "en": "Ductility",
@@ -312,7 +312,7 @@
     },
     "question": {
       "en": "What is the magnitude of torque produced by force F acting at radius r and angleθ to the radius vector?",
-      "ar": "ما مقدار عزم القوة F المؤثرة عند نصف قطر r وبزاويةθ مع متجه نصف القطر؟"
+      "ar": "كم عزم القوة F اللي تأثر على بعد r وبزاوية θ مع متجه نصف القطر؟"
     },
     "answer": {
       "en": "τ=rF sinθ. Equivalently, force multiplied by the perpendicular moment arm.",
@@ -331,7 +331,7 @@
     },
     "question": {
       "en": "What are the three modes of heat transfer?",
-      "ar": "ما الأوضاع الثلاثة لانتقال الحرارة؟"
+      "ar": "شو الطرق الثلاث لانتقال الحرارة؟"
     },
     "answer": {
       "en": "Conduction, Convection, Radiation",
@@ -350,7 +350,7 @@
     },
     "question": {
       "en": "What is the mechanical device used to regulate the speed of a machine?",
-      "ar": "ما الجهاز الميكانيكي المستخدم لتنظيم سرعة الآلة؟"
+      "ar": "شو الجهاز الميكانيكي اللي ينظّم سرعة الآلة؟"
     },
     "answer": {
       "en": "Governor",
@@ -369,7 +369,7 @@
     },
     "question": {
       "en": "What is the term for weakening of a material caused by repeatedly applied loads?",
-      "ar": "ما مصطلح ضعف المادة الناتج عن الأحمال المتكررة؟"
+      "ar": "شو نسمّي ضعف المادة اللي يصير بسبب الأحمال المتكررة؟"
     },
     "answer": {
       "en": "Fatigue",
@@ -388,7 +388,7 @@
     },
     "question": {
       "en": "What dimensionless number predicts if a fluid flow is laminar or turbulent?",
-      "ar": "ما الرقم عديم الأبعاد الذي يتنبأ بما إذا كان التدفق طبقياً أم مضطرباً؟"
+      "ar": "شو الرقم اللي بدون وحدة ويتنبأ إذا الجريان طبقي ولا مضطرب؟"
     },
     "answer": {
       "en": "Reynolds Number",
@@ -407,7 +407,7 @@
     },
     "question": {
       "en": "What is the theoretical maximum efficiency of a heat engine called?",
-      "ar": "ما الاسم المعطى لأقصى كفاءة نظرية لمحرك حراري؟"
+      "ar": "شو اسم أقصى كفاءة نظرية للمحرك الحراري؟"
     },
     "answer": {
       "en": "Carnot Efficiency",
@@ -426,7 +426,7 @@
     },
     "question": {
       "en": "What is the ratio of shear stress to shear strain?",
-      "ar": "ما نسبة إجهاد القص إلى انفعال القص؟"
+      "ar": "شو نسمّي نسبة إجهاد القص لانفعال القص؟"
     },
     "answer": {
       "en": "Shear Modulus (Modulus of Rigidity)",
@@ -445,7 +445,7 @@
     },
     "question": {
       "en": "What is a four-bar linkage?",
-      "ar": "ما آلية الوصلات الأربع؟"
+      "ar": "شو هي آلية الوصلات الأربع؟"
     },
     "answer": {
       "en": "Four rigid links connected in a closed loop by four joints, usually with one link fixed as the frame.",
@@ -464,7 +464,7 @@
     },
     "question": {
       "en": "What chart is used to study the properties of moist air?",
-      "ar": "ما الرسم البياني المستخدم لدراسة خصائص الهواء الرطب؟"
+      "ar": "شو الرسم البياني اللي ندرس فيه خصائص الهوا الرطب؟"
     },
     "answer": {
       "en": "Psychrometric Chart",
@@ -483,7 +483,7 @@
     },
     "question": {
       "en": "What component in an engine converts reciprocating motion into rotational motion?",
-      "ar": "ما المكوّن في المحرك الذي يحوّل الحركة الترددية إلى دورانية؟"
+      "ar": "شو القطعة في المحرك اللي تحوّل الحركة الترددية (رايح جاي) لحركة دورانية؟"
     },
     "answer": {
       "en": "Crankshaft",
@@ -502,7 +502,7 @@
     },
     "question": {
       "en": "What phenomenon can produce a large vibration response when periodic forcing is near a system's natural frequency?",
-      "ar": "ما الظاهرة التي قد تنتج استجابة اهتزازية كبيرة عندما يقترب تردد قوة دورية من التردد الطبيعي للنظام؟"
+      "ar": "شو الظاهرة اللي ممكن تسبب اهتزاز كبير لما تردد قوة متكررة يقرب من التردد الطبيعي للنظام؟"
     },
     "answer": {
       "en": "Resonance",
@@ -521,7 +521,7 @@
     },
     "question": {
       "en": "The Rankine cycle models the performance of what type of power plant?",
-      "ar": "دورة رانكين تُنمذج أداء أي نوع من محطات الطاقة؟"
+      "ar": "دورة رانكين تمثّل أداء أي نوع من محطات الطاقة؟"
     },
     "answer": {
       "en": "Steam Power Plant",
@@ -540,7 +540,7 @@
     },
     "question": {
       "en": "Which indentation-hardness test uses a square-based diamond pyramid indenter?",
-      "ar": "ما اختبار صلادة الانبعاج الذي يستخدم مخترقاً ألماسياً هرمياً ذا قاعدة مربعة؟"
+      "ar": "شو اختبار الصلادة بالانبعاج اللي يستخدم رأس ألماس هرمي قاعدته مربعة؟"
     },
     "answer": {
       "en": "The Vickers hardness test.",
@@ -559,7 +559,7 @@
     },
     "question": {
       "en": "What is the method of joints used for in truss analysis?",
-      "ar": "لماذا تُستخدم طريقة المفاصل في تحليل الجمالونات؟"
+      "ar": "ليش نستخدم «طريقة المفاصل» في تحليل الجمالونات؟"
     },
     "answer": {
       "en": "To find the internal forces in the members of a truss",

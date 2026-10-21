@@ -292,7 +292,7 @@
     },
     "question": {
       "en": "On the pH scale, is a value of 2 considered acidic or basic?",
-      "ar": "على مقياس الـpH، القيمة 2 حمضية ولا قاعدية؟"
+      "ar": "على مقياس pH، القيمة 2 حمضية ولا قاعدية؟"
     },
     "answer": {
       "en": "Acidic",
@@ -1316,7 +1316,7 @@
     },
     "question": {
       "en": "At 25°C, what does pH7 mean for an aqueous solution, and is pH strictly limited to 0–14?",
-      "ar": "عند 25 درجة مئوية، شو يعني إن الـpH لمحلول مائي يساوي 7، وهل الـpH لازم يكون بين 0 و14 بس؟"
+      "ar": "عند 25 درجة مئوية، شو يعني إن قيمة pH لمحلول مائي تساوي 7، وهل قيمة pH لازم تكون بين 0 و14 بس؟"
     },
     "answer": {
       "en": "pH7 is neutral at 25°C. The familiar 0–14 range is not a strict limit; concentrated solutions can lie outside it.",

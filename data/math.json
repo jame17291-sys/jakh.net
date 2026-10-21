@@ -865,7 +865,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is 3! (3 factorial)?",
-      "ar": "كم قيمة 3! (مضروب 3)؟"
+      "ar": "شو ناتج 3! (مضروب 3)؟"
     },
     "answer": {
       "en": "6. 3! = 3 × 2 × 1 = 6.",
@@ -1305,7 +1305,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is 2⁻³?",
-      "ar": "كم قيمة 2⁻³؟"
+      "ar": "2⁻³ تساوي كم؟"
     },
     "answer": {
       "en": "1/8. Negative exponents are reciprocals: 2⁻³ = 1/2³ = 1/8.",

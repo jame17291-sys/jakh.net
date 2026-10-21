@@ -992,7 +992,7 @@
     },
     "question": {
       "en": "Who created the television series Breaking Bad?",
-      "ar": "مين صاحب فكرة مسلسل «بريكنغ باد»؟"
+      "ar": "مين صاحب فكرة «بريكنغ باد»؟"
     },
     "answer": {
       "en": "Vince Gilligan",
@@ -1003,7 +1003,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "f5573de9",
+      "contentKey": "982f7bf2",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -4641,7 +4641,7 @@
     },
     "question": {
       "en": "How many seasons does Stranger Things have in total?",
-      "ar": "كم موسم في مسلسل «أشياء غريبة» كامل؟"
+      "ar": "«أشياء غريبة» كم موسم صار فيه لما خلص؟"
     },
     "answer": {
       "en": "Five seasons",
@@ -4670,7 +4670,7 @@
         "en": "Netflix designated the fifth season as the final season of the original series.",
         "ar": "حددت نتفليكس الموسم الخامس ختامًا للمسلسل الأصلي."
       },
-      "contentKey": "fa390a9e"
+      "contentKey": "ea176033"
     }
   },
   {
@@ -10750,7 +10750,7 @@
     },
     "question": {
       "en": "How many seasons make up Breaking Bad?",
-      "ar": "كم موسم في «بريكنغ باد»؟"
+      "ar": "«بريكنغ باد» يتكوّن من كم جزء؟"
     },
     "review": {
       "status": "pending"
@@ -10779,7 +10779,7 @@
         "en": "The fifth season was released in two batches.",
         "ar": "عُرض الموسم الخامس على دفعتين منفصلتين."
       },
-      "contentKey": "e2f24446"
+      "contentKey": "e72a1bd6"
     }
   },
   {
@@ -10955,7 +10955,7 @@
     },
     "question": {
       "en": "Who directed the pilot as well as creating the show?",
-      "ar": "مين أخرج أول حلقة، غير إنه صاحب فكرة المسلسل؟"
+      "ar": "مين أخرج الحلقة الأولى بنفسه، وهو أصلًا مبتكر العمل؟"
     },
     "review": {
       "status": "pending"
@@ -10984,7 +10984,7 @@
         "en": "Gilligan wrote and directed the episode that starts Walt's story.",
         "ar": "كتب غيليغان وأخرج الحلقة التي تبدأ حكاية والتر."
       },
-      "contentKey": "ad33fa01"
+      "contentKey": "16bac66"
     }
   },
   {

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-10-05",
+  "asOf": "2026-10-21",
   "sourcePolicy": {
     "discoveryBatch": "One packet may share source-discovery work only within this exact category/subcategory group.",
     "claimMapping": "Every atomic claim must map reciprocally to accepted evidence with a precise locator.",
@@ -794,7 +794,9 @@
           "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [],
+          "mutableSignals": [
+            "current-state"
+          ],
           "contentSignals": {
             "answerWords": {
               "en": 30,
@@ -30930,7 +30932,9 @@
           "difficulty": "very-advanced",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [],
+          "mutableSignals": [
+            "current-state"
+          ],
           "contentSignals": {
             "answerWords": {
               "en": 2,
@@ -48741,7 +48745,9 @@
           "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [],
+          "mutableSignals": [
+            "current-state"
+          ],
           "contentSignals": {
             "answerWords": {
               "en": 2,
@@ -97753,7 +97759,9 @@
           "difficulty": "easy",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [],
+          "mutableSignals": [
+            "current-state"
+          ],
           "contentSignals": {
             "answerWords": {
               "en": 1,
@@ -98465,7 +98473,9 @@
           "difficulty": "very-advanced",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [],
+          "mutableSignals": [
+            "current-state"
+          ],
           "contentSignals": {
             "answerWords": {
               "en": 10,
@@ -98492,7 +98502,9 @@
           "difficulty": "very-advanced",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [],
+          "mutableSignals": [
+            "current-state"
+          ],
           "contentSignals": {
             "answerWords": {
               "en": 1,

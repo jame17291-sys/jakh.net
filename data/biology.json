@@ -749,7 +749,7 @@
     },
     "question": {
       "en": "Which organelle contains most of the DNA in a typical human body cell?",
-      "ar": "في خلية بشرية جسمية عادية، أي عضيّة فيها أغلب الـDNA؟"
+      "ar": "في خلية بشرية جسمية عادية، أي عضيّة فيها أغلب DNA الخلية؟"
     },
     "answer": {
       "en": "The nucleus",
@@ -1528,7 +1528,7 @@
     },
     "question": {
       "en": "What is RNA interference (RNAi)?",
-      "ar": "شو هو «تداخل الـRNA» (RNAi)؟"
+      "ar": "شو هو «تداخل RNA» (RNAi)؟"
     },
     "answer": {
       "en": "A biological process where RNA molecules inhibit gene expression by degrading target mRNA",
@@ -1870,7 +1870,7 @@
     },
     "question": {
       "en": "What are long non-coding RNAs (lncRNAs)?",
-      "ar": "شو هو «الـRNA الطويل غير المرمّز» (lncRNA)؟"
+      "ar": "شو هو «RNA الطويل غير المرمّز» (lncRNA)؟"
     },
     "answer": {
       "en": "RNA transcripts longer than about 200 nucleotides that do not encode proteins. Many have regulatory roles, but not every identified lncRNA has a known function.",

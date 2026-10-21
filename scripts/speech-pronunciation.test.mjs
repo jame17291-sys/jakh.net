@@ -12,9 +12,9 @@ function question(category, id) {
 
 test('real Arabic tank and series questions pronounce fractions before sentence punctuation', () => {
   assert.equal(speech.prepareSpeechText(question('math', 'math-062'), 'ar'),
-    'خزان ممتلئ إلى 3 على 5 من سعته. بعد إضافة 24 لتراً أصبح ممتلئاً إلى 9 على 10. ما سعة الخزان؟');
+    'خزان مليان لـ3 على 5 من سعته. بعد ما زدنا 24 لتر صار مليان لـ9 على 10. كم سعة الخزان؟');
   assert.equal(speech.prepareSpeechText(question('math', 'math-136'), 'ar'),
-    'متتالية هندسية حدها الأول 3 وأساسها 1 على 2. ما مجموعها إلى ما لا نهاية؟');
+    'متتالية هندسية أول حد فيها 3 وأساسها 1 على 2. كم مجموعها للانهاية؟');
 });
 
 test('fraction speech keeps decimal operand values and Arabic digits intact', () => {
@@ -32,19 +32,19 @@ test('dates, times, standalone decimals and symbolic division retain their actua
 
 test('the actual Arabic C++ question uses the language name rather than two arithmetic operators', () => {
   assert.equal(speech.prepareSpeechText(question('coding-and-design', 'coding-and-design-025'), 'ar'),
-    'في بناء سي بلس بلس المعتاد بالترجمة المسبقة، هل يُترجم المصدر قبل تشغيل الملف التنفيذي الناتج؟');
+    'في بناء سي بلس بلس العادي بالترجمة المسبقة، هل الكود ينترجم قبل ما يشتغل الملف التنفيذي؟');
   assert.equal(speech.prepareSpeechText('هل تستخدم C# أم C++؟', 'ar'), 'هل تستخدم سي شارب أم سي بلس بلس؟');
   assert.equal(speech.prepareSpeechText('ما حاصل 2+3=5 و7−3=4؟', 'ar'),
     'ما حاصل 2 زائد 3 يساوي 5 و7 ناقص 3 يساوي 4؟');
 });
 
 test('real scientific questions spell acronyms without revealing their answers', () => {
-  assert.equal(speech.prepareSpeechText(question('biology', 'biology-003'), 'ar'), 'ماذا يعني اختصار دي إن إيه؟');
+  assert.equal(speech.prepareSpeechText(question('biology', 'biology-003'), 'ar'), 'شو معنى اختصار دي إن إيه؟');
   assert.equal(speech.prepareSpeechText('ما الفرق بين DNA وRNA؟', 'ar'), 'ما الفرق بين دي إن إيه وآر إن إيه؟');
   assert.equal(speech.prepareSpeechText(question('chemistry', 'chemistry-009'), 'ar'),
-    'على مقياس بي إتش، هل قيمة 2 تعتبر حمضية أم قاعدية؟');
+    'على مقياس بي إتش، القيمة 2 حمضية ولا قاعدية؟');
   assert.equal(speech.prepareSpeechText(question('chemistry', 'chemistry-049'), 'ar'),
-    'عند 25 درجة مئوية، ماذا تعني قيمة بي إتش 7 لمحلول مائي، وهل يقتصر بي إتش حتماً على 0–14؟');
+    'عند 25 درجة مئوية، شو يعني إن قيمة بي إتش لمحلول مائي تساوي 7، وهل قيمة بي إتش لازم تكون بين 0 و14 بس؟');
 });
 
 test('acronym substitutions do not rewrite longer Latin words or English speech', () => {
@@ -69,7 +69,7 @@ test('the real long door question keeps the complete final question in one utter
   const chunks = speech.splitSpeechText(text, 220);
   assert.equal(chunks.join(' '), text, 'all original spoken words remain in order');
   assert.ok(chunks.every(chunk => chunk.length <= 220));
-  assert.ok(chunks.at(-1).endsWith('أيهما يفوز أكثر: التبديل دائمًا أم البقاء دائمًا؟'));
+  assert.ok(chunks.at(-1).endsWith('أيهم يفوز أكثر: إنك دايمًا تبدّل ولا دايمًا تبقى؟'));
   assert.ok(chunks.slice(0, -1).every(chunk => /[.؟!]$/u.test(chunk)), 'earlier chunks end with complete sentences');
 });
 

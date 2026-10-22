@@ -412,6 +412,7 @@ function rewritePublishedClaimValue(source, {
   fullQuestions,
   publicCategories,
   publicQuestions,
+  directoryCategories = publicCategories,
 }) {
   const fullQuestionsFormatted = Number(fullQuestions).toLocaleString("en-US");
   const publicQuestionsFormatted = Number(publicQuestions).toLocaleString("en-US");
@@ -429,7 +430,7 @@ function rewritePublishedClaimValue(source, {
     .replaceAll("3,500+", `${(Math.floor(publicQuestions / 100) * 100).toLocaleString("en-US")}+`);
   rewritten = rewritten.replace(
     /(<[^>]+\bid=["']badgeCategories2?["'][^>]*>)\s*\d[\d,]*\s*(<\/[^>]+>)/giu,
-    `$1${publicCategories}$2`,
+    `$1${directoryCategories}$2`,
   );
   return rewritten;
 }
@@ -485,7 +486,8 @@ export function rewriteKnownHtmlClaims(html, claimContext) {
       if (!PUBLIC_TEXT_I18N_KEYS.has(i18nKey) && !PUBLIC_TEXT_IDS.has(id)) return match;
       let publishedValue = rewritePublishedClaimValue(value, claimContext);
       if (id === "badgeCategories") {
-        publishedValue = String(claimContext.publicCategories);
+        // The Riddles & Quizzes stat counts the topic cards that page lists.
+        publishedValue = String(claimContext.directoryCategories);
       } else if (id === "badgeQuestions") {
         publishedValue = Number(claimContext.publicQuestions).toLocaleString("en-US");
       }
@@ -597,7 +599,8 @@ function applyPublicProjection(sourceBytes, { catalog, quarantine, sourceRoot })
     sourceBytes.set(relativePath, Buffer.from(serialized, "utf8"));
   }
 
-  const claimContext = { fullCategories, fullQuestions, publicCategories, publicQuestions };
+  const directoryCategories = (publicCatalog.categories || []).filter((category) => category.listedInDirectory !== false).length;
+  const claimContext = { fullCategories, fullQuestions, publicCategories, publicQuestions, directoryCategories };
   for (const [relativePath, bytes] of sourceBytes) {
     if (relativePath.endsWith(".html")) {
       let html = removeQuarantinedAnchors(bytes.toString("utf8"), quarantine.categorySlugs);

@@ -190,6 +190,9 @@ textarea { min-height: 6.5rem; resize: vertical; }
   border-color: color-mix(in srgb, var(--accent) 32%, transparent);
 }
 .text-btn, .mini-btn { padding: 0.7rem 0.95rem; background: transparent; }
+/* A wrapping link must stay one outlined box, not a pill split across lines. */
+a.text-btn { display: inline-flex; align-items: center; max-width: 100%; }
+.page-intro a.text-btn { border-radius: var(--radius-sm); text-align: start; }
 .primary-btn.mini-btn { background: var(--accent); }
 .icon-btn { width: 2.75rem; height: 2.75rem; display: inline-grid; place-items: center; font-size: 1.4rem; padding: 0; }
 
@@ -665,10 +668,6 @@ textarea { min-height: 6.5rem; resize: vertical; }
 .card-question {
   font-size: 1.02rem;
 }
-.badge-category {
-  background: color-mix(in srgb, var(--accent) 22%, var(--panel-strong));
-  border-color: color-mix(in srgb, var(--accent) 55%, white);
-}
 .badge-subcategory {
   background: color-mix(in srgb, #5ac8ff 16%, var(--panel-strong));
   border-color: color-mix(in srgb, #5ac8ff 42%, white);
@@ -781,9 +780,16 @@ textarea { min-height: 6.5rem; resize: vertical; }
   font-size: 1.1rem; cursor: pointer; padding: 0.25rem 0.4rem; border-radius: 4px;
 }
 .paywall-close:hover { color: var(--text); background: color-mix(in srgb, var(--text) 8%, transparent); }
+/* Compact card chrome: tags stay readable but short, and the answer, favourite
+   and read-aloud buttons fit one row even in the four-column laptop grid. */
+.riddle-card .card-badges { gap: .4rem; }
+.riddle-card .card-badges .badge { padding: .3rem .6rem; }
+.riddle-card .card-actions { gap: .45rem; }
+/* Phone cards size to their content; both faces share one grid cell, so a long
+   answer still grows the card instead of scrolling inside it. */
 @media (max-width: 720px) {
-  .riddle-card { min-height: 390px; }
-  .riddle-card[data-mode='story'] { min-height: 520px; }
+  .riddle-card { min-height: 12rem; }
+  .riddle-card[data-mode='story'] { min-height: 18rem; }
 }
 
 
@@ -3662,7 +3668,12 @@ body[data-page] { padding-bottom: 0; }
   .activity-card { padding: 1rem; }
   .activity-card h2 { font-size: 1.35rem; margin-bottom: .35rem; }
   .activity-card p { margin: 0; font-size: .9375rem; }
-  .primary-navigation a { padding: .45rem .25rem; font-size: .8125rem; min-width: 0; }
+  /* Phone menu: each label gets the width its text needs, so long labels use at
+     most two balanced lines (inside the 48px target) and all five stay visible. */
+  .primary-navigation a {
+    flex: 1 1 auto; padding: .45rem .35rem; font-size: .8125rem; line-height: 1.25;
+    min-width: 0; text-wrap: balance;
+  }
   .site-utilities a { font-size: .875rem; padding-inline: .55rem; }
   .unified-header .site-utilities { max-width: calc(100vw - 154px); }
   .unified-header .brand-logo { width: 108px; height: 40px; }

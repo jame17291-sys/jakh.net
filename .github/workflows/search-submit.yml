@@ -1,0 +1,55 @@
+name: Submit pages to search engines
+
+# Tells IndexNow engines (Bing and partners, which also feed DuckDuckGo, Yahoo
+# and Ecosia) about public pages. Automatic runs after a successful static
+# release send only pages whose sitemap <lastmod> changed in the last 3 days.
+# Run it manually with scope "all" once after the key file first goes live,
+# and whenever the whole catalogue should be re-announced.
+# Google does not use IndexNow: see docs/SEARCH-DISCOVERY.md.
+
+on:
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: "Which sitemap pages to submit"
+        type: choice
+        options: ["all", "recent"]
+        default: "all"
+  workflow_run:
+    workflows: ["Deploy static site to Cloudflare Workers"]
+    types: [completed]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: search-submit
+  cancel-in-progress: false
+
+jobs:
+  indexnow:
+    name: Submit sitemap URLs to IndexNow
+    if: >-
+      (github.event_name == 'workflow_dispatch' && github.ref_name == github.event.repository.default_branch) ||
+      (github.event_name == 'workflow_run' &&
+        github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.head_branch == github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+
+      - name: Test submission rules
+        run: node --test scripts/submit-indexnow.test.mjs
+
+      - name: Submit to IndexNow
+        env:
+          SUBMIT_SCOPE: ${{ github.event_name == 'workflow_dispatch' && inputs.scope || 'recent' }}
+        run: node scripts/submit-indexnow.mjs "--scope=$SUBMIT_SCOPE"

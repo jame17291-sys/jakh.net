@@ -697,3 +697,25 @@ test('catalog, question-first layout, focus lifecycle, and centralized SW regist
   assert.equal((app.match(/serviceWorker\.register\('\/sw\.js'\)/gu) || []).length, 1);
   assert.match(styles, /\.share-fallback-card textarea/u);
 });
+
+test('a shared score links friends to the same quiz on the public site', () => {
+  for (const [pathname, origin, expected] of [
+    ['/geography', 'https://riddlearabia.com', 'https://riddlearabia.com/geography'],
+    ['/ar/topics/geography/', 'https://riddlearabia.com', 'https://riddlearabia.com/ar/topics/geography/'],
+    ['/daily', 'http://localhost:8080', 'https://riddlearabia.com/daily'],
+  ]) {
+    const shares = [];
+    const context = vm.createContext({
+      URL,
+      Math,
+      location: { pathname, origin },
+      state: { lang: pathname.startsWith('/ar/') ? 'ar' : 'en', categorySlug: 'geography' },
+      trackEvent() {},
+      t: key => key,
+      shareOrCopy: value => shares.push(value),
+    });
+    vm.runInContext(`${topLevelFunction('shareResult')}\nshareResult(7, 10, 'Geography');`, context);
+    assert.equal(shares.length, 1);
+    assert.equal(shares[0].url, expected, pathname);
+  }
+});

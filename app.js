@@ -2589,7 +2589,7 @@ function rerender() {
 
 function renderHome() {
   if (!state.catalog) return;
-  if (els.badgeCategories) els.badgeCategories.textContent = state.catalog.categories.length;
+  if (els.badgeCategories) els.badgeCategories.textContent = state.catalog.categories.filter(category => category.listedInDirectory !== false).length;
   if (els.badgeQuestions) els.badgeQuestions.textContent = state.catalog.site.totalQuestions.toLocaleString();
   renderAccountSummary(els.accountSummaryMount);
   if (els.categoryDirectoryGrid) {
@@ -3110,7 +3110,6 @@ function createCardMarkup(card) {
   const difficultyLabel = card.difficulty === 'very-advanced' ? t('veryAdvanced') : t(card.difficulty);
   const subcatText = card.subcategory ? (card.subcategory[state.lang] || card.subcategory.en || '') : '';
   const subcat = subcatText ? `<span class="badge badge-subcategory">${escapeHtml(subcatText)}</span>` : '';
-  const categoryBadge = `<span class="badge badge-category">${escapeHtml(card.mode === 'story' ? '🕯️' : state.categoryData.emoji || '❔')} ${escapeHtml(state.categoryData.title[state.lang])}</span>`;
   const difficultyBadge = `<span class="badge badge-difficulty" data-difficulty="${escapeHtml(card.difficulty)}">${escapeHtml(difficultyLabel)}</span>`;
   const explanationText = card.explanation?.[state.lang] || card.explanation?.en || '';
   const explanationMarkup = explanationText
@@ -3142,7 +3141,6 @@ function createCardMarkup(card) {
       <div class="card-inner">
         <section class="card-face card-front" aria-hidden="${flipped ? 'true' : 'false'}" ${flipped ? 'inert' : ''}>
           <div class="card-badges">
-            ${categoryBadge}
             ${difficultyBadge}
             ${subcat}
           </div>

@@ -25,8 +25,10 @@ current game list rather than copying quiz content.
 `/collections` and `/about` are hand-designed bilingual hubs. The homepage,
 Mind Lab, Play, Daily, Privacy, Akshifha, and the ten classic game routes remain
 indexable. Thirteen new bilingual puzzle destinations add twelve playable
-engines and one Bonus collection, bringing the sitemap to 78 canonical URLs.
-`sitemap.xml` contains only these indexable canonicals.
+engines and one Bonus collection. With the bilingual Kids Learning & Play
+pages the sitemap lists 1,176 canonical URLs (88 core pages plus 1,088 kids
+pages); `sitemap.xml` contains only indexable canonicals. Search-engine
+submission is described in `docs/SEARCH-DISCOVERY.md`.
 
 The new destinations use `puzzle-routes.js` for route identity and
 `puzzle-pages.js` for localized rules and factual metadata. The public SEO

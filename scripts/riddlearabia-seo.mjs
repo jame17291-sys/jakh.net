@@ -28,7 +28,8 @@ export const RIDDLE_ARABIA_PUZZLE_CATALOG = Object.freeze(PUZZLES.map((puzzle) =
 export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   {
     key: "riddles",
-    lastModified: "2026-09-29",
+    // Arabic cards rewritten in light everyday Arabic on 2026-10-21 (#144).
+    lastModified: { en: "2026-09-29", ar: "2026-10-21" },
     paths: { en: "/riddles", ar: "/ar/alghaz/" },
     titles: {
       en: "Riddles With Answers | Riddle Arabia",
@@ -62,7 +63,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   },
   {
     key: "arabic-riddles",
-    lastModified: "2026-09-29",
+    // Arabic cards rewritten in light everyday Arabic on 2026-10-21 (#144).
+    lastModified: { en: "2026-09-29", ar: "2026-10-21" },
     paths: { en: "/arabic-riddles", ar: "/ar/alghaz-arabiya/" },
     titles: {
       en: "Arabic Riddles With Answers | Riddle Arabia",
@@ -96,6 +98,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   },
   {
     key: "logic-puzzles",
+    // Arabic cards rewritten in light everyday Arabic on 2026-10-21 (#144).
+    lastModified: { en: "2026-09-11", ar: "2026-10-21" },
     paths: { en: "/logic-challenges", ar: "/ar/alghaz-mantiq/" },
     titles: {
       en: "Logic Puzzles With Answers | Riddle Arabia",
@@ -129,6 +133,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   },
   {
     key: "kids-riddles",
+    // Arabic cards rewritten in light everyday Arabic on 2026-10-21 (#144).
+    lastModified: { en: "2026-09-11", ar: "2026-10-21" },
     paths: { en: "/family-riddles", ar: "/ar/alghaz-atfal/" },
     titles: {
       en: "Kids’ Riddles for Families | Riddle Arabia",
@@ -162,7 +168,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   },
   {
     key: "general-knowledge",
-    lastModified: "2026-09-29",
+    // Arabic cards rewritten in light everyday Arabic on 2026-10-21 (#144).
+    lastModified: { en: "2026-09-29", ar: "2026-10-21" },
     paths: { en: "/general-knowledge", ar: "/ar/malumat-amma/" },
     titles: {
       en: "Arabic Trivia & General Knowledge Quiz | Riddle Arabia",
@@ -196,7 +203,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   },
   {
     key: "arabia-quiz",
-    lastModified: "2026-09-29",
+    // Arabic cards rewritten in light everyday Arabic on 2026-10-21 (#144).
+    lastModified: { en: "2026-09-29", ar: "2026-10-21" },
     paths: { en: "/arabia-quiz", ar: "/ar/tarikh-al-arab/" },
     titles: {
       en: "Arab & Middle East History Trivia | Riddle Arabia",
@@ -230,7 +238,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   },
   {
     key: "spacetoon-nostalgia",
-    lastModified: "2026-09-30",
+    // Arabic cards rewritten in light everyday Arabic on 2026-10-21 (#144).
+    lastModified: { en: "2026-09-30", ar: "2026-10-21" },
     paths: { en: "/spacetoon-nostalgia", ar: "/ar/hanin-spacetoon/" },
     titles: {
       en: "Spacetoon Nostalgia Quiz | Riddle Arabia",

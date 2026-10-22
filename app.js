@@ -5037,7 +5037,10 @@ function shareResult(score, total, categoryTitle) {
   const bar = '─────────────────';
   const pct = total > 0 ? Math.round((score / total) * 100) : 0;
   const medal = pct >= 90 ? '🥇' : pct >= 70 ? '🥈' : pct >= 50 ? '🥉' : '🎯';
-  const url = 'https://riddlearabia.com';
+  // Send friends to the same quiz in the same language, always on the public
+  // site (never a preview or app origin), so "Can you beat my score?" lands
+  // where they can try it instead of on the English homepage.
+  const url = new URL(location.pathname || '/', 'https://riddlearabia.com').href;
   const text = isAr
     ? `${medal} أنهيت "${categoryTitle}" على ريدل أرابيا!\n${bar}\n✓ ${score} صحيح من ${total}\n${bar}\nهل تستطيع التفوق عليّ؟ ← riddlearabia.com`
     : `${medal} I finished "${categoryTitle}" on Riddle Arabia!\n${bar}\n✓ ${score} / ${total} correct (${pct}%)\n${bar}\nCan you beat my score? → riddlearabia.com`;

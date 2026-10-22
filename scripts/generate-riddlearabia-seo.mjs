@@ -749,7 +749,8 @@ function renderSitemap() {
     { en: "/mind-lab", ar: "/ar/mind-lab/", lastModified: "2026-09-29", priority: "0.85" },
     { en: "/collections", ar: "/ar/collections/", lastModified: "2026-09-29", priority: "0.90" },
     { en: "/play", ar: "/ar/play/", lastModified: "2026-10-06", priority: "0.75" },
-    { en: "/daily", ar: "/ar/daily/", priority: "0.75" },
+    // Shuffle Challenge replaced the one-question Daily Challenge on 2026-10-20 (#141).
+    { en: "/daily", ar: "/ar/daily/", lastModified: "2026-10-20", priority: "0.75" },
     { en: "/about", ar: "/ar/about/", priority: "0.50" },
     { en: "/privacy", ar: "/ar/privacy/", lastModified: "2026-10-06", priority: "0.35" },
     ...RIDDLE_ARABIA_SEO_PAGES.map((page) => ({ en: page.paths.en, ar: page.paths.ar, lastModified: page.lastModified, priority: page.kind === "games" ? "0.85" : "0.80" })),

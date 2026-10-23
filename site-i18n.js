@@ -89,7 +89,7 @@
         standardsIndependenceTitle: 'Independence',
         standardsIndependenceText: 'Fan-made quizzes are clearly labelled and do not imply affiliation, endorsement, or ownership of third-party names or marks. Riddle Arabia does not use unlicensed character artwork in its focused collections.',
         standardsConnectedTitle: 'Stay connected',
-        standardsConnectedText: 'Follow <a class="social-link" rel="me noopener noreferrer" href="https://www.instagram.com/jakhriddles/">Riddle Arabia on Instagram</a> and <a class="social-link" rel="me noopener noreferrer" href="https://www.facebook.com/profile.php?id=61588921894305">Riddle Arabia on Facebook</a> for new riddles and site updates.',
+        standardsConnectedText: 'Follow <a class="social-link" rel="me noopener noreferrer" href="https://www.instagram.com/riddle_arabia/">Riddle Arabia on Instagram</a> and <a class="social-link" rel="me noopener noreferrer" href="https://www.facebook.com/profile.php?id=61588921894305">Riddle Arabia on Facebook</a> for new riddles and site updates.',
       },
       ar: {
         metaTitle: 'عن ريدل أرابيا ومعايير المحتوى',
@@ -108,7 +108,7 @@
         standardsIndependenceTitle: 'الاستقلالية',
         standardsIndependenceText: 'نوضّح عندما يكون الاختبار من إعداد المعجبين. وهذه الاختبارات لا تعني وجود أي ارتباط أو تأييد من أصحاب الأسماء أو العلامات المذكورة. كما أننا لا نستخدم رسوم شخصيات غير مرخّصة في مجموعات ريدل أرابيا.',
         standardsConnectedTitle: 'ابقَ على تواصل',
-        standardsConnectedText: 'تابع <a class="social-link" rel="me noopener noreferrer" href="https://www.instagram.com/jakhriddles/">ريدل أرابيا على إنستغرام</a> و<a class="social-link" rel="me noopener noreferrer" href="https://www.facebook.com/profile.php?id=61588921894305">ريدل أرابيا على فيسبوك</a> لمعرفة الألغاز الجديدة وتحديثات الموقع.',
+        standardsConnectedText: 'تابع <a class="social-link" rel="me noopener noreferrer" href="https://www.instagram.com/riddle_arabia/">ريدل أرابيا على إنستغرام</a> و<a class="social-link" rel="me noopener noreferrer" href="https://www.facebook.com/profile.php?id=61588921894305">ريدل أرابيا على فيسبوك</a> لمعرفة الألغاز الجديدة وتحديثات الموقع.',
       },
     },
     notFound: {

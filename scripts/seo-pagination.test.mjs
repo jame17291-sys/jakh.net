@@ -12,6 +12,7 @@ import {
   RIDDLE_ARABIA_GAME_CATALOG,
   RIDDLE_ARABIA_PUZZLE_CATALOG,
   RIDDLE_ARABIA_SEO_PAGES,
+  questionCountLabel,
 } from "./riddlearabia-seo.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -348,4 +349,29 @@ test("retired SEO directories and every paginated artifact are absent from the p
   };
   visit(root);
   assert.equal(htmlFiles.some((relative) => /(?:^|\/)page\/\d+\/index\.html$/u.test(relative)), false, "no public pagination artifact may return");
+});
+
+test("question counts use correct Arabic number agreement", () => {
+  for (const [count, plain, selected] of [
+    [1, "سؤال واحد", "سؤال واحد مختار"],
+    [2, "سؤالان", "سؤالان مختاران"],
+    [3, "3 أسئلة", "3 أسئلة مختارة"],
+    [8, "8 أسئلة", "8 أسئلة مختارة"],
+    [10, "10 أسئلة", "10 أسئلة مختارة"],
+    [11, "11 سؤالاً", "11 سؤالاً مختاراً"],
+    [30, "30 سؤالاً", "30 سؤالاً مختاراً"],
+    [100, "100 سؤال", "100 سؤال مختار"],
+    [103, "103 أسئلة", "103 أسئلة مختارة"],
+    [130, "130 سؤالاً", "130 سؤالاً مختاراً"],
+  ]) {
+    assert.equal(questionCountLabel(count, "ar"), plain, `${count}`);
+    assert.equal(questionCountLabel(count, "ar", { selected: true }), selected, `${count} selected`);
+  }
+  assert.equal(questionCountLabel(30, "en"), "30 questions");
+  assert.equal(questionCountLabel(30, "en", { selected: true }), "30 selected questions");
+  assert.equal(questionCountLabel(1, "en"), "1 question");
+  assert.throws(() => questionCountLabel(-1, "ar"));
+  for (const relative of ["ar/alghaz/index.html", "ar/alghaz-arabiya/index.html", "ar/collections/index.html"]) {
+    assert.doesNotMatch(read(relative), /(?:[1-9]\d) أسئلة/u, `${relative}: no plural noun after 11-99`);
+  }
 });

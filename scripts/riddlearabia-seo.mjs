@@ -10,6 +10,20 @@ import { PUZZLE_ROUTES } from "../puzzle-routes.js";
 import { PARTY_COPY } from "../party-games-copy.js";
 import { FRIENDSHIP_COPY } from "../friendship-games-copy.js";
 
+// Arabic counted nouns change form with the number: 3-10 take the plural,
+// 11-99 the singular accusative, and 1, 2 and round hundreds their own forms.
+// Shared by every generated count label so "30 أسئلة" can never be published.
+export function questionCountLabel(count, lang, { selected = false } = {}) {
+  if (!Number.isInteger(count) || count < 0) throw new Error(`Invalid question count: ${count}`);
+  if (lang !== "ar") return `${count} ${selected ? "selected " : ""}${count === 1 ? "question" : "questions"}`;
+  const lastTwo = count % 100;
+  if (count === 1) return selected ? "سؤال واحد مختار" : "سؤال واحد";
+  if (count === 2) return selected ? "سؤالان مختاران" : "سؤالان";
+  if (lastTwo >= 3 && lastTwo <= 10) return `${count} ${selected ? "أسئلة مختارة" : "أسئلة"}`;
+  if (lastTwo >= 11) return `${count} ${selected ? "سؤالاً مختاراً" : "سؤالاً"}`;
+  return `${count} ${selected ? "سؤال مختار" : "سؤال"}`;
+}
+
 // Use the playable catalog's identities, copy and routes so the search-facing
 // directory cannot silently fall behind the actual puzzle library.
 export const RIDDLE_ARABIA_PUZZLE_CATALOG = Object.freeze(PUZZLES.map((puzzle) => {

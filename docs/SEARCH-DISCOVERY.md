@@ -13,17 +13,51 @@ UAE, so positions may be personalised):
 - **Bing has no pages from the site.** That also means DuckDuckGo, Yahoo,
   Ecosia and assistants that search through Bing cannot find it. Nothing in the
   repository ever submitted the site to Bing or IndexNow.
-- **Search Console was not set up for this site.** The owner's account had
-  `https://riddlearabia.com/` only as an *unverified* URL-prefix property, so
-  it showed no data and accepted no indexing requests. The verified properties
-  in that account, `jakh.net` and `www.jakh.net`, belong to the JAKH ERP
-  site since 12 Oct 2026; leave them to that project. The existing
-  `google-site-verification` TXT record on `riddlearabia.com` does not match
-  the owner's account (an earlier attempt or another account).
-- Verification now uses the committed file `google6e7af92aa1edc1f2.html`
-  (exact one-line Google payload; the edge serves it with `noindex` and keeps
-  it out of the sitemap). **Do not delete it**: Search Console re-checks it,
-  and removing it unverifies the property.
+- **Search Console was not set up for this site** until 23 Oct 2026. The
+  owner's account had `https://riddlearabia.com/` only as an *unverified*
+  URL-prefix property, so it showed no data and accepted no indexing requests.
+  The existing `google-site-verification` TXT record on `riddlearabia.com`
+  does not match the owner's account (an earlier attempt or another account).
+- **Verified on 23 Oct 2026** with the committed file
+  `google6e7af92aa1edc1f2.html` (exact one-line Google payload; the edge serves
+  it with `noindex` and keeps it out of the sitemap), released from `main` at
+  `55bd77b3`. **Do not delete it**: Search Console re-checks it, and removing it
+  unverifies the property.
+- First Search Console reading after verification (23 Oct 2026):
+  - **Sitemap:** `/sitemap.xml` read the same day, *Success*, 1,176 pages
+    discovered.
+  - **Pages report:** 295 pages indexed. 881 are *Discovered – currently not
+    indexed*: Google knows them but has not crawled them yet, which is normal
+    for a young domain with few links. 48 carry `noindex`; this list was not
+    reviewed page by page.
+  - **Indexing requested** for `/ar/`, `/ar/alghaz/`, `/ar/alghaz-arabiya/`,
+    `/ar/malumat-amma/`, `/ar/alghaz-atfal/` and `/ar/alghaz-mantiq/`. All six
+    were already indexed; the request asks Google to re-crawl the expanded
+    collections and the new share preview.
+
+### jakh.net is a separate site
+
+Since 12 Oct 2026 `jakh.net` belongs to the JAKH ERP site. Its Search Console
+domain property `jakh.net` belongs to that project, so leave it alone. Cleanup
+done on 23 Oct 2026 so that old Riddle Arabia addresses on `jakh.net` stop
+appearing in Google:
+
+- Temporary removal requests (about six months, by prefix) for the old riddle
+  addresses Google still listed: `/psychology`, `/science`, `/collections`,
+  `/architecture-and-landmarks`, `/infrastructure-systems`, `/ar/topics/`,
+  `/ar/ikhtibar-qawanin-korat-alqadam/` and `/en/riddles-with-answers/`. None
+  of these prefixes covers an ERP sitemap page. The old addresses already return
+  404 with `noindex`, so Google drops them permanently as it re-crawls.
+- The stale `https://www.jakh.net/sitemap.xml` entry (last read June 2026) was
+  removed from that property. The ERP sitemap `https://jakh.net/sitemap.xml` was
+  read on 23 Oct 2026 with 58 pages.
+- Left for the owner to remove by hand, because the tools could not do it:
+  - the `https://www.jakh.net/` URL-prefix property, added in May 2026 while
+    that address served Riddle Arabia; the `jakh.net` domain property already
+    covers it;
+  - the Cloudflare rate-limiting rule *Protect API authentication* on the
+    `jakh.net` zone. It matches `/api/auth/*`, the Riddle Arabia API's sign-in
+    paths, which do not exist on the ERP site.
 - The domain only went live on 16 Sep 2026. On 12 Oct 2026 `jakh.net` went to
   an unrelated project, so links or rankings earned there no longer lead here.
 
@@ -48,17 +82,16 @@ steps below.
 
 1. **Google Search Console** (https://search.google.com/search-console).
    Select the `https://riddlearabia.com/` property, not `jakh.net`. It is
-   verified by the committed HTML file above. Optionally also add a *Domain*
-   property for `riddlearabia.com` with a DNS TXT record from the same
-   account, to include `www` and every protocol in one report.
-2. In Search Console, check **Sitemaps**. If `https://riddlearabia.com/sitemap.xml`
-   is not listed as *Success*, submit it. Then read **Pages** (why pages are
-   not indexed) and **Performance → Queries** (what people already search to
-   find the site).
-3. Use **URL inspection → Request indexing** for the homepage, `/ar/` and the
-   main landing pages (riddles, Arabic riddles, family riddles, general
-   knowledge, brain games, play, daily). There is a daily quota, so start with
-   the Arabic pages.
+   verified by the committed HTML file above (done 23 Oct 2026). Optionally
+   also add a *Domain* property for `riddlearabia.com` with a DNS TXT record
+   from the same account, to include `www` and every protocol in one report.
+2. In Search Console, check **Sitemaps** (it showed *Success* on 23 Oct 2026).
+   Then read **Pages** (why pages are not indexed) and **Performance →
+   Queries** (what people already search to find the site).
+3. Use **URL inspection → Request indexing** after large content changes.
+   There is a daily quota. The six Arabic landing pages were requested on
+   23 Oct 2026; the English landing pages (riddles, Arabic riddles, family
+   riddles, general knowledge, brain games, play, daily) are next.
 4. *Optional, low priority:* **Bing Webmaster Tools**. Google carries almost
    all search in the target region; IndexNow already notifies Bing
    automatically after each release.

@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "scope": "Riddle Arabia featured collection structure, bilingual completeness, topic coverage, and known editorial holds. This is not factual approval or evidence closure.",
   "collections": {
-    "riddles": { "cardCount": 8, "sourceCategories": ["classic-riddles"], "minSubcategories": 3 },
-    "arabic-riddles": { "cardCount": 8, "sourceCategories": ["classic-riddles"], "minSubcategories": 3 },
+    "riddles": { "cardCount": 30, "sourceCategories": ["classic-riddles"], "minSubcategories": 3 },
+    "arabic-riddles": { "cardCount": 30, "sourceCategories": ["classic-riddles"], "minSubcategories": 3 },
     "logic-puzzles": { "cardCount": 8, "sourceCategories": ["logic-puzzles"], "minSubcategories": 2 },
     "kids-riddles": { "cardCount": 8, "sourceCategories": ["kids-riddles"], "minSubcategories": 2 },
     "general-knowledge": { "cardCount": 8, "minSourceCategories": 6 },

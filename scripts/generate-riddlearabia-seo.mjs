@@ -354,6 +354,16 @@ function relatedExperienceMarkup(page, lang) {
       </section>`;
 }
 
+// A mixed collection can draw on many topics. Past three, fold the links into
+// one native <details> line so phones reach the first question quickly; the
+// links stay in the HTML and one tap away.
+function sourceTopicsMarkup(sourceTopics, lang) {
+  const isAr = lang === "ar";
+  const nav = `<nav class="collection-source-links" aria-label="${isAr ? "الموضوعات الكاملة" : "Full source topics"}">${sourceTopics.map((category) => `<a class="text-btn" href="${categoryRoute(category, lang)}">${escapeHtml(category.title[lang] || category.title.en)} · ${questionCountLabel(category.count, lang)}</a>`).join(" ")}</nav>`;
+  if (sourceTopics.length <= 3) return nav;
+  return `<details class="collection-source-topics"><summary>${isAr ? `تصفّح الموضوعات الكاملة (${sourceTopics.length})` : `Browse the full topics (${sourceTopics.length})`}</summary>${nav}</details>`;
+}
+
 function renderQuizExperience(page, lang, cards) {
   const isAr = lang === "ar";
   const enPath = localizedPath(page, "en");
@@ -393,7 +403,7 @@ function renderQuizExperience(page, lang, cards) {
         </div>
         <p class="collection-share"><a class="primary-btn collection-share-button" href="${escapeHtml(whatsappHref(collectionShareText(page, lang, canonical)))}" target="_blank" rel="noopener noreferrer">${isAr ? "شارك المجموعة عبر واتساب" : "Share this collection on WhatsApp"}</a></p>
         <p class="collection-subset-note">${isAr ? "هذه مجموعة مختارة من مكتبة الأسئلة، وليست الموضوع الكامل." : "A short selection from the question library, not the full topic."}</p>
-        <nav class="collection-source-links" aria-label="${isAr ? "الموضوعات الكاملة" : "Full source topics"}">${sourceTopics.map((category) => `<a class="text-btn" href="${categoryRoute(category, lang)}">${escapeHtml(category.title[lang] || category.title.en)} · ${category.count} ${isAr ? "سؤالاً" : "questions"}</a>`).join(" ")}</nav>
+        ${sourceTopicsMarkup(sourceTopics, lang)}
         <p class="section-note">${escapeHtml(page.guidance[lang])}</p>${disclaimer}
       </section>
       <section class="seo-question-list shell" aria-label="${isAr ? "ألغاز وحلول" : "Riddles and answers"}">

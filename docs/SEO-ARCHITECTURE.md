@@ -21,7 +21,8 @@ Each experience has its own bilingual copy, purpose, canonical pair, reciprocal
 `hreflang`, social metadata, and schema. Quiz experiences publish a small,
 curated set of real question cards. The two riddle pairs (`/riddles` with `/ar/alghaz/`, and
 `/arabic-riddles` with `/ar/alghaz-arabiya/`) feature 30 published riddles
-each, ordered from easy to hard; the other collections feature eight.
+each, ordered from easy to hard. Logic puzzles and general knowledge also
+feature 30, kids riddles 24, and the Arabia history and Spacetoon quizzes eight.
 `docs/content-review/featured-policy.json` fixes each count, and
 `npm run check:featured` rejects held cards and any card featured on two
 collections, so indexable pages never repeat each other. The brain-games experience publishes a

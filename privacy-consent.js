@@ -283,7 +283,7 @@
     const isAr = document.documentElement.lang === 'ar';
     return isAr ? {
       title: 'خصوصيتك أولاً',
-      text: 'تعمل الميزات الأساسية من دون قياس. يمكنك السماح بقياس إجمالي اختياري يساعدنا على تحسين ريدل أرابيا، أو الاكتفاء بالميزات الأساسية.',
+      text: 'تعمل الميزات الأساسية من دون قياس، والقياس الإجمالي الاختياري يساعدنا على تحسين ريدل أرابيا.',
       allow: 'السماح بالقياس',
       essential: 'الأساسي فقط',
       choices: 'خيارات الخصوصية',
@@ -291,7 +291,7 @@
       dismiss: 'إغلاق والاكتفاء بالميزات الأساسية',
     } : {
       title: 'Your privacy comes first',
-      text: 'Essential features work without analytics. You can allow optional aggregate website measurement to help improve Riddle Arabia, or keep only essential features.',
+      text: 'Essential features work without analytics. Optional aggregate measurement helps us improve Riddle Arabia.',
       allow: 'Allow analytics',
       essential: 'Essential only',
       choices: 'Privacy choices',
@@ -310,14 +310,12 @@
     banner.setAttribute('aria-describedby', 'privacyConsentCopy');
     banner.innerHTML = `
       <button type="button" class="privacy-consent-dismiss" data-consent-action="dismiss" aria-label="${copy.dismiss}">×</button>
-      <div class="privacy-consent-copy" id="privacyConsentCopy">
-        <strong>${copy.title}</strong>
-        <p>${copy.text}</p>
-      </div>
+      <p class="privacy-consent-copy" id="privacyConsentCopy">
+        <strong>${copy.title}</strong> ${copy.text} <a href="${privacyChoicesHref()}">${copy.choices}</a>
+      </p>
       <div class="privacy-consent-actions">
         <button type="button" class="primary-btn mini-btn" data-consent-action="allow">${copy.allow}</button>
         <button type="button" class="secondary-btn mini-btn" data-consent-action="essential">${copy.essential}</button>
-        <a class="text-btn mini-btn" href="${privacyChoicesHref()}">${copy.choices}</a>
       </div>`;
     banner.querySelector('[data-consent-action="allow"]')?.addEventListener('click', () => {
       setAnalyticsConsent(true, 'consent-banner');

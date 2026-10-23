@@ -13,9 +13,17 @@ UAE, so positions may be personalised):
 - **Bing has no pages from the site.** That also means DuckDuckGo, Yahoo,
   Ecosia and assistants that search through Bing cannot find it. Nothing in the
   repository ever submitted the site to Bing or IndexNow.
-- A `google-site-verification` TXT record exists on `riddlearabia.com`, so a
-  Search Console Domain property has probably been verified. Its Performance
-  report is the reliable source for real search visitors, with bots excluded.
+- **Search Console was not set up for this site.** The owner's account had
+  `https://riddlearabia.com/` only as an *unverified* URL-prefix property, so
+  it showed no data and accepted no indexing requests. The verified properties
+  in that account, `jakh.net` and `www.jakh.net`, belong to the JAKH ERP
+  site since 12 Oct 2026; leave them to that project. The existing
+  `google-site-verification` TXT record on `riddlearabia.com` does not match
+  the owner's account (an earlier attempt or another account).
+- Verification now uses the committed file `google6e7af92aa1edc1f2.html`
+  (exact one-line Google payload; the edge serves it with `noindex` and keeps
+  it out of the sitemap). **Do not delete it**: Search Console re-checks it,
+  and removing it unverifies the property.
 - The domain only went live on 16 Sep 2026. On 12 Oct 2026 `jakh.net` went to
   an unrelated project, so links or rankings earned there no longer lead here.
 
@@ -39,12 +47,10 @@ steps below.
 ## Owner steps (accounts only the owner can use)
 
 1. **Google Search Console** (https://search.google.com/search-console).
-   The DNS TXT record suggests a Domain property already exists. Open it and
-   confirm it is verified. If not, add a *Domain* property for
-   `riddlearabia.com` and verify with DNS; Search Console can add the record
-   automatically for domains on Cloudflare. (The edge also serves an exact
-   `google<16 hex>.html` file with `noindex` if an HTML-file proof is ever
-   preferred.)
+   Select the `https://riddlearabia.com/` property, not `jakh.net`. It is
+   verified by the committed HTML file above. Optionally also add a *Domain*
+   property for `riddlearabia.com` with a DNS TXT record from the same
+   account, to include `www` and every protocol in one report.
 2. In Search Console, check **Sitemaps**. If `https://riddlearabia.com/sitemap.xml`
    is not listed as *Success*, submit it. Then read **Pages** (why pages are
    not indexed) and **Performance → Queries** (what people already search to
@@ -53,9 +59,9 @@ steps below.
    main landing pages (riddles, Arabic riddles, family riddles, general
    knowledge, brain games, play, daily). There is a daily quota, so start with
    the Arabic pages.
-4. **Bing Webmaster Tools** (https://www.bing.com/webmasters). Use *Import
-   from Google Search Console* after step 1, or verify with DNS, then submit
-   the same sitemap.
+4. *Optional, low priority:* **Bing Webmaster Tools**. Google carries almost
+   all search in the target region; IndexNow already notifies Bing
+   automatically after each release.
 5. **Earn the first links.** Search engines find new domains mostly through
    links. Put `https://riddlearabia.com/ar/` in the bio of every social
    account, share real puzzles in WhatsApp groups and channels, and ask

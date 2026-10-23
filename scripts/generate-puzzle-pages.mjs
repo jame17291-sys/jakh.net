@@ -51,8 +51,8 @@ export function renderPuzzlePage(id, lang = 'en') {
     <meta property="og:site_name" content="${brand}" />
     <meta property="og:image" content="${PRIMARY_SITE_ORIGIN}/assets/riddlearabia-og-image.png" />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="600" />
-    <meta property="og:image:height" content="315" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="${brand}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${esc(title)}" />

@@ -3,6 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
+    <script>
+      /* Arabic-first visitors who arrive here from outside the site, and have not
+         chosen English, start on the Arabic home page. Runs before rendering so
+         English never flashes. Crawlers (English locale) and visits from inside
+         the site are never redirected. */
+      (function () {
+        try {
+          if (location.pathname !== "/") return;
+          if (document.referrer && new URL(document.referrer).host === location.host) return;
+          var choice = localStorage.getItem("jakh-home-language")
+            || (JSON.parse(localStorage.getItem("jakh-riddles-settings") || "{}") || {}).lang;
+          var first = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+          if (choice === "ar" || (choice !== "en" && /^ar(?:-|$)/i.test(first))) {
+            location.replace("/ar/" + location.search + location.hash);
+          }
+        } catch (error) {}
+      })();
+    </script>
     <meta name="theme-color" content="#fff9ed" />
     <meta name="description" content="Solve Arabic riddles with answers, test your knowledge with Arabic trivia, and play free games online. Explore Riddle Arabia in Arabic and English." />
     <title>Arabic Riddles, Trivia &amp; Games | Riddle Arabia</title>

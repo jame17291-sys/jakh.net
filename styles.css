@@ -3646,6 +3646,11 @@ body[data-page="category"] #questionSection { margin-top: .8rem; }
 .category-progress-summary { margin-top: 1.5rem; }
 .collection-source-links { display: flex; gap: .5rem; flex-wrap: wrap; margin: 1rem 0; }
 .collection-topic-link { display: inline-flex; min-height: 44px; align-items: center; color: var(--accent-ink); text-decoration: underline; padding: .4rem 0; }
+.seo-qa-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .6rem; }
+.seo-qa-actions a.text-btn { padding-inline: .95rem; }
+.collection-share-link { display: inline-flex; min-height: 44px; align-items: center; color: var(--easy); font-weight: 700; padding: .4rem 0; }
+.collection-share { margin: 1rem 0 0; }
+.collection-share-button { min-height: 44px; }
 .seo-collection-hero { padding-block: 1.5rem; }
 .seo-collection-hero h1 { font-size: clamp(1.85rem,4vw,3rem); }
 #cardGrid { scroll-margin-top: 8rem; }

@@ -3,6 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
+    <script>
+      /* Arabic-first visitors who arrive here from outside the site, and have not
+         chosen English, start on the Arabic home page. Runs before rendering so
+         English never flashes. Crawlers (English locale) and visits from inside
+         the site are never redirected. */
+      (function () {
+        try {
+          if (location.pathname !== "/") return;
+          if (document.referrer && new URL(document.referrer).host === location.host) return;
+          var choice = localStorage.getItem("jakh-home-language")
+            || (JSON.parse(localStorage.getItem("jakh-riddles-settings") || "{}") || {}).lang;
+          var first = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+          if (choice === "ar" || (choice !== "en" && /^ar(?:-|$)/i.test(first))) {
+            location.replace("/ar/" + location.search + location.hash);
+          }
+        } catch (error) {}
+      })();
+    </script>
     <meta name="theme-color" content="#fff9ed" />
     <meta name="description" content="حلّ ألغازاً عربية مع الحل، واختبر معلوماتك بأسئلة ثقافية، والعب ألعاباً مجانية أونلاين. اكتشف ريدل أرابيا بالعربية والإنجليزية ومن دون تنزيل." />
     <title>ألغاز عربية وأسئلة معلومات عامة وألعاب | ريدل أرابيا</title>
@@ -20,8 +38,8 @@
     <meta property="og:url" content="https://riddlearabia.com/ar/" />
     <meta property="og:image" content="https://riddlearabia.com/assets/riddlearabia-og-image.png" />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="600" />
-    <meta property="og:image:height" content="315" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="ريدل أرابيا — ألغاز واختبارات وألعاب ذهنية بالعربية والإنجليزية" />
     <meta property="og:site_name" content="Riddle Arabia" />
     <meta property="og:locale" content="ar_AE" />

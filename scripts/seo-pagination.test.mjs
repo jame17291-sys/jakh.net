@@ -20,6 +20,15 @@ const siteOrigin = "https://riddlearabia.com";
 const catalog = JSON.parse(fs.readFileSync(path.join(root, "data", "catalog.json"), "utf8"));
 const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
 
+function decodeAttribute(value) {
+  return String(value)
+    .replaceAll("&quot;", '"')
+    .replaceAll("&#39;", "'")
+    .replaceAll("&lt;", "<")
+    .replaceAll("&gt;", ">")
+    .replaceAll("&amp;", "&");
+}
+
 function read(relative) {
   return fs.readFileSync(path.join(root, relative), "utf8");
 }
@@ -186,9 +195,21 @@ test("the public SEO surface is eight original bilingual Riddle Arabia experienc
       }
       const articles = [...source.matchAll(/<article\b[^>]*class="seo-qa-card"[^>]*>([\s\S]*?)<\/article>/gu)];
       assert.equal(articles.length, expectedCards.length);
-      for (const [, article] of articles) {
-        assert.match(article, /<\/details>\s*<a class="text-btn collection-topic-link"/u, `${relative}: full-topic link is visible before revealing an answer`);
+      for (const [index, [, article]] of articles.entries()) {
+        assert.match(article, /<\/details>\s*<div class="seo-qa-actions">\s*<a class="text-btn collection-topic-link"/u, `${relative}: full-topic link is visible before revealing an answer`);
+        const share = article.match(/<a class="text-btn collection-share-link" href="([^"]+)" target="_blank" rel="noopener noreferrer">/u);
+        assert.ok(share, `${relative}: card ${index + 1} offers a WhatsApp share link outside the answer`);
+        const shareUrl = new URL(decodeAttribute(share[1]));
+        assert.equal(shareUrl.origin + shareUrl.pathname, "https://wa.me/", `${relative}: shares through wa.me`);
+        const text = shareUrl.searchParams.get("text");
+        const card = expectedCards[index];
+        assert.ok(text.includes(card.question[lang]), `${relative}: ${card.id} share text carries the question`);
+        assert.ok(text.endsWith(`${canonical}#${encodeURIComponent(card.id)}`), `${relative}: ${card.id} share text links back to the card`);
+        assert.ok(!text.includes(lang === "ar" ? "الحل:" : "Answer:"), `${relative}: ${card.id} share text keeps the answer hidden`);
       }
+      const collectionShare = source.match(/<a class="primary-btn collection-share-button" href="([^"]+)" target="_blank" rel="noopener noreferrer">/u);
+      assert.ok(collectionShare, `${relative}: offers a collection WhatsApp share`);
+      assert.ok(new URL(decodeAttribute(collectionShare[1])).searchParams.get("text").endsWith(canonical), `${relative}: collection share links to its canonical page`);
       assert.match(source, /class="collection-subset-note"/u, `${relative}: states the subset relationship`);
       assert.match(source, /class="collection-source-links"/u, `${relative}: full source topics are directly available`);
       assert.deepEqual(

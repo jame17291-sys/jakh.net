@@ -40,7 +40,11 @@
     link.href = target.pathname + target.search + target.hash;
     };
     refreshTarget();
-    link.addEventListener('click', refreshTarget);
+    link.addEventListener('click', () => {
+      refreshTarget();
+      // Remember an explicit language switch so the home page never overrides it.
+      try { localStorage.setItem('jakh-home-language', link.hreflang === 'ar' ? 'ar' : 'en'); } catch (_) {}
+    });
   });
   if ('serviceWorker' in navigator && !document.querySelector('script[src*="/app."]')) {
     window.addEventListener('load', () => {

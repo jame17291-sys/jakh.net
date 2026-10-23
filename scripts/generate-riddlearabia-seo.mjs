@@ -288,19 +288,47 @@ function breadcrumbStructuredData(page, lang, canonical) {
   };
 }
 
-function answerCardMarkup(card, index, lang) {
+// Plain wa.me links: no script, no tracking, and the CSP is unchanged. A
+// shared question never includes its answer, so friends open the page to
+// check it. Riddle collections say "riddle"; quiz collections say "question".
+const RIDDLE_COLLECTION_KEYS = new Set(["riddles", "arabic-riddles", "logic-puzzles", "kids-riddles"]);
+
+function whatsappHref(text) {
+  // encodeURIComponent leaves ' unescaped; encode it so the attribute needs no entities.
+  return `https://wa.me/?text=${encodeURIComponent(text).replaceAll("'", "%27")}`;
+}
+
+function cardShareText(page, card, lang, canonical) {
+  const url = `${canonical}#${encodeURIComponent(card.id)}`;
+  return lang === "ar"
+    ? `🧠 ${page.headings.ar} | ريدل أرابيا\n\n${card.question.ar}\n\nالإجابة هنا 👇\n${url}`
+    : `🧠 ${page.headings.en} | Riddle Arabia\n\n${card.question.en}\n\nSee the answer 👇\n${url}`;
+}
+
+function collectionShareText(page, lang, canonical) {
+  return lang === "ar"
+    ? `🧠 ${page.headings.ar}: ${questionCountLabel(page.cards.length, "ar")} مجاناً على ريدل أرابيا\n${canonical}`
+    : `🧠 ${page.headings.en}: ${questionCountLabel(page.cards.length, "en")}, free on Riddle Arabia\n${canonical}`;
+}
+
+function answerCardMarkup(card, index, lang, page, canonical) {
   const isAr = lang === "ar";
   const cardPath = isAr ? `/ar/topics/${card.sourceCategory.slug}/?card=${encodeURIComponent(card.id)}` : `/${card.sourceCategory.slug}?card=${encodeURIComponent(card.id)}`;
   const categoryName = card.sourceCategory.title[lang] || card.sourceCategory.title.en;
+  const number = String(index + 1).padStart(2, "0");
+  const noun = RIDDLE_COLLECTION_KEYS.has(page.key) ? (isAr ? "اللغز" : "riddle") : (isAr ? "السؤال" : "question");
   return `<article class="seo-qa-card" id="${escapeHtml(card.id)}" data-card-id="${escapeHtml(card.id)}">
           <details>
-            <summary><span class="seo-question-number">${String(index + 1).padStart(2, "0")}</span><span>${escapeHtml(card.question[lang])}</span></summary>
+            <summary><span class="seo-question-number">${number}</span><span>${escapeHtml(card.question[lang])}</span></summary>
             <div class="seo-answer">
               <p class="seo-answer-label">${isAr ? "الحل" : "Answer"}</p>
               <p>${escapeHtml(card.answer[lang])}</p>
             </div>
           </details>
-          <a class="text-btn collection-topic-link" href="${cardPath}">${isAr ? `الموضوع الكامل: ${escapeHtml(categoryName)}` : `Full topic: ${escapeHtml(categoryName)}`}</a>
+          <div class="seo-qa-actions">
+            <a class="text-btn collection-topic-link" href="${cardPath}">${isAr ? `الموضوع الكامل: ${escapeHtml(categoryName)}` : `Full topic: ${escapeHtml(categoryName)}`}</a>
+            <a class="text-btn collection-share-link" href="${escapeHtml(whatsappHref(cardShareText(page, card, lang, canonical)))}" target="_blank" rel="noopener noreferrer">${isAr ? "واتساب" : "WhatsApp"}<span class="sr-only">${isAr ? ` — أرسل ${noun} ${number}` : ` — send ${noun} ${number}`}</span></a>
+          </div>
         </article>`;
 }
 
@@ -363,12 +391,13 @@ function renderQuizExperience(page, lang, cards) {
           <span>${isAr ? "العربية والإنجليزية" : "Arabic & English"}</span>
           <span>${isAr ? "مجاني" : "Free"}</span>
         </div>
+        <p class="collection-share"><a class="primary-btn collection-share-button" href="${escapeHtml(whatsappHref(collectionShareText(page, lang, canonical)))}" target="_blank" rel="noopener noreferrer">${isAr ? "شارك المجموعة عبر واتساب" : "Share this collection on WhatsApp"}</a></p>
         <p class="collection-subset-note">${isAr ? "هذه مجموعة مختارة من مكتبة الأسئلة، وليست الموضوع الكامل." : "A short selection from the question library, not the full topic."}</p>
         <nav class="collection-source-links" aria-label="${isAr ? "الموضوعات الكاملة" : "Full source topics"}">${sourceTopics.map((category) => `<a class="text-btn" href="${categoryRoute(category, lang)}">${escapeHtml(category.title[lang] || category.title.en)} · ${category.count} ${isAr ? "سؤالاً" : "questions"}</a>`).join(" ")}</nav>
         <p class="section-note">${escapeHtml(page.guidance[lang])}</p>${disclaimer}
       </section>
       <section class="seo-question-list shell" aria-label="${isAr ? "ألغاز وحلول" : "Riddles and answers"}">
-        ${cards.map((card, index) => answerCardMarkup(card, index, lang)).join("\n        ")}
+        ${cards.map((card, index) => answerCardMarkup(card, index, lang, page, canonical)).join("\n        ")}
       </section>
       ${relatedExperienceMarkup(page, lang)}
     </main>

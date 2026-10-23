@@ -56,6 +56,23 @@ ownership verification files are protocol assets; only an exact Google filename
 and matching one-line payload are exempt from editorial HTML checks. They are
 served at the exact `.html` URL, carry noindex, and stay out of the sitemap.
 
+## Sharing and language entry
+
+Every collection page offers a WhatsApp link for the whole collection and
+for each card. Card links send the question and a link back to the card
+(`#card-id`), never the answer. They are plain `wa.me` links with no script.
+
+The English home page sends a visitor to `/ar/` only when the browser's
+first language is Arabic, the visit did not come from inside the site, and
+no language was chosen (`jakh-home-language`, set by the language links, or
+the saved site language). Crawlers use an English locale and are never
+redirected, so `/` and `/ar/` stay separately indexable with reciprocal
+`hreflang`; `x-default` remains `/`.
+
+The shared link preview is `assets/riddlearabia-og-image.png`, 1200×630.
+`validate-seo` checks every page's `og:image:width/height` against the
+real image.
+
 ## Functional topic routes
 
 The existing topic URLs remain available as app-powered, bilingual category

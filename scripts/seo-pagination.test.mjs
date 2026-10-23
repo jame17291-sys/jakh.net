@@ -212,6 +212,12 @@ test("the public SEO surface is eight original bilingual Riddle Arabia experienc
       assert.ok(new URL(decodeAttribute(collectionShare[1])).searchParams.get("text").endsWith(canonical), `${relative}: collection share links to its canonical page`);
       assert.match(source, /class="collection-subset-note"/u, `${relative}: states the subset relationship`);
       assert.match(source, /class="collection-source-links"/u, `${relative}: full source topics are directly available`);
+      const sourceTopicCount = new Set(experience.cards.map(([slug]) => slug)).size;
+      if (sourceTopicCount > 3) {
+        assert.match(source, /<details class="collection-source-topics"><summary>[^<]+\(\d+\)<\/summary><nav class="collection-source-links"/u, `${relative}: many source topics fold into one line`);
+      } else {
+        assert.doesNotMatch(source, /class="collection-source-topics"/u, `${relative}: a few source topics stay visible`);
+      }
       assert.deepEqual(
         quiz.educationalAlignment
           .filter((item) => item.alignmentType === "educationalSubject")

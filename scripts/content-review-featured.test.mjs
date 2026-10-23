@@ -48,3 +48,11 @@ test("duplicate selections and unapproved source categories are rejected", () =>
   assert.match(errors, /duplicate selection/u);
   assert.match(errors, /source category is not declared/u);
 });
+
+test("a card cannot be featured on two collections", () => {
+  const f = fixture();
+  f.pages.push({ key: "more-cartoons", cards: [["cartoons", "two"]] });
+  f.policy.collections["more-cartoons"] = { cardCount: 1, sourceCategories: ["cartoons"] };
+  const errors = inspectFeaturedCollections(f.pages, f.cards, f.policy).errors;
+  assert.deepEqual(errors, ["more-cartoons/two: already featured on cartoons."]);
+});

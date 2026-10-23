@@ -1086,11 +1086,15 @@ a.text-btn { display: inline-flex; align-items: center; max-width: 100%; }
 }
 
 .seo-qa-card {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
 }
 
+/* Grow inside the card rather than fill 100% of it, so the full-topic link
+   below stays inside the card instead of sliding under the next one. */
 .seo-qa-card details {
-  height: 100%;
+  flex: 1 1 auto;
   border: 1px solid color-mix(in srgb, var(--line) 84%, transparent);
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.82);

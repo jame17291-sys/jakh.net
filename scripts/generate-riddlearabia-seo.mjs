@@ -19,6 +19,7 @@ import {
   RIDDLE_ARABIA_GAME_CATALOG,
   RIDDLE_ARABIA_PUZZLE_CATALOG,
   RIDDLE_ARABIA_SEO_PAGES,
+  questionCountLabel,
 } from "./riddlearabia-seo.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -358,7 +359,7 @@ function renderQuizExperience(page, lang, cards) {
         <h1>${escapeHtml(page.headings[lang])}</h1>
         <p>${escapeHtml(page.introductions[lang])}</p>
         <div class="seo-collection-meta">
-          <span>${cards.length} ${isAr ? "أسئلة" : "questions"}</span>
+          <span>${questionCountLabel(cards.length, lang)}</span>
           <span>${isAr ? "العربية والإنجليزية" : "Arabic & English"}</span>
           <span>${isAr ? "مجاني" : "Free"}</span>
         </div>
@@ -522,7 +523,7 @@ function renderCollectionsPage(lang) {
       <section class="seo-hub-grid shell" aria-label="${isAr ? "مجموعات الأسئلة القصيرة" : "Short question collections"}">
         ${QUESTION_COLLECTIONS.map((page) => `<article class="seo-hub-card">
           ${illustrationMarkup(COLLECTION_ILLUSTRATIONS[page.key])}
-          <p class="eyebrow">${page.cards.length} ${isAr ? "أسئلة مختارة" : "selected questions"}</p>
+          <p class="eyebrow">${questionCountLabel(page.cards.length, lang, { selected: true })}</p>
           <h2>${escapeHtml(page.headings[lang])}</h2>
           <p>${escapeHtml(page.descriptions[lang])}</p>
           <a class="primary-btn" href="${page.paths[lang]}">${isAr ? `جرّب ${escapeHtml(page.headings[lang])}` : `Try ${escapeHtml(page.headings[lang])}`}</a>

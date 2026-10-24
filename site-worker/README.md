@@ -1,6 +1,6 @@
-# JAKH static edge Worker
+# Riddle Arabia static edge Worker (`jakh-site`)
 
-This package deploys the complete static site and its edge policy as one versioned Cloudflare Worker. It is deliberately separate from `worker/`, which serves `api.riddlearabia.com` and owns D1. Its custom domains are `riddlearabia.com` and `www.riddlearabia.com`; the `jakh.net` aliases are retired for reuse by another project.
+This package deploys the complete Riddle Arabia static site and its edge policy as one versioned Cloudflare Worker named `jakh-site`. It is deliberately separate from `worker/` (`jakh-api`), which serves `api.riddlearabia.com` and owns D1. The `jakh` names are internal identifiers. Its only custom domains are `riddlearabia.com` and `www.riddlearabia.com`. Since 12 October 2026, `jakh.net` and `www.jakh.net` belong to a different project and must never be attached to this Worker.
 
 ## Safety model
 
@@ -35,93 +35,17 @@ file list and therefore do not depend on staging. Production must build the
 exact protected commit, and the manifest's final-byte inventory is the release
 and rollback boundary.
 
-## Production activation
+## Current production setup
 
-The Static Site workflow is manual and requires protected-main and protected-environment approval. Its normal-release preflight requires `riddlearabia.com` to serve a verified baseline `jakh-site` Worker with an exact Worker version and `X-JAKH-Site-Version` build identity. The baseline and post-deployment checks do not depend on retired domain redirects. Keep `domain_cutover` false; its one-time migration mode is retired. Do not weaken baseline, version, schema or rollback safeguards.
+- **Domains.** `wrangler.jsonc` attaches `riddlearabia.com` and `www.riddlearabia.com` as Worker custom domains, with `workers_dev` off. A `www` or plain-HTTP request gets a single `301` to the `https://riddlearabia.com` address. Any other hostname that reaches the Worker gets `404`. The only exception is the dormant `mta-sts.riddlearabia.com` handler described below.
+- **Releases.** Static production releases go only through the manual **Deploy static site to Cloudflare Workers** workflow (`.github/workflows/static-site.yml`), run from protected `main` with the confirmation `DEPLOY riddlearabia.com FROM protected main`. A manual release uses the `production` environment, which must have required reviewers. Run it after the API deploy, from the same `main` commit; see `docs/DEPLOYMENT-CHECKLIST.md`.
+- **`domain_cutover` stays `false`.** The input remains only for compatibility; the workflow refuses to run when it is `true`.
+- **Baseline and rollback.** Before deploying, the workflow requires `riddlearabia.com` to serve a verified `jakh-site` Worker with an exact Worker version and `X-JAKH-Site-Version` build identity, and it records that version as the rollback target after proving it safe. After deploying, it runs the smoke, API and runtime checks. If the deployment or any of those checks fails, it rolls back to that exact version and verifies the rollback. None of this depends on redirects from retired domains. Do not weaken the baseline, version, schema or rollback safeguards.
+- **No GitHub Pages path.** The **Legacy GitHub Pages (break-glass only)** workflow (`pages.yml`) can no longer publish anything. It always fails with a denial, so GitHub Pages is not a rollback route.
 
-The legacy GitHub Pages workflow is manual-only and must not be run after the custom domains point at this Worker.
+## Superseded: one-time `jakh.net` cut-over runbook
 
-### One-time baseline cutover runbook
-
-The following procedure is historical. The migration is complete; do not use it
-to restore `jakh.net` or `www.jakh.net` attachments. Normal releases use the
-independent Riddle Arabia configuration above.
-
-This is a separate, owner-approved migration procedure, not a normal release. Record this exact confirmation in the change ticket before touching DNS:
-
-`BOOTSTRAP jakh-site AND PRESERVE LEGACY DNS ROLLBACK`
-
-Do not start unless all of the following are true:
-
-1. The candidate is the current tip of protected `main`; all contract, performance, browser-matrix, accessibility, site, and Wrangler dry-run gates passed for that exact commit.
-2. The `production` environment approval is recorded and the least-privilege bootstrap token has `Workers Scripts: Edit`, `Workers Routes: Edit`, `DNS: Read`, and `DNS: Edit` for only the JAKH account and zone. Record the account and zone IDs; never paste them into the repository.
-3. A maintenance window and a named rollback operator are active. The rollback operator must remain present until both `jakh.net` and `www.jakh.net` pass the post-cutover smoke suite.
-4. A quarantine-safe legacy Pages artifact from this exact commit is already deployed and verified as the rollback baseline. A pre-quarantine Pages artifact is never an acceptable rollback target. Do not run the Pages workflow after the Worker custom domains are attached.
-
-Before the API release or any DNS/custom-domain change, publish the exact
-projected artifact to GitHub Pages while Pages still owns `jakh.net` and
-`www.jakh.net`:
-
-1. From the current tip of protected `main`, dispatch `Legacy GitHub Pages (break-glass only)`, enter the exact confirmation `DEPLOY LEGACY GITHUB PAGES`, and supply the approved change reference. The workflow must build the same 298-file projection; never upload the repository root or the full source tree.
-2. Verify the Pages deployment itself on both `jakh.net` and `www.jakh.net`: public catalog `51`/`3,275`, card index and both search shards `3,275`, the exact quarantine policy digest, and `404` for every held English route, Arabic route, and category-data path. Retain both host reports, the artifact manifest, commit, deployment URL/ID, probe bodies and hashes, statuses, UTC times, and workflow run as the Pages rollback receipt.
-3. Only after that receipt passes, deploy and verify the API compatibility phase. The `migrate-final` phase is currently intentionally fail-closed before D1 mutation: it must not be enabled until it consumes a successful same-commit compatibility receipt and creates, encrypts, uploads, and verifies an off-account D1 backup receipt. Cloudflare Time Travel alone does not satisfy that requirement.
-4. Only after both the safe Pages baseline and API phases pass may the one-time `jakh-site` custom-domain cutover begin. If any prerequisite fails, leave Pages and DNS in place.
-
-Never restore or redeploy a pre-quarantine Pages artifact. DNS rollback must
-return traffic only to the verified projected Pages baseline from the exact
-approved commit.
-
-Before deleting any conflicting record, save these immutable evidence files outside the mutable checkout and retain them with the release receipt:
-
-- `GET /zones/{zone_id}` and verify that the returned active zone name is exactly `jakh.net`.
-- `GET /zones/{zone_id}/dns_records?name=jakh.net&per_page=100` and `GET /zones/{zone_id}/dns_records?name=www.jakh.net&per_page=100`. Preserve every returned field and separately identify only the conflicting `A`, `AAAA`, or `CNAME` web records; never alter MX, TXT, CAA, or other records.
-- `GET /accounts/{account_id}/workers/domains` and verify neither hostname is attached to another Worker.
-- The HTTP status, redirect chain, response headers, SHA-256 body hash, and UTC capture time for `https://jakh.net/`, `https://www.jakh.net/`, `https://jakh.net/sw.js`, a known `404` URL, and every held route/data probe from the verified quarantine-safe Pages receipt.
-- The candidate `site-manifest.json`, commit SHA, build ID, dry-run output, run ID, operator, and the exact confirmation above.
-
-Cloudflare does not allow a Worker Custom Domain on a hostname with an existing CNAME. Delete only the snapshotted conflicting web records, then run the exact candidate once with all placeholders resolved from the approved receipt (never from memory):
-
-```sh
-test "$BOOTSTRAP_CONFIRMATION" = "BOOTSTRAP jakh-site AND PRESERVE LEGACY DNS ROLLBACK"
-test -n "$SOURCE_COMMIT" && test -n "$BUILD_ID" && test -n "$CHANGE_REFERENCE"
-(
-  cd site-worker
-  ./node_modules/.bin/wrangler deploy --strict \
-    --message "JAKH site baseline $SOURCE_COMMIT build $BUILD_ID change $CHANGE_REFERENCE"
-)
-(
-  cd site-worker
-  ./node_modules/.bin/wrangler deployments status --json \
-    > "$RECEIPT_DIR/bootstrap-deployment-before-smoke.json"
-)
-WORKER_VERSION="$(node scripts/site-release-receipt.mjs active-version \
-  --deployment "$RECEIPT_DIR/bootstrap-deployment-before-smoke.json")"
-node scripts/site-release-receipt.mjs smoke \
-  --expected-build-id "$BUILD_ID" \
-  --expected-worker-version "$WORKER_VERSION" \
-  --output "$RECEIPT_DIR/bootstrap-smoke.json" \
-  --attempts 8 \
-  --delay-ms 10000
-(
-  cd site-worker
-  ./node_modules/.bin/wrangler deployments status --json \
-    > "$RECEIPT_DIR/bootstrap-deployment-after-smoke.json"
-)
-test "$(node scripts/site-release-receipt.mjs active-version \
-  --deployment "$RECEIPT_DIR/bootstrap-deployment-after-smoke.json")" = "$WORKER_VERSION"
-```
-
-Confirm exactly one version serves 100%, the expected build identity is live on every probe, and the deployment message contains the approved commit, build, and change reference. A successful verified baseline makes every later release eligible for the normal automated version rollback.
-
-If deploy, certificate issuance, redirect, header, build identity, or smoke verification fails, stop the cutover and perform this rollback in order:
-
-1. List `GET /accounts/{account_id}/workers/domains` again and detach only the `jakh-site` domain IDs for `jakh.net` and `www.jakh.net` with `DELETE /accounts/{account_id}/workers/domains/{domain_id}`. Do not detach a domain owned by another service.
-2. Re-list both hostnames' DNS records. Use `POST /zones/{zone_id}/dns_records/batch` to delete only the current conflicting web-record IDs and recreate the saved legacy web records with their exact type, name, content, TTL, proxy state, comments, tags, and settings. The batch response must report `success: true`.
-3. Re-list DNS and compare the restored records field-for-field with the pre-cutover snapshot. Then repeat the legacy HTTP probes until their status, redirects, body hashes, public counts, policy digest, and held-route/data `404` behavior match the saved quarantine-safe Pages baseline. DNS propagation is not atomic, so a successful API response alone is not recovery evidence.
-4. If the quarantine-safe Pages artifact is unavailable or cannot be proven, stop recovery and escalate; never dispatch, restore, or accept an older pre-quarantine artifact as a shortcut.
-5. Retain the before/after DNS snapshots, Custom Domain lists, API responses, probes, and timestamps. Do not retry bootstrap until the rollback evidence is complete and reviewed.
-
-The relevant Cloudflare operations are the [Custom Domains API](https://developers.cloudflare.com/api/go/resources/workers/subresources/domains/), [DNS batch API](https://developers.cloudflare.com/api/resources/dns/subresources/records/methods/batch/), and [Custom Domains migration guidance](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/).
+Earlier versions of this README contained the one-time runbook that first attached this Worker to `jakh.net` and `www.jakh.net`, using GitHub Pages as the DNS rollback. That runbook is superseded and has been removed: the domains now belong to a different project, and the Pages workflow it relied on is retired. Do not use it, or the DNS, Custom Domain or Pages steps in it, for Riddle Arabia. The last copy is kept only as history in [the README at `db7b3c7b`](https://github.com/jame17291-sys/jakh.net/blob/db7b3c7b81b08f188d13c26d29dc31e5b4ff4b08/site-worker/README.md#one-time-baseline-cutover-runbook). `docs/RIDDLEARABIA-CUTOVER.md` records the completed move to `riddlearabia.com`.
 
 ## MTA-STS capability
 

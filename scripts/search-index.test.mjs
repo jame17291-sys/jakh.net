@@ -22,13 +22,18 @@ function loadCorpus() {
   const categories = (catalog.categories || []).map(category => category.slug);
   const expected = { en: [], ar: [] };
   for (const [categoryIndex, slug] of categories.entries()) {
+    const topics = catalog.categories[categoryIndex].topics || [];
     for (const card of load(`data/${slug}.json`)) {
+      const subtopic = topics.findIndex(topic => topic.en === card.subcategory.en);
+      assert.ok(subtopic >= 0, `${card.id}: subtopic is listed in the catalog`);
+      assert.equal(topics[subtopic].ar, card.subcategory.ar, `${card.id}: Arabic subtopic matches the catalog`);
       for (const language of ["en", "ar"]) {
         expected[language].push([
           categoryIndex,
           card.id,
           card.question[language],
           card.answer[language],
+          subtopic,
         ]);
       }
     }
@@ -55,7 +60,7 @@ test("language shards exactly cover the 4,103-card corpus within explicit byte b
   const { catalog, categories, expected } = loadCorpus();
   const manifestText = read("data/search-index.json");
   const manifest = JSON.parse(manifestText);
-  assert.equal(manifest.version, 2);
+  assert.equal(manifest.version, 3);
   assert.equal(manifest.total, 4_103);
   assert.equal(catalog.site.totalQuestions, 4_103);
   assert.ok(Buffer.byteLength(manifestText) < 1_024, "manifest should not contain card content");
@@ -67,7 +72,7 @@ test("language shards exactly cover the 4,103-card corpus within explicit byte b
     const shard = JSON.parse(serialized);
     const bytes = Buffer.byteLength(serialized);
     combinedBytes += bytes;
-    assert.equal(shard.version, 2);
+    assert.equal(shard.version, 3);
     assert.equal(shard.language, language);
     assert.equal(shard.total, 4_103);
     assert.deepEqual(shard.categories, categories);
@@ -115,6 +120,32 @@ test("ranking is language-local, deterministic, and returns every hit before the
   }, categories, "Answer target", "en");
   assert.equal(answerOnly[0].id, "answer-exact", "an exact answer must beat a non-exact question");
   assert.equal(rankGlobalSearch(index, categories, "the", "en").length, 41);
+});
+
+test("results carry the card's subtopic and can be found by it", () => {
+  const { rankGlobalSearch } = searchRuntime();
+  const categories = [{
+    slug: "tv-shows-trivia",
+    title: { en: "TV Shows Trivia", ar: "مسلسلات" },
+    topics: [{ en: "Breaking Bad", ar: "بريكينغ باد" }, { en: "The Wire", ar: "ذا واير" }],
+  }];
+  const index = {
+    categories: ["tv-shows-trivia"],
+    cards: [
+      [0, "tv-1", "Who plays William Rawls?", "John Doman", 1],
+      [0, "tv-2", "Who is Heisenberg?", "Walter White", 0],
+    ],
+  };
+  const byQuestion = rankGlobalSearch(index, categories, "William Rawls", "en");
+  assert.equal(byQuestion[0].subtopic, "The Wire");
+  assert.deepEqual(Array.from(rankGlobalSearch(index, categories, "The Wire", "en"), hit => hit.id), ["tv-1"]);
+  const arabic = rankGlobalSearch({ ...index, cards: [[0, "tv-1", "مين يلعب دور ويليام رولز؟", "جون دومان", 1]] }, categories, "ذا واير", "ar");
+  assert.equal(arabic[0].subtopic, "ذا واير");
+
+  const featureSource = read("search-leaderboard.js");
+  assert.match(featureSource, /payload\?\.version !== 3/u);
+  assert.match(featureSource, /row\.length === 5/u);
+  assert.match(featureSource, /class="gs-result-subtopic"/u);
 });
 
 test("Arabic normalization and the runtime loader remain shard-specific", () => {

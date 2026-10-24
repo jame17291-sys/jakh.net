@@ -104,6 +104,16 @@ export const ILLUSTRATIONS = Object.freeze([
   ...Object.values(GAME_ILLUSTRATIONS).filter(id => id.startsWith('game-')),
 ]);
 
+// Every illustration ships in these WebP widths (3:2). 240w serves 120px
+// thumbnails on 2x screens and 640w serves 260-340px feature cards; 480w and
+// 960w remain for larger slots. scripts/validate-responsive-images.mjs checks
+// that each file exists with exactly this width.
+export const ILLUSTRATION_WIDTHS = Object.freeze([240, 480, 640, 960]);
+
+export function illustrationSrcset(id) {
+  return ILLUSTRATION_WIDTHS.map(width => `/assets/illustrations/${id}-${width}.webp ${width}w`).join(', ');
+}
+
 export function illustrationAttributes(id, placement = 'card', eager = false) {
   if (!ILLUSTRATIONS.includes(id)) return null;
   const sizes = {
@@ -119,7 +129,7 @@ export function illustrationAttributes(id, placement = 'card', eager = false) {
   const base = `/assets/illustrations/${id}`;
   return {
     class: `ra-art ra-art-${placement}`, 'data-illustration': id,
-    src: `${base}-480.webp`, srcset: `${base}-480.webp 480w, ${base}-960.webp 960w`,
+    src: `${base}-480.webp`, srcset: illustrationSrcset(id),
     sizes: sizes[placement], width: '960', height: '640', alt: '',
     loading: eager ? 'eager' : 'lazy', decoding: 'async',
     ...(eager ? { fetchpriority: 'high' } : {}),

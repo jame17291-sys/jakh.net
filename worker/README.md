@@ -80,6 +80,48 @@ Every returned recovery code is a high-entropy bearer secret shown once. The
 client must ask the user to save the replacement; it must not persist the code
 in browser storage or send it to analytics/logging.
 
+## Sign-in and recovery limits
+
+Usernames are public on the leaderboard, so sign-in limits must not let a
+stranger lock a known account out. Sign-in and recovery windows are 15 minutes.
+Every limit here uses the existing `rate_limits` table; no schema change is
+involved.
+
+- `POST /api/auth/login`: only failed passwords count toward the account
+  limits; a success hands its slot back.
+  Register, sign-in and recovery set a long-lived, opaque
+  `__Host-jakh_device` cookie (HttpOnly, Secure, SameSite=Strict, Path=/;
+  `jakh_device` on plain-HTTP localhost). It holds a random nonce and an HMAC
+  over the account ID and nonce, keyed from `PASSWORD_PEPPER` through HKDF with
+  its own label. It grants no access. A browser presenting a valid cookie for
+  the account it is signing in to gets its own budget of 10 failures and skips
+  the shared limits below. Every other browser meets a limit of 20 requests
+  per network and shares one budget of 20 failures per account from any
+  network, which still caps distributed password guessing. While that shared
+  budget is used up, a browser the account has not seen before waits up to 15
+  minutes or uses recovery.
+- `POST /api/auth/recovery/reset`: at most 8 requests per network and 5 failed
+  codes per account and network. Recovery codes are 256-bit random values, so
+  there is no account-wide recovery limit for a stranger to exhaust.
+- Logout keeps the device cookie; account deletion clears it.
+- Password re-checks on a signed-in session (password change, recovery-code
+  rotation, account deletion, administrator re-confirmation and authenticator
+  setup) keep their per-network limits and also share one budget of 10 failed
+  passwords per account per hour, from any network. A correct password hands
+  its slot back, so it never uses the budget up.
+- Administrator authenticator codes: on top of 10 codes per 15 minutes, app
+  codes allow 30 and recovery codes 10 failures per account per fixed UTC day
+  (reset at 00:00 UTC). A used-up budget refuses that kind of code until
+  00:00 UTC (`MFA_LOCKED` / `MFA_RECOVERY_LOCKED`) and ends the session that
+  used it up. A correct recovery code, or the owner through
+  `POST /api/admin/users/:id/authenticator-unlock` (owner role, verified
+  authenticator, password confirmed in the last 10 minutes), clears both
+  budgets. See `docs/ADMIN-MFA.md`.
+- A successful sign-in to an account still stored at the old password work
+  factor re-hashes the password with a fresh salt at the current setting. The
+  update is guarded by the old record, so a concurrent password change wins,
+  and a failed upgrade never fails the sign-in.
+
 During the schema 9 → 10 release, the compatibility Worker keeps login, profile,
 progress, leaderboard, suggestion, game, scoring, and the static question corpus
 available. Privileged admin operations return `503 MFA_UNAVAILABLE` until

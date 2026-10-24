@@ -24,6 +24,10 @@ for (const [categoryIndex, category] of (catalog.categories || []).entries()) {
   );
   if (!Array.isArray(source)) throw new Error(`Invalid card data for ${category.slug}`);
   categories.push(category.slug);
+  // Each row names its subtopic by position in the catalog's topic list, so
+  // results can show context ("TV Shows Trivia · The Wire") without repeating
+  // the label on every row of the shard.
+  const topicIndex = new Map((category.topics || []).map((topic, index) => [topic?.en, index]));
   for (const card of source) {
     if (
       typeof card?.id !== "string"
@@ -35,12 +39,17 @@ for (const [categoryIndex, category] of (catalog.categories || []).entries()) {
     ) {
       throw new Error(`Incomplete bilingual search data for ${category.slug}/${card?.id || "unknown"}`);
     }
+    const subtopic = topicIndex.get(card.subcategory?.en);
+    if (!Number.isInteger(subtopic)) {
+      throw new Error(`Search subtopic for ${category.slug}/${card.id} is missing from the catalog topics`);
+    }
     for (const language of ["en", "ar"]) {
       cardsByLanguage[language].push([
         categoryIndex,
         card.id,
         card.question[language],
         card.answer[language],
+        subtopic,
       ]);
     }
   }
@@ -58,7 +67,7 @@ let combinedBytes = 0;
 for (const language of ["en", "ar"]) {
   const relativePath = `data/search-index.${language}.json`;
   const serialized = `${JSON.stringify({
-    version: 2,
+    version: 3,
     language,
     total,
     categories,
@@ -84,7 +93,7 @@ if (combinedBytes > SEARCH_SHARDS_COMBINED_MAX_BYTES) {
 }
 
 outputs.set("data/search-index.json", `${JSON.stringify({
-  version: 2,
+  version: 3,
   total,
   budgets: {
     maxShardBytes: SEARCH_SHARD_MAX_BYTES,

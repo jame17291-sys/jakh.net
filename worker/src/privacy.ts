@@ -2,6 +2,7 @@ import {
   enforceRateLimit,
   RETENTION_CLEANUP_BATCH_SIZE,
   requireUser,
+  reservePasswordRecheckSlot,
   runBoundedRetentionCleanup,
   touchPrivilegedSession,
 } from "./db.js";
@@ -9,6 +10,7 @@ import { ApiError, json, parseJson } from "./http.js";
 import { verifyPasswordInHasher } from "./password-hasher.js";
 import { requireAdminMfa } from "./admin-mfa.js";
 import {
+  clearLoginDeviceCookies,
   clearSessionCookies,
   clientIp,
   sha256,
@@ -104,9 +106,13 @@ async function privacyRateKey(
   );
 }
 
+// Used after account deletion: the sign-in device cookie names an account that
+// no longer exists, so it is cleared together with the session.
 function responseWithClearedSessionCookies(response: Response): Response {
   const headers = new Headers(response.headers);
-  for (const cookie of clearSessionCookies()) headers.append("set-cookie", cookie);
+  for (const cookie of [...clearSessionCookies(), ...clearLoginDeviceCookies()]) {
+    headers.append("set-cookie", cookie);
+  }
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
@@ -370,6 +376,7 @@ export async function deleteAccount(
     password_salt: string;
     password_iterations: number;
   }>();
+  const releaseRecheck = await reservePasswordRecheckSlot(env, session.id);
   if (
     !account
     || !await verifyPasswordInHasher(
@@ -387,6 +394,7 @@ export async function deleteAccount(
       "CURRENT_PASSWORD_INCORRECT",
     );
   }
+  await releaseRecheck();
 
   await env.DB.batch([
     env.DB.prepare("DELETE FROM analytics_daily WHERE user_id = ?").bind(session.id),

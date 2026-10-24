@@ -8,9 +8,19 @@ import {
   rm,
   writeFile,
 } from "node:fs/promises";
+import { readFileSync } from "node:fs";
 import { dirname, extname, relative, resolve, sep } from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { promisify } from "node:util";
+import {
+  brotliCompress,
+  brotliDecompressSync,
+  constants as zlibConstants,
+  gunzipSync,
+  gzip,
+} from "node:zlib";
+import { AR_COUNT, arabicCount } from "../arabic-count.js";
 
 import {
   isQuarantinedArtifactPath,
@@ -31,13 +41,36 @@ import {
   isGoogleVerificationAsset,
   isRetiredPublicSeoArtifactPath,
 } from "./public-seo-release-contract.mjs";
+import { ILLUSTRATION_WIDTHS, illustrationSrcset } from "../site-illustrations.js";
 
 const SCRIPT_DIRECTORY = dirname(fileURLToPath(import.meta.url));
 export const REPOSITORY_ROOT = resolve(SCRIPT_DIRECTORY, "..");
 export const DEFAULT_OUTPUT_DIRECTORY = resolve(REPOSITORY_ROOT, "site-worker/dist");
 export const DEFAULT_MANIFEST_PATH = resolve(REPOSITORY_ROOT, "site-worker/generated/site-manifest.json");
 export const DEFAULT_MANIFEST_MODULE_PATH = resolve(REPOSITORY_ROOT, "site-worker/generated/site-manifest.js");
+export const HTML_PRECOMPRESSION_CONFIG_PATH = resolve(REPOSITORY_ROOT, "site-worker/html-precompression.json");
 export const FINGERPRINT_PREFIX_LENGTH = 16;
+
+// HTML keeps `Cache-Control: no-transform` (docs/HTML-DELIVERY-POLICY.md), so
+// Cloudflare will not compress it. Compressing in the Worker at request time
+// was tried and rolled back (PR #161). Instead every deployable HTML file gets
+// brotli and gzip copies here, and the Worker only picks a stored file.
+// The copies live under an internal directory that the Worker never serves as
+// a page; their names carry the SHA-256 of the HTML they decode to.
+export const PRECOMPRESSED_DIRECTORY = "/__precompressed/";
+export const HTML_PRECOMPRESSION_ENCODINGS = Object.freeze([
+  Object.freeze({ name: "br", extension: "br" }),
+  Object.freeze({ name: "gzip", extension: "gz" }),
+]);
+// Below this size a compressed copy saves less than a TCP packet.
+export const HTML_PRECOMPRESSION_MIN_BYTES = 1_024;
+// Workers Free plan static-asset limits
+// (https://developers.cloudflare.com/workers/platform/limits/#static-assets).
+export const STATIC_ASSET_LIMITS = Object.freeze({ files: 20_000, bytesPerFile: 25 * 1024 * 1024 });
+
+// Dependency-free modules shared by several entry points. They are fingerprinted
+// first so every importer can pin the exact release it was built with.
+const SHARED_MODULES = Object.freeze(["/arabic-count.js"]);
 
 const ILLUSTRATION_MODULES = Object.freeze(["/site-illustrations.js", "/directory-ui.js"]);
 
@@ -61,12 +94,21 @@ const PUZZLE_ASSETS = Object.freeze([
   "/puzzle-room.js",
 ]);
 
+// Classic page scripts that HTML still spells with hand-maintained `?v=` tags.
+// The build replaces those tags with content hashes so an edit can never ship
+// under an unchanged version string.
+const PAGE_RUNTIME_SCRIPTS = Object.freeze(["/site-i18n.js", "/game-i18n.js", "/privacy-page.js"]);
+
 export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
   "/privacy-consent.js",
+  ...PAGE_RUNTIME_SCRIPTS,
+  "/content-overrides.js",
+  "/data/card-index.json",
   "/auth-enhancements.js",
   "/speech-quality.js",
   "/auth-security.css", "/auth-security.js",
   "/kids-learning.js", "/kids-state.js", "/kids-learning.css", "/data/kids/catalog.json",
+  ...SHARED_MODULES,
   ...ILLUSTRATION_MODULES,
   ...PUZZLE_ASSETS,
   ...PARTY_ASSETS,
@@ -95,6 +137,7 @@ export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
 
 const HTML_FINGERPRINT_SOURCE_PATHS = new Set([
   "/privacy-consent.js",
+  ...PAGE_RUNTIME_SCRIPTS,
   "/party-games.js", "/friendship-games.js", "/party-games.css",
   "/tv-trivia.css",
   "/shuffle-challenge.css",
@@ -119,6 +162,7 @@ export const DEFAULT_ADMIN_RUNTIME_CONFIG = Object.freeze({
 
 const ADMIN_RUNTIME_ENVIRONMENT_PATTERN = /^[a-z][a-z0-9-]{0,31}$/u;
 const LOOPBACK_ADMIN_API_HOSTS = new Set(["localhost", "127.0.0.1", "::1", "[::1]"]);
+const LOOPBACK_CSP_SOURCE = /^(?:https?|wss?):\/\/(?:localhost|127\.0\.0\.1|\[::1\])(?::(?:\d+|\*))?(?:\/\S*)?$/iu;
 
 const DEPLOYABLE_EXTENSIONS = new Set([
   ".pdf",
@@ -235,9 +279,21 @@ function rewriteSearchLeaderboard(source, fingerprints) {
   return rewritten;
 }
 
+function rewriteSharedModuleImports(source, fingerprints) {
+  let rewritten = source;
+  for (const dependency of SHARED_MODULES) {
+    const target = fingerprints[dependency];
+    if (!target) continue;
+    rewritten = replaceQuotedUrl(rewritten, dependency, target).value;
+    rewritten = replaceQuotedUrl(rewritten, `.${dependency}`, target).value;
+  }
+  return rewritten;
+}
+
 function rewriteApplication(source, fingerprints) {
   let rewritten = source;
   for (const dependency of [
+    ...SHARED_MODULES,
     "/auth-enhancements.js",
     "/speech-quality.js",
     "/auth-security.js",
@@ -249,6 +305,11 @@ function rewriteApplication(source, fingerprints) {
     "/search-leaderboard.js",
     "/search-leaderboard.css",
     "/data/catalog.json",
+    // The public card index decides which saved progress is visible and which
+    // signed-in saves may publish. Pin it per release so no browser or service
+    // worker cache can keep an older question list alive.
+    "/data/card-index.json",
+    "/content-overrides.js",
   ]) {
     const target = fingerprints[dependency];
     if (!target) continue;
@@ -340,11 +401,17 @@ function rewriteAdminRuntimeConfig(html, runtimeConfig) {
   const contentAttribute = /\bcontent\s*=\s*(["'])(.*?)\1/iu;
   const csp = cspMeta.match(contentAttribute)?.[2];
   invariant(csp, "admin.html CSP meta tag must declare content");
-  const apiSource = new URL(runtimeConfig.apiOrigin).origin;
+  const apiUrl = new URL(runtimeConfig.apiOrigin);
+  const apiSource = apiUrl.origin;
+  // The source file lists the local Worker preview (port 8787) so admin.html
+  // works straight from a checkout. A build for a real API origin must not
+  // ship those loopback origins; a build pointed at a loopback API keeps them.
+  const keepLoopbackSources = LOOPBACK_ADMIN_API_HOSTS.has(apiUrl.hostname.toLowerCase());
   const connectSourceDirective = /(^|;)(\s*connect-src\s+)([^;]*)/iu;
   invariant(connectSourceDirective.test(csp), "admin.html CSP must declare connect-src");
   const updatedCsp = csp.replace(connectSourceDirective, (_match, separator, name, sources) => {
-    const configuredSources = sources.trim().split(/\s+/u).filter(Boolean);
+    const configuredSources = sources.trim().split(/\s+/u).filter(Boolean)
+      .filter((source) => keepLoopbackSources || !LOOPBACK_CSP_SOURCE.test(source));
     if (!configuredSources.includes(apiSource)) configuredSources.push(apiSource);
     return `${separator}${name}${configuredSources.join(" ")}`;
   });
@@ -369,6 +436,36 @@ function rewriteHtmlAssetReferences(html, relativePath, fingerprints) {
       return `${prefix}${quote}${fingerprinted}${closingQuote}`;
     },
   );
+}
+
+// Generated pages take their srcset from site-illustrations.js. Hand-written
+// pages, the Kids generator and older generated pages may still list only
+// the 480w/960w pair; upgrade those to the shared width set at build time,
+// but only when every derivative is part of this release.
+const LEGACY_ILLUSTRATION_SRCSET = /(\ssrcset=")\/assets\/illustrations\/([a-z0-9-]+)-480\.webp 480w, \/assets\/illustrations\/\2-960\.webp 960w(")/gu;
+// The header logo is a 1536x1024 file shown in a 132x46 box (108x40 on
+// phones) with object-fit: cover, so its rendered width equals the box width.
+const BRAND_LOGO_SOURCE = "/assets/riddlearabia-logo.webp";
+const BRAND_LOGO_WIDTHS = Object.freeze([264, 396]);
+const BRAND_LOGO_SIZES = "(max-width: 600px) 108px, 132px";
+
+export function upgradeResponsiveImages(html, availableFiles) {
+  let rewritten = html.replace(LEGACY_ILLUSTRATION_SRCSET, (match, prefix, id, suffix) => (
+    ILLUSTRATION_WIDTHS.every((width) => availableFiles.has(`assets/illustrations/${id}-${width}.webp`))
+      ? `${prefix}${illustrationSrcset(id)}${suffix}`
+      : match
+  ));
+  const logoFiles = BRAND_LOGO_WIDTHS.map((width) => BRAND_LOGO_SOURCE.replace(/\.webp$/u, `-${width}.webp`));
+  if (logoFiles.every((file) => availableFiles.has(file.slice(1)))) {
+    const srcset = logoFiles.map((file, index) => `${file} ${BRAND_LOGO_WIDTHS[index]}w`).join(", ");
+    rewritten = rewritten.replace(/<img\b[^>]*>/gu, (tag) => {
+      if (!/\bclass="brand-logo"/u.test(tag) || /\bsrcset=/u.test(tag)) return tag;
+      // The supplied full-size logo stays the src fallback; browsers that
+      // understand width descriptors pick a header-sized file instead.
+      return tag.replace(`src="${BRAND_LOGO_SOURCE}"`, `src="${BRAND_LOGO_SOURCE}" srcset="${srcset}" sizes="${BRAND_LOGO_SIZES}"`);
+    });
+  }
+  return rewritten;
 }
 
 function hrefPathFromAnchor(anchor) {
@@ -521,9 +618,9 @@ function rewritePublishedSectionTotals(html, publicCatalog) {
   const categoriesBySlug = new Map(listed.map((category) => [category.slug, category]));
   const totalCategories = listed.length;
   let rewritten = html;
-  const tabCount = (count) => isArabic ? `${count} موضوعًا` : `${count} topics`;
+  const tabCount = (count) => isArabic ? arabicCount(count, AR_COUNT.topic) : `${count} topics`;
   const sectionCount = (count, questions) => isArabic
-    ? `${count} موضوعًا · ${questions.toLocaleString("en-US")} سؤال`
+    ? `${arabicCount(count, AR_COUNT.topic)} · ${arabicCount(questions, AR_COUNT.question, { format: (value) => value.toLocaleString("en-US") })}`
     : `${count} topics · ${questions.toLocaleString("en-US")} questions`;
 
   const replaceTab = (key, count) => {
@@ -783,6 +880,147 @@ function validateFingerprintManifest(manifest) {
   }
 }
 
+// The switch lives in a tracked config file so a follow-up pull request can
+// turn precompression off without a code change. A missing file means on.
+export function htmlPrecompressionEnabled(configPath = HTML_PRECOMPRESSION_CONFIG_PATH) {
+  let source;
+  try {
+    source = readFileSync(configPath, "utf8");
+  } catch (error) {
+    if (error?.code === "ENOENT") return true;
+    throw error;
+  }
+  const config = JSON.parse(source);
+  invariant(
+    config && typeof config === "object" && typeof config.enabled === "boolean",
+    `${relative(REPOSITORY_ROOT, configPath)} must declare "enabled": true or false`,
+  );
+  return config.enabled;
+}
+
+const brotliCompressAsync = promisify(brotliCompress);
+const gzipAsync = promisify(gzip);
+// Compression output depends only on the input and the zlib/brotli build, so
+// repeated builds in one process (the release tests) compress each page once.
+const compressedHtmlMemo = new Map();
+
+function normalizedGzip(buffer) {
+  invariant(buffer[0] === 0x1f && buffer[1] === 0x8b && buffer[2] === 8 && buffer[3] === 0, "Unexpected gzip header");
+  const normalized = Buffer.from(buffer);
+  // MTIME is already zero. The OS byte differs between platforms; fix it so a
+  // macOS and a Linux build of the same HTML produce the same file.
+  normalized.writeUInt32LE(0, 4);
+  normalized[9] = 255;
+  return normalized;
+}
+
+function compressHtml(encoding, bytes, digest) {
+  const key = `${encoding}\0${digest}`;
+  let pending = compressedHtmlMemo.get(key);
+  if (!pending) {
+    pending = encoding === "br"
+      ? brotliCompressAsync(bytes, {
+        params: {
+          [zlibConstants.BROTLI_PARAM_QUALITY]: 11,
+          [zlibConstants.BROTLI_PARAM_MODE]: zlibConstants.BROTLI_MODE_TEXT,
+          [zlibConstants.BROTLI_PARAM_SIZE_HINT]: bytes.length,
+        },
+      })
+      : gzipAsync(bytes, { level: 9 }).then(normalizedGzip);
+    pending.catch(() => compressedHtmlMemo.delete(key));
+    compressedHtmlMemo.set(key, pending);
+  }
+  return pending;
+}
+
+function decompressHtml(encoding, bytes) {
+  return encoding === "br" ? brotliDecompressSync(bytes) : gunzipSync(bytes);
+}
+
+// Adds a brotli and a gzip copy of every deployable HTML page to the artifact.
+// Runs after the publication and SEO scans, on the final HTML bytes, and
+// proves each copy decodes back to exactly those bytes, so the inline-script
+// CSP hashes and the quarantine checks still describe what visitors receive.
+async function addPrecompressedHtml(artifactBytes, { enabled }) {
+  const precompression = {
+    enabled,
+    directory: PRECOMPRESSED_DIRECTORY,
+    encodings: HTML_PRECOMPRESSION_ENCODINGS.map(({ name }) => name),
+    minimumBytes: HTML_PRECOMPRESSION_MIN_BYTES,
+    encoder: { brotli: process.versions.brotli || null, zlib: process.versions.zlib || null },
+    variants: {},
+  };
+  for (const relativePath of artifactBytes.keys()) {
+    invariant(
+      !physicalUrlPath(relativePath).toLowerCase().startsWith(PRECOMPRESSED_DIRECTORY),
+      `Source artifact uses the internal precompressed directory: ${relativePath}`,
+    );
+  }
+  if (!enabled) return precompression;
+
+  const pages = [...artifactBytes]
+    .filter(([relativePath, bytes]) => relativePath.endsWith(".html") && bytes.length >= HTML_PRECOMPRESSION_MIN_BYTES)
+    .sort(([left], [right]) => left.localeCompare(right, "en"));
+  const compressed = await Promise.all(pages.map(async ([relativePath, bytes]) => {
+    const digest = sha256(bytes);
+    const copies = await Promise.all(HTML_PRECOMPRESSION_ENCODINGS.map(async (encoding) => ({
+      encoding,
+      bytes: await compressHtml(encoding.name, bytes, digest),
+    })));
+    return { relativePath, bytes, digest, copies };
+  }));
+  for (const { relativePath, bytes, digest, copies } of compressed) {
+    const variants = {};
+    for (const { encoding, bytes: encoded } of copies) {
+      invariant(
+        decompressHtml(encoding.name, encoded).equals(bytes),
+        `${encoding.name} copy of ${relativePath} does not decode to the published HTML`,
+      );
+      if (encoded.length >= bytes.length) continue;
+      const target = `${PRECOMPRESSED_DIRECTORY}${digest}.${encoding.extension}`;
+      const relativeTarget = urlPathToRelative(target);
+      const existing = artifactBytes.get(relativeTarget);
+      invariant(!existing || existing.equals(encoded), `Precompressed HTML copy collides: ${target}`);
+      artifactBytes.set(relativeTarget, encoded);
+      variants[encoding.name] = target;
+    }
+    if (Object.keys(variants).length > 0) precompression.variants[physicalUrlPath(relativePath)] = variants;
+  }
+  return precompression;
+}
+
+function validatePrecompressionManifest(manifest) {
+  const { htmlPrecompression } = manifest;
+  invariant(htmlPrecompression && typeof htmlPrecompression.enabled === "boolean", "Manifest HTML precompression settings are missing");
+  const referenced = new Set();
+  for (const [source, variants] of Object.entries(htmlPrecompression.variants)) {
+    invariant(htmlPrecompression.enabled, "Precompressed HTML copies exist while precompression is off");
+    invariant(source.endsWith(".html") && manifest.files[source], `Precompressed source is not a deployed HTML file: ${source}`);
+    for (const { name, extension } of HTML_PRECOMPRESSION_ENCODINGS) {
+      const target = variants[name];
+      if (target === undefined) continue;
+      invariant(
+        target === `${PRECOMPRESSED_DIRECTORY}${manifest.files[source].sha256}.${extension}`,
+        `Precompressed ${name} copy of ${source} is not named by its HTML digest`,
+      );
+      invariant(manifest.files[target], `Precompressed ${name} copy of ${source} is missing`);
+      referenced.add(target);
+    }
+    invariant(
+      Object.keys(variants).every((name) => HTML_PRECOMPRESSION_ENCODINGS.some((encoding) => encoding.name === name)),
+      `Unknown precompressed encoding for ${source}`,
+    );
+  }
+  for (const path of Object.keys(manifest.files)) {
+    if (path.toLowerCase().startsWith(PRECOMPRESSED_DIRECTORY)) {
+      invariant(referenced.has(path), `Unreferenced precompressed file: ${path}`);
+    }
+  }
+  for (const path of [...Object.keys(manifest.routes), ...Object.keys(manifest.aliases), ...Object.values(manifest.routes)]) {
+    invariant(!path.toLowerCase().startsWith(PRECOMPRESSED_DIRECTORY), `Precompressed copy is routable: ${path}`);
+  }
+}
+
 export function inlineScriptHashes(html) {
   const hashes = new Set();
   for (const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\s*>/giu)) {
@@ -843,7 +1081,13 @@ export async function buildStaticSite({
   fileList,
   adminApiOrigin,
   adminEnvironment,
+  precompressHtml,
 } = {}) {
+  invariant(
+    precompressHtml === undefined || typeof precompressHtml === "boolean",
+    "precompressHtml must be true, false, or omitted",
+  );
+  const precompressionEnabled = precompressHtml ?? htmlPrecompressionEnabled();
   const source = resolve(sourceRoot);
   const output = resolve(outputDirectory);
   const manifestTarget = resolve(manifestPath);
@@ -939,7 +1183,11 @@ export async function buildStaticSite({
   }
 
   for (const stableUrlPath of [
+    ...SHARED_MODULES,
     "/privacy-consent.js",
+    ...PAGE_RUNTIME_SCRIPTS,
+    "/content-overrides.js",
+    "/data/card-index.json",
     "/auth-enhancements.js",
     "/speech-quality.js",
     "/auth-security.css",
@@ -951,7 +1199,6 @@ export async function buildStaticSite({
     "/privacy.css",
     "/admin-config.js",
     "/admin.css",
-    "/battle-selection.js",
     "/battle-mode.css",
     "/search-leaderboard.css",
     "/data/search-index.en.json",
@@ -959,6 +1206,11 @@ export async function buildStaticSite({
   ]) {
     const bytes = sourceBytes.get(urlPathToRelative(stableUrlPath));
     if (bytes) addFingerprint(stableUrlPath, bytes);
+  }
+
+  const selectionSource = sourceBytes.get('battle-selection.js');
+  if (selectionSource) {
+    addFingerprint('/battle-selection.js', Buffer.from(rewriteSharedModuleImports(selectionSource.toString('utf8'), fingerprints), 'utf8'));
   }
 
   const battleSource = sourceBytes.get('battle-mode.js');
@@ -975,7 +1227,7 @@ export async function buildStaticSite({
     const source = sourceBytes.get(urlPathToRelative(stable));
     if (!source) continue;
     let text = source.toString("utf8");
-    for (const dependency of [...ILLUSTRATION_MODULES, ...PUZZLE_ASSETS, ...PARTY_ASSETS]) {
+    for (const dependency of [...SHARED_MODULES, ...ILLUSTRATION_MODULES, ...PUZZLE_ASSETS, ...PARTY_ASSETS]) {
       const target = fingerprints[dependency];
       if (!target) continue;
       text = replaceQuotedUrl(text, dependency, target).value;
@@ -987,7 +1239,7 @@ export async function buildStaticSite({
   const kidsSource = sourceBytes.get("kids-learning.js");
   if (kidsSource) {
     let rewritten = kidsSource.toString("utf8");
-    for (const dependency of ["/kids-state.js", "/data/kids/catalog.json", "/speech-quality.js"]) {
+    for (const dependency of ["/kids-state.js", "/data/kids/catalog.json", "/speech-quality.js", ...SHARED_MODULES]) {
       invariant(fingerprints[dependency], `Kids runtime requires ${dependency}`);
       rewritten = replaceQuotedUrl(rewritten, dependency, fingerprints[dependency]).value;
     }
@@ -996,7 +1248,7 @@ export async function buildStaticSite({
 
   const searchSource = sourceBytes.get("search-leaderboard.js");
   if (searchSource) {
-    const rewritten = rewriteSearchLeaderboard(searchSource.toString("utf8"), fingerprints);
+    const rewritten = rewriteSharedModuleImports(rewriteSearchLeaderboard(searchSource.toString("utf8"), fingerprints), fingerprints);
     addFingerprint("/search-leaderboard.js", Buffer.from(rewritten, "utf8"));
   }
 
@@ -1022,12 +1274,13 @@ export async function buildStaticSite({
   const adminSource = sourceBytes.get("admin.js");
   if (adminSource) addFingerprint("/admin.js", Buffer.from(rewriteApplication(adminSource.toString('utf8'), fingerprints), 'utf8'));
 
+  const availableFiles = new Set(sourceBytes.keys());
   for (const relativePath of selectedFiles.filter((value) => value.endsWith(".html"))) {
-    const rewritten = rewriteHtmlAssetReferences(
+    const rewritten = upgradeResponsiveImages(rewriteHtmlAssetReferences(
       sourceBytes.get(relativePath).toString("utf8"),
       relativePath,
       fingerprints,
-    );
+    ), availableFiles);
     artifactBytes.set(relativePath, Buffer.from(rewritten, "utf8"));
   }
 
@@ -1052,6 +1305,9 @@ export async function buildStaticSite({
     // current branding, and the absence of retired SEO output together.
     requireMetadata: source === REPOSITORY_ROOT,
   });
+  // The offline cache identity above describes the source graph only; the
+  // compressed copies are derived from it. The build ID below covers them.
+  const htmlPrecompression = await addPrecompressedHtml(artifactBytes, { enabled: precompressionEnabled });
 
   const files = {};
   const routes = {};
@@ -1106,6 +1362,15 @@ export async function buildStaticSite({
     invariant(Boolean(routes[target]), `Alias ${alias} points to an unknown route ${target}`);
   }
 
+  const fileCount = Object.keys(files).length;
+  invariant(
+    fileCount <= STATIC_ASSET_LIMITS.files,
+    `Static artifact has ${fileCount} files; the Workers Free plan allows ${STATIC_ASSET_LIMITS.files} per version`,
+  );
+  for (const [path, record] of Object.entries(files)) {
+    invariant(record.bytes <= STATIC_ASSET_LIMITS.bytesPerFile, `${path} exceeds the 25 MiB static asset limit`);
+  }
+
   const buildHasher = createHash("sha256");
   if (quarantine) {
     buildHasher.update("production-publication-policy\0").update(quarantine.policySha256).update("\0");
@@ -1120,9 +1385,10 @@ export async function buildStaticSite({
     buildId,
     sourceGraphId,
     offlineCacheIdentity,
-    fileCount: Object.keys(files).length,
+    fileCount,
     totalBytes,
     files,
+    htmlPrecompression,
     fingerprints: Object.fromEntries(
       Object.entries(fingerprints).sort(([left], [right]) => left.localeCompare(right, "en")),
     ),
@@ -1143,12 +1409,15 @@ export async function buildStaticSite({
     } : {}),
   };
   validateFingerprintManifest(manifest);
+  validatePrecompressionManifest(manifest);
 
   const serialized = `${JSON.stringify(manifest, null, 2)}\n`;
   await mkdir(dirname(manifestTarget), { recursive: true });
   await writeFile(manifestTarget, serialized, "utf8");
   await mkdir(dirname(moduleTarget), { recursive: true });
-  await writeFile(moduleTarget, `// Generated by scripts/build-static-site.mjs. Do not edit.\nexport default ${JSON.stringify(manifest)};\n`, "utf8");
+  // V8 parses a large JSON string faster than the same object literal, which
+  // keeps the Worker's startup time down as the release inventory grows.
+  await writeFile(moduleTarget, `// Generated by scripts/build-static-site.mjs. Do not edit.\nexport default JSON.parse(${JSON.stringify(JSON.stringify(manifest))});\n`, "utf8");
   return manifest;
 }
 
@@ -1158,6 +1427,11 @@ async function main() {
   const outputDirectory = options.output ? resolve(options.output) : DEFAULT_OUTPUT_DIRECTORY;
   const manifestPath = options.manifest ? resolve(options.manifest) : DEFAULT_MANIFEST_PATH;
   const manifestModulePath = options.module ? resolve(options.module) : DEFAULT_MANIFEST_MODULE_PATH;
+  const precompressOption = options["precompress-html"];
+  invariant(
+    precompressOption === undefined || ["on", "off"].includes(precompressOption),
+    "--precompress-html must be on or off",
+  );
   const manifest = await buildStaticSite({
     sourceRoot,
     outputDirectory,
@@ -1165,9 +1439,14 @@ async function main() {
     manifestModulePath,
     adminApiOrigin: options["admin-api-origin"],
     adminEnvironment: options["admin-environment"],
+    precompressHtml: precompressOption === undefined ? undefined : precompressOption === "on",
   });
+  const precompressedPages = Object.keys(manifest.htmlPrecompression.variants).length;
   process.stdout.write(
-    `Built ${manifest.fileCount} static files (${manifest.totalBytes} bytes) as ${manifest.buildId}.\n`,
+    `Built ${manifest.fileCount} static files (${manifest.totalBytes} bytes) as ${manifest.buildId}.\n`
+    + (manifest.htmlPrecompression.enabled
+      ? `Precompressed ${precompressedPages} HTML pages (${manifest.htmlPrecompression.encodings.join(", ")}).\n`
+      : "HTML precompression is off.\n"),
   );
 }
 

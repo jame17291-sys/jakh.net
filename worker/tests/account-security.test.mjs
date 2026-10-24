@@ -436,10 +436,16 @@ test("authenticated recovery-code rotation requires the current password and sto
 
   assert.deepEqual(Object.keys(payload), ["recoveryCode"]);
   assert.match(payload.recoveryCode, /^[A-Za-z0-9_-]{43}$/u);
-  assert.equal(state.writes.length, 1);
-  assert.match(state.writes[0].sql, /INSERT INTO account_recovery_codes/u);
-  assert.match(state.writes[0].sql, /ON CONFLICT\(user_id\) DO UPDATE/u);
-  assert.equal(state.writes[0].values[0], await sha256(payload.recoveryCode));
+  // The accepted password hands its re-check slot back; that is the only
+  // write besides the recovery code itself.
+  const slotReleases = state.writes.filter((write) => /UPDATE rate_limits/u.test(write.sql));
+  const accountWrites = state.writes.filter((write) => !/UPDATE rate_limits/u.test(write.sql));
+  assert.equal(slotReleases.length, 1);
+  assert.equal(slotReleases[0].values[0], await sha256(`ip-hash-salt-longer-than-24-characters:password-recheck:${USER_ID}`));
+  assert.equal(accountWrites.length, 1);
+  assert.match(accountWrites[0].sql, /INSERT INTO account_recovery_codes/u);
+  assert.match(accountWrites[0].sql, /ON CONFLICT\(user_id\) DO UPDATE/u);
+  assert.equal(accountWrites[0].values[0], await sha256(payload.recoveryCode));
   assert.equal(boundStrings(state.writes).includes(payload.recoveryCode), false);
   assert.equal(boundStrings(state.writes).includes(CURRENT_PASSWORD), false);
   assert.equal(hasher.calls.find((call) => call.path === "/verify")?.payload.iterations, 100_000);

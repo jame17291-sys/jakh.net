@@ -357,6 +357,12 @@ function startBattleTimer(timeMs) {
   }, 1000);
 }
 
+// Room data arrives over the network; numbers are rendered only as numbers.
+function battleNumber(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? number : 0;
+}
+
 function renderBattleLobby(body) {
   const isAr = state.lang === 'ar';
   const room = battleState.roomData;
@@ -423,8 +429,8 @@ function renderBattleQuestion(body) {
     <div class="battle-game">
       <div class="battle-hud">
         <span class="battle-hud-code bidi-isolate" dir="ltr">${escapeHtml(room.code)}</span>
-        <span class="battle-round-label">${isAr ? 'س' : 'Q'}${q.index + 1} / ${q.total}</span>
-        <span class="battle-player-count">${room.totalPlayers} ${isAr ? 'لاعبين' : 'players'}</span>
+        <span class="battle-round-label">${isAr ? 'س' : 'Q'}${battleNumber(q.index) + 1} / ${battleNumber(q.total)}</span>
+        <span class="battle-player-count">${battleNumber(room.totalPlayers)} ${isAr ? 'لاعبين' : 'players'}</span>
         <span class="battle-timer-badge" id="battleTimerCount">${battleState.timeLeft}</span>
       </div>
       <div class="battle-timer-bar">
@@ -441,7 +447,7 @@ function renderBattleQuestion(body) {
             </button>`).join('')}
         </div>
         <p class="battle-answer-status" id="battleAnswerCount">
-          ${battleState.answeredCount}/${room.totalPlayers} ${isAr ? 'أجابوا' : 'answered'}
+          ${battleNumber(battleState.answeredCount)}/${battleNumber(room.totalPlayers)} ${isAr ? 'أجابوا' : 'answered'}
         </p>
       </div>
       <div class="battle-bottom">
@@ -452,9 +458,9 @@ function renderBattleQuestion(body) {
             return `<div class="battle-mini-lb-row${isMe ? ' is-me' : ''}">
               <span class="battle-mini-lb-pos">${i + 1}</span>
               <span class="battle-mini-lb-name">${escapeHtml(p.name)}${isMe ? (isAr ? ' (أنت)' : ' (you)') : ''}</span>
-              ${p.streak >= 2 ? `<span class="battle-streak-badge">🔥${p.streak}×</span>` : ''}
+              ${p.streak >= 2 ? `<span class="battle-streak-badge">🔥${battleNumber(p.streak)}×</span>` : ''}
               <div class="battle-mini-lb-bar"><div class="battle-mini-lb-bar-fill" style="width:${barW}%"></div></div>
-              <span class="battle-mini-lb-score">${p.score}</span>
+              <span class="battle-mini-lb-score">${battleNumber(p.score)}</span>
             </div>`;
           }).join('')}
         </div>
@@ -499,7 +505,7 @@ function renderBattleReveal(body) {
       <div class="battle-hud">
         <span class="battle-hud-code bidi-isolate" dir="ltr">${escapeHtml(room.code)}</span>
         <span class="battle-round-label">
-          ${isAr ? 'س' : 'Q'}${q.index + 1}/${q.total} ·
+          ${isAr ? 'س' : 'Q'}${battleNumber(q.index) + 1}/${battleNumber(q.total)} ·
           ${mySelected === null
             ? (isAr ? '⏱️ انتهى الوقت' : '⏱️ Time\'s up')
             : myCorrect
@@ -532,9 +538,9 @@ function renderBattleReveal(body) {
             return `<div class="battle-mini-lb-row${isMe ? ' is-me' : ''}">
               <span class="battle-mini-lb-pos">${i + 1}</span>
               <span class="battle-mini-lb-name">${escapeHtml(p.name)}</span>
-              ${p.streak >= 2 ? `<span class="battle-streak-badge">🔥${p.streak}×</span>` : ''}
+              ${p.streak >= 2 ? `<span class="battle-streak-badge">🔥${battleNumber(p.streak)}×</span>` : ''}
               <div class="battle-mini-lb-bar"><div class="battle-mini-lb-bar-fill" style="width:${barW}%"></div></div>
-              <span class="battle-mini-lb-score">${p.score}</span>
+              <span class="battle-mini-lb-score">${battleNumber(p.score)}</span>
             </div>`;
           }).join('')}
         </div>
@@ -574,7 +580,7 @@ function renderBattlePodium(body) {
           return `<div class="battle-podium-place">
             <div class="battle-podium-medal">${medals[rank - 1] || ''}</div>
             <div class="battle-podium-name${isMe ? ' you' : ''}">${escapeHtml(p.name)}</div>
-            <div class="battle-podium-pts">${p.score} ${isAr ? 'نقطة' : 'pts'}</div>
+            <div class="battle-podium-pts">${battleNumber(p.score)} ${isAr ? 'نقطة' : 'pts'}</div>
             <div class="battle-podium-block" style="height:${podiumHeights[di]}px;background:${podiumColors[di]}">${rank}</div>
           </div>`;
         }).join('')}
@@ -585,7 +591,7 @@ function renderBattlePodium(body) {
             <div class="battle-full-lb-row${p.id === battleState.playerId ? ' is-me' : ''}">
               <span style="color:var(--muted);font-family:var(--font-mono);width:1.4rem">${i + 1}</span>
               <span style="flex:1;font-weight:500">${escapeHtml(p.name)}</span>
-              <span style="font-family:var(--font-mono);font-weight:700;color:var(--accent-2)">${p.score}</span>
+              <span style="font-family:var(--font-mono);font-weight:700;color:var(--accent-2)">${battleNumber(p.score)}</span>
             </div>`).join('')}
         </div>` : ''}
       <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;margin-top:0.5rem;">

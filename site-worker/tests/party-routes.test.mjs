@@ -13,6 +13,9 @@ for (const pathname of paths) {
   const physical = pathname.endsWith('/') ? `${pathname}index.html` : `${pathname}.html`;
   manifest.routes[pathname] = physical;
   manifest.files[physical] = { ...manifest.files['/privacy.html'] };
+  // The substituted record no longer matches the page's build-time compressed
+  // copies, which the handler rejects; this fixture serves the page uncompressed.
+  if (manifest.htmlPrecompression) delete manifest.htmlPrecompression.variants[physical];
   manifest.aliases[physical] = pathname;
 }
 const handler = createSiteHandler({ siteManifest: manifest, mtaStsPolicy });

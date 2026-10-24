@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import vm from "node:vm";
-import { buildBattleQuestions, connectBattle, createBattle } from "../dist/battle.js";
+import { buildBattleQuestions, connectBattle, createBattle, generateBattleCode } from "../dist/battle.js";
 import { QUARANTINED_CATEGORY_IDS } from "../dist/content-safety.js";
 
 const cards = Array.from({ length: 8 }, (_, index) => ({
@@ -237,7 +237,7 @@ test("Battle creation sends only authored choices to the room", async (t) => {
   const response = await createBattle(createBattleRequest("science"), env);
   assert.equal(response.status, 201);
   const result = await response.json();
-  assert.match(result.code, /^SCI[A-HJ-NP-Z2-9]{5}$/u);
+  assert.match(result.code, /^[A-HJ-NP-Z]{3}[A-HJ-NP-Z2-9]{5}$/u);
   assert.equal(initialized.code, result.code);
   assert.equal(initialized.hostToken, result.hostId);
   assert.equal(initialized.questions.length, 5);
@@ -422,6 +422,56 @@ test("WebSocket upgrade forwards only trusted Worker version metadata", async ()
 
     assert.equal(await connectBattle(request, env), upgradeResponse);
     assert.equal(forwardedVersion, workerVersionId);
+  }
+});
+
+function clientBattleCodeChecks() {
+  const app = readFileSync(new URL("../../app.js", import.meta.url), "utf8");
+  const battleMode = readFileSync(new URL("../../battle-mode.js", import.meta.url), "utf8");
+  const invitePattern = /const BATTLE_CODE_PATTERN = (\/.+\/[a-z]*);/u.exec(app)?.[1];
+  const joinPattern = /if \(!(\/\^.+\$\/[a-z]*)\.test\(code\)\) \{\s*showBattleError/u.exec(battleMode)?.[1];
+  assert.ok(invitePattern && joinPattern, "the client room-code checks must remain testable");
+  return [invitePattern, joinPattern].map((source) => vm.runInNewContext(source));
+}
+
+test("room codes are fully random and fit the shape every deployed client accepts", () => {
+  const letters = "ABCDEFGHJKLMNPQRSTUVWXYZ";
+  const alphabet = `${letters}23456789`;
+  const clientChecks = clientBattleCodeChecks();
+  const codes = Array.from({ length: 3_000 }, () => generateBattleCode());
+  const seen = Array.from({ length: 8 }, () => new Set());
+  for (const code of codes) {
+    assert.match(code, /^[A-HJ-NP-Z]{3}[A-HJ-NP-Z2-9]{5}$/u);
+    for (const check of clientChecks) assert.equal(check.test(code), true, code);
+    [...code].forEach((character, index) => seen[index].add(character));
+  }
+  // Every position varies over its whole alphabet, so no part of the code is
+  // derived from the topic, and codes do not repeat in a large sample.
+  for (const [index, characters] of seen.entries()) {
+    assert.equal(characters.size, index < 3 ? letters.length : alphabet.length, `position ${index + 1}`);
+  }
+  assert.equal(new Set(codes).size, codes.length);
+});
+
+test("WebSocket connections accept older topic-prefixed codes and new random codes", async () => {
+  const clientChecks = clientBattleCodeChecks();
+  for (const code of ["SCI7X2KQ", "HIS23456", "BIO9ZZ2A", generateBattleCode()]) {
+    let roomName;
+    const upgradeResponse = { status: 101, webSocket: {} };
+    const env = {
+      DB: { prepare() { return { bind() { return this; }, async first() { return { count: 1 }; } }; } },
+      BATTLE_ROOMS: {
+        idFromName(name) { roomName = name; return name; },
+        get() { return { async fetch() { return upgradeResponse; } }; },
+      },
+      IP_HASH_SALT: "test-ip-hash-salt-at-least-24-characters",
+    };
+    const request = new Request(`https://api.riddlearabia.com/ws/battle?code=${code.toLowerCase()}`, {
+      headers: { upgrade: "websocket", origin: "https://riddlearabia.com", "cf-connecting-ip": "203.0.113.10" },
+    });
+    assert.equal(await connectBattle(request, env), upgradeResponse);
+    assert.equal(roomName, code, "the room is found under the same Durable Object name it was created with");
+    for (const check of clientChecks) assert.equal(check.test(code), true, code);
   }
 });
 

@@ -414,7 +414,7 @@ async function run() {
       expected: 201,
       body: { category: "math", difficulty: "all", questionCount: 5 },
     });
-    assert.match(battle.payload.code, /^MAT[A-HJ-NP-Z2-9]{5}$/u);
+    assert.match(battle.payload.code, /^[A-HJ-NP-Z]{3}[A-HJ-NP-Z2-9]{5}$/u);
     assert.match(battle.payload.hostId, /^[A-Za-z0-9_-]{32}$/u);
     let hostBattleSocket;
     let guestBattleSocket;

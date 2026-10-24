@@ -1,4 +1,14 @@
-import { enforceRateLimit, requireUser, touchPrivilegedSession, PRIVILEGED_SESSION_MAX_AGE_MS, runBoundedRetentionCleanup } from "./db.js";
+import {
+  enforceRateLimit,
+  FailureLimitError,
+  requireUser,
+  reserveFailureSlot,
+  reservePasswordRecheckSlot,
+  touchPrivilegedSession,
+  PRIVILEGED_SESSION_MAX_AGE_MS,
+  runBoundedRetentionCleanup,
+  type FailureSlot,
+} from "./db.js";
 import { ApiError, json, parseJson } from "./http.js";
 import { verifyPasswordInHasher } from "./password-hasher.js";
 import { randomToken, sha256, validateNewPassword, validatePassword } from "./security.js";
@@ -7,6 +17,15 @@ import type { Env, SessionUser } from "./types.js";
 const encoder = new TextEncoder();
 const SETUP_LIFETIME_MS = 10 * 60 * 1_000;
 const BASE32 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+const RECOVERY_CODE_PATTERN = /^[A-Za-z0-9_-]{22}$/u;
+// Failed authenticator and recovery codes per account over a day. The
+// 15-minute limit slows guessing down; this budget stops it. Correct codes
+// hand their slot back. Once the budget is used up, every further code for
+// the account is refused until the window ends, and the session is ended.
+export const MFA_CODE_FAILURE_LIMIT = 30;
+export const MFA_CODE_FAILURE_WINDOW_SECONDS = 24 * 60 * 60;
+type CodeMethod = "totp" | "recovery_code";
+type CodePurpose = "verify" | "setup";
 interface Credential { credential_id: string; secret_ciphertext: string; last_used_step: number; enabled_at: string }
 interface Pending { credential_id: string; previous_credential_id: string | null; secret_ciphertext: string; expires_at: string }
 
@@ -126,14 +145,57 @@ async function freshPassword(env: Env, user: SessionUser, input: unknown): Promi
   const password = validatePassword(input);
   const row = await env.DB.prepare("SELECT password_hash, password_salt, password_iterations FROM users WHERE id = ?")
     .bind(user.id).first<{ password_hash: string; password_salt: string; password_iterations: number }>();
+  const releaseRecheck = await reservePasswordRecheckSlot(env, user.id);
   if (!row || !await verifyPasswordInHasher(env, password, row.password_hash, row.password_salt, row.password_iterations)) {
     throw new ApiError(401, "Current password is incorrect", undefined, "CURRENT_PASSWORD_INCORRECT");
   }
+  await releaseRecheck();
   try { validateNewPassword(password, "Password", [user.username, user.email]); }
   catch { throw new ApiError(400, "Change your password to a long, unique passphrase before setting up an authenticator", undefined, "PASSWORD_ROTATION_REQUIRED"); }
 }
 function invalidCode(): ApiError { return new ApiError(400, "The code is invalid, expired, or already used. Try a new code.", undefined, "MFA_CODE_INVALID"); }
 function codeInput(value: unknown): string { return typeof value === "string" ? value.trim().replaceAll(" ", "") : ""; }
+function lockedOut(resetsAt: number): ApiError {
+  const retryAfter = Math.max(1, resetsAt - Math.floor(Date.now() / 1_000));
+  return new ApiError(429, "Too many incorrect codes. Authenticator sign-in for this account is paused. Sign in again after the pause ends.", { "retry-after": String(retryAfter) }, "MFA_LOCKED");
+}
+// Ends only the session that sent the codes. Session verification and pending
+// setup are removed with it by foreign-key cascades.
+function endSession(env: Env, user: SessionUser): D1PreparedStatement[] {
+  return [
+    env.DB.prepare("DELETE FROM admin_step_ups WHERE token_hash = ?").bind(user.tokenHash),
+    env.DB.prepare("DELETE FROM sessions WHERE token_hash = ?").bind(user.tokenHash),
+  ];
+}
+function auditEvent(env: Env, user: SessionUser, action: string, detail: Record<string, unknown>, createdAt: string): D1PreparedStatement {
+  return env.DB.prepare(`INSERT INTO admin_audit_log (id, actor_user_id, action, target_type, target_id, detail, created_at)
+    VALUES (?, ?, ?, 'account', ?, ?, ?)`).bind(crypto.randomUUID(), user.id, action, user.id, JSON.stringify(detail), createdAt);
+}
+async function reserveCodeFailureSlot(env: Env, user: SessionUser): Promise<FailureSlot> {
+  try {
+    return await reserveFailureSlot(env, await sha256(`${env.IP_HASH_SALT}:admin-mfa:code-failures:${user.id}`),
+      MFA_CODE_FAILURE_LIMIT, MFA_CODE_FAILURE_WINDOW_SECONDS);
+  } catch (error) {
+    if (!(error instanceof FailureLimitError)) throw error;
+    // Already locked: the code is not checked, and this session ends too.
+    await env.DB.batch(endSession(env, user));
+    throw lockedOut(error.resetsAt);
+  }
+}
+// Records every failed code (never the code itself). The failure that uses up
+// the budget also records the lockout and ends the session.
+async function rejectCode(env: Env, user: SessionUser, slot: FailureSlot, method: CodeMethod, purpose: CodePurpose): Promise<never> {
+  const now = new Date().toISOString();
+  const locked = slot.used >= MFA_CODE_FAILURE_LIMIT;
+  await env.DB.batch([
+    auditEvent(env, user, "security.authenticator_failed", { method, purpose, failedCodes: slot.used, limit: MFA_CODE_FAILURE_LIMIT }, now),
+    ...(locked ? [
+      auditEvent(env, user, "security.authenticator_locked", { failedCodes: slot.used, lockedUntil: new Date(slot.resetsAt * 1_000).toISOString() }, now),
+      ...endSession(env, user),
+    ] : []),
+  ]);
+  throw locked ? lockedOut(slot.resetsAt) : invalidCode();
+}
 
 export async function adminMfaStatus(request: Request, env: Env): Promise<Response> {
   const user = await privilegedUser(request, env);
@@ -169,8 +231,10 @@ export async function confirmAdminMfa(request: Request, env: Env): Promise<Respo
   const pending = await env.DB.prepare("SELECT credential_id, previous_credential_id, secret_ciphertext, expires_at FROM admin_totp_pending WHERE user_id = ? AND token_hash = ? AND expires_at > ?")
     .bind(user.id, user.tokenHash, new Date().toISOString()).first<Pending>();
   if (!pending) throw new ApiError(400, "Authenticator setup expired. Start again.", undefined, "MFA_SETUP_EXPIRED");
+  const failureSlot = await reserveCodeFailureSlot(env, user);
   const step = await matchingTotpStep(await decryptMfaSecret(env, user.id, pending.secret_ciphertext), codeInput(body.code));
-  if (step === null) throw invalidCode();
+  if (step === null) return rejectCode(env, user, failureSlot, "totp", "setup");
+  await failureSlot();
   const installedCredentialId = randomToken(24);
   const codes = Array.from({ length: 10 }, () => randomToken(16));
   const digests = await Promise.all(codes.map((code) => sha256(`admin-mfa-recovery:${user.id}:${code}`)));
@@ -212,17 +276,21 @@ export async function verifyAdminMfa(request: Request, env: Env): Promise<Respon
   const active = await credential(env, user.id);
   if (!active) throw new ApiError(403, "Set up an authenticator to access administration", undefined, "MFA_ENROLLMENT_REQUIRED");
   const code = codeInput(body.code);
-  let claimed: D1Result;
-  if (/^[A-Za-z0-9_-]{22}$/u.test(code)) {
+  const method: CodeMethod = RECOVERY_CODE_PATTERN.test(code) ? "recovery_code" : "totp";
+  const failureSlot = await reserveCodeFailureSlot(env, user);
+  let claimed: D1Result | null = null;
+  if (method === "recovery_code") {
     claimed = await env.DB.prepare("DELETE FROM admin_mfa_recovery_codes WHERE user_id = ? AND credential_id = ? AND code_hash = ? RETURNING code_hash")
       .bind(user.id, active.credential_id, await sha256(`admin-mfa-recovery:${user.id}:${code}`)).run();
   } else {
     const step = await matchingTotpStep(await decryptMfaSecret(env, user.id, active.secret_ciphertext), code);
-    if (step === null) throw invalidCode();
-    claimed = await env.DB.prepare("UPDATE admin_totp SET last_used_step = ? WHERE user_id = ? AND credential_id = ? AND last_used_step < ? RETURNING credential_id")
-      .bind(step, user.id, active.credential_id, step).run();
+    if (step !== null) {
+      claimed = await env.DB.prepare("UPDATE admin_totp SET last_used_step = ? WHERE user_id = ? AND credential_id = ? AND last_used_step < ? RETURNING credential_id")
+        .bind(step, user.id, active.credential_id, step).run();
+    }
   }
-  if (!claimed.results?.length) throw invalidCode();
+  if (!claimed?.results?.length) return rejectCode(env, user, failureSlot, method, "verify");
+  await failureSlot();
   const now = new Date().toISOString();
   const [verified] = await env.DB.batch([
     env.DB.prepare(`INSERT INTO admin_mfa_sessions (token_hash, user_id, credential_id, verified_at)
@@ -231,8 +299,8 @@ export async function verifyAdminMfa(request: Request, env: Env): Promise<Respon
       .bind(user.tokenHash, now, user.id, active.credential_id),
     env.DB.prepare(`INSERT INTO admin_audit_log (id, actor_user_id, action, target_type, target_id, detail, created_at)
       SELECT ?, user_id, ?, 'account', user_id, ?, ? FROM admin_totp WHERE user_id = ? AND credential_id = ?`)
-      .bind(crypto.randomUUID(), /^[A-Za-z0-9_-]{22}$/u.test(code) ? "security.authenticator_recovery_used" : "security.authenticator_verified",
-        JSON.stringify({ method: /^[A-Za-z0-9_-]{22}$/u.test(code) ? "recovery_code" : "totp" }), now, user.id, active.credential_id),
+      .bind(crypto.randomUUID(), method === "recovery_code" ? "security.authenticator_recovery_used" : "security.authenticator_verified",
+        JSON.stringify({ method }), now, user.id, active.credential_id),
   ]);
   if (!verified?.results?.length) throw invalidCode();
   return json({ success: true });

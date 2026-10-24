@@ -33,7 +33,8 @@ export async function openAdminSecurity({ api, language = 'en', onVerified = () 
     change: 'تغيير كلمة المرور', failed: 'تعذر إكمال العملية. حاول مرة أخرى.',
     invalid: 'الرمز غير صحيح أو انتهت صلاحيته أو سبق استخدامه. انتظر رمزًا جديدًا ثم حاول.',
     expired: 'انتهت مهلة الإعداد. أغلق النافذة وابدأ من جديد.',
-    passwordWrong: 'كلمة المرور الحالية غير صحيحة.', limited: 'محاولات كثيرة. انتظر 15 دقيقة ثم حاول.', retry: 'المحاولة مجددًا', restart: 'بدء الإعداد من جديد', sessionExpired: 'انتهت جلسة الدخول. سجّل الدخول مجددًا للمتابعة.', signIn: 'تسجيل الدخول مجددًا',
+    passwordWrong: 'كلمة المرور الحالية غير صحيحة.', limited: 'محاولات كثيرة. انتظر مدة قد تصل إلى ساعة ثم حاول مجددًا.',
+    locked: 'أُدخلت رموز غير صحيحة كثيرة، فأُوقف التحقق لهذا الحساب مدة قد تصل إلى 24 ساعة وانتهت هذه الجلسة. سجّل الدخول مجددًا لاحقًا.', retry: 'المحاولة مجددًا', restart: 'بدء الإعداد من جديد', sessionExpired: 'انتهت جلسة الدخول. سجّل الدخول مجددًا للمتابعة.', signIn: 'تسجيل الدخول مجددًا',
   } : {
     title: 'Protect administrator access', loading: 'Checking account security…', cancel: 'Cancel',
     setup: 'Add Riddle Arabia to an authenticator app. You will need a code from it when entering administration.',
@@ -49,7 +50,8 @@ export async function openAdminSecurity({ api, language = 'en', onVerified = () 
     change: 'Change password', failed: 'The request could not be completed. Please try again.',
     invalid: 'The code is incorrect, expired, or already used. Wait for a new code and try again.',
     expired: 'Setup expired. Close this dialog and start again.', passwordWrong: 'Your current password is incorrect.',
-    limited: 'Too many attempts. Wait 15 minutes and try again.', retry: 'Try again', restart: 'Start setup again', sessionExpired: 'Your session expired. Sign in again to continue.', signIn: 'Sign in again',
+    limited: 'Too many attempts. Wait up to an hour and try again.',
+    locked: 'Too many incorrect codes. Verification for this account is paused for up to 24 hours, and this session has ended. Sign in again later.', retry: 'Try again', restart: 'Start setup again', sessionExpired: 'Your session expired. Sign in again to continue.', signIn: 'Sign in again',
   };
   const previousFocus = document.activeElement;
   const dialog = document.createElement('dialog');
@@ -162,7 +164,7 @@ export async function openAdminSecurity({ api, language = 'en', onVerified = () 
           error.append(document.createElement('br'), change);
         } else {
           error.textContent = ({ MFA_CODE_INVALID: copy.invalid, MFA_SETUP_EXPIRED: copy.expired,
-            CURRENT_PASSWORD_INCORRECT: copy.passwordWrong, RATE_LIMITED: copy.limited })[requestError.code] || copy.failed;
+            CURRENT_PASSWORD_INCORRECT: copy.passwordWrong, RATE_LIMITED: copy.limited, MFA_LOCKED: copy.locked })[requestError.code] || copy.failed;
           if (requestError.code === 'MFA_SETUP_EXPIRED') {
             const restart = element('button', copy.restart, { type: 'button' });
             restart.addEventListener('click', () => { setupSecret = ''; view = 'setup'; render(); });

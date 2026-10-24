@@ -32,6 +32,15 @@ interface AuthoredChoices {
 
 const DIFFICULTIES = new Set(["all", "easy", "medium", "hard", "very-advanced"]);
 const CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+// Room codes keep the eight-character shape that every deployed client and
+// invitation link already accepts: three letters, then five characters from
+// the full alphabet. All eight are now random (the first three from the
+// alphabet's 24 letters), about 38.7 bits, instead of a topic prefix plus five
+// random characters. Older topic-prefixed codes still match the same pattern,
+// so rooms created before a release keep working.
+const CODE_LETTERS = CODE_ALPHABET.replace(/[0-9]/gu, "");
+const CODE_LETTER_COUNT = 3;
+const CODE_LENGTH = 8;
 const ROOM_CODE_PATTERN = /^[A-Z]{3}[A-HJ-NP-Z2-9]{5}$/u;
 const CONNECT_RATE_LIMIT = 30;
 const CONNECT_RATE_WINDOW_SECONDS = 60;
@@ -177,11 +186,13 @@ export function buildBattleQuestions(
   });
 }
 
-function generateCode(category: string): string {
-  const prefix = category.replace(/[^a-z]/giu, "").slice(0, 3).toUpperCase().padEnd(3, "J");
-  let suffix = "";
-  for (let index = 0; index < 5; index += 1) suffix += CODE_ALPHABET[randomInt(CODE_ALPHABET.length)];
-  return `${prefix}${suffix}`;
+export function generateBattleCode(): string {
+  let code = "";
+  for (let index = 0; index < CODE_LENGTH; index += 1) {
+    const alphabet = index < CODE_LETTER_COUNT ? CODE_LETTERS : CODE_ALPHABET;
+    code += alphabet[randomInt(alphabet.length)];
+  }
+  return code;
 }
 
 export async function createBattle(request: Request, env: Env): Promise<Response> {
@@ -233,7 +244,7 @@ export async function createBattle(request: Request, env: Env): Promise<Response
   }
 
   for (let attempt = 0; attempt < 5; attempt += 1) {
-    const code = generateCode(category);
+    const code = generateBattleCode();
     const hostToken = randomToken(24);
     const id = env.BATTLE_ROOMS.idFromName(code);
     const stub = env.BATTLE_ROOMS.get(id);

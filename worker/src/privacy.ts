@@ -2,6 +2,7 @@ import {
   enforceRateLimit,
   RETENTION_CLEANUP_BATCH_SIZE,
   requireUser,
+  reservePasswordRecheckSlot,
   runBoundedRetentionCleanup,
   touchPrivilegedSession,
 } from "./db.js";
@@ -375,6 +376,7 @@ export async function deleteAccount(
     password_salt: string;
     password_iterations: number;
   }>();
+  const releaseRecheck = await reservePasswordRecheckSlot(env, session.id);
   if (
     !account
     || !await verifyPasswordInHasher(
@@ -392,6 +394,7 @@ export async function deleteAccount(
       "CURRENT_PASSWORD_INCORRECT",
     );
   }
+  await releaseRecheck();
 
   await env.DB.batch([
     env.DB.prepare("DELETE FROM analytics_daily WHERE user_id = ?").bind(session.id),

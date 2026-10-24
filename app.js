@@ -1133,7 +1133,6 @@ function publicAccountProgress() { return (state.dbUser?.progress || []).filter(
 function publicAccountFavorites() { return (state.dbUser?.favorites || []).filter(item => publicCardIds.has(item?.cardId)); }
 function _guestStatus(v) {
   const status = typeof v === 'object' && v !== null ? v.status : v;
-  // Stored progress can be damaged or hand-edited; never let it break the counts.
   return typeof status === 'string' ? status : '';
 }
 
@@ -1285,7 +1284,6 @@ const API_ORIGIN = IS_LOCAL_PREVIEW
   ? `${location.protocol}//${location.hostname}:8787`
   : 'https://api.riddlearabia.com';
 const API_URL = `${API_ORIGIN}/api`;
-// A stalled request must not leave Profile, Leaderboard or Battle loading forever.
 const API_TIMEOUT_MS = 15_000;
 
 function apiRequestSignal(callerSignal) {
@@ -1319,7 +1317,6 @@ async function apiFetch(endpoint, options = {}) {
       if (capabilityRecovered) applyCapabilityVisibility();
       return data;
     } catch (error) {
-      // The caller cancelled on purpose: neither retry nor mark the API as down.
       if (options.signal?.aborted) throw error;
       if (attempt >= attempts || !isRetryableCloudError(error)) {
         if (isRetryableCloudError(error)) {
@@ -2443,7 +2440,6 @@ function bindCommonEvents() {
       syncFilterParams();
       renderCards();
       if (state.search) {
-        // Never send the visitor's own words to analytics; scope and category only.
         trackEvent('search', {
           search_scope: 'category',
           category: state.categorySlug,
@@ -3070,8 +3066,6 @@ function syncFilterParams() {
   if (state.view && state.view !== 'all') params.set('view', state.view); else params.delete('view');
   if (state.sort && state.sort !== 'featured') params.set('sort', state.sort); else params.delete('sort');
   if (state.subcategory && state.subcategory !== 'all') params.set('sub', state.subcategory); else params.delete('sub');
-  // Search text stays out of the address bar so it never reaches analytics,
-  // history-based page views or referrers. Incoming ?q= links still work.
   params.delete('q');
   history.replaceState(null, '', params.toString() ? `${location.pathname}?${params.toString()}` : location.pathname);
 }
@@ -3292,8 +3286,6 @@ function renderCards(focusRequest = null) {
     const label = state.lang === 'ar'
       ? `المعروض الآن ${rendered} من ${countAr(matched, matchingForms)} (إجمالي الموضوع: ${categoryTotal}).${remaining ? ` يتوفر ${countAr(remaining, extraForms)}؛ استخدم الزر أسفل البطاقات لعرض المزيد.` : ' كل النتائج المطابقة معروضة.'}`
       : `Showing ${rendered} of ${matched} matching questions (${categoryTotal} total in this topic).${remaining ? ` ${remaining} more available via “Show more.”` : ' All matching results are rendered.'}`;
-    // #resultsLabel is the polite status region for topic filtering; the card
-    // grid itself is not live, so a filter change announces only this summary.
     if (els.resultsLabel.textContent !== label) els.resultsLabel.textContent = label;
   }
   renderAccountSummary(els.categorySummaryMount);
@@ -4134,9 +4126,6 @@ function categoryAssetPath(meta) {
   return meta.assetPath;
 }
 
-// Arabic counted nouns ("7 موضوعات", "11 سؤالًا", "100 سؤال") come from one
-// shared, tested module. It loads together with the catalog, so every count
-// rendered from catalog or topic data can use it.
 let arabicCountModule = null;
 let arabicCountPromise = null;
 function loadArabicCount() {

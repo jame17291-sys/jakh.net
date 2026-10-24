@@ -26,7 +26,7 @@
       "ar": "آسيا وأوقيانوسيا"
     },
     "question": {
-      "en": "Which country has a simple red circle on a white background?",
+      "en": "Which country's flag is a simple red circle on a white background?",
       "ar": "أي دولة علمها دائرة حمرا بسيطة على خلفية بيضا؟"
     },
     "answer": {
@@ -235,7 +235,7 @@
       "ar": "الأمريكتان"
     },
     "question": {
-      "en": "Which country features an eagle perched on a cactus eating a snake?",
+      "en": "Which country's flag features an eagle perched on a cactus eating a snake?",
       "ar": "أي دولة علمها فيه نسر واقف على صبّار وياكل أفعى؟"
     },
     "answer": {
@@ -273,8 +273,8 @@
       "ar": "أفريقيا والشرق الأوسط"
     },
     "question": {
-      "en": "Which country features a blue Star of David?",
-      "ar": "أي دولة علمها فيه نجمة داود الزرقا؟"
+      "en": "Which country's flag features a blue Star of David between two blue stripes?",
+      "ar": "أي دولة علمها فيه نجمة داود زرقا بين خطين أزرقين؟"
     },
     "answer": {
       "en": "Israel",
@@ -330,12 +330,12 @@
       "ar": "تصميم الأعلام وعلم الأعلام"
     },
     "question": {
-      "en": "Which pair of countries uses very similar vertical blue-yellow-red tricolors, with no central emblem: Romania and Chad, or Italy and Mexico?",
-      "ar": "أي دولتين علمهم متشابه كثير بخطوط عمودية زرقا وصفرا وحمرا بدون شعار بالنص: رومانيا وتشاد، ولا إيطاليا والمكسيك؟"
+      "en": "Which African country's flag is almost identical to Romania's vertical blue-yellow-red tricolour?",
+      "ar": "أي دولة إفريقية علمها تقريبًا نسخة من علم رومانيا الأزرق والأصفر والأحمر؟"
     },
     "answer": {
-      "en": "Romania and Chad",
-      "ar": "رومانيا وتشاد"
+      "en": "Chad",
+      "ar": "تشاد"
     },
     "review": {
       "status": "pending"

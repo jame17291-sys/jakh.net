@@ -268,12 +268,12 @@
   {
     "id": "fictional-worlds-15",
     "question": {
-      "en": "In Dune, what is the desert planet Arrakis commonly known as?",
-      "ar": "في «الكثيب» (Dune)، بأي اسم معروف كوكب أراكيس الصحراوي عادةً؟"
+      "en": "In Frank Herbert's Dune, what is the name of the desert planet that is the only source of the spice?",
+      "ar": "في رواية «الكثيب» لفرانك هربرت، شو اسم الكوكب الصحراوي اللي هو المصدر الوحيد للتوابل؟"
     },
     "answer": {
-      "en": "Dune",
-      "ar": "الكثيب"
+      "en": "Arrakis",
+      "ar": "أراكيس"
     },
     "difficulty": "medium",
     "subcategory": {
@@ -287,12 +287,12 @@
   {
     "id": "fictional-worlds-16",
     "question": {
-      "en": "What is the name of the village where Naruto lives?",
-      "ar": "شو اسم القرية اللي عايش فيها ناروتو؟"
+      "en": "In Studio Ghibli's 'Spirited Away', what is the name of the girl who has to work in the spirits' bathhouse?",
+      "ar": "في فيلم «المخطوفة» من استوديو غيبلي، شو اسم البنت اللي تضطر تشتغل بحمّام الأرواح؟"
     },
     "answer": {
-      "en": "Hidden Leaf Village (Konoha)",
-      "ar": "قرية الورق المخفية (كونوها)"
+      "en": "Chihiro (renamed Sen)",
+      "ar": "تشيهيرو (التي صار اسمها سين)"
     },
     "difficulty": "medium",
     "subcategory": {
@@ -363,7 +363,7 @@
   {
     "id": "fictional-worlds-20",
     "question": {
-      "en": "What is the name of the prison wizarding world in Harry Potter?",
+      "en": "What is the name of the wizards' prison in Harry Potter?",
       "ar": "شو اسم سجن السحرة في هاري بوتر؟"
     },
     "answer": {
@@ -515,12 +515,12 @@
   {
     "id": "fictional-worlds-28",
     "question": {
-      "en": "What metal is Captain America's shield made from in the Marvel Cinematic Universe?",
-      "ar": "في عالم مارفل السينمائي، من أي معدن درع كابتن أمريكا؟"
+      "en": "Which fictional Eastern European country does Marvel's Doctor Doom rule?",
+      "ar": "أي دولة خيالية بشرق أوروبا يحكمها دكتور دوم في عالم مارفل؟"
     },
     "answer": {
-      "en": "Vibranium",
-      "ar": "الفيبرانيوم"
+      "en": "Latveria",
+      "ar": "لاتفيريا"
     },
     "difficulty": "hard",
     "subcategory": {
@@ -667,12 +667,12 @@
   {
     "id": "fictional-worlds-36",
     "question": {
-      "en": "What is the highly guarded secret ingredient in Slurm, the popular drink from Futurama?",
-      "ar": "شو المكوّن السري المحروس بشدة في «سلورم»، المشروب الشهير في «فيوتشوراما»؟"
+      "en": "In Hayao Miyazaki's 1986 film 'Castle in the Sky', what is the name of the floating island?",
+      "ar": "في فيلم هاياو ميازاكي «قلعة في السماء» سنة 1986، شو اسم الجزيرة الطايرة؟"
     },
     "answer": {
-      "en": "It comes from the behind of a giant worm",
-      "ar": "يأتي من مؤخرة دودة عملاقة"
+      "en": "Laputa",
+      "ar": "لابوتا"
     },
     "difficulty": "very-advanced",
     "subcategory": {
@@ -743,12 +743,12 @@
   {
     "id": "fictional-worlds-40",
     "question": {
-      "en": "What is the name of the immense ice fortification separating the Seven Kingdoms from the lands to the north in A Song of Ice and Fire?",
-      "ar": "في «أغنية الجليد والنار»، شو اسم الحصن الجليدي الضخم اللي يفصل الممالك السبع عن أراضي الشمال؟"
+      "en": "In 'The Jungle Book', what is the name of the boy raised by wolves?",
+      "ar": "في «كتاب الأدغال»، شو اسم الولد اللي ربّته الذئاب؟"
     },
     "answer": {
-      "en": "The Wall",
-      "ar": "الجدار"
+      "en": "Mowgli",
+      "ar": "ماوكلي"
     },
     "difficulty": "easy",
     "subcategory": {

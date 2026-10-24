@@ -86,13 +86,6 @@
     },
     {
       "ids": [
-        "tv-shows-trivia-126",
-        "tv-shows-trivia-155"
-      ],
-      "reason": "The questions ask for the production countries of two different Syrian television shows."
-    },
-    {
-      "ids": [
         "tv-shows-trivia-130",
         "tv-shows-trivia-182"
       ],
@@ -111,13 +104,6 @@
         "math-128"
       ],
       "reason": "The questions count primes over different ranges and require different results."
-    },
-    {
-      "ids": [
-        "tv-shows-trivia-153",
-        "tv-shows-trivia-178"
-      ],
-      "reason": "The questions identify the formats of two different television shows."
     },
     {
       "ids": [
@@ -156,31 +142,10 @@
     },
     {
       "ids": [
-        "tv-shows-trivia-263",
-        "tv-shows-trivia-523"
-      ],
-      "reason": "The prompts explicitly name different series: Breaking Bad and The Wire. Each series independently ran for five seasons; knowing one count does not establish the other."
-    },
-    {
-      "ids": [
-        "tv-shows-trivia-114",
-        "tv-shows-trivia-523"
-      ],
-      "reason": "Stranger Things and The Wire are separate named productions. Their matching season totals are distinct production facts."
-    },
-    {
-      "ids": [
         "tv-shows-trivia-770",
         "tv-shows-trivia-793"
       ],
       "reason": "One identifies Hasan’s wife from the initial family setup; the other identifies who confronts him after a specific later event in Al-Hashasheen. Both require season-one opt-in and test different relationships/actions."
-    },
-    {
-      "ids": [
-        "tv-shows-trivia-185",
-        "tv-shows-trivia-692"
-      ],
-      "reason": "Fouad and Alyan are distinct recurring Tash Ma Tash roles played by Nasser Al-Qasabi. Assigning the actor to one role does not establish the other casting credit."
     },
     {
       "ids": [

@@ -149,8 +149,8 @@
       "ar": "الأشياء والحياة اليومية"
     },
     "question": {
-      "en": "I have a lid, a handle and a spout. I am made for steeping tea leaves and pouring tea into cups. What am I?",
-      "ar": "عندي غطا ومسكة وبزبوز، وشغلتي أنقع ورق الشاي وأصبّه بالكاسات. شو أنا؟"
+      "en": "I have a spout but no mouth and a lid but no head. Fill me with hot water and leaves, and I'll pour you a cup. What am I?",
+      "ar": "عندي بزبوز بس ما عندي تمّ، وغطا بس ما عندي راس. حطّ فيني مي حارة وورق، وأصبّ لك كاسة. شو أنا؟"
     },
     "answer": {
       "en": "A teapot",
@@ -177,8 +177,8 @@
         ]
       },
       "explanation": {
-        "en": "A teapot is made for steeping tea leaves and pouring tea; its handle, lid and spout fit all the clues.",
-        "ar": "إبريق الشاي مخصص لنقع أوراق الشاي وسكبه، وله مقبض وغطاء وفوهة، فتجتمع فيه القرائن كلها."
+        "en": "A teapot has a spout and a lid, and pours out the tea brewed inside it.",
+        "ar": "لإبريق الشاي بزبوز وغطاء، ويُصبّ منه الشاي المنقوع فيه."
       }
     }
   },
@@ -538,17 +538,17 @@
   },
   {
     "id": "classic-riddles-020",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Time, Space & Measurement",
       "ar": "الزمن والمكان والقياس"
     },
     "question": {
-      "en": "I stay still while people use my steps to go up and down. What am I?",
-      "ar": "أظل ثابت والناس يستخدمون درجاتي عشان يطلعون وينزلون. شو أنا؟"
+      "en": "What goes up and down but never moves?",
+      "ar": "شو الشي اللي يطلع وينزل وهو ما يتحرك من مكانه؟"
     },
     "answer": {
-      "en": "A staircase",
+      "en": "Stairs",
       "ar": "الدرج"
     },
     "review": {
@@ -693,18 +693,18 @@
   },
   {
     "id": "classic-riddles-027",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Logic & Deduction",
       "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "A bag of feathers weighs one ordinary pound, defined here as 453.59237 grams. Gold weighs one troy pound, defined here as 373.2417216 grams. Which is heavier?",
-      "ar": "كيس ريش وزنه رطل عادي، يساوي هنا 453.59237 غرام، والذهب وزنه رطل ترويسي، يساوي هنا 373.2417216 غرام. أيهم أثقل؟"
+      "en": "Which is heavier: a kilo of cotton or a kilo of iron?",
+      "ar": "أيهم أثقل: كيلو قطن ولا كيلو حديد؟"
     },
     "answer": {
-      "en": "The feathers. The two pounds are different units, and 453.59237 is greater than 373.2417216.",
-      "ar": "الريش؛ فالرطلان وحدتان مختلفتان، و453.59237 أكبر من 373.2417216."
+      "en": "Neither. They both weigh one kilo.",
+      "ar": "ولا واحد؛ الاثنين وزنهم كيلو."
     },
     "review": {
       "status": "pending"
@@ -718,12 +718,12 @@
       "ar": "الأشياء والحياة اليومية"
     },
     "question": {
-      "en": "My hard shell protects a yolk and white inside. A cook may crack me before making an omelet. What am I?",
-      "ar": "قشرتي القاسية تحمي صفار وبياض جوّاي. ويمكن الطبّاخ يكسرني قبل ما يسوي عجّة. شو أنا؟"
+      "en": "What has to be broken before you can use it?",
+      "ar": "شو الشي اللي لازم تكسره قبل ما تستخدمه؟"
     },
     "answer": {
       "en": "An egg",
-      "ar": "بيضة"
+      "ar": "البيضة."
     },
     "review": {
       "status": "pending"
@@ -756,12 +756,12 @@
       "ar": "الأشياء والحياة اليومية"
     },
     "question": {
-      "en": "Only you know me. If you tell everyone, I am no longer hidden information. What am I?",
-      "ar": "ما يعرفني غيرك. إذا قلتني للكل ما عدت شي مخفي. شو أنا؟"
+      "en": "If you have me, you want to share me. If you share me, you no longer have me. What am I?",
+      "ar": "إذا كان عندك، تبي تقوله لأحد، وإذا قلته ما عاد عندك. شو هو؟"
     },
     "answer": {
       "en": "A secret",
-      "ar": "سر"
+      "ar": "السر."
     },
     "review": {
       "status": "pending"
@@ -775,12 +775,12 @@
       "ar": "الأشياء والحياة اليومية"
     },
     "question": {
-      "en": "Two pointers move around my numbered face: one marks hours and the other minutes. I have no eyes. What am I?",
-      "ar": "عقربين يدورون حول وجهي المرقّم: واحد للساعات والثاني للدقايق، وما عندي عيون. شو أنا؟"
+      "en": "I have hands but can't clap, and a face but can't smile. What am I?",
+      "ar": "عندي عقارب بس ما تلدغ، ووجه بس ما يبتسم. شو أنا؟"
     },
     "answer": {
-      "en": "An analog clock",
-      "ar": "ساعة بعقارب"
+      "en": "A clock",
+      "ar": "ساعة."
     },
     "review": {
       "status": "pending"
@@ -873,12 +873,12 @@
       "ar": "الأشياء والحياة اليومية"
     },
     "question": {
-      "en": "Every step you take across wet sand leaves another of me behind. What am I?",
-      "ar": "كل خطوة تمشيها على الرمل المبلول تترك واحد ثاني مني وراك. شو أنا؟"
+      "en": "The more of them you take, the more you leave behind. What are they?",
+      "ar": "كل ما أخذت منها أكثر، خلّيت وراك أكثر. شو هي؟"
     },
     "answer": {
-      "en": "A footprint",
-      "ar": "أثر قدم"
+      "en": "Footsteps",
+      "ar": "الخطوات."
     },
     "review": {
       "status": "pending"
@@ -1063,12 +1063,12 @@
       "ar": "الأشياء والحياة اليومية"
     },
     "question": {
-      "en": "I am the air you draw into your lungs and let out again. You can pause me briefly, but breathing must resume. What am I?",
-      "ar": "أنا الهوا اللي تدخّله لرئتيك وبعدين تطلّعه. تقدر توقّفني شوي، بس لازم ترجع تتنفس. شو أنا؟"
+      "en": "I'm lighter than a feather, yet the strongest person can't hold me for more than a few minutes. What am I?",
+      "ar": "أنا أخف من الريشة، بس أقوى واحد ما يقدر يمسكني أكثر من كم دقيقة. شو أنا؟"
     },
     "answer": {
-      "en": "A breath",
-      "ar": "نفَس"
+      "en": "Your breath",
+      "ar": "النَّفَس."
     },
     "review": {
       "status": "pending"
@@ -1101,12 +1101,12 @@
       "ar": "الأشياء والحياة اليومية"
     },
     "question": {
-      "en": "I have a spine and many leaves, but I am neither an animal nor a tree. My pages carry a story. What am I?",
-      "ar": "عندي كعب وصفحات كثير، بس مش رجل. أوراقي فيها قصة تقراها. شو أنا؟"
+      "en": "I have a spine but no bones, and leaves but no branches. What am I?",
+      "ar": "عندي كعب بس ما عندي رجلين، وأوراق بس ما أنا شجرة. شو أنا؟"
     },
     "answer": {
       "en": "A book",
-      "ar": "كتاب"
+      "ar": "كتاب."
     },
     "review": {
       "status": "pending"
@@ -1177,12 +1177,12 @@
       "ar": "الأرقام والرموز"
     },
     "question": {
-      "en": "Using the numbers 2, 3, and 4 exactly once, and only addition and multiplication, how can you make 14?",
+      "en": "Using the numbers 2, 3 and 4 exactly once, and only addition and multiplication, how can you make 14?",
       "ar": "باستخدام 2 و3 و4، كل رقم مرة، وبالجمع والضرب بس، كيف توصل لـ14؟"
     },
     "answer": {
-      "en": "3×4+2 = 14",
-      "ar": "3×4+2 = 14"
+      "en": "3 × 4 + 2 = 14, or 2 × (3 + 4) = 14.",
+      "ar": "3 × 4 + 2 = 14، أو 2 × (3 + 4) = 14."
     },
     "review": {
       "status": "pending"
@@ -1443,12 +1443,12 @@
       "ar": "الأشياء والحياة اليومية"
     },
     "question": {
-      "en": "I am a dark mineral enclosed in wood. When my sharpened point rubs on paper, I leave a mark and lose a little of myself. What am I?",
-      "ar": "أنا معدن غامق والخشب حواليّ. لما راسي المبري يحتك بالورق، أترك أثر وأخسر شوية من نفسي. شو أنا؟"
+      "en": "I'm taken from a mine and shut inside a wooden case that I never leave, yet almost everyone uses me. What am I?",
+      "ar": "يطلّعوني من منجم ويحبسوني بعلبة خشب عمري ما أطلع منها، ومع هذا كل الناس تقريبًا تستخدمني. شو أنا؟"
     },
     "answer": {
-      "en": "Pencil graphite",
-      "ar": "جرافيت قلم الرصاص"
+      "en": "Pencil lead (graphite)",
+      "ar": "رصاص القلم (الجرافيت)."
     },
     "review": {
       "status": "pending"
@@ -1475,18 +1475,18 @@
   },
   {
     "id": "classic-riddles-067",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Numbers & Codes",
       "ar": "الأرقام والرموز"
     },
     "question": {
-      "en": "What 4-digit number has the same result whether you add 3 to it or multiply it by 3?",
-      "ar": "شو الرقم اللي من 4 خانات ويعطي نفس النتيجة إذا زدت عليه 3 أو ضربته بـ3؟"
+      "en": "What number gives the same answer whether you add 3 to it or multiply it by 3?",
+      "ar": "أي عدد يعطيك نفس الجواب سواء زدت عليه 3 أو ضربته في 3؟"
     },
     "answer": {
-      "en": "There is no 4-digit number with that property — the riddle highlights the impossibility: only 1.5 satisfies x+3=3x",
-      "ar": "لا يوجد رقم مكوّن من 4 أرقام بهذه الخاصية — الأحجية تستهدف رصد الاستحالة: 1.5 فقط يحقق x+3=3x"
+      "en": "1.5, because 1.5 + 3 = 4.5 and 1.5 × 3 = 4.5.",
+      "ar": "1.5، لأن 1.5 + 3 = 4.5 و1.5 × 3 = 4.5."
     },
     "review": {
       "status": "pending"
@@ -1542,8 +1542,8 @@
       "ar": "اللي يصنعه يبيعه. اللي يشتريه ما يستخدمه. واللي يستخدمه ما يدري إنه يستخدمه. شو هو؟"
     },
     "answer": {
-      "en": "A coffin",
-      "ar": "التابوت"
+      "en": "A coffin (a burial shroud also fits).",
+      "ar": "التابوت (أو الكفن)."
     },
     "review": {
       "status": "pending"

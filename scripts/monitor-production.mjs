@@ -28,7 +28,9 @@ const DEFAULT_MAX_CHECK_ATTEMPTS = 2;
 const DEFAULT_RETRY_DELAY_MS = 0;
 const WORKER_VERSION_ID = /^[0-9A-Za-z][0-9A-Za-z._-]{5,127}$/u;
 const RETIRED_SEO_REDIRECT_QUERY = "retired_seo_redirect_probe=riddlearabia";
-const PRE_TV_PUBLIC_QUESTIONS = 3_275;
+// The live release before the 2026-10-25 card audit served 3,825 public cards.
+// Only the exact-version release baseline may still serve that inventory.
+const PREDECESSOR_PUBLIC_QUESTIONS = 3_825;
 const FRIENDSHIP_ARCADE_SLUGS = new Set(["secret-word-impostor", "panic-mode", "friendship-court"]);
 const PARTY_GAME_SLUGS = new Set(["most-likely-to", "how-well-do-you-know-me", ...FRIENDSHIP_ARCADE_SLUGS]);
 // The expanded bilingual sitemap includes alternate-language links for every
@@ -41,7 +43,7 @@ export const CONTENT_PUBLICATION_CONTRACT = Object.freeze({
   state: "safety-quarantine-active",
   quarantinedCategories: Object.freeze([...checkedPublicationQuarantine.categorySlugs]),
   quarantinedQuestions: checkedPublicationQuarantine.manifest.totalCards,
-  publicQuestions: 3_825,
+  publicQuestions: 3_798,
   manifestSha256: checkedPublicationQuarantine.policySha256,
 });
 
@@ -836,13 +838,13 @@ export async function runProductionMonitor(options = {}) {
       QUARANTINED_CATEGORY_SLUGS.every((slug) => !categorySlugs.has(slug)),
       "catalog exposes a quarantined category",
     );
-    // The exact-version production baseline may still serve the pre-TV corpus.
+    // The exact-version production baseline may still serve the pre-audit corpus.
     // Establish its one accepted total here; all other discovery indexes must
     // agree. Current, Pages and legacy-cutover contracts remain unchanged.
     const publicQuestions = catalog.site?.totalQuestions;
     expect(publicQuestions === CONTENT_PUBLICATION_CONTRACT.publicQuestions
-      || (config.siteContract === "release-baseline" && publicQuestions === PRE_TV_PUBLIC_QUESTIONS),
-    `catalog public question total is not ${CONTENT_PUBLICATION_CONTRACT.publicQuestions}${config.siteContract === "release-baseline" ? ` or the known predecessor ${PRE_TV_PUBLIC_QUESTIONS}` : ""}`);
+      || (config.siteContract === "release-baseline" && publicQuestions === PREDECESSOR_PUBLIC_QUESTIONS),
+    `catalog public question total is not ${CONTENT_PUBLICATION_CONTRACT.publicQuestions}${config.siteContract === "release-baseline" ? ` or the known predecessor ${PREDECESSOR_PUBLIC_QUESTIONS}` : ""}`);
     expect(
       catalog.site?.publication === undefined,
       "catalog exposes internal publication governance metadata",

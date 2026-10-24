@@ -573,7 +573,7 @@ test('automatic API release requires the exact live maintenance predecessor and 
     ok: true, service: 'jakh-api', workerVersionId: version, schema: '10', targetSchema: '10', compatibleSchemas: ['8', '9', '10'],
     features: { registration: true, accountRecovery: true, accountDeletion: true, contentStudio: true, adminMfa: true },
     contentPublication: { state: 'safety-quarantine-active', quarantinedCategories: [...quarantine.categorySlugs],
-      quarantinedQuestions: quarantine.manifest.totalCards, publicQuestions: 3825, manifestSha256: quarantine.policySha256 },
+      quarantinedQuestions: quarantine.manifest.totalCards, publicQuestions: 3798, manifestSha256: quarantine.policySha256 },
   };
   const receipt = { authorized: true, stage: 'api', run: { sourceSha: NEXT } };
   const calls = [];

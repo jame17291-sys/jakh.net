@@ -533,17 +533,17 @@
   },
   {
     "id": "geology-029",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Surface Processes & Landforms",
       "ar": "العمليات السطحية والتضاريس"
     },
     "question": {
-      "en": "What is the geological term for the deposition of eroded material in a new location?",
-      "ar": "جيولوجيًا، شو نسمّي لما المواد المتآكلة تترسّب بمكان جديد؟"
+      "en": "When a river slows down and drops the sand and mud it was carrying, what is that process called?",
+      "ar": "لما النهر يبطّئ ويرمي الرمل والطين اللي كان شايله، شو اسم هالعملية؟"
     },
     "answer": {
-      "en": "Sedimentation (or deposition).",
+      "en": "Deposition (sedimentation).",
       "ar": "الترسيب."
     },
     "review": {
@@ -634,12 +634,12 @@
       "ar": "العمليات السطحية والتضاريس"
     },
     "question": {
-      "en": "What is an aquifer?",
-      "ar": "شو نسمّي الطبقة اللي تحمل المي الجوفية؟"
+      "en": "What do we call an underground layer of rock or sediment that stores groundwater and lets it flow in usable amounts?",
+      "ar": "شو نسمّي الطبقة اللي تحت الأرض من صخر أو رواسب، وتخزّن مي جوفية وتسمح بمرورها بكميات نقدر نستفيد منها؟"
     },
     "answer": {
-      "en": "A permeable geological formation that stores and transmits groundwater in usable quantities.",
-      "ar": "تكوين جيولوجي منفذ يخزن المياه الجوفية وينقلها بكميات قابلة للاستخدام."
+      "en": "An aquifer.",
+      "ar": "الطبقة الحاملة للمياه (الخزان الجوفي)."
     },
     "review": {
       "status": "pending"
@@ -886,7 +886,7 @@
     },
     "answer": {
       "en": "They are surface seismic waves. Love waves cause horizontal shaking perpendicular to the direction of travel. Rayleigh waves cause a rolling elliptical motion at the surface. Both are slower than body waves (P and S) but cause most of the damage during earthquakes.",
-      "ar": "إنهما أمواج زلزالية سطحية. تُحدث أمواج لاف اهتزازًا أفقيًا عموديًا على اتجاه الانتشار. تُحدث أمواج رالي حركة بيضاوية متدحرجة عند السطح. كلتاهما أبطأ من الأمواج الجسمية (P وS) لكنهما تُسبّبان معظم الأضرار خلال الزلازل."
+      "ar": "هما أمواج زلزالية سطحية. تُحدث أمواج لاف اهتزازًا أفقيًا عموديًا على اتجاه الانتشار، وتُحدث أمواج رايلي حركة بيضاوية متدحرجة عند السطح. كلتاهما أبطأ من الأمواج الجسمية (P وS) لكنهما تسبّبان معظم الأضرار خلال الزلازل."
     },
     "review": {
       "status": "pending"
@@ -938,11 +938,11 @@
       "ar": "الزمن الجيولوجي والأحافير"
     },
     "question": {
-      "en": "In an undisturbed sedimentary sequence, layerA lies beneath layerB. Which is older under the principle of superposition?",
+      "en": "In an undisturbed sedimentary sequence, layer A lies beneath layer B. Which is older under the principle of superposition?",
       "ar": "في طبقات رسوبية ما تحرّكت، الطبقة A تحت الطبقة B. أيهم أقدم حسب مبدأ التراكب؟"
     },
     "answer": {
-      "en": "LayerA is older than layerB.",
+      "en": "Layer A is older than layer B.",
       "ar": "الطبقة A أقدم من الطبقة B."
     },
     "review": {

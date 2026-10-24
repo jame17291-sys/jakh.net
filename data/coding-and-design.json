@@ -368,12 +368,12 @@
       "ar": "الخوارزميات وهياكل البيانات"
     },
     "question": {
-      "en": "What is a step-by-step procedure for solving a problem?",
-      "ar": "شو نسمّي الخطوات المرتبة لحل مشكلة أو إنجاز مهمة؟"
+      "en": "Which mathematician of Baghdad's House of Wisdom gave his name to the word 'algorithm', and his book title to the word 'algebra'?",
+      "ar": "مين عالم الرياضيات في بيت الحكمة ببغداد اللي صار اسمه أصل كلمة «Algorithm»، وعنوان كتابه أصل كلمة «Algebra»؟"
     },
     "answer": {
-      "en": "An algorithm",
-      "ar": "الخوارزمية"
+      "en": "Muhammad ibn Musa al-Khwarizmi (9th century)",
+      "ar": "محمد بن موسى الخوارزمي (القرن التاسع الميلادي)."
     },
     "review": {
       "status": "pending"
@@ -406,12 +406,12 @@
       "ar": "أساسيات البرمجة"
     },
     "question": {
-      "en": "What is it called when a function calls itself?",
-      "ar": "شو نسمّي لما الدالة تنادي نفسها؟"
+      "en": "Which web programming language did Brendan Eich create in about ten days at Netscape in 1995?",
+      "ar": "أي لغة برمجة للويب صمّمها برندن آيك بحوالي عشرة أيام في شركة نتسكيب سنة 1995؟"
     },
     "answer": {
-      "en": "Recursion",
-      "ar": "التكرار الذاتي (Recursion)"
+      "en": "JavaScript (despite the name, unrelated to Java)",
+      "ar": "JavaScript (ولا علاقة لها بلغة Java رغم الاسم)."
     },
     "review": {
       "status": "pending"

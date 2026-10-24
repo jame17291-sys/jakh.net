@@ -471,8 +471,8 @@
       "ar": "التفاعلات والحسابات الكيميائية"
     },
     "question": {
-      "en": "A reaction that absorbs heat from its surroundings is called what?",
-      "ar": "شو نسمّي التفاعل اللي يمتص الحرارة من اللي حواليه؟"
+      "en": "Mix baking soda with vinegar and the fizzing mixture turns colder, because the reaction draws heat from its surroundings. What type of reaction is this?",
+      "ar": "لما تخلط بيكربونات الصودا مع الخل، الخليط يفور ويبرد لأن التفاعل يسحب حرارة من اللي حواليه. شو نوع هالتفاعل؟"
     },
     "answer": {
       "en": "Endothermic",
@@ -734,7 +734,7 @@
       "ar": "كم إلكترون يتسع له المستوى الفرعي p لما يكون كامل، وهو ثلاث مدارات p؟"
     },
     "answer": {
-      "en": "6 electrons:2 in each of the three orbitals.",
+      "en": "6 electrons: 2 in each of the three orbitals.",
       "ar": "6 إلكترونات، بواقع إلكترونين في كل مدار من المدارات الثلاثة."
     },
     "review": {
@@ -1270,25 +1270,6 @@
     }
   },
   {
-    "id": "chemistry-047",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Reactions & Stoichiometry",
-      "ar": "التفاعلات والحسابات الكيميائية"
-    },
-    "question": {
-      "en": "What is a catalyst?",
-      "ar": "شو هو «المحفّز»؟"
-    },
-    "answer": {
-      "en": "A substance that increases the rate of a chemical reaction without being consumed",
-      "ar": "مادة تزيد سرعة تفاعل كيميائي دون أن تُستهلك"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "chemistry-048",
     "difficulty": "medium",
     "subcategory": {
@@ -1315,12 +1296,12 @@
       "ar": "الأحماض والقواعد والاتزان"
     },
     "question": {
-      "en": "At 25°C, what does pH7 mean for an aqueous solution, and is pH strictly limited to 0–14?",
+      "en": "At 25 °C, what does pH 7 mean for an aqueous solution, and is pH strictly limited to 0–14?",
       "ar": "عند 25 درجة مئوية، شو يعني إن قيمة pH لمحلول مائي تساوي 7، وهل قيمة pH لازم تكون بين 0 و14 بس؟"
     },
     "answer": {
-      "en": "pH7 is neutral at 25°C. The familiar 0–14 range is not a strict limit; concentrated solutions can lie outside it.",
-      "ar": "pH7 تعني التعادل عند 25 درجة مئوية. والنطاق المألوف 0–14 ليس حداً صارماً؛ فقد تقع المحاليل المركزة خارجه."
+      "en": "pH 7 is neutral at 25 °C. The familiar 0–14 range is not a strict limit; concentrated solutions can lie outside it.",
+      "ar": "قيمة pH تساوي 7 تعني التعادل عند 25 درجة مئوية. والنطاق المألوف 0–14 ليس حداً صارماً؛ فقد تقع المحاليل المركزة خارجه."
     },
     "review": {
       "status": "pending"
@@ -1457,25 +1438,6 @@
     "answer": {
       "en": "Using electrical energy to drive a non-spontaneous chemical reaction, typically decomposing a compound",
       "ar": "استخدام الطاقة الكهربائية لإطلاق تفاعل كيميائي غير تلقائي، عادةً لتحليل مركّب"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "chemistry-056",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Acids, Bases & Equilibrium",
-      "ar": "الأحماض والقواعد والاتزان"
-    },
-    "question": {
-      "en": "What is a buffer solution?",
-      "ar": "شو هو «المحلول المنظّم» (العازل)؟"
-    },
-    "answer": {
-      "en": "A solution that resists changes in pH when small amounts of acid or base are added",
-      "ar": "محلول يقاوم التغيّرات في الرقم الهيدروجيني عند إضافة كميات صغيرة من الحمض أو القاعدة"
     },
     "review": {
       "status": "pending"
@@ -2047,8 +2009,8 @@
       "ar": "شو هو «تفاعل ديلز-ألدر»؟"
     },
     "answer": {
-      "en": "A[4+2] cycloaddition of a conjugated diene and a dienophile to form a six-membered ring.",
-      "ar": "إضافة حلقية[4+2] بين دايين مترافق ودايينوفيل لتكوين حلقة سداسية الأعضاء."
+      "en": "A [4+2] cycloaddition of a conjugated diene and a dienophile to form a six-membered ring.",
+      "ar": "إضافة حلقية [4+2] بين دايين مترافق ودايينوفيل لتكوين حلقة سداسية الأعضاء."
     },
     "review": {
       "status": "pending"

@@ -235,12 +235,12 @@
       "ar": "الموجات والضوء والصوت"
     },
     "question": {
-      "en": "What is the change in frequency of a wave relative to an observer moving relative to the source?",
-      "ar": "شو نسمّي تغيّر تردد الموجة عند مراقب يتحرك بالنسبة للمصدر؟"
+      "en": "An ambulance siren sounds higher as it approaches and lower as it drives away. What is this effect called?",
+      "ar": "صفارة الإسعاف يصير صوتها أحدّ وهي جاية وأغلظ وهي رايحة. شو اسم هالظاهرة؟"
     },
     "answer": {
-      "en": "The Doppler Effect",
-      "ar": "تأثير دوبلر"
+      "en": "The Doppler effect.",
+      "ar": "تأثير دوبلر."
     },
     "review": {
       "status": "pending"
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "What is the term for the bending of light as it passes from one medium to another?",
-      "ar": "شو نسمّي انكسار الضوء لما ينتقل من وسط لوسط ثاني؟"
+      "ar": "شو اسم انحناء مسار الضوء لما ينتقل من وسط لوسط ثاني، مثل القلم اللي يبان معوّج بكاسة المي؟"
     },
     "answer": {
       "en": "Refraction",
@@ -482,12 +482,12 @@
       "ar": "الكم والنسبية وعلم الكون"
     },
     "question": {
-      "en": "What is the invisible substance making up about 27% of the universe's mass-energy?",
-      "ar": "شو المادة اللي ما تنشاف وتشكّل حوالي 27% من كتلة وطاقة الكون؟"
+      "en": "Which nearly massless particle, nicknamed the 'ghost particle', streams through our bodies by the trillions every second almost without interacting?",
+      "ar": "أي جسيم كتلته شبه معدومة، يسمّونه «الجسيم الشبح»، يعبر أجسامنا بالتريليونات كل ثانية تقريبًا من غير ما يتفاعل؟"
     },
     "answer": {
-      "en": "Dark Matter",
-      "ar": "المادة المظلمة"
+      "en": "The neutrino",
+      "ar": "النيوترينو"
     },
     "review": {
       "status": "pending"
@@ -533,17 +533,17 @@
   },
   {
     "id": "science-029",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Mechanics & Classical Physics",
       "ar": "الميكانيكا والفيزياء الكلاسيكية"
     },
     "question": {
       "en": "What is the minimum speed an object needs to break free from a planet's gravity?",
-      "ar": "شو أقل سرعة يحتاجها جسم عشان يفلت من جاذبية كوكب؟"
+      "ar": "شو اسم أقل سرعة لازم يوصلها جسم عشان يتحرر من جاذبية كوكب نهائياً؟"
     },
     "answer": {
-      "en": "Escape Velocity",
+      "en": "Escape velocity",
       "ar": "سرعة الإفلات"
     },
     "review": {
@@ -659,25 +659,6 @@
     "answer": {
       "en": "A tendon.",
       "ar": "الوتر."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-036",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Chemistry & Materials",
-      "ar": "الكيمياء والمواد"
-    },
-    "question": {
-      "en": "What is H2O?",
-      "ar": "شو هو H2O؟"
-    },
-    "answer": {
-      "en": "Water",
-      "ar": "الماء"
     },
     "review": {
       "status": "pending"
@@ -1292,25 +1273,6 @@
     }
   },
   {
-    "id": "science-069",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Chemistry & Materials",
-      "ar": "الكيمياء والمواد"
-    },
-    "question": {
-      "en": "What is the difference between exothermic and endothermic reactions?",
-      "ar": "شو الفرق بين التفاعلات اللي تطلّع حرارة واللي تمتص حرارة؟"
-    },
-    "answer": {
-      "en": "Exothermic releases heat; endothermic absorbs heat",
-      "ar": "الطاردة تُصدر حرارة؛ الماصة تمتصّ حرارة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "science-070",
     "difficulty": "hard",
     "subcategory": {
@@ -1501,25 +1463,6 @@
     }
   },
   {
-    "id": "science-080",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Biology & Life Sciences",
-      "ar": "الأحياء وعلوم الحياة"
-    },
-    "question": {
-      "en": "What is CRISPR-Cas9 used for?",
-      "ar": "ليش نستخدم نظام CRISPR-Cas9؟"
-    },
-    "answer": {
-      "en": "Genome editing — precisely cutting and modifying DNA sequences",
-      "ar": "تحرير الجينوم — قطع تسلسلات الحمض النووي وتعديلها بدقة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "science-081",
     "difficulty": "very-advanced",
     "subcategory": {
@@ -1558,25 +1501,6 @@
     }
   },
   {
-    "id": "science-083",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Biology & Life Sciences",
-      "ar": "الأحياء وعلوم الحياة"
-    },
-    "question": {
-      "en": "What is the function of telomeres?",
-      "ar": "شو شغلة «التيلوميرات»؟"
-    },
-    "answer": {
-      "en": "Telomeres protect chromosome ends from degradation and inappropriate joining, and their repetitive DNA helps buffer end-shortening during replication.",
-      "ar": "تحمي التيلوميرات نهايات الكروموسومات من التحلل والالتحام غير المناسب، ويساعد DNA المتكرر فيها على الحد من أثر قصر النهايات أثناء التضاعف."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "science-084",
     "difficulty": "very-advanced",
     "subcategory": {
@@ -1596,44 +1520,6 @@
     }
   },
   {
-    "id": "science-085",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Quantum, Relativity & Cosmology",
-      "ar": "الكم والنسبية وعلم الكون"
-    },
-    "question": {
-      "en": "What is the Higgs boson in relation to the Higgs field?",
-      "ar": "شو علاقة «بوزون هيغز» بـ«مجال هيغز»؟"
-    },
-    "answer": {
-      "en": "It is a quantum excitation of the Higgs field, not the field itself.",
-      "ar": "هو إثارة كمية لمجال هيغز، وليس المجال نفسه."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-086",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Biology & Life Sciences",
-      "ar": "الأحياء وعلوم الحياة"
-    },
-    "question": {
-      "en": "What is the process of apoptosis?",
-      "ar": "شو هو «الموت المبرمج للخلية» (الأبوبتوسيس)؟"
-    },
-    "answer": {
-      "en": "Programmed cell death — a regulated process of cellular self-destruction",
-      "ar": "موت الخلايا المبرمج — عملية منظّمة لتدمير الخلية لنفسها"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "science-087",
     "difficulty": "very-advanced",
     "subcategory": {
@@ -1647,25 +1533,6 @@
     "answer": {
       "en": "SN1 is unimolecular (two steps, carbocation intermediate); SN2 is bimolecular (one step, inversion)",
       "ar": "SN1 أحادية الجزيء (خطوتان، وسيط الكربوكاتيون)؛ SN2 ثنائية الجزيء (خطوة واحدة، انعكاس)"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-088",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Quantum, Relativity & Cosmology",
-      "ar": "الكم والنسبية وعلم الكون"
-    },
-    "question": {
-      "en": "What is quantum entanglement?",
-      "ar": "شو هو «التشابك الكمي»؟"
-    },
-    "answer": {
-      "en": "Entangled systems share a joint quantum state whose measurement correlations cannot be reproduced by local classical models. Those correlations cannot transmit information faster than light.",
-      "ar": "تتشارك الأنظمة المتشابكة حالة كمية مشتركة تنتج ارتباطات بين نتائج القياس لا تفسرها النماذج الكلاسيكية المحلية. ولا تسمح هذه الارتباطات بنقل المعلومات أسرع من الضوء."
     },
     "review": {
       "status": "pending"
@@ -1767,25 +1634,6 @@
     }
   },
   {
-    "id": "science-094",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Quantum, Relativity & Cosmology",
-      "ar": "الكم والنسبية وعلم الكون"
-    },
-    "question": {
-      "en": "What is dark energy?",
-      "ar": "شو هي «الطاقة المظلمة»؟"
-    },
-    "answer": {
-      "en": "A hypothetical form of energy permeating all space and causing the universe's accelerating expansion",
-      "ar": "شكل افتراضي من الطاقة يتخلّل كل الفضاء ويتسبّب في التمدّد المتسارع للكون"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "science-095",
     "difficulty": "very-advanced",
     "subcategory": {
@@ -1837,44 +1685,6 @@
     "answer": {
       "en": "If quantum states are allowed, an appropriate linear combination of them is also an allowed state. Measurement outcome probabilities depend on the combination's amplitudes.",
       "ar": "إذا كانت حالات كمية مسموحاً بها، فإن تركيباً خطياً مناسباً منها يمثل أيضاً حالة مسموحاً بها. وتعتمد احتمالات نتائج القياس على سعات ذلك التركيب."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-098",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Biology & Life Sciences",
-      "ar": "الأحياء وعلوم الحياة"
-    },
-    "question": {
-      "en": "What is the significance of the lac operon in E. coli?",
-      "ar": "شو أهمية «لاك أوبرون» في بكتيريا الإشريكية القولونية؟"
-    },
-    "answer": {
-      "en": "It regulates the genes needed to metabolise lactose — a key model for gene regulation",
-      "ar": "ينظّم الجينات اللازمة لاستقلاب اللاكتوز — نموذج رئيسي لتنظيم الجينات"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-099",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Chemistry & Materials",
-      "ar": "الكيمياء والمواد"
-    },
-    "question": {
-      "en": "What is chirality in chemistry?",
-      "ar": "في الكيمياء، شو هي «الكيرالية»؟"
-    },
-    "answer": {
-      "en": "A property of a molecule that is non-superimposable on its mirror image",
-      "ar": "خاصية جزيء لا يمكن تطابقه مع صورته المرآوية"
     },
     "review": {
       "status": "pending"

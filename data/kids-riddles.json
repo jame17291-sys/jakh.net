@@ -121,12 +121,12 @@
       "ar": "التلاعب بالكلمات والألغاز الكلاسيكية"
     },
     "question": {
-      "en": "Sunlight makes my outline appear on the ground beside you. I move when you move, but disappear when that sunlight is blocked. What am I?",
-      "ar": "ضوء الشمس يرسمني على الأرض جنبك. أمشي معك، وأختفي لما ينحجب الضوء اللي يصنعني. مين أنا؟"
+      "en": "It belongs to you, but other people use it much more than you do. What is it?",
+      "ar": "شي لك إنت، بس الناس يستخدمونه أكثر منك بكثير. شو هو؟"
     },
     "answer": {
-      "en": "A shadow",
-      "ar": "الظل"
+      "en": "Your name.",
+      "ar": "اسمك."
     },
     "review": {
       "status": "pending"
@@ -239,8 +239,8 @@
       "ar": "شو الشي اللي تقدر تكسره من غير ما تلمسه؟"
     },
     "answer": {
-      "en": "A promise",
-      "ar": "الوعد"
+      "en": "A promise (silence also works).",
+      "ar": "الوعد (أو الصمت)."
     },
     "review": {
       "status": "pending"
@@ -406,12 +406,12 @@
       "ar": "المنطق والشفرات والأنماط"
     },
     "question": {
-      "en": "The numbers 2, 6, 12, and 20 are made by multiplying neighboring whole numbers: 1×2, 2×3, 3×4, 4×5. What comes next?",
-      "ar": "الأرقام 2 و6 و12 و20 تطلع من ضرب رقمين ورا بعض: 1×2، 2×3، 3×4، 4×5. شو الرقم اللي بعدهم؟"
+      "en": "What comes next: 1, 3, 6, 10, 15, …?",
+      "ar": "شو الرقم اللي بعده: 1، 3، 6، 10، 15، …؟"
     },
     "answer": {
-      "en": "30 — from 5×6",
-      "ar": "30 — من 5×6"
+      "en": "21. Add 2, then 3, then 4, then 5, then 6.",
+      "ar": "21. نزيد 2، بعدين 3، بعدين 4، بعدين 5، بعدين 6."
     },
     "review": {
       "status": "pending"
@@ -558,12 +558,12 @@
       "ar": "التلاعب بالكلمات والألغاز الكلاسيكية"
     },
     "question": {
-      "en": "I have a round face and two moving pointers. I hang on a wall and help you know when school starts. What am I?",
-      "ar": "عندي وجه مدوّر وعقربين يتحركون. أتعلّق على الحيطة وأساعدك تعرف متى تبدأ المدرسة. مين أنا؟"
+      "en": "What has lots of keys but can't open a single lock?",
+      "ar": "شو الشي اللي عنده مفاتيح كثير، بس ولا مفتاح منها يفتح قفل؟"
     },
     "answer": {
-      "en": "An analog wall clock",
-      "ar": "ساعة حائط بعقارب"
+      "en": "A piano (a computer keyboard works too)",
+      "ar": "البيانو (أو لوحة مفاتيح الكمبيوتر)"
     },
     "review": {
       "status": "pending"

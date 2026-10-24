@@ -227,12 +227,12 @@
       "ar": "العلوم السياسية"
     },
     "question": {
-      "en": "What is the United Nations and when was it founded?",
-      "ar": "شو هي الأمم المتحدة، ومتى تأسست؟"
+      "en": "In what year was the United Nations founded?",
+      "ar": "بأي سنة تأسست الأمم المتحدة؟"
     },
     "answer": {
-      "en": "An international organisation founded in 1945 after World War II to promote peace, security, and international cooperation among its member states.",
-      "ar": "منظمة دولية تأسست عام 1945 عقب الحرب العالمية الثانية لتعزيز السلام والأمن والتعاون الدولي بين الدول الأعضاء."
+      "en": "1945, after the Second World War.",
+      "ar": "سنة 1945، بعد الحرب العالمية الثانية."
     },
     "review": {
       "status": "pending"
@@ -342,12 +342,12 @@
       "ar": "العلوم السياسية"
     },
     "question": {
-      "en": "In Locke's social-contract theory, what central duty gives government its legitimacy?",
-      "ar": "في نظرية العقد الاجتماعي عند لوك، شو الواجب الأساسي اللي يعطي الحكومة شرعيتها؟"
+      "en": "What do we call a vote in which all citizens decide directly on a single question, such as a new constitution?",
+      "ar": "شو نسمّي التصويت اللي يقرر فيه كل المواطنين مباشرة بسؤال واحد، مثل الموافقة على دستور جديد؟"
     },
     "answer": {
-      "en": "Protecting people's natural rights, including life, liberty and property.",
-      "ar": "حماية حقوق الناس الطبيعية، ومنها الحياة والحرية والملكية."
+      "en": "A referendum",
+      "ar": "استفتاء"
     },
     "review": {
       "status": "pending"
@@ -466,12 +466,12 @@
       "ar": "الأنثروبولوجيا"
     },
     "question": {
-      "en": "What is the 'nature vs. nurture' debate in the context of human behaviour?",
-      "ar": "في السلوك البشري، شو هو جدل «الطبيعة مقابل التنشئة»؟"
+      "en": "Which American anthropologist wrote the 1928 bestseller 'Coming of Age in Samoa'?",
+      "ar": "أي عالمة أنثروبولوجيا أمريكية كتبت «بلوغ سن الرشد في ساموا» سنة 1928، وصار من أكثر الكتب مبيعًا؟"
     },
     "answer": {
-      "en": "Whether human characteristics, abilities, and behaviours are primarily determined by genetics ('nature') or by environment, upbringing, and experience ('nurture'). Modern consensus: both interact — genes set potentials, environment shapes expression.",
-      "ar": "ما إذا كانت خصائص الإنسان وقدراته وسلوكياته تتحدد أساساً بالجينات ('الطبيعة') أو بالبيئة والتربية والتجربة ('التنشئة'). الإجماع الحديث: كلاهما يتفاعلان — الجينات تُحدد الإمكانيات والبيئة تُشكّل التعبير."
+      "en": "Margaret Mead.",
+      "ar": "مارغريت ميد."
     },
     "review": {
       "status": "pending"
@@ -565,8 +565,8 @@
       "ar": "شو هي «التقاطعية»، ومين طوّر المفهوم؟"
     },
     "answer": {
-      "en": "Developed by Kimberlé Crenshaw (1989), intersectionality is the framework for understanding how different aspects of a person's social and political identities (race, gender, class, sexuality, disability) combine to create overlapping systems of discrimination or privilege.",
-      "ar": "طوّرتها كيمبرلي كرينشو (1989)، التقاطعية هي الإطار لفهم كيف تتحد جوانب مختلفة من الهويات الاجتماعية والسياسية للشخص (العرق، والجنس، والطبقة، والجنسانية، والإعاقة) لخلق أنظمة متداخلة من التمييز أو الامتياز."
+      "en": "A framework developed by Kimberlé Crenshaw (1989) for understanding how overlapping parts of a person's identity, such as race, gender and class, combine to shape experiences of discrimination or privilege.",
+      "ar": "إطار طوّرته كيمبرلي كرينشو (1989) لفهم كيف تتداخل جوانب هوية الشخص، مثل العرق والجنس والطبقة، فتشكّل تجاربه مع التمييز أو الامتياز."
     },
     "acceptedAnswers": {
       "en": [
@@ -609,12 +609,12 @@
       "ar": "العلوم السياسية"
     },
     "question": {
-      "en": "What is Huntington's 'Clash of Civilizations' thesis and what are its main criticisms?",
-      "ar": "شو أطروحة هنتنغتون «صراع الحضارات»، وشو أبرز الانتقادات عليها؟"
+      "en": "Which American political scientist argued in 'The Clash of Civilizations' (1993) that future conflicts would follow cultural lines rather than ideology?",
+      "ar": "أي عالم سياسة أمريكي قال في «صراع الحضارات» (1993) إن صراعات المستقبل بتكون على خطوط ثقافية مش أيديولوجية؟"
     },
     "answer": {
-      "en": "Huntington (1993) argued that post-Cold War conflicts would be driven by cultural and religious differences between civilisational blocs rather than ideology. Critics argue it essentialises culture, ignores intra-civilisational conflicts, oversimplifies diversity within blocs, and can become a self-fulfilling prophecy that justifies conflict.",
-      "ar": "جادل هنتنغتون (1993) بأن النزاعات بعد الحرب الباردة ستتحرك بالاختلافات الثقافية والدينية بين الكتل الحضارية لا بالأيديولوجيا. ينتقد المنتقدون أنه يُجوهر الثقافة، ويتجاهل النزاعات داخل الحضارات، ويُبسّط التنوع داخل الكتل، وقد يصبح نبوءة تحقق ذاتياً تُبرر الصراع."
+      "en": "Samuel P. Huntington.",
+      "ar": "صامويل هنتنغتون."
     },
     "review": {
       "status": "pending"
@@ -956,18 +956,18 @@
   },
   {
     "id": "social-sciences-046",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Sociology",
       "ar": "علم الاجتماع"
     },
     "question": {
-      "en": "What is 'post-colonialism' as a theoretical framework and who are its key thinkers?",
-      "ar": "شو هي «ما بعد الاستعمارية» كإطار نظري، ومين أبرز مفكّريها؟"
+      "en": "Which Palestinian-American scholar's 1978 book 'Orientalism' became a founding text of post-colonial studies?",
+      "ar": "أي باحث فلسطيني أمريكي صار كتابه «الاستشراق» (1978) من النصوص المؤسِّسة لدراسات ما بعد الاستعمار؟"
     },
     "answer": {
-      "en": "Post-colonialism examines how colonial power shapes culture, identity, knowledge, and politics — and how its legacies persist after formal independence. Key thinkers: Frantz Fanon (The Wretched of the Earth — psychology of colonised peoples), Edward Said (Orientalism — Western discursive construction of 'the East'), Homi Bhabha (hybridity, ambivalence, mimicry), Gayatri Spivak ('Can the Subaltern Speak?').",
-      "ar": "ما بعد الاستعمارية تدرس كيف تُشكّل السلطة الاستعمارية الثقافة والهوية والمعرفة والسياسة — وكيف تستمر إرثها بعد الاستقلال الرسمي. أبرز المفكرين: فرانز فانون (المعذّبون في الأرض — سيكولوجية الشعوب المستعمَرة)، وإدوارد سعيد (الاستشراق — البناء الخطابي الغربي لـ'الشرق')، وهومي بابا (الهجنة والتردد والمحاكاة)، وغياتري سبيفاك ('هل يستطيع التابع الكلام؟')."
+      "en": "Edward Said.",
+      "ar": "إدوارد سعيد."
     },
     "review": {
       "status": "pending"

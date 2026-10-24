@@ -9,9 +9,9 @@
   },
   "summary": {
     "packets": 380,
-    "cards": 4103,
+    "cards": 4076,
     "reviewed": 3,
-    "pending": 4100,
+    "pending": 4073,
     "evidenceComplete": 0,
     "highStakes": {
       "total": 278,
@@ -1942,7 +1942,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 4,
+      "cardCount": 5,
       "cards": [
         {
           "id": "linguistics-27",
@@ -1953,6 +1953,33 @@
           "contentSignals": {
             "answerWords": {
               "en": 2,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "linguistics-3",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
               "ar": 2
             },
             "containsNumber": false,
@@ -2252,7 +2279,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 7,
+      "cardCount": 6,
       "cards": [
         {
           "id": "linguistics-15",
@@ -2316,37 +2343,10 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 3,
-              "ar": 3
+              "en": 1,
+              "ar": 1
             },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "linguistics-3",
-          "difficulty": "easy",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 3,
-              "ar": 3
-            },
-            "containsNumber": false,
+            "containsNumber": true,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -2535,7 +2535,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 9,
+      "cardCount": 10,
       "cards": [
         {
           "id": "tech-retro-17",
@@ -2577,6 +2577,33 @@
             },
             "containsNumber": false,
             "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "tech-retro-2",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 16,
+              "ar": 12
+            },
+            "containsNumber": true,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -2798,35 +2825,8 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 5,
+      "cardCount": 3,
       "cards": [
-        {
-          "id": "tech-retro-13",
-          "difficulty": "easy",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 4,
-              "ar": 3
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
         {
           "id": "tech-retro-16",
           "difficulty": "medium",
@@ -2840,33 +2840,6 @@
             },
             "containsNumber": true,
             "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "tech-retro-2",
-          "difficulty": "easy",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 1,
-              "ar": 1
-            },
-            "containsNumber": true,
-            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -3081,8 +3054,35 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 3,
+      "cardCount": 4,
       "cards": [
+        {
+          "id": "tech-retro-13",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
         {
           "id": "tech-retro-32",
           "difficulty": "very-advanced",
@@ -6154,8 +6154,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 4,
-              "ar": 4
+              "en": 3,
+              "ar": 5
             },
             "containsNumber": false,
             "containsYear": false,
@@ -6208,11 +6208,11 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 9,
-              "ar": 5
+              "en": 1,
+              "ar": 1
             },
-            "containsNumber": false,
-            "containsYear": false,
+            "containsNumber": true,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -6606,7 +6606,7 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 2,
+              "en": 1,
               "ar": 1
             },
             "containsNumber": false,
@@ -8230,7 +8230,7 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 1,
+              "en": 2,
               "ar": 1
             },
             "containsNumber": false,
@@ -8467,7 +8467,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 1,
-              "ar": 1
+              "ar": 2
             },
             "containsNumber": false,
             "containsYear": false,
@@ -8586,7 +8586,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 7,
+      "cardCount": 8,
       "cards": [
         {
           "id": "pop-culture-12",
@@ -8677,11 +8677,11 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 3,
+              "en": 4,
               "ar": 3
             },
-            "containsNumber": false,
-            "containsYear": false,
+            "containsNumber": true,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -8706,6 +8706,33 @@
             "answerWords": {
               "en": 1,
               "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "pop-culture-3",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 4
             },
             "containsNumber": false,
             "containsYear": false,
@@ -8835,8 +8862,8 @@
               "en": 2,
               "ar": 2
             },
-            "containsNumber": false,
-            "containsYear": false,
+            "containsNumber": true,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -8889,8 +8916,8 @@
               "en": 2,
               "ar": 2
             },
-            "containsNumber": false,
-            "containsYear": false,
+            "containsNumber": true,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -9213,7 +9240,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 9,
+      "cardCount": 8,
       "cards": [
         {
           "id": "pop-culture-10",
@@ -9297,33 +9324,6 @@
           }
         },
         {
-          "id": "pop-culture-3",
-          "difficulty": "easy",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 1,
-              "ar": 1
-            },
-            "containsNumber": true,
-            "containsYear": true,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
           "id": "pop-culture-32",
           "difficulty": "medium",
           "reviewStatus": "pending",
@@ -9358,11 +9358,11 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 1,
-              "ar": 1
+              "en": 4,
+              "ar": 8
             },
-            "containsNumber": true,
-            "containsYear": true,
+            "containsNumber": false,
+            "containsYear": false,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -9541,7 +9541,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 7,
-              "ar": 4
+              "ar": 8
             },
             "containsNumber": true,
             "containsYear": true,
@@ -9567,11 +9567,11 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 2,
+              "en": 3,
               "ar": 2
             },
-            "containsNumber": false,
-            "containsYear": false,
+            "containsNumber": true,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -9769,7 +9769,7 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 1,
+              "en": 2,
               "ar": 2
             },
             "containsNumber": false,
@@ -9961,7 +9961,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 3,
+      "cardCount": 2,
       "cards": [
         {
           "id": "true-crime-20",
@@ -9971,38 +9971,11 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 2,
-              "ar": 2
+              "en": 7,
+              "ar": 5
             },
-            "containsNumber": true,
-            "containsYear": true,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "true-crime-5",
-          "difficulty": "easy",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 2,
-              "ar": 2
-            },
-            "containsNumber": true,
-            "containsYear": true,
+            "containsNumber": false,
+            "containsYear": false,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -10062,8 +10035,35 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 11,
+      "cardCount": 13,
       "cards": [
+        {
+          "id": "true-crime-11",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 5,
+              "ar": 5
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
         {
           "id": "true-crime-13",
           "difficulty": "easy",
@@ -10072,8 +10072,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 6,
-              "ar": 7
+              "en": 1,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -10130,6 +10130,33 @@
               "ar": 3
             },
             "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "true-crime-28",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 2
+            },
+            "containsNumber": true,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -10288,8 +10315,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 18,
-              "ar": 15
+              "en": 2,
+              "ar": 3
             },
             "containsNumber": false,
             "containsYear": false,
@@ -10379,7 +10406,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 6,
+      "cardCount": 8,
       "cards": [
         {
           "id": "true-crime-10",
@@ -10463,6 +10490,33 @@
           }
         },
         {
+          "id": "true-crime-19",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 4,
+              "ar": 3
+            },
+            "containsNumber": true,
+            "containsYear": true,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
           "id": "true-crime-25",
           "difficulty": "hard",
           "reviewStatus": "pending",
@@ -10472,6 +10526,33 @@
             "answerWords": {
               "en": 5,
               "ar": 4
+            },
+            "containsNumber": true,
+            "containsYear": true,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "true-crime-26",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 6,
+              "ar": 5
             },
             "containsNumber": true,
             "containsYear": true,
@@ -10707,7 +10788,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 1,
-              "ar": 2
+              "ar": 3
             },
             "containsNumber": false,
             "containsYear": false,
@@ -10797,7 +10878,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 7,
+      "cardCount": 4,
       "cards": [
         {
           "id": "true-crime-1",
@@ -10808,33 +10889,6 @@
           "contentSignals": {
             "answerWords": {
               "en": 3,
-              "ar": 2
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "true-crime-11",
-          "difficulty": "medium",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 2,
               "ar": 2
             },
             "containsNumber": false,
@@ -10881,87 +10935,6 @@
           }
         },
         {
-          "id": "true-crime-19",
-          "difficulty": "medium",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 2,
-              "ar": 2
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "true-crime-26",
-          "difficulty": "hard",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 15,
-              "ar": 13
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "true-crime-28",
-          "difficulty": "hard",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 2,
-              "ar": 2
-            },
-            "containsNumber": true,
-            "containsYear": true,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
           "id": "true-crime-32",
           "difficulty": "very-advanced",
           "reviewStatus": "pending",
@@ -10974,6 +10947,33 @@
             },
             "containsNumber": true,
             "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "true-crime-5",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 3,
+              "ar": 2
+            },
+            "containsNumber": true,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -11144,7 +11144,7 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 3,
+              "en": 2,
               "ar": 2
             },
             "containsNumber": false,
@@ -12257,10 +12257,10 @@
           "contentSignals": {
             "answerWords": {
               "en": 2,
-              "ar": 2
+              "ar": 1
             },
-            "containsNumber": false,
-            "containsYear": false,
+            "containsNumber": true,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -12331,17 +12331,17 @@
         },
         {
           "id": "art-and-painters-022",
-          "difficulty": "hard",
+          "difficulty": "very-advanced",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 5,
-              "ar": 7
+              "en": 2,
+              "ar": 2
             },
             "containsNumber": true,
-            "containsYear": true,
+            "containsYear": false,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -13511,7 +13511,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 1,
-              "ar": 4
+              "ar": 2
             },
             "containsNumber": false,
             "containsYear": false,
@@ -13990,7 +13990,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 1,
-              "ar": 2
+              "ar": 3
             },
             "containsNumber": false,
             "containsYear": false,
@@ -14704,8 +14704,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 18,
-              "ar": 16
+              "en": 13,
+              "ar": 11
             },
             "containsNumber": false,
             "containsYear": false,
@@ -15726,7 +15726,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 10,
+      "cardCount": 9,
       "cards": [
         {
           "id": "biology-004",
@@ -15846,33 +15846,6 @@
             "answerWords": {
               "en": 1,
               "ar": 1
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "biology-054",
-          "difficulty": "medium",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 10,
-              "ar": 8
             },
             "containsNumber": false,
             "containsYear": false,
@@ -17437,8 +17410,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 6,
-              "ar": 5
+              "en": 3,
+              "ar": 2
             },
             "containsNumber": false,
             "containsYear": false,
@@ -17838,7 +17811,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 8,
+      "cardCount": 7,
       "cards": [
         {
           "id": "chemistry-009",
@@ -17929,37 +17902,10 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 20,
-              "ar": 18
+              "en": 22,
+              "ar": 21
             },
             "containsNumber": true,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "chemistry-056",
-          "difficulty": "medium",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 16,
-              "ar": 14
-            },
-            "containsNumber": false,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -18354,7 +18300,7 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 8,
+              "en": 9,
               "ar": 10
             },
             "containsNumber": true,
@@ -19710,8 +19656,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 14,
-              "ar": 10
+              "en": 15,
+              "ar": 11
             },
             "containsNumber": true,
             "containsYear": false,
@@ -19882,7 +19828,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 10,
+      "cardCount": 9,
       "cards": [
         {
           "id": "chemistry-015",
@@ -20029,33 +19975,6 @@
             "answerWords": {
               "en": 8,
               "ar": 5
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "chemistry-047",
-          "difficulty": "medium",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 13,
-              "ar": 8
             },
             "containsNumber": false,
             "containsYear": false,
@@ -20843,8 +20762,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 17,
-              "ar": 13
+              "en": 18,
+              "ar": 14
             },
             "containsNumber": false,
             "containsYear": false,
@@ -21154,14 +21073,14 @@
         },
         {
           "id": "civil-engineering-021",
-          "difficulty": "hard",
+          "difficulty": "very-advanced",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
               "en": 20,
-              "ar": 15
+              "ar": 14
             },
             "containsNumber": false,
             "containsYear": false,
@@ -21571,7 +21490,7 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 21,
+              "en": 22,
               "ar": 18
             },
             "containsNumber": true,
@@ -21693,16 +21612,16 @@
         },
         {
           "id": "classic-riddles-027",
-          "difficulty": "medium",
+          "difficulty": "easy",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 14,
-              "ar": 8
+              "en": 6,
+              "ar": 5
             },
-            "containsNumber": true,
+            "containsNumber": false,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -22225,8 +22144,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 3,
-              "ar": 3
+              "en": 15,
+              "ar": 15
             },
             "containsNumber": true,
             "containsYear": false,
@@ -22300,14 +22219,14 @@
         },
         {
           "id": "classic-riddles-067",
-          "difficulty": "hard",
+          "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 18,
-              "ar": 18
+              "en": 13,
+              "ar": 12
             },
             "containsNumber": true,
             "containsYear": false,
@@ -23082,8 +23001,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 3,
-              "ar": 2
+              "en": 2,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -23136,8 +23055,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 2,
-              "ar": 2
+              "en": 1,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -23595,7 +23514,7 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 2,
+              "en": 3,
               "ar": 3
             },
             "containsNumber": false,
@@ -23649,8 +23568,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 2,
-              "ar": 1
+              "en": 7,
+              "ar": 3
             },
             "containsNumber": false,
             "containsYear": false,
@@ -23987,13 +23906,13 @@
         },
         {
           "id": "classic-riddles-020",
-          "difficulty": "medium",
+          "difficulty": "easy",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 2,
+              "en": 1,
               "ar": 1
             },
             "containsNumber": false,
@@ -24784,8 +24703,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 9,
-              "ar": 7
+              "en": 11,
+              "ar": 6
             },
             "containsNumber": false,
             "containsYear": false,
@@ -24821,7 +24740,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 30,
+      "cardCount": 29,
       "cards": [
         {
           "id": "logic-puzzles-002",
@@ -25182,8 +25101,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 27,
-              "ar": 23
+              "en": 17,
+              "ar": 16
             },
             "containsNumber": true,
             "containsYear": false,
@@ -25211,33 +25130,6 @@
             "answerWords": {
               "en": 19,
               "ar": 21
-            },
-            "containsNumber": true,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "logic-puzzles-034",
-          "difficulty": "medium",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 22,
-              "ar": 20
             },
             "containsNumber": true,
             "containsYear": false,
@@ -26142,10 +26034,10 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 2,
-              "ar": 1
+              "en": 6,
+              "ar": 7
             },
-            "containsNumber": false,
+            "containsNumber": true,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -26634,11 +26526,11 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 1,
-              "ar": 3
+              "en": 7,
+              "ar": 8
             },
-            "containsNumber": false,
-            "containsYear": false,
+            "containsNumber": true,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -28622,8 +28514,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 3,
-              "ar": 2
+              "en": 1,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -28932,7 +28824,7 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 6,
+              "en": 7,
               "ar": 7
             },
             "containsNumber": false,
@@ -28959,8 +28851,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 1,
-              "ar": 1
+              "en": 2,
+              "ar": 4
             },
             "containsNumber": false,
             "containsYear": false,
@@ -29340,10 +29232,10 @@
           "contentSignals": {
             "answerWords": {
               "en": 2,
-              "ar": 2
+              "ar": 1
             },
-            "containsNumber": true,
-            "containsYear": true,
+            "containsNumber": false,
+            "containsYear": false,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -29393,8 +29285,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 5,
-              "ar": 4
+              "en": 2,
+              "ar": 2
             },
             "containsNumber": true,
             "containsYear": true,
@@ -29530,8 +29422,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 18,
-              "ar": 17
+              "en": 1,
+              "ar": 1
             },
             "containsNumber": true,
             "containsYear": true,
@@ -30353,8 +30245,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 3,
-              "ar": 2
+              "en": 5,
+              "ar": 4
             },
             "containsNumber": true,
             "containsYear": true,
@@ -30517,10 +30409,10 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 3,
-              "ar": 3
+              "en": 1,
+              "ar": 1
             },
-            "containsNumber": true,
+            "containsNumber": false,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -30621,10 +30513,12 @@
         },
         {
           "id": "football-106",
-          "difficulty": "medium",
+          "difficulty": "hard",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [],
+          "mutableSignals": [
+            "record-or-ranking"
+          ],
           "contentSignals": {
             "answerWords": {
               "en": 2,
@@ -31148,8 +31042,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 2,
-              "ar": 3
+              "en": 1,
+              "ar": 1
             },
             "containsNumber": true,
             "containsYear": true,
@@ -32275,7 +32169,7 @@
         },
         {
           "id": "football-084",
-          "difficulty": "easy",
+          "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
@@ -36982,7 +36876,7 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 5,
+              "en": 7,
               "ar": 6
             },
             "containsNumber": false,
@@ -37893,13 +37787,13 @@
         },
         {
           "id": "geology-029",
-          "difficulty": "hard",
+          "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 3,
+              "en": 2,
               "ar": 1
             },
             "containsNumber": false,
@@ -37953,8 +37847,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 12,
-              "ar": 10
+              "en": 2,
+              "ar": 5
             },
             "containsNumber": false,
             "containsYear": false,
@@ -38174,7 +38068,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 14,
+      "cardCount": 11,
       "cards": [
         {
           "id": "history-017",
@@ -38184,65 +38078,11 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 1,
-              "ar": 1
+              "en": 2,
+              "ar": 2
             },
             "containsNumber": true,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "history-024",
-          "difficulty": "hard",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 8,
-              "ar": 8
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "history-031",
-          "difficulty": "easy",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 1,
-              "ar": 1
-            },
-            "containsNumber": false,
-            "containsYear": false,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -38377,33 +38217,6 @@
               "ar": 2
             },
             "containsNumber": true,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "history-066",
-          "difficulty": "hard",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 14,
-              "ar": 12
-            },
-            "containsNumber": false,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -38572,7 +38385,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 9,
+      "cardCount": 10,
       "cards": [
         {
           "id": "history-004",
@@ -38690,8 +38503,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 1,
-              "ar": 1
+              "en": 2,
+              "ar": 2
             },
             "containsNumber": true,
             "containsYear": true,
@@ -38737,7 +38550,7 @@
           }
         },
         {
-          "id": "history-067",
+          "id": "history-066",
           "difficulty": "hard",
           "reviewStatus": "pending",
           "highStakes": false,
@@ -38747,8 +38560,35 @@
               "en": 3,
               "ar": 2
             },
-            "containsNumber": false,
-            "containsYear": false,
+            "containsNumber": true,
+            "containsYear": true,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "history-067",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 8,
+              "ar": 7
+            },
+            "containsNumber": true,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -38835,7 +38675,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 28,
+      "cardCount": 29,
       "cards": [
         {
           "id": "history-002",
@@ -38973,7 +38813,7 @@
           }
         },
         {
-          "id": "history-028",
+          "id": "history-024",
           "difficulty": "hard",
           "reviewStatus": "pending",
           "highStakes": false,
@@ -38983,8 +38823,35 @@
               "en": 3,
               "ar": 2
             },
-            "containsNumber": false,
+            "containsNumber": true,
             "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "history-028",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 3
+            },
+            "containsNumber": true,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -39648,8 +39515,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 10,
-              "ar": 12
+              "en": 2,
+              "ar": 2
             },
             "containsNumber": true,
             "containsYear": true,
@@ -39852,7 +39719,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 4,
+      "cardCount": 5,
       "cards": [
         {
           "id": "history-011",
@@ -39921,6 +39788,33 @@
             },
             "containsNumber": true,
             "containsYear": true,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "history-031",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 3,
+              "ar": 3
+            },
+            "containsNumber": true,
+            "containsYear": false,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -40227,14 +40121,14 @@
         },
         {
           "id": "history-074",
-          "difficulty": "hard",
+          "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
               "en": 1,
-              "ar": 3
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -40254,14 +40148,14 @@
         },
         {
           "id": "history-088",
-          "difficulty": "very-advanced",
+          "difficulty": "hard",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 5,
-              "ar": 4
+              "en": 1,
+              "ar": 1
             },
             "containsNumber": true,
             "containsYear": true,
@@ -41051,8 +40945,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 3,
-              "ar": 2
+              "en": 2,
+              "ar": 4
             },
             "containsNumber": false,
             "containsYear": false,
@@ -41914,11 +41808,11 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 5,
-              "ar": 4
+              "en": 3,
+              "ar": 3
             },
-            "containsNumber": false,
-            "containsYear": false,
+            "containsNumber": true,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -42750,8 +42644,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 4,
-              "ar": 4
+              "en": 11,
+              "ar": 11
             },
             "containsNumber": true,
             "containsYear": false,
@@ -43399,8 +43293,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 2,
-              "ar": 1
+              "en": 5,
+              "ar": 3
             },
             "containsNumber": false,
             "containsYear": false,
@@ -43426,8 +43320,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 4,
-              "ar": 3
+              "en": 7,
+              "ar": 5
             },
             "containsNumber": false,
             "containsYear": false,
@@ -45513,8 +45407,35 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 10,
+      "cardCount": 11,
       "cards": [
+        {
+          "id": "math-008",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 17,
+              "ar": 15
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
         {
           "id": "math-101",
           "difficulty": "easy",
@@ -46643,8 +46564,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 3,
-              "ar": 3
+              "en": 12,
+              "ar": 12
             },
             "containsNumber": true,
             "containsYear": false,
@@ -47004,7 +46925,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 11,
+      "cardCount": 10,
       "cards": [
         {
           "id": "math-001",
@@ -47016,33 +46937,6 @@
             "answerWords": {
               "en": 15,
               "ar": 11
-            },
-            "containsNumber": true,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "math-008",
-          "difficulty": "easy",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 14,
-              "ar": 16
             },
             "containsNumber": true,
             "containsYear": false,
@@ -48398,14 +48292,14 @@
         },
         {
           "id": "math-016",
-          "difficulty": "easy",
+          "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 14,
-              "ar": 14
+              "en": 12,
+              "ar": 10
             },
             "containsNumber": true,
             "containsYear": false,
@@ -48614,14 +48508,14 @@
         },
         {
           "id": "math-097",
-          "difficulty": "easy",
+          "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 13,
-              "ar": 11
+              "en": 15,
+              "ar": 12
             },
             "containsNumber": true,
             "containsYear": false,
@@ -49741,8 +49635,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 10,
-              "ar": 8
+              "en": 15,
+              "ar": 11
             },
             "containsNumber": false,
             "containsYear": false,
@@ -49923,8 +49817,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 3,
-              "ar": 3
+              "en": 12,
+              "ar": 8
             },
             "containsNumber": false,
             "containsYear": false,
@@ -52901,35 +52795,8 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 7,
+      "cardCount": 6,
       "cards": [
-        {
-          "id": "me-hist-001",
-          "difficulty": "easy",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 7,
-              "ar": 6
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
         {
           "id": "me-hist-002",
           "difficulty": "easy",
@@ -53019,12 +52886,12 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 45,
-              "ar": 35
+              "en": 1,
+              "ar": 2
             },
-            "containsNumber": true,
-            "containsYear": true,
-            "needsClaimDecomposition": true
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -53046,12 +52913,12 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 43,
-              "ar": 34
+              "en": 5,
+              "ar": 2
             },
-            "containsNumber": true,
+            "containsNumber": false,
             "containsYear": false,
-            "needsClaimDecomposition": true
+            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -53110,8 +52977,37 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 15,
+      "cardCount": 16,
       "cards": [
+        {
+          "id": "me-hist-001",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [
+            "current-state"
+          ],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
         {
           "id": "me-hist-004",
           "difficulty": "easy",
@@ -53174,10 +53070,10 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 23,
-              "ar": 20
+              "en": 3,
+              "ar": 2
             },
-            "containsNumber": true,
+            "containsNumber": false,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -53282,8 +53178,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 26,
-              "ar": 16
+              "en": 4,
+              "ar": 3
             },
             "containsNumber": true,
             "containsYear": false,
@@ -53417,12 +53313,12 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 52,
-              "ar": 47
+              "en": 1,
+              "ar": 1
             },
             "containsNumber": true,
             "containsYear": false,
-            "needsClaimDecomposition": true
+            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -53599,12 +53495,12 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 38,
-              "ar": 36
+              "en": 3,
+              "ar": 2
             },
             "containsNumber": true,
             "containsYear": true,
-            "needsClaimDecomposition": true
+            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -53734,12 +53630,12 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 39,
-              "ar": 31
+              "en": 4,
+              "ar": 3
             },
             "containsNumber": true,
             "containsYear": true,
-            "needsClaimDecomposition": true
+            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -53788,12 +53684,12 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 40,
-              "ar": 32
+              "en": 6,
+              "ar": 3
             },
             "containsNumber": true,
             "containsYear": true,
-            "needsClaimDecomposition": true
+            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -53815,8 +53711,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 28,
-              "ar": 28
+              "en": 3,
+              "ar": 2
             },
             "containsNumber": true,
             "containsYear": true,
@@ -54004,12 +53900,12 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 54,
-              "ar": 46
+              "en": 3,
+              "ar": 2
             },
             "containsNumber": true,
             "containsYear": true,
-            "needsClaimDecomposition": true
+            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -54269,12 +54165,12 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 38,
-              "ar": 30
+              "en": 2,
+              "ar": 1
             },
             "containsNumber": true,
             "containsYear": true,
-            "needsClaimDecomposition": true
+            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -56676,12 +56572,12 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 52,
-              "ar": 46
+              "en": 6,
+              "ar": 4
             },
             "containsNumber": true,
             "containsYear": false,
-            "needsClaimDecomposition": true
+            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -56939,12 +56835,12 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 33,
-              "ar": 27
+              "en": 2,
+              "ar": 2
             },
             "containsNumber": false,
             "containsYear": false,
-            "needsClaimDecomposition": true
+            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -57014,18 +56910,18 @@
         },
         {
           "id": "phil-014",
-          "difficulty": "easy",
+          "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 42,
-              "ar": 34
+              "en": 3,
+              "ar": 2
             },
-            "containsNumber": true,
+            "containsNumber": false,
             "containsYear": false,
-            "needsClaimDecomposition": true
+            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -57293,7 +57189,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 13,
+      "cardCount": 12,
       "cards": [
         {
           "id": "physical-and-life-sciences-002",
@@ -57512,33 +57408,6 @@
           }
         },
         {
-          "id": "physical-and-life-sciences-038",
-          "difficulty": "hard",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 29,
-              "ar": 18
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
           "id": "physical-and-life-sciences-041",
           "difficulty": "very-advanced",
           "reviewStatus": "pending",
@@ -57664,7 +57533,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 6,
+      "cardCount": 4,
       "cards": [
         {
           "id": "physical-and-life-sciences-004",
@@ -57721,33 +57590,6 @@
           }
         },
         {
-          "id": "physical-and-life-sciences-012",
-          "difficulty": "easy",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 9,
-              "ar": 9
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
           "id": "physical-and-life-sciences-019",
           "difficulty": "medium",
           "reviewStatus": "pending",
@@ -57757,33 +57599,6 @@
             "answerWords": {
               "en": 21,
               "ar": 21
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "physical-and-life-sciences-021",
-          "difficulty": "medium",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 20,
-              "ar": 17
             },
             "containsNumber": false,
             "containsYear": false,
@@ -57846,7 +57661,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 10,
+      "cardCount": 6,
       "cards": [
         {
           "id": "physical-and-life-sciences-003",
@@ -57903,33 +57718,6 @@
           }
         },
         {
-          "id": "physical-and-life-sciences-009",
-          "difficulty": "easy",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 1,
-              "ar": 1
-            },
-            "containsNumber": true,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
           "id": "physical-and-life-sciences-015",
           "difficulty": "medium",
           "reviewStatus": "pending",
@@ -57941,87 +57729,6 @@
               "ar": 15
             },
             "containsNumber": true,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "physical-and-life-sciences-018",
-          "difficulty": "medium",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 14,
-              "ar": 12
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "physical-and-life-sciences-022",
-          "difficulty": "medium",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 23,
-              "ar": 20
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "physical-and-life-sciences-025",
-          "difficulty": "medium",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 22,
-              "ar": 19
-            },
-            "containsNumber": false,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -58136,7 +57843,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 7,
+      "cardCount": 5,
       "cards": [
         {
           "id": "physical-and-life-sciences-001",
@@ -58150,33 +57857,6 @@
               "ar": 7
             },
             "containsNumber": true,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "physical-and-life-sciences-011",
-          "difficulty": "easy",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 7,
-              "ar": 5
-            },
-            "containsNumber": false,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -58274,33 +57954,6 @@
           }
         },
         {
-          "id": "physical-and-life-sciences-030",
-          "difficulty": "hard",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 21,
-              "ar": 18
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
           "id": "physical-and-life-sciences-045",
           "difficulty": "very-advanced",
           "reviewStatus": "pending",
@@ -58345,7 +57998,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 4,
+      "cardCount": 3,
       "cards": [
         {
           "id": "physical-and-life-sciences-032",
@@ -58415,33 +58068,6 @@
             "containsNumber": false,
             "containsYear": false,
             "needsClaimDecomposition": true
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "physical-and-life-sciences-049",
-          "difficulty": "very-advanced",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 29,
-              "ar": 30
-            },
-            "containsNumber": true,
-            "containsYear": false,
-            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -58682,7 +58308,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 3,
+      "cardCount": 2,
       "cards": [
         {
           "id": "physical-and-life-sciences-005",
@@ -58721,33 +58347,6 @@
             "answerWords": {
               "en": 5,
               "ar": 6
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "physical-and-life-sciences-017",
-          "difficulty": "medium",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 28,
-              "ar": 21
             },
             "containsNumber": false,
             "containsYear": false,
@@ -59461,11 +59060,11 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 21,
-              "ar": 16
+              "en": 11,
+              "ar": 12
             },
-            "containsNumber": false,
-            "containsYear": false,
+            "containsNumber": true,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -59704,10 +59303,10 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 24,
-              "ar": 25
+              "en": 23,
+              "ar": 22
             },
-            "containsNumber": false,
+            "containsNumber": true,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -60601,12 +60200,12 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 22,
-              "ar": 20
+              "en": 31,
+              "ar": 28
             },
             "containsNumber": false,
             "containsYear": false,
-            "needsClaimDecomposition": false
+            "needsClaimDecomposition": true
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -60972,12 +60571,12 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 26,
-              "ar": 20
+              "en": 40,
+              "ar": 38
             },
             "containsNumber": true,
             "containsYear": false,
-            "needsClaimDecomposition": false
+            "needsClaimDecomposition": true
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -61128,7 +60727,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 17,
-              "ar": 16
+              "ar": 14
             },
             "containsNumber": false,
             "containsYear": false,
@@ -61950,8 +61549,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 9,
-              "ar": 6
+              "en": 13,
+              "ar": 11
             },
             "containsNumber": false,
             "containsYear": false,
@@ -63099,7 +62698,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 23,
+      "cardCount": 19,
       "cards": [
         {
           "id": "science-032",
@@ -63534,87 +63133,6 @@
           }
         },
         {
-          "id": "science-080",
-          "difficulty": "medium",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 9,
-              "ar": 9
-            },
-            "containsNumber": true,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "science-083",
-          "difficulty": "hard",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 18,
-              "ar": 21
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "science-086",
-          "difficulty": "very-advanced",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 10,
-              "ar": 9
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
           "id": "science-089",
           "difficulty": "very-advanced",
           "reviewStatus": "pending",
@@ -63694,33 +63212,6 @@
               "evidence-record-missing"
             ]
           }
-        },
-        {
-          "id": "science-098",
-          "difficulty": "very-advanced",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 15,
-              "ar": 10
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
         }
       ]
     },
@@ -63740,7 +63231,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 26,
+      "cardCount": 23,
       "cards": [
         {
           "id": "science-003",
@@ -63837,33 +63328,6 @@
               "ar": 8
             },
             "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "science-036",
-          "difficulty": "easy",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 1,
-              "ar": 1
-            },
-            "containsNumber": true,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -64150,33 +63614,6 @@
           }
         },
         {
-          "id": "science-069",
-          "difficulty": "hard",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 6,
-              "ar": 6
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
           "id": "science-072",
           "difficulty": "hard",
           "reviewStatus": "pending",
@@ -64402,33 +63839,6 @@
             "answerWords": {
               "en": 16,
               "ar": 14
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "science-099",
-          "difficulty": "very-advanced",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 12,
-              "ar": 8
             },
             "containsNumber": false,
             "containsYear": false,
@@ -64839,7 +64249,7 @@
         },
         {
           "id": "science-029",
-          "difficulty": "hard",
+          "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
@@ -65098,7 +64508,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 21,
+      "cardCount": 18,
       "cards": [
         {
           "id": "science-009",
@@ -65271,9 +64681,9 @@
           "contentSignals": {
             "answerWords": {
               "en": 2,
-              "ar": 2
+              "ar": 1
             },
-            "containsNumber": true,
+            "containsNumber": false,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -65506,60 +64916,6 @@
           }
         },
         {
-          "id": "science-085",
-          "difficulty": "hard",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 13,
-              "ar": 8
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "science-088",
-          "difficulty": "very-advanced",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 25,
-              "ar": 25
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
           "id": "science-091",
           "difficulty": "very-advanced",
           "reviewStatus": "pending",
@@ -65569,33 +64925,6 @@
             "answerWords": {
               "en": 15,
               "ar": 15
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "science-094",
-          "difficulty": "very-advanced",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 14,
-              "ar": 12
             },
             "containsNumber": false,
             "containsYear": false,
@@ -66039,11 +65368,11 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 30,
-              "ar": 27
+              "en": 2,
+              "ar": 2
             },
-            "containsNumber": false,
-            "containsYear": false,
+            "containsNumber": true,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -66619,8 +65948,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 21,
-              "ar": 17
+              "en": 6,
+              "ar": 6
             },
             "containsNumber": true,
             "containsYear": true,
@@ -66646,8 +65975,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 9,
-              "ar": 8
+              "en": 2,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -66727,12 +66056,12 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 42,
-              "ar": 37
+              "en": 3,
+              "ar": 2
             },
             "containsNumber": true,
             "containsYear": true,
-            "needsClaimDecomposition": true
+            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -67125,12 +66454,12 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 35,
-              "ar": 29
+              "en": 30,
+              "ar": 21
             },
             "containsNumber": true,
             "containsYear": true,
-            "needsClaimDecomposition": true
+            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -67281,18 +66610,18 @@
         },
         {
           "id": "social-sciences-046",
-          "difficulty": "very-advanced",
+          "difficulty": "hard",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 55,
-              "ar": 49
+              "en": 2,
+              "ar": 2
             },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": true
+            "containsNumber": true,
+            "containsYear": true,
+            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -67415,8 +66744,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 30,
-              "ar": 24
+              "en": 6,
+              "ar": 6
             },
             "containsNumber": false,
             "containsYear": false,
@@ -67631,8 +66960,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 21,
-              "ar": 21
+              "en": 23,
+              "ar": 25
             },
             "containsNumber": true,
             "containsYear": false,
@@ -67732,12 +67061,12 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 31,
-              "ar": 24
+              "en": 21,
+              "ar": 16
             },
             "containsNumber": true,
             "containsYear": false,
-            "needsClaimDecomposition": true
+            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -67915,14 +67244,14 @@
         },
         {
           "id": "software-and-computing-036",
-          "difficulty": "hard",
+          "difficulty": "very-advanced",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 53,
-              "ar": 49
+              "en": 34,
+              "ar": 37
             },
             "containsNumber": false,
             "containsYear": false,
@@ -68205,14 +67534,14 @@
         },
         {
           "id": "software-and-computing-024",
-          "difficulty": "hard",
+          "difficulty": "very-advanced",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 23,
-              "ar": 24
+              "en": 16,
+              "ar": 10
             },
             "containsNumber": false,
             "containsYear": false,
@@ -68738,13 +68067,13 @@
         },
         {
           "id": "software-and-computing-049",
-          "difficulty": "medium",
+          "difficulty": "hard",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 19,
+              "en": 22,
               "ar": 19
             },
             "containsNumber": true,
@@ -68781,35 +68110,8 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 11,
+      "cardCount": 10,
       "cards": [
-        {
-          "id": "space-061",
-          "difficulty": "hard",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 18,
-              "ar": 19
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
         {
           "id": "space-068",
           "difficulty": "hard",
@@ -68974,7 +68276,7 @@
         },
         {
           "id": "space-096",
-          "difficulty": "very-advanced",
+          "difficulty": "hard",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
@@ -69098,7 +68400,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 22,
+      "cardCount": 24,
       "cards": [
         {
           "id": "space-041",
@@ -69139,6 +68441,33 @@
               "ar": 16
             },
             "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "space-045",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 3,
+              "ar": 4
+            },
+            "containsNumber": false,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -69452,6 +68781,33 @@
           }
         },
         {
+          "id": "space-084",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 5,
+              "ar": 8
+            },
+            "containsNumber": true,
+            "containsYear": true,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
           "id": "space-087",
           "difficulty": "very-advanced",
           "reviewStatus": "pending",
@@ -69487,7 +68843,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 17,
-              "ar": 15
+              "ar": 16
             },
             "containsNumber": false,
             "containsYear": false,
@@ -69712,8 +69068,35 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 5,
+      "cardCount": 6,
       "cards": [
+        {
+          "id": "space-061",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 7,
+              "ar": 6
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
         {
           "id": "space-and-astrology-011",
           "difficulty": "medium",
@@ -69722,8 +69105,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 8,
-              "ar": 11
+              "en": 13,
+              "ar": 14
             },
             "containsNumber": true,
             "containsYear": false,
@@ -69867,7 +69250,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 27,
+      "cardCount": 26,
       "cards": [
         {
           "id": "space-031",
@@ -70093,8 +69476,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 3,
-              "ar": 3
+              "en": 21,
+              "ar": 16
             },
             "containsNumber": true,
             "containsYear": false,
@@ -70152,33 +69535,6 @@
             },
             "containsNumber": true,
             "containsYear": true,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "space-056",
-          "difficulty": "medium",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 15,
-              "ar": 14
-            },
-            "containsNumber": false,
-            "containsYear": false,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -70618,7 +69974,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 14,
+      "cardCount": 15,
       "cards": [
         {
           "id": "space-038",
@@ -70702,6 +70058,60 @@
           }
         },
         {
+          "id": "space-056",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 9,
+              "ar": 8
+            },
+            "containsNumber": true,
+            "containsYear": true,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "space-057",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 6,
+              "ar": 6
+            },
+            "containsNumber": true,
+            "containsYear": true,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
           "id": "space-058",
           "difficulty": "medium",
           "reviewStatus": "pending",
@@ -70709,8 +70119,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 13,
-              "ar": 11
+              "en": 5,
+              "ar": 6
             },
             "containsNumber": true,
             "containsYear": true,
@@ -70822,33 +70232,6 @@
             },
             "containsNumber": true,
             "containsYear": true,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "space-084",
-          "difficulty": "very-advanced",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 26,
-              "ar": 21
-            },
-            "containsNumber": false,
-            "containsYear": false,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -71026,8 +70409,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 7,
-              "ar": 9
+              "en": 3,
+              "ar": 2
             },
             "containsNumber": false,
             "containsYear": false,
@@ -71090,7 +70473,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 19,
+      "cardCount": 17,
       "cards": [
         {
           "id": "space-036",
@@ -71131,33 +70514,6 @@
               "ar": 10
             },
             "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "space-045",
-          "difficulty": "easy",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 16,
-              "ar": 14
-            },
-            "containsNumber": true,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -71237,33 +70593,6 @@
             "answerWords": {
               "en": 18,
               "ar": 13
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "space-057",
-          "difficulty": "medium",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 20,
-              "ar": 19
             },
             "containsNumber": false,
             "containsYear": false,
@@ -71711,11 +71040,13 @@
           "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [],
+          "mutableSignals": [
+            "current-state"
+          ],
           "contentSignals": {
             "answerWords": {
-              "en": 19,
-              "ar": 14
+              "en": 20,
+              "ar": 16
             },
             "containsNumber": false,
             "containsYear": false,
@@ -71822,8 +71153,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 20,
-              "ar": 17
+              "en": 12,
+              "ar": 8
             },
             "containsNumber": false,
             "containsYear": false,
@@ -71889,33 +71220,6 @@
       "cardCount": 7,
       "cards": [
         {
-          "id": "story-mysteries-015",
-          "difficulty": "medium",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 29,
-              "ar": 24
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
           "id": "story-mysteries-020",
           "difficulty": "medium",
           "reviewStatus": "pending",
@@ -71950,8 +71254,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 29,
-              "ar": 21
+              "en": 16,
+              "ar": 10
             },
             "containsNumber": false,
             "containsYear": false,
@@ -72076,6 +71380,33 @@
               "evidence-record-missing"
             ]
           }
+        },
+        {
+          "id": "story-mysteries-049",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 16,
+              "ar": 11
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
         }
       ]
     },
@@ -72159,8 +71490,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 9,
-              "ar": 7
+              "en": 5,
+              "ar": 3
             },
             "containsNumber": false,
             "containsYear": false,
@@ -72397,8 +71728,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 13,
-              "ar": 10
+              "en": 7,
+              "ar": 6
             },
             "containsNumber": false,
             "containsYear": false,
@@ -72461,7 +71792,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 4,
+      "cardCount": 5,
       "cards": [
         {
           "id": "story-mysteries-002",
@@ -72498,8 +71829,35 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 11,
-              "ar": 10
+              "en": 8,
+              "ar": 5
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "story-mysteries-045",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 18,
+              "ar": 11
             },
             "containsNumber": false,
             "containsYear": false,
@@ -72626,8 +71984,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 16,
-              "ar": 12
+              "en": 11,
+              "ar": 8
             },
             "containsNumber": false,
             "containsYear": false,
@@ -72717,7 +72075,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 7,
+      "cardCount": 5,
       "cards": [
         {
           "id": "story-mysteries-027",
@@ -72837,60 +72195,6 @@
             "answerWords": {
               "en": 22,
               "ar": 18
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "story-mysteries-045",
-          "difficulty": "very-advanced",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 33,
-              "ar": 26
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": true
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "story-mysteries-049",
-          "difficulty": "very-advanced",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 26,
-              "ar": 21
             },
             "containsNumber": false,
             "containsYear": false,
@@ -73228,7 +72532,7 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 6,
+              "en": 3,
               "ar": 3
             },
             "containsNumber": false,
@@ -74383,14 +73687,14 @@
         },
         {
           "id": "tv-shows-trivia-767",
-          "difficulty": "easy",
+          "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 5,
-              "ar": 4
+              "en": 1,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -75570,7 +74874,7 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 4,
+              "en": 2,
               "ar": 2
             },
             "containsNumber": false,
@@ -75597,11 +74901,11 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 4,
-              "ar": 4
+              "en": 2,
+              "ar": 2
             },
-            "containsNumber": false,
-            "containsYear": false,
+            "containsNumber": true,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -75732,10 +75036,10 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 1,
-              "ar": 1
+              "en": 4,
+              "ar": 4
             },
-            "containsNumber": false,
+            "containsNumber": true,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -76543,7 +75847,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 3,
-              "ar": 2
+              "ar": 3
             },
             "containsNumber": false,
             "containsYear": false,
@@ -77001,8 +76305,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 3,
-              "ar": 3
+              "en": 2,
+              "ar": 2
             },
             "containsNumber": false,
             "containsYear": false,
@@ -77912,8 +77216,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 10,
-              "ar": 8
+              "en": 2,
+              "ar": 2
             },
             "containsNumber": false,
             "containsYear": false,
@@ -77966,8 +77270,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 2,
-              "ar": 2
+              "en": 1,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -78014,14 +77318,14 @@
         },
         {
           "id": "tv-shows-trivia-020",
-          "difficulty": "hard",
+          "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 4,
-              "ar": 4
+              "en": 1,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -78641,8 +77945,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 2,
-              "ar": 2
+              "en": 4,
+              "ar": 3
             },
             "containsNumber": false,
             "containsYear": false,
@@ -79175,14 +78479,14 @@
         },
         {
           "id": "tv-shows-trivia-288",
-          "difficulty": "hard",
+          "difficulty": "very-advanced",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 1,
-              "ar": 1
+              "en": 6,
+              "ar": 4
             },
             "containsNumber": false,
             "containsYear": false,
@@ -79984,11 +79288,11 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 2,
-              "ar": 2
+              "en": 1,
+              "ar": 1
             },
             "containsNumber": true,
-            "containsYear": false,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -81915,7 +81219,7 @@
         },
         {
           "id": "tv-shows-trivia-053",
-          "difficulty": "easy",
+          "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
@@ -82704,8 +82008,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 1,
-              "ar": 1
+              "en": 3,
+              "ar": 3
             },
             "containsNumber": false,
             "containsYear": false,
@@ -83265,7 +82569,7 @@
         },
         {
           "id": "tv-shows-trivia-333",
-          "difficulty": "easy",
+          "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
@@ -83298,8 +82602,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 3,
-              "ar": 2
+              "en": 2,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -83589,7 +82893,7 @@
         },
         {
           "id": "tv-shows-trivia-345",
-          "difficulty": "medium",
+          "difficulty": "hard",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
@@ -86128,7 +85432,7 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 3,
+              "en": 4,
               "ar": 2
             },
             "containsNumber": false,
@@ -86229,7 +85533,7 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 4,
+              "en": 2,
               "ar": 2
             },
             "containsNumber": false,
@@ -88150,11 +87454,11 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 3,
-              "ar": 2
+              "en": 2,
+              "ar": 1
             },
             "containsNumber": true,
-            "containsYear": true,
+            "containsYear": false,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -88764,8 +88068,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 2,
-              "ar": 2
+              "en": 1,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -88893,14 +88197,14 @@
         },
         {
           "id": "tv-shows-trivia-119",
-          "difficulty": "hard",
+          "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 12,
-              "ar": 8
+              "en": 4,
+              "ar": 3
             },
             "containsNumber": false,
             "containsYear": false,
@@ -89871,8 +89175,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 3,
-              "ar": 3
+              "en": 7,
+              "ar": 7
             },
             "containsNumber": false,
             "containsYear": false,
@@ -90647,8 +89951,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 6,
-              "ar": 6
+              "en": 3,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -90809,8 +90113,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 5,
-              "ar": 3
+              "en": 8,
+              "ar": 5
             },
             "containsNumber": false,
             "containsYear": false,
@@ -90998,8 +90302,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 3,
-              "ar": 1
+              "en": 2,
+              "ar": 2
             },
             "containsNumber": false,
             "containsYear": false,
@@ -91025,11 +90329,11 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 2,
-              "ar": 2
+              "en": 1,
+              "ar": 1
             },
-            "containsNumber": false,
-            "containsYear": false,
+            "containsNumber": true,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -91295,8 +90599,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 2,
-              "ar": 2
+              "en": 4,
+              "ar": 3
             },
             "containsNumber": false,
             "containsYear": false,
@@ -91458,7 +90762,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 1,
-              "ar": 3
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -91646,8 +90950,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 4,
-              "ar": 4
+              "en": 2,
+              "ar": 2
             },
             "containsNumber": false,
             "containsYear": false,
@@ -92830,7 +92134,7 @@
               "en": 2,
               "ar": 2
             },
-            "containsNumber": true,
+            "containsNumber": false,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -92992,7 +92296,7 @@
               "en": 1,
               "ar": 1
             },
-            "containsNumber": true,
+            "containsNumber": false,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -94852,8 +94156,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 1,
-              "ar": 1
+              "en": 2,
+              "ar": 2
             },
             "containsNumber": false,
             "containsYear": false,
@@ -94947,14 +94251,14 @@
       "cards": [
         {
           "id": "world-habits-and-etiquette-002",
-          "difficulty": "easy",
+          "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 7,
-              "ar": 5
+              "en": 2,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -94980,8 +94284,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 18,
-              "ar": 14
+              "en": 14,
+              "ar": 6
             },
             "containsNumber": false,
             "containsYear": false,
@@ -95034,8 +94338,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 14,
-              "ar": 11
+              "en": 2,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -95088,8 +94392,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 14,
-              "ar": 11
+              "en": 1,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -95115,8 +94419,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 26,
-              "ar": 23
+              "en": 8,
+              "ar": 5
             },
             "containsNumber": false,
             "containsYear": false,
@@ -95142,8 +94446,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 14,
-              "ar": 13
+              "en": 3,
+              "ar": 2
             },
             "containsNumber": false,
             "containsYear": false,
@@ -95169,8 +94473,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 20,
-              "ar": 14
+              "en": 11,
+              "ar": 7
             },
             "containsNumber": false,
             "containsYear": false,
@@ -95378,8 +94682,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 11,
-              "ar": 10
+              "en": 1,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -95399,14 +94703,14 @@
         },
         {
           "id": "world-habits-and-etiquette-027",
-          "difficulty": "easy",
+          "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 11,
-              "ar": 6
+              "en": 6,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -95432,8 +94736,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 18,
-              "ar": 15
+              "en": 2,
+              "ar": 2
             },
             "containsNumber": false,
             "containsYear": false,
@@ -95550,7 +94854,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 11,
+      "cardCount": 10,
       "cards": [
         {
           "id": "world-habits-and-etiquette-008",
@@ -95695,8 +94999,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 12,
-              "ar": 10
+              "en": 1,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -95722,12 +95026,12 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 46,
-              "ar": 35
+              "en": 13,
+              "ar": 8
             },
             "containsNumber": false,
             "containsYear": false,
-            "needsClaimDecomposition": true
+            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -95773,17 +95077,15 @@
           "difficulty": "very-advanced",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [
-            "current-state"
-          ],
+          "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 50,
-              "ar": 39
+              "en": 11,
+              "ar": 9
             },
             "containsNumber": false,
             "containsYear": false,
-            "needsClaimDecomposition": true
+            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -95805,39 +95107,12 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 58,
-              "ar": 44
-            },
-            "containsNumber": true,
-            "containsYear": true,
-            "needsClaimDecomposition": true
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "world-habits-and-etiquette-048",
-          "difficulty": "very-advanced",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 50,
-              "ar": 48
+              "en": 15,
+              "ar": 9
             },
             "containsNumber": false,
             "containsYear": false,
-            "needsClaimDecomposition": true
+            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -95869,7 +95144,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 18,
+      "cardCount": 19,
       "cards": [
         {
           "id": "world-habits-and-etiquette-003",
@@ -95879,8 +95154,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 18,
-              "ar": 15
+              "en": 2,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -95933,8 +95208,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 9,
-              "ar": 8
+              "en": 1,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -95960,11 +95235,11 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 10,
-              "ar": 9
+              "en": 3,
+              "ar": 2
             },
-            "containsNumber": false,
-            "containsYear": false,
+            "containsNumber": true,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -96008,18 +95283,18 @@
         },
         {
           "id": "world-habits-and-etiquette-019",
-          "difficulty": "medium",
+          "difficulty": "hard",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 33,
-              "ar": 27
+              "en": 1,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
-            "needsClaimDecomposition": true
+            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -96095,12 +95370,12 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 46,
-              "ar": 34
+              "en": 5,
+              "ar": 3
             },
             "containsNumber": false,
             "containsYear": false,
-            "needsClaimDecomposition": true
+            "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
           "evidenceState": {
@@ -96313,6 +95588,33 @@
             "answerWords": {
               "en": 19,
               "ar": 15
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "world-habits-and-etiquette-048",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 10,
+              "ar": 6
             },
             "containsNumber": false,
             "containsYear": false,
@@ -97752,7 +97054,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 9,
+      "cardCount": 10,
       "cards": [
         {
           "id": "anc-1",
@@ -97869,6 +97171,33 @@
         {
           "id": "anc-18",
           "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "anc-3",
+          "difficulty": "easy",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
@@ -98026,13 +97355,15 @@
           "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [],
+          "mutableSignals": [
+            "current-state"
+          ],
           "contentSignals": {
             "answerWords": {
-              "en": 9,
-              "ar": 8
+              "en": 1,
+              "ar": 3
             },
-            "containsNumber": false,
+            "containsNumber": true,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -98331,7 +97662,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 8,
+      "cardCount": 7,
       "cards": [
         {
           "id": "anc-20",
@@ -98388,33 +97719,6 @@
           }
         },
         {
-          "id": "anc-3",
-          "difficulty": "easy",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 1,
-              "ar": 1
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
           "id": "anc-31",
           "difficulty": "very-advanced",
           "reviewStatus": "pending",
@@ -98422,8 +97726,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 12,
-              "ar": 8
+              "en": 1,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -98478,8 +97782,8 @@
           ],
           "contentSignals": {
             "answerWords": {
-              "en": 10,
-              "ar": 6
+              "en": 2,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -98635,8 +97939,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 12,
-              "ar": 13
+              "en": 4,
+              "ar": 2
             },
             "containsNumber": false,
             "containsYear": false,
@@ -99216,10 +98520,10 @@
           "contentSignals": {
             "answerWords": {
               "en": 2,
-              "ar": 3
+              "ar": 2
             },
-            "containsNumber": false,
-            "containsYear": false,
+            "containsNumber": true,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -99279,7 +98583,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 3,
+      "cardCount": 4,
       "cards": [
         {
           "id": "inv-12",
@@ -99347,6 +98651,33 @@
               "ar": 2
             },
             "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "inv-30",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 3,
+              "ar": 4
+            },
+            "containsNumber": true,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -99710,7 +99041,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 7,
+      "cardCount": 6,
       "cards": [
         {
           "id": "inv-27",
@@ -99767,33 +99098,6 @@
           }
         },
         {
-          "id": "inv-30",
-          "difficulty": "hard",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 1,
-              "ar": 1
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
           "id": "inv-31",
           "difficulty": "very-advanced",
           "reviewStatus": "pending",
@@ -99801,11 +99105,11 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 9,
-              "ar": 10
+              "en": 3,
+              "ar": 2
             },
-            "containsNumber": true,
-            "containsYear": true,
+            "containsNumber": false,
+            "containsYear": false,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -100266,8 +99570,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 6,
-              "ar": 6
+              "en": 1,
+              "ar": 3
             },
             "containsNumber": false,
             "containsYear": false,
@@ -100422,7 +99726,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 2,
-              "ar": 2
+              "ar": 4
             },
             "containsNumber": false,
             "containsYear": false,
@@ -101041,8 +100345,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 9,
-              "ar": 8
+              "en": 8,
+              "ar": 7
             },
             "containsNumber": false,
             "containsYear": false,
@@ -102699,8 +102003,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 5,
-              "ar": 4
+              "en": 2,
+              "ar": 2
             },
             "containsNumber": false,
             "containsYear": false,
@@ -103137,10 +102441,10 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 2,
-              "ar": 2
+              "en": 5,
+              "ar": 5
             },
-            "containsNumber": true,
+            "containsNumber": false,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -105973,7 +105277,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 1,
-              "ar": 2
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,
@@ -107753,35 +107057,8 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 4,
+      "cardCount": 3,
       "cards": [
-        {
-          "id": "fut-15",
-          "difficulty": "medium",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 5,
-              "ar": 3
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
         {
           "id": "fut-23",
           "difficulty": "hard",
@@ -107891,8 +107168,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 3,
-              "ar": 4
+              "en": 14,
+              "ar": 9
             },
             "containsNumber": false,
             "containsYear": false,
@@ -108144,7 +107421,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 6,
+      "cardCount": 5,
       "cards": [
         {
           "id": "fut-13",
@@ -108183,33 +107460,6 @@
             "answerWords": {
               "en": 7,
               "ar": 6
-            },
-            "containsNumber": false,
-            "containsYear": false,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "fut-17",
-          "difficulty": "medium",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 23,
-              "ar": 19
             },
             "containsNumber": false,
             "containsYear": false,
@@ -108326,8 +107576,62 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 3,
+      "cardCount": 5,
       "cards": [
+        {
+          "id": "fut-15",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 19,
+              "ar": 13
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "fut-17",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 6,
+              "ar": 6
+            },
+            "containsNumber": true,
+            "containsYear": true,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
         {
           "id": "fut-26",
           "difficulty": "hard",
@@ -109570,8 +108874,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 14,
-              "ar": 8
+              "en": 3,
+              "ar": 4
             },
             "containsNumber": false,
             "containsYear": false,
@@ -110637,7 +109941,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 10,
-              "ar": 7
+              "ar": 8
             },
             "containsNumber": false,
             "containsYear": false,
@@ -111136,14 +110440,14 @@
         },
         {
           "id": "anime-133",
-          "difficulty": "very-advanced",
+          "difficulty": "hard",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
               "en": 4,
-              "ar": 3
+              "ar": 4
             },
             "containsNumber": false,
             "containsYear": false,
@@ -112943,7 +112247,7 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 1,
+              "en": 5,
               "ar": 1
             },
             "containsNumber": false,
@@ -115136,10 +114440,10 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 14,
-              "ar": 11
+              "en": 1,
+              "ar": 1
             },
-            "containsNumber": false,
+            "containsNumber": true,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -117269,7 +116573,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 2,
-              "ar": 2
+              "ar": 3
             },
             "containsNumber": false,
             "containsYear": false,
@@ -117413,7 +116717,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 20,
+      "cardCount": 19,
       "cards": [
         {
           "id": "ayt-181",
@@ -117857,33 +117161,6 @@
             "answerWords": {
               "en": 5,
               "ar": 5
-            },
-            "containsNumber": true,
-            "containsYear": true,
-            "needsClaimDecomposition": false
-          },
-          "legacyReviewSources": [],
-          "evidenceState": {
-            "claims": 0,
-            "candidates": 0,
-            "accepted": 0,
-            "complete": false,
-            "blockers": [
-              "legacy-review-status-not-reviewed",
-              "evidence-record-missing"
-            ]
-          }
-        },
-        {
-          "id": "ayt-198",
-          "difficulty": "hard",
-          "reviewStatus": "pending",
-          "highStakes": false,
-          "mutableSignals": [],
-          "contentSignals": {
-            "answerWords": {
-              "en": 3,
-              "ar": 3
             },
             "containsNumber": true,
             "containsYear": true,
@@ -118442,7 +117719,7 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 11,
+              "en": 10,
               "ar": 7
             },
             "containsNumber": false,

@@ -77,7 +77,7 @@ test('authored arithmetic answers and numerical distractors satisfy exactly one 
     ['math-003', 7 * 5],
     ['math-006', 360 / 4],
     ['math-007', (-1) ** 4],
-    ['math-008', 9],
+    ['math-008', 60 * 60],
     ['math-012', Math.sqrt(144)],
     ['math-018', (10 + 20 + 60) / 3],
     ['math-020', 20 - 3 * 4],

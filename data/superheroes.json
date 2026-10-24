@@ -287,12 +287,12 @@
   {
     "id": "superheroes-16",
     "question": {
-      "en": "Who is the adoptive brother and frequent enemy of Thor?",
-      "ar": "مين أخو ثور بالتبنّي وعدوه اللي يرجع كل مرة؟"
+      "en": "Which Batman villain leaves puzzles and question-mark clues at his crimes?",
+      "ar": "أي شرير من أعداء باتمان يترك ألغاز وعلامات استفهام بأماكن جرائمه؟"
     },
     "answer": {
-      "en": "Loki",
-      "ar": "لوكي"
+      "en": "The Riddler",
+      "ar": "ريدلر"
     },
     "difficulty": "medium",
     "subcategory": {
@@ -344,12 +344,12 @@
   {
     "id": "superheroes-19",
     "question": {
-      "en": "What is the name of Aquaman's underwater kingdom?",
-      "ar": "شو اسم مملكة أكوامان تحت البحر؟"
+      "en": "What is the name of the spy agency led by Nick Fury in Marvel stories?",
+      "ar": "شو اسم وكالة التجسس اللي يقودها نيك فيوري بقصص مارفل؟"
     },
     "answer": {
-      "en": "Atlantis",
-      "ar": "أتلانتس"
+      "en": "S.H.I.E.L.D.",
+      "ar": "شيلد (S.H.I.E.L.D.)"
     },
     "difficulty": "medium",
     "subcategory": {
@@ -554,7 +554,7 @@
     "id": "superheroes-30",
     "question": {
       "en": "Who is the founding member of the Justice League that originates from Mars?",
-      "ar": "مين العضو المؤسس في «فرقة العدالة» اللي أصله من المريخ؟"
+      "ar": "مين العضو المؤسس في «رابطة العدالة» اللي أصله من المريخ؟"
     },
     "answer": {
       "en": "Martian Manhunter",

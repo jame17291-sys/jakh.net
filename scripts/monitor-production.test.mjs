@@ -77,7 +77,7 @@ function apiHeaders(origin, cacheControl = "no-store") {
   return headers;
 }
 
-function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false, preNavigation = false, builtHtml = false, publicQuestions = 3_825 }) {
+function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false, preNavigation = false, builtHtml = false, publicQuestions = 3_798 }) {
   if (legacySite && ["/riddles", "/ar/alghaz/", "/brain-games"].includes(pathname)) return null;
   const route = (legacySite || preNavigation ? PRE_NAVIGATION_HTML_ROUTES : HTML_ROUTES)
     .find((candidate) => candidate.path === pathname);
@@ -155,7 +155,7 @@ function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false, preNa
   return null;
 }
 
-async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "10", pagesMode = false, legacySite = false, preNavigation = false, productionSite = false, builtHtml = false, publicQuestions = 3_825 } = {}) {
+async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "10", pagesMode = false, legacySite = false, preNavigation = false, productionSite = false, builtHtml = false, publicQuestions = 3_798 } = {}) {
   const server = http.createServer(async (request, response) => {
     const url = new URL(request.url, "http://fixture.test");
     const requestOrigin = request.headers.origin;
@@ -392,8 +392,8 @@ const PUBLIC_DISCOVERY_PROBES = [
   ["/data/search-index.ar.json", "Site: ar public search index"],
 ];
 
-test("only the exact-version production release baseline accepts the coherent 3275-card predecessor", async () => {
-  for (const publicQuestions of [3_275, 3_825]) {
+test("only the exact-version production release baseline accepts the coherent 3825-card predecessor", async () => {
+  for (const publicQuestions of [3_825, 3_798]) {
     await withFixture({ productionSite: true, publicQuestions }, async (fixtureOrigin) => {
       const options = productionFixtureOptions(fixtureOrigin);
       const baseline = await runProductionMonitor(options);
@@ -404,7 +404,7 @@ test("only the exact-version production release baseline accepts the coherent 32
         assert.equal(result?.workerVersionId, FIXTURE_WORKER_VERSION);
       }
       const current = await runProductionMonitor({ ...options, siteContract: "current" });
-      if (publicQuestions === 3_825) assert.deepEqual(current.failures, []);
+      if (publicQuestions === 3_798) assert.deepEqual(current.failures, []);
       else for (const [, name] of PUBLIC_DISCOVERY_PROBES) {
         assert.ok(current.failures.some((failure) => failure.name === name), `${name} must reject the old count outside a release baseline`);
       }
@@ -413,10 +413,10 @@ test("only the exact-version production release baseline accepts the coherent 32
 });
 
 test("the release baseline rejects mixed discovery inventories in either direction", async () => {
-  for (const publicQuestions of [3_275, 3_825]) {
+  for (const publicQuestions of [3_825, 3_798]) {
     await withFixture({ productionSite: true, publicQuestions }, async (fixtureOrigin) => {
       const options = productionFixtureOptions(fixtureOrigin);
-      const otherCount = publicQuestions === 3_275 ? 3_825 : 3_275;
+      const otherCount = publicQuestions === 3_825 ? 3_798 : 3_825;
       for (const [changedPath, name] of PUBLIC_DISCOVERY_PROBES) {
         const summary = await runProductionMonitor({ ...options, fetchImpl: async (input, init) => {
           const response = await options.fetchImpl(input, init);
@@ -435,7 +435,7 @@ test("the release baseline rejects mixed discovery inventories in either directi
 });
 
 test("a coherent but unknown card count is never a recognized release baseline", async () => {
-  for (const publicQuestions of [3_274, 3_276, 3_824, 3_826]) {
+  for (const publicQuestions of [3_797, 3_799, 3_824, 3_826]) {
     await withFixture({ productionSite: true, publicQuestions }, async (fixtureOrigin) => {
       const summary = await runProductionMonitor(productionFixtureOptions(fixtureOrigin));
       for (const [, name] of PUBLIC_DISCOVERY_PROBES) {
@@ -446,7 +446,7 @@ test("a coherent but unknown card count is never a recognized release baseline",
 });
 
 test("predecessor inventory acceptance still requires the expected Worker on every discovery response", async () => {
-  await withFixture({ productionSite: true, publicQuestions: 3_275 }, async (fixtureOrigin) => {
+  await withFixture({ productionSite: true, publicQuestions: 3_825 }, async (fixtureOrigin) => {
     const options = productionFixtureOptions(fixtureOrigin);
     for (const [changedPath, name] of PUBLIC_DISCOVERY_PROBES) for (const version of [null, "22222222-2222-4222-8222-222222222222"]) {
       const summary = await runProductionMonitor({ ...options, fetchImpl: async (input, init) => {
@@ -464,7 +464,7 @@ test("predecessor inventory acceptance still requires the expected Worker on eve
 
 test("predecessor totals do not bypass publication quarantine in any discovery response", async () => {
   const heldCard = JSON.parse(readFileSync(new URL("../data/medical-questions.json", import.meta.url), "utf8"))[0].id;
-  await withFixture({ productionSite: true, publicQuestions: 3_275 }, async (fixtureOrigin) => {
+  await withFixture({ productionSite: true, publicQuestions: 3_825 }, async (fixtureOrigin) => {
     const options = productionFixtureOptions(fixtureOrigin);
     for (const [changedPath, name] of PUBLIC_DISCOVERY_PROBES) {
       const summary = await runProductionMonitor({ ...options, fetchImpl: async (input, init) => {

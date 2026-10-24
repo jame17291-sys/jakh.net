@@ -622,35 +622,35 @@
       "ar": "بريكينغ باد"
     },
     "question": {
-      "en": "How does Gus Fring die?",
-      "ar": "كيف مات غوستافو فرينغ؟"
+      "en": "Which German company owns the Los Pollos Hermanos restaurant chain?",
+      "ar": "أي شركة ألمانية تملك سلسلة مطاعم «لوس بويوس إيرمانوس»؟"
     },
     "answer": {
-      "en": "Killed by a pipe bomb planted in Hector Salamanca's wheelchair",
-      "ar": "يُقتل بقنبلة زُرعت في كرسي هيكتور سالامانكا المتحرك"
+      "en": "Madrigal Electromotive",
+      "ar": "مادريغال إلكتروموتيف"
     },
     "review": {
       "status": "pending"
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "fd7c7063",
-      "spoilerSeason": 4,
+      "contentKey": "e5a6e3ed",
+      "spoilerSeason": 5,
       "distractors": {
         "en": [
-          "Poisoned at a cartel meeting",
-          "Shot in a restaurant",
-          "Killed in a car crash"
+          "Gray Matter Technologies",
+          "Beneke Fabricators",
+          "Vamonos Pest"
         ],
         "ar": [
-          "تسمم في اجتماع للكارتل",
-          "أُطلق عليه النار في مطعم",
-          "قُتل في حادث سيارة"
+          "غراي ماتر تكنولوجيز",
+          "بينيكي فابريكيترز",
+          "فامونوس بيست"
         ]
       },
       "explanation": {
-        "en": "In the fourth-season finale, the bomb attached to Hector's wheelchair kills Gus.",
-        "ar": "في ختام الموسم الرابع تقتل القنبلة المثبتة بكرسي هيكتور غاس."
+        "en": "Los Pollos Hermanos belongs to Madrigal Electromotive, the German conglomerate at the centre of the season-five episode 'Madrigal'.",
+        "ar": "تتبع «لوس بويوس إيرمانوس» مجموعة «مادريغال إلكتروموتيف» الألمانية، التي تدور حولها حلقة «مادريغال» من الموسم الخامس."
       },
       "kind": "world"
     }
@@ -704,12 +704,12 @@
       "ar": "بريكينغ باد"
     },
     "question": {
-      "en": "What chemical does Walter use to dissolve bodies in early seasons?",
-      "ar": "بالمواسم الأولى، شو المادة الكيميائية اللي يستخدمها والتر عشان يذوّب الجثث؟"
+      "en": "In the pilot, Walt tells his class that chemistry is the study of what?",
+      "ar": "بالحلقة الأولى، والتر يقول لطلابه إن الكيمياء هي دراسة شو؟"
     },
     "answer": {
-      "en": "Hydrofluoric acid",
-      "ar": "حمض الهيدروفلوريك"
+      "en": "Change",
+      "ar": "التغيّر"
     },
     "review": {
       "status": "pending"
@@ -717,24 +717,24 @@
     "tvQuiz": {
       "version": 1,
       "spoilerSeason": 1,
-      "kind": "moment",
+      "kind": "quote",
       "distractors": {
         "en": [
-          "Sulfuric acid",
-          "Nitric acid",
-          "Acetic acid"
+          "Motion",
+          "Energy",
+          "Living things"
         ],
         "ar": [
-          "حمض الكبريتيك",
-          "حمض النتريك",
-          "حمض الأسيتيك"
+          "الحركة",
+          "الطاقة",
+          "الكائنات الحية"
         ]
       },
       "explanation": {
-        "en": "The show's early bathtub disaster involves hydrofluoric acid; it is a fictional crime scene.",
-        "ar": "ترتبط كارثة حوض الاستحمام المبكرة بحمض الهيدروفلوريك في مشهد جريمة خيالي."
+        "en": "In the pilot Walt calls chemistry 'the study of change', an early hint at his own transformation.",
+        "ar": "في الحلقة الأولى يصف والتر الكيمياء بأنها «دراسة التغيّر»، في إشارة مبكرة إلى تحوّله هو."
       },
-      "contentKey": "28d884a8"
+      "contentKey": "ba4eae31"
     }
   },
   {
@@ -780,18 +780,18 @@
   },
   {
     "id": "tv-shows-trivia-020",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Breaking Bad",
       "ar": "بريكينغ باد"
     },
     "question": {
-      "en": "What is the name of Walter's son who has cerebral palsy?",
-      "ar": "شو اسم ولد والتر اللي عنده شلل دماغي؟"
+      "en": "In Breaking Bad, what name does Walter White Jr. ask everyone to call him?",
+      "ar": "في «بريكنغ باد»، شو الاسم اللي يبي والتر وايت الابن الكل يناديه فيه؟"
     },
     "answer": {
-      "en": "Walter White Jr. (Flynn)",
-      "ar": "والتر وايت الابن (فلين)"
+      "en": "Flynn",
+      "ar": "فلين"
     },
     "review": {
       "status": "pending"
@@ -802,21 +802,21 @@
       "kind": "character",
       "distractors": {
         "en": [
-          "Todd Alquist",
-          "Jack Welker",
-          "Ed Galbraith"
+          "Dylan",
+          "Kevin",
+          "Sam"
         ],
         "ar": [
-          "تود ألكويست",
-          "جاك ويلكر",
-          "إد غالبريث"
+          "ديلان",
+          "كيفن",
+          "سام"
         ]
       },
       "explanation": {
-        "en": "Walter Jr. also uses the name Flynn, asserting an identity of his own.",
-        "ar": "يستخدم والتر الابن أيضًا اسم فلين للتعبير عن هويته المستقلة."
+        "en": "Walter Jr. asks people to call him Flynn, a name he chose for himself.",
+        "ar": "يطلب والتر الابن من الناس أن ينادوه فلين، وهو اسم اختاره لنفسه."
       },
-      "contentKey": "3f379b5a"
+      "contentKey": "c505360c"
     }
   },
   {
@@ -1156,7 +1156,7 @@
     },
     "question": {
       "en": "In Game of Thrones, what are the reanimated corpses controlled by the White Walkers called?",
-      "ar": "في «صراع العروش»، شو اسم الجثث اللي يرجّعها «المشاة البيض» للحياة ويتحكمون فيها؟"
+      "ar": "في «صراع العروش»، شو اسم الجثث اللي يرجّعها «السائرون البيض» للحياة ويتحكمون فيها؟"
     },
     "answer": {
       "en": "Wights",
@@ -1185,7 +1185,7 @@
         "en": "Wights are reanimated bodies, distinct from the White Walkers themselves.",
         "ar": "الموتى المتحركون جثث أُعيد تحريكها، وهم مختلفون عن السائرين البيض."
       },
-      "contentKey": "8efa6f42"
+      "contentKey": "e2529b66"
     }
   },
   {
@@ -1401,8 +1401,8 @@
       "ar": "صراع العروش"
     },
     "question": {
-      "en": "What is the name of the eunuch spymaster known as 'The Spider'?",
-      "ar": "شو اسم جاسوس الحكم اللي لقبه «العنكبوت»؟"
+      "en": "Who is the royal spymaster known as 'The Spider'?",
+      "ar": "مين رئيس الجواسيس اللي لقبه «العنكبوت»؟"
     },
     "answer": {
       "en": "Varys",
@@ -1413,7 +1413,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "e664b805",
+      "contentKey": "eda4ac74",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -2133,7 +2133,7 @@
   },
   {
     "id": "tv-shows-trivia-053",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Friends",
       "ar": "فريندز"
@@ -2144,14 +2144,14 @@
     },
     "answer": {
       "en": "Dr. Drake Ramoray",
-      "ar": "الدكتور درايك رامواي"
+      "ar": "الدكتور درايك راموري"
     },
     "review": {
       "status": "pending"
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "415885b2",
+      "contentKey": "a940f95e",
       "spoilerSeason": 2,
       "distractors": {
         "en": [
@@ -2167,7 +2167,7 @@
       },
       "explanation": {
         "en": "Joey's soap-opera character is Dr. Drake Ramoray.",
-        "ar": "شخصية جوي في المسلسل النهاري هي الدكتور دريك راموراي."
+        "ar": "شخصية جوي في المسلسل النهاري هي الدكتور درايك راموري."
       },
       "kind": "character"
     }
@@ -2426,8 +2426,8 @@
       "ar": "فريندز"
     },
     "question": {
-      "en": "What is the name of Ross's first wife who comes out as a lesbian?",
-      "ar": "شو اسم زوجة روس الأولى اللي اعترفت إنها مثلية؟"
+      "en": "What is the name of Ross's first wife in Friends?",
+      "ar": "في «فريندز»، شو اسم زوجة روس الأولى؟"
     },
     "answer": {
       "en": "Carol Willick",
@@ -2438,7 +2438,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "5ede69ff",
+      "contentKey": "a94ba300",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -2673,7 +2673,7 @@
     },
     "question": {
       "en": "In Friends, whose rent-controlled apartment does Monica sublet?",
-      "ar": "في «فريندز»، من مين مونيكا مستأجرة من الباطن شقتها اللي إيجارها مضبوط؟"
+      "ar": "في «فريندز»، شقة مونيكا اللي إيجارها ثابت ورخيص كانت أصلًا باسم مين؟"
     },
     "answer": {
       "en": "Her grandmother",
@@ -2702,7 +2702,7 @@
         "en": "The rent-controlled lease explains how Monica can afford the apartment.",
         "ar": "يفسر عقد الإيجار المحدد كيف تستطيع مونيكا تحمل كلفة الشقة."
       },
-      "contentKey": "105151b"
+      "contentKey": "40e2699f"
     }
   },
   {
@@ -3164,19 +3164,19 @@
       "ar": "ذا واير"
     },
     "question": {
-      "en": "Who is the main drug kingpin in Season 1?",
-      "ar": "مين زعيم تجارة المخدرات الأساسي بالموسم الأول؟"
+      "en": "In The Wire, who is the main drug kingpin in season one?",
+      "ar": "في «ذا واير»، مين زعيم تجارة المخدرات الأساسي بالموسم الأول؟"
     },
     "answer": {
       "en": "Avon Barksdale",
-      "ar": "أفون باركسدال"
+      "ar": "آفون باركسديل"
     },
     "review": {
       "status": "pending"
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "567ef9e5",
+      "contentKey": "97b4c93",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -3410,12 +3410,12 @@
       "ar": "ذا واير"
     },
     "question": {
-      "en": "What is the name of the tragic young boy killed in Season 1?",
-      "ar": "شو اسم الشاب اللي ينقتل بشكل مأساوي بالموسم الأول؟"
+      "en": "Complete Lester Freamon's famous line about building a case: 'All the pieces ___.'",
+      "ar": "كمّل جملة ليستر فريمون الشهيرة عن بناء القضية: «كل القطع ___»."
     },
     "answer": {
-      "en": "Wallace",
-      "ar": "والاس"
+      "en": "matter",
+      "ar": "مهمة"
     },
     "review": {
       "status": "pending"
@@ -3423,24 +3423,24 @@
     "tvQuiz": {
       "version": 1,
       "spoilerSeason": 1,
-      "kind": "character",
+      "kind": "quote",
       "distractors": {
         "en": [
-          "Stringer Bell",
-          "Bodie Broadus",
-          "Marlo Stanfield"
+          "fit",
+          "count",
+          "move"
         ],
         "ar": [
-          "سترينغر بيل",
-          "بودي برودس",
-          "مارلو ستانفيلد"
+          "تتركّب",
+          "تنعدّ",
+          "تتحرك"
         ]
       },
       "explanation": {
-        "en": "Wallace's story exposes the vulnerability of children in the drug trade.",
-        "ar": "تكشف قصة والاس هشاشة وضع الأطفال في تجارة المخدرات."
+        "en": "Lester's 'all the pieces matter' sums up the patient detail work behind the wiretap case.",
+        "ar": "تلخّص عبارة ليستر «كل القطع مهمة» العمل الصبور الدقيق وراء قضية التنصت."
       },
-      "contentKey": "7611e1f5"
+      "contentKey": "2a3400cb"
     }
   },
   {
@@ -4640,12 +4640,12 @@
       "ar": "سترينجر ثينغز"
     },
     "question": {
-      "en": "How many seasons does Stranger Things have in total?",
-      "ar": "«أشياء غريبة» كم موسم صار فيه لما خلص؟"
+      "en": "What was Stranger Things' working title before Netflix released it?",
+      "ar": "شو كان الاسم المبدئي لمسلسل «أشياء غريبة» قبل ما تطلقه نتفليكس؟"
     },
     "answer": {
-      "en": "Five seasons",
-      "ar": "خمسة مواسم"
+      "en": "Montauk",
+      "ar": "مونتوك"
     },
     "review": {
       "status": "pending"
@@ -4656,21 +4656,21 @@
       "kind": "behind-scenes",
       "distractors": {
         "en": [
-          "Four seasons",
-          "Six seasons",
-          "Seven seasons"
+          "Hawkins",
+          "Upside Down",
+          "Eleven"
         ],
         "ar": [
-          "أربعة مواسم",
-          "ستة مواسم",
-          "سبعة مواسم"
+          "هوكينز",
+          "العالم المقلوب",
+          "إليفن"
         ]
       },
       "explanation": {
-        "en": "Netflix designated the fifth season as the final season of the original series.",
-        "ar": "حددت نتفليكس الموسم الخامس ختامًا للمسلسل الأصلي."
+        "en": "The Duffer Brothers developed the series as Montauk, set on Long Island, before moving the story to fictional Hawkins, Indiana.",
+        "ar": "طوّر الأخوان دافر المسلسل باسم «مونتوك» وكانت أحداثه في لونغ آيلاند، قبل أن ينقلا القصة إلى بلدة هوكينز الخيالية في إنديانا."
       },
-      "contentKey": "ea176033"
+      "contentKey": "d62143f5"
     }
   },
   {
@@ -4839,41 +4839,41 @@
   },
   {
     "id": "tv-shows-trivia-119",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Stranger Things",
       "ar": "سترينجر ثينغز"
     },
     "question": {
-      "en": "Who are the Duffer Brothers?",
-      "ar": "مين هم الأخوين دافر؟"
+      "en": "Which twin brothers created Stranger Things?",
+      "ar": "مين الأخوين التوأم اللي ابتكروا «أشياء غريبة»؟"
     },
     "answer": {
-      "en": "Matt and Ross Duffer — creators, writers, and directors of Stranger Things",
-      "ar": "مات وروس دافر — منشئا المسلسل وكتّاباه ومخرجاه"
+      "en": "Matt and Ross Duffer",
+      "ar": "مات وروس دافر"
     },
     "review": {
       "status": "pending"
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "70ea5ae5",
+      "contentKey": "884ee0f0",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
-          "Shawn and Ryan Duffer",
-          "James and John Duffer",
-          "Ben and Sam Duffer"
+          "Joe and Anthony Russo",
+          "Joel and Ethan Coen",
+          "Josh and Benny Safdie"
         ],
         "ar": [
-          "شون ورايان دافر",
-          "جيمس وجون دافر",
-          "بن وسام دافر"
+          "جو وأنتوني روسو",
+          "جويل وإيثان كوين",
+          "جوش وبيني صفدي"
         ]
       },
       "explanation": {
-        "en": "The Duffer Brothers are twins Matt and Ross Duffer, the show's creators.",
-        "ar": "الأخوان دافر هما التوأمان مات وروس دافر، مبتكرا المسلسل."
+        "en": "Twins Matt and Ross Duffer, known as the Duffer Brothers, created, wrote and directed the series.",
+        "ar": "التوأمان مات وروس دافر، المعروفان بالأخوين دافر، ابتكرا المسلسل وكتباه وأخرجاه."
       },
       "kind": "character"
     }
@@ -5505,7 +5505,7 @@
       "ar": "مين أخرج أول أجزاء «باب الحارة»؟"
     },
     "answer": {
-      "en": "Bassam Al-Mulla (بسام الملا)",
+      "en": "Bassam Al-Mulla",
       "ar": "بسام الملا"
     },
     "review": {
@@ -5513,7 +5513,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "11836fd5",
+      "contentKey": "88419718",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -5542,12 +5542,12 @@
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "What general theme defines Bab Al-Hara?",
-      "ar": "شو الموضوع العام اللي يعرّف «باب الحارة»؟"
+      "en": "How many seasons of Bab Al-Hara had aired by 2023?",
+      "ar": "كم جزء من «باب الحارة» انعرض لحد سنة 2023؟"
     },
     "answer": {
-      "en": "Neighbourhood solidarity and resistance",
-      "ar": "التكافل في الحارة والمقاومة"
+      "en": "13 seasons",
+      "ar": "13 جزءًا"
     },
     "review": {
       "status": "pending"
@@ -5555,24 +5555,24 @@
     "tvQuiz": {
       "version": 1,
       "spoilerSeason": 0,
-      "kind": "world",
+      "kind": "behind-scenes",
       "distractors": {
         "en": [
-          "Space exploration",
-          "Professional sports",
-          "Corporate technology"
+          "10 seasons",
+          "11 seasons",
+          "15 seasons"
         ],
         "ar": [
-          "استكشاف الفضاء",
-          "الرياضة الاحترافية",
-          "تقنية الشركات"
+          "10 أجزاء",
+          "11 جزءًا",
+          "15 جزءًا"
         ]
       },
       "explanation": {
-        "en": "The neighbourhood functions as both a social unit and a centre of resistance.",
-        "ar": "تعمل الحارة وحدة اجتماعية ومركزًا للمقاومة معًا."
+        "en": "By its 2023 season, Bab Al-Hara had reached 13 seasons.",
+        "ar": "بلغ «باب الحارة» جزأه الثالث عشر سنة 2023."
       },
-      "contentKey": "c8d2098b"
+      "contentKey": "754c4840"
     }
   },
   {
@@ -5747,12 +5747,12 @@
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "Which city's Arabic dialect is predominantly spoken by the characters in Bab Al-Hara?",
-      "ar": "الشخصيات في «باب الحارة» تحكي بلهجة أي مدينة بالأساس؟"
+      "en": "Roughly how many viewers did the season-two finale of Bab Al-Hara reportedly draw across the Arab world?",
+      "ar": "تقريبًا كم مشاهد يقولون إن حلقة ختام الجزء الثاني من «باب الحارة» جمعت بالعالم العربي؟"
     },
     "answer": {
-      "en": "Damascus",
-      "ar": "دمشق"
+      "en": "More than 50 million",
+      "ar": "أكثر من 50 مليون"
     },
     "review": {
       "status": "pending"
@@ -5760,24 +5760,24 @@
     "tvQuiz": {
       "version": 1,
       "spoilerSeason": 0,
-      "kind": "world",
+      "kind": "behind-scenes",
       "distractors": {
         "en": [
-          "Cairo",
-          "Beirut",
-          "Baghdad"
+          "About 5 million",
+          "About 500,000",
+          "More than 500 million"
         ],
         "ar": [
-          "القاهرة",
-          "بيروت",
-          "بغداد"
+          "نحو 5 ملايين",
+          "نحو 500 ألف",
+          "أكثر من 500 مليون"
         ]
       },
       "explanation": {
-        "en": "The Damascene dialect reinforces the show's local setting.",
-        "ar": "تعزز اللهجة الدمشقية البيئة المحلية للمسلسل."
+        "en": "Press reports credited the 2007 season-two finale with more than 50 million viewers, a sign of the show's huge reach.",
+        "ar": "نسبت تقارير صحفية إلى ختام الجزء الثاني عام 2007 أكثر من 50 مليون مشاهد، دلالةً على انتشاره الواسع."
       },
-      "contentKey": "6987b3c4"
+      "contentKey": "50b3f847"
     }
   },
   {
@@ -6157,11 +6157,11 @@
       "ar": "مرايا"
     },
     "question": {
-      "en": "Who created and stars in the Syrian comedy show Maraya (مرايا)?",
+      "en": "Who created and stars in the comedy show Maraya?",
       "ar": "مين صاحب فكرة مسلسل «مرايا» وبطله؟"
     },
     "answer": {
-      "en": "Yasser Al-Azmeh (ياسر العظمة)",
+      "en": "Yasser Al-Azmeh",
       "ar": "ياسر العظمة"
     },
     "review": {
@@ -6169,7 +6169,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "7a1e8920",
+      "contentKey": "f999db3",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -6321,35 +6321,35 @@
       "ar": "مرايا"
     },
     "question": {
-      "en": "What country produced Maraya?",
-      "ar": "بأي دولة انعمل «مرايا»؟"
+      "en": "In which city was Maraya's creator Yasser Al-Azmeh born?",
+      "ar": "بأي مدينة انولد ياسر العظمة، صاحب «مرايا»؟"
     },
     "answer": {
-      "en": "Syria",
-      "ar": "سوريا"
+      "en": "Damascus",
+      "ar": "دمشق"
     },
     "review": {
       "status": "pending"
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "98c5189",
+      "contentKey": "b7319324",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
-          "Egypt",
-          "Lebanon",
-          "Kuwait"
+          "Aleppo",
+          "Homs",
+          "Beirut"
         ],
         "ar": [
-          "مصر",
-          "لبنان",
-          "الكويت"
+          "حلب",
+          "حمص",
+          "بيروت"
         ]
       },
       "explanation": {
-        "en": "Maraya originated in Syria and became a widely recognised Arabic comedy series.",
-        "ar": "نشأ «مرايا» في سوريا وأصبح من المسلسلات الكوميدية العربية المعروفة."
+        "en": "Yasser Al-Azmeh was born in Damascus and belongs to the city's well-known Al-Azmeh family.",
+        "ar": "وُلد ياسر العظمة في دمشق، وينتمي إلى آل العظمة المعروفين فيها."
       },
       "kind": "behind-scenes"
     }
@@ -7264,37 +7264,37 @@
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "What type of show is Tash Ma Tash?",
-      "ar": "«طاش ما طاش» أي نوع من البرامج؟"
+      "en": "In Tash Ma Tash's family sketches, how are Abu Hazar and Abu Nizar related?",
+      "ar": "في لوحات العائلة في «طاش ما طاش»، شو صلة أبو هزار بأبو نزار؟"
     },
     "answer": {
-      "en": "A satirical Ramadan comedy sketch show",
-      "ar": "برنامج كوميدي ساخر يُعرض في رمضان"
+      "en": "They are brothers",
+      "ar": "أخوان"
     },
     "review": {
       "status": "pending"
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "3821d969",
+      "contentKey": "918634f8",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
-          "A historical drama",
-          "A singing competition",
-          "A detective serial"
+          "Cousins",
+          "Neighbours",
+          "Business partners"
         ],
         "ar": [
-          "دراما تاريخية",
-          "مسابقة غنائية",
-          "مسلسل تحريات"
+          "أولاد عم",
+          "جيران",
+          "شريكان في تجارة"
         ]
       },
       "explanation": {
-        "en": "The show is known for satirical sketches broadcast during Ramadan.",
-        "ar": "يشتهر المسلسل بلوحات ساخرة تُعرض خلال رمضان."
+        "en": "The two brothers' families share desert trips (kashta) and home gatherings.",
+        "ar": "تتشارك عائلتا الأخوين رحلات الكشتة والتجمعات المنزلية."
       },
-      "kind": "world"
+      "kind": "character"
     }
   },
   {
@@ -7510,12 +7510,12 @@
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "What social issues did Tash Ma Tash famously address?",
-      "ar": "شو القضايا الاجتماعية اللي اشتهر «طاش ما طاش» إنه يطرحها؟"
+      "en": "Where does the name 'Tash Ma Tash' come from?",
+      "ar": "اسم «طاش ما طاش» من وين جاي؟"
     },
     "answer": {
-      "en": "Bureaucracy and social double standards",
-      "ar": "البيروقراطية وازدواجية المعايير"
+      "en": "An old traditional game of the same name",
+      "ar": "لعبة شعبية قديمة بنفس الاسم"
     },
     "review": {
       "status": "pending"
@@ -7526,21 +7526,21 @@
       "kind": "world",
       "distractors": {
         "en": [
-          "Only ancient military campaigns",
-          "Only space missions",
-          "Only cooking competitions"
+          "A line from a famous poem",
+          "A popular children's song",
+          "The name of a Riyadh street"
         ],
         "ar": [
-          "الحملات العسكرية القديمة فقط",
-          "المهمات الفضائية فقط",
-          "مسابقات الطبخ فقط"
+          "بيت من قصيدة مشهورة",
+          "أغنية أطفال معروفة",
+          "اسم شارع في الرياض"
         ]
       },
       "explanation": {
-        "en": "Tash uses comedy to examine pressures in everyday Saudi society.",
-        "ar": "يستخدم طاش الكوميديا لفحص ضغوط المجتمع السعودي اليومية."
+        "en": "Saudipedia notes that the title was taken from an old traditional game that bears the same name.",
+        "ar": "تذكر موسوعة «سعوديبيديا» أن العنوان مأخوذ من لعبة شعبية قديمة تحمل الاسم نفسه."
       },
-      "contentKey": "bf5f0d5b"
+      "contentKey": "8bf8b0e5"
     }
   },
   {
@@ -7797,12 +7797,12 @@
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "How is Asaad Omar Galli related to Fouad?",
-      "ar": "شو صلة أسعد عمر قلّي بفؤاد؟"
+      "en": "Which recurring Tash Ma Tash character is famously greedy and stingy?",
+      "ar": "أي شخصية متكررة في «طاش ما طاش» مشهورة بالبخل والطمع؟"
     },
     "answer": {
-      "en": "His maternal uncle",
-      "ar": "خاله"
+      "en": "Abu Musaad",
+      "ar": "أبو مساعد"
     },
     "review": {
       "status": "pending"
@@ -7813,21 +7813,21 @@
       "kind": "character",
       "distractors": {
         "en": [
-          "His father",
-          "His brother",
-          "His cousin"
+          "Fouad",
+          "Abu Hazar",
+          "Saeedan"
         ],
         "ar": [
-          "والده",
-          "شقيقه",
-          "ابن عمه"
+          "فؤاد",
+          "أبو هزار",
+          "سعيدان"
         ]
       },
       "explanation": {
-        "en": "Asaad is Fouad's mother's brother, often called upon for help.",
-        "ar": "أسعد شقيق أم فؤاد الذي يستعين به كثيرًا."
+        "en": "Abu Musaad, played by Abdullah Al-Sadhan, is the series' best-known miser.",
+        "ar": "أبو مساعد، الذي يجسده عبد الله السدحان، أشهر بخيل في المسلسل."
       },
-      "contentKey": "d901a0d6"
+      "contentKey": "38437228"
     }
   },
   {
@@ -7838,12 +7838,12 @@
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "Who directed the sixteenth season of Tash Ma Tash?",
-      "ar": "مين أخرج الموسم السادس عشر من «طاش ما طاش»؟"
+      "en": "Which satirical Ramadan series did Nasser Al-Qasabi lead from 2015, during Tash Ma Tash's long break?",
+      "ar": "أي مسلسل رمضاني ساخر بطّله ناصر القصبي من سنة 2015، وقت توقف «طاش ما طاش» الطويل؟"
     },
     "answer": {
-      "en": "Hisham Sharbatji",
-      "ar": "هشام شربتجي"
+      "en": "Selfie",
+      "ar": "سيلفي"
     },
     "review": {
       "status": "pending"
@@ -7854,21 +7854,21 @@
       "kind": "behind-scenes",
       "distractors": {
         "en": [
-          "Mohammed Al-Qaffas",
-          "Amer Al-Hamoud",
-          "Abdulkhaliq Al-Ghanim"
+          "Al-Asouf",
+          "Wi-Fi",
+          "Makhraj 7"
         ],
         "ar": [
-          "محمد القفاص",
-          "عامر الحمود",
-          "عبد الخالق الغانم"
+          "العاصوف",
+          "واي فاي",
+          "مخرج 7"
         ]
       },
       "explanation": {
-        "en": "Hisham Sharbatji directed the sixteenth season.",
-        "ar": "أخرج هشام شربتجي الموسم السادس عشر."
+        "en": "Selfie ran for three Ramadan seasons, from 2015 to 2017.",
+        "ar": "عُرض «سيلفي» ثلاثة مواسم رمضانية، من 2015 إلى 2017."
       },
-      "contentKey": "ae00253c"
+      "contentKey": "8089825a"
     }
   },
   {
@@ -8376,14 +8376,14 @@
     },
     "answer": {
       "en": "The Kayi tribe",
-      "ar": "قبيلة القيّي"
+      "ar": "قبيلة قايي"
     },
     "review": {
       "status": "pending"
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "8fcf0d66",
+      "contentKey": "e9232c05",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -8658,37 +8658,37 @@
       "ar": "قيامة أرطغرل"
     },
     "question": {
-      "en": "How many seasons does قيامة أرطغرل have?",
-      "ar": "كم موسم في «قيامة أرطغرل»؟"
+      "en": "In which country did an Urdu-dubbed version of Diriliş: Ertuğrul become a huge hit on state television in 2020?",
+      "ar": "بأي دولة صار عرض «قيامة أرطغرل» مدبلج بالأردية على التلفزيون الرسمي نجاح كبير سنة 2020؟"
     },
     "answer": {
-      "en": "5 seasons",
-      "ar": "5 مواسم"
+      "en": "Pakistan",
+      "ar": "باكستان"
     },
     "review": {
       "status": "pending"
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "2eeadce3",
+      "contentKey": "44a1d5f1",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
-          "3 seasons",
-          "4 seasons",
-          "6 seasons"
+          "India",
+          "Bangladesh",
+          "Afghanistan"
         ],
         "ar": [
-          "3 مواسم",
-          "4 مواسم",
-          "6 مواسم"
+          "الهند",
+          "بنغلاديش",
+          "أفغانستان"
         ]
       },
       "explanation": {
-        "en": "The original Turkish series ran for five seasons.",
-        "ar": "استمر المسلسل التركي الأصلي خمسة مواسم."
+        "en": "Pakistan's state broadcaster PTV began showing an Urdu dub in Ramadan 2020, and it drew huge audiences.",
+        "ar": "بدأ التلفزيون الباكستاني الرسمي (PTV) عرض نسخة مدبلجة بالأردية في رمضان 2020، وحققت نسب مشاهدة ضخمة."
       },
-      "kind": "world"
+      "kind": "behind-scenes"
     }
   },
   {
@@ -8704,7 +8704,7 @@
     },
     "answer": {
       "en": "Kuruluş: Osman",
-      "ar": "تأسيس عثمان"
+      "ar": "المؤسس عثمان"
     },
     "review": {
       "status": "pending"
@@ -8727,9 +8727,9 @@
       },
       "explanation": {
         "en": "Kuruluş: Osman follows the next generation in the television saga.",
-        "ar": "يتابع «تأسيس عثمان» الجيل التالي من الحكاية التلفزيونية."
+        "ar": "يتابع «المؤسس عثمان» الجيل التالي من الحكاية التلفزيونية."
       },
-      "contentKey": "f29eb283"
+      "contentKey": "c3ad5b25"
     }
   },
   {
@@ -8868,14 +8868,14 @@
     },
     "answer": {
       "en": "Hayme Ana",
-      "ar": "هايماه خاتون"
+      "ar": "هايمة آنا"
     },
     "review": {
       "status": "pending"
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "3d6311d8",
+      "contentKey": "7404a673",
       "spoilerSeason": 1,
       "distractors": {
         "en": [
@@ -8891,7 +8891,7 @@
       },
       "explanation": {
         "en": "Hayme Ana is Ertuğrul's mother, played by Hülya Darcan.",
-        "ar": "هايمة خاتون أم أرطغرل، وتجسدها هوليا دارجان."
+        "ar": "هايمة آنا أم أرطغرل، وتجسدها هوليا دارجان."
       },
       "kind": "character"
     }
@@ -9359,7 +9359,7 @@
       "ar": "مين النجم الأساسي في «الحشاشين»؟"
     },
     "answer": {
-      "en": "Karim Abdel Aziz (كريم عبد العزيز)",
+      "en": "Karim Abdel Aziz",
       "ar": "كريم عبد العزيز"
     },
     "review": {
@@ -9367,7 +9367,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "d7498e4",
+      "contentKey": "45a38ce8",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -10954,15 +10954,15 @@
       "ar": "بريكينغ باد"
     },
     "question": {
-      "en": "Who directed the pilot as well as creating the show?",
-      "ar": "مين أخرج الحلقة الأولى بنفسه، وهو أصلًا مبتكر العمل؟"
+      "en": "Before Breaking Bad, Bryan Cranston was best known as the dad in which family sitcom?",
+      "ar": "قبل «بريكنغ باد»، برايان كرانستون كان مشهور بدور الأب بأي مسلسل كوميدي عائلي؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "Vince Gilligan",
-      "ar": "فينس غيليغان"
+      "en": "Malcolm in the Middle",
+      "ar": "مالكوم في المنتصف"
     },
     "tvQuiz": {
       "version": 1,
@@ -10970,21 +10970,21 @@
       "kind": "behind-scenes",
       "distractors": {
         "en": [
-          "Rian Johnson",
-          "Michelle MacLaren",
-          "Adam Bernstein"
+          "Everybody Loves Raymond",
+          "Home Improvement",
+          "Family Matters"
         ],
         "ar": [
-          "ريان جونسون",
-          "ميشيل ماكلارين",
-          "آدم برنشتاين"
+          "الجميع يحبون ريموند",
+          "تحسينات منزلية",
+          "شؤون عائلية"
         ]
       },
       "explanation": {
-        "en": "Gilligan wrote and directed the episode that starts Walt's story.",
-        "ar": "كتب غيليغان وأخرج الحلقة التي تبدأ حكاية والتر."
+        "en": "Cranston played Hal, the father in Malcolm in the Middle (2000–2006), before becoming Walter White.",
+        "ar": "أدّى كرانستون دور هال، الأب في «مالكوم في المنتصف» (2000–2006)، قبل أن يصبح والتر وايت."
       },
-      "contentKey": "16bac66"
+      "contentKey": "e7b07934"
     }
   },
   {
@@ -11487,7 +11487,7 @@
       "ar": "بريكينغ باد"
     },
     "question": {
-      "en": "Finish Saul's advertising slogan: Better Call ___.",
+      "en": "Finish the flashy lawyer's TV-ad slogan: 'Better Call ___'.",
       "ar": "كمّل شعار إعلان المحامي: «الأحسن تتصل بـ___»."
     },
     "review": {
@@ -11517,7 +11517,7 @@
         "en": "Saul's advertising slogan later became the prequel's title.",
         "ar": "تحول شعار إعلان سول لاحقًا إلى عنوان المسلسل السابق زمنيًا."
       },
-      "contentKey": "b0269249"
+      "contentKey": "90f4ccd0"
     }
   },
   {
@@ -11768,43 +11768,43 @@
   },
   {
     "id": "tv-shows-trivia-288",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Breaking Bad",
       "ar": "بريكينغ باد"
     },
     "question": {
-      "en": "What is Hank's home-brewed beer called?",
-      "ar": "شو اسم البيرة اللي يسويها هانك بالبيت؟"
+      "en": "In Breaking Bad, which poetry book, inscribed 'To my other favorite W.W.', makes Hank suspect Walt?",
+      "ar": "في «بريكنغ باد»، أي ديوان شعر عليه إهداء «إلى W.W. المفضّل الآخر» يخلّي هانك يشك بوالتر؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "Schraderbräu",
-      "ar": "شرادربراو"
+      "en": "Leaves of Grass by Walt Whitman",
+      "ar": "«أوراق العشب» لوالت ويتمان"
     },
     "tvQuiz": {
       "version": 1,
-      "spoilerSeason": 2,
-      "kind": "world",
+      "spoilerSeason": 5,
+      "kind": "moment",
       "distractors": {
         "en": [
-          "Hank's Gold",
-          "Albuquerque Ale",
-          "Desert Draft"
+          "The Raven by Edgar Allan Poe",
+          "The Road Not Taken by Robert Frost",
+          "The Waste Land by T. S. Eliot"
         ],
         "ar": [
-          "هانكس غولد",
-          "ألباكركي إيل",
-          "ديزرت درافت"
+          "«الغراب» لإدغار آلان بو",
+          "«الطريق الذي لم يُسلك» لروبرت فروست",
+          "«الأرض اليباب» لتي إس إليوت"
         ]
       },
       "explanation": {
-        "en": "The label is a pun on Hank's surname, Schrader.",
-        "ar": "يتلاعب اسم الملصق باسم عائلة هانك، شرادر."
+        "en": "Gale's inscription to 'W.W.' in Leaves of Grass leads Hank to realise that Walt is Heisenberg.",
+        "ar": "يقود إهداء غيل إلى «W.W.» في «أوراق العشب» هانك إلى إدراك أن والتر هو هايزنبرغ."
       },
-      "contentKey": "c8972099"
+      "contentKey": "65776648"
     }
   },
   {
@@ -12061,37 +12061,37 @@
       "ar": "بريكينغ باد"
     },
     "question": {
-      "en": "Which fictional tequila appears at the cartel gathering?",
-      "ar": "أي تكيلا خيالية تطلع باجتماع الكارتل؟"
+      "en": "What is Saul Goodman's real name?",
+      "ar": "شو الاسم الحقيقي لسول غودمان؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "Zafiro Añejo",
-      "ar": "زافيرو أنييخو"
+      "en": "Jimmy McGill",
+      "ar": "جيمي ماكغيل"
     },
     "tvQuiz": {
       "version": 1,
-      "spoilerSeason": 4,
-      "kind": "world",
+      "spoilerSeason": 3,
+      "kind": "character",
       "distractors": {
         "en": [
-          "Dos Hombres",
-          "Patrón Silver",
-          "Don Julio Blanco"
+          "Jimmy Malone",
+          "Steve Gold",
+          "Saul Goldberg"
         ],
         "ar": [
-          "دوس هومبريس",
-          "باترون سيلفر",
-          "دون خوليو بلانكو"
+          "جيمي مالون",
+          "ستيف غولد",
+          "سول غولدبيرغ"
         ]
       },
       "explanation": {
-        "en": "The ornate Zafiro Añejo bottle is central to Salud.",
-        "ar": "تحتل زجاجة زافيرو أنييخو المزخرفة موقعًا مهمًا في حلقة «سالود»."
+        "en": "Saul admits his real surname is McGill; the prequel Better Call Saul follows him as Jimmy McGill.",
+        "ar": "يعترف سول بأن اسم عائلته الحقيقي ماكغيل، ويتابعه المسلسل السابق زمنيًا «بيتر كول سول» باسم جيمي ماكغيل."
       },
-      "contentKey": "69557235"
+      "contentKey": "8c3c94c"
     }
   },
   {
@@ -12266,37 +12266,37 @@
       "ar": "بريكينغ باد"
     },
     "question": {
-      "en": "What animal does the nickname Tortuga mean in Spanish?",
-      "ar": "لقب «تورتوغا» بالإسباني يعني أي حيوان؟"
+      "en": "Which of Jesse's friends pitches his own detailed idea for a Star Trek episode?",
+      "ar": "أي واحد من أصحاب جيسي يشرح بحماس فكرة حلقة كاملة من «ستار تريك» ألّفها بنفسه؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "Turtle",
-      "ar": "سلحفاة"
+      "en": "Badger",
+      "ar": "بادجر"
     },
     "tvQuiz": {
       "version": 1,
-      "spoilerSeason": 2,
+      "spoilerSeason": 5,
       "kind": "character",
       "distractors": {
         "en": [
-          "Lizard",
-          "Snake",
-          "Hawk"
+          "Skinny Pete",
+          "Combo",
+          "Todd"
         ],
         "ar": [
-          "سحلية",
-          "أفعى",
-          "صقر"
+          "سكيني بيت",
+          "كومبو",
+          "تود"
         ]
       },
       "explanation": {
-        "en": "Tortuga literally means turtle, a grim visual reference in season two.",
-        "ar": "تعني تورتوغا سلحفاة، وهو معنى يستثمره الموسم الثاني بصريًا بصورة قاتمة."
+        "en": "In season five Badger describes his Star Trek script in loving detail while Skinny Pete points out its flaws.",
+        "ar": "في الموسم الخامس يصف بادجر سيناريو «ستار تريك» الذي ألّفه بحماس، بينما يعدّد سكيني بيت ثغراته."
       },
-      "contentKey": "c6e52a09"
+      "contentKey": "e269e110"
     }
   },
   {
@@ -12758,15 +12758,15 @@
       "ar": "فريندز"
     },
     "question": {
-      "en": "Whose TV Guide is addressed to Miss Chanandler Bong?",
-      "ar": "لمين توصل مجلة التلفزيون باسم «ميس تشاناندلر بونغ»؟"
+      "en": "What misspelled name is printed on Chandler's TV Guide?",
+      "ar": "شو الاسم المكتوب غلط على مجلة التلفزيون اللي توصل تشاندلر؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "Chandler",
-      "ar": "تشاندلر"
+      "en": "Miss Chanandler Bong",
+      "ar": "ميس تشاناندلر بونغ"
     },
     "tvQuiz": {
       "version": 1,
@@ -12774,21 +12774,21 @@
       "kind": "quote",
       "distractors": {
         "en": [
-          "Monica",
-          "Phoebe",
-          "Joey"
+          "Mr. Chandler Bang",
+          "Miss Chandeler Bing",
+          "Mrs. Chanandler Bunk"
         ],
         "ar": [
-          "مونيكا",
-          "فيبي",
-          "جوي"
+          "مستر تشاندلر بانغ",
+          "ميس تشانديلر بينغ",
+          "مسز تشاناندلر بانك"
         ]
       },
       "explanation": {
         "en": "The misspelled name becomes an answer in Ross's apartment quiz.",
         "ar": "يتحول الاسم المكتوب خطأً إلى إجابة في مسابقة روس على الشقة."
       },
-      "contentKey": "ad67e02a"
+      "contentKey": "b48668c2"
     }
   },
   {
@@ -13613,7 +13613,7 @@
   },
   {
     "id": "tv-shows-trivia-333",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Friends",
       "ar": "فريندز"
@@ -13627,7 +13627,7 @@
     },
     "answer": {
       "en": "An armadillo",
-      "ar": "مدرع"
+      "ar": "أرماديلو"
     },
     "tvQuiz": {
       "version": 1,
@@ -13647,9 +13647,9 @@
       },
       "explanation": {
         "en": "The Holiday Armadillo is Ross's improvised seasonal costume.",
-        "ar": "«مدرع العيد» زي مرتجل يبتكره روس للمناسبة."
+        "ar": "«أرماديلو العيد» زي مرتجل يبتكره روس للمناسبة."
       },
-      "contentKey": "1d8704d3"
+      "contentKey": "5da7ba75"
     }
   },
   {
@@ -13660,15 +13660,15 @@
       "ar": "فريندز"
     },
     "question": {
-      "en": "Which siblings perform The Routine at a TV dance taping?",
-      "ar": "أي أخوين يرقصون «الرقصة» وقت تسجيل برنامج تلفزيوني؟"
+      "en": "What is the name of the childhood dance Ross and Monica perform on a New Year's Eve TV show?",
+      "ar": "شو اسم الرقصة اللي حافظينها روس ومونيكا من صغرهم ورقصوها ببرنامج تلفزيوني ليلة رأس السنة؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "Ross and Monica",
-      "ar": "روس ومونيكا"
+      "en": "The Routine",
+      "ar": "الروتين"
     },
     "tvQuiz": {
       "version": 1,
@@ -13676,21 +13676,21 @@
       "kind": "moment",
       "distractors": {
         "en": [
-          "Rachel and Jill",
-          "Phoebe and Ursula",
-          "Joey and Dina"
+          "The Moonwalk",
+          "The Macarena",
+          "The Robot"
         ],
         "ar": [
-          "رايتشل وجيل",
-          "فيبي وأورسولا",
-          "جوي ودينا"
+          "مشية القمر",
+          "الماكارينا",
+          "رقصة الروبوت"
         ]
       },
       "explanation": {
         "en": "The Gellers resurrect a dance they practised as children.",
         "ar": "يعيد آل غيلر رقصة تدربا عليها في طفولتهما."
       },
-      "contentKey": "6eb3e14c"
+      "contentKey": "8cbe0dd"
     }
   },
   {
@@ -14105,14 +14105,14 @@
   },
   {
     "id": "tv-shows-trivia-345",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Friends",
       "ar": "فريندز"
     },
     "question": {
-      "en": "What scientific city does David move to for research?",
-      "ar": "لأي مدينة ينتقل ديفيد عشان أبحاثه؟"
+      "en": "Which city does Phoebe's boyfriend David move to for his research?",
+      "ar": "لأي مدينة ينتقل ديفيد، صاحب فيبي، عشان أبحاثه؟"
     },
     "review": {
       "status": "pending"
@@ -14141,7 +14141,7 @@
         "en": "David's move to Minsk complicates his relationship with Phoebe.",
         "ar": "يعقد انتقال ديفيد إلى مينسك علاقته بفيبي."
       },
-      "contentKey": "8c7fe560"
+      "contentKey": "bb3ebc99"
     }
   },
   {
@@ -16325,8 +16325,8 @@
       "ar": "صراع العروش"
     },
     "question": {
-      "en": "Which character's vision lets viewers explore the past?",
-      "ar": "رؤى أي شخصية تخلّي المشاهدين يستكشفون الماضي؟"
+      "en": "Which Stark becomes the Three-Eyed Raven and can see into the past?",
+      "ar": "أي واحد من آل ستارك يصير «الغراب ذو العيون الثلاث» ويقدر يشوف الماضي؟"
     },
     "review": {
       "status": "pending"
@@ -16341,21 +16341,21 @@
       "kind": "character",
       "distractors": {
         "en": [
-          "Stannis Baratheon",
-          "Ramsay Bolton",
-          "Jon Snow"
+          "Arya Stark",
+          "Sansa Stark",
+          "Rickon Stark"
         ],
         "ar": [
-          "ستانيس باراثيون",
-          "رامزي بولتون",
-          "جون سنو"
+          "آريا ستارك",
+          "سانسا ستارك",
+          "ريكون ستارك"
         ]
       },
       "explanation": {
-        "en": "Bran's visions turn history into scenes the audience can witness.",
-        "ar": "تحول رؤى بران التاريخ إلى مشاهد يراها الجمهور."
+        "en": "Bran becomes the Three-Eyed Raven, and his visions show viewers scenes from the past.",
+        "ar": "يصبح بران «الغراب ذا العيون الثلاث»، وتعرض رؤاه للمشاهدين مشاهد من الماضي."
       },
-      "contentKey": "b0320cbb"
+      "contentKey": "7a2ec4ee"
     }
   },
   {
@@ -16408,7 +16408,7 @@
     },
     "question": {
       "en": "What do the people north of the Wall call themselves instead of wildlings?",
-      "ar": "شو يسمّون نفسهم اللي ينقال عنهم «الهمج»؟"
+      "ar": "الناس اللي عايشين ورا الجدار وينقال عنهم «الهمج»، شو يسمّون نفسهم؟"
     },
     "review": {
       "status": "pending"
@@ -16437,7 +16437,7 @@
         "en": "Free Folk is their own name; wildlings is used by outsiders.",
         "ar": "«الشعب الحر» تسميتهم لأنفسهم، بينما يستخدم الآخرون «الهمج»."
       },
-      "contentKey": "edf0bbee"
+      "contentKey": "c7069265"
     }
   },
   {
@@ -16899,15 +16899,15 @@
       "ar": "صراع العروش"
     },
     "question": {
-      "en": "Who does the Hand of the King serve as chief adviser?",
-      "ar": "«يد الملك» يكون المستشار الأول لمين؟"
+      "en": "Which royal post does Ned Stark accept before travelling to King's Landing in season one?",
+      "ar": "أي منصب يقبله نيد ستارك قبل ما يروح على كينغز لاندينغ بالموسم الأول؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "The reigning monarch",
-      "ar": "العاهل الحاكم"
+      "en": "Hand of the King",
+      "ar": "يد الملك"
     },
     "tvQuiz": {
       "version": 1,
@@ -16915,21 +16915,21 @@
       "kind": "world",
       "distractors": {
         "en": [
-          "The High Septon",
-          "The Lord Commander",
-          "The Grand Maester"
+          "Master of Coin",
+          "Lord Commander of the Kingsguard",
+          "Grand Maester"
         ],
         "ar": [
-          "الكاهن الأعلى",
-          "القائد الأعلى",
+          "أمين الخزانة",
+          "قائد الحرس الملكي",
           "المايستر الأكبر"
         ]
       },
       "explanation": {
-        "en": "The Hand is the monarch's chief political adviser and deputy.",
-        "ar": "ساعد الملك كبير مستشاري العاهل السياسيين ونائبه."
+        "en": "Robert asks Ned to be Hand of the King, his chief adviser and deputy.",
+        "ar": "يطلب روبرت من نيد أن يكون «يد الملك»، كبير مستشاريه ونائبه."
       },
-      "contentKey": "25b49338"
+      "contentKey": "71e8d007"
     }
   },
   {
@@ -18211,37 +18211,37 @@
       "ar": "سترينجر ثينغز"
     },
     "question": {
-      "en": "What game supplies the name Demogorgon?",
-      "ar": "أي لعبة عطت الأطفال اسم «ديموغورغون»؟"
+      "en": "Which song by The Clash links Will and his brother Jonathan in season one?",
+      "ar": "أي أغنية لفرقة «ذا كلاش» تربط ويل بأخوه جوناثان بالموسم الأول؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "Dungeons & Dragons",
-      "ar": "دانجنز آند دراغنز"
+      "en": "Should I Stay or Should I Go",
+      "ar": "Should I Stay or Should I Go"
     },
     "tvQuiz": {
       "version": 1,
       "spoilerSeason": 1,
-      "kind": "world",
+      "kind": "moment",
       "distractors": {
         "en": [
-          "Risk",
-          "Clue",
-          "Warhammer"
+          "London Calling",
+          "Rock the Casbah",
+          "Train in Vain"
         ],
         "ar": [
-          "ريسك",
-          "كلو",
-          "وورهامر"
+          "London Calling",
+          "Rock the Casbah",
+          "Train in Vain"
         ]
       },
       "explanation": {
-        "en": "The children borrow a monster name from their tabletop game.",
-        "ar": "يستعير الأطفال اسم وحش من لعبة الطاولة التي يحبونها."
+        "en": "Jonathan shares the song with Will, and Will sings it to himself while trapped in the Upside Down.",
+        "ar": "يشارك جوناثان الأغنية مع ويل، ويغنيها ويل لنفسه وهو عالق في «العالم المقلوب»."
       },
-      "contentKey": "a5dd0e7"
+      "contentKey": "eb3e5427"
     }
   },
   {
@@ -21163,37 +21163,37 @@
       "ar": "ذا واير"
     },
     "question": {
-      "en": "What firearm is Omar especially associated with?",
-      "ar": "عمر مرتبط بالذات بأي سلاح ناري؟"
+      "en": "When Omar walks down the street, what do people shout to warn each other?",
+      "ar": "لما عمر يمشي بالشارع، شو يصرخون الناس عشان ينبّهون بعض؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "A shotgun",
-      "ar": "بندقية خرطوش"
+      "en": "Omar comin'!",
+      "ar": "عمر جاي!"
     },
     "tvQuiz": {
       "version": 1,
       "spoilerSeason": 1,
-      "kind": "world",
+      "kind": "quote",
       "distractors": {
         "en": [
-          "A sniper rifle",
-          "A revolver",
-          "A submachine gun"
+          "Five-O!",
+          "Run, it's the Greek!",
+          "Stringer's here!"
         ],
         "ar": [
-          "بندقية قنص",
-          "مسدس دوار",
-          "رشاش قصير"
+          "الشرطة جاية!",
+          "اهرب، اليوناني جاي!",
+          "سترينغر هنا!"
         ]
       },
       "explanation": {
-        "en": "The shotgun and long coat make Omar's silhouette recognisable.",
-        "ar": "تجعل البندقية والمعطف الطويل هيئة عمر سهلة التمييز."
+        "en": "The cry 'Omar comin'!' shows how much fear his name carries on the corners.",
+        "ar": "تكشف صيحة «عمر جاي!» حجم الرهبة التي يثيرها اسمه في الشوارع."
       },
-      "contentKey": "aac17ef8"
+      "contentKey": "e354f06b"
     }
   },
   {
@@ -21409,37 +21409,37 @@
       "ar": "ذا واير"
     },
     "question": {
-      "en": "How many seasons does The Wire have?",
-      "ar": "كم موسم في مسلسل «ذا واير»؟"
+      "en": "In The Wire, which homicide detective is McNulty's longtime partner and friend?",
+      "ar": "في «ذا واير»، أي محقق جرائم قتل هو شريك مكنولتي وصديقه من زمان؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "Five",
-      "ar": "خمسة"
+      "en": "Bunk Moreland",
+      "ar": "بانك مورلاند"
     },
     "tvQuiz": {
       "version": 1,
       "spoilerSeason": 0,
-      "kind": "behind-scenes",
+      "kind": "character",
       "distractors": {
         "en": [
-          "Six",
-          "Four",
-          "Eight"
+          "Lester Freamon",
+          "Herc Hauk",
+          "Cedric Daniels"
         ],
         "ar": [
-          "ستة",
-          "أربعة",
-          "ثمانية"
+          "ليستر فريمون",
+          "هيرك هوك",
+          "سيدريك دانييلز"
         ]
       },
       "explanation": {
-        "en": "Five seasons examine interconnected institutions in Baltimore.",
-        "ar": "تفحص المواسم الخمسة مؤسسات مترابطة في بالتيمور."
+        "en": "William 'Bunk' Moreland is McNulty's homicide partner and drinking buddy from the first season.",
+        "ar": "ويليام «بانك» مورلاند شريك مكنولتي في قسم جرائم القتل ورفيق سهراته منذ الموسم الأول."
       },
-      "contentKey": "7226b491"
+      "contentKey": "a9653dc6"
     }
   },
   {
@@ -24607,15 +24607,15 @@
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "What does Bab Al-Hara mean in English?",
-      "ar": "شو الترجمة الإنجليزية لمعنى عنوان «باب الحارة»؟"
+      "en": "What does the title Bab Al-Hara mean in English?",
+      "ar": "شو العنوان الإنجليزي اللي يترجم «باب الحارة»؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
       "en": "The Neighbourhood Gate",
-      "ar": "بوابة الحي"
+      "ar": "The Neighbourhood Gate"
     },
     "tvQuiz": {
       "version": 1,
@@ -24628,16 +24628,16 @@
           "The Mountain Road"
         ],
         "ar": [
-          "قصر المدينة",
-          "السوق القديم",
-          "طريق الجبل"
+          "The City Palace",
+          "The Old Market",
+          "The Mountain Road"
         ]
       },
       "explanation": {
         "en": "The title puts the neighbourhood's entrance at the centre of its identity.",
-        "ar": "يضع العنوان مدخل الحارة في صميم هويتها."
+        "ar": "يُترجم العنوان إلى The Neighbourhood Gate، أي بوابة الحي، فيضع مدخل الحارة في صميم هويتها."
       },
-      "contentKey": "1389e0bd"
+      "contentKey": "99aa836f"
     }
   },
   {
@@ -25304,37 +25304,37 @@
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "Where would the neighbourhood men most naturally gather over coffee?",
-      "ar": "وين يتجمعون رجال الحارة عادةً يشربون قهوة؟"
+      "en": "Which central character returns to the neighbourhood in Bab Al-Hara's sixth season after years away?",
+      "ar": "أي شخصية أساسية رجعت للحارة بالجزء السادس من «باب الحارة» بعد غياب سنين؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "Abu Hatem's café",
-      "ar": "مقهى أبي حاتم"
+      "en": "Abu Issam",
+      "ar": "أبو عصام"
     },
     "tvQuiz": {
       "version": 1,
-      "spoilerSeason": 0,
-      "kind": "world",
+      "spoilerSeason": 6,
+      "kind": "moment",
       "distractors": {
         "en": [
-          "Abu Bashir's oven",
-          "Abu Issam's treatment room",
-          "The police cell"
+          "Abu Shihab",
+          "Abu Hatem",
+          "Abu Bashir"
         ],
         "ar": [
-          "فرن أبي بشير",
-          "غرفة علاج أبي عصام",
-          "زنزانة الشرطة"
+          "أبو شهاب",
+          "أبو حاتم",
+          "أبو بشير"
         ]
       },
       "explanation": {
-        "en": "The café is a social meeting point as well as a business.",
-        "ar": "المقهى ملتقى اجتماعي إلى جانب كونه مشروعًا تجاريًا."
+        "en": "Season six, shown in Ramadan 2014, brings Abu Issam back to the neighbourhood.",
+        "ar": "يشهد الجزء السادس، الذي عُرض في رمضان 2014، عودة أبي عصام إلى الحارة."
       },
-      "contentKey": "eda200b3"
+      "contentKey": "9b2d5cd8"
     }
   },
   {
@@ -27928,37 +27928,37 @@
       "ar": "مرايا"
     },
     "question": {
-      "en": "What object determines the absurd succession contest in Maraya 2011's opener?",
-      "ar": "بافتتاح «مرايا 2011»، أي غرض يحدد مسابقة الخلافة العبثية؟"
+      "en": "In which decade was Maraya's creator Yasser Al-Azmeh born?",
+      "ar": "بأي عقد انولد ياسر العظمة، صاحب «مرايا»؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "The leader's shoe",
-      "ar": "حذاء الزعيم"
+      "en": "The 1940s",
+      "ar": "الأربعينيات"
     },
     "tvQuiz": {
       "version": 1,
       "spoilerSeason": 0,
-      "kind": "moment",
+      "kind": "behind-scenes",
       "distractors": {
         "en": [
-          "The leader's ring",
-          "A royal crown",
-          "A ceremonial sword"
+          "The 1920s",
+          "The 1960s",
+          "The 1970s"
         ],
         "ar": [
-          "خاتم الزعيم",
-          "تاج ملكي",
-          "سيف احتفالي"
+          "العشرينيات",
+          "الستينيات",
+          "السبعينيات"
         ]
       },
       "explanation": {
-        "en": "The contest turns a familiar saying about suitability into literal comedy.",
-        "ar": "تحول المسابقة قولًا مألوفًا عن الملاءمة إلى كوميديا حرفية."
+        "en": "Born in 1942, Yasser Al-Azmeh had been acting for many years before Maraya made him a star.",
+        "ar": "وُلد ياسر العظمة سنة 1942، وكان يمثّل منذ سنوات طويلة قبل أن يجعله «مرايا» نجمًا."
       },
-      "contentKey": "78305890"
+      "contentKey": "7a88d76e"
     }
   },
   {
@@ -28338,37 +28338,37 @@
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "Who plays Alyan?",
-      "ar": "مين يلعب دور عليان؟"
+      "en": "Where are Saeedan and Alyan's recurring Tash Ma Tash sketches set?",
+      "ar": "وين تدور لوحات سعيدان وعليان المتكررة في «طاش ما طاش»؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "Nasser Al-Qasabi",
-      "ar": "ناصر القصبي"
+      "en": "In an old village",
+      "ar": "في قرية قديمة"
     },
     "tvQuiz": {
       "version": 1,
       "spoilerSeason": 0,
-      "kind": "behind-scenes",
+      "kind": "world",
       "distractors": {
         "en": [
-          "Abdullah Al-Sadhan",
-          "Youssef Al-Jarrah",
-          "Fahad Al-Hayyan"
+          "On an oil rig",
+          "In a Riyadh shopping mall",
+          "On a fishing boat"
         ],
         "ar": [
-          "عبد الله السدحان",
-          "يوسف الجراح",
-          "فهد الحيان"
+          "على منصة نفط",
+          "في مول بالرياض",
+          "على قارب صيد"
         ]
       },
       "explanation": {
-        "en": "Nasser Al-Qasabi plays Alyan in the recurring comic pairing.",
-        "ar": "يجسد ناصر القصبي عليان ضمن الثنائي الكوميدي المتكرر."
+        "en": "Saeedan and Alyan are two young men living in an old village.",
+        "ar": "سعيدان وعليان شابان يعيشان في قرية قديمة."
       },
-      "contentKey": "92510553"
+      "contentKey": "ae0f9782"
     }
   },
   {
@@ -28592,7 +28592,7 @@
     },
     "answer": {
       "en": "GMC",
-      "ar": "جي إم سي"
+      "ar": "جمس"
     },
     "tvQuiz": {
       "version": 1,
@@ -28614,7 +28614,7 @@
         "en": "Their familiar GMC returns in the 2023 opening outing.",
         "ar": "تعود سيارتهما الجمس المألوفة في نزهة افتتاح عام ٢٠٢٣."
       },
-      "contentKey": "cd14b20d"
+      "contentKey": "2ee358a6"
     }
   },
   {
@@ -28871,37 +28871,37 @@
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "Why can the same Tash actor be a father in one sketch and a student in another?",
-      "ar": "ليش ممكن يكون ممثل «طاش» أب بلوحة وطالب بلوحة ثانية؟"
+      "en": "In recurring Tash Ma Tash sketches, Hamoud and Muhaimeed are two country friends struggling to adjust to what?",
+      "ar": "في لوحات «طاش ما طاش» المتكررة، حمود ومحيميد صاحبين من الريف يحاولون يتأقلمون مع شو؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "He plays multiple roles",
-      "ar": "لأنه يلعب أدوارًا متعددة"
+      "en": "City life",
+      "ar": "حياة المدينة"
     },
     "tvQuiz": {
       "version": 1,
       "spoilerSeason": 0,
-      "kind": "world",
+      "kind": "character",
       "distractors": {
         "en": [
-          "Every episode reverses time",
-          "The series is entirely a dream",
-          "The actor is playing twins"
+          "Life at sea",
+          "Military service",
+          "Life abroad"
         ],
         "ar": [
-          "كل حلقة تعكس الزمن",
-          "المسلسل كله حلم",
-          "يلعب توأمين"
+          "حياة البحر",
+          "الخدمة العسكرية",
+          "الحياة في الغربة"
         ]
       },
       "explanation": {
-        "en": "The sketch format allows the cast to reinvent their characters.",
-        "ar": "يتيح شكل اللوحات للطاقم تغيير شخصياتهم."
+        "en": "Hamoud and Muhaimeed's comedy comes from two rural friends meeting modern city life.",
+        "ar": "تنبع كوميديا حمود ومحيميد من صديقين ريفيين يواجهان حياة المدينة الحديثة."
       },
-      "contentKey": "d9f8788"
+      "contentKey": "6ddc6f25"
     }
   },
   {
@@ -31407,43 +31407,43 @@
   },
   {
     "id": "tv-shows-trivia-767",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Al-Hashasheen",
       "ar": "الحشاشين"
     },
     "question": {
-      "en": "Which description fits Al-Hashasheen's relationship to history?",
-      "ar": "أي وصف يناسب علاقة «الحشاشين» بالتاريخ؟"
+      "en": "Scenes of Al-Hashasheen were shot in Malta and in which Central Asian country?",
+      "ar": "مشاهد من «الحشاشين» تصوّرت في مالطا وفي أي دولة بآسيا الوسطى؟"
     },
     "review": {
       "status": "pending"
     },
     "answer": {
-      "en": "Historical fiction with dramatic invention",
-      "ar": "دراما تاريخية تتضمن تخييلًا"
+      "en": "Kazakhstan",
+      "ar": "كازاخستان"
     },
     "tvQuiz": {
       "version": 1,
       "spoilerSeason": 0,
-      "kind": "world",
+      "kind": "behind-scenes",
       "distractors": {
         "en": [
-          "A filmed eyewitness record",
-          "A modern reality competition",
-          "An unedited historical archive"
+          "Uzbekistan",
+          "Mongolia",
+          "Turkmenistan"
         ],
         "ar": [
-          "سجل مصور لشهود عيان",
-          "مسابقة واقع حديثة",
-          "أرشيف تاريخي بلا تعديل"
+          "أوزبكستان",
+          "منغوليا",
+          "تركمانستان"
         ]
       },
       "explanation": {
-        "en": "The series dramatises history; its scenes are not documentary evidence.",
-        "ar": "يعالج المسلسل التاريخ دراميًا، ومشاهده ليست أدلة وثائقية."
+        "en": "Filming in Malta and Kazakhstan, on real locations across several countries, delayed the series' premiere to 2024.",
+        "ar": "أخّر تصوير مشاهد في مالطا وكازاخستان، ضمن مواقع حقيقية في عدة دول، عرضَ المسلسل إلى عام 2024."
       },
-      "contentKey": "d5ef5ad1"
+      "contentKey": "ba9febe1"
     }
   },
   {
@@ -32200,7 +32200,7 @@
     },
     "answer": {
       "en": "Money",
-      "ar": "مالًا"
+      "ar": "المال"
     },
     "tvQuiz": {
       "version": 1,
@@ -32222,7 +32222,7 @@
         "en": "The distribution is intended to gain the villagers' goodwill.",
         "ar": "يهدف التوزيع إلى كسب ود أهل القرى."
       },
-      "contentKey": "e568c4e7"
+      "contentKey": "64f88320"
     }
   },
   {

@@ -239,8 +239,8 @@
       "ar": "شو الألقاب الثلاثة اللي تكوّن «الثلاثية» في كرة القدم الأوروبية؟"
     },
     "answer": {
-      "en": "Domestic League, Domestic Cup, Champions League",
-      "ar": "الدوري المحلي وكأس المحلي ودوري أبطال أوروبا"
+      "en": "Domestic league, domestic cup and Champions League",
+      "ar": "الدوري المحلي والكأس المحلية ودوري أبطال أوروبا"
     },
     "review": {
       "status": "pending"
@@ -368,12 +368,12 @@
       "ar": "بطولات الأندية والدوريات"
     },
     "question": {
-      "en": "In which country do Bayern Munich and Borussia Dortmund compete in the Bundesliga?",
-      "ar": "بأي دولة يتنافس بايرن ميونخ وبوروسيا دورتموند بالبوندسليغا؟"
+      "en": "What is the famous fixture between Bayern Munich and Borussia Dortmund nicknamed?",
+      "ar": "شو اللقب المشهور لمباراة بايرن ميونخ وبوروسيا دورتموند؟"
     },
     "answer": {
-      "en": "Germany",
-      "ar": "ألمانيا"
+      "en": "Der Klassiker",
+      "ar": "دير كلاسيكر (الكلاسيكو الألماني)"
     },
     "review": {
       "status": "pending"
@@ -558,12 +558,12 @@
       "ar": "تاريخ كرة القدم والأرقام القياسية"
     },
     "question": {
-      "en": "Which annual competition traditionally matched the European and South American club champions before its final edition in 2004?",
-      "ar": "شو البطولة السنوية اللي كانت عادةً تجمع بطل أوروبا وبطل أمريكا الجنوبية للأندية، وآخر نسخة منها انقامت سنة 2004؟"
+      "en": "Which annual competition matched the European and South American club champions from 1960 to 2004?",
+      "ar": "شو البطولة السنوية اللي كانت تجمع بطل أوروبا وبطل أمريكا الجنوبية للأندية من 1960 لـ2004؟"
     },
     "answer": {
-      "en": "The Intercontinental Cup",
-      "ar": "كأس الإنتركونتيننتال"
+      "en": "The Intercontinental Cup (Toyota Cup)",
+      "ar": "كأس الإنتركونتيننتال (كأس تويوتا)"
     },
     "review": {
       "status": "pending"
@@ -691,12 +691,12 @@
       "ar": "كرة القدم الدولية وكأس العالم"
     },
     "question": {
-      "en": "How many goals did Kylian Mbappé score in the 2022 World Cup Final?",
-      "ar": "كم هدف سجّل كيليان مبابي بنهائي كأس العالم 2022؟"
+      "en": "Which country won the 2026 men's World Cup, beating Argentina 1–0 after extra time in the final?",
+      "ar": "أي منتخب فاز بكأس العالم للرجال 2026، بعد ما غلب الأرجنتين 1–0 بالأشواط الإضافية في النهائي؟"
     },
     "answer": {
-      "en": "3 (hat-trick)",
-      "ar": "3 أهداف (هاتريك)"
+      "en": "Spain",
+      "ar": "إسبانيا"
     },
     "review": {
       "status": "pending"
@@ -1578,14 +1578,14 @@
   },
   {
     "id": "football-084",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Players & Awards",
       "ar": "اللاعبون والجوائز"
     },
     "question": {
       "en": "Which legendary German striker was nicknamed 'Der Bomber der Nation'?",
-      "ar": "أي مهاجم ألماني أسطوري كان لقبه «قنبلة الأمة»؟"
+      "ar": "أي مهاجم ألماني أسطوري كان لقبه «قاذفة الأمة» (Der Bomber der Nation)؟"
     },
     "answer": {
       "en": "Gerd Müller",
@@ -1759,8 +1759,8 @@
       "ar": "أي نادي فاز بأكثر ألقاب الدوري الإيطالي؟"
     },
     "answer": {
-      "en": "Juventus (36 titles)",
-      "ar": "يوفنتوس (36 لقبًا)"
+      "en": "Juventus",
+      "ar": "يوفنتوس"
     },
     "review": {
       "status": "pending"
@@ -1996,14 +1996,14 @@
   },
   {
     "id": "football-106",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Football History & Records",
       "ar": "تاريخ كرة القدم والأرقام القياسية"
     },
     "question": {
-      "en": "Which player became the first to make 654 Premier League appearances in February 2026?",
-      "ar": "مين صار أول لاعب يلعب 654 مباراة بالدوري الإنجليزي الممتاز في فبراير 2026؟"
+      "en": "In February 2026, which player broke Gareth Barry's record for the most Premier League appearances?",
+      "ar": "في فبراير 2026، مين اللاعب اللي كسر رقم غاريث باري لأكثر مباريات بالدوري الإنجليزي الممتاز؟"
     },
     "answer": {
       "en": "James Milner",
@@ -2154,12 +2154,12 @@
       "ar": "بطولات الأندية والدوريات"
     },
     "question": {
-      "en": "Which team did Manchester City defeat in the 2022-23 Champions League final?",
-      "ar": "أي فريق هزمه مانشستر سيتي بنهائي دوري الأبطال 2022-23؟"
+      "en": "Which Egyptian club has won the CAF Champions League a record number of times?",
+      "ar": "أي نادي مصري فاز بدوري أبطال إفريقيا أكثر عدد من المرات؟"
     },
     "answer": {
-      "en": "Inter Milan",
-      "ar": "إنتر ميلان"
+      "en": "Al Ahly",
+      "ar": "الأهلي"
     },
     "review": {
       "status": "pending"
@@ -2325,12 +2325,12 @@
       "ar": "بطولات الأندية والدوريات"
     },
     "question": {
-      "en": "Which two Real Madrid players appeared in and won their sixth Champions League final in 2024?",
-      "ar": "أي لاعبين من ريال مدريد شاركوا بنهائي دوري الأبطال وفازوا فيه للمرة السادسة سنة 2024؟"
+      "en": "Which Real Madrid winger won a record six European Cups, a total no player matched until 2024?",
+      "ar": "مين جناح ريال مدريد اللي فاز بستة ألقاب كأس أوروبا، رقم ما حد عادله إلا سنة 2024؟"
     },
     "answer": {
-      "en": "Dani Carvajal and Luka Modrić",
-      "ar": "داني كارفاخال ولوكا مودريتش"
+      "en": "Francisco Gento",
+      "ar": "فرانسيسكو خينتو"
     },
     "review": {
       "status": "pending"
@@ -2809,12 +2809,12 @@
       "ar": "بطولات الأندية والدوريات"
     },
     "question": {
-      "en": "What was the dramatic scoreline in the 1999 Champions League final, and how did Manchester United win it?",
-      "ar": "شو كانت نتيجة نهائي دوري الأبطال 1999 المثيرة، وكيف حسمها مانشستر يونايتد؟"
+      "en": "Which Saudi club won the AFC Champions League in both 2019 and 2021?",
+      "ar": "أي نادي سعودي فاز بدوري أبطال آسيا سنة 2019 وسنة 2021؟"
     },
     "answer": {
-      "en": "Manchester United came from 1-0 down to beat Bayern Munich 2-1 with two stoppage-time goals (90+1 and 90+3)",
-      "ar": "عكس يونايتد نتيجة 1-0 ليفوز على بايرن ميونخ 2-1 بهدفَين في الوقت بدل الضائع (د90+1 و د90+3)"
+      "en": "Al-Hilal",
+      "ar": "الهلال"
     },
     "review": {
       "status": "pending"

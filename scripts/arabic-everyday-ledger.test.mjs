@@ -4,11 +4,13 @@ import fs from 'node:fs';
 import test from 'node:test';
 import { beforeArabicRewrite } from './arabic-everyday-ledger.mjs';
 import { CARD_POLISH_LEDGER, beforeCardPolish } from './card-polish-ledger.mjs';
+import { CARD_AUDIT_LEDGER, cardBeforeAudit } from './card-audit-ledger.mjs';
 
 const read = filename => JSON.parse(fs.readFileSync(new URL(`../${filename}`, import.meta.url), 'utf8'));
 const hash = card => crypto.createHash('sha256').update(JSON.stringify(card)).digest('hex');
 const ledger = read('docs/content-review/arabic-everyday-2026-10-21.json');
 const polish = read(CARD_POLISH_LEDGER);
+const audit = read(CARD_AUDIT_LEDGER);
 
 test('the everyday-Arabic rewrite changes only Arabic question wording and is fully reversible', () => {
   assert.equal(ledger.schemaVersion, 1);
@@ -17,9 +19,11 @@ test('the everyday-Arabic rewrite changes only Arabic question wording and is fu
   const banks = new Map();
   for (const change of ledger.changes) {
     if (!banks.has(change.category)) banks.set(change.category, new Map(read(`data/${change.category}.json`).map(card => [card.id, card])));
-    const current = banks.get(change.category).get(change.id);
-    assert.ok(current, `${change.id}: card exists`);
-    // A later recorded pass is reversed from its own ledger first.
+    const published = banks.get(change.category).get(change.id);
+    const removed = audit.removed.some(entry => entry.id === change.id);
+    assert.ok(published || removed, `${change.id}: card exists or its removal is recorded`);
+    // Later recorded passes are reversed from their own ledgers first, newest first.
+    const current = cardBeforeAudit(audit, change.id, published);
     const later = polish.changes.find(entry => entry.id === change.id);
     if (later) {
       assert.equal(later.beforeHash, change.afterHash, `${change.id}: the 2026-10-24 polish continues this history`);

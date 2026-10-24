@@ -858,12 +858,12 @@
       "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "A seller claims a coin was minted in 44 BCE. Its original inscription, he says, labels the year “44 BC” using the modern BC dating convention. What contradicts his claim?",
-      "ar": "بايع يقول إن عملة انسكّت سنة 44 قبل الميلاد، وإن النقش الأصلي عليها مكتوب فيه «44 BC» حسب طريقة التأريخ الحديثة قبل الميلاد. شو اللي يناقض كلامه؟"
+      "en": "A dealer offers you an ancient coin stamped '44 BC'. Why must it be fake?",
+      "ar": "تاجر يعرض عليك عملة قديمة مكتوب عليها «44 قبل الميلاد». ليش أكيد مزوّرة؟"
     },
     "answer": {
-      "en": "That dating convention was introduced later. Such an inscription cannot be original to a coin minted in 44 BCE, though a later commemorative coin could use it.",
-      "ar": "اصطلاح التأريخ هذا ظهر لاحقًا، فلا يمكن أن يكون نقشًا أصليًا من سنة 44 قبل الميلاد، وإن أمكن استخدامه على عملة تذكارية أحدث."
+      "en": "Nobody in 44 BC knew they were living 'before Christ'; that dating system was invented centuries later.",
+      "ar": "ما أحد سنة 44 قبل الميلاد كان يعرف إنه عايش «قبل الميلاد»؛ هالتأريخ انخترع بعدها بقرون."
     },
     "review": {
       "status": "pending"
@@ -921,25 +921,6 @@
     "answer": {
       "en": "7. Twenty-five students study at least one language, so the overlap is 18 + 14 − 25 = 7.",
       "ar": "7. عدد من يدرسون لغة واحدة على الأقل هو 25، لذا عدد التقاطع هو 18 + 14 − 25 = 7."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "logic-puzzles-034",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Logic & Deduction",
-      "ar": "المنطق والاستنتاج"
-    },
-    "question": {
-      "en": "I am an even positive integer and have exactly two positive divisors. Why must I be 2?",
-      "ar": "أنا رقم صحيح موجب زوجي، وعندي قاسمين موجبين بس. ليش لازم أكون 2؟"
-    },
-    "answer": {
-      "en": "Any even number greater than 2 has the distinct divisors 1, 2 and itself. Only 2 has exactly two: 1 and 2.",
-      "ar": "كل عدد زوجي أكبر من 2 له القواسم المختلفة 1 و2 والعدد نفسه. أمّا 2 فله القاسمان 1 و2 فقط."
     },
     "review": {
       "status": "pending"
@@ -1143,12 +1124,12 @@
       "ar": "التفكير الجانبي"
     },
     "question": {
-      "en": "Before Everest was identified as Earth’s highest mountain above sea level, which mountain already held that physical distinction?",
-      "ar": "قبل ما يعرفون إن إيفرست أعلى جبل على الأرض فوق سطح البحر، أي جبل كان أعلى جبل فعليًا؟"
+      "en": "How can a man go eight days without sleep and still feel fine?",
+      "ar": "كيف ممكن واحد يقعد ثمانية أيام بدون نوم وهو بخير؟"
     },
     "answer": {
-      "en": "Everest. Identifying a height does not create that height.",
-      "ar": "إيفرست؛ فتحديد الارتفاع لا يغيّر الارتفاع نفسه."
+      "en": "He sleeps at night; he just doesn't sleep during the days.",
+      "ar": "ينام بالليل؛ بس ما ينام بالنهار."
     },
     "review": {
       "status": "pending"

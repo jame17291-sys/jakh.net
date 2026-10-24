@@ -938,12 +938,12 @@
       "ar": "الإدراك والذاكرة والإحساس"
     },
     "question": {
-      "en": "What is learned helplessness?",
-      "ar": "شو هو «العجز المكتسب»؟"
+      "en": "In a famous 1956 paper, George Miller suggested short-term memory holds about how many items?",
+      "ar": "في ورقة مشهورة سنة 1956، جورج ميلر اقترح إن الذاكرة قصيرة المدى تشيل تقريبًا كم عنصر؟"
     },
     "answer": {
-      "en": "A reduction in attempts to change an adverse situation after experience of uncontrollability, even when a later situation may be controllable.",
-      "ar": "انخفاض محاولات تغيير موقف منفّر بعد خبرة انعدام التحكم، حتى لو أمكن التحكم في موقف لاحق."
+      "en": "Seven, plus or minus two (later research suggests nearer four chunks).",
+      "ar": "سبعة، زائد أو ناقص اثنين (وتشير أبحاث لاحقة إلى نحو أربع وحدات)."
     },
     "review": {
       "status": "pending"
@@ -1113,8 +1113,8 @@
       "ar": "شو هو «مؤشر مايرز-بريغز للأنماط» (MBTI)؟"
     },
     "answer": {
-      "en": "A personality questionnaire framework that describes 16 types using four preference pairs: E/I, S/N, T/F and J/P. Its types should not be treated as definitive diagnoses.",
-      "ar": "إطار لاستبيان شخصية يصف 16 نمطًا باستخدام أربعة أزواج من التفضيلات: E/I وS/N وT/F وJ/P. ولا تُعد أنماطه تشخيصات نهائية."
+      "en": "A popular questionnaire that sorts people into 16 types using four preference pairs (E/I, S/N, T/F, J/P). Psychologists criticise its scientific basis (many people get a different type when retested), and research favours trait models such as the Big Five.",
+      "ar": "استبيان شائع يصنّف الناس إلى 16 نمطاً عبر أربعة أزواج من التفضيلات (E/I وS/N وT/F وJ/P). وينتقد علماء النفس أساسه العلمي، إذ يحصل كثيرون على نمط مختلف عند إعادة الاختبار، وتفضّل الأبحاث نماذج السمات مثل العوامل الخمسة الكبرى."
     },
     "review": {
       "status": "pending"
@@ -1417,8 +1417,8 @@
       "ar": "شو نظرية «الخلايا العصبية المرآتية»، وشو علاقتها بالتعاطف؟"
     },
     "answer": {
-      "en": "Mirror neurons fire both when performing an action and observing someone else do it — theorised to underlie empathy and social cognition",
-      "ar": "تنشط الخلايا العصبية المرآتية عند القيام بفعل وعند مشاهدة شخص آخر يقوم به — يُنظَر إليها كأساس للتعاطف والإدراك الاجتماعي"
+      "en": "Neurons, first recorded in monkeys, that fire both when doing an action and when watching it done. The popular claim that they explain empathy is contested; evidence in humans is indirect.",
+      "ar": "خلايا عصبية رُصدت أولاً عند القرود، تنشط عند القيام بفعل وعند مشاهدة غيرك يقوم به. أما الفكرة الشائعة بأنها تفسّر التعاطف فمحل خلاف، والأدلة عند البشر غير مباشرة."
     },
     "review": {
       "status": "pending"
@@ -1684,7 +1684,7 @@
     },
     "answer": {
       "en": "Reliability is consistency of measurement; validity is whether the test actually measures what it claims to measure",
-      "ar": "الموثوقية هي اتساق القياس؛ أما الصدق فهو ما إذا كان الاختبار يقيس فعلاً ما يدّعي قياسه"
+      "ar": "الثبات هو اتساق القياس؛ أما الصدق فهو أن يقيس الاختبار فعلاً ما يدّعي قياسه."
     },
     "review": {
       "status": "pending"
@@ -1869,12 +1869,12 @@
       "ar": "الإدراك والذاكرة والإحساس"
     },
     "question": {
-      "en": "What is behavioural economics and how does it differ from classical economics?",
-      "ar": "شو هو «اقتصاد السلوك»، وكيف يختلف عن الاقتصاد الكلاسيكي؟"
+      "en": "What did James Flynn notice about average IQ test scores across the 20th century?",
+      "ar": "شو اللي لاحظه جيمس فلين على متوسط نتائج اختبارات الذكاء خلال القرن العشرين؟"
     },
     "answer": {
-      "en": "Behavioral economics uses psychological evidence to study economic decisions, including systematic departures from standard rational-choice predictions. It is not limited to labeling decisions irrational.",
-      "ar": "يستخدم الاقتصاد السلوكي الأدلة النفسية لدراسة القرارات الاقتصادية، ومنها الانحرافات المنتظمة عن تنبؤات نماذج الاختيار العقلاني القياسية؛ ولا يقتصر على وصف القرارات بأنها غير عقلانية."
+      "en": "They rose steadily, about 3 points per decade in many countries (the Flynn effect), though some countries now show a slowdown or reversal.",
+      "ar": "أنها ارتفعت باستمرار، بنحو 3 نقاط كل عشر سنوات في دول كثيرة (أثر فلين)، مع تباطؤ أو تراجع في بعض الدول مؤخراً."
     },
     "review": {
       "status": "pending"

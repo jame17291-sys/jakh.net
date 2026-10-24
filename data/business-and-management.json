@@ -26,12 +26,12 @@
       "ar": "الأسواق والاقتصاد"
     },
     "question": {
-      "en": "In a standard competitive-market model, what happens to the equilibrium price when supply decreases while demand remains unchanged?",
-      "ar": "في السوق التنافسي العادي، شو يصير لسعر التوازن إذا قلّ العرض والطلب ما تغيّر؟"
+      "en": "What do we call the percentage of all sales in a market that one company makes?",
+      "ar": "شو نسمّي النسبة اللي تاخذها شركة وحدة من مجموع المبيعات بالسوق؟"
     },
     "answer": {
-      "en": "It rises, other things being equal.",
-      "ar": "يرتفع، مع ثبات العوامل الأخرى."
+      "en": "Its market share",
+      "ar": "الحصة السوقية"
     },
     "review": {
       "status": "pending"
@@ -387,12 +387,12 @@
       "ar": "الاستراتيجية والمنافسة"
     },
     "question": {
-      "en": "Who developed the framework analyzing competitive forces within an industry?",
-      "ar": "مين طوّر الإطار اللي يحلّل القوى التنافسية داخل الصناعة؟"
+      "en": "Who developed the 'Five Forces' framework for analysing competition within an industry?",
+      "ar": "مين طوّر إطار «القوى الخمس» لتحليل المنافسة داخل الصناعة؟"
     },
     "answer": {
-      "en": "Michael Porter",
-      "ar": "مايكل بورتر"
+      "en": "Michael Porter.",
+      "ar": "مايكل بورتر."
     },
     "review": {
       "status": "pending"

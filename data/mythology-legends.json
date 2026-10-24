@@ -174,7 +174,7 @@
     "id": "mythology-legends-10",
     "question": {
       "en": "What creature turns people to stone with her gaze and has snakes for hair?",
-      "ar": "شو المخلوق اللي يحوّل الناس لحجر بنظرة، وشعره أفاعي؟"
+      "ar": "شو اسم المخلوقة اللي تحوّل الناس لحجر بنظرة وحدة، وشعرها أفاعي؟"
     },
     "answer": {
       "en": "Medusa",
@@ -363,12 +363,12 @@
   {
     "id": "mythology-legends-20",
     "question": {
-      "en": "What sacred vessel is the object of the Grail quest in Arthurian legends?",
-      "ar": "شو الكأس المقدسة اللي يدوّر عليها الفرسان بأساطير الملك آرثر؟"
+      "en": "In Arthurian legend, which knight finally achieves the quest for the Holy Grail?",
+      "ar": "بأساطير الملك آرثر، أي فارس نجح أخيرًا بالعثور على الكأس المقدسة؟"
     },
     "answer": {
-      "en": "The Holy Grail",
-      "ar": "الكأس المقدسة"
+      "en": "Sir Galahad",
+      "ar": "السير غلاهاد"
     },
     "difficulty": "medium",
     "subcategory": {

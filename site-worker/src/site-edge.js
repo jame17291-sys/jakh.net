@@ -556,8 +556,8 @@ function validateManifest(siteManifest) {
   );
   invariant(siteManifest.publication?.state === "safety-quarantine-active", "Production publication quarantine is not active");
   invariant(/^[a-f0-9]{64}$/u.test(siteManifest.publication.policySha256 || ""), "Invalid publication policy digest");
-  invariant(siteManifest.publication.fullQuestions === 4_103, "Invalid full publication corpus total");
-  invariant(siteManifest.publication.publicQuestions === 3_825, "Invalid public publication corpus total");
+  invariant(siteManifest.publication.fullQuestions === 4_076, "Invalid full publication corpus total");
+  invariant(siteManifest.publication.publicQuestions === 3_798, "Invalid public publication corpus total");
   invariant(siteManifest.publication.quarantinedQuestions === 278, "Invalid quarantined publication total");
   invariant(siteManifest.publication.publicCategories === 51, "Invalid public category total");
   invariant(

@@ -3,11 +3,13 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import test from 'node:test';
 import { CARD_POLISH_LEDGER, beforeCardPolish } from './card-polish-ledger.mjs';
+import { CARD_AUDIT_LEDGER, cardBeforeAudit } from './card-audit-ledger.mjs';
 import { isPrepared } from '../tv-trivia-engine.js';
 
 const read = filename => JSON.parse(fs.readFileSync(new URL(`../${filename}`, import.meta.url), 'utf8'));
 const hash = card => crypto.createHash('sha256').update(JSON.stringify(card)).digest('hex');
 const ledger = read(CARD_POLISH_LEDGER);
+const audit = read(CARD_AUDIT_LEDGER);
 const quarantine = read('docs/content-review/production-quarantine.json');
 const get = (object, dotted) => dotted.split('.').reduce((value, key) => value?.[key], object);
 const EDITABLE = /^(?:question\.(?:en|ar)|answer\.ar|tvQuiz\.(?:explanation\.(?:en|ar)|distractors\.ar|contentKey))$/u;
@@ -25,8 +27,10 @@ test('the 2026-10-24 card polish is recorded, exact and fully reversible', () =>
   for (const change of ledger.changes) {
     assert.ok(!held.has(change.category), `${change.id}: held categories stay untouched`);
     if (!banks.has(change.category)) banks.set(change.category, new Map(read(`data/${change.category}.json`).map(card => [card.id, card])));
-    const card = banks.get(change.category).get(change.id);
-    assert.ok(card, `${change.id}: card exists`);
+    const published = banks.get(change.category).get(change.id);
+    assert.ok(published || audit.removed.some(entry => entry.id === change.id), `${change.id}: card exists or its removal is recorded`);
+    // A later 2026-10-25 audit edit is reversed from its own ledger first.
+    const card = cardBeforeAudit(audit, change.id, published);
     assert.ok(change.reason?.trim(), `${change.id}: documented reason`);
     assert.equal(hash(card), change.afterHash, `${change.id}: current card matches the ledger`);
     const previous = Object.entries(change.previous || {});

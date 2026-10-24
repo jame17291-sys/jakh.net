@@ -84,21 +84,19 @@
       "ar": "المدارس الفلسفية"
     },
     "question": {
-      "en": "What is René Descartes' most famous philosophical statement?",
-      "ar": "شو أشهر جملة فلسفية قالها رينيه ديكارت؟"
+      "en": "Which philosopher wrote 'I think, therefore I am'?",
+      "ar": "مين الفيلسوف اللي كتب «أنا أفكر، إذن أنا موجود»؟"
     },
     "answer": {
-      "en": "'Cogito, ergo sum' — 'I think, therefore I am.' It was his foundational certainty: even if everything else could be doubted, the very act of doubting proves the existence of a thinking subject.",
-      "ar": "'أنا أفكر، إذن أنا موجود' (Cogito, ergo sum). كانت يقينه الأساسي: حتى لو أمكن الشك في كل شيء آخر، فإن فعل الشك ذاته يُثبت وجود ذات مفكّرة."
+      "en": "René Descartes.",
+      "ar": "رينيه ديكارت."
     },
     "acceptedAnswers": {
       "en": [
-        "I think, therefore I am.",
-        "Cogito, ergo sum."
+        "Descartes"
       ],
       "ar": [
-        "أنا أفكر، إذن أنا موجود.",
-        "أفكر إذن أنا موجود."
+        "ديكارت"
       ]
     },
     "review": {
@@ -278,18 +276,18 @@
   },
   {
     "id": "phil-014",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Philosophical Traditions",
       "ar": "المدارس الفلسفية"
     },
     "question": {
-      "en": "Who was Ibn Rushd (Averroes) and why was he significant in the history of philosophy?",
-      "ar": "مين ابن رشد، وليش كان مهم بتاريخ الفلسفة؟"
+      "en": "Medieval European scholars called him simply 'The Commentator' for his works on Aristotle. Which Andalusian philosopher was he?",
+      "ar": "علماء أوروبا بالعصور الوسطى كانوا يسمّونه «الشارح» بسبب شروحه على أرسطو. مين هالفيلسوف الأندلسي؟"
     },
     "answer": {
-      "en": "Ibn Rushd (1126–1198) was an Andalusian Muslim philosopher who wrote extensive commentaries on Aristotle. His work transmitted Aristotle's philosophy to medieval Europe, influencing Aquinas and scholasticism. He argued for the compatibility of reason and faith, believing philosophy and theology could be reconciled.",
-      "ar": "ابن رشد (1126–1198) فيلسوف مسلم أندلسي كتب شروحات مستفيضة على أرسطو. نقل عمله فلسفة أرسطو إلى أوروبا في العصور الوسطى مؤثّرًا في الأكويني والمدرسية. جادل بتوافق العقل والإيمان مؤمنًا بإمكانية التوفيق بين الفلسفة واللاهوت."
+      "en": "Ibn Rushd (Averroes).",
+      "ar": "ابن رشد."
     },
     "review": {
       "status": "pending"
@@ -590,12 +588,12 @@
       "ar": "الميتافيزيقا وفلسفة العقل"
     },
     "question": {
-      "en": "What is the ontological argument for God's existence and who formulated it?",
-      "ar": "شو هو «البرهان الوجودي» على وجود الله، ومين صاغه؟"
+      "en": "Which 11th-century thinker argued that God is 'that than which nothing greater can be conceived'?",
+      "ar": "أي مفكّر من القرن الحادي عشر قال إن الله هو «الذي لا يمكن تصوّر ما هو أعظم منه»؟"
     },
     "answer": {
-      "en": "Formulated by Anselm of Canterbury (11th century): God is 'that than which nothing greater can be conceived.' If God existed only in the mind, something greater (one that also exists in reality) could be conceived — contradiction. Therefore God must exist in reality. Kant famously criticized it: 'existence is not a predicate.'",
-      "ar": "صاغه أنسيلم الكانتربري (القرن الحادي عشر): الله هو 'ما لا يمكن تصوّر ما هو أعظم منه'. لو وُجد الله في الذهن فقط، يمكن تصوّر شيء أعظم (موجود في الواقع أيضًا) — تناقض. إذن يجب أن يوجد الله في الواقع. انتقده كانط بقوله الشهير: 'الوجود ليس محمولًا'."
+      "en": "Anselm of Canterbury (the ontological argument).",
+      "ar": "أنسلم الكانتربري (البرهان الوجودي)."
     },
     "review": {
       "status": "pending"

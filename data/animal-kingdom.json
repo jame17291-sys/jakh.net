@@ -216,12 +216,12 @@
       "ar": "التكاثر ودورات الحياة"
     },
     "question": {
-      "en": "What is the term for animals that carry their young in a pouch?",
-      "ar": "شو نسمّي الحيوانات اللي تحمل صغارها في جراب؟"
+      "en": "Kangaroos and koalas belong to which group of mammals?",
+      "ar": "الكنغر والكوالا من أي مجموعة من الثدييات؟"
     },
     "answer": {
-      "en": "Marsupials; many species rear their young in a pouch.",
-      "ar": "الجرابيات؛ تربي أنواع كثيرة منها صغارها في جراب."
+      "en": "Marsupials; many raise their young in a pouch.",
+      "ar": "الجرابيات؛ وكثير منها يربي صغاره في جراب."
     },
     "review": {
       "status": "pending"
@@ -330,12 +330,12 @@
       "ar": "الطيور والطيران"
     },
     "question": {
-      "en": "What is the collective noun for a group of crows?",
-      "ar": "شو اسم سرب الغربان بالإنجليزي؟"
+      "en": "In English, what is the collective noun for a group of crows?",
+      "ar": "بالإنجليزي، شو الاسم اللي يطلقونه على سرب الغربان؟"
     },
     "answer": {
-      "en": "A Murder",
-      "ar": "مجموعة (Murder)"
+      "en": "A murder",
+      "ar": "Murder (حرفيًا: «جريمة قتل»)"
     },
     "review": {
       "status": "pending"
@@ -558,8 +558,8 @@
       "ar": "السلوك والبيئة والتكيف"
     },
     "question": {
-      "en": "What is the term for a state of reduced metabolic activity in animals during summer?",
-      "ar": "شو نسمّي لما نشاط جسم الحيوان يقل كثير خلال الصيف؟"
+      "en": "Some desert snails and African lungfish seal themselves in and slow their bodies down to survive long hot, dry spells. What is this called?",
+      "ar": "بعض حلزونات الصحراء وأسماك الرئة الأفريقية تنعزل وتبطّئ نشاط جسمها عشان تنجو من فترات الحر والجفاف الطويلة. شو اسم هالحالة؟"
     },
     "answer": {
       "en": "Aestivation",
@@ -615,12 +615,12 @@
       "ar": "السلوك والبيئة والتكيف"
     },
     "question": {
-      "en": "What is 'Kleptoparasitism' in animal behavior?",
-      "ar": "في سلوك الحيوانات، شو يعني «التطفّل بالسرقة» (Kleptoparasitism)؟"
+      "en": "Frigatebirds chase other seabirds until they drop their catch, then snatch it. What is this food-stealing behaviour called?",
+      "ar": "طيور الفرقاط تطارد طيور بحر ثانية لحد ما ترمي صيدها، وبعدين تخطفه. شو اسم هالسلوك؟"
     },
     "answer": {
-      "en": "Stealing food gathered by another animal",
-      "ar": "سرقة الطعام الذي جمعه حيوان آخر"
+      "en": "Kleptoparasitism",
+      "ar": "التطفّل بالسرقة (Kleptoparasitism)"
     },
     "review": {
       "status": "pending"

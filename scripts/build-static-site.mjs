@@ -835,7 +835,7 @@ export function assertPublicProjection(artifactBytes, { publication, quarantine 
     }
   }
   invariant(publication.publicCategories === 51, `public category contract changed from 51 to ${publication.publicCategories}`);
-  invariant(publication.publicQuestions === 3_825, `public question contract changed from 3825 to ${publication.publicQuestions}`);
+  invariant(publication.publicQuestions === 3_798, `public question contract changed from 3798 to ${publication.publicQuestions}`);
   invariant(quarantine.manifest.totalCards === 278, "production quarantine contract changed from 278 cards");
 }
 

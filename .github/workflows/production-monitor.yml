@@ -65,6 +65,7 @@ jobs:
           JAKH_MONITOR_SCOPE: ${{ steps.context.outputs.scope }}
           JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA: ${{ steps.context.outputs.allow-compatible-schema }}
           JAKH_MONITOR_RESULT_PATH: monitor-production-result.json
+          JAKH_MONITOR_ANNOTATE: "1"
         run: node scripts/monitor-production.mjs
 
       - name: Route production failure or recovery

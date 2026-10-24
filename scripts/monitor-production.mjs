@@ -1342,6 +1342,13 @@ export async function runProductionMonitor(options = {}) {
   for (const failure of failures) {
     const attempts = failure.attempts > 1 ? ` after ${failure.attempts} attempts` : "";
     logger.error(`FAIL  ${failure.name}${attempts}: ${failure.message}`);
+    // In GitHub Actions, also raise each failure as an annotation so it can be
+    // read from the run summary and the API without downloading the job log.
+    if (process.env.JAKH_MONITOR_ANNOTATE === "1") {
+      const escape = (value) => String(value).replaceAll("%", "%25").replaceAll("\r", "%0D").replaceAll("\n", "%0A");
+      const title = escape(failure.name).replaceAll(":", "%3A").replaceAll(",", "%2C");
+      process.stdout.write(`::error title=Monitor${title ? ` - ${title}` : ""}::${escape(`${failure.message}${attempts}`)}\n`);
+    }
   }
 
   const summary = { config, navigationLayout, results, failures };

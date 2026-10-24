@@ -61,8 +61,16 @@ const PUZZLE_ASSETS = Object.freeze([
   "/puzzle-room.js",
 ]);
 
+// Classic page scripts that HTML still spells with hand-maintained `?v=` tags.
+// The build replaces those tags with content hashes so an edit can never ship
+// under an unchanged version string.
+const PAGE_RUNTIME_SCRIPTS = Object.freeze(["/site-i18n.js", "/game-i18n.js", "/privacy-page.js"]);
+
 export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
   "/privacy-consent.js",
+  ...PAGE_RUNTIME_SCRIPTS,
+  "/content-overrides.js",
+  "/data/card-index.json",
   "/auth-enhancements.js",
   "/speech-quality.js",
   "/auth-security.css", "/auth-security.js",
@@ -95,6 +103,7 @@ export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
 
 const HTML_FINGERPRINT_SOURCE_PATHS = new Set([
   "/privacy-consent.js",
+  ...PAGE_RUNTIME_SCRIPTS,
   "/party-games.js", "/friendship-games.js", "/party-games.css",
   "/tv-trivia.css",
   "/shuffle-challenge.css",
@@ -249,6 +258,11 @@ function rewriteApplication(source, fingerprints) {
     "/search-leaderboard.js",
     "/search-leaderboard.css",
     "/data/catalog.json",
+    // The public card index decides which saved progress is visible and which
+    // signed-in saves may publish. Pin it per release so no browser or service
+    // worker cache can keep an older question list alive.
+    "/data/card-index.json",
+    "/content-overrides.js",
   ]) {
     const target = fingerprints[dependency];
     if (!target) continue;
@@ -940,6 +954,9 @@ export async function buildStaticSite({
 
   for (const stableUrlPath of [
     "/privacy-consent.js",
+    ...PAGE_RUNTIME_SCRIPTS,
+    "/content-overrides.js",
+    "/data/card-index.json",
     "/auth-enhancements.js",
     "/speech-quality.js",
     "/auth-security.css",

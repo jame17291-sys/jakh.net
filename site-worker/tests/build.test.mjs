@@ -294,7 +294,7 @@ test("generated production manifest is complete, one-hop, and excludes repositor
     assert.match(application, new RegExp(manifest.fingerprints[stable].replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
   }
   for (const [parent, dependencies] of Object.entries({
-    '/app.js': ['/auth-security.js', '/auth-enhancements.js', '/data/catalog.json'],
+    '/app.js': ['/auth-security.js', '/auth-enhancements.js', '/data/catalog.json', '/data/card-index.json', '/content-overrides.js'],
     '/admin.js': ['/auth-security.js'],
     '/auth-security.js': ['/auth-security.css'],
     '/battle-mode.js': ['/battle-selection.js'],

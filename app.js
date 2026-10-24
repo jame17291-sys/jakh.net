@@ -1517,8 +1517,9 @@ let cardIndexPromise;
 
 async function loadCardIndex() {
   if (!cardIndexPromise) {
+    // The build pins this URL to the release's content hash, so normal HTTP
+    // caching is immutable per release and never serves an older question list.
     cardIndexPromise = fetch('/data/card-index.json', {
-      cache: 'force-cache',
       headers: { Accept: 'application/json' },
     }).then(async response => {
       if (!response.ok) throw new Error('Card index is unavailable');

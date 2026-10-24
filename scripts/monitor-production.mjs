@@ -190,6 +190,15 @@ export const PRE_NAVIGATION_SITEMAP_PATHS = Object.freeze(
 // Shuffle Challenge replaced the daily question; candidates need the new one.
 const PREDECESSOR_DAILY_LABELS = Object.freeze({ en: "Daily Challenge", ar: "التحدي اليومي" });
 
+// A script marker such as "game-i18n.js" also matches the content-hashed name
+// the static build publishes ("/game-i18n.0123456789abcdef.js"), so the
+// monitor accepts both the current release and a pre-fingerprint baseline.
+export function htmlHasBilingualMarker(html, marker) {
+  if (html.includes(marker)) return true;
+  const script = /^([a-z0-9-]+)\.js$/u.exec(marker);
+  return Boolean(script) && new RegExp(`(?<![A-Za-z0-9_.-])${script[1]}\\.[a-f0-9]{16}\\.js`, "u").test(html);
+}
+
 function expectSharedNavigation(html, pathname, { includeKids = true, allowPredecessorDaily = false } = {}) {
   const isAr = pathname.startsWith("/ar/");
   const navs = [...html.matchAll(/<nav\b[^>]*class="[^"]*\bprimary-navigation\b[^"]*"[^>]*>([\s\S]*?)<\/nav>/giu)];
@@ -733,7 +742,7 @@ export async function runProductionMonitor(options = {}) {
         privacyScriptPath = script[1];
         privacyScriptFingerprint = script[2] || null;
       } else {
-        expect(resource.text.includes(route.bilingualMarker), `missing bilingual marker "${route.bilingualMarker}"`);
+        expect(htmlHasBilingualMarker(resource.text, route.bilingualMarker), `missing bilingual marker "${route.bilingualMarker}"`);
       }
       if (navigationLayout === "current") {
         expectSharedNavigation(resource.text, route.path, {

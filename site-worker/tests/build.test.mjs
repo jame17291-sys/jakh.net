@@ -8,15 +8,21 @@ import test from "node:test";
 import vm from 'node:vm';
 import * as overrideModule from '../../content-overrides.js';
 
+import { brotliDecompressSync, gunzipSync } from "node:zlib";
+
 import {
   buildStaticSite,
   assertPublicProjection,
   FINGERPRINT_PREFIX_LENGTH,
   FINGERPRINT_SOURCE_PATHS,
+  HTML_PRECOMPRESSION_MIN_BYTES,
+  htmlPrecompressionEnabled,
   inlineScriptHashes,
   isDeployableFile,
   normalizeAdminRuntimeConfig,
+  PRECOMPRESSED_DIRECTORY,
   rewriteKnownHtmlClaims,
+  STATIC_ASSET_LIMITS,
 } from "../../scripts/build-static-site.mjs";
 import {
   isQuarantinedArtifactPath,
@@ -385,9 +391,8 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   }
 
   const sectionContracts = [
-    // Kids Riddles (30 questions) is the Kids hub and has no directory card.
     // Arabic labels follow MSA counting: 3–10 take the plural, 11–99 the accusative singular.
-    ["mind", 7, 450, "7 موضوعات", "450 سؤالًا"],
+    ["mind", 8, 480, "8 موضوعات", "480 سؤالًا"],
     ["science", 9, 730, "9 موضوعات", "730 سؤالًا"],
     ["tech", 11, 420, "11 موضوعًا", "420 سؤالًا"],
     ["world", 11, 570, "11 موضوعًا", "570 سؤالًا"],
@@ -395,8 +400,8 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   ];
   const mindLab = await readFile(join(repositoryRoot, "site-worker/dist/mind-lab.html"), "utf8");
   const arabicMindLab = await readFile(join(repositoryRoot, "site-worker/dist/ar/mind-lab/index.html"), "utf8");
-  assert.match(mindLab, /data-cluster="all"[\s\S]*?class="ml-cluster-tab-count">50 topics</u);
-  assert.match(arabicMindLab, /data-cluster="all"[\s\S]*?class="ml-cluster-tab-count">50 موضوعًا</u);
+  assert.match(mindLab, /data-cluster="all"[\s\S]*?class="ml-cluster-tab-count">51 topics</u);
+  assert.match(arabicMindLab, /data-cluster="all"[\s\S]*?class="ml-cluster-tab-count">51 موضوعًا</u);
   for (const [section, topics, questions, arabicTopics, arabicQuestions] of sectionContracts) {
     assert.match(mindLab, new RegExp(`data-cluster="${section}"[\\s\\S]*?class="ml-cluster-tab-count">${topics} topics`, "u"));
     assert.match(mindLab, new RegExp(`id="section-${section}"[\\s\\S]*?class="directory-section-count">${topics} topics · ${questions.toLocaleString("en-US")} questions`, "u"));
@@ -421,6 +426,124 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   }
   const privacy = await readFile(join(repositoryRoot, "site-worker/dist/privacy.html"), "utf8");
   assert.doesNotMatch(privacy, /GitHub Pages serves the public website/u);
+});
+
+function decodeCopy(copyPath, bytes) {
+  return copyPath.endsWith(".br") ? brotliDecompressSync(bytes) : gunzipSync(bytes);
+}
+
+test("every deployable HTML page ships br and gzip copies that decode to its exact bytes", async () => {
+  const manifest = JSON.parse(await readFile(join(repositoryRoot, "site-worker/generated/site-manifest.json"), "utf8"));
+  const dist = join(repositoryRoot, "site-worker/dist");
+  const { htmlPrecompression } = manifest;
+  assert.equal(htmlPrecompression.enabled, true, "site-worker/html-precompression.json switches precompression on");
+  assert.equal(htmlPrecompression.directory, PRECOMPRESSED_DIRECTORY);
+  assert.deepEqual(htmlPrecompression.encodings, ["br", "gzip"]);
+  const copies = new Set();
+  let pages = 0;
+  for (const [page, record] of Object.entries(manifest.files).filter(([path]) => path.endsWith(".html"))) {
+    const variants = htmlPrecompression.variants[page];
+    if (record.bytes < HTML_PRECOMPRESSION_MIN_BYTES) {
+      assert.equal(variants, undefined, `${page} is too small to compress`);
+      continue;
+    }
+    pages += 1;
+    assert.deepEqual(Object.keys(variants || {}), ["br", "gzip"], `${page} has both copies`);
+    const stored = await readFile(join(dist, page.slice(1)));
+    for (const [encoding, copy] of Object.entries(variants)) {
+      assert.equal(copy, `${PRECOMPRESSED_DIRECTORY}${record.sha256}.${encoding === "br" ? "br" : "gz"}`, `${page} ${encoding} name`);
+      const bytes = await readFile(join(dist, copy.slice(1)));
+      assert.deepEqual(manifest.files[copy], { sha256: digest(bytes), bytes: bytes.length }, `${copy} inventory record`);
+      assert.ok(bytes.length < stored.length, `${copy} is smaller than ${page}`);
+      assert.ok(decodeCopy(copy, bytes).equals(stored), `${copy} decodes to the exact bytes of ${page}`);
+      if (encoding === "gzip") {
+        assert.equal(bytes.readUInt32LE(4), 0, `${copy} has no timestamp`);
+        assert.equal(bytes[9], 255, `${copy} does not record the build platform`);
+      }
+      copies.add(copy);
+    }
+  }
+  assert.ok(pages > 1_000, "the release compresses its HTML pages");
+  assert.deepEqual(
+    Object.keys(manifest.files).filter((path) => path.toLowerCase().startsWith(PRECOMPRESSED_DIRECTORY)).sort(),
+    [...copies].sort(),
+    "the internal directory holds only referenced copies",
+  );
+  for (const path of [...Object.keys(manifest.routes), ...Object.values(manifest.routes), ...Object.keys(manifest.aliases)]) {
+    assert.equal(path.toLowerCase().startsWith(PRECOMPRESSED_DIRECTORY), false, `${path} must not route to a compressed copy`);
+  }
+  assert.ok(manifest.fileCount <= STATIC_ASSET_LIMITS.files, `${manifest.fileCount} files fit the Workers Free plan`);
+});
+
+test("the production admin page ships no loopback API origins in its CSP", async () => {
+  const cspOf = (html) => html.match(/http-equiv="Content-Security-Policy" content="([^"]+)"/u)?.[1] || "";
+  const built = cspOf(await readFile(join(repositoryRoot, "site-worker/dist/admin.html"), "utf8"));
+  assert.match(built, /connect-src 'self' https:\/\/api\.riddlearabia\.com;/u);
+  assert.doesNotMatch(built, /127\.0\.0\.1|localhost|\[::1\]|:8787/u);
+  const checkout = cspOf(await readFile(join(repositoryRoot, "admin.html"), "utf8"));
+  assert.match(checkout, /http:\/\/127\.0\.0\.1:8787 http:\/\/localhost:8787/u, "the checkout copy still works with a local Worker preview");
+});
+
+test("fixture builds precompress HTML behind the switch and keep loopback admin origins only for loopback builds", async (context) => {
+  const temporary = await mkdtemp(join(tmpdir(), "jakh-precompress-build-"));
+  context.after(() => rm(temporary, { recursive: true, force: true }));
+  const source = join(temporary, "source");
+  await mkdir(source, { recursive: true });
+  const paragraphs = Array.from({ length: 80 }, (_, index) => `<p>Riddle ${index}: what has keys but cannot open locks? A piano.</p>`).join("\n");
+  const index = `<!doctype html><link rel="canonical" href="https://riddlearabia.com/"><script>window.ready=true;</script><main>${paragraphs}</main>`;
+  const admin = '<!doctype html><html data-admin-api-origin="https://api.riddlearabia.com/api" data-admin-environment="production"><head>'
+    + '<meta http-equiv="Content-Security-Policy" content="default-src \'self\'; connect-src \'self\' https://api.riddlearabia.com http://127.0.0.1:8787 http://localhost:8787 ws://[::1]:8787; img-src \'self\'">'
+    + '<link rel="canonical" href="https://riddlearabia.com/admin"></head></html>';
+  await writeFile(join(source, "index.html"), index, "utf8");
+  await writeFile(join(source, "404.html"), "<!doctype html><title>Missing</title>", "utf8");
+  await writeFile(join(source, "admin.html"), admin, "utf8");
+  const fileList = ["index.html", "404.html", "admin.html"];
+  const build = (name, options = {}) => buildStaticSite({
+    sourceRoot: source,
+    outputDirectory: join(temporary, `${name}-dist`),
+    manifestPath: join(temporary, `${name}.json`),
+    manifestModulePath: join(temporary, `${name}.js`),
+    fileList,
+    ...options,
+  });
+
+  const on = await build("on");
+  assert.equal(on.htmlPrecompression.enabled, htmlPrecompressionEnabled(), "the default follows the tracked switch");
+  assert.equal(on.htmlPrecompression.enabled, true);
+  const variants = on.htmlPrecompression.variants["/index.html"];
+  assert.deepEqual(Object.keys(variants), ["br", "gzip"]);
+  assert.equal(on.htmlPrecompression.variants["/404.html"], undefined, "tiny pages are not worth a copy");
+  assert.equal(on.fileCount, fileList.length + 2);
+  await assertCompleteInventory(on, join(temporary, "on-dist"));
+  for (const copy of Object.values(variants)) {
+    const bytes = await readFile(join(temporary, "on-dist", copy.slice(1)));
+    assert.ok(decodeCopy(copy, bytes).equals(Buffer.from(index, "utf8")), `${copy} decodes to the published page`);
+  }
+  assert.deepEqual(await build("repeat"), on, "compressed copies are deterministic");
+  assert.doesNotMatch(await readFile(join(temporary, "on-dist/admin.html"), "utf8"), /127\.0\.0\.1|localhost|\[::1\]/u);
+
+  const off = await build("off", { precompressHtml: false });
+  assert.equal(off.htmlPrecompression.enabled, false);
+  assert.deepEqual(off.htmlPrecompression.variants, {});
+  assert.equal(off.fileCount, fileList.length);
+  assert.equal(Object.keys(off.files).some((path) => path.startsWith(PRECOMPRESSED_DIRECTORY)), false);
+  await assertCompleteInventory(off, join(temporary, "off-dist"));
+  assert.notEqual(off.buildId, on.buildId, "the build identity covers the compressed copies");
+  assert.equal(off.sourceGraphId, on.sourceGraphId, "the offline cache identity does not depend on compression");
+
+  const local = await build("local", { adminApiOrigin: "http://127.0.0.1:8787/api", adminEnvironment: "local" });
+  const localAdmin = await readFile(join(temporary, "local-dist/admin.html"), "utf8");
+  assert.match(localAdmin, /connect-src 'self' https:\/\/api\.riddlearabia\.com http:\/\/127\.0\.0\.1:8787 http:\/\/localhost:8787 ws:\/\/\[::1\]:8787;/u);
+  assert.equal(local.adminRuntime.apiOrigin, "http://127.0.0.1:8787/api");
+
+  const configs = join(temporary, "configs");
+  await mkdir(configs, { recursive: true });
+  await writeFile(join(configs, "off.json"), '{ "enabled": false }\n', "utf8");
+  await writeFile(join(configs, "bad.json"), '{ "enabled": "yes" }\n', "utf8");
+  assert.equal(htmlPrecompressionEnabled(join(configs, "off.json")), false);
+  assert.equal(htmlPrecompressionEnabled(join(configs, "missing.json")), true, "a missing switch means on");
+  assert.throws(() => htmlPrecompressionEnabled(join(configs, "bad.json")), /must declare "enabled": true or false/u);
+  await assert.rejects(build("invalid", { precompressHtml: "yes" }), /precompressHtml must be true, false, or omitted/u);
 });
 
 test("artifact text scan rejects held Q/A encodings but permits policy identifiers", () => {

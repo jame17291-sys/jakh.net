@@ -9,7 +9,8 @@ import { context, githubClient, oidcToken, autopilotRequest, diagnoseAutopilotId
 import { safeChildEnv, findingBody, syncFindings, matchDispatchedRun, dispatchAndWait,
   FINDINGS_MARKER, BOT_ID, publishVerifiedRepair, waitForPullRequestChecks, verifyPublishedBuild,
   automaticReleaseReadiness, publicationFinding, validateHandoff, readHandoff, HANDOFF_FILE,
-  publicationExitCode, runPublication, runInspection, inspectionIdentity, assessReleaseLag, RELEASE_LAG_LIMIT_DAYS } from './site-autopilot.mjs';
+  publicationExitCode, runPublication, runInspection, inspectionIdentity, assessReleaseLag, RELEASE_LAG_LIMIT_DAYS,
+  runLiveProductionCheck } from './site-autopilot.mjs';
 import { execFileSync } from 'node:child_process';
 
 import { loadProductionQuarantine } from './publication-quarantine.mjs';
@@ -847,7 +848,7 @@ test('maintenance installs packages only in a read-only job and writes only from
   const source = await fs.readFile(path.join(ROOT, '.github/workflows/site-autopilot.yml'), 'utf8');
   const inspect = workflowJob(source, 'inspect');
   const publish = workflowJob(source, 'publish');
-  assert.match(inspect, /\n    permissions:\n      contents: read\n(?! {6})/u, 'the package job has exactly a read-only token');
+  assert.match(inspect, /\n    permissions:\n      contents: read\n      actions: read\n(?! {6})/u, 'the package job has exactly a read-only token');
   assert.equal((inspect.match(/\n    permissions:/gu) || []).length, 1);
   assert.doesNotMatch(inspect, /id-token|environment:|secrets\.|: write|AUTOPILOT_GITHUB_APP/u);
   assert.match(inspect, /npm ci --no-audit --no-fund/u);
@@ -1183,5 +1184,102 @@ test('publication files the release gap as an informational finding and keeps th
     assert.equal(report.releaseLag.informational, false);
     assert.match(issueWrites(calls)[0].body.body, /Needs attention: main has been ahead of the last verified static release \(run 900\) for 12.1 days/u);
     assert.equal(publicationExitCode(report, () => {}), 1);
+  });
+});
+
+test('the maintenance production check uses the live release, never unreleased main', async () => {
+  const source = await fs.readFile(path.join(ROOT, 'scripts/site-autopilot.mjs'), 'utf8');
+  const inspection = source.slice(source.indexOf('export async function runInspection'), source.indexOf('export async function runPublication'));
+  assert.doesNotMatch(inspection, /scripts\/monitor-production\.mjs/u, 'inspection must not run main\'s monitor contract against production');
+  assert.match(inspection, /await liveProductionCheck\(env, \{ ctx, root, outputDir \}\)/u);
+  assert.match(inspection, /if \(production === "failed"\) handoff\.failedChecks\.push\("Production monitor"\);/u);
+});
+
+async function withLiveRepository(callback) {
+  const repository = await fs.mkdtemp(path.join(os.tmpdir(), 'autopilot-live-repo-'));
+  const runner = await fs.mkdtemp(path.join(os.tmpdir(), 'autopilot-live-runner-'));
+  const previousDirectory = process.cwd();
+  try {
+    const git = (...args) => execFileSync('git', args, { cwd: repository, encoding: 'utf8', stdio: 'pipe' }).trim();
+    git('init', '-q', '-b', 'main');
+    const commitFile = async (content, message) => {
+      await fs.writeFile(path.join(repository, 'contract.txt'), content);
+      git('add', 'contract.txt');
+      git('-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-q', '-m', message);
+      return git('rev-parse', 'HEAD');
+    };
+    const released = await commitFile('released contract\n', 'released');
+    const main = await commitFile('unreleased contract\n', 'unreleased merge');
+    process.chdir(repository);
+    return await callback({ repository, runner, released, main, git });
+  } finally {
+    process.chdir(previousDirectory);
+    await fs.rm(repository, { recursive: true, force: true });
+    await fs.rm(runner, { recursive: true, force: true });
+  }
+}
+
+const liveResolution = (site, api) => ({ state: 'live', resolvedAt: '2026-10-24T12:00:00.000Z',
+  site: { workflow: 'static-site.yml', runId: '501', runAttempt: 1, commit: site, runUrl: 'https://github.com/x/actions/runs/501' },
+  api: { workflow: 'api-deploy.yml', runId: '502', runAttempt: 1, commit: api, runUrl: 'https://github.com/x/actions/runs/502' } });
+
+test('the live production check runs each live commit outside the clean checkout and records the result', async () => {
+  await withLiveRepository(async ({ repository, runner, released, main, git }) => {
+    const outputDir = path.join(runner, 'autopilot-12345');
+    await fs.mkdir(outputDir, { recursive: true });
+    const workDir = path.join(runner, 'autopilot-live-12345');
+    const seen = [];
+    const result = await runLiveProductionCheck({ ...ENV, RUNNER_TEMP: runner }, {
+      root: repository, outputDir, workDir,
+      resolve: async ({ request }) => { assert.equal(typeof request, 'function'); return liveResolution(released, released); },
+      check: async ({ resolution, siteCheckout, apiCheckout, env }) => {
+        seen.push({ siteCheckout, apiCheckout });
+        assert.equal(siteCheckout, apiCheckout, 'one worktree when both components are live at one commit');
+        assert.ok(siteCheckout.startsWith(`${workDir}/`) && !siteCheckout.startsWith(`${repository}/`));
+        // The live commit's contract is used, not the unreleased one in the checkout.
+        assert.equal(await fs.readFile(path.join(siteCheckout, 'contract.txt'), 'utf8'), 'released contract\n');
+        assert.equal(await fs.readFile(path.join(repository, 'contract.txt'), 'utf8'), 'unreleased contract\n');
+        assert.equal(git('status', '--porcelain', '--untracked-files=all'), '', 'the checkout stays clean for the repair engine');
+        assert.equal(env.GH_TOKEN, ENV.GITHUB_TOKEN);
+        assert.equal(env.GITHUB_TOKEN, undefined);
+        assert.equal(env.JAKH_SITE_ORIGIN, 'https://riddlearabia.com');
+        assert.equal(resolution.site.commit, released);
+        return { schemaVersion: 1, status: 'success', monitor: { scope: 'all', basis: 'live-release' }, results: [{ name: 'Site: Home' }], failures: [] };
+      },
+    });
+    assert.deepEqual(result, { state: 'passed' });
+    assert.equal(seen.length, 1);
+    assert.equal(JSON.parse(await fs.readFile(path.join(outputDir, 'production-monitor.json'), 'utf8')).monitor.basis, 'live-release');
+    assert.equal(git('worktree', 'list', '--porcelain').split('\n').filter(line => line.startsWith('worktree ')).length, 1, 'temporary worktrees are removed');
+    await assert.rejects(fs.access(workDir));
+    assert.notEqual(main, released);
+
+    const split = await runLiveProductionCheck({ ...ENV, RUNNER_TEMP: runner }, { root: repository, outputDir, workDir,
+      resolve: async () => liveResolution(released, main),
+      check: async ({ siteCheckout, apiCheckout }) => {
+        assert.notEqual(siteCheckout, apiCheckout);
+        assert.equal(await fs.readFile(path.join(apiCheckout, 'contract.txt'), 'utf8'), 'unreleased contract\n');
+        return { schemaVersion: 1, status: 'failure', monitor: { scope: 'all' }, results: [], failures: [{ name: 'Live release: static site identity', message: 'drift' }] };
+      } });
+    assert.deepEqual(split, { state: 'failed' }, 'a drift from the live release still fails the check');
+  });
+});
+
+test('a deploying release defers the maintenance production check, and malformed or unsafe input fails it', async () => {
+  await withLiveRepository(async ({ repository, runner, released }) => {
+    const outputDir = path.join(runner, 'autopilot-12345');
+    await fs.mkdir(outputDir, { recursive: true });
+    let checked = false;
+    const deferred = await runLiveProductionCheck(ENV, { root: repository, outputDir, workDir: path.join(runner, 'live'),
+      resolve: async () => ({ state: 'deferred', reason: 'static site release run 600 is in progress' }), check: async () => { checked = true; } });
+    assert.deepEqual(deferred, { state: 'deferred', reason: 'static site release run 600 is in progress' });
+    assert.equal(checked, false);
+    await assert.rejects(runLiveProductionCheck(ENV, { root: repository, outputDir, workDir: path.join(runner, 'live'),
+      resolve: async () => liveResolution('main', released), check: async () => { checked = true; } }), /malformed/u);
+    await assert.rejects(runLiveProductionCheck(ENV, { root: repository, outputDir, workDir: path.join(repository, 'live'),
+      resolve: async () => liveResolution(released, released), check: async () => { checked = true; } }), /outside the checkout/u);
+    await assert.rejects(runLiveProductionCheck(ENV, { root: repository, outputDir, workDir: path.join(runner, 'live'),
+      resolve: async () => liveResolution('0'.repeat(40), released), check: async () => { checked = true; } }), /git worktree failed/u);
+    assert.equal(checked, false);
   });
 });

@@ -1,6 +1,6 @@
 import { ApiError, json, parseJson } from './http.js';
 import { randomToken, sha256 } from './security.js';
-import { buildKnowMeSelection, cleanKnowMeName, KNOW_ME_CODE_PATTERN, KNOW_ME_MAX_PLAYERS, KNOW_ME_STORAGE_KEY, KNOW_ME_TOKEN_PATTERN, KNOW_ME_TTL_MS, knowMeSnapshot, validateKnowMeAnswers, type KnowMeState } from './know-me-rules.js';
+import { buildKnowMeSelection, cleanKnowMeName, KNOW_ME_CODE_PATTERN, KNOW_ME_MAX_PLAYERS, KNOW_ME_STORAGE_KEY, KNOW_ME_SUBMISSIONS_PER_NETWORK, KNOW_ME_TOKEN_PATTERN, KNOW_ME_TTL_MS, knowMeSnapshot, validateKnowMeAnswers, type KnowMeState } from './know-me-rules.js';
 
 const RATE_STORAGE_KEY = 'know-me-rates';
 type Rate = { start: number; count: number };
@@ -30,7 +30,8 @@ export class KnowMeRoom {
     await next;
   }
 
-  private async rateLimit(request: Request, now: number): Promise<void> {
+  // Returns the Worker-supplied salted network key for this request.
+  private async rateLimit(request: Request, now: number): Promise<string> {
     const key = request.headers.get('x-know-me-client-key');
     if (!key || !KNOW_ME_TOKEN_PATTERN.test(key)) throw new ApiError(403, 'Quiz access could not be verified.', undefined, 'INVALID_PLAYER_TOKEN');
     const rates = await this.ctx.storage.get<Record<string, Rate>>(RATE_STORAGE_KEY) || {};
@@ -41,6 +42,7 @@ export class KnowMeRoom {
     rates[key] = rate;
     await this.ctx.storage.put(RATE_STORAGE_KEY, rates);
     if (rate.count > 120) throw new ApiError(429, 'Too many requests. Wait a minute.', { 'retry-after': '60' }, 'RATE_LIMITED');
+    return key;
   }
 
   private async handle(request: Request): Promise<Response> {
@@ -59,7 +61,7 @@ export class KnowMeRoom {
     }
     if (!room && path === '/close') return json({ closed: true });
     if (!room && path !== '/init') throw new ApiError(404, 'Quiz not found. Check the link with your friend.', undefined, 'QUIZ_NOT_FOUND');
-    await this.rateLimit(request, now);
+    const clientKey = await this.rateLimit(request, now);
     if (path === '/init') {
       if (room) return room.ownerTokenHash === tokenHash ? json(knowMeSnapshot(room, tokenHash)) : json({ error: 'Quiz exists', code: 'QUIZ_EXISTS' }, 409);
       const ownerName = cleanKnowMeName(body.name);
@@ -83,11 +85,17 @@ export class KnowMeRoom {
     // oracle that lets this browser change its answers after seeing the result.
     if (room.players.some(player => player.tokenHash === tokenHash)) return json(knowMeSnapshot(room, tokenHash));
     if (room.players.length >= KNOW_ME_MAX_PLAYERS) throw new ApiError(409, 'This quiz already has 50 scores. Ask your friend for a new quiz.', undefined, 'QUIZ_FULL');
+    // Scoped to this quiz, so stored keys cannot link players across quizzes;
+    // deleted with the quiz when it closes or expires.
+    const networkKey = await sha256(`know-me-submission:${room.code}:${clientKey}`);
+    if (room.players.filter(player => player.networkKey === networkKey).length >= KNOW_ME_SUBMISSIONS_PER_NETWORK) {
+      throw new ApiError(409, 'Two people on this connection have already played this quiz.', undefined, 'QUIZ_NETWORK_LIMIT');
+    }
     const name = cleanKnowMeName(body.name);
     if (!name) throw new ApiError(400, 'Enter a name of up to 24 characters.', undefined, 'INVALID_PLAYER_NAME');
     const answers = validateKnowMeAnswers(body.answers);
     const score = answers.reduce((total, answer, index) => total + Number(answer === room!.answers[index]), 0);
-    room.players.push({ id: randomToken(12), name, tokenHash, score, submittedAt: now });
+    room.players.push({ id: randomToken(12), name, tokenHash, networkKey, score, submittedAt: now });
     await this.ctx.storage.put(KNOW_ME_STORAGE_KEY, room);
     return json(knowMeSnapshot(room, tokenHash));
   }

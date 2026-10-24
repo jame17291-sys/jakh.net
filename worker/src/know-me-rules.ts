@@ -6,6 +6,10 @@ export const KNOW_ME_CODE_PATTERN = /^[A-HJ-NP-Z2-9]{12}$/u;
 export const KNOW_ME_STORAGE_KEY = 'know-me-room';
 export const KNOW_ME_TTL_MS = 7 * 24 * 60 * 60_000;
 export const KNOW_ME_MAX_PLAYERS = 50;
+// Every score shows how many answers matched, so unlimited fresh browser tokens
+// would let one person work out the private answers. Each network may add at
+// most this many scores to one quiz.
+export const KNOW_ME_SUBMISSIONS_PER_NETWORK = 2;
 export const KNOW_ME_QUESTION_COUNT = 10;
 
 export interface KnowMeQuestion {
@@ -22,6 +26,9 @@ export interface KnowMePlayer {
   id: string;
   name: string;
   tokenHash: string;
+  // Quiz-scoped hash of the salted network key; never sent to any phone.
+  // Absent on scores saved before the per-network cap existed.
+  networkKey?: string;
   score: number;
   submittedAt: number;
 }

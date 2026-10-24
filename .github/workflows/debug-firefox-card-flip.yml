@@ -14,10 +14,8 @@ jobs:
       matrix:
         include:
           - { label: "before-today 7e5dc4bc", ref: "7e5dc4bc6d41558e30986e3d527e97d692f56ae5" }
+          - { label: "after #158 3e599bb6", ref: "3e599bb686e84aeca0d4e6367221b34b215e9652" }
           - { label: "after #157 f2a30cb1", ref: "f2a30cb11ad820e9ae9b83a005dfe416b994baa5" }
-          - { label: "after #148 5ac01b7e", ref: "5ac01b7ea4983b71582b5799cf0c2b54ab090705" }
-          - { label: "after #160 985e07d5", ref: "985e07d5aa67eb55164c98180adabeed48f03d10" }
-          - { label: "main 7c78acfc", ref: "7c78acfc6ef453f90af1413d4ca8296b17109d70" }
           - { label: "instrumented main", ref: "" }
     runs-on: ubuntu-latest
     timeout-minutes: 40
@@ -42,7 +40,7 @@ jobs:
         run: npm run build:site
       - name: Install Firefox
         run: ./node_modules/.bin/playwright install --with-deps firefox
-      - name: Run the speech test five times in Firefox
+      - name: Run the speech test twelve times in Firefox
         env:
           JAKH_SITE_ROOT: ${{ github.workspace }}/site-worker/dist
           JAKH_SITE_MANIFEST: ${{ github.workspace }}/site-worker/generated/site-manifest.json
@@ -50,9 +48,9 @@ jobs:
           JAKH_ONLY: "real Arabic question buttons"
         run: |
           pass=0
-          for i in 1 2 3 4 5; do
+          for i in $(seq 1 12); do
             if node scripts/browser-regression.mjs > run-$i.log 2>&1; then :; fi
-            if grep -q "PASS real Arabic question buttons" run-$i.log; then pass=$((pass+1)); echo "RUN $i PASS"; else echo "RUN $i FAIL"; grep -E "DEBUG|Error|intercepts" run-$i.log | head -30; fi
-            grep "DEBUG" run-$i.log | head -12 || true
+            if grep -q "PASS real Arabic question buttons" run-$i.log; then pass=$((pass+1)); echo "RUN $i PASS"; else echo "RUN $i FAIL"; grep "audio-click-failed" run-$i.log | cut -c1-6000; fi
+            true
           done
-          echo "RESULT ${{ matrix.label }}: $pass/5 passed"
+          echo "RESULT ${{ matrix.label }}: $pass/12 passed"

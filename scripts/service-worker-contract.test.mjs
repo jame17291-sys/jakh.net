@@ -31,6 +31,7 @@ function contentTypeFor(pathname) {
 }
 
 function createHarness({
+  cachePutGate = null,
   failedCacheOpenNames = [],
   failedCachePutPaths = [],
   failedPaths = [],
@@ -58,6 +59,7 @@ function createHarness({
     }
 
     async put(request, response) {
+      if (cachePutGate) await cachePutGate;
       if (putFailures.has(new URL(keyOf(request)).pathname)) {
         throw new Error(`Cache write unavailable for ${new URL(keyOf(request)).pathname}`);
       }
@@ -144,6 +146,18 @@ function createHarness({
     await Promise.all(lifetimes);
   }
 
+  function startFetch(pathname, mode = 'same-origin') {
+    let responsePromise;
+    const lifetimes = [];
+    listeners.get('fetch')?.({
+      request: { method: 'GET', mode, url: new URL(pathname, origin).href },
+      respondWith(value) { responsePromise = Promise.resolve(value); },
+      waitUntil(value) { lifetimes.push(Promise.resolve(value)); },
+    });
+    assert.ok(responsePromise, `service worker did not handle ${pathname}`);
+    return { responsePromise, lifetimes };
+  }
+
   async function dispatchFetch(pathname, mode = 'same-origin') {
     let responsePromise;
     const lifetimes = [];
@@ -180,6 +194,7 @@ function createHarness({
     fetches,
     handled,
     setOnline(value) { online = value; },
+    startFetch,
     get skipWaitingCount() { return skipWaitingCount; },
     stores,
   };
@@ -336,6 +351,47 @@ test('runtime caches are capped and same-origin version queries share one key', 
   }), false, 'online-only API request was intercepted');
 });
 
+test('network responses are returned before their runtime cache copy is written', async () => {
+  let releaseCacheWrites;
+  const cachePutGate = new Promise((resolve) => { releaseCacheWrites = resolve; });
+  const harness = createHarness({ cachePutGate });
+  const pending = [
+    ['/science', 'navigate', 'NAVIGATION_CACHE', '/science'],
+    ['/data/science.json', 'same-origin', 'DATA_CACHE', '/data/science.json'],
+    ['/app.js?v=1', 'same-origin', 'ASSET_CACHE', '/app.js'],
+    ['/assets/illustrations/geography-240.webp', 'same-origin', 'ASSET_CACHE', '/assets/illustrations/geography-240.webp'],
+  ].map(([pathname, mode, cache, key]) => ({ ...harness.startFetch(pathname, mode), pathname, cache, key }));
+  for (const { responsePromise, pathname } of pending) {
+    const response = await Promise.race([
+      responsePromise,
+      new Promise((resolve) => setTimeout(() => resolve('blocked'), 250)),
+    ]);
+    assert.notEqual(response, 'blocked', `${pathname} waited for its cache write`);
+    assert.equal(await response.text(), `network:${new URL(pathname, origin).pathname}${new URL(pathname, origin).search}`);
+  }
+  for (const { lifetimes, pathname } of pending) {
+    assert.ok(lifetimes.length > 0, `${pathname} must keep the worker alive until its copy is stored`);
+  }
+  releaseCacheWrites();
+  for (const { lifetimes, cache, key, pathname } of pending) {
+    await Promise.all(lifetimes);
+    const store = harness.stores.get(cacheName(harness, cache));
+    const keys = (await store.keys()).map((request) => new URL(request.url).pathname);
+    assert.ok(keys.includes(key), `${pathname} was not stored after the response`);
+  }
+  harness.setOnline(false);
+  assert.equal(await (await harness.dispatchFetch('/app.js')).text(), 'network:/app.js?v=1');
+});
+
+test('uncacheable network responses are returned without starting a cache copy', async () => {
+  const harness = createHarness({ rejectedPaths: ['/app.js'] });
+  const { responsePromise, lifetimes } = harness.startFetch('/app.js');
+  assert.equal(await (await responsePromise).text(), 'network:/app.js');
+  await Promise.all(lifetimes);
+  assert.equal(lifetimes.length, 0, 'a rejected response must not be cloned or stored');
+  assert.equal(harness.stores.get(cacheName(harness, 'ASSET_CACHE'))?.entries.size ?? 0, 0);
+});
+
 test('quarantined routes and data fail closed before every online or offline cache lookup', async () => {
   const harness = createHarness();
   await harness.dispatchWithLifetime('install');
@@ -378,6 +434,14 @@ test('quarantined routes and data fail closed before every online or offline cac
     assert.match(response.headers.get('x-robots-tag'), /noindex/u, pathname);
   }
   assert.equal(harness.fetches.length, fetchCount, 'quarantine guard reached the network');
+  const heldPage = await harness.dispatchFetch('/ar/topics/pharmacy/', 'navigate');
+  assert.match(heldPage.headers.get('content-type'), /^text\/html;/u);
+  const heldHtml = await heldPage.text();
+  assert.match(heldHtml, /<html lang="ar" dir="rtl">/u);
+  assert.match(heldHtml, /هذا المحتوى غير متاح مؤقتًا/u);
+  assert.match(heldHtml, /This content is temporarily unavailable\./u);
+  assert.doesNotMatch(heldHtml, /pharmacy|<script/iu);
+  assert.equal(harness.fetches.length, fetchCount, 'held page is built without the network');
 
   harness.setOnline(false);
   const offline = await harness.dispatchFetch('/data/economics-and-finance.json');

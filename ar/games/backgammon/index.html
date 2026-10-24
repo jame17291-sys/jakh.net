@@ -361,6 +361,7 @@
       text-align: center;
     }
     .bg-num-spacer { width: 36px; flex-shrink: 0; }
+    .bg-label-short { display: none; }
 
     @media (max-width: 480px) {
       .bg-controls { flex-direction: column; align-items: flex-start; }
@@ -383,18 +384,19 @@
         min-width: 22px;
       }
       .bg-bearoff-zone {
-        width: 26px !important;
-        min-width: 26px;
+        width: 30px !important;
+        min-width: 30px;
         padding-inline: 1px !important;
       }
-      .bg-bar-label,
+      .bg-bar-label { display: none; }
       .bg-bearoff-label {
         max-width: 100%;
-        overflow-wrap: anywhere;
         font-size: 0.625rem !important;
         line-height: 1.05;
         letter-spacing: 0 !important;
       }
+      .bg-label-full { display: none; }
+      .bg-label-short { display: inline; }
     }
   </style>
       <script type="application/ld+json">
@@ -457,7 +459,7 @@
     </section>
   </main>
   <footer class="site-footer shell"><div class="footer-inner"><p class="footer-copy" data-i18n="footerNote">جميع الحقوق محفوظة لـ ريدل أرابيا 2026</p><nav class="footer-site-links" aria-label="معلومات ريدل أرابيا" data-i18n-aria-label="footerInfoLabel"><a href="/ar/collections/" data-i18n="footerCollections">المجموعات</a><a href="/ar/about/" data-i18n="footerAbout">عن ريدل أرابيا ومعايير المحتوى</a><a href="/ar/privacy/" data-i18n="footerPrivacy">مركز الخصوصية</a></nav>
-        <div class="footer-socials"><a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ريدل أرابيا على إنستغرام" data-i18n-aria-label="instagramLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span data-i18n="instagramName">إنستغرام</span></a><a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ريدل أرابيا على فيسبوك" data-i18n-aria-label="facebookLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span data-i18n="facebookName">فيسبوك</span></a></div></div></footer>
+        <div class="footer-socials"><a href="https://www.instagram.com/riddle_arabia/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ريدل أرابيا على إنستغرام" data-i18n-aria-label="instagramLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span data-i18n="instagramName">إنستغرام</span></a><a href="https://www.facebook.com/profile.php?id=61560999707331" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ريدل أرابيا على فيسبوك" data-i18n-aria-label="facebookLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span data-i18n="facebookName">فيسبوك</span></a></div></div></footer>
 
   <script>
   JakhGameI18n.register('backgammon', {
@@ -473,6 +475,7 @@
       boardName: 'BACKGAMMON',
       bar: 'BAR',
       whiteOff: 'White Off',
+      offShort: 'Off',
       blackOff: 'Black Off',
       white: 'White',
       black: 'Black',
@@ -514,6 +517,7 @@
       boardName: 'طاولة الزهر',
       bar: 'الحاجز',
       whiteOff: 'الأبيض خارج الرقعة',
+      offShort: 'خارج',
       blackOff: 'الأسود خارج الرقعة',
       white: 'الأبيض',
       black: 'الأسود',
@@ -1034,9 +1038,9 @@
       // Checkers container
       var checkersDiv = document.createElement('div');
       if (rowClass === 'top') {
-        checkersDiv.style.cssText = 'display:flex;flex-direction:column;align-items:center;gap:1px;padding-top:2px;position:absolute;top:0;width:100%;';
+        checkersDiv.style.cssText = 'display:flex;flex-direction:column;align-items:center;gap:1px;padding-top:2px;position:absolute;top:0;width:100%;z-index:1;';
       } else {
-        checkersDiv.style.cssText = 'display:flex;flex-direction:column-reverse;align-items:center;gap:1px;padding-bottom:2px;position:absolute;bottom:0;width:100%;';
+        checkersDiv.style.cssText = 'display:flex;flex-direction:column-reverse;align-items:center;gap:1px;padding-bottom:2px;position:absolute;bottom:0;width:100%;z-index:1;';
       }
 
       if (pt.count > 0 && pt.color) {
@@ -1170,7 +1174,13 @@
       var lbl = document.createElement('div');
       lbl.className = 'bg-bearoff-label';
       lbl.style.cssText = 'font-size:0.8125rem;font-family:var(--font);color:#162638;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:4px;text-align:center;';
-      lbl.textContent = I.t(color === 'w' ? 'whiteOff' : 'blackOff');
+      var fullLabel = document.createElement('span');
+      fullLabel.className = 'bg-label-full';
+      fullLabel.textContent = I.t(color === 'w' ? 'whiteOff' : 'blackOff');
+      var shortLabel = document.createElement('span');
+      shortLabel.className = 'bg-label-short';
+      shortLabel.textContent = I.t('offShort');
+      lbl.append(fullLabel, shortLabel);
       lbl.dir = I.dir;
 
       var cnt = document.createElement('div');

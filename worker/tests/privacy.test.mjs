@@ -328,6 +328,10 @@ test("permanent deletion reauthenticates, deletes every account-owned table, and
   }
   assert.match(sql, /UPDATE admin_audit_log[\s\S]+SET target_id = 'deleted-user'/u);
   assert.match(response.headers.get("set-cookie"), /Max-Age=0/u);
+  const cleared = response.headers.getSetCookie();
+  for (const name of ["__Host-jakh_session", "jakh_session", "__Host-jakh_device", "jakh_device"]) {
+    assert.ok(cleared.some((cookie) => cookie.startsWith(`${name}=;`) && cookie.includes("Max-Age=0")), name);
+  }
   const payload = await response.json();
   assert.equal(payload.success, true);
   assert.equal(

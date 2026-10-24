@@ -269,11 +269,12 @@ test("the no-script topic directory gives public topics exclusive artwork and di
   assert.equal(new Set(Object.values(TOPIC_ILLUSTRATIONS)).size, 51, 'each public topic owns a different illustration');
   assert.equal((directory.match(/class="ra-art ra-art-section"/gu) || []).length, catalog.sections.length, "one illustration per subject section");
   const cards = [...directory.matchAll(/<a class="category-card compact-topic-card" href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gu)];
-  // Kids Riddles (listedInDirectory: false) is the Kids hub, reached from the Kids menu.
+  // Every public topic has a directory card again, Kids Riddles included (re-listed
+  // 24 Oct 2026 so the kids riddle cards are easy to find).
   const listed = catalog.categories.filter((category) => category.listedInDirectory !== false);
-  assert.equal(listed.length, catalog.categories.length - 1);
+  assert.equal(listed.length, catalog.categories.length);
   assert.equal(cards.length, listed.length, "every listed source topic has a no-script link before publication quarantine projection");
-  assert.ok(!cards.some(([, href]) => href === "/kids-riddles"), "Kids Riddles has no directory card");
+  assert.ok(cards.some(([, href]) => href === "/kids-riddles"), "Kids Riddles has a directory card");
   assert.equal(new Set(cards.map(([, href]) => href)).size, cards.length, "no duplicate topic links");
   for (const category of listed) {
     const [, , markup] = cards.find(([, href]) => href === `/${category.slug}`) || [];
@@ -385,11 +386,14 @@ test("question counts use correct Arabic number agreement", () => {
     [3, "3 أسئلة", "3 أسئلة مختارة"],
     [8, "8 أسئلة", "8 أسئلة مختارة"],
     [10, "10 أسئلة", "10 أسئلة مختارة"],
-    [11, "11 سؤالاً", "11 سؤالاً مختاراً"],
-    [30, "30 سؤالاً", "30 سؤالاً مختاراً"],
+    [11, "11 سؤالًا", "11 سؤالًا مختارًا"],
+    [30, "30 سؤالًا", "30 سؤالًا مختارًا"],
     [100, "100 سؤال", "100 سؤال مختار"],
+    [101, "101 سؤال", "101 سؤال مختار"],
+    [102, "102 سؤال", "102 سؤال مختار"],
     [103, "103 أسئلة", "103 أسئلة مختارة"],
-    [130, "130 سؤالاً", "130 سؤالاً مختاراً"],
+    [130, "130 سؤالًا", "130 سؤالًا مختارًا"],
+    [1000, "1000 سؤال", "1000 سؤال مختار"],
   ]) {
     assert.equal(questionCountLabel(count, "ar"), plain, `${count}`);
     assert.equal(questionCountLabel(count, "ar", { selected: true }), selected, `${count} selected`);

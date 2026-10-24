@@ -190,6 +190,15 @@ export const PRE_NAVIGATION_SITEMAP_PATHS = Object.freeze(
 // Shuffle Challenge replaced the daily question; candidates need the new one.
 const PREDECESSOR_DAILY_LABELS = Object.freeze({ en: "Daily Challenge", ar: "التحدي اليومي" });
 
+// A script marker such as "game-i18n.js" also matches the content-hashed name
+// the static build publishes ("/game-i18n.0123456789abcdef.js"), so the
+// monitor accepts both the current release and a pre-fingerprint baseline.
+export function htmlHasBilingualMarker(html, marker) {
+  if (html.includes(marker)) return true;
+  const script = /^([a-z0-9-]+)\.js$/u.exec(marker);
+  return Boolean(script) && new RegExp(`(?<![A-Za-z0-9_.-])${script[1]}\\.[a-f0-9]{16}\\.js`, "u").test(html);
+}
+
 function expectSharedNavigation(html, pathname, { includeKids = true, allowPredecessorDaily = false } = {}) {
   const isAr = pathname.startsWith("/ar/");
   const navs = [...html.matchAll(/<nav\b[^>]*class="[^"]*\bprimary-navigation\b[^"]*"[^>]*>([\s\S]*?)<\/nav>/giu)];
@@ -733,7 +742,7 @@ export async function runProductionMonitor(options = {}) {
         privacyScriptPath = script[1];
         privacyScriptFingerprint = script[2] || null;
       } else {
-        expect(resource.text.includes(route.bilingualMarker), `missing bilingual marker "${route.bilingualMarker}"`);
+        expect(htmlHasBilingualMarker(resource.text, route.bilingualMarker), `missing bilingual marker "${route.bilingualMarker}"`);
       }
       if (navigationLayout === "current") {
         expectSharedNavigation(resource.text, route.path, {
@@ -870,8 +879,17 @@ export async function runProductionMonitor(options = {}) {
         );
       } else {
         expectStatus(resource.response, 410);
-        expectContentType(resource.response, /^text\/plain\b/iu);
-        expect(resource.response.headers.get("cache-control") === "no-store", "quarantine response is cacheable");
+        // Held pages are a small bilingual HTML notice; held data files stay plain text.
+        expectContentType(resource.response, /^text\/(?:plain|html)\b/iu);
+        expect(
+          /^no-store(?:, no-transform)?$/u.test(resource.response.headers.get("cache-control") || ""),
+          "quarantine response is cacheable",
+        );
+        expect(
+          [...checkedPublicationQuarantine.cardIds].every((cardId) => !resource.text.includes(cardId))
+            && [...checkedPublicationQuarantine.categorySlugs].every((slug) => !resource.text.toLowerCase().includes(slug)),
+          "quarantine response names a held card or category",
+        );
         expect(
           resource.response.headers.get("x-jakh-content-quarantine") === "active",
           "quarantine marker header is missing",
@@ -1324,6 +1342,13 @@ export async function runProductionMonitor(options = {}) {
   for (const failure of failures) {
     const attempts = failure.attempts > 1 ? ` after ${failure.attempts} attempts` : "";
     logger.error(`FAIL  ${failure.name}${attempts}: ${failure.message}`);
+    // In GitHub Actions, also raise each failure as an annotation so it can be
+    // read from the run summary and the API without downloading the job log.
+    if (process.env.JAKH_MONITOR_ANNOTATE === "1") {
+      const escape = (value) => String(value).replaceAll("%", "%25").replaceAll("\r", "%0D").replaceAll("\n", "%0A");
+      const title = escape(failure.name).replaceAll(":", "%3A").replaceAll(",", "%2C");
+      process.stdout.write(`::error title=Monitor${title ? ` - ${title}` : ""}::${escape(`${failure.message}${attempts}`)}\n`);
+    }
   }
 
   const summary = { config, navigationLayout, results, failures };

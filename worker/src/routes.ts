@@ -1,4 +1,11 @@
-import { createSession, enforceRateLimit, requireUser, sessionUser } from "./db.js";
+import {
+  createSession,
+  enforceRateLimit,
+  requireUser,
+  reserveFailureSlot,
+  reservePasswordRecheckSlot,
+  sessionUser,
+} from "./db.js";
 import { canonicalStatus, getCardIndex, isPublicCard, validateCard } from "./catalog.js";
 import {
   PRODUCTION_QUARANTINE_MANIFEST_SHA256,
@@ -14,11 +21,14 @@ import {
 import {
   clearSessionCookies,
   clientIp,
+  isLoginDeviceFor,
   LEGACY_PASSWORD_ITERATIONS,
+  loginDeviceCookie,
   normalizeEmail,
   normalizeLoginIdentifier,
   normalizeUsername,
   PASSWORD_ITERATIONS,
+  offeredLoginDevice,
   randomToken,
   sessionCookie,
   sessionExpiry,
@@ -43,6 +53,18 @@ const PRIVACY_REQUEST_TYPES = new Set([
 ]);
 const PRIVACY_REQUEST_PREFIX = "JAKH_PRIVACY_REQUEST_V1";
 const MAX_SYNC_ITEMS = 100;
+const SIGN_IN_WINDOW_SECONDS = 15 * 60;
+// Every sign-in request from one network, successful or not, except from a
+// browser holding a valid device cookie for the account it signs in to.
+const LOGIN_NETWORK_LIMIT = 20;
+// Failed sign-ins for one account from browsers it does not recognise, from any
+// network. Successful sign-ins do not count, so the owner is never charged.
+const LOGIN_ACCOUNT_FAILURE_LIMIT = 20;
+// Failed sign-ins from one browser that already holds this account's device
+// cookie. It has its own budget, so failures elsewhere cannot lock it out.
+const LOGIN_DEVICE_FAILURE_LIMIT = 10;
+const RECOVERY_NETWORK_LIMIT = 8;
+const RECOVERY_ACCOUNT_NETWORK_FAILURE_LIMIT = 5;
 export const API_VERSION = "1.5.0";
 const SCHEMA_VERSION = "10";
 export const COMPATIBLE_SCHEMAS = Object.freeze(["8", "9", "10"] as const);
@@ -131,9 +153,9 @@ function changedExactlyOne(result: D1Result | undefined): boolean {
   return result?.results?.length === 1 || result?.meta?.changes === 1;
 }
 
-function setCookie(response: Response, cookie: string): Response {
+function setCookie(response: Response, ...cookies: string[]): Response {
   const headers = new Headers(response.headers);
-  headers.append("set-cookie", cookie);
+  for (const cookie of cookies) headers.append("set-cookie", cookie);
   return new Response(response.body, { status: response.status, headers });
 }
 
@@ -290,26 +312,85 @@ export async function register(request: Request, env: Env): Promise<Response> {
       recoveryCode: recovery.code,
     }, 201),
     sessionCookie(request, session.token),
+    await loginDeviceCookie(request, env.PASSWORD_PEPPER, userId),
   );
+}
+
+/**
+ * Moves an account created under the old work factor to the current one, with
+ * a fresh salt, right after its password was accepted. The update is guarded
+ * by the old record, so a password change that lands in between is never
+ * overwritten. This is best effort: any failure leaves the old record, which
+ * still verifies, and never fails the sign-in. The extra hash costs the same
+ * as the padding a failed sign-in already pays, and happens once per account.
+ */
+async function upgradePasswordHash(env: Env, user: UserPasswordRow, password: string): Promise<void> {
+  try {
+    const record = await hashPasswordInHasher(env, password);
+    if (record.iterations !== PASSWORD_ITERATIONS) return;
+    await env.DB.prepare(
+      `UPDATE users
+          SET password_hash = ?, password_salt = ?, password_iterations = ?
+        WHERE id = ?
+          AND password_hash = ? AND password_salt = ? AND password_iterations = ?`,
+    ).bind(
+      record.hash,
+      record.salt,
+      record.iterations,
+      user.id,
+      user.password_hash,
+      user.password_salt,
+      user.password_iterations,
+    ).run();
+  } catch {
+    console.warn("PASSWORD_HASH_UPGRADE_SKIPPED");
+  }
 }
 
 export async function login(request: Request, env: Env): Promise<Response> {
   const body = await parseJson<{ username?: unknown; password?: unknown }>(request);
   const identifier = normalizeLoginIdentifier(body.username);
   const password = validatePassword(body.password);
-  const rateKey = await requestRateKey(request, env, "login");
-  await enforceRateLimit(env, rateKey, 20, 15 * 60);
+  const networkLimit = async () => enforceRateLimit(
+    env,
+    await requestRateKey(request, env, "login"),
+    LOGIN_NETWORK_LIMIT,
+    SIGN_IN_WINDOW_SECONDS,
+  );
+  // Requests without a device cookie meet the network limit before any lookup.
+  const offered = offeredLoginDevice(request, env.STATIC_ORIGIN);
+  if (!offered) await networkLimit();
 
   const user = await env.DB.prepare(
     `SELECT id, username, email, avatar, role, is_banned, password_hash, password_salt, password_iterations
        FROM users WHERE ${identifier.column} = ?`,
   ).bind(identifier.value).first<UserPasswordRow>();
 
-  // Key known accounts by ID, so email/username aliases and changing IPs
-  // cannot bypass the account limit. Unknown accounts use a digest as well.
-  await enforceRateLimit(env, await accountRateKey(
-    env, "login-account", user?.id || `${identifier.column}:${identifier.value}`,
-  ), 20, 15 * 60);
+  // Only failed attempts use up the account limits (a success hands its slot
+  // back), so someone who knows a public username cannot block its owner. A
+  // browser holding this account's device cookie skips the shared network and
+  // account limits and gets its own small failure budget, so neither a stranger
+  // elsewhere nor one on the same network can lock it out. All other browsers,
+  // from any network, share the account budget, which still caps distributed
+  // password guessing. Known accounts are keyed by ID, so email/username
+  // aliases cannot bypass the account limit; unknown accounts use a digest.
+  const device = user && offered && await isLoginDeviceFor(env.PASSWORD_PEPPER, user.id, offered)
+    ? offered.nonce
+    : null;
+  if (offered && !device) await networkLimit();
+  const releaseFailureSlot = user && device
+    ? await reserveFailureSlot(
+      env,
+      await accountRateKey(env, "login-device", `${user.id}:${device}`),
+      LOGIN_DEVICE_FAILURE_LIMIT,
+      SIGN_IN_WINDOW_SECONDS,
+    )
+    : await reserveFailureSlot(
+      env,
+      await accountRateKey(env, "login-account", user?.id || `${identifier.column}:${identifier.value}`),
+      LOGIN_ACCOUNT_FAILURE_LIMIT,
+      SIGN_IN_WINDOW_SECONDS,
+    );
 
   if (!user) {
     await hashPasswordInHasher(
@@ -345,7 +426,9 @@ export async function login(request: Request, env: Env): Promise<Response> {
     );
     throw new ApiError(401, "Invalid credentials");
   }
+  await releaseFailureSlot();
   if (user.is_banned) throw new ApiError(403, "This account has been suspended");
+  if (user.password_iterations < PASSWORD_ITERATIONS) await upgradePasswordHash(env, user, password);
 
   const timestamp = now();
   await env.DB.prepare("UPDATE users SET last_login_at = ?, updated_at = ? WHERE id = ?")
@@ -354,6 +437,7 @@ export async function login(request: Request, env: Env): Promise<Response> {
   return setCookie(
     json({ user: { id: user.id, username: user.username, email: user.email, role: user.role } }),
     sessionCookie(request, token),
+    await loginDeviceCookie(request, env.PASSWORD_PEPPER, user.id),
   );
 }
 
@@ -361,8 +445,8 @@ export async function resetPasswordWithRecovery(request: Request, env: Env): Pro
   await enforceRateLimit(
     env,
     await requestRateKey(request, env, "recovery-reset"),
-    8,
-    15 * 60,
+    RECOVERY_NETWORK_LIMIT,
+    SIGN_IN_WINDOW_SECONDS,
   );
   const body = await parseJson<{
     username?: unknown;
@@ -371,11 +455,14 @@ export async function resetPasswordWithRecovery(request: Request, env: Env): Pro
   }>(request, 2_048);
   const { key: usernameKey } = normalizeUsername(body.username);
   const newPassword = validateNewPassword(body.newPassword, "New password", [usernameKey]);
-  await enforceRateLimit(
+  // Recovery codes are 256-bit random values that cannot be guessed, so there is
+  // no account-wide limit a stranger could use to block the owner's recovery.
+  // Failures are limited per network and per account-and-network pair instead.
+  const releaseFailureSlot = await reserveFailureSlot(
     env,
-    await accountRateKey(env, "recovery-reset-account", usernameKey),
-    8,
-    15 * 60,
+    await accountRateKey(env, "recovery-reset-account-network", `${usernameKey}:${clientIp(request)}`),
+    RECOVERY_ACCOUNT_NETWORK_FAILURE_LIMIT,
+    SIGN_IN_WINDOW_SECONDS,
   );
   const recoveryCode = normalizeRecoveryCode(body.recoveryCode);
   const submittedCodeHash = await sha256(recoveryCode);
@@ -475,12 +562,14 @@ export async function resetPasswordWithRecovery(request: Request, env: Env): Pro
   ]);
 
   if (!changedExactlyOne(results[3])) throw recoveryCredentialsError();
+  await releaseFailureSlot();
   return setCookie(
     json({
       user: { id: user.id, username: user.username, email: user.email, role: user.role },
       recoveryCode: replacement.code,
     }),
     sessionCookie(request, session.token),
+    await loginDeviceCookie(request, env.PASSWORD_PEPPER, user.id),
   );
 }
 
@@ -565,6 +654,7 @@ export async function rotateRecoveryCode(request: Request, env: Env): Promise<Re
   const user = await env.DB.prepare(
     "SELECT password_hash, password_salt, password_iterations FROM users WHERE id = ?",
   ).bind(session.id).first<Pick<UserPasswordRow, "password_hash" | "password_salt" | "password_iterations">>();
+  const releaseRecheck = await reservePasswordRecheckSlot(env, session.id);
   if (!user || !await verifyPasswordInHasher(
     env,
     currentPassword,
@@ -574,6 +664,7 @@ export async function rotateRecoveryCode(request: Request, env: Env): Promise<Re
   )) {
     throw new ApiError(401, "Current password is incorrect");
   }
+  await releaseRecheck();
 
   const replacement = await createRecoveryMaterial();
   const timestamp = now();
@@ -613,6 +704,7 @@ export async function changePassword(request: Request, env: Env): Promise<Respon
   const user = await env.DB.prepare(
     "SELECT password_hash, password_salt, password_iterations FROM users WHERE id = ?",
   ).bind(session.id).first<Pick<UserPasswordRow, "password_hash" | "password_salt" | "password_iterations">>();
+  const releaseRecheck = await reservePasswordRecheckSlot(env, session.id);
   if (!user || !await verifyPasswordInHasher(
     env,
     currentPassword,
@@ -622,6 +714,7 @@ export async function changePassword(request: Request, env: Env): Promise<Respon
   )) {
     throw new ApiError(401, "Current password is incorrect");
   }
+  await releaseRecheck();
 
   const [passwordRecord, replacementSession] = await Promise.all([
     hashPasswordInHasher(env, newPassword),

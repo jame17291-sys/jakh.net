@@ -5,6 +5,7 @@ import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { PRIMARY_SITE_ORIGIN, rewritePublicSiteIdentity } from "./public-site-identity.mjs";
+import { AR_COUNT, arabicCount } from "../arabic-count.js";
 import { siteHeader, navigationScript } from "./site-navigation-markup.mjs";
 import {
   RIDDLE_ARABIA_GAME_CATALOG,
@@ -491,7 +492,7 @@ function localizeMindLabDirectory(html) {
       localized = replaceAttribute(localized, "aria-label", title);
       localized = replaceInnerByClass(localized, "category-title", title);
       if (topics) localized = replaceInnerByClass(localized, "category-card-topics", topics);
-      localized = replaceInnerByClass(localized, "category-card-label", `${category.count} سؤال`);
+      localized = replaceInnerByClass(localized, "category-card-label", arabicCount(category.count, AR_COUNT.question));
       localized = replaceInnerByClass(localized, "category-card-enter", "استكشف");
       return localized;
     });
@@ -507,7 +508,7 @@ function localizeMindLabDirectory(html) {
     html = html.replace(sectionMatcher, (block) => {
       let localized = block.replace(/(<h3>)[\s\S]*?(<\/h3>)/iu, `$1${escapeHtml(section.title?.ar || section.title?.en || key)}$2`);
       localized = localized.replace(/(<div><h3>[\s\S]*?<\/h3><p>)[\s\S]*?(<\/p><\/div>)/iu, `$1${escapeHtml(section.description?.ar || section.description?.en || "")}$2`);
-      localized = replaceInnerByClass(localized, "directory-section-count", `${categories.length} موضوعًا · ${questionCount} سؤال`);
+      localized = replaceInnerByClass(localized, "directory-section-count", `${arabicCount(categories.length, AR_COUNT.topic)} · ${arabicCount(questionCount, AR_COUNT.question)}`);
       return localized;
     });
   }
@@ -521,7 +522,7 @@ function localizeMindLabDirectory(html) {
         : listedMembers(sectionsByKey.get(key)).length;
       let localized = replaceAttribute(block, "aria-label", title);
       localized = replaceInnerByClass(localized, "ml-cluster-tab-name", title);
-      localized = replaceInnerByClass(localized, "ml-cluster-tab-count", `${count} موضوعًا`);
+      localized = replaceInnerByClass(localized, "ml-cluster-tab-count", arabicCount(count, AR_COUNT.topic));
       return localized;
     });
   }

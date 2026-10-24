@@ -1,6 +1,10 @@
 // Loaded only when global search or the server-checked leaderboard is opened.
 // The factory keeps application/session state in app.js while moving the
 // feature implementation and its search-index work off the initial route.
+import { AR_COUNT, arabicCount } from './arabic-count.js';
+
+// After «عُثر على» the dual takes its genitive form.
+const AR_RESULTS_GENITIVE = Object.freeze({ ...AR_COUNT.result, two: 'نتيجتين' });
 
 const FEATURE_COPY = Object.freeze({
   en: Object.freeze({
@@ -101,15 +105,21 @@ export function rankGlobalSearch(searchIndex, categories, query, lang) {
     const categoryText = language === 'ar'
       ? cat.title?.ar
       : [cat.slug, cat.title?.en].join(' ');
+    // row[4] points into the topic's catalog subtopics; many questions (for
+    // example TV episodes) only make sense with that context.
+    const topic = Number.isInteger(row[4]) ? cat.topics?.[row[4]] : null;
+    const subtopic = typeof topic?.[language] === 'string' ? topic[language] : '';
     const score = relevance(row[2], 2_000, 1_200, 800)
       + relevance(row[3], 1_500, 1_000, 600)
-      + relevance(categoryText, 200, 150, 100);
+      + relevance(categoryText, 200, 150, 100)
+      + relevance(subtopic, 200, 150, 100);
     if (score > 0) {
       hits.push({
         cat,
         id: row[1],
         question: row[2],
         answer: row[3],
+        subtopic,
         score,
         sourceIndex,
       });
@@ -184,7 +194,7 @@ export function createSearchLeaderboard(dependencies) {
       const request = fetchJson(`/data/search-index.${language}.json`)
         .then((payload) => {
           if (
-            payload?.version !== 2
+            payload?.version !== 3
             || payload.language !== language
             || payload.total !== payload.cards?.length
             || !Array.isArray(payload.categories)
@@ -192,11 +202,13 @@ export function createSearchLeaderboard(dependencies) {
             || !payload.categories.every(slug => typeof slug === 'string' && slug)
             || !payload.cards.every(row => (
               Array.isArray(row)
-              && row.length === 4
+              && row.length === 5
               && Number.isInteger(row[0])
               && row[0] >= 0
               && row[0] < payload.categories.length
-              && row.slice(1).every(value => typeof value === 'string' && value)
+              && row.slice(1, 4).every(value => typeof value === 'string' && value)
+              && Number.isInteger(row[4])
+              && row[4] >= 0
             ))
           ) {
             throw new Error('Invalid global search index');
@@ -312,11 +324,11 @@ export function createSearchLeaderboard(dependencies) {
     }
     const shownHits = hits.slice(0, 30);
     const resultSummary = state.lang === 'ar'
-      ? `تم العثور على ${hits.length} نتيجة. عرض أفضل ${shownHits.length} نتيجة مرتبة حسب الصلة.`
+      ? `عُثر على ${arabicCount(hits.length, AR_RESULTS_GENITIVE)}.${hits.length > shownHits.length ? ` نعرض أفضل ${shownHits.length} منها حسب الصلة.` : ''}`
       : `${hits.length} results found. Showing the top ${shownHits.length}, ranked by relevance.`;
-    resultsEl.innerHTML = `<p class="global-search-summary" role="status">${escapeHtml(resultSummary)}</p>` + shownHits.map(({ cat, id, question, answer }) => `
+    resultsEl.innerHTML = `<p class="global-search-summary" role="status">${escapeHtml(resultSummary)}</p>` + shownHits.map(({ cat, id, question, answer, subtopic }) => `
       <a class="gs-result" href="${escapeHtml(categoryRouteForLanguage(cat.slug, state.lang))}?card=${encodeURIComponent(id)}">
-        <span class="gs-result-cat">${escapeHtml(cat.emoji)} ${escapeHtml(cat.title[state.lang])}</span>
+        <span class="gs-result-cat">${escapeHtml(cat.emoji)} ${escapeHtml(cat.title[state.lang])}${subtopic ? `<span class="gs-result-subtopic"><span aria-hidden="true"> · </span><span class="sr-only">${state.lang === 'ar' ? '، ' : ', '}</span>${escapeHtml(subtopic)}</span>` : ''}</span>
         <span class="gs-result-q">${escapeHtml(question)}</span>
         <span class="gs-result-a">${escapeHtml(answer)}</span>
       </a>

@@ -199,14 +199,125 @@ export async function touchPrivilegedSession(env: Env, user: SessionUser): Promi
   ).bind(now.toISOString(), user.tokenHash).run();
 }
 
+function rateLimited(windowSeconds: number): ApiError {
+  return new ApiError(429, "Too many attempts. Please try again later.", {
+    "retry-after": String(windowSeconds),
+  });
+}
+
+/**
+ * The refusal from a used-up failure limit. It is the same public 429 as any
+ * other limit; `resetsAt` (Unix seconds) lets a caller say when it ends.
+ */
+export class FailureLimitError extends ApiError {
+  constructor(windowSeconds: number, readonly resetsAt: number) {
+    super(429, "Too many attempts. Please try again later.", {
+      "retry-after": String(windowSeconds),
+    });
+  }
+}
+
 export async function enforceRateLimit(
   env: Env,
   key: string,
   limit: number,
   windowSeconds: number,
 ): Promise<void> {
+  const { count } = await countRateLimitAttempt(env, key, windowSeconds);
+  if (count > limit) throw rateLimited(windowSeconds);
+}
+
+/**
+ * Calling a reserved failure slot hands it back after a success. `used` is the
+ * number of slots taken in the current window, counting this attempt, so
+ * `used >= limit` means this attempt took the last one. `resetsAt` is the Unix
+ * time in seconds when the window, and any refusal in it, ends.
+ */
+export interface FailureSlot {
+  (): Promise<void>;
+  readonly used: number;
+  readonly resetsAt: number;
+}
+
+/**
+ * A limit that only failed attempts should use up. The slot is taken before
+ * the protected work runs, so a burst of parallel attempts cannot all slip
+ * past the limit; call the returned function after a success to give the slot
+ * back. A slot taken in a window that has since rolled over is left alone.
+ */
+export async function reserveFailureSlot(
+  env: Env,
+  key: string,
+  limit: number,
+  windowSeconds: number,
+): Promise<FailureSlot> {
+  const { count, windowStart } = await countRateLimitAttempt(env, key, windowSeconds);
+  if (count > limit) throw new FailureLimitError(windowSeconds, windowStart + windowSeconds);
+  const release = async () => {
+    await env.DB.prepare(
+      `UPDATE rate_limits
+          SET count = count - 1
+        WHERE key = ? AND window_start = ? AND count > 0`,
+    ).bind(key, windowStart).run();
+  };
+  return Object.assign(release, { used: count, resetsAt: windowStart + windowSeconds });
+}
+
+function currentWindowStart(windowSeconds: number): number {
+  return Math.floor(Math.floor(Date.now() / 1000) / windowSeconds) * windowSeconds;
+}
+
+/**
+ * Failed attempts recorded so far in the current window, per key. Keys with
+ * nothing recorded in this window are left out.
+ */
+export async function currentFailureCounts(
+  env: Env,
+  keys: readonly string[],
+  windowSeconds: number,
+): Promise<Map<string, number>> {
+  if (keys.length < 1) return new Map();
+  const rows = await env.DB.prepare(
+    `SELECT key, count FROM rate_limits
+      WHERE window_start = ? AND key IN (${keys.map(() => "?").join(", ")})`,
+  ).bind(currentWindowStart(windowSeconds), ...keys).all<{ key: string; count: number }>();
+  return new Map(rows.results.map((row) => [row.key, row.count]));
+}
+
+/** Forgets every recorded failure for these keys, ending any refusal. */
+export function clearFailureCounts(env: Env, keys: readonly string[]): D1PreparedStatement {
+  return env.DB.prepare(
+    `DELETE FROM rate_limits WHERE key IN (${keys.map(() => "?").join(", ")})`,
+  ).bind(...keys);
+}
+
+export const PASSWORD_RECHECK_FAILURE_LIMIT = 10;
+export const PASSWORD_RECHECK_WINDOW_SECONDS = 60 * 60;
+
+/**
+ * Password re-checks on a signed-in session (password change, recovery-code
+ * rotation, account deletion, administrator re-confirmation and authenticator
+ * setup) share one budget of failed passwords per account, whatever network
+ * the attempts come from. Take the slot just before the password is checked
+ * and hand it back as soon as the password is accepted, so correct passwords
+ * never use it up.
+ */
+export async function reservePasswordRecheckSlot(env: Env, userId: string): Promise<FailureSlot> {
+  return reserveFailureSlot(
+    env,
+    await sha256(`${env.IP_HASH_SALT}:password-recheck:${userId}`),
+    PASSWORD_RECHECK_FAILURE_LIMIT,
+    PASSWORD_RECHECK_WINDOW_SECONDS,
+  );
+}
+
+async function countRateLimitAttempt(
+  env: Env,
+  key: string,
+  windowSeconds: number,
+): Promise<{ count: number; windowStart: number }> {
   const now = Math.floor(Date.now() / 1000);
-  const windowStart = Math.floor(now / windowSeconds) * windowSeconds;
+  const windowStart = currentWindowStart(windowSeconds);
   const expiresAt = windowStart + windowSeconds * 2;
   const row = await env.DB.prepare(
     `INSERT INTO rate_limits (key, window_start, count, expires_at)
@@ -234,11 +345,7 @@ export async function enforceRateLimit(
     ).bind(now).run();
   }
 
-  if ((row?.count || 1) > limit) {
-    throw new ApiError(429, "Too many attempts. Please try again later.", {
-      "retry-after": String(windowSeconds),
-    });
-  }
+  return { count: row?.count || 1, windowStart };
 }
 
 export async function cleanupExpiredSecurityState(env: Env): Promise<void> {

@@ -191,12 +191,19 @@ export function rematchAction(room: DuelRoomState, playerId: string, action: Rec
   state.revision++;
   return state;
 }
+// The checks every move must pass before any work on it. Callers run them
+// before slow steps, such as a dictionary lookup, as well as in playAction.
+export function ensureMoveAllowed(room: DuelRoomState, playerId: string, action: Record<string, unknown>): number {
+  ensure(room.phase === "playing", "NOT_PLAYING", "This match is not in progress.");
+  ensure(Number.isInteger(action.revision) && action.revision === room.revision, "STALE_REVISION", "The board changed. Review it and try again.");
+  const index = room.players.findIndex((p) => p.id === playerId);
+  ensure(index >= 0, "UNAUTHORIZED", "Rejoin using this device’s saved room.");
+  if (action.kind !== "resign") ensure(index === room.turn, "NOT_YOUR_TURN", "Wait for your turn.");
+  return index;
+}
 export function playAction(room: DuelRoomState, playerId: string, action: Record<string, unknown>, now = Date.now(), isAllowedWord?: WordValidator): DuelRoomState {
   const state = structuredClone(room);
-  ensure(state.phase === "playing", "NOT_PLAYING", "This match is not in progress.");
-  ensure(Number.isInteger(action.revision) && action.revision === state.revision, "STALE_REVISION", "The board changed. Review it and try again.");
-  const index = state.players.findIndex((p) => p.id === playerId);
-  ensure(index >= 0, "UNAUTHORIZED", "Rejoin using this device’s saved room.");
+  const index = ensureMoveAllowed(state, playerId, action);
   const player = state.players[index]!;
   if (action.kind === "resign") {
     state.winnerId = state.players[1 - index]!.id;
@@ -206,7 +213,6 @@ export function playAction(room: DuelRoomState, playerId: string, action: Record
     archiveResult(state, now);
     return state;
   }
-  ensure(index === state.turn, "NOT_YOUR_TURN", "Wait for your turn.");
   let score = 0, words: string[] = [], cells: number[] = [];
   if (action.kind === "place") {
     const result = scorePlacement(state, player, action.placements, isAllowedWord);

@@ -38,6 +38,18 @@ const RELEASE_METADATA_PATHS = new Set([
 const ADMIN_DOCUMENT_PATHS = new Set(["/admin", "/admin.html"]);
 const ADMIN_RUNTIME_ENVIRONMENT_PATTERN = /^[a-z][a-z0-9-]{0,31}$/u;
 const LOOPBACK_ADMIN_API_HOSTS = new Set(["localhost", "127.0.0.1", "::1", "[::1]"]);
+const ALLOWED_METHODS = "GET, HEAD";
+
+// Build-time compressed copies of HTML pages (scripts/build-static-site.mjs).
+// They are internal files: never routable, only chosen for an HTML response.
+export const PRECOMPRESSED_DIRECTORY = "/__precompressed/";
+const PRECOMPRESSED_EXTENSIONS = Object.freeze({ br: "br", gzip: "gz" });
+// Cloudflare overwrites the visitor's Accept-Encoding with its own value and
+// keeps the original in request.cf.clientAcceptEncoding
+// (https://developers.cloudflare.com/fundamentals/reference/http-headers/#accept-encoding).
+// Without that original, one of these values may stand for a visitor that
+// sent no Accept-Encoding at all, so it is not treated as consent.
+const CLOUDFLARE_ACCEPT_ENCODING_VALUES = new Set(["br,gzip", "gzip,br", "gzip"]);
 
 function invariant(condition, message) {
   if (!condition) throw new Error(message);
@@ -103,12 +115,72 @@ function fileExtension(pathname) {
   return dot < 0 ? "" : filename.slice(dot).toLowerCase();
 }
 
+function isPrecompressedPath(pathname) {
+  return String(pathname || "").toLowerCase().startsWith(PRECOMPRESSED_DIRECTORY);
+}
+
 function manifestFile(siteManifest, pathname) {
   const physicalPath = siteManifest.routes[pathname] || pathname;
   return {
     path: physicalPath,
-    record: siteManifest.files[physicalPath] || null,
+    // Compressed copies are only ever chosen for the page they encode.
+    record: isPrecompressedPath(physicalPath) ? null : siteManifest.files[physicalPath] || null,
   };
+}
+
+function htmlVariants(siteManifest, physicalPath) {
+  const settings = siteManifest.htmlPrecompression;
+  if (settings?.enabled !== true) return null;
+  return settings.variants?.[physicalPath] || null;
+}
+
+// The visitor's own Accept-Encoding: request.cf.clientAcceptEncoding when
+// Cloudflare replaced the header, otherwise the header itself.
+export function visitorAcceptEncoding(request) {
+  const header = request.headers.get("accept-encoding") || "";
+  const cf = request.cf;
+  if (!cf || typeof cf !== "object") return header;
+  if (typeof cf.clientAcceptEncoding === "string") return cf.clientAcceptEncoding;
+  return CLOUDFLARE_ACCEPT_ENCODING_VALUES.has(header.replace(/\s+/gu, "").toLowerCase()) ? "" : header;
+}
+
+// Picks the first of `available` (in preference order) with the highest
+// quality the visitor gave it. Only explicitly named codings count: a bare
+// `*` does not prove a client can decode brotli or gzip.
+export function negotiateHtmlEncoding(acceptEncoding, available) {
+  const qualities = new Map();
+  for (const entry of String(acceptEncoding || "").split(",")) {
+    const [rawName, ...parameters] = entry.split(";");
+    let coding = rawName.trim().toLowerCase();
+    if (!coding) continue;
+    if (coding === "x-gzip") coding = "gzip";
+    let quality = 1;
+    for (const parameter of parameters) {
+      const separator = parameter.indexOf("=");
+      if (separator < 0 || parameter.slice(0, separator).trim().toLowerCase() !== "q") continue;
+      const value = parameter.slice(separator + 1).trim();
+      quality = /^(?:0(?:\.\d{0,3})?|1(?:\.0{0,3})?)$/u.test(value) ? Number(value) : 0;
+    }
+    // A repeated coding keeps its most cautious quality.
+    qualities.set(coding, Math.min(qualities.get(coding) ?? quality, quality));
+  }
+  let chosen = null;
+  let chosenQuality = 0;
+  for (const coding of available) {
+    const quality = qualities.get(coding) ?? 0;
+    if (quality > chosenQuality) {
+      chosen = coding;
+      chosenQuality = quality;
+    }
+  }
+  return chosen;
+}
+
+function varyOnAcceptEncoding(headers) {
+  const current = headers.get("vary");
+  const names = (current || "").split(",").map((name) => name.trim().toLowerCase());
+  if (names.includes("*") || names.includes("accept-encoding")) return;
+  headers.set("vary", current ? `${current}, Accept-Encoding` : "Accept-Encoding");
 }
 
 export function fingerprintCompatibilitySource(siteManifest, pathname) {
@@ -226,16 +298,16 @@ export function contentSecurityPolicy(siteManifest, pathname, status) {
   ].join("; ");
 }
 
-export function applySiteHeaders(response, {
+function siteResponseHeaders(sourceHeaders, status, {
   siteManifest,
   pathname,
   record = null,
   cacheControl,
   requestUrl,
 } = {}) {
-  const headers = new Headers(response.headers);
+  const headers = new Headers(sourceHeaders);
   headers.set("strict-transport-security", "max-age=31536000; includeSubDomains");
-  headers.set("content-security-policy", contentSecurityPolicy(siteManifest, pathname, response.status));
+  headers.set("content-security-policy", contentSecurityPolicy(siteManifest, pathname, status));
   headers.set("x-content-type-options", "nosniff");
   headers.set("referrer-policy", "strict-origin-when-cross-origin");
   headers.set("permissions-policy", "camera=(), geolocation=(), microphone=(), payment=(), usb=()");
@@ -248,13 +320,14 @@ export function applySiteHeaders(response, {
     "cache-control",
     cacheControl || cachePolicy({
       pathname,
-      status: response.status,
+      status,
       contentType: headers.get("content-type") || "",
       record,
     }),
   );
   const etag = weakEtag(record);
-  if (etag && response.status >= 200 && response.status < 300) headers.set("etag", etag);
+  // A 304 must repeat the validator of the 200 it confirms (RFC 9110 15.4.5).
+  if (etag && ((status >= 200 && status < 300) || status === 304)) headers.set("etag", etag);
   // Query state is playable and shareable, but it is not a separate public
   // search destination. Do not let its headers enter a clean-page offline cache.
   if (requestUrl && (isPuzzleStateURL(requestUrl) || isKidsFilterURL(requestUrl) || isSharedPartyQuizURL(requestUrl))) {
@@ -267,14 +340,61 @@ export function applySiteHeaders(response, {
   // unconsented scripts. This leaves WAF rules enabled; JSD-dependent rules
   // require a separately reviewed nonce integration before they can be used.
   const htmlDocument = /^text\/html(?:;|$)/iu.test(headers.get("content-type") || "")
-    || (response.status === 304 && manifestFile(siteManifest, pathname).path.endsWith(".html"));
+    || (status === 304 && manifestFile(siteManifest, pathname).path.endsWith(".html"));
   if (htmlDocument) headers.set("cache-control", `${headers.get("cache-control")}, no-transform`);
   if (record && /^\/google[0-9a-f]{16}\.html$/u.test(pathname)) headers.set("x-robots-tag", "noindex");
+  return headers;
+}
+
+export function applySiteHeaders(response, options = {}) {
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
-    headers,
+    headers: siteResponseHeaders(response.headers, response.status, options),
   });
+}
+
+// index.js adds the Worker version to every response. Set it in place: a new
+// Response(body, init) would drop `encodeBody: "manual"`, and the runtime
+// would then compress an already-compressed body a second time.
+export function withWorkerVersion(response, versionId) {
+  if (typeof versionId !== "string") return response;
+  try {
+    response.headers.set("x-jakh-worker-version", versionId);
+    return response;
+  } catch {
+    // Only a Response taken unchanged from fetch() has immutable headers, and
+    // this handler never returns one; keep the old copy as a fallback.
+    const headers = new Headers(response.headers);
+    headers.set("x-jakh-worker-version", versionId);
+    return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
+  }
+}
+
+// Fetches the stored compressed copy as a plain GET, without the visitor's
+// conditional, range or encoding headers. Anything unexpected returns null
+// so the caller serves the uncompressed page exactly as before.
+async function fetchPrecompressedCopy(env, requestUrl, siteManifest, path) {
+  const record = siteManifest.files[path];
+  if (!record) return null;
+  let asset;
+  try {
+    asset = await env.ASSETS.fetch(new Request(new URL(path, requestUrl), { method: "GET" }));
+  } catch {
+    return null;
+  }
+  const storedEncoding = (asset.headers.get("content-encoding") || "identity").trim().toLowerCase();
+  const length = asset.headers.get("content-length");
+  if (
+    asset.status !== 200
+    || !asset.body
+    || storedEncoding !== "identity"
+    || (length !== null && Number(length) !== record.bytes)
+  ) {
+    asset.body?.cancel().catch(() => {});
+    return null;
+  }
+  return asset;
 }
 
 function errorResponse(siteManifest, pathname, status, message) {
@@ -284,12 +404,40 @@ function errorResponse(siteManifest, pathname, status, message) {
   }), { siteManifest, pathname, cacheControl: NO_STORE });
 }
 
+const HELD_TEXT = "This content is temporarily unavailable.\n";
+
+// A small self-contained bilingual page for people who follow an old link to a
+// held topic. No scripts, no assets and no links to any held category.
+export function heldContentPage(pathname) {
+  const arabic = /^\/ar(?:\/|$)/iu.test(String(pathname || ""));
+  const style = "body{margin:0;font-family:system-ui,-apple-system,'Segoe UI',Tahoma,sans-serif;"
+    + "background:#fbf6ec;color:#322016;line-height:1.6}main{max-width:36rem;margin:12vh auto;padding:0 1rem}"
+    + "h1{font-size:1.5rem;margin:0 0 .5rem}p{margin:.25rem 0 1rem;color:#725846}"
+    + "a{color:#94431f;font-weight:600}section+section{margin-top:2rem;padding-top:1.5rem;border-top:1px solid #e6d8c6}";
+  const ar = `<section lang="ar" dir="rtl"><h1>هذا المحتوى غير متاح مؤقتًا</h1>`
+    + `<p>جرّب موضوعًا آخر من موضوعات ريدل أرابيا.</p>`
+    + `<p><a href="/ar/">الصفحة الرئيسية</a> · <a href="/ar/mind-lab/">تصفّح الموضوعات</a></p></section>`;
+  const en = `<section lang="en" dir="ltr"><h1>This content is temporarily unavailable.</h1>`
+    + `<p>Try another Riddle Arabia topic.</p>`
+    + `<p><a href="/">Home</a> · <a href="/mind-lab">Browse topics</a></p></section>`;
+  return `<!DOCTYPE html><html lang="${arabic ? "ar" : "en"}" dir="${arabic ? "rtl" : "ltr"}"><head>`
+    + `<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">`
+    + `<meta name="robots" content="noindex, nofollow"><title>${arabic ? "غير متاح مؤقتًا | ريدل أرابيا" : "Temporarily unavailable | Riddle Arabia"}</title>`
+    + `<style>${style}</style></head><body><main>${arabic ? ar + en : en + ar}</main></body></html>\n`;
+}
+
+function wantsHeldPage(pathname) {
+  const lower = String(pathname || "").toLowerCase();
+  return !lower.startsWith("/data/") && !/\.json(?:$|[/?#%])/u.test(lower);
+}
+
 function quarantineResponse(siteManifest, pathname, method) {
+  const page = wantsHeldPage(pathname);
   const response = applySiteHeaders(new Response(
-    method === "HEAD" ? null : "This content is temporarily unavailable.\n",
+    method === "HEAD" ? null : (page ? heldContentPage(pathname) : HELD_TEXT),
     {
       status: 410,
-      headers: { "content-type": "text/plain; charset=utf-8" },
+      headers: { "content-type": page ? "text/html; charset=utf-8" : "text/plain; charset=utf-8" },
     },
   ), { siteManifest, pathname, cacheControl: NO_STORE });
   response.headers.set("x-robots-tag", QUARANTINE_ROBOTS_POLICY);
@@ -436,6 +584,40 @@ function validateManifest(siteManifest) {
   for (const path of [...Object.keys(siteManifest.routes), ...Object.keys(siteManifest.aliases)]) {
     invariant(!isQuarantinedPath(siteManifest, path), `Quarantined path is present in site routes: ${path}`);
   }
+  for (const path of [
+    ...Object.keys(siteManifest.routes),
+    ...Object.values(siteManifest.routes),
+    ...Object.keys(siteManifest.aliases),
+  ]) {
+    invariant(!isPrecompressedPath(path), `Precompressed copy is routable: ${path}`);
+  }
+  const precompression = siteManifest.htmlPrecompression;
+  if (precompression !== undefined) {
+    invariant(
+      precompression && typeof precompression.enabled === "boolean"
+        && precompression.directory === PRECOMPRESSED_DIRECTORY
+        && Array.isArray(precompression.encodings)
+        && precompression.encodings.every((name) => Object.hasOwn(PRECOMPRESSED_EXTENSIONS, name))
+        && precompression.variants && typeof precompression.variants === "object",
+      "Invalid HTML precompression settings",
+    );
+    for (const [source, variants] of Object.entries(precompression.variants)) {
+      const record = siteManifest.files[source];
+      invariant(precompression.enabled, "Precompressed HTML copies are listed while precompression is off");
+      invariant(
+        record && source.endsWith(".html") && !isPrecompressedPath(source),
+        `Precompressed source is not a deployed HTML file: ${source}`,
+      );
+      for (const [encoding, target] of Object.entries(variants)) {
+        invariant(
+          precompression.encodings.includes(encoding)
+            && target === `${PRECOMPRESSED_DIRECTORY}${record.sha256}.${PRECOMPRESSED_EXTENSIONS[encoding]}`
+            && Boolean(siteManifest.files[target]),
+          `Invalid precompressed ${encoding} copy of ${source}`,
+        );
+      }
+    }
+  }
   for (const [stable, fingerprinted] of Object.entries(siteManifest.fingerprints)) {
     invariant(Boolean(siteManifest.files[stable]), `Missing stable fingerprint source: ${stable}`);
     const record = siteManifest.files[fingerprinted];
@@ -447,12 +629,51 @@ function validateManifest(siteManifest) {
 export function createSiteHandler({ siteManifest, mtaStsPolicy }) {
   validateManifest(siteManifest);
   invariant(validateMtaStsPolicy(mtaStsPolicy), "Bundled MTA-STS policy is invalid");
+
+  // Serves a build-time compressed copy of an HTML page when the visitor
+  // accepts one. The Worker does no compression and never reads the body:
+  // it passes the stored bytes through with `encodeBody: "manual"`. Returns
+  // null whenever the uncompressed page should be served instead.
+  async function precompressedHtml(request, env, url, physicalPath, status, policy) {
+    if (request.method.toUpperCase() !== "GET" || request.headers.has("range")) return null;
+    const variants = htmlVariants(siteManifest, physicalPath);
+    if (!variants) return null;
+    const encoding = negotiateHtmlEncoding(
+      visitorAcceptEncoding(request),
+      siteManifest.htmlPrecompression.encodings.filter((name) => variants[name]),
+    );
+    if (!encoding) return null;
+    const asset = await fetchPrecompressedCopy(env, url, siteManifest, variants[encoding]);
+    if (!asset) return null;
+    // Start from clean headers: the stored file's type, length and ETag
+    // describe the compressed file, not the page.
+    const headers = siteResponseHeaders({ "content-type": "text/html; charset=utf-8" }, status, policy);
+    headers.set("content-encoding", encoding);
+    varyOnAcceptEncoding(headers);
+    return new Response(asset.body, { status, headers, encodeBody: "manual" });
+  }
+
+  async function notFoundPage(request, env, url) {
+    const policy = { siteManifest, pathname: url.pathname, record: siteManifest.files["/404.html"] };
+    const encoded = await precompressedHtml(request, env, url, "/404.html", 404, policy);
+    if (encoded) return encoded;
+    const asset = await env.ASSETS.fetch(new Request(new URL("/404.html", url), request));
+    const response = applySiteHeaders(new Response(asset.body, {
+      status: 404,
+      headers: asset.headers,
+    }), policy);
+    if (htmlVariants(siteManifest, "/404.html")) varyOnAcceptEncoding(response.headers);
+    return response;
+  }
+
   return {
     async fetch(request, env) {
       const url = new URL(request.url);
       const method = request.method.toUpperCase();
       if (!new Set(["GET", "HEAD"]).has(method)) {
-        return errorResponse(siteManifest, url.pathname, 405, "Method not allowed");
+        const notAllowed = errorResponse(siteManifest, url.pathname, 405, "Method not allowed");
+        notAllowed.headers.set("allow", ALLOWED_METHODS);
+        return notAllowed;
       }
       if (MTA_STS_HOSTS.has(url.hostname)) {
         return mtaStsResponse(siteManifest, env, url.pathname, mtaStsPolicy);
@@ -467,12 +688,7 @@ export function createSiteHandler({ siteManifest, mtaStsPolicy }) {
       if (redirect) return redirectResponse(siteManifest, redirect);
 
       if (url.pathname === "/404.html" || url.pathname === "/404") {
-        const assetRequest = new Request(new URL("/404.html", url), request);
-        const asset = await env.ASSETS.fetch(assetRequest);
-        return applySiteHeaders(new Response(asset.body, {
-          status: 404,
-          headers: asset.headers,
-        }), { siteManifest, pathname: url.pathname, record: siteManifest.files["/404.html"] });
+        return notFoundPage(request, env, url);
       }
 
       const resolved = manifestFile(siteManifest, url.pathname);
@@ -484,16 +700,15 @@ export function createSiteHandler({ siteManifest, mtaStsPolicy }) {
         : resolved;
       if (!served.record) {
         try {
-          const asset = await env.ASSETS.fetch(new Request(new URL("/404.html", url), request));
-          return applySiteHeaders(new Response(asset.body, {
-            status: 404,
-            headers: asset.headers,
-          }), { siteManifest, pathname: url.pathname, record: siteManifest.files["/404.html"] });
+          return await notFoundPage(request, env, url);
         } catch {
           return errorResponse(siteManifest, url.pathname, 503, "Static site temporarily unavailable");
         }
       }
       const etag = weakEtag(served.record);
+      // Compressed copies exist only for HTML pages, never for the stable
+      // compatibility fallbacks of fingerprinted scripts and styles.
+      const hasVariants = !compatibilitySource && Boolean(htmlVariants(siteManifest, served.path));
       if (requestMatchesEtag(request, etag)) {
         const contentType = served.path.endsWith(".html")
           ? "text/html; charset=utf-8"
@@ -511,10 +726,24 @@ export function createSiteHandler({ siteManifest, mtaStsPolicy }) {
           }),
         });
         if (compatibilitySource) conditional.headers.set("x-jakh-compatibility-fallback", compatibilitySource);
+        // The weak ETag is shared by the identity and compressed forms; a 304
+        // repeats the Vary of the 200 it revalidates.
+        if (hasVariants) varyOnAcceptEncoding(conditional.headers);
         return conditional;
       }
 
       try {
+        const policy = {
+          siteManifest,
+          pathname: url.pathname,
+          record: served.record,
+          requestUrl: url,
+          cacheControl: compatibilitySource ? NO_STORE : undefined,
+        };
+        if (hasVariants) {
+          const encoded = await precompressedHtml(request, env, url, served.path, 200, policy);
+          if (encoded) return encoded;
+        }
         // Always ask the asset binding for the exact manifest file. This keeps
         // its HTML/path normalization from turning an unreviewed request alias
         // into a deployed file after the quarantine check has already run.
@@ -523,14 +752,9 @@ export function createSiteHandler({ siteManifest, mtaStsPolicy }) {
         const response = method === "HEAD"
           ? new Response(null, { status: asset.status, statusText: asset.statusText, headers: asset.headers })
           : asset;
-        const withPolicy = applySiteHeaders(response, {
-          siteManifest,
-          pathname: url.pathname,
-          record: served.record,
-          requestUrl: url,
-          cacheControl: compatibilitySource ? NO_STORE : undefined,
-        });
+        const withPolicy = applySiteHeaders(response, policy);
         if (compatibilitySource) withPolicy.headers.set("x-jakh-compatibility-fallback", compatibilitySource);
+        if (hasVariants) varyOnAcceptEncoding(withPolicy.headers);
         return withPolicy;
       } catch {
         return errorResponse(siteManifest, url.pathname, 503, "Static site temporarily unavailable");

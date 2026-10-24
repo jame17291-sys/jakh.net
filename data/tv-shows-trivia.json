@@ -6941,7 +6941,7 @@
     },
     "answer": {
       "en": "2011",
-      "ar": "٢٠١١"
+      "ar": "2011"
     },
     "review": {
       "status": "pending"
@@ -6957,16 +6957,16 @@
           "2006"
         ],
         "ar": [
-          "٢٠٠٤",
-          "٢٠٠٥",
-          "٢٠٠٦"
+          "2004",
+          "2005",
+          "2006"
         ]
       },
       "explanation": {
         "en": "Maraya returned in 2011 after the 2006 edition.",
-        "ar": "عادت مرايا عام ٢٠١١ بعد نسخة ٢٠٠٦."
+        "ar": "عادت مرايا عام 2011 بعد نسخة 2006."
       },
-      "contentKey": "99ed15ec"
+      "contentKey": "e18febcc"
     }
   },
   {
@@ -7638,7 +7638,7 @@
     },
     "answer": {
       "en": "20",
-      "ar": "٢٠"
+      "ar": "20"
     },
     "review": {
       "status": "pending"
@@ -7654,16 +7654,16 @@
           "30"
         ],
         "ar": [
-          "١٥",
-          "٢٥",
-          "٣٠"
+          "15",
+          "25",
+          "30"
         ]
       },
       "explanation": {
         "en": "The 2023 comeback consists of twenty episodes.",
-        "ar": "تتألف عودة عام ٢٠٢٣ من عشرين حلقة."
+        "ar": "تتألف عودة عام 2023 من عشرين حلقة."
       },
-      "contentKey": "1137fe5f"
+      "contentKey": "eaf6a0ff"
     }
   },
   {
@@ -8089,7 +8089,7 @@
     },
     "answer": {
       "en": "MBC 1",
-      "ar": "إم بي سي ١"
+      "ar": "إم بي سي 1"
     },
     "review": {
       "status": "pending"
@@ -8105,16 +8105,16 @@
           "MBC Bollywood"
         ],
         "ar": [
-          "إم بي سي ٢",
+          "إم بي سي 2",
           "إم بي سي أكشن",
           "إم بي سي بوليوود"
         ]
       },
       "explanation": {
         "en": "The revival aired on MBC 1 alongside its Shahid release.",
-        "ar": "عُرضت العودة على إم بي سي ١ بالتزامن مع طرحها على شاهد."
+        "ar": "عُرضت العودة على إم بي سي 1 بالتزامن مع طرحها على شاهد."
       },
-      "contentKey": "c50e1c42"
+      "contentKey": "86d14b12"
     }
   },
   {
@@ -26173,7 +26173,7 @@
     },
     "answer": {
       "en": "1997",
-      "ar": "١٩٩٧"
+      "ar": "1997"
     },
     "tvQuiz": {
       "version": 1,
@@ -26186,16 +26186,16 @@
           "2000"
         ],
         "ar": [
-          "١٩٩٦",
-          "١٩٩٩",
-          "٢٠٠٠"
+          "1996",
+          "1999",
+          "2000"
         ]
       },
       "explanation": {
         "en": "Its Ramadan premiere fell at the end of December 1997.",
-        "ar": "وقع عرضها الرمضاني الأول في نهاية ديسمبر ١٩٩٧."
+        "ar": "وقع عرضها الرمضاني الأول في نهاية ديسمبر 1997."
       },
-      "contentKey": "65a99787"
+      "contentKey": "16d5c387"
     }
   },
   {
@@ -26378,7 +26378,7 @@
     },
     "answer": {
       "en": "50",
-      "ar": "٥٠"
+      "ar": "50"
     },
     "tvQuiz": {
       "version": 1,
@@ -26391,16 +26391,16 @@
           "100"
         ],
         "ar": [
-          "٢٥",
-          "٧٥",
-          "١٠٠"
+          "25",
+          "75",
+          "100"
         ]
       },
       "explanation": {
         "en": "A sales target becomes the starting point for an unlikely customer hunt.",
         "ar": "يصبح هدف المبيعات نقطة انطلاق للبحث عن زبائن غير متوقعين."
       },
-      "contentKey": "3e75e8f7"
+      "contentKey": "dbf41c67"
     }
   },
   {
@@ -27190,8 +27190,8 @@
       "ar": "مرايا"
     },
     "question": {
-      "en": "Which modern machine tempts the farmer in Thawr Wa Tractor?",
-      "ar": "في «ثور وتراكتور»، أي آلة حديثة تغري المزارع؟"
+      "en": "In the Maraya sketch titled “Thawr Wa …” (“An Ox and …”), which modern machine tempts the farmer?",
+      "ar": "بلوحة من «مرايا» عنوانها «ثور و…»، أي آلة حديثة تغري المزارع؟"
     },
     "review": {
       "status": "pending"
@@ -27217,10 +27217,10 @@
         ]
       },
       "explanation": {
-        "en": "The sketch contrasts an animal-powered farm with mechanisation.",
-        "ar": "تقارن اللوحة الزراعة بمساعدة الحيوان باستخدام الآلات."
+        "en": "The sketch “Thawr Wa Tractor” contrasts an animal-powered farm with mechanisation.",
+        "ar": "تقارن لوحة «ثور وتراكتور» الزراعة بمساعدة الحيوان باستخدام الآلات."
       },
-      "contentKey": "d00b8991"
+      "contentKey": "b601acd3"
     }
   },
   {
@@ -27805,8 +27805,8 @@
       "ar": "مرايا"
     },
     "question": {
-      "en": "Which official fascinates the man in Al-Majid Bahaa?",
-      "ar": "في «الماجد بهاء»، أي مسؤول ينبهر فيه الرجل؟"
+      "en": "In the Maraya sketch titled “Al-Majid …”, which official fascinates the man?",
+      "ar": "بلوحة «الماجد …» من «مرايا»، أي مسؤول ينبهر فيه الرجل؟"
     },
     "review": {
       "status": "pending"
@@ -27832,10 +27832,10 @@
         ]
       },
       "explanation": {
-        "en": "The official's name appears in the sketch's title.",
-        "ar": "يظهر اسم المسؤول في عنوان اللوحة نفسها."
+        "en": "The official’s name completes the sketch’s title, “Al-Majid Bahaa”.",
+        "ar": "اسم المسؤول يكمّل عنوان اللوحة: «الماجد بهاء»."
       },
-      "contentKey": "3384fe26"
+      "contentKey": "1a3ad780"
     }
   },
   {
@@ -28633,7 +28633,7 @@
     },
     "answer": {
       "en": "12",
-      "ar": "١٢"
+      "ar": "12"
     },
     "tvQuiz": {
       "version": 1,
@@ -28646,16 +28646,16 @@
           "15"
         ],
         "ar": [
-          "٨",
-          "١٠",
-          "١٥"
+          "8",
+          "10",
+          "15"
         ]
       },
       "explanation": {
         "en": "The comeback followed a twelve-year gap.",
         "ar": "جاءت العودة بعد فجوة امتدت اثني عشر عامًا."
       },
-      "contentKey": "18c23e88"
+      "contentKey": "a9e97d98"
     }
   },
   {
@@ -30060,8 +30060,8 @@
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "Which city's old neighbourhood life is recalled in Jeddah Ghair?",
-      "ar": "«جدة غير» ترجّع حياة أحياء أي مدينة القديمة؟"
+      "en": "Which city completes the title of the Tash Ma Tash sketch “… Ghair”, which recalls old neighbourhood life?",
+      "ar": "أي مدينة تكمّل عنوان لوحة «طاش ما طاش» «… غير» اللي ترجّع حياة الأحياء القديمة؟"
     },
     "review": {
       "status": "pending"
@@ -30087,10 +30087,10 @@
         ]
       },
       "explanation": {
-        "en": "The family recollection gives the sketch its local setting.",
-        "ar": "تمنح الذكريات العائلية اللوحة إطارها المحلي."
+        "en": "In “Jeddah Ghair”, family recollections give the sketch its local setting.",
+        "ar": "في «جدة غير» تمنح الذكريات العائلية اللوحة إطارها المحلي."
       },
-      "contentKey": "2467e592"
+      "contentKey": "62069edd"
     }
   },
   {

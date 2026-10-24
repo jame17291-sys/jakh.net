@@ -91,6 +91,7 @@ jobs:
           scripts/frontend-product-contract.test.mjs
           scripts/shuffle-challenge-engine.test.mjs
           scripts/arabic-everyday-ledger.test.mjs
+          scripts/card-polish-ledger.test.mjs
           scripts/free-first-gameplay.test.mjs
           scripts/performance-budget.test.mjs
           scripts/synthetic-account-monitor.test.mjs

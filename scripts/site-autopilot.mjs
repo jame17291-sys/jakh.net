@@ -343,9 +343,23 @@ export async function readHandoff(path, expected) {
   } finally { await file.close(); }
 }
 
+const ATTEMPT = /^[1-9][0-9]{0,3}$/u;
+
 function runIdentity(env, ctx) {
-  const runAttempt = /^[1-9][0-9]{0,3}$/u.test(env.GITHUB_RUN_ATTEMPT || "") ? env.GITHUB_RUN_ATTEMPT : "1";
+  const runAttempt = ATTEMPT.test(env.GITHUB_RUN_ATTEMPT || "") ? env.GITHUB_RUN_ATTEMPT : "1";
   return { runId: ctx.runId, runAttempt, sourceSha: ctx.sha };
+}
+
+// Publication reads the hand-off of this run's inspection attempt. It equals the
+// current attempt unless only the publish job was re-run.
+export function inspectionIdentity(env, ctx) {
+  const current = runIdentity(env, ctx);
+  const attempt = env.AUTOPILOT_INSPECTION_ATTEMPT;
+  if (attempt === undefined || attempt === "") return current;
+  if (!ATTEMPT.test(attempt) || Number(attempt) > Number(current.runAttempt)) {
+    throw new Error("The inspection attempt does not belong to this run.");
+  }
+  return { ...current, runAttempt: attempt };
 }
 
 // Read-only job: inspect, repair locally, test, and prove the exact candidate
@@ -427,7 +441,7 @@ export async function runPublication(env = process.env, { handoffPath, now = () 
   const root = process.cwd();
   const outputDir = outputDirectory(env, ctx, root);
   await mkdir(outputDir, { recursive: true });
-  const inspection = await readHandoff(handoffPath || join(outputDir, HANDOFF_FILE), runIdentity(env, ctx));
+  const inspection = await readHandoff(handoffPath || join(outputDir, HANDOFF_FILE), inspectionIdentity(env, ctx));
   const reportPath = join(outputDir, "daily-report.json");
   const gh = githubClient(env);
   const report = { version: 1, runId: ctx.runId, sourceSha: ctx.sha, releaseMode: readiness.mode, status: "inspecting", checksPassed: 0, checksFailed: 0, changedFiles: [], failedChecks: [] };

@@ -9,7 +9,7 @@ import { context, githubClient, oidcToken, autopilotRequest, diagnoseAutopilotId
 import { safeChildEnv, findingBody, syncFindings, matchDispatchedRun, dispatchAndWait,
   FINDINGS_MARKER, BOT_ID, publishVerifiedRepair, waitForPullRequestChecks, verifyPublishedBuild,
   automaticReleaseReadiness, publicationFinding, validateHandoff, readHandoff, HANDOFF_FILE,
-  publicationExitCode, runPublication, runInspection } from './site-autopilot.mjs';
+  publicationExitCode, runPublication, runInspection, inspectionIdentity } from './site-autopilot.mjs';
 import { execFileSync } from 'node:child_process';
 
 import { loadProductionQuarantine } from './publication-quarantine.mjs';
@@ -847,7 +847,8 @@ test('maintenance installs packages only in a read-only job and writes only from
   const source = await fs.readFile(path.join(ROOT, '.github/workflows/site-autopilot.yml'), 'utf8');
   const inspect = workflowJob(source, 'inspect');
   const publish = workflowJob(source, 'publish');
-  assert.match(inspect, /    permissions:\n      contents: read\n    steps:/u, 'the package job has exactly a read-only token');
+  assert.match(inspect, /\n    permissions:\n      contents: read\n(?! {6})/u, 'the package job has exactly a read-only token');
+  assert.equal((inspect.match(/\n    permissions:/gu) || []).length, 1);
   assert.doesNotMatch(inspect, /id-token|environment:|secrets\.|: write|AUTOPILOT_GITHUB_APP/u);
   assert.match(inspect, /npm ci --no-audit --no-fund/u);
   assert.match(inspect, /run: node scripts\/site-autopilot\.mjs inspect/u);
@@ -859,7 +860,10 @@ test('maintenance installs packages only in a read-only job and writes only from
   for (const permission of ['contents: write', 'pull-requests: write', 'issues: write', 'actions: write', 'id-token: write']) {
     assert.ok(publish.includes(permission), permission);
   }
-  assert.match(publish, /uses: actions\/download-artifact@[a-f0-9]{40} # v[\d.]+\n\s+with:\n\s+name: autopilot-handoff-\$\{\{ github\.run_id \}\}-\$\{\{ github\.run_attempt \}\}\n\s+path: \$\{\{ runner\.temp \}\}\/autopilot-\$\{\{ github\.run_id \}\}/u);
+  // Hand-off identity comes from job outputs GitHub evaluates, never from a step.
+  assert.match(inspect, /    outputs:\n      handoff: autopilot-handoff-\$\{\{ github\.run_id \}\}-\$\{\{ github\.run_attempt \}\}\n      attempt: \$\{\{ github\.run_attempt \}\}\n/u);
+  assert.match(publish, /uses: actions\/download-artifact@[a-f0-9]{40} # v[\d.]+\n\s+with:\n\s+name: \$\{\{ needs\.inspect\.outputs\.handoff \}\}\n\s+path: \$\{\{ runner\.temp \}\}\/autopilot-\$\{\{ github\.run_id \}\}/u);
+  assert.match(publish, /AUTOPILOT_INSPECTION_ATTEMPT: \$\{\{ needs\.inspect\.outputs\.attempt \}\}\n\s+run: node scripts\/site-autopilot\.mjs publish/u);
   assert.doesNotMatch(publish, /digest-mismatch: (?:ignore|info|warn)/u, 'a tampered hand-off must fail the download');
   assert.ok(publish.indexOf('scripts/autopilot-policy.test.mjs') < publish.indexOf('run: node scripts/site-autopilot.mjs publish'));
   assert.ok(publish.indexOf('actions/download-artifact') < publish.indexOf('run: node scripts/site-autopilot.mjs publish'));
@@ -1031,6 +1035,21 @@ test('a hand-off from another run attempt is rejected before any claim or GitHub
   await withPublicationFixture({ inspection: handoff({ runAttempt: '2' }) }, async ({ calls, run }) => {
     await assert.rejects(run(), /another run/u);
     assert.deepEqual(calls, []);
+  });
+});
+
+test('a publish-only re-run reads its own inspection attempt and nothing newer', async () => {
+  const ctx = { runId: '12345', sha: BASE };
+  assert.deepEqual(inspectionIdentity({ GITHUB_RUN_ATTEMPT: '2', AUTOPILOT_INSPECTION_ATTEMPT: '1' }, ctx), { runId: '12345', runAttempt: '1', sourceSha: BASE });
+  assert.deepEqual(inspectionIdentity({ GITHUB_RUN_ATTEMPT: '2' }, ctx), { runId: '12345', runAttempt: '2', sourceSha: BASE });
+  for (const attempt of ['3', '0', 'x', '1; rm -rf /']) {
+    assert.throws(() => inspectionIdentity({ GITHUB_RUN_ATTEMPT: '2', AUTOPILOT_INSPECTION_ATTEMPT: attempt }, ctx), /does not belong to this run/u, attempt);
+  }
+  // The re-run's own OIDC attempt cannot take over a day claimed by the first attempt.
+  await withPublicationFixture({ inspection: handoff(), claimStatus: 409 }, async ({ env, calls }) => {
+    const report = await runPublication({ ...env, GITHUB_RUN_ATTEMPT: '2', AUTOPILOT_INSPECTION_ATTEMPT: '1' }, { now: () => new Date('2026-10-24T03:30:00Z') });
+    assert.equal(report.status, 'paused_or_daily_limit');
+    assert.deepEqual(issueWrites(calls), []);
   });
 });
 

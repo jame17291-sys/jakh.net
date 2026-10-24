@@ -29,3 +29,37 @@ test('service-worker caching separates legacy redirected games and query-state r
   assert.equal(sandbox.isCacheableResponse(response('https://riddlearabia.com/sudoku?difficulty=hard',{'cache-control':'no-store'}),'/sudoku'),false);
   assert.equal(sandbox.isCacheableResponse(response('https://riddlearabia.com/sudoku'),'/sudoku'),true);
 });
+test('Word Duel reminders open the current game address and focus an already-open game tab',async()=>{
+  const listeners={};let shown=null;const opened=[];const focused=[];
+  let clients=[];
+  const sandbox={URL,Request,Response,Headers,self:{
+    location:{origin:'https://riddlearabia.com'},
+    addEventListener(type,fn){listeners[type]=fn;},
+    registration:{showNotification:async(title,options)=>{shown={title,options};}},
+    clients:{matchAll:async()=>clients,openWindow:async(url)=>{opened.push(url);}},
+  }};
+  vm.createContext(sandbox);
+  vm.runInContext(await readFile(new URL('../sw.js',import.meta.url),'utf8'),sandbox);
+  const wait=[];const event=extra=>({waitUntil:promise=>wait.push(promise),...extra});
+  for(const [lang,path] of [['en','/word-duel'],['ar','/ar/games/word-duel/']]){
+    listeners.push(event({data:{json:()=>({type:'word-duel',code:'ABCD2345',lang})}}));
+    await Promise.all(wait.splice(0));
+    assert.equal(shown.options.data.url,`${path}?duelRoom=ABCD2345`);
+  }
+  const click=url=>event({notification:{tag:'word-duel-ABCD2345',data:{url},close(){}}});
+  clients=[{url:'https://riddlearabia.com/word-duel?duelRoom=ABCD2345&lang=en',focus:async()=>{focused.push('en');}}];
+  listeners.notificationclick(click('/word-duel?duelRoom=ABCD2345'));
+  await Promise.all(wait.splice(0));
+  assert.deepEqual(focused,['en']);assert.deepEqual(opened,[]);
+  // A notification shown before the route change still lands on the new address.
+  clients=[];
+  listeners.notificationclick(click('/ar/play/?game=duel&duelRoom=ABCD2345'));
+  await Promise.all(wait.splice(0));
+  assert.deepEqual(opened,['https://riddlearabia.com/ar/games/word-duel/?duelRoom=ABCD2345']);
+  // Off-site, malformed or extra-parameter data never navigates anywhere else.
+  for(const bad of ['https://evil.example/word-duel?duelRoom=ABCD2345','/word-duel?duelRoom=abc','/sudoku?duelRoom=ABCD2345']){
+    listeners.notificationclick(click(bad));
+    await Promise.all(wait.splice(0));
+  }
+  assert.equal(opened.length,1);
+});

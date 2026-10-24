@@ -134,16 +134,36 @@ function isQuarantinedPath(pathname) {
   ));
 }
 
+// Same bilingual notice as the edge (site-worker/src/site-edge.js heldContentPage),
+// served without touching the network or any cache.
+function heldContentPage(pathname) {
+  const arabic = /^\/ar(?:\/|$)/iu.test(pathname);
+  const ar = '<section lang="ar" dir="rtl"><h1>هذا المحتوى غير متاح مؤقتًا</h1>'
+    + '<p>جرّب موضوعًا آخر من موضوعات ريدل أرابيا.</p>'
+    + '<p><a href="/ar/">الصفحة الرئيسية</a> · <a href="/ar/mind-lab/">تصفّح الموضوعات</a></p></section>';
+  const en = '<section lang="en" dir="ltr"><h1>This content is temporarily unavailable.</h1>'
+    + '<p>Try another Riddle Arabia topic.</p>'
+    + '<p><a href="/">Home</a> · <a href="/mind-lab">Browse topics</a></p></section>';
+  return `<!DOCTYPE html><html lang="${arabic ? 'ar' : 'en'}" dir="${arabic ? 'rtl' : 'ltr'}"><head>`
+    + '<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">'
+    + `<meta name="robots" content="noindex, nofollow"><title>${arabic ? 'غير متاح مؤقتًا | ريدل أرابيا' : 'Temporarily unavailable | Riddle Arabia'}</title>`
+    + '<style>body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;background:#fbf6ec;color:#322016;line-height:1.6}'
+    + 'main{max-width:36rem;margin:12vh auto;padding:0 1rem}h1{font-size:1.5rem;margin:0 0 .5rem}p{margin:.25rem 0 1rem;color:#725846}'
+    + 'a{color:#94431f;font-weight:600}section+section{margin-top:2rem;padding-top:1.5rem;border-top:1px solid #e6d8c6}</style>'
+    + `</head><body><main>${arabic ? ar + en : en + ar}</main></body></html>\n`;
+}
+
 function quarantinedResponse(request) {
+  const page = request.mode === 'navigate';
   return new Response(
     request.method === 'HEAD'
       ? null
-      : 'This content is temporarily unavailable.\n',
+      : (page ? heldContentPage(new URL(request.url).pathname) : 'This content is temporarily unavailable.\n'),
     {
       status: 410,
       headers: {
         'cache-control': 'no-store',
-        'content-type': 'text/plain; charset=utf-8',
+        'content-type': page ? 'text/html; charset=utf-8' : 'text/plain; charset=utf-8',
         'clear-site-data': '"cache"',
         'x-jakh-content-quarantine': 'active',
         'x-robots-tag': 'noindex, nofollow, noarchive, nosnippet',
@@ -364,7 +384,8 @@ self.addEventListener('push', (event) => {
   try { data = event.data?.json(); } catch (_) { return; }
   if (data?.type !== 'word-duel' || !/^[A-HJ-NP-Z2-9]{8}$/u.test(data.code)) return;
   const ar = data.lang === 'ar';
-  const url = `${ar ? '/ar/play/' : '/play'}?game=duel&duelRoom=${data.code}`;
+  // Current Word Duel address (see puzzle-routes.js); /play?game=duel now redirects.
+  const url = `${ar ? '/ar/games/word-duel/' : '/word-duel'}?duelRoom=${data.code}`;
   const rematch = data.kind === 'rematch';
   event.waitUntil(self.registration.showNotification(ar ? 'مبارزة الكلمات · ريدل أرابيا' : 'Word Duel · Riddle Arabia', {
     body: rematch ? (ar ? 'صديقك يدعوك إلى مباراة جديدة. افتح الغرفة للقبول أو الرفض.' : 'Your friend invited you to a rematch. Open the room to accept or decline.') : (ar ? 'حان دورك. افتح الغرفة لمتابعة المباراة.' : 'It’s your turn. Open the room to continue.'),
@@ -377,14 +398,26 @@ self.addEventListener('notificationclick', (event) => {
   event.notification.close();
   let url;
   try { url = new URL(event.notification.data?.url, self.location.origin); } catch (_) { return; }
-  if (url.origin !== self.location.origin || !['/play', '/ar/play/'].includes(url.pathname) || url.searchParams.get('game') !== 'duel' || !/^[A-HJ-NP-Z2-9]{8}$/u.test(url.searchParams.get('duelRoom') || '')) return;
+  const room = url.searchParams.get('duelRoom') || '';
+  const current = ['/word-duel', '/ar/games/word-duel/'].includes(url.pathname);
+  // Notifications shown before this release still carry the old /play address.
+  const legacy = ['/play', '/ar/play/'].includes(url.pathname) && url.searchParams.get('game') === 'duel';
+  if (url.origin !== self.location.origin || !(current || legacy) || !/^[A-HJ-NP-Z2-9]{8}$/u.test(room)) return;
+  const arabic = url.pathname.startsWith('/ar/');
   // Rebuild an allowlisted URL; notification data cannot navigate off-site or
   // smuggle credentials or other query parameters into a page.
-  const target = new URL(url.pathname, self.location.origin);
-  target.searchParams.set('game', 'duel'); target.searchParams.set('duelRoom', url.searchParams.get('duelRoom'));
+  const target = new URL(arabic ? '/ar/games/word-duel/' : '/word-duel', self.location.origin);
+  target.searchParams.set('duelRoom', room);
   event.waitUntil((async () => {
     const windows = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
-    const existing = windows.find(client => client.url === target.href);
+    const existing = windows.find((client) => {
+      try {
+        const open = new URL(client.url);
+        return open.origin === target.origin && open.pathname === target.pathname && open.searchParams.get('duelRoom') === room;
+      } catch (_) {
+        return false;
+      }
+    });
     if (existing) return existing.focus();
     return self.clients.openWindow(target.href);
   })());

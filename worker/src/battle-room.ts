@@ -11,7 +11,12 @@ const REVEAL_TIME_MS = 4_000;
 const LOBBY_TTL_MS = 30 * 60_000;
 const FINISHED_TTL_MS = 5 * 60_000;
 const MAX_PLAYERS = 20;
-const MAX_PLAYERS_PER_NETWORK = 4;
+// Families and classrooms often share one Wi-Fi network, so players from one
+// network may fill a room up to MAX_PLAYERS. Flood protection stays per
+// network elsewhere: the API Worker limits connection attempts per network per
+// minute and room creation per network per hour, rooms need their private
+// eight-character code, and here one network may hold only one not-yet-joined
+// connection at a time.
 const MAX_SOCKETS = MAX_PLAYERS;
 const MAX_PREJOIN_SOCKETS = 4;
 const MAX_PREJOIN_SOCKETS_PER_NETWORK = 1;
@@ -29,7 +34,6 @@ const BATTLE_ERROR_CODES: Readonly<Record<string, string>> = Object.freeze({
   "Invite another player to start": "NEED_ANOTHER_PLAYER",
   "Invalid room code": "INVALID_ROOM_CODE",
   "Player name is required": "PLAYER_NAME_REQUIRED",
-  "Too many players from this network": "NETWORK_PLAYER_LIMITED",
   "Too many messages": "MESSAGE_RATE_LIMITED",
 });
 
@@ -402,18 +406,6 @@ export class BattleRoom implements DurableObject {
     }
     if (room.players.length >= MAX_PLAYERS) {
       this.rejectSocket(socket, "Room is full");
-      return;
-    }
-    if (
-      attachment.clientKey
-      && this.ctx.getWebSockets().filter((candidate) => {
-        const candidateAttachment = this.socketAttachment(candidate);
-        return candidate !== socket
-          && Boolean(candidateAttachment.playerId)
-          && candidateAttachment.clientKey === attachment.clientKey;
-      }).length >= MAX_PLAYERS_PER_NETWORK
-    ) {
-      this.rejectSocket(socket, "Too many players from this network");
       return;
     }
     if (String(payload.code || "").trim().toUpperCase() !== room.code) {

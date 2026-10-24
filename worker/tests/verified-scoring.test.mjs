@@ -1303,7 +1303,7 @@ test("an implausibly fast submission is rejected without consuming the challenge
   assert.equal(database.challenges.get(challenge.challengeId).status, "pending");
 });
 
-test("leaderboard SQL admits only completed server-checked rows and avoids speed tiebreaks", async () => {
+test("leaderboard SQL admits only completed server-checked rows, avoids speed tiebreaks and never ranks by name", async () => {
   const database = new FakeDatabase();
   database.leaderboardRows = [{
     username: "verified_player",
@@ -1328,7 +1328,11 @@ test("leaderboard SQL admits only completed server-checked rows and avoids speed
   assert.match(statement.sql, /\(s\.correct_count \* 1000\) AS score/u);
   assert.doesNotMatch(statement.sql, /s\.elapsed_ms|elapsedMs/u);
   assert.doesNotMatch(statement.sql, /ORDER BY[^\n]*s\.score/u);
-  assert.match(statement.sql, /ORDER BY score DESC, achievedAt ASC, username COLLATE NOCASE ASC/u);
+  assert.match(statement.sql, /ORDER BY score DESC, achievedAt ASC, sessionId ASC\s+LIMIT 50/u);
+  // No ordering anywhere in the query may use the player's chosen name.
+  for (const orderBy of statement.sql.match(/ORDER BY[^\n)]*/gu) || []) {
+    assert.doesNotMatch(orderBy, /username|COLLATE/u, orderBy);
+  }
   assert.match(statement.sql, /LIMIT 50/u);
   assert.match(statement.sql, /s\.category_id NOT IN \(\?, \?, \?, \?, \?\)/u);
   assert.deepEqual(statement.values, [...QUARANTINED_CATEGORY_IDS, "currencies"]);
@@ -1345,6 +1349,7 @@ test("leaderboard SQL admits only completed server-checked rows and avoids speed
   });
   assert.equal("elapsedMs" in payload.leaderboard[0], false);
   assert.equal("completedAt" in payload.leaderboard[0], false);
+  assert.equal("sessionId" in payload.leaderboard[0], false);
   assert.equal(response.headers.get("cache-control"), "public, max-age=30");
 
   const sqlite = new DatabaseSync(":memory:");
@@ -1383,10 +1388,21 @@ test("leaderboard SQL admits only completed server-checked rows and avoids speed
     seed("zara-first-ten", "u-zara", 10, 800000, "2026-08-01T09:00:00.000Z");
     seed("zara-later-ten", "u-zara", 10, 20000, "2026-08-03T09:00:00.000Z");
     seed("mona-early-nine", "u-mona", 9, 20000, "2026-07-01T09:00:00.000Z");
-    assert.deepEqual(
-      sqlite.prepare(statement.sql).all(...statement.values).map((row) => row.username),
-      ["zara_first_to_ten", "aaron_early_alphabet", "mona_nine"],
-    );
+    const ranking = () => sqlite.prepare(statement.sql).all(...statement.values).map((row) => row.username);
+    assert.deepEqual(ranking(), ["zara_first_to_ten", "aaron_early_alphabet", "mona_nine"]);
+
+    // Equal scores submitted at the same instant are settled by the random
+    // challenge id, not the name: swapping the two names keeps each player in
+    // place, so a name such as "000" gains nothing.
+    insertUser.run("u-first-id", "zzz_tied");
+    insertUser.run("u-second-id", "000_tied");
+    seed("tie-a-session", "u-first-id", 8, 20000, "2026-08-04T09:00:00.000Z");
+    seed("tie-b-session", "u-second-id", 8, 20000, "2026-08-04T09:00:00.000Z");
+    assert.deepEqual(ranking().slice(-2), ["zzz_tied", "000_tied"]);
+    sqlite.prepare(`UPDATE users SET username = CASE id
+      WHEN 'u-first-id' THEN '000_renamed' ELSE 'zzz_renamed' END
+      WHERE id IN ('u-first-id', 'u-second-id')`).run();
+    assert.deepEqual(ranking().slice(-2), ["000_renamed", "zzz_renamed"]);
   } finally {
     sqlite.close();
   }

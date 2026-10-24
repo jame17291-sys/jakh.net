@@ -358,9 +358,108 @@ test("an invited second player shares the host room and receives its first quest
   }
 });
 
-test("one network cannot occupy an entire room", async () => {
+// Node's Response rejects status 101 and has no WebSocketPair, so this helper
+// stands in for the Workers runtime around the real connect-then-join path.
+async function withWebSocketUpgrades(run) {
+  const NativeResponse = globalThis.Response;
+  const hadPair = "WebSocketPair" in globalThis;
+  const nativePair = globalThis.WebSocketPair;
+  globalThis.WebSocketPair = class {
+    constructor() {
+      this[0] = fakeSocket();
+      this[1] = fakeSocket();
+    }
+  };
+  globalThis.Response = class extends NativeResponse {
+    constructor(body, init = {}) {
+      super(body, init.status === 101 ? { ...init, status: 200 } : init);
+      this.upgraded = init.status === 101;
+    }
+  };
+  try {
+    await run();
+  } finally {
+    globalThis.Response = NativeResponse;
+    if (hadPair) globalThis.WebSocketPair = nativePair;
+    else delete globalThis.WebSocketPair;
+  }
+}
+
+function connectFrom(clientKey) {
+  return new Request("https://battle.internal/connect", {
+    headers: { upgrade: "websocket", "x-jakh-client-key": clientKey },
+  });
+}
+
+test("players on one network can fill a room up to its capacity, and capacity still holds", async () => {
+  await withWebSocketUpgrades(async () => {
+    const sharedWifi = "A".repeat(43);
+    const otherNetwork = "B".repeat(43);
+    const context = fakeContext(roomState());
+    const durableObject = new BattleRoom(context);
+
+    // Twenty players on one shared network connect and join one after another:
+    // the host and then a whole family or classroom, well past the old cap of four.
+    for (let index = 0; index < 20; index += 1) {
+      const response = await durableObject.fetch(connectFrom(sharedWifi));
+      assert.equal(response.upgraded, true, `player ${index + 1} must be allowed to connect`);
+      const socket = context.accepted.at(-1);
+      await durableObject.webSocketMessage(socket, JSON.stringify({
+        type: "join-room",
+        code: "SCI23456",
+        name: `Player ${index + 1}`,
+        hostId: index === 0 ? "host-token" : "",
+      }));
+      assert.ok(socket.sent.some((message) => message.type === "joined"), `player ${index + 1} must join`);
+      assert.deepEqual(socket.closed, []);
+    }
+    assert.equal(context.storage.room.players.length, 20);
+    assert.equal(context.storage.room.players.filter((player) => player.isHost).length, 1);
+    assert.ok(context.accepted.every((socket) => socket.sent.some((message) => (
+      message.type === "room-update" && message.roomState.totalPlayers === 20
+    ))));
+
+    // The room's normal capacity of 20 still holds for every network.
+    for (const clientKey of [sharedWifi, otherNetwork]) {
+      const acceptedBefore = context.accepted.length;
+      const full = await durableObject.fetch(connectFrom(clientKey));
+      assert.equal(full.upgraded, false);
+      assert.equal(full.status, 429);
+      assert.equal(await full.text(), "Room is full");
+      assert.equal(context.accepted.length, acceptedBefore);
+    }
+    assert.equal(context.storage.room.players.length, 20);
+  });
+});
+
+test("a join that arrives after the room filled is refused at capacity", async () => {
   const clientKey = "A".repeat(43);
-  const existingPlayers = Array.from({ length: 4 }, (_, index) => ({
+  const players = Array.from({ length: 20 }, (_, index) => ({
+    id: `p-${index}`,
+    name: `Player ${index}`,
+    score: 0,
+    streak: 0,
+    isHost: index === 0,
+  }));
+  const sockets = players.map((player) => fakeSocket({ playerId: player.id, clientKey }));
+  const late = fakeSocket({ connectedAt: Date.now(), clientKey: "B".repeat(43) });
+  sockets.push(late);
+  const context = fakeContext(roomState({ players }), sockets);
+
+  await new BattleRoom(context).webSocketMessage(late, JSON.stringify({
+    type: "join-room",
+    code: "SCI23456",
+    name: "Player 21",
+  }));
+
+  assert.equal(context.storage.room.players.length, 20);
+  assert.deepEqual(late.closed, [{ code: 1008, reason: "Room is full" }]);
+  assert.ok(late.sent.some((message) => message.type === "error" && message.code === "ROOM_FULL"));
+});
+
+test("players already in a room from one network do not block another from that network", async () => {
+  const clientKey = "A".repeat(43);
+  const existingPlayers = Array.from({ length: 6 }, (_, index) => ({
     id: `p-${index}`,
     name: `Player ${index}`,
     score: 0,
@@ -378,14 +477,17 @@ test("one network cannot occupy an entire room", async () => {
   await new BattleRoom(context).webSocketMessage(joining, JSON.stringify({
     type: "join-room",
     code: "SCI23456",
-    name: "Fifth player",
+    name: "Seventh player",
   }));
 
-  assert.equal(context.storage.room.players.length, 4);
-  assert.deepEqual(joining.closed, [{
-    code: 1008,
-    reason: "Too many players from this network",
-  }]);
+  assert.equal(context.storage.room.players.length, 7);
+  assert.deepEqual(joining.closed, []);
+  assert.ok(joining.sent.some((message) => message.type === "joined" && message.isHost === false));
+  for (const socket of sockets) {
+    assert.ok(socket.sent.some((message) => (
+      message.type === "room-update" && message.roomState.totalPlayers === 7
+    )));
+  }
 });
 
 test("joined sockets are disconnected before a message flood reaches storage", async () => {

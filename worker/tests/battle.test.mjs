@@ -365,6 +365,33 @@ test("WebSocket connection attempts are rate-limited before room lookup", async 
   assert.equal(roomLookups, 0);
 });
 
+test("one network's per-minute connection allowance covers a full 20-player room", async () => {
+  // Players on one Wi-Fi share this per-network limit, so it must leave room
+  // for every seat plus a few retries; attempt 31 in a minute is refused above.
+  for (const attempt of [1, 20, 30]) {
+    let boundKey;
+    const upgradeResponse = { status: 101, webSocket: {} };
+    const statement = {
+      bind(key) { boundKey ??= key; return this; },
+      async first() { return { count: attempt }; },
+      async run() { return { success: true }; },
+    };
+    const env = {
+      DB: { prepare() { return statement; } },
+      BATTLE_ROOMS: {
+        idFromName(code) { return code; },
+        get() { return { async fetch() { return upgradeResponse; } }; },
+      },
+      IP_HASH_SALT: "test-ip-hash-salt-at-least-24-characters",
+    };
+    const request = new Request("https://api.riddlearabia.com/ws/battle?code=SCI23456", {
+      headers: { upgrade: "websocket", origin: "https://riddlearabia.com", "cf-connecting-ip": "203.0.113.10" },
+    });
+    assert.equal(await connectBattle(request, env), upgradeResponse, `attempt ${attempt}`);
+    assert.match(boundKey, /^[A-Za-z0-9_-]{43}$/u, "the limit is keyed by a salted network hash, not the raw address");
+  }
+});
+
 test("WebSocket connections require a browser Origin", async () => {
   let databaseCalls = 0;
   const env = {

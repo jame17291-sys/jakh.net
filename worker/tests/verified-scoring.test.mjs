@@ -1328,7 +1328,7 @@ test("leaderboard SQL admits only completed server-checked rows and avoids speed
   assert.match(statement.sql, /\(s\.correct_count \* 1000\) AS score/u);
   assert.doesNotMatch(statement.sql, /s\.elapsed_ms|elapsedMs/u);
   assert.doesNotMatch(statement.sql, /ORDER BY[^\n]*s\.score/u);
-  assert.match(statement.sql, /ORDER BY score DESC, username COLLATE NOCASE ASC/u);
+  assert.match(statement.sql, /ORDER BY score DESC, achievedAt ASC, username COLLATE NOCASE ASC/u);
   assert.match(statement.sql, /LIMIT 50/u);
   assert.match(statement.sql, /s\.category_id NOT IN \(\?, \?, \?, \?, \?\)/u);
   assert.deepEqual(statement.values, [...QUARANTINED_CATEGORY_IDS, "currencies"]);
@@ -1363,6 +1363,30 @@ test("leaderboard SQL admits only completed server-checked rows and avoids speed
       "utf8",
     ));
     assert.deepEqual(sqlite.prepare(statement.sql).all(...statement.values), []);
+
+    // Equal scores rank by who reached them first, not by alphabetical username
+    // and not by answering speed; each player's own earliest best score counts.
+    const insertUser = sqlite.prepare("INSERT INTO users (id, username) VALUES (?, ?)");
+    const insertScore = sqlite.prepare(`
+      INSERT INTO verified_score_sessions (
+        id, user_id, category_id, challenge_token_hash, card_ids_json, answer_hashes_json,
+        question_count, started_at, not_before_at, expires_at, status, correct_count, score,
+        elapsed_ms, completed_at, verified, created_at
+      ) VALUES (?, ?, 'currencies', ?, '[]', '[]', 10, 0, 20000, 900000, 'completed', ?, ?, ?, ?, 1, ?)`);
+    const seed = (id, userId, correct, elapsedMs, completedAt) => insertScore.run(
+      id.padEnd(24, "x"), userId, id.padEnd(43, "y"), correct, correct * 1000, elapsedMs, completedAt, completedAt,
+    );
+    insertUser.run("u-aaron", "aaron_early_alphabet");
+    insertUser.run("u-zara", "zara_first_to_ten");
+    insertUser.run("u-mona", "mona_nine");
+    seed("aaron-late-ten", "u-aaron", 10, 20000, "2026-08-02T09:00:00.000Z");
+    seed("zara-first-ten", "u-zara", 10, 800000, "2026-08-01T09:00:00.000Z");
+    seed("zara-later-ten", "u-zara", 10, 20000, "2026-08-03T09:00:00.000Z");
+    seed("mona-early-nine", "u-mona", 9, 20000, "2026-07-01T09:00:00.000Z");
+    assert.deepEqual(
+      sqlite.prepare(statement.sql).all(...statement.values).map((row) => row.username),
+      ["zara_first_to_ten", "aaron_early_alphabet", "mona_nine"],
+    );
   } finally {
     sqlite.close();
   }
@@ -1410,6 +1434,115 @@ test("global leaderboard filters legacy held scores and held category queries fa
       categoryId,
     );
   }
+});
+
+function installEdgeCache(t, { failMatch = false, failPut = false } = {}) {
+  const entries = new Map();
+  const calls = { match: [], put: [] };
+  const original = Object.getOwnPropertyDescriptor(globalThis, "caches");
+  Object.defineProperty(globalThis, "caches", {
+    configurable: true,
+    writable: true,
+    value: {
+      default: {
+        async match(request) {
+          calls.match.push(request.url);
+          if (failMatch) throw new Error("cache unavailable");
+          return entries.get(request.url)?.clone();
+        },
+        async put(request, response) {
+          calls.put.push(request.url);
+          if (failPut) throw new Error("cache write failed");
+          entries.set(request.url, response);
+        },
+      },
+    },
+  });
+  t.after(() => {
+    if (original) Object.defineProperty(globalThis, "caches", original);
+    else delete globalThis.caches;
+  });
+  return { entries, calls };
+}
+
+function leaderboardDatabase() {
+  const database = new FakeDatabase();
+  database.leaderboardRows = [{
+    username: "public_player", avatar: "🧠", score: 9_000, categoryId: "currencies", correctCount: 9, questionCount: 10,
+  }];
+  return database;
+}
+
+const leaderboardReads = (database) => database.statements.filter(({ sql }) => sql.includes("WITH eligible")).length;
+const leaderboardRateChecks = (database) => database.statements.filter(({ sql }) => sql.includes("INSERT INTO rate_limits")).length;
+
+test("the public leaderboard is served from the edge cache for 30 seconds without new database reads", async (t) => {
+  const { entries, calls } = installEdgeCache(t);
+  const database = leaderboardDatabase();
+  const env = scoringEnv(database);
+  const first = await verifiedLeaderboard(
+    new Request("https://api.riddlearabia.com/api/leaderboard?category=currencies&bust=1", {
+      headers: { "cf-connecting-ip": "198.51.100.20" },
+    }),
+    env,
+  );
+  const firstBody = await first.json();
+  assert.equal(first.status, 200);
+  assert.equal(first.headers.get("cache-control"), "public, max-age=30");
+  assert.equal(leaderboardReads(database), 1);
+  assert.equal(leaderboardRateChecks(database), 1);
+  // One key per validated category: unrelated query parameters cannot bypass it.
+  assert.deepEqual(calls.put, ["https://api.riddlearabia.com/api/leaderboard?category=currencies"]);
+  const stored = entries.get(calls.put[0]);
+  assert.equal(stored.headers.get("set-cookie"), null);
+  assert.equal(stored.headers.get("access-control-allow-origin"), null);
+
+  // A later visitor, signed in or not, from any network, gets the cached copy.
+  const second = await verifiedLeaderboard(
+    new Request("https://api.riddlearabia.com/api/leaderboard?bust=2&category=currencies", {
+      headers: { cookie: "__Host-jakh_session=" + "S".repeat(43), "cf-connecting-ip": "203.0.113.30" },
+    }),
+    env,
+  );
+  assert.deepEqual(await second.json(), firstBody);
+  assert.equal(leaderboardReads(database), 1);
+  assert.equal(leaderboardRateChecks(database), 1);
+
+  // The overall leaderboard has its own key.
+  await verifiedLeaderboard(new Request("https://api.riddlearabia.com/api/leaderboard"), env);
+  assert.equal(leaderboardReads(database), 2);
+  assert.deepEqual(calls.put.at(-1), "https://api.riddlearabia.com/api/leaderboard");
+
+  // A cache outage falls back to a fresh read instead of failing.
+  const broken = installEdgeCache(t, { failMatch: true, failPut: true });
+  const fallback = await verifiedLeaderboard(
+    new Request("https://api.riddlearabia.com/api/leaderboard?category=currencies"),
+    env,
+  );
+  assert.equal(fallback.status, 200);
+  assert.deepEqual(await fallback.json(), firstBody);
+  assert.equal(leaderboardReads(database), 3);
+  assert.equal(broken.calls.put.length, 1);
+});
+
+test("fresh leaderboard reads are rate limited per network while cached copies stay available", async (t) => {
+  installEdgeCache(t);
+  const database = leaderboardDatabase();
+  const env = scoringEnv(database);
+  const request = (url) => new Request(url, { headers: { "cf-connecting-ip": "198.51.100.21" } });
+  await verifiedLeaderboard(request("https://api.riddlearabia.com/api/leaderboard?category=currencies"), env);
+  const rateStatement = database.statements.find(({ sql }) => sql.includes("INSERT INTO rate_limits"));
+  const expectedKey = createHash("sha256").update(`${env.IP_HASH_SALT}:leaderboard:198.51.100.21`).digest("base64url");
+  assert.equal(rateStatement.values[0], expectedKey);
+
+  database.rateCount = 31;
+  await assert.rejects(
+    verifiedLeaderboard(request("https://api.riddlearabia.com/api/leaderboard"), env),
+    (error) => error?.status === 429 && error?.code === "RATE_LIMITED" && new Headers(error.headers).get("retry-after") === "60",
+  );
+  assert.equal(leaderboardReads(database), 1);
+  const cached = await verifiedLeaderboard(request("https://api.riddlearabia.com/api/leaderboard?category=currencies"), env);
+  assert.equal(cached.status, 200);
 });
 
 test("cleanup expires pending challenges and deletes only expired rows older than 24 hours", async (t) => {

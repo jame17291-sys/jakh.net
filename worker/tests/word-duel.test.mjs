@@ -117,6 +117,25 @@ async function pair() {
   const guest = await (await object.fetch(request('join', { name: 'Guest', token: guestToken }))).json();
   return { ctx, object, host, guest };
 }
+test('dictionary lookups time out and run only for the player on turn with the current board', async (t) => {
+  let options;
+  assert.equal(await verifyEnglishWord('timed', async (_url, init) => { options = init; return new Response(JSON.stringify([{ word: 'timed' }]), { status: 200 }); }), true);
+  assert.ok(options.signal instanceof AbortSignal); assert.equal(options.signal.aborted, false);
+  await assert.rejects(verifyEnglishWord('slowly', async () => { throw new DOMException('The operation timed out.', 'TimeoutError'); }), { code: 'DICTIONARY_UNAVAILABLE' });
+
+  const { ctx, object } = await pair();
+  const stored = ctx.data.get('word-duel-room');
+  stored.players[0].rack = [...'zebuxyq']; stored.players[1].rack = [...'quokzab'];
+  ctx.data.set('word-duel-room', stored);
+  const lookups = [];
+  t.mock.method(globalThis, 'fetch', async (url) => { const word = String(url).split('/').pop(); lookups.push(word); return new Response(JSON.stringify([{ word }]), { status: 200 }); });
+  const word = (letters) => [...letters].map((letter, index) => ({ row: 4, col: 3 + index, letter }));
+  assert.equal((await (await object.fetch(request('action', { token: guestToken, revision: 1, kind: 'place', placements: word('quo') }))).json()).code, 'NOT_YOUR_TURN');
+  assert.equal((await (await object.fetch(request('action', { token: hostToken, revision: 0, kind: 'place', placements: word('zeb') }))).json()).code, 'STALE_REVISION');
+  assert.deepEqual(lookups, []);
+  const played = await object.fetch(request('action', { token: hostToken, revision: 1, kind: 'place', placements: word('zeb') }));
+  assert.equal(played.status, 200); assert.deepEqual(lookups, ['zeb']);
+});
 test('two devices join, retries resume same seats, third players and token forgery fail', async () => {
   const { ctx, object, host, guest } = await pair();
   assert.equal(host.phase, 'waiting'); assert.equal(guest.phase, 'playing');

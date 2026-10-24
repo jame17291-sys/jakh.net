@@ -11,13 +11,17 @@ Production recovery is deliberate. Record the incident time and obtain owner app
 3. Remove the first plaintext copy.
 4. Authenticate and decrypt into the runner's isolated workspace, import it into ephemeral local D1, verify the supported schema and table inventory, and remove every remaining `.sql` file.
 5. Verify current and 24-hour Cloudflare Time Travel bookmarks and the live API health endpoint.
-6. Upload only the encrypted `.jakh` file and data-free JSON receipts. Retention is 35 days, so five weekly recovery points remain while storage stays bounded.
+6. Upload only the encrypted `.jakh` file and data-free JSON receipts. Retention is 35 days, so up to five weekly recovery points exist when every weekly run succeeds. A missed week means one fewer point, which is why the freshness alert below exists.
+
+Each job in the workflow has its own concurrency queue. A restore drill waiting for approval never holds back the weekly backup. (Until late October 2026 they shared one queue. The 1 October drill waited for approval, every weekly backup after 27 September was cancelled or left waiting behind it, and nothing alerted.)
+
+**Freshness alert.** A `backup-freshness` job runs after every weekly backup and daily at 09:29 UTC. If no weekly backup job has succeeded in the last 8 days, for any reason (failed, cancelled, waiting or never started), the job fails and opens or updates one issue titled *[Backup alert] No recent encrypted database backup*. The issue closes itself after the next successful backup. The check reads only workflow run and job metadata, never artifacts or secrets.
 
 The public repository never receives plaintext database content. Anyone may be able to download a public Actions artifact, so the artifact is treated as public ciphertext. Recovery requires the separately stored `D1_BACKUP_ENCRYPTION_KEY` secret. A missing key, token, export, authentication tag, checksum, restore proof, table inventory, Time Travel receipt, or health check fails the workflow.
 
 Cloudflare D1 Time Travel is also always on. The Free plan retains seven days. It is a second recovery path, not a replacement for the encrypted off-Cloudflare artifact.
 
-Quarterly, the same workflow reconstructs the complete schema from migrations and records a deterministic readiness receipt. It also runs a protected, manually approved Time Travel restore-and-undo drill against the dedicated `jakh-recovery-drill` database. The drill credential is isolated in the `recovery-drill` environment, and the command refuses the production UUID and name before invoking Wrangler.
+Quarterly, the same workflow reconstructs the complete schema from migrations and records a deterministic readiness receipt. It also requests a protected, manually approved Time Travel restore-and-undo drill against the dedicated `jakh-recovery-drill` database. The drill waits for the owner's approval in GitHub (Actions → the run → *Review deployments*); approve it to run the drill, or reject it to skip that quarter. As of 24 Oct 2026 no drill has completed yet. The drill credential is isolated in the `recovery-drill` environment, and the command refuses the production UUID and name before invoking Wrangler.
 
 ## Required configuration
 
@@ -26,6 +30,8 @@ Quarterly, the same workflow reconstructs the complete schema from migrations an
 - Repository secret `D1_BACKUP_ENCRYPTION_KEY`: 32 random bytes encoded as base64.
 - Production environment secret `CLOUDFLARE_API_TOKEN`: deployment credential used only by protected production jobs.
 - Recovery-drill environment secrets `CLOUDFLARE_RECOVERY_DRILL_TOKEN`, `CLOUDFLARE_RECOVERY_DRILL_DATABASE_ID`, and `CLOUDFLARE_ACCOUNT_ID`: protected quarterly drill configuration. The token has D1 Write access and must never be moved to an unprotected repository secret.
+
+Recommended hardening (owner, in GitHub settings): move `CLOUDFLARE_D1_BACKUP_EXPORT_TOKEN` and `D1_BACKUP_ENCRYPTION_KEY` from repository secrets into a new `backup` environment limited to protected branches. Then add `environment: backup` to the `weekly-backup` job. As repository secrets, they are readable by a workflow on any branch.
 
 Do not print, copy into an issue, or commit any of these values. Replacing the encryption key makes older artifacts unreadable; retain the old key securely until every artifact encrypted with it has expired.
 

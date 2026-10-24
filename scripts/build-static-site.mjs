@@ -11,6 +11,7 @@ import {
 import { dirname, extname, relative, resolve, sep } from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { AR_COUNT, arabicCount } from "../arabic-count.js";
 
 import {
   isQuarantinedArtifactPath,
@@ -39,6 +40,10 @@ export const DEFAULT_OUTPUT_DIRECTORY = resolve(REPOSITORY_ROOT, "site-worker/di
 export const DEFAULT_MANIFEST_PATH = resolve(REPOSITORY_ROOT, "site-worker/generated/site-manifest.json");
 export const DEFAULT_MANIFEST_MODULE_PATH = resolve(REPOSITORY_ROOT, "site-worker/generated/site-manifest.js");
 export const FINGERPRINT_PREFIX_LENGTH = 16;
+
+// Dependency-free modules shared by several entry points. They are fingerprinted
+// first so every importer can pin the exact release it was built with.
+const SHARED_MODULES = Object.freeze(["/arabic-count.js"]);
 
 const ILLUSTRATION_MODULES = Object.freeze(["/site-illustrations.js", "/directory-ui.js"]);
 
@@ -76,6 +81,7 @@ export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
   "/speech-quality.js",
   "/auth-security.css", "/auth-security.js",
   "/kids-learning.js", "/kids-state.js", "/kids-learning.css", "/data/kids/catalog.json",
+  ...SHARED_MODULES,
   ...ILLUSTRATION_MODULES,
   ...PUZZLE_ASSETS,
   ...PARTY_ASSETS,
@@ -245,9 +251,21 @@ function rewriteSearchLeaderboard(source, fingerprints) {
   return rewritten;
 }
 
+function rewriteSharedModuleImports(source, fingerprints) {
+  let rewritten = source;
+  for (const dependency of SHARED_MODULES) {
+    const target = fingerprints[dependency];
+    if (!target) continue;
+    rewritten = replaceQuotedUrl(rewritten, dependency, target).value;
+    rewritten = replaceQuotedUrl(rewritten, `.${dependency}`, target).value;
+  }
+  return rewritten;
+}
+
 function rewriteApplication(source, fingerprints) {
   let rewritten = source;
   for (const dependency of [
+    ...SHARED_MODULES,
     "/auth-enhancements.js",
     "/speech-quality.js",
     "/auth-security.js",
@@ -566,9 +584,9 @@ function rewritePublishedSectionTotals(html, publicCatalog) {
   const categoriesBySlug = new Map(listed.map((category) => [category.slug, category]));
   const totalCategories = listed.length;
   let rewritten = html;
-  const tabCount = (count) => isArabic ? `${count} موضوعًا` : `${count} topics`;
+  const tabCount = (count) => isArabic ? arabicCount(count, AR_COUNT.topic) : `${count} topics`;
   const sectionCount = (count, questions) => isArabic
-    ? `${count} موضوعًا · ${questions.toLocaleString("en-US")} سؤال`
+    ? `${arabicCount(count, AR_COUNT.topic)} · ${arabicCount(questions, AR_COUNT.question, { format: (value) => value.toLocaleString("en-US") })}`
     : `${count} topics · ${questions.toLocaleString("en-US")} questions`;
 
   const replaceTab = (key, count) => {
@@ -984,6 +1002,7 @@ export async function buildStaticSite({
   }
 
   for (const stableUrlPath of [
+    ...SHARED_MODULES,
     "/privacy-consent.js",
     ...PAGE_RUNTIME_SCRIPTS,
     "/content-overrides.js",
@@ -999,7 +1018,6 @@ export async function buildStaticSite({
     "/privacy.css",
     "/admin-config.js",
     "/admin.css",
-    "/battle-selection.js",
     "/battle-mode.css",
     "/search-leaderboard.css",
     "/data/search-index.en.json",
@@ -1007,6 +1025,11 @@ export async function buildStaticSite({
   ]) {
     const bytes = sourceBytes.get(urlPathToRelative(stableUrlPath));
     if (bytes) addFingerprint(stableUrlPath, bytes);
+  }
+
+  const selectionSource = sourceBytes.get('battle-selection.js');
+  if (selectionSource) {
+    addFingerprint('/battle-selection.js', Buffer.from(rewriteSharedModuleImports(selectionSource.toString('utf8'), fingerprints), 'utf8'));
   }
 
   const battleSource = sourceBytes.get('battle-mode.js');
@@ -1023,7 +1046,7 @@ export async function buildStaticSite({
     const source = sourceBytes.get(urlPathToRelative(stable));
     if (!source) continue;
     let text = source.toString("utf8");
-    for (const dependency of [...ILLUSTRATION_MODULES, ...PUZZLE_ASSETS, ...PARTY_ASSETS]) {
+    for (const dependency of [...SHARED_MODULES, ...ILLUSTRATION_MODULES, ...PUZZLE_ASSETS, ...PARTY_ASSETS]) {
       const target = fingerprints[dependency];
       if (!target) continue;
       text = replaceQuotedUrl(text, dependency, target).value;
@@ -1035,7 +1058,7 @@ export async function buildStaticSite({
   const kidsSource = sourceBytes.get("kids-learning.js");
   if (kidsSource) {
     let rewritten = kidsSource.toString("utf8");
-    for (const dependency of ["/kids-state.js", "/data/kids/catalog.json", "/speech-quality.js"]) {
+    for (const dependency of ["/kids-state.js", "/data/kids/catalog.json", "/speech-quality.js", ...SHARED_MODULES]) {
       invariant(fingerprints[dependency], `Kids runtime requires ${dependency}`);
       rewritten = replaceQuotedUrl(rewritten, dependency, fingerprints[dependency]).value;
     }
@@ -1044,7 +1067,7 @@ export async function buildStaticSite({
 
   const searchSource = sourceBytes.get("search-leaderboard.js");
   if (searchSource) {
-    const rewritten = rewriteSearchLeaderboard(searchSource.toString("utf8"), fingerprints);
+    const rewritten = rewriteSharedModuleImports(rewriteSearchLeaderboard(searchSource.toString("utf8"), fingerprints), fingerprints);
     addFingerprint("/search-leaderboard.js", Buffer.from(rewritten, "utf8"));
   }
 

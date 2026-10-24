@@ -434,6 +434,14 @@ test('quarantined routes and data fail closed before every online or offline cac
     assert.match(response.headers.get('x-robots-tag'), /noindex/u, pathname);
   }
   assert.equal(harness.fetches.length, fetchCount, 'quarantine guard reached the network');
+  const heldPage = await harness.dispatchFetch('/ar/topics/pharmacy/', 'navigate');
+  assert.match(heldPage.headers.get('content-type'), /^text\/html;/u);
+  const heldHtml = await heldPage.text();
+  assert.match(heldHtml, /<html lang="ar" dir="rtl">/u);
+  assert.match(heldHtml, /هذا المحتوى غير متاح مؤقتًا/u);
+  assert.match(heldHtml, /This content is temporarily unavailable\./u);
+  assert.doesNotMatch(heldHtml, /pharmacy|<script/iu);
+  assert.equal(harness.fetches.length, fetchCount, 'held page is built without the network');
 
   harness.setOnline(false);
   const offline = await harness.dispatchFetch('/data/economics-and-finance.json');

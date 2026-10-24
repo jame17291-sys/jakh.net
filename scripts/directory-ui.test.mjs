@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import test from 'node:test';
 
 import { createDirectoryUi } from '../directory-ui.js';
+import { AR_COUNT, arabicCount } from '../arabic-count.js';
 import { loadProductionQuarantine, publicCatalogProjection } from './publication-quarantine.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -126,7 +127,7 @@ test('search finds either language and reports localized results and empty state
       ui.renderDirectory();
       assert.ok(calls.cards.includes('football'), `${lang}: ${directorySearch}`);
       assert.ok(calls.cards.length < 51);
-      assert.match(els.directoryResultsLabel.textContent, lang === 'ar' ? /عُثر على/ : /matching topics found/);
+      assert.match(els.directoryResultsLabel.textContent, lang === 'ar' ? /^عُثر على (?:موضوع واحد مطابق|موضوعين مطابقين|\d+ موضوعات مطابقة|\d+ موضوعًا مطابقًا|\d+ موضوع مطابق)\.$/u : /^\d+ matching topics? found\.$/u);
     }
     const { ui, els, calls } = fixture({ lang, directorySearch: 'not-a-real-topic-92811' });
     ui.renderDirectory();
@@ -134,6 +135,26 @@ test('search finds either language and reports localized results and empty state
     assert.match(els.categoryDirectoryGrid.innerHTML, lang === 'ar' ? /لا توجد نتائج مطابقة/ : /No matching topics/);
   }
 });
+
+test('Arabic section, tab and results counts agree with their numbers', () => withTabs((tabBar) => {
+  const { ui, els } = fixture({ lang: 'ar' });
+  ui.renderDirectory();
+  assert.equal(els.directoryResultsLabel.textContent, `${arabicCount(50, AR_COUNT.topic)} في ${arabicCount(5, AR_COUNT.section)}.`);
+  assert.equal(els.directoryResultsLabel.textContent, '50 موضوعًا في 5 أقسام.');
+  for (const section of sections) {
+    const members = listedMembers(section);
+    const questions = members.reduce((sum, slug) => sum + categories.get(slug).count, 0);
+    assert.ok(els.categoryDirectoryGrid.innerHTML.includes(
+      `${arabicCount(members.length, AR_COUNT.topic)} · ${arabicCount(questions, AR_COUNT.question)}</p>`,
+    ), section.key);
+  }
+  assert.doesNotMatch(els.categoryDirectoryGrid.innerHTML, /(?<!\d)(?:[3-9]|10) موضوعًا/u, 'three to ten take the plural');
+  const single = fixture({ lang: 'ar', cluster: sections[0].key });
+  single.ui.renderDirectory();
+  assert.match(single.els.directoryResultsLabel.textContent, / في قسم واحد\.$/u);
+  ui.renderTabs();
+  assert.match(tabBar.tabs[0].innerHTML, />50 موضوعًا</u);
+}));
 
 test('tabs expose truthful counts, one keyboard stop, and a labeled panel', () => withTabs((tabBar) => {
   const { ui } = fixture();

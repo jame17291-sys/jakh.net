@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-24",
+  "baseCommit": "7e5dc4bc",
+  "scope": "Arabic-and-accessibility polish: questions that contained their own answer, three Arabic wording fixes, and Arabic cards that mixed Western and Eastern digits. Held categories are untouched.",
+  "reviewStatus": "pending editorial review; a passing validator or AI review is not factual or bilingual approval",
+  "changes": [
+    {
+      "id": "civil-engineering-003",
+      "category": "civil-engineering",
+      "beforeHash": "0512de5d3b0f4a4ba92095537265472fed372f3c69f1e5fe8ce2ef8bca1ef216",
+      "afterHash": "e6e7fa213b88a5e7b3b7fbb4758f3138fa011ee1301499f21e9bb9e23eb6bf17",
+      "reason": "The English question named the answer (\"What material forms the steel reinforcement…?\" → \"Steel\"). It now asks what the reinforcing bars are made of, matching the Arabic. The answer is unchanged.",
+      "previous": {
+        "question.en": "What material forms the steel reinforcement that commonly carries tension in reinforced concrete?"
+      }
+    },
+    {
+      "id": "tv-shows-trivia-664",
+      "category": "tv-shows-trivia",
+      "beforeHash": "4a143f65f1211fa52fc7af39a6a43297b3d4e6cface0661fcbce3f5a77435474",
+      "afterHash": "1b4853fd10fcd6fa0c031e5427999c9e148c47000cad30af5b651fb1c2880cd3",
+      "reason": "The question no longer contains its own answer: the giveaway part of the title is elided, and the full title moves to the explanation shown after answering. The fact, answer, choices, difficulty and spoiler season are unchanged.",
+      "previous": {
+        "question.en": "Which modern machine tempts the farmer in Thawr Wa Tractor?",
+        "question.ar": "في «ثور وتراكتور»، أي آلة حديثة تغري المزارع؟",
+        "tvQuiz.explanation.en": "The sketch contrasts an animal-powered farm with mechanisation.",
+        "tvQuiz.explanation.ar": "تقارن اللوحة الزراعة بمساعدة الحيوان باستخدام الآلات.",
+        "tvQuiz.contentKey": "d00b8991"
+      }
+    },
+    {
+      "id": "tv-shows-trivia-679",
+      "category": "tv-shows-trivia",
+      "beforeHash": "fcb9fc96bd816db3c42284c16cab92a4680f4bf787b1c991ad07cffada770786",
+      "afterHash": "67721d331a703d9fb011f10bae1f17d1e761af3bb9b4af13155be2c2048813f6",
+      "reason": "The question no longer contains its own answer: the giveaway part of the title is elided, and the full title moves to the explanation shown after answering. The fact, answer, choices, difficulty and spoiler season are unchanged.",
+      "previous": {
+        "question.en": "Which official fascinates the man in Al-Majid Bahaa?",
+        "question.ar": "في «الماجد بهاء»، أي مسؤول ينبهر فيه الرجل؟",
+        "tvQuiz.explanation.en": "The official's name appears in the sketch's title.",
+        "tvQuiz.explanation.ar": "يظهر اسم المسؤول في عنوان اللوحة نفسها.",
+        "tvQuiz.contentKey": "3384fe26"
+      }
+    },
+    {
+      "id": "tv-shows-trivia-734",
+      "category": "tv-shows-trivia",
+      "beforeHash": "39ac4ffbe54897d08ce7e6ef312e8730d130802e9b909c96273302d1570f5b3a",
+      "afterHash": "81eefecfda4eee29550f638f6cdf3d41e3158f3914893f317143af0757a7abc1",
+      "reason": "The question no longer contains its own answer: the giveaway part of the title is elided, and the full title moves to the explanation shown after answering. The fact, answer, choices, difficulty and spoiler season are unchanged.",
+      "previous": {
+        "question.en": "Which city's old neighbourhood life is recalled in Jeddah Ghair?",
+        "question.ar": "«جدة غير» ترجّع حياة أحياء أي مدينة القديمة؟",
+        "tvQuiz.explanation.en": "The family recollection gives the sketch its local setting.",
+        "tvQuiz.explanation.ar": "تمنح الذكريات العائلية اللوحة إطارها المحلي.",
+        "tvQuiz.contentKey": "2467e592"
+      }
+    },
+    {
+      "id": "classic-riddles-017",
+      "category": "classic-riddles",
+      "beforeHash": "7f92ff88a25c6ef351ef58be6229d7d6dea512062aca3efc230120780716f1bd",
+      "afterHash": "68fca22141ccdb3d015e796121d426fee982f57092d84aef07cf23f219b7a9b9",
+      "reason": "«الأرض اللي حوالي» read as \"approximately\"; «اللي حولي» clearly means \"around me\". The riddle and answer are unchanged.",
+      "previous": {
+        "question.ar": "جوانبي الصخرية عالية فوق الأرض اللي حوالي. المتسلّقين ممكن يوصلون قمّتي، بس ما عندي درج. شو أنا؟"
+      }
+    },
+    {
+      "id": "history-001",
+      "category": "history",
+      "beforeHash": "22fa94c60778a091b44ce2541a3cc329200486a4fa0029d89a8f48f1d4339bb9",
+      "afterHash": "bd5c9dee752a4d699a6a5aa0794b00a77595354931982c43c1cad7d37db5c84d",
+      "reason": "«انقتحم» is not natural; «اقتحموه» (they stormed it) is. The fact and answer are unchanged.",
+      "previous": {
+        "question.ar": "شو الحصن الباريسي اللي انقتحم في 14 يوليو 1789 وصار رمز للثورة الفرنسية؟"
+      }
+    },
+    {
+      "id": "ani-38",
+      "category": "animal-kingdom",
+      "beforeHash": "d7effc9cd61f3e0193416345cdd199581dfc60812424194e4bfacd6a1f11087f",
+      "afterHash": "52ceb414fbe6172bfe92d4105cd60234738048ca6ca97cec9b3323fd8013ec30",
+      "reason": "No Arabic article attached to a Latin word (style guide): «الـDaphnia» becomes «الدافنيا (Daphnia)». The fact and answer are unchanged.",
+      "previous": {
+        "question.ar": "مع إن اسمه «برغوث الماء»، الـDaphnia حشرة ولا قشري؟"
+      }
+    },
+    {
+      "id": "tv-shows-trivia-170",
+      "category": "tv-shows-trivia",
+      "beforeHash": "ac4a533d730741841fca535f8cafacf81a6fe55a2a1fcb06cb313798ff17991e",
+      "afterHash": "d9a196587633f7801ba40cb46de7dac9cae9017ce202108f27935acbf06097e5",
+      "reason": "Use Western digits throughout the Arabic card, matching its question; values are unchanged.",
+      "previous": {
+        "answer.ar": "٢٠١١",
+        "tvQuiz.distractors.ar": [
+          "٢٠٠٤",
+          "٢٠٠٥",
+          "٢٠٠٦"
+        ],
+        "tvQuiz.explanation.ar": "عادت مرايا عام ٢٠١١ بعد نسخة ٢٠٠٦.",
+        "tvQuiz.contentKey": "99ed15ec"
+      }
+    },
+    {
+      "id": "tv-shows-trivia-187",
+      "category": "tv-shows-trivia",
+      "beforeHash": "9b7514a6a46f42fc0aaf64fdbfb05e84e39ba479f11b2c371eb67a12b6c1005a",
+      "afterHash": "67c6a398ba4dfd91b3676553db9ea8db9e826d84bc6e345b07810285b3d3467a",
+      "reason": "Use Western digits throughout the Arabic card, matching its question; values are unchanged.",
+      "previous": {
+        "answer.ar": "٢٠",
+        "tvQuiz.distractors.ar": [
+          "١٥",
+          "٢٥",
+          "٣٠"
+        ],
+        "tvQuiz.explanation.ar": "تتألف عودة عام ٢٠٢٣ من عشرين حلقة.",
+        "tvQuiz.contentKey": "1137fe5f"
+      }
+    },
+    {
+      "id": "tv-shows-trivia-198",
+      "category": "tv-shows-trivia",
+      "beforeHash": "6d267f5b7d2c79c99b19733756edf62d9171ed1bc7ce87b1d084f0ddb0a54e46",
+      "afterHash": "fce85a6cd50cc0cc975b6ec1bb248401038b40f71f36f28e5f796be455def357",
+      "reason": "Use Western digits throughout the Arabic card, matching its question; values are unchanged.",
+      "previous": {
+        "answer.ar": "إم بي سي ١",
+        "tvQuiz.distractors.ar": [
+          "إم بي سي ٢",
+          "إم بي سي أكشن",
+          "إم بي سي بوليوود"
+        ],
+        "tvQuiz.explanation.ar": "عُرضت العودة على إم بي سي ١ بالتزامن مع طرحها على شاهد.",
+        "tvQuiz.contentKey": "c50e1c42"
+      }
+    },
+    {
+      "id": "tv-shows-trivia-639",
+      "category": "tv-shows-trivia",
+      "beforeHash": "6c6fe69dd161b476c98eee20e7f851262e40255dd8d1e36673fd7caab38fa26c",
+      "afterHash": "de65e8ba4620280fa7f8b58796d0cf9459ac35f8899b653cae5d0c8f642fafca",
+      "reason": "Use Western digits throughout the Arabic card, matching its question; values are unchanged.",
+      "previous": {
+        "answer.ar": "١٩٩٧",
+        "tvQuiz.distractors.ar": [
+          "١٩٩٦",
+          "١٩٩٩",
+          "٢٠٠٠"
+        ],
+        "tvQuiz.explanation.ar": "وقع عرضها الرمضاني الأول في نهاية ديسمبر ١٩٩٧.",
+        "tvQuiz.contentKey": "65a99787"
+      }
+    },
+    {
+      "id": "tv-shows-trivia-644",
+      "category": "tv-shows-trivia",
+      "beforeHash": "c5c3ccd8e89077c10cf096d2f806f8c9a01d08164d03911b653828d5527446ae",
+      "afterHash": "a7561bcb137742f11c385c69b45653e52a8a4e819d8c61481ba4487a2a3c3889",
+      "reason": "Use Western digits throughout the Arabic card, matching its question; values are unchanged.",
+      "previous": {
+        "answer.ar": "٥٠",
+        "tvQuiz.distractors.ar": [
+          "٢٥",
+          "٧٥",
+          "١٠٠"
+        ],
+        "tvQuiz.contentKey": "3e75e8f7"
+      }
+    },
+    {
+      "id": "tv-shows-trivia-699",
+      "category": "tv-shows-trivia",
+      "beforeHash": "a8cbf792b1b654320fdd3f8aab91ef850c5a5ef343169444927a5ed889cf430b",
+      "afterHash": "a8d842dd9d4c5bb400b2c1cf0381ef954de05be259ca9b3474c5de220494bec2",
+      "reason": "Use Western digits throughout the Arabic card, matching its question; values are unchanged.",
+      "previous": {
+        "answer.ar": "١٢",
+        "tvQuiz.distractors.ar": [
+          "٨",
+          "١٠",
+          "١٥"
+        ],
+        "tvQuiz.contentKey": "18c23e88"
+      }
+    }
+  ],
+  "reviewNote": "Each change lists the previous value of every field it touched (dotted paths), so the earlier wording can be restored exactly. TV quiz content keys are recalculated over the new text. Review status is unchanged.",
+  "counts": {
+    "changedCards": 13
+  }
+}

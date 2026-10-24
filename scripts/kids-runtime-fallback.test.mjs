@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import test from 'node:test';
 import vm from 'node:vm';
 import * as stateModule from '../kids-state.js';
+import * as arabicCountModule from '../arabic-count.js';
 
 // Execute the actual module and generated HTML with a small DOM interaction
 // harness. This verifies fallback behavior, not browser layout or native audio.
@@ -184,13 +185,13 @@ async function runtime({ lang = 'en', page = 'hub', storageFailure = '', printFa
     if (speechStarts) options.onStart();
     return controller;
   };
-  const context = vm.createContext({ ...stateModule, importSpeech: async () => ({ speakNaturally }), document, window, location, localStorage, URL, URLSearchParams, console, setTimeout, clearTimeout,
+  const context = vm.createContext({ ...stateModule, ...arabicCountModule, importSpeech: async () => ({ speakNaturally }), document, window, location, localStorage, URL, URLSearchParams, console, setTimeout, clearTimeout,
     history: { replaceState(_state, _title, value) { currentURL = new URL(value, currentURL); } },
     requestAnimationFrame: callback => callback(),
     fetch: async url => { assert.equal(url, '/data/kids/catalog.json'); return { ok: true, json: async () => structuredClone(catalog) }; },
   });
   if (storageFailure === 'access') Object.defineProperty(context, 'localStorage', { get() { throw unavailable(); } });
-  const moduleBody = source.replace(/^import [^\n]+from '\/kids-state\.js';\n/gmu, '').replace('import(path)', 'importSpeech(path)').replace('void initialize();', 'globalThis.initialization = initialize();');
+  const moduleBody = source.replace(/^import [^\n]+from '\/(?:kids-state|arabic-count)\.js';\n/gmu, '').replace('import(path)', 'importSpeech(path)').replace('void initialize();', 'globalThis.initialization = initialize();');
   assert.notEqual(moduleBody, source, 'only imports and bootstrap promise are adapted to the harness');
   vm.runInContext(moduleBody, context, { filename: 'kids-learning.js' });
   await context.initialization;

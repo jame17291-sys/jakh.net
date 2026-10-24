@@ -180,11 +180,14 @@ export function withCors(response: Response, request: Request, csv: string): Res
   if (origin && allowedOrigins(csv).has(origin)) {
     headers.set("access-control-allow-origin", origin);
     headers.set("access-control-allow-credentials", "true");
-    const vary = headers.get("vary");
-    const varyTokens = vary?.split(",").map((token) => token.trim()).filter(Boolean) ?? [];
-    if (!varyTokens.some((token) => token === "*" || token.toLowerCase() === "origin")) {
-      headers.set("vary", [...varyTokens, "Origin"].join(", "));
-    }
+  }
+  // Every API response depends on Origin, including ones without CORS headers.
+  // Without this, a cache could store a copy made for one origin (or for none)
+  // and reuse it for an allowed site, which would then lack its CORS headers.
+  const vary = headers.get("vary");
+  const varyTokens = vary?.split(",").map((token) => token.trim()).filter(Boolean) ?? [];
+  if (!varyTokens.some((token) => token === "*" || token.toLowerCase() === "origin")) {
+    headers.set("vary", [...varyTokens, "Origin"].join(", "));
   }
 
   return new Response(response.body, {

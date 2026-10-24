@@ -284,12 +284,40 @@ function errorResponse(siteManifest, pathname, status, message) {
   }), { siteManifest, pathname, cacheControl: NO_STORE });
 }
 
+const HELD_TEXT = "This content is temporarily unavailable.\n";
+
+// A small self-contained bilingual page for people who follow an old link to a
+// held topic. No scripts, no assets and no links to any held category.
+export function heldContentPage(pathname) {
+  const arabic = /^\/ar(?:\/|$)/iu.test(String(pathname || ""));
+  const style = "body{margin:0;font-family:system-ui,-apple-system,'Segoe UI',Tahoma,sans-serif;"
+    + "background:#fbf6ec;color:#322016;line-height:1.6}main{max-width:36rem;margin:12vh auto;padding:0 1rem}"
+    + "h1{font-size:1.5rem;margin:0 0 .5rem}p{margin:.25rem 0 1rem;color:#725846}"
+    + "a{color:#94431f;font-weight:600}section+section{margin-top:2rem;padding-top:1.5rem;border-top:1px solid #e6d8c6}";
+  const ar = `<section lang="ar" dir="rtl"><h1>هذا المحتوى غير متاح مؤقتًا</h1>`
+    + `<p>جرّب موضوعًا آخر من موضوعات ريدل أرابيا.</p>`
+    + `<p><a href="/ar/">الصفحة الرئيسية</a> · <a href="/ar/mind-lab/">تصفّح الموضوعات</a></p></section>`;
+  const en = `<section lang="en" dir="ltr"><h1>This content is temporarily unavailable.</h1>`
+    + `<p>Try another Riddle Arabia topic.</p>`
+    + `<p><a href="/">Home</a> · <a href="/mind-lab">Browse topics</a></p></section>`;
+  return `<!DOCTYPE html><html lang="${arabic ? "ar" : "en"}" dir="${arabic ? "rtl" : "ltr"}"><head>`
+    + `<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">`
+    + `<meta name="robots" content="noindex, nofollow"><title>${arabic ? "غير متاح مؤقتًا | ريدل أرابيا" : "Temporarily unavailable | Riddle Arabia"}</title>`
+    + `<style>${style}</style></head><body><main>${arabic ? ar + en : en + ar}</main></body></html>\n`;
+}
+
+function wantsHeldPage(pathname) {
+  const lower = String(pathname || "").toLowerCase();
+  return !lower.startsWith("/data/") && !/\.json(?:$|[/?#%])/u.test(lower);
+}
+
 function quarantineResponse(siteManifest, pathname, method) {
+  const page = wantsHeldPage(pathname);
   const response = applySiteHeaders(new Response(
-    method === "HEAD" ? null : "This content is temporarily unavailable.\n",
+    method === "HEAD" ? null : (page ? heldContentPage(pathname) : HELD_TEXT),
     {
       status: 410,
-      headers: { "content-type": "text/plain; charset=utf-8" },
+      headers: { "content-type": page ? "text/html; charset=utf-8" : "text/plain; charset=utf-8" },
     },
   ), { siteManifest, pathname, cacheControl: NO_STORE });
   response.headers.set("x-robots-tag", QUARANTINE_ROBOTS_POLICY);

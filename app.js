@@ -238,14 +238,17 @@ const UI = {
     homeDailyTitle: "Shuffle the whole library",
     homeCollectionTriviaTitle: "Arabic trivia & general knowledge",
     homeCollectionTriviaMeta: "Try eight questions in Arabic or English",
+    homeGameCta: "See the games",
     homeGameText: "Try crosswords, Sudoku and word games, or invite a friend to Word Duel.",
     homeGameTitle: "Play free Arabic games",
     homeKidsEyebrow: "FOR CURIOUS KIDS & THEIR GROWN-UPS",
     homeKidsHeading: "A little play. A lot to discover.",
     homeKidsDescription: "480 activities for ages 3–12, in Arabic and English. Find ideas by age, time and materials, print an activity pack, or plan a playful week.",
     homeKidsCta: "Explore Kids Learning & Play",
+    homeQuizCta: "Browse topics",
     homeQuizText: "Browse trivia in Arabic and English across 51 topics, from science and history to culture and logic.",
     homeQuizTitle: "Explore trivia & quizzes",
+    homeSolveCta: "Start solving",
     homeSolveText: "Start with easy clues and work up to harder ones. Reveal each answer when you’re ready.",
     homeSolveTitle: "Solve a riddle",
     brandSubtitle: 'bilingual topics, saved progress, and live Battle Rooms',
@@ -453,12 +456,6 @@ const UI = {
     aToZ: 'A → Z',
     shuffleNow: 'Shuffle now',
     pageQuestions: '{count} questions',
-    categoryCountLabel: '{count} categories',
-    totalQuestionLabel: '{count} questions',
-    showingAllPages: 'Showing all {count} category pages.',
-    showingFilteredPages: 'Showing {count} category pages with the current filters.',
-    showingAllCards: 'Showing all {count} cards on this page.',
-    showingFilteredCards: 'Showing {count} cards with your current filters.',
     openPage: 'Open page',
     savedProgress: 'Saved progress',
     guestTitle: 'Play free, with or without an account',
@@ -548,8 +545,9 @@ const UI = {
     suggestSub: 'Suggest a new riddle category or topic and we\'ll consider adding it.',
     suggestPrivacy: 'If you tick the account option while signed in, the suggestion is included in export and deletion. Otherwise it stays unlinked. Retained up to 12 months.',
     suggestLinkAccount: 'Link this suggestion to my signed-in account',
+    suggestIdeaLabel: 'Topic idea',
     suggestPlaceholder: 'Your idea…',
-    suggestEmailPlaceholder: 'Email (optional)',
+    suggestEmailLabel: 'Email (optional)',
     suggestSubmit: 'Submit Idea',
     suggestThanks: 'Thank you! We\'ll take a look.',
     suggestError: 'Please write at least 5 characters.',
@@ -659,14 +657,17 @@ const UI = {
     homeDailyTitle: "اخلط المكتبة كلها",
     homeCollectionTriviaTitle: "أسئلة معلومات عامة مع الإجابات",
     homeCollectionTriviaMeta: "جرّب ثمانية أسئلة بالعربية أو الإنجليزية",
+    homeGameCta: "اكتشف الألعاب",
     homeGameText: "جرّب الكلمات المتقاطعة وسودوكو وألعاب الكلمات، أو ادعُ صديقاً إلى مبارزة الكلمات.",
     homeGameTitle: "العب ألعاباً عربية مجانية",
     homeKidsEyebrow: "للأطفال الفضوليين والكبار الذين يرافقونهم",
     homeKidsHeading: "لعب قليل، واكتشافات كثيرة.",
     homeKidsDescription: "480 نشاطًا للأعمار 3–12 بالعربية والإنجليزية. ابحث عن أفكار حسب العمر والوقت والمواد، أو اطبع حزمة أنشطة، أو خطّط لأسبوع مرح.",
     homeKidsCta: "استكشف عالم الأطفال: تعلّم والعب",
+    homeQuizCta: "تصفّح المواضيع",
     homeQuizText: "تصفّح أسئلة معلومات عامة بالعربية والإنجليزية في 51 موضوعاً، من العلوم والتاريخ إلى الثقافة والمنطق.",
     homeQuizTitle: "استكشف الأسئلة الثقافية",
+    homeSolveCta: "ابدأ الحل",
     homeSolveText: "ابدأ بألغاز سهلة ثم انتقل إلى الأصعب، واعرض الإجابة عندما تكون مستعدًا.",
     homeSolveTitle: "حلّ لغزًا",
     brandSubtitle: 'أسئلة بالعربية والإنجليزية، وتقدّم محفوظ، وغرف لعب مباشرة',
@@ -843,7 +844,7 @@ const UI = {
     authEyebrow: 'الملف الشخصي',
     authTitle: 'أنشئ حسابًا أو سجّل الدخول',
     authSessionLoading: 'جارٍ التحقق من حسابك…',
-    footerNote: 'جميع الحقوق محفوظة لريـدل أرابيا 2026',
+    footerNote: 'جميع الحقوق محفوظة لريدل أرابيا 2026',
 
     pageProgress: 'تقدّمك في هذا الموضوع',
     insidePageEyebrow: 'داخل هذه الصفحة',
@@ -874,12 +875,6 @@ const UI = {
     aToZ: 'أ–ي',
     shuffleNow: 'ترتيب عشوائي',
     pageQuestions: '{count} سؤال',
-    categoryCountLabel: '{count} موضوع',
-    totalQuestionLabel: '{count} سؤال',
-    showingAllPages: 'نعرض جميع الموضوعات ({count}).',
-    showingFilteredPages: 'ظهر {count} موضوعًا يطابق اختياراتك.',
-    showingAllCards: 'نعرض جميع بطاقات الموضوع ({count}).',
-    showingFilteredCards: 'ظهرت {count} بطاقة تطابق اختياراتك.',
     openPage: 'استكشف الموضوع',
     savedProgress: 'تقدّم محفوظ',
     guestTitle: 'العب مجانًا، بحساب أو بدونه',
@@ -969,8 +964,9 @@ const UI = {
     suggestSub: 'اقترح موضوعًا جديدًا، وسنأخذ فكرتك بعين الاعتبار.',
     suggestPrivacy: 'إذا ربطت الاقتراح بحسابك، فسيظهر عند تصدير بياناتك أو حذفها. وإلا فسيبقى غير مرتبط بك، وقد نحتفظ به لمدة تصل إلى 12 شهرًا.',
     suggestLinkAccount: 'اربط هذا الاقتراح بحسابي المسجّل',
+    suggestIdeaLabel: 'فكرة الموضوع',
     suggestPlaceholder: 'فكرتك…',
-    suggestEmailPlaceholder: 'البريد الإلكتروني (اختياري)',
+    suggestEmailLabel: 'البريد الإلكتروني (اختياري)',
     suggestSubmit: 'أرسل الفكرة',
     suggestThanks: 'شكرًا لك! سنراجع اقتراحك.',
     suggestError: 'الرجاء كتابة 5 أحرف على الأقل.',
@@ -1136,7 +1132,12 @@ function getGuestFavorites() { return projectPublicFavoriteIds(getRawGuestFavori
 function publicAccountProgress() { return (state.dbUser?.progress || []).filter(item => publicCardIds.has(item?.cardId)); }
 function publicAccountFavorites() { return (state.dbUser?.favorites || []).filter(item => publicCardIds.has(item?.cardId)); }
 function _guestStatus(v) {
-  return typeof v === 'object' && v !== null ? v.status : v;
+  const status = typeof v === 'object' && v !== null ? v.status : v;
+  return typeof status === 'string' ? status : '';
+}
+
+function isSolvedStatus(status) {
+  return typeof status === 'string' && status !== '' && !status.startsWith('wrong-');
 }
 
 const ACHIEVEMENTS = [
@@ -1283,6 +1284,14 @@ const API_ORIGIN = IS_LOCAL_PREVIEW
   ? `${location.protocol}//${location.hostname}:8787`
   : 'https://api.riddlearabia.com';
 const API_URL = `${API_ORIGIN}/api`;
+const API_TIMEOUT_MS = 15_000;
+
+function apiRequestSignal(callerSignal) {
+  if (typeof AbortSignal === 'undefined' || typeof AbortSignal.timeout !== 'function') return callerSignal;
+  const timeout = AbortSignal.timeout(API_TIMEOUT_MS);
+  if (!callerSignal) return timeout;
+  return typeof AbortSignal.any === 'function' ? AbortSignal.any([callerSignal, timeout]) : callerSignal;
+}
 
 async function apiFetch(endpoint, options = {}) {
   const requestOptions = { ...options, credentials: 'include' };
@@ -1294,7 +1303,7 @@ async function apiFetch(endpoint, options = {}) {
   const attempts = method === 'GET' ? 2 : 1;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
-      const res = await fetch(`${API_URL}${endpoint}`, requestOptions);
+      const res = await fetch(`${API_URL}${endpoint}`, { ...requestOptions, signal: apiRequestSignal(options.signal) });
       const contentType = res.headers.get('content-type') || '';
       const data = contentType.includes('application/json') ? await res.json() : {};
       if (!res.ok) {
@@ -1308,6 +1317,7 @@ async function apiFetch(endpoint, options = {}) {
       if (capabilityRecovered) applyCapabilityVisibility();
       return data;
     } catch (error) {
+      if (options.signal?.aborted) throw error;
       if (attempt >= attempts || !isRetryableCloudError(error)) {
         if (isRetryableCloudError(error)) {
           state.apiAvailable = false;
@@ -1783,13 +1793,13 @@ function getCategoryProgress(slug) {
   const meta = state.catalog?.categories.find(c => c.slug === slug);
   const total = meta?.count || 1;
   if (state.dbUser) {
-    const solved = publicAccountProgress().filter(p => p.categoryId === slug && !p.status.startsWith('wrong-')).length;
+    const solved = publicAccountProgress().filter(p => p.categoryId === slug && isSolvedStatus(p.status)).length;
     return { solved, pct: Math.min(100, Math.round((solved / total) * 100)) };
   }
   const raw = getGuestSolvedMap();
   const solved = Object.values(raw).filter(v => {
     const entry = typeof v === 'object' && v !== null ? v : { status: v };
-    return entry.categoryId === slug && !entry.status.startsWith('wrong-');
+    return entry.categoryId === slug && isSolvedStatus(entry.status);
   }).length;
   return { solved, pct: Math.min(100, Math.round((solved / total) * 100)) };
 }
@@ -1813,8 +1823,8 @@ function getCorrectCountByDifficulty(diff, categoryId = null) {
 }
 
 function getTotalCorrectCount() {
-  if (state.dbUser) return publicAccountProgress().filter(p => !p.status.startsWith('wrong-')).length;
-  return Object.values(getGuestSolvedMap()).filter(v => !_guestStatus(v).startsWith('wrong-')).length;
+  if (state.dbUser) return publicAccountProgress().filter(p => isSolvedStatus(p.status)).length;
+  return Object.values(getGuestSolvedMap()).filter(v => isSolvedStatus(_guestStatus(v))).length;
 }
 
 function handleFlip(id) {
@@ -2013,9 +2023,9 @@ function updateDocumentTitle() {
     title = state.lang === 'ar'
       ? `${state.categoryData.title.ar}: اختبار وأسئلة | ريدل أرابيا`
       : `${state.categoryData.title.en} Quiz & Questions | Riddle Arabia`;
-    const localizedCount = Number(category.count || 0).toLocaleString(state.lang === 'ar' ? 'ar' : 'en-US');
+    const localizedCount = Number(category.count || 0).toLocaleString('en-US');
     description = state.lang === 'ar'
-      ? `${localizedCount} سؤالًا في موضوع «${category.title.ar}»، مع إجابات بالعربية والإنجليزية. ${category.description.ar}`
+      ? `${countAr(Number(category.count || 0), 'question', { format: n => n.toLocaleString('en-US') })} في موضوع «${category.title.ar}»، مع إجابات بالعربية والإنجليزية. ${category.description.ar}`
       : `Try ${localizedCount} ${category.title.en} quiz questions with answers in English and Arabic. ${category.description.en} Play free and track your score.`;
   }
 
@@ -2432,7 +2442,6 @@ function bindCommonEvents() {
       renderCards();
       if (state.search) {
         trackEvent('search', {
-          search_term: state.search,
           search_scope: 'category',
           category: state.categorySlug,
         });
@@ -2664,7 +2673,7 @@ function createCategoryCardMarkup(meta, { art = '' } = {}) {
         ${topicMarkup}
       </div>
       <div class="category-card-footer">
-        <span class="category-card-label">${meta.count} ${isAr ? 'سؤال' : 'questions'}${doneLabel}</span>
+        <span class="category-card-label">${isAr ? countAr(meta.count, 'question') : `${meta.count} questions`}${doneLabel}</span>
         <span class="category-card-enter">${enterLabel}</span>
       </div>
       ${prog.pct > 0 ? `<div class="card-progress-track" aria-hidden="true">${progressLine}</div>` : ''}
@@ -2719,12 +2728,12 @@ function getGreeting(name, lang) {
 
 function getDashInsight(totalSolved, totalQ, catProgress, lang) {
   const isAr = lang === 'ar';
-  if (state.streak >= 7) return isAr ? `🔥 ${state.streak} أيام متتالية — لا يُوقفك شيء!` : `🔥 ${state.streak}-day streak — unstoppable!`;
+  if (state.streak >= 7) return isAr ? `🔥 ${countAr(state.streak, { ...countForms('day'), few: 'أيام متتالية', many: 'يومًا متتاليًا', other: 'يوم متتالٍ' })} — لا يُوقفك شيء!` : `🔥 ${state.streak}-day streak — unstoppable!`;
   if (state.streak >= 3) return isAr ? `🔥 ${state.streak} أيام رائعة — واصل!` : `🔥 ${state.streak}-day streak — keep the momentum!`;
   const almostDone = catProgress.find(c => c.pct >= 80 && c.pct < 100);
   if (almostDone) {
     const left = almostDone.count - almostDone.solved;
-    return isAr ? `🏁 ${left} سؤال لإكمال ${almostDone.title.ar || almostDone.title.en}!` : `🏁 ${left} question${left === 1 ? '' : 's'} left to complete ${almostDone.title.en}!`;
+    return isAr ? `🏁 تبقّى ${countAr(left, 'question')} لإكمال ${almostDone.title.ar || almostDone.title.en}!` : `🏁 ${left} question${left === 1 ? '' : 's'} left to complete ${almostDone.title.en}!`;
   }
   if (catProgress.length > 0 && catProgress[0].pct > 0) {
     const best = catProgress[0];
@@ -2873,7 +2882,7 @@ function renderAccountSummary(mount) {
         <div class="dash-progress-bar">
           <div class="dash-progress-fill" style="width:${overallPct}%"></div>
         </div>
-        <p class="dash-progress-text">${isAr ? `${totalSolved} من ${totalQ.toLocaleString()} سؤال` : `${totalSolved} of ${totalQ.toLocaleString()} questions`}</p>
+        <p class="dash-progress-text">${isAr ? `${totalSolved} من ${countAr(totalQ, 'question', { format: n => n.toLocaleString('en-US') })}` : `${totalSolved} of ${totalQ.toLocaleString()} questions`}</p>
       </div>
 
       ${topCatHtml}
@@ -2893,13 +2902,17 @@ function updateBackToTopVisibility() {
   document.getElementById('backToTopBtn')?.classList.toggle('is-visible', window.scrollY > 500);
 }
 
+function preferredScrollBehavior() {
+  return window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+}
+
 function injectBackToTop() {
   let btn = document.getElementById('backToTopBtn');
   if (!btn) {
     btn = document.createElement('button');
     btn.id = 'backToTopBtn';
     btn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>';
-    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: preferredScrollBehavior() }));
     document.body.appendChild(btn);
   }
   const label = t('backToTop');
@@ -2927,7 +2940,11 @@ function renderCategoryPage() {
   const breadcrumbEl = document.getElementById('breadcrumbCategoryName');
   if (breadcrumbEl) breadcrumbEl.textContent = category.title[state.lang];
   if (els.categoryDescription) els.categoryDescription.textContent = category.description[state.lang];
-  if (els.categoryCountPill) els.categoryCountPill.textContent = fmt('pageQuestions', { count: category.count });
+  if (els.categoryCountPill) {
+    els.categoryCountPill.textContent = state.lang === 'ar'
+      ? countAr(category.count, 'question')
+      : fmt('pageQuestions', { count: category.count });
+  }
   if (els.categoryDiffBadge) els.categoryDiffBadge.textContent = buildDiffBadge(category);
   restoreFilterParams();
   prepareSharedCard();
@@ -2971,7 +2988,7 @@ function scrollToSharedCard() {
     if (!card) return;
     card.classList.add('shared-card-target');
     card.scrollIntoView({
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      behavior: preferredScrollBehavior(),
       block: 'center',
     });
   });
@@ -2985,7 +3002,7 @@ function buildDiffBadge(category) {
     ? { easy: 'سهل', medium: 'متوسط', hard: 'صعب', 'very-advanced': 'صعب جدًا' }
     : { easy: 'Piece of Cake', medium: 'Brain Tickler', hard: 'Head Scratcher', 'very-advanced': 'Brick Wall' };
   const parts = order.filter(d => dc[d] > 0).map(d => `${dc[d]} ${labels[d]}`);
-  const totalLabel = state.lang === 'ar' ? `${total} سؤال` : `${total} questions`;
+  const totalLabel = state.lang === 'ar' ? countAr(total, 'question') : `${total} questions`;
   return parts.length ? `${totalLabel} — ${parts.join(' · ')}` : totalLabel;
 }
 
@@ -3050,7 +3067,7 @@ function syncFilterParams() {
   if (state.view && state.view !== 'all') params.set('view', state.view); else params.delete('view');
   if (state.sort && state.sort !== 'featured') params.set('sort', state.sort); else params.delete('sort');
   if (state.subcategory && state.subcategory !== 'all') params.set('sub', state.subcategory); else params.delete('sub');
-  if (state.search) params.set('q', state.search); else params.delete('q');
+  params.delete('q');
   history.replaceState(null, '', params.toString() ? `${location.pathname}?${params.toString()}` : location.pathname);
 }
 
@@ -3250,7 +3267,7 @@ function renderCards(focusRequest = null) {
     btn.className = 'secondary-btn';
     btn.style.cssText = 'width:100%;margin-top:1rem;display:block;';
     btn.textContent = state.lang === 'ar'
-      ? `عرض ${Math.min(PAGE_SIZE, remaining)} إضافي (${remaining} متبقية)`
+      ? `اعرض ${countAr(Math.min(PAGE_SIZE, remaining), { one: 'سؤالًا آخر', two: 'سؤالين آخرين', few: 'أسئلة أخرى', many: 'سؤالًا آخر', other: 'سؤال آخر' })} (المتبقي: ${remaining})`
       : `Show ${Math.min(PAGE_SIZE, remaining)} more (${remaining} remaining)`;
     btn.addEventListener('click', () => {
       state.cardPage += 1;
@@ -3265,9 +3282,12 @@ function renderCards(focusRequest = null) {
     const matched = filtered.length;
     const categoryTotal = state.categoryData.cards.length;
     const remaining = Math.max(0, matched - rendered);
-    els.resultsLabel.textContent = state.lang === 'ar'
-      ? `المعروض الآن ${rendered} من ${matched} سؤالًا مطابقًا (إجمالي الموضوع ${categoryTotal}).${remaining ? ` يتوفر ${remaining} سؤالًا إضافيًا عبر زر «عرض المزيد».` : ' كل النتائج المطابقة معروضة.'}`
+    const matchingForms = { one: 'سؤال واحد مطابق', two: 'سؤالين مطابقين', few: 'أسئلة مطابقة', many: 'سؤالًا مطابقًا', other: 'سؤال مطابق' };
+    const extraForms = { one: 'سؤال إضافي واحد', two: 'سؤالان إضافيان', few: 'أسئلة إضافية', many: 'سؤالًا إضافيًا', other: 'سؤال إضافي' };
+    const label = state.lang === 'ar'
+      ? `المعروض الآن ${rendered} من ${countAr(matched, matchingForms)} (إجمالي الموضوع: ${categoryTotal}).${remaining ? ` يتوفر ${countAr(remaining, extraForms)}؛ استخدم الزر أسفل البطاقات لعرض المزيد.` : ' كل النتائج المطابقة معروضة.'}`
       : `Showing ${rendered} of ${matched} matching questions (${categoryTotal} total in this topic).${remaining ? ` ${remaining} more available via “Show more.”` : ' All matching results are rendered.'}`;
+    if (els.resultsLabel.textContent !== label) els.resultsLabel.textContent = label;
   }
   renderAccountSummary(els.categorySummaryMount);
   restoreCardFocus(focusRequest);
@@ -4107,11 +4127,30 @@ function categoryAssetPath(meta) {
   return meta.assetPath;
 }
 
+let arabicCountModule = null;
+let arabicCountPromise = null;
+function loadArabicCount() {
+  arabicCountPromise ||= import('/arabic-count.js')
+    .then(module => { arabicCountModule = module; return module; })
+    .catch(() => { arabicCountPromise = null; return null; });
+  return arabicCountPromise;
+}
+
+function countForms(noun) {
+  return arabicCountModule?.AR_COUNT?.[noun] || {};
+}
+
+function countAr(count, noun, options) {
+  const forms = typeof noun === 'string' ? arabicCountModule?.AR_COUNT?.[noun] : noun;
+  if (arabicCountModule && forms) return arabicCountModule.arabicCount(count, forms, options);
+  return String(count);
+}
+
 async function loadCatalog() {
   if (state.catalog) return state.catalog;
   if (!catalogPromise) {
-    catalogPromise = fetchJson('/data/catalog.json')
-      .then(catalog => {
+    catalogPromise = Promise.all([fetchJson('/data/catalog.json'), loadArabicCount()])
+      .then(([catalog]) => {
         state.catalog = publicCatalogView(catalog);
         return state.catalog;
       })
@@ -4355,7 +4394,7 @@ async function loadStreak() {
   if (!state.dbUser) { state.streak = 0; state.freezeCount = 0; return; }
   try {
     const data = await apiFetch('/user/streak', { method: 'POST' });
-    state.streak = data.streak || 0;
+    state.streak = Math.max(0, Math.floor(Number(data.streak) || 0));
     state.freezeCount = data.freezeCount || 0;
   } catch (e) { state.streak = 0; state.freezeCount = 0; }
 }
@@ -4926,7 +4965,7 @@ function showCategoryCompleteModal(slug) {
     const isAr = lang === 'ar';
     const url = `${location.origin}${categoryRouteForLanguage(slug, lang)}`;
     const text = isAr
-      ? `🏆 أنهيت "${meta.title.ar}" على ريدل أرابيا بـ ${points} نقطة!\nهل تستطيع التفوق عليّ؟ ← ${url}`
+      ? `🏆 أنهيت "${meta.title.ar}" على ريدل أرابيا بـ ${countAr(points, 'point')}!\nهل تستطيع التفوق عليّ؟ ← ${url}`
       : `🏆 I finished "${meta.title.en}" on Riddle Arabia with ${points} pts!\nCan you beat me? → ${url}`;
     void shareOrCopy({
       title: t('shareChallengeTitle'), text, url,
@@ -5238,7 +5277,7 @@ function renderCategoryPlayModes() {
   if (wasExpanded) el.querySelector('details').open = true;
   document.getElementById('playModeQuickFireBtn')?.addEventListener('click', quickFireReady ? startTimedQuiz : () => {
     const grid = document.getElementById('cardGrid');
-    grid?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    grid?.scrollIntoView({ behavior: preferredScrollBehavior(), block: 'start' });
     grid?.focus({ preventScroll: true });
   });
   document.getElementById('playModeCreateRoomBtn')?.addEventListener('click', () => {

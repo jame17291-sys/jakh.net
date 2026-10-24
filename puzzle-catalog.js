@@ -11,7 +11,7 @@ export const PUZZLES = [
   {id:'links',title:['Connections','روابط'],category:'words',desc:['Sixteen words. Four hidden groups. Discover what belongs together.','ست عشرة كلمة وأربع مجموعات مخفية. اكتشف الرابط بينها.'],tag:['4 groups','٤ مجموعات']},
   {id:'mosaic',title:['Mosaic','زخارف'],category:'logic',desc:['Match shared layers and clear the board, one thoughtful pair at a time.','طابق الطبقات المشتركة وأفرغ اللوحة، زوجاً بعد زوج.'],tag:['Match & unwind','طابق واسترخِ']},
   {id:'letter-square',title:['Letter Square','مربّع الحروف'],category:'words',desc:['Connect letters around the square. Link words to use every letter.','صِل الحروف حول المربّع واربط الكلمات لاستخدام جميع الحروف.'],tag:['Connect the letters','صِل الحروف']},
-  {id:'sudoku',title:['Sudoku','سودوكو'],category:'logic',desc:['Complete the grid with numbers 1–9. Three levels, one clear solution.','أكمل الشبكة بالأرقام من ١ إلى ٩. ثلاثة مستويات وحل واحد واضح.'],tag:['3 difficulties','٣ مستويات']},
+  {id:'sudoku',title:['Sudoku','سودوكو'],category:'logic',desc:['Complete the grid with numbers 1–9. Three levels, one clear solution.','أكمل الشبكة بالأرقام من 1 إلى 9. ثلاثة مستويات وحل واحد واضح.'],tag:['3 difficulties','٣ مستويات']},
 ];
 export const BONUS = [
  {id:'links',variant:'mini',title:['Mini Connections','روابط مصغّرة'],desc:['Nine words, three groups. A smaller grouping challenge.','تسع كلمات وثلاث مجموعات في تحدٍّ مصغّر.']},

@@ -762,8 +762,10 @@
           <h3 class="suggestion-title" data-i18n="suggestTitle">Got a topic idea?</h3>
           <p class="suggestion-sub" data-i18n="suggestSub">Suggest a new riddle category or topic and we'll consider adding it.</p>
           <div class="suggestion-form" id="suggestionForm">
-            <textarea class="suggestion-textarea" id="suggestionText" maxlength="500" data-i18n-placeholder="suggestPlaceholder" data-i18n-aria-label="suggestPlaceholder" placeholder="Your idea…"></textarea>
-            <input class="suggestion-email" id="suggestionEmail" type="email" maxlength="100" data-i18n-placeholder="suggestEmailPlaceholder" data-i18n-aria-label="suggestEmailPlaceholder" placeholder="Email (optional)" />
+            <label class="suggestion-field-label" for="suggestionText" data-i18n="suggestIdeaLabel">Topic idea</label>
+            <textarea class="suggestion-textarea" id="suggestionText" maxlength="500" data-i18n-placeholder="suggestPlaceholder" placeholder="Your idea…"></textarea>
+            <label class="suggestion-field-label" for="suggestionEmail" data-i18n="suggestEmailLabel">Email (optional)</label>
+            <input class="suggestion-email" id="suggestionEmail" type="email" maxlength="100" autocomplete="email" />
             <label class="suggestion-account-link" hidden><input id="suggestionLinkAccount" type="checkbox" /> <span data-i18n="suggestLinkAccount">Link this suggestion to my signed-in account</span></label>
             <button class="primary-btn suggestion-submit" id="suggestionSubmit" data-i18n="suggestSubmit">Submit Idea</button>
             <p class="suggestion-privacy-note"><span data-i18n="suggestPrivacy">If you tick the account option while signed in, the suggestion is included in export and deletion. Otherwise it stays unlinked. Retained up to 12 months.</span> <a href="/privacy" data-i18n="footerPrivacy">Privacy Centre</a></p>

@@ -102,10 +102,162 @@ test('all new credential routes enforce the policy before changing account state
   await assert.rejects(resetPasswordWithRecovery(request('', { username: 'Owner', recoveryCode: 'C'.repeat(43), newPassword: '123456789' }), env), (error) => error.code === 'PASSWORD_POLICY_INVALID');
   assert.equal(database.prepare('SELECT password_hash FROM users WHERE id = ?').get(USER_ID).password_hash, 'hash');
 });
-test('login aliases share one account throttle while legacy valid passwords remain usable', async (t) => {
-  const { env, database } = await fixture(t); assert.equal((await login(request('', { username: 'Owner', password: '123456789' }), env)).status, 200);
-  const accountKey = await sha256(`${env.IP_HASH_SALT}:login-account:${USER_ID}`); database.prepare('UPDATE rate_limits SET count = 20 WHERE key = ?').run(accountKey);
-  await assert.rejects(login(request('', { username: 'owner@example.test', password: PASSWORD }), env), (error) => error.code === 'RATE_LIMITED');
+// Sign-in throttling: only failures count, a browser that signed in before
+// keeps its own budget, and everyone else shares a per-account failure cap.
+function signInRequest(username, password, { ip = '198.51.100.1', cookie, origin = 'https://api.riddlearabia.com' } = {}) {
+  return new Request(`${origin}/api/auth/login`, { method: 'POST', headers: { 'content-type': 'application/json', 'cf-connecting-ip': ip, ...(cookie ? { cookie } : {}) }, body: JSON.stringify({ username, password }) });
+}
+async function attempt(env, username, password, options) {
+  try { const response = await login(signInRequest(username, password, options), env); return { status: response.status, response }; } catch (error) { return { status: error.status, code: error.code }; }
+}
+function deviceCookieFrom(response, name = '__Host-jakh_device') {
+  const cookie = response.headers.getSetCookie().find((value) => value.startsWith(`${name}=`));
+  assert.ok(cookie, `${name} cookie is set`);
+  return cookie.split(';')[0];
+}
+function pinRateWindow(t) {
+  // Keep every attempt in one 15-minute window so the test cannot straddle a reset.
+  const pinned = Math.floor(Date.now() / 900_000) * 900_000 + 450_000;
+  t.mock.method(Date, 'now', () => pinned);
+}
+const failedCount = (database, key) => database.prepare('SELECT count FROM rate_limits WHERE key = ?').get(key)?.count ?? 0;
+
+test('a stranger cannot lock out a browser that signed in before, while guessing from many networks stays capped', async (t) => {
+  pinRateWindow(t);
+  const { env, database } = await fixture(t);
+  const signedIn = await login(signInRequest('Owner', PASSWORD, { ip: '203.0.113.1' }), env);
+  assert.equal(signedIn.status, 200);
+  const deviceSetCookie = signedIn.headers.getSetCookie().find((value) => value.startsWith('__Host-jakh_device='));
+  assert.match(deviceSetCookie, /^__Host-jakh_device=[A-Za-z0-9_-]{22}\.[A-Za-z0-9_-]{43}; Path=\/; HttpOnly; Secure; SameSite=Strict; Max-Age=15552000$/u);
+  assert.equal(deviceSetCookie.includes('Domain='), false);
+  assert.match(signedIn.headers.getSetCookie().join('\n'), /^__Host-jakh_session=/mu);
+  const device = deviceCookieFrom(signedIn);
+
+  // Twenty wrong guesses, each from a different network, without the device cookie.
+  for (let index = 1; index <= 20; index += 1) {
+    assert.equal((await attempt(env, 'Owner', `wrong guess ${index}`, { ip: `198.51.100.${index}` })).status, 401);
+  }
+  // The shared account cap now stops every browser the account has not seen,
+  // from any network, even with the right password.
+  assert.equal((await attempt(env, 'Owner', 'wrong guess 21', { ip: '198.51.100.21' })).code, 'RATE_LIMITED');
+  assert.equal((await attempt(env, 'owner@example.test', PASSWORD, { ip: '198.51.100.22' })).code, 'RATE_LIMITED');
+  assert.equal((await attempt(env, 'Owner', PASSWORD, { ip: '198.51.100.23', cookie: '__Host-jakh_session=' + TOKEN })).code, 'RATE_LIMITED');
+
+  // The owner's browser still signs in, from a new network and through the email alias.
+  const owner = await attempt(env, 'owner@example.test', PASSWORD, { ip: '192.0.2.50', cookie: `theme=dark; ${device}` });
+  assert.equal(owner.status, 200);
+  assert.notEqual(deviceCookieFrom(owner.response), device, 'each sign-in issues a fresh device cookie');
+  assert.equal((await attempt(env, 'Owner', PASSWORD, { ip: '192.0.2.51', cookie: deviceCookieFrom(owner.response) })).status, 200);
+  assert.equal((await attempt(env, 'Owner', PASSWORD, { ip: '192.0.2.52', cookie: device })).status, 200, 'older device cookies stay valid');
+});
+
+test('a stranger on the same network cannot block a recognised browser, and junk cookies do not skip the network limit', async (t) => {
+  pinRateWindow(t);
+  const { env } = await fixture(t);
+  const shared = '203.0.113.7';
+  const device = deviceCookieFrom(await login(signInRequest('Owner', PASSWORD, { ip: shared }), env));
+  // Someone else behind the same public address uses up its network limit.
+  for (let index = 1; index <= 19; index += 1) assert.equal((await attempt(env, `stranger_${index}`, 'wrong guess', { ip: shared })).status, 401);
+  assert.equal((await attempt(env, 'Owner', PASSWORD, { ip: shared })).code, 'RATE_LIMITED');
+  assert.equal((await attempt(env, 'Owner', PASSWORD, { ip: shared, cookie: `__Host-jakh_device=${'A'.repeat(22)}.${'B'.repeat(43)}` })).code, 'RATE_LIMITED');
+  assert.equal((await attempt(env, 'Owner', PASSWORD, { ip: shared, cookie: device })).status, 200);
+});
+
+test('a recognised browser has its own small failure budget', async (t) => {
+  pinRateWindow(t);
+  const { env, database } = await fixture(t);
+  const device = deviceCookieFrom(await login(signInRequest('Owner', PASSWORD, { ip: '203.0.113.2' }), env));
+  for (let index = 1; index <= 10; index += 1) {
+    assert.equal((await attempt(env, 'Owner', `wrong typo ${index}`, { ip: `198.51.100.${index}`, cookie: device })).status, 401);
+  }
+  assert.equal((await attempt(env, 'Owner', PASSWORD, { ip: '198.51.100.11', cookie: device })).code, 'RATE_LIMITED');
+  // Those failures were charged to that browser only, not to the shared account budget.
+  assert.equal(failedCount(database, await sha256(`${env.IP_HASH_SALT}:login-account:${USER_ID}`)), 0);
+  assert.equal((await attempt(env, 'Owner', PASSWORD, { ip: '198.51.100.12' })).status, 200);
+});
+
+test('successful sign-ins never use up the account limit', async (t) => {
+  pinRateWindow(t);
+  const { env, database } = await fixture(t);
+  for (let index = 1; index <= 25; index += 1) {
+    assert.equal((await attempt(env, index % 2 ? 'Owner' : 'owner@example.test', index % 3 ? PASSWORD : '123456789', { ip: `198.51.100.${index}` })).status, 200);
+  }
+  assert.equal(failedCount(database, await sha256(`${env.IP_HASH_SALT}:login-account:${USER_ID}`)), 0);
+  assert.equal((await attempt(env, 'Owner', 'one wrong guess', { ip: '198.51.100.30' })).status, 401);
+  assert.equal(failedCount(database, await sha256(`${env.IP_HASH_SALT}:login-account:${USER_ID}`)), 1);
+  // Unknown accounts are throttled too, by a digest of the identifier.
+  for (let index = 1; index <= 20; index += 1) assert.equal((await attempt(env, 'nobody_here', 'wrong guess', { ip: `203.0.113.${index}` })).status, 401);
+  assert.equal((await attempt(env, 'nobody_here', 'wrong guess', { ip: '203.0.113.21' })).code, 'RATE_LIMITED');
+});
+
+test('a device cookie helps only the account it was issued to and cannot be forged', async (t) => {
+  pinRateWindow(t);
+  const { env, database } = await fixture(t);
+  const now = new Date().toISOString();
+  database.prepare(`INSERT INTO users (id, username, username_key, email, password_hash, password_salt, password_iterations, role, created_at, updated_at) VALUES ('other-user', 'Other', 'other', NULL, 'hash', 'salt', 600000, 'USER', ?, ?)`).run(now, now);
+  const ownerDevice = deviceCookieFrom(await login(signInRequest('Owner', PASSWORD, { ip: '203.0.113.3' }), env));
+  const otherDevice = deviceCookieFrom(await login(signInRequest('Other', PASSWORD, { ip: '203.0.113.4' }), env));
+  const foreignPepper = deviceCookieFrom(await login(signInRequest('Owner', PASSWORD, { ip: '203.0.113.5' }), { ...env, PASSWORD_PEPPER: 'a-completely-different-password-pepper' }));
+  database.prepare('UPDATE rate_limits SET count = 20 WHERE key = ?').run(await sha256(`${env.IP_HASH_SALT}:login-account:${USER_ID}`));
+  const [nonce, mac] = ownerDevice.split('=')[1].split('.');
+  const rejected = [
+    otherDevice,
+    `__Host-jakh_device=${'A'.repeat(22)}.${mac}`,
+    `__Host-jakh_device=${nonce}.${'A'.repeat(43)}`,
+    `__Host-jakh_device=${nonce}.${mac}x`,
+    `__Host-jakh_device=${nonce}`,
+    foreignPepper,
+    ownerDevice.replace('__Host-jakh_device=', 'jakh_device='),
+  ];
+  for (const [index, cookie] of rejected.entries()) {
+    assert.equal((await attempt(env, 'Owner', PASSWORD, { ip: `198.51.100.${index + 1}`, cookie })).code, 'RATE_LIMITED', cookie);
+  }
+  assert.equal((await attempt(env, 'Owner', PASSWORD, { ip: '198.51.100.50', cookie: ownerDevice })).status, 200);
+});
+
+test('new accounts and local development receive working device cookies', async (t) => {
+  pinRateWindow(t);
+  const { env, database } = await fixture(t);
+  const created = await register(new Request('https://api.riddlearabia.com/api/auth/register', { method: 'POST', headers: { 'content-type': 'application/json', 'cf-connecting-ip': '203.0.113.6' }, body: JSON.stringify({ username: 'newuser', password: PASSWORD }) }), env);
+  assert.equal(created.status, 201);
+  const device = deviceCookieFrom(created);
+  const newUserId = database.prepare("SELECT id FROM users WHERE username_key = 'newuser'").get().id;
+  database.prepare('INSERT INTO rate_limits (key, window_start, count, expires_at) VALUES (?, ?, 20, ?)').run(await sha256(`${env.IP_HASH_SALT}:login-account:${newUserId}`), Math.floor(Date.now() / 900_000) * 900, Math.floor(Date.now() / 1000) + 1800);
+  assert.equal((await attempt(env, 'newuser', PASSWORD, { ip: '198.51.100.1' })).code, 'RATE_LIMITED');
+  assert.equal((await attempt(env, 'newuser', PASSWORD, { ip: '198.51.100.2', cookie: device })).status, 200);
+
+  const local = { ...env, STATIC_ORIGIN: 'http://localhost:8788' };
+  const localSignIn = await login(signInRequest('Owner', PASSWORD, { ip: '127.0.0.1', origin: 'http://localhost:8787' }), local);
+  const localSetCookie = localSignIn.headers.getSetCookie().find((value) => value.startsWith('jakh_device='));
+  assert.ok(localSetCookie); assert.equal(localSetCookie.includes('Secure'), false);
+  database.prepare('UPDATE rate_limits SET count = 20 WHERE key = ?').run(await sha256(`${env.IP_HASH_SALT}:login-account:${USER_ID}`));
+  assert.equal((await attempt(local, 'Owner', PASSWORD, { ip: '127.0.0.1', origin: 'http://localhost:8787', cookie: localSetCookie.split(';')[0] })).status, 200);
+});
+
+test('account recovery has no account-wide lockout but limits failures per network', async (t) => {
+  pinRateWindow(t);
+  const { env, database } = await fixture(t);
+  const code = 'R'.repeat(43);
+  const now = new Date().toISOString();
+  database.prepare('INSERT INTO account_recovery_codes (user_id, code_hash, created_at, updated_at) VALUES (?, ?, ?, ?)').run(USER_ID, await sha256(code), now, now);
+  const recover = async (recoveryCode, ip) => {
+    try {
+      const response = await resetPasswordWithRecovery(new Request('https://api.riddlearabia.com/api/auth/recovery/reset', { method: 'POST', headers: { 'content-type': 'application/json', 'cf-connecting-ip': ip }, body: JSON.stringify({ username: 'Owner', recoveryCode, newPassword: 'fifteen other stones float gently' }) }), env);
+      return { status: response.status, response };
+    } catch (error) { return { status: error.status, code: error.code }; }
+  };
+  // Failed codes from one network are limited for that network only.
+  for (let index = 0; index < 5; index += 1) assert.equal((await recover('W'.repeat(43), '198.51.100.1')).code, 'RECOVERY_CREDENTIALS_INVALID');
+  assert.equal((await recover(code, '198.51.100.1')).code, 'RATE_LIMITED');
+  // Many more failures from other networks than the old account-wide limit allowed.
+  for (let network = 2; network <= 4; network += 1) {
+    for (let index = 0; index < 5; index += 1) assert.equal((await recover('not-a-valid-recovery-code', `198.51.100.${network}`)).code, 'RECOVERY_CREDENTIALS_INVALID');
+  }
+  const recovered = await recover(code, '192.0.2.60');
+  assert.equal(recovered.status, 200);
+  assert.match(recovered.response.headers.getSetCookie().join('\n'), /^__Host-jakh_device=/mu);
+  assert.equal(failedCount(database, await sha256(`${env.IP_HASH_SALT}:recovery-reset-account-network:owner:192.0.2.60`)), 0);
+  assert.equal(database.prepare('SELECT password_hash FROM users WHERE id = ?').get(USER_ID).password_hash, 'new-hash');
 });
 
 test('two confirmations that read the same pending setup cannot replace the winning recovery codes', async (t) => {

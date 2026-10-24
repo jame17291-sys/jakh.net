@@ -879,8 +879,17 @@ export async function runProductionMonitor(options = {}) {
         );
       } else {
         expectStatus(resource.response, 410);
-        expectContentType(resource.response, /^text\/plain\b/iu);
-        expect(resource.response.headers.get("cache-control") === "no-store", "quarantine response is cacheable");
+        // Held pages are a small bilingual HTML notice; held data files stay plain text.
+        expectContentType(resource.response, /^text\/(?:plain|html)\b/iu);
+        expect(
+          /^no-store(?:, no-transform)?$/u.test(resource.response.headers.get("cache-control") || ""),
+          "quarantine response is cacheable",
+        );
+        expect(
+          [...checkedPublicationQuarantine.cardIds].every((cardId) => !resource.text.includes(cardId))
+            && [...checkedPublicationQuarantine.categorySlugs].every((slug) => !resource.text.toLowerCase().includes(slug)),
+          "quarantine response names a held card or category",
+        );
         expect(
           resource.response.headers.get("x-jakh-content-quarantine") === "active",
           "quarantine marker header is missing",

@@ -3,7 +3,12 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import vm from 'node:vm';
 
-const selectionSource = readFileSync(new URL('../battle-selection.js', import.meta.url), 'utf8').replace('export function createBattleSelection(', 'function createBattleSelection(');
+import * as arabicCountModule from '../arabic-count.js';
+
+const selectionImport = "import { AR_COUNT, arabicCount } from './arabic-count.js';\n";
+const selectionModule = readFileSync(new URL('../battle-selection.js', import.meta.url), 'utf8');
+assert.ok(selectionModule.includes(selectionImport), 'battle-selection.js imports the shared Arabic count helper');
+const selectionSource = selectionModule.replace(selectionImport, '').replace('export function createBattleSelection(', 'function createBattleSelection(');
 const source = readFileSync(new URL('../battle-mode.js', import.meta.url), 'utf8')
   .replace("import { createBattleSelection } from './battle-selection.js';", '')
   .replace('export function createBattleMode(', 'function createBattleMode(');
@@ -47,7 +52,7 @@ function harness({ loadCards = async () => cards({ easy: 6, medium: 4 }), apiFet
     { slug: 'logic-puzzles', title: { en: 'Logic', ar: 'المنطق' }, quickFireQuestionCount: 10 },
     { slug: 'science', title: { en: 'Science', ar: 'العلوم' }, quickFireQuestionCount: 0 },
   ] } };
-  const context = vm.createContext({ document: { getElementById: id => elements.get(id) || null }, URL, clearInterval, setInterval,
+  const context = vm.createContext({ AR_COUNT: arabicCountModule.AR_COUNT, arabicCount: arabicCountModule.arabicCount, document: { getElementById: id => elements.get(id) || null }, URL, clearInterval, setInterval,
     WebSocket: class { constructor(url) { this.url = url; sockets.push(this); } close() {} send() {} },
   });
   vm.runInContext(`${selectionSource}\n${source}`, context);
@@ -139,7 +144,7 @@ test('category loading races and language rerenders preserve the current selecti
   math.resolve(cards({ easy: 20 })); await settle();
   assert.equal(h.get('battleCountSelect').value, '5');
   assert.equal(h.get('battleNameInput').value, 'Jam & family');
-  assert.match(h.get('battleChoiceHint').textContent, /^5 /u);
+  assert.match(h.get('battleChoiceHint').textContent, /^يتوفر لهذا المستوى 5 أسئلة بخيارات مُعدّة\./u);
 });
 
 test('switching create and join tabs preserves the name, room code, topic and valid difficulty', async () => {

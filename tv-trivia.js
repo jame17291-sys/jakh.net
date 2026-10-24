@@ -2,6 +2,7 @@ import { SHOWS, eligibleCards, createRound, answerRound, nextQuestion, restoreRo
 import { makeScoreCard } from './tv-trivia-share.js';
 import { COPY } from './tv-trivia-copy.js';
 import { landingMarkup, escape as e } from './tv-trivia-markup.js';
+import { AR_COUNT, arabicCount } from './arabic-count.js';
 
 const KEYS = { round: 'jakh-tv-round-v1', seen: 'jakh-tv-seen-v1', bests: 'jakh-tv-bests-v1' };
 
@@ -90,7 +91,7 @@ export function createTvTrivia(api) {
       <label class="tv-field">${t.show}<select id="tvShowSelect">${showOptionsMarkup(draft.show)}</select></label>
       ${hasStory ? `<label class="tv-check"><input id="tvStory" type="checkbox" ${draft.season ? 'checked' : ''}>${t.story}</label><label class="tv-field" id="tvSeasonField" ${draft.season ? '' : 'hidden'}>${t.season}<select id="tvSeasonSelect">${Array.from({ length: s.seasons }, (_, i) => `<option value="${i + 1}" ${draft.season === i + 1 ? 'selected' : ''}>${i + 1}</option>`).join('')}</select><small>${t.storyHint}</small></label>` : `<p class="tv-small">${s ? t.noStory : t.safeDetail}</p>`}
       ${isPractice ? '' : `<label class="tv-check"><input id="tvTimed" type="checkbox" ${timed ? 'checked' : ''}>${t.timed}</label><p class="tv-small">${t.timedHint}</p>`}
-      <p id="tvEligibleCount" class="tv-small" role="status">${eligibleCards(cards(), draft.show, draft.season).length} ${t.availableCount}</p>
+      <p id="tvEligibleCount" class="tv-small" role="status">${eligibleCount(eligibleCards(cards(), draft.show, draft.season).length)}</p>
       <button class="tv-button tv-primary tv-full" data-tv="${isPractice ? 'apply-practice' : 'start-options'}">${isPractice ? t.practice : t.start}</button>`;
     dialog.dataset.practice = String(isPractice);
     if (!dialog.open) dialog.showModal();
@@ -212,11 +213,14 @@ export function createTvTrivia(api) {
     if (sort === 'random') pool.sort((a, b) => practiceOrder.indexOf(a.id) - practiceOrder.indexOf(b.id));
     return pool;
   }
+  // Subject of an implied «يتوفر», so the adjective agrees with each counted form.
+  const AR_AVAILABLE = { zero: 'لا توجد أسئلة متاحة', one: 'سؤال واحد متاح', two: 'سؤالان متاحان', few: 'أسئلة متاحة', many: 'سؤالًا متاحًا', other: 'سؤال متاح' };
+  function eligibleCount(count) {
+    return lang === 'ar' ? `${arabicCount(count, AR_AVAILABLE)} بهذه الخيارات` : `${count} ${t.availableCount}`;
+  }
   function questionCount(count) {
     if (lang !== 'ar') return `${count} ${count === 1 ? 'question' : 'questions'}`;
-    if (count === 1) return 'سؤال واحد';
-    if (count === 2) return 'سؤالان';
-    return `${count} ${count % 100 >= 3 && count % 100 <= 10 ? 'أسئلة' : count % 100 >= 11 ? 'سؤالًا' : 'سؤال'}`;
+    return arabicCount(count, AR_COUNT.question);
   }
   function renderPractice() {
     const pool = practiceCards();
@@ -313,7 +317,7 @@ export function createTvTrivia(api) {
     if (event.target.id === 'tvShowSelect') { const next = readOptions(); optionDraft = { ...next, season: 0 }; showOptions(next.show, next.timed, dialog.dataset.practice === 'true'); }
     if (event.target.id === 'tvStory') dialog.querySelector('#tvSeasonField').hidden = !event.target.checked;
     const count = dialog.querySelector('#tvEligibleCount');
-    if (count) { const next = readOptions(); count.textContent = `${eligibleCards(cards(), next.show, next.season).length} ${t.availableCount}`; }
+    if (count) { const next = readOptions(); count.textContent = eligibleCount(eligibleCards(cards(), next.show, next.season).length); }
   });
   dialog.addEventListener('click', event => {
     const action = event.target.closest('[data-tv]')?.dataset.tv;

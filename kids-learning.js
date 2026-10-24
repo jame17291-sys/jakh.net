@@ -286,7 +286,8 @@ function applyFilters(updateURL = true) {
     const url = new URL(location.href);
     for (const name of FILTER_NAMES) {
       const value = filters[name];
-      if (!value || value === 'all') url.searchParams.delete(name);
+      // Typed search text is never written to the address bar (privacy rule: no raw searches).
+      if (name === 'search' || !value || value === 'all') url.searchParams.delete(name);
       else url.searchParams.set(name, value === true ? '1' : value);
     }
     try { history.replaceState(null, '', url); } catch { /* Filters still work when history is restricted. */ }

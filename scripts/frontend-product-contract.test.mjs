@@ -754,3 +754,58 @@ test('the English home page sends only Arabic-first outside visitors to /ar/', (
   const navigation = fs.readFileSync(path.join(root, 'site-navigation.js'), 'utf8');
   assert.match(navigation, /localStorage\.setItem\('jakh-home-language', link\.hreflang === 'ar' \? 'ar' : 'en'\)/u, 'language links remember an explicit switch');
 });
+
+test('API calls give up after a timeout instead of loading forever, and caller cancellations are not outages', async () => {
+  const calls = [];
+  const context = vm.createContext({
+    API_URL: 'https://api.example/api', API_TIMEOUT_MS: 30, AbortSignal, Headers, setTimeout, Promise, Number, String, Error,
+    state: { apiChecked: true, apiAvailable: true },
+    applyCapabilityVisibility() { calls.push('visibility'); },
+    fetch: (_url, init) => new Promise((_resolve, reject) => {
+      calls.push('fetch');
+      init.signal.addEventListener('abort', () => reject(init.signal.reason), { once: true });
+    }),
+  });
+  vm.runInContext([
+    topLevelFunction('isRetryableCloudError'),
+    topLevelFunction('apiRequestSignal'),
+    topLevelFunction('apiFetch'),
+    'this.apiFetch = apiFetch;',
+  ].join('\n'), context);
+  // Node's AbortSignal.timeout timer does not keep the event loop alive by itself.
+  const keepAlive = setInterval(() => {}, 5);
+  await assert.rejects(context.apiFetch('/auth/session'), error => error.name === 'TimeoutError');
+  clearInterval(keepAlive);
+  assert.equal(calls.filter(call => call === 'fetch').length, 2, 'a GET is retried once');
+  assert.equal(context.state.apiAvailable, false, 'a timed-out API is shown as unavailable');
+
+  context.state.apiAvailable = true;
+  calls.length = 0;
+  const controller = new AbortController();
+  const pending = context.apiFetch('/leaderboard', { signal: controller.signal });
+  controller.abort();
+  await assert.rejects(pending, error => error.name === 'AbortError');
+  assert.equal(calls.filter(call => call === 'fetch').length, 1, 'a cancelled request is not retried');
+  assert.equal(context.state.apiAvailable, true, 'a cancelled request is not an outage');
+});
+
+test('damaged guest progress entries never break progress counts', () => {
+  const guest = {
+    a: 'easy', b: { status: 'medium', categoryId: 'math' }, c: 'wrong-hard',
+    d: { categoryId: 'math' }, e: null, f: 42, g: { status: null, categoryId: 'math' },
+  };
+  const context = vm.createContext({
+    state: { dbUser: null, catalog: { categories: [{ slug: 'math', count: 10 }] } },
+    getGuestSolvedMap: () => guest,
+    Math, Object,
+  });
+  vm.runInContext([
+    topLevelFunction('_guestStatus'),
+    topLevelFunction('isSolvedStatus'),
+    topLevelFunction('getCategoryProgress'),
+    topLevelFunction('getTotalCorrectCount'),
+    'this.total = getTotalCorrectCount; this.category = getCategoryProgress;',
+  ].join('\n'), context);
+  assert.equal(context.total(), 2);
+  assert.deepEqual({ ...context.category('math') }, { solved: 1, pct: 10 });
+});

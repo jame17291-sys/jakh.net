@@ -12,7 +12,7 @@ import {
 } from "./content-safety.js";
 import { ApiError, json, parseJson } from "./http.js";
 import { applyPublishedContentOverrides } from "./content.js";
-import { randomToken, sha256 } from "./security.js";
+import { clientIp, randomToken, sha256 } from "./security.js";
 import type { Env } from "./types.js";
 
 /**
@@ -50,6 +50,11 @@ const MAX_CANONICAL_ANSWER_WORDS = 14;
 const MAX_EXPLICIT_ANSWERS_PER_LANGUAGE = 8;
 const DIFFICULTY_ORDER = ["easy", "medium", "hard", "very-advanced"] as const;
 const DIFFICULTIES = new Set<string>(DIFFICULTY_ORDER);
+// The public leaderboard is the same for every visitor, so each Cloudflare
+// data centre keeps a copy briefly instead of re-reading every completed score.
+const LEADERBOARD_CACHE_SECONDS = 30;
+// Fresh (uncached) leaderboard reads that one network may trigger per minute.
+const LEADERBOARD_NETWORK_LIMIT = 30;
 
 interface SourceCard {
   id?: unknown;
@@ -777,6 +782,11 @@ export async function submitVerifiedChallenge(request: Request, env: Env): Promi
   });
 }
 
+function leaderboardEdgeCache(): Cache | null {
+  // Cloudflare's per-data-centre cache. Other runtimes, including tests, lack it.
+  return (globalThis as { caches?: Partial<CacheStorage> }).caches?.default ?? null;
+}
+
 export async function verifiedLeaderboard(request: Request, env: Env): Promise<Response> {
   const categoryParam = new URL(request.url).searchParams.get("category");
   const categoryId = categoryParam === null ? null : normalizeCategory(categoryParam);
@@ -788,13 +798,35 @@ export async function verifiedLeaderboard(request: Request, env: Env): Promise<R
     throw new ApiError(400, "Invalid category", undefined, "INVALID_CATEGORY");
   }
 
+  // The response never depends on cookies or the caller, and it is cached here,
+  // before CORS headers are added per request. The key holds only the validated
+  // category, so extra query parameters cannot bypass the cache.
+  const cacheUrl = new URL("/api/leaderboard", request.url);
+  if (categoryId) cacheUrl.searchParams.set("category", categoryId);
+  const cacheKey = new Request(cacheUrl.toString(), { method: "GET" });
+  const cache = leaderboardEdgeCache();
+  if (cache) {
+    try {
+      const cached = await cache.match(cacheKey);
+      if (cached) return cached;
+    } catch {
+      // The edge cache is an optimisation; fall through to a fresh read.
+    }
+  }
+  await enforceRateLimit(
+    env,
+    await sha256(`${env.IP_HASH_SALT}:leaderboard:${clientIp(request)}`),
+    LEADERBOARD_NETWORK_LIMIT,
+    60,
+  );
+
   const quarantinePlaceholders = QUARANTINED_CATEGORY_IDS.map(() => "?").join(", ");
   const categoryClause = categoryId ? "AND s.category_id = ?" : "";
   const query = `
     WITH eligible AS (
       SELECT u.username, u.avatar, s.user_id, s.category_id AS categoryId,
              (s.correct_count * 1000) AS score, s.correct_count AS correctCount,
-             s.question_count AS questionCount,
+             s.question_count AS questionCount, s.completed_at AS achievedAt,
              ROW_NUMBER() OVER (
                PARTITION BY s.user_id
                ORDER BY s.correct_count DESC, s.completed_at ASC, s.id ASC
@@ -808,7 +840,7 @@ export async function verifiedLeaderboard(request: Request, env: Env): Promise<R
     SELECT username, avatar, score, categoryId, correctCount, questionCount
      FROM eligible
      WHERE userBest = 1
-     ORDER BY score DESC, username COLLATE NOCASE ASC, categoryId ASC
+     ORDER BY score DESC, achievedAt ASC, username COLLATE NOCASE ASC, categoryId ASC
      LIMIT 50`;
   const statement = env.DB.prepare(query);
   const bindings = [
@@ -817,7 +849,7 @@ export async function verifiedLeaderboard(request: Request, env: Env): Promise<R
   ];
   const result = await statement.bind(...bindings).all<LeaderboardRow>();
 
-  return json({
+  const response = json({
     status: "active",
     ...publicScoreContract(),
     categoryId,
@@ -830,7 +862,15 @@ export async function verifiedLeaderboard(request: Request, env: Env): Promise<R
       correctCount: row.correctCount,
       questionCount: row.questionCount,
     })),
-  }, 200, { "cache-control": "public, max-age=30" });
+  }, 200, { "cache-control": `public, max-age=${LEADERBOARD_CACHE_SECONDS}` });
+  if (cache) {
+    try {
+      await cache.put(cacheKey, response.clone());
+    } catch {
+      // A failed cache write must not fail the request.
+    }
+  }
+  return response;
 }
 
 export async function cleanupExpiredVerifiedChallenges(env: Env): Promise<void> {

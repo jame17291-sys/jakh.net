@@ -6,6 +6,8 @@ on:
     - cron: "17 1 * * 0"
     # Quarterly deterministic schema reconstruction.
     - cron: "53 4 1 1,4,7,10 *"
+    # Daily 09:29 UTC: alert when no weekly backup has succeeded for 8 days.
+    - cron: "29 9 * * *"
   workflow_dispatch:
     inputs:
       mode:
@@ -33,9 +35,8 @@ on:
 permissions:
   contents: read
 
-concurrency:
-  group: recovery-verification
-  cancel-in-progress: false
+# Each job has its own queue. A restore drill waiting for approval must never
+# hold back the weekly backup (it did from 1 Oct to late Oct 2026).
 
 jobs:
   weekly-backup:
@@ -45,6 +46,9 @@ jobs:
       (github.event_name == 'workflow_dispatch' && inputs.mode == 'weekly-backup')
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    concurrency:
+      group: recovery-weekly-backup
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -152,6 +156,9 @@ jobs:
       (github.event_name == 'workflow_dispatch' && inputs.mode == 'readiness')
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    concurrency:
+      group: recovery-readiness
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -188,6 +195,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     environment: recovery-drill
+    concurrency:
+      group: recovery-restore-drill
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -221,3 +231,34 @@ jobs:
           path: ${{ runner.temp }}/recovery-evidence/restore-drill.json
           if-no-files-found: error
           retention-days: 90
+
+  backup-freshness:
+    name: Alert when no recent encrypted backup succeeded
+    needs: [weekly-backup]
+    if: >-
+      always() && (
+      (github.event_name == 'schedule' && (github.event.schedule == '17 1 * * 0' || github.event.schedule == '29 9 * * *')) ||
+      github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: read
+      issues: write
+    concurrency:
+      group: recovery-backup-freshness
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+      - name: Test backup freshness check
+        run: node --test scripts/backup-freshness.test.mjs
+      - name: Check the latest weekly backup and route the alert issue
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          JAKH_BACKUP_MAX_AGE_HOURS: "192"
+        run: node scripts/backup-freshness.mjs

@@ -929,7 +929,7 @@
       ? data.recentUsers.map((user) => activityItem(
         user.username,
         `${canViewEmail ? (user.email || t("noEmail")) : t("contactHidden")} · ${t("joined", { date: dateFormat(user.createdAt) })}`,
-        `<span class="mini-role ${String(user.role || "USER").toLowerCase()}">${escapeHtml(roleLabel(user.role))}</span>`,
+        `<span class="mini-role ${String(user.role || "USER").toLowerCase().replace(/[^a-z_-]/gu, "")}">${escapeHtml(roleLabel(user.role))}</span>`,
       )).join("")
       : `<div class="empty-state">${escapeHtml(t("noMembers"))}</div>`;
     els.recentSuggestions.innerHTML = data.recentSuggestions?.length

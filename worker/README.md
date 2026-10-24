@@ -83,8 +83,9 @@ in browser storage or send it to analytics/logging.
 ## Sign-in and recovery limits
 
 Usernames are public on the leaderboard, so sign-in limits must not let a
-stranger lock a known account out. All windows are 15 minutes and use the
-existing `rate_limits` table; no schema change is involved.
+stranger lock a known account out. Sign-in and recovery windows are 15 minutes.
+Every limit here uses the existing `rate_limits` table; no schema change is
+involved.
 
 - `POST /api/auth/login`: only failed passwords count toward the account
   limits; a success hands its slot back.
@@ -103,6 +104,15 @@ existing `rate_limits` table; no schema change is involved.
   codes per account and network. Recovery codes are 256-bit random values, so
   there is no account-wide recovery limit for a stranger to exhaust.
 - Logout keeps the device cookie; account deletion clears it.
+- Password re-checks on a signed-in session (password change, recovery-code
+  rotation, account deletion, administrator re-confirmation and authenticator
+  setup) keep their per-network limits and also share one budget of 10 failed
+  passwords per account per hour, from any network. A correct password hands
+  its slot back, so it never uses the budget up.
+- A successful sign-in to an account still stored at the old password work
+  factor re-hashes the password with a fresh salt at the current setting. The
+  update is guarded by the old record, so a concurrent password change wins,
+  and a failed upgrade never fails the sign-in.
 
 During the schema 9 → 10 release, the compatibility Worker keeps login, profile,
 progress, leaderboard, suggestion, game, scoring, and the static question corpus

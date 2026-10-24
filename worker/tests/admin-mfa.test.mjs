@@ -2,7 +2,8 @@ import assert from 'node:assert/strict';
 import { readFile, readdir } from 'node:fs/promises';
 import { DatabaseSync } from 'node:sqlite';
 import test from 'node:test';
-import { adminMfaStatus, cleanupExpiredMfaSetup, base32Encode, beginAdminMfa, confirmAdminMfa, decryptMfaSecret, encryptMfaSecret, matchingTotpStep, requireAdminMfa, totpAtStep, verifyAdminMfa } from '../dist/admin-mfa.js';
+import { adminMfaStatus, cleanupExpiredMfaSetup, base32Encode, beginAdminMfa, confirmAdminMfa, decryptMfaSecret, encryptMfaSecret, matchingTotpStep, MFA_CODE_FAILURE_LIMIT, requireAdminMfa, totpAtStep, verifyAdminMfa } from '../dist/admin-mfa.js';
+import { reauthenticateAdmin } from '../dist/admin.js';
 import { sha256, validateNewPassword, validatePassword } from '../dist/security.js';
 import { deleteAccount } from '../dist/privacy.js';
 import { login, register, changePassword, resetPasswordWithRecovery, rotateRecoveryCode } from '../dist/routes.js';
@@ -353,4 +354,220 @@ test('authenticator audit events record security actions without secret material
   assert.deepEqual(JSON.parse(events[1].detail), { method: 'recovery_code' });
   const serialized = JSON.stringify(events);
   for (const secret of [PASSWORD, TOKEN, SECOND_TOKEN, first.secret, second.secret, ...first.recoveryCodes, ...second.recoveryCodes]) assert.equal(serialized.includes(secret), false);
+});
+
+// Authenticator lockout: a daily budget of failed codes per account, on top of
+// the 15-minute limit. Every failure is audited; the lockout ends the session.
+const DAY_MS = 86_400_000;
+function pinClock(t) {
+  // A constant clock (a little ahead of real time) keeps every rate window fixed.
+  let now = Date.now() + 60_000;
+  t.mock.method(Date, 'now', () => now);
+  return { advance(ms) { now += ms; } };
+}
+async function outcome(operation) {
+  try { const response = await operation; return { status: response.status, response }; } catch (error) { return { status: error.status, code: error.code, headers: error.headers }; }
+}
+async function addSession(database, token, userId = USER_ID) {
+  database.prepare('INSERT INTO sessions (token_hash, user_id, created_at, expires_at) VALUES (?, ?, ?, ?)').run(await sha256(token), userId, new Date().toISOString(), new Date(Date.now() + 60 * 60_000).toISOString());
+}
+const sessionCount = async (database, token) => database.prepare('SELECT COUNT(*) AS count FROM sessions WHERE token_hash = ?').get(await sha256(token)).count;
+const auditActions = (database) => database.prepare('SELECT action, detail FROM admin_audit_log ORDER BY rowid').all();
+
+test('authenticator codes lock the account after 30 failures in a day, audit each failure without the code, and end the session', async (t) => {
+  const clock = pinClock(t);
+  const { env, database } = await fixture(t);
+  const enrolled = await enroll(env);
+  const failureKey = await sha256(`${env.IP_HASH_SALT}:admin-mfa:code-failures:${USER_ID}`);
+  const shortKey = await sha256(`${env.IP_HASH_SALT}:admin-mfa:code:${USER_ID}`);
+  assert.equal(failedCount(database, failureKey), 0, 'a correct setup code hands its slot back');
+  const wrongCodes = ['bad', 'Z'.repeat(22)];
+  // Attempts spread over the day, so the 15-minute limit never applies.
+  for (let failure = 1; failure < MFA_CODE_FAILURE_LIMIT; failure += 1) {
+    database.prepare('DELETE FROM rate_limits WHERE key = ?').run(shortKey);
+    assert.equal((await outcome(verifyAdminMfa(request('/verify', { code: wrongCodes[failure % 2] }), env))).code, 'MFA_CODE_INVALID');
+    if (failure === 1) {
+      // A correct code in between neither counts nor resets the failures.
+      database.prepare('DELETE FROM rate_limits WHERE key = ?').run(shortKey);
+      assert.equal((await verifyAdminMfa(request('/verify', { code: await totpAtStep(enrolled.secret, Math.floor(Date.now() / 30_000) + 1) }), env)).status, 200);
+      assert.equal(failedCount(database, failureKey), 1);
+    }
+  }
+  assert.equal(await sessionCount(database, TOKEN), 1);
+  assert.equal(auditActions(database).filter((event) => event.action === 'security.authenticator_locked').length, 0);
+
+  database.prepare('DELETE FROM rate_limits WHERE key = ?').run(shortKey);
+  const locked = await outcome(verifyAdminMfa(request('/verify', { code: 'bad' }), env));
+  assert.equal(locked.status, 429);
+  assert.equal(locked.code, 'MFA_LOCKED');
+  const retryAfter = Number(locked.headers['retry-after']);
+  assert.ok(retryAfter > 0 && retryAfter <= DAY_MS / 1000, `retry-after ${retryAfter}`);
+  assert.equal(await sessionCount(database, TOKEN), 0, 'the session that sent the codes is ended');
+  assert.equal(database.prepare('SELECT COUNT(*) AS count FROM admin_mfa_sessions WHERE token_hash = ?').get(await sha256(TOKEN)).count, 0);
+
+  const events = auditActions(database);
+  const failures = events.filter((event) => event.action === 'security.authenticator_failed');
+  assert.equal(failures.length, MFA_CODE_FAILURE_LIMIT);
+  assert.deepEqual(failures.map((event) => JSON.parse(event.detail).failedCodes), Array.from({ length: MFA_CODE_FAILURE_LIMIT }, (_, index) => index + 1));
+  assert.deepEqual(JSON.parse(failures[0].detail), { method: 'recovery_code', purpose: 'verify', failedCodes: 1, limit: MFA_CODE_FAILURE_LIMIT });
+  assert.deepEqual(JSON.parse(failures[1].detail).method, 'totp');
+  const lockouts = events.filter((event) => event.action === 'security.authenticator_locked');
+  assert.equal(lockouts.length, 1);
+  assert.equal(JSON.parse(lockouts[0].detail).failedCodes, MFA_CODE_FAILURE_LIMIT);
+  assert.ok(Date.parse(JSON.parse(lockouts[0].detail).lockedUntil) > Date.now());
+
+  // Until the window ends, even correct codes from another session are refused
+  // without being checked or used up, and that session ends as well.
+  const correct = await totpAtStep(enrolled.secret, Math.floor(Date.now() / 30_000));
+  const otherToken = 'C'.repeat(43);
+  for (const [token, code] of [[SECOND_TOKEN, correct], [otherToken, enrolled.recoveryCodes[0]]]) {
+    if (token === otherToken) await addSession(database, otherToken);
+    database.prepare('DELETE FROM rate_limits WHERE key = ?').run(shortKey);
+    assert.equal((await outcome(verifyAdminMfa(request('/verify', { code }, token), env))).code, 'MFA_LOCKED');
+    assert.equal(await sessionCount(database, token), 0);
+  }
+  assert.equal(database.prepare('SELECT COUNT(*) AS count FROM admin_mfa_recovery_codes').get().count, 10);
+  assert.equal(auditActions(database).length, events.length, 'refused attempts add no audit noise');
+  const serialized = JSON.stringify(auditActions(database));
+  for (const secret of [PASSWORD, TOKEN, enrolled.secret, correct, ...wrongCodes, ...enrolled.recoveryCodes]) assert.equal(serialized.includes(secret), false, secret);
+
+  // After the window ends, a new sign-in can verify again.
+  clock.advance(DAY_MS);
+  await addSession(database, 'D'.repeat(43));
+  assert.equal((await verifyAdminMfa(request('/verify', { code: await totpAtStep(enrolled.secret, Math.floor(Date.now() / 30_000)) }, 'D'.repeat(43)), env)).status, 200);
+});
+
+test('failed setup confirmation codes are audited and share the same daily budget', async (t) => {
+  pinClock(t);
+  const { env, database } = await fixture(t);
+  const setup = await (await beginAdminMfa(request('/setup', { password: PASSWORD }), env)).json();
+  const failureKey = await sha256(`${env.IP_HASH_SALT}:admin-mfa:code-failures:${USER_ID}`);
+  database.prepare('INSERT INTO rate_limits (key, window_start, count, expires_at) VALUES (?, ?, ?, ?)').run(failureKey, Math.floor(Date.now() / DAY_MS) * 86_400, MFA_CODE_FAILURE_LIMIT - 2, Math.floor(Date.now() / 1000) + 2 * 86_400);
+  assert.equal((await outcome(confirmAdminMfa(request('/confirm', { code: 'bad' }), env))).code, 'MFA_CODE_INVALID');
+  assert.deepEqual(JSON.parse(auditActions(database).at(-1).detail), { method: 'totp', purpose: 'setup', failedCodes: MFA_CODE_FAILURE_LIMIT - 1, limit: MFA_CODE_FAILURE_LIMIT });
+  // A correct code hands its slot back and completes setup.
+  const confirmed = await confirmAdminMfa(request('/confirm', { code: await totpAtStep(setup.secret, Math.floor(Date.now() / 30_000)) }), env);
+  assert.equal(confirmed.status, 200);
+  assert.equal(failedCount(database, failureKey), MFA_CODE_FAILURE_LIMIT - 1);
+  // The last failure is shared with sign-in verification and locks the account.
+  assert.equal((await outcome(verifyAdminMfa(request('/verify', { code: '1234567' }, SECOND_TOKEN), env))).code, 'MFA_LOCKED');
+  assert.equal(await sessionCount(database, SECOND_TOKEN), 0);
+  assert.equal(await sessionCount(database, TOKEN), 1, 'other sessions are left alone');
+  assert.deepEqual(auditActions(database).slice(-2).map((event) => event.action), ['security.authenticator_failed', 'security.authenticator_locked']);
+});
+
+// Password re-checks on a signed-in session share one per-account budget of
+// failures, whatever network they come from; correct passwords never use it.
+function requestFrom(ip, path, body, token = TOKEN) {
+  return new Request(`https://riddlearabia.com/api${path}`, { method: 'POST', headers: { cookie: `__Host-jakh_session=${token}`, 'content-type': 'application/json', 'cf-connecting-ip': ip }, body: JSON.stringify(body) });
+}
+const MEMBER_TOKEN = 'M'.repeat(43), MEMBER_ID = 'member-user';
+
+test('failed password re-checks are capped per account across networks and endpoints, and correct passwords never count', async (t) => {
+  pinClock(t);
+  const { env, database } = await fixture(t);
+  const now = new Date().toISOString();
+  database.prepare(`INSERT INTO users (id, username, username_key, email, password_hash, password_salt, password_iterations, role, created_at, updated_at) VALUES (?, 'Member', 'member', NULL, 'hash', 'salt', 600000, 'USER', ?, ?)`).run(MEMBER_ID, now, now);
+  await addSession(database, MEMBER_TOKEN, MEMBER_ID);
+  const recheckKey = await sha256(`${env.IP_HASH_SALT}:password-recheck:${MEMBER_ID}`);
+  const rotate = (ip, password) => outcome(rotateRecoveryCode(requestFrom(ip, '/auth/recovery/rotate', { password }, MEMBER_TOKEN), env));
+  const change = (ip, currentPassword) => outcome(changePassword(requestFrom(ip, '/user/password', { currentPassword, newPassword: 'fifteen other stones float gently' }, MEMBER_TOKEN), env));
+  const remove = (ip, currentPassword) => outcome(deleteAccount(requestFrom(ip, '/user/account', { username: 'Member', currentPassword, confirmPermanentDeletion: true }, MEMBER_TOKEN), env));
+
+  for (let index = 1; index <= 15; index += 1) assert.equal((await rotate(`198.51.100.${index}`, PASSWORD)).status, 200);
+  assert.equal(failedCount(database, recheckKey), 0, 'correct passwords hand their slot back');
+
+  const attempts = [rotate, change, remove];
+  for (let index = 1; index <= 10; index += 1) {
+    assert.equal((await attempts[index % 3](`192.0.2.${index}`, `wrong guess ${index}`)).code, 'CURRENT_PASSWORD_INCORRECT');
+  }
+  // Ten failures from ten networks: the next check is refused even with the
+  // right password, from yet another network, and nothing is changed.
+  for (const attempt of attempts) assert.equal((await attempt('203.0.113.99', PASSWORD)).code, 'RATE_LIMITED');
+  assert.equal(database.prepare('SELECT COUNT(*) AS count FROM users WHERE id = ?').get(MEMBER_ID).count, 1);
+  assert.equal(database.prepare('SELECT password_hash FROM users WHERE id = ?').get(MEMBER_ID).password_hash, 'hash');
+  // Other accounts have their own budget.
+  assert.equal(failedCount(database, await sha256(`${env.IP_HASH_SALT}:password-recheck:${USER_ID}`)), 0);
+});
+
+test('administrator re-confirmation and authenticator setup share the password re-check budget', async (t) => {
+  pinClock(t);
+  const { env, database } = await fixture(t);
+  await enroll(env);
+  const recheckKey = await sha256(`${env.IP_HASH_SALT}:password-recheck:${USER_ID}`);
+  const reauth = (ip, password) => outcome(reauthenticateAdmin(requestFrom(ip, '/admin/security/reauthenticate', { password }), env));
+  assert.equal((await reauth('198.51.100.1', PASSWORD)).status, 200);
+  assert.equal(failedCount(database, recheckKey), 0);
+  for (let index = 1; index <= 9; index += 1) assert.equal((await reauth(`192.0.2.${index}`, `wrong guess ${index}`)).code, 'STEP_UP_INVALID');
+  assert.equal((await outcome(beginAdminMfa(request('/setup', { password: 'wrong guess 10' }), env))).code, 'CURRENT_PASSWORD_INCORRECT');
+  assert.equal((await reauth('203.0.113.99', PASSWORD)).code, 'RATE_LIMITED');
+  assert.equal((await outcome(beginAdminMfa(request('/setup', { password: PASSWORD }), env))).code, 'RATE_LIMITED');
+  assert.equal(database.prepare("SELECT COUNT(*) AS count FROM admin_audit_log WHERE action = 'security.password_reconfirmed'").get().count, 1);
+});
+
+// Accounts created under the old work factor move to the current one after a
+// successful sign-in, without ever failing the sign-in.
+function hasherWith(onHash) {
+  const calls = [];
+  return {
+    calls,
+    binding: { idFromName: (name) => name, get: () => ({ async fetch(request) {
+      const body = await request.json(); const path = new URL(request.url).pathname; calls.push({ path, body });
+      if (path === '/verify') return Response.json({ valid: body.password === PASSWORD });
+      return onHash(body);
+    } }) },
+  };
+}
+async function addLegacyUser(database, id = 'legacy-user', username = 'Legacy') {
+  const now = new Date().toISOString();
+  database.prepare(`INSERT INTO users (id, username, username_key, email, password_hash, password_salt, password_iterations, role, created_at, updated_at) VALUES (?, ?, ?, NULL, 'old-hash', 'old-salt', 100000, 'USER', ?, ?)`).run(id, username, username.toLowerCase(), now, now);
+}
+const passwordRecord = (database, id) => ({ ...database.prepare('SELECT password_hash, password_salt, password_iterations FROM users WHERE id = ?').get(id) });
+
+test('a successful sign-in upgrades an old password hash once, with a fresh salt, and leaves current hashes alone', async (t) => {
+  pinRateWindow(t);
+  const { env, database } = await fixture(t);
+  await addLegacyUser(database);
+  const hasher = hasherWith(() => Response.json({ hash: 'H'.repeat(43), salt: 'S'.repeat(22), iterations: 600000 }));
+  env.PASSWORD_HASHERS = hasher.binding;
+  assert.equal((await attempt(env, 'Legacy', PASSWORD)).status, 200);
+  assert.deepEqual(passwordRecord(database, 'legacy-user'), { password_hash: 'H'.repeat(43), password_salt: 'S'.repeat(22), password_iterations: 600000 });
+  const upgrades = hasher.calls.filter((call) => call.path === '/hash');
+  assert.equal(upgrades.length, 1);
+  assert.equal(upgrades[0].body.iterations, 600000);
+  assert.equal('salt' in upgrades[0].body, false, 'the hasher picks a fresh salt');
+  assert.equal(hasher.calls.find((call) => call.path === '/verify').body.iterations, 100000);
+
+  hasher.calls.length = 0;
+  assert.equal((await attempt(env, 'Legacy', PASSWORD)).status, 200);
+  assert.equal((await attempt(env, 'Owner', PASSWORD)).status, 200);
+  assert.deepEqual(hasher.calls.map((call) => call.path), ['/verify', '/verify'], 'current hashes are not re-hashed');
+  assert.equal(passwordRecord(database, USER_ID).password_hash, 'hash');
+
+  // A wrong password never upgrades anything.
+  await addLegacyUser(database, 'legacy-two', 'LegacyTwo');
+  assert.equal((await attempt(env, 'LegacyTwo', 'not the password')).status, 401);
+  assert.equal(passwordRecord(database, 'legacy-two').password_iterations, 100000);
+});
+
+test('a failed hash upgrade never fails the sign-in, and a password change in between is not overwritten', async (t) => {
+  pinRateWindow(t);
+  const { env, database } = await fixture(t);
+  const warnings = t.mock.method(console, 'warn', () => {});
+  await addLegacyUser(database);
+  env.PASSWORD_HASHERS = hasherWith(() => Response.json({ error: 'Password hashing failed' }, { status: 500 })).binding;
+  const signedIn = await attempt(env, 'Legacy', PASSWORD);
+  assert.equal(signedIn.status, 200);
+  assert.match(signedIn.response.headers.getSetCookie().join('\n'), /^__Host-jakh_session=/mu);
+  assert.deepEqual(passwordRecord(database, 'legacy-user'), { password_hash: 'old-hash', password_salt: 'old-salt', password_iterations: 100000 });
+  assert.equal(warnings.mock.callCount(), 1);
+  assert.equal(JSON.stringify(warnings.mock.calls[0].arguments).includes(PASSWORD), false);
+
+  // The account's password changes while the upgrade hash is being computed.
+  env.PASSWORD_HASHERS = hasherWith(() => {
+    database.prepare("UPDATE users SET password_hash = 'changed-hash', password_salt = 'changed-salt', password_iterations = 600000 WHERE id = 'legacy-user'").run();
+    return Response.json({ hash: 'H'.repeat(43), salt: 'S'.repeat(22), iterations: 600000 });
+  }).binding;
+  assert.equal((await attempt(env, 'Legacy', PASSWORD)).status, 200);
+  assert.deepEqual(passwordRecord(database, 'legacy-user'), { password_hash: 'changed-hash', password_salt: 'changed-salt', password_iterations: 600000 });
 });

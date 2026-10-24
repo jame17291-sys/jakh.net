@@ -551,6 +551,7 @@
     auditAutopilotResumed: "enabled scheduled checks", auditAutopilotPaused: "paused scheduled checks",
     auditMfaEnabled: "enabled an authenticator", auditMfaReplaced: "replaced their authenticator",
     auditMfaVerified: "verified their authenticator", auditMfaRecovery: "used an authenticator recovery code",
+    auditMfaFailed: "entered an incorrect authenticator code", auditMfaLocked: "had authenticator sign-in paused after too many incorrect codes",
     autopilotPolicy: "Schedule and limits", autopilotSchedule: "Scheduled check", autopilotDailySchedule: "Daily at 07:23 Dubai time",
     autopilotRunLimit: "Runs per day", autopilotReleaseLimit: "Releases per day", autopilotAiBudget: "AI budget (USD)",
     autopilotNoAi: "No paid AI calls are allowed by this policy.", autopilotPolicyUnavailable: "Schedule and limits are unavailable until the service responds.",
@@ -583,6 +584,7 @@
     auditAutopilotResumed: "فعّل الفحوص المجدولة", auditAutopilotPaused: "أوقف الفحوص المجدولة مؤقتًا",
     auditMfaEnabled: "فعّل تطبيق المصادقة", auditMfaReplaced: "استبدل تطبيق المصادقة",
     auditMfaVerified: "أكّد رمز تطبيق المصادقة", auditMfaRecovery: "استخدم رمز استرداد المصادقة",
+    auditMfaFailed: "أدخل رمز مصادقة غير صحيح", auditMfaLocked: "أُوقف تحققه مؤقتًا بعد رموز مصادقة غير صحيحة كثيرة",
     autopilotPolicy: "المواعيد والحدود", autopilotSchedule: "موعد الفحص", autopilotDailySchedule: "يوميًا الساعة 07:23 بتوقيت دبي",
     autopilotRunLimit: "عمليات التشغيل يوميًا", autopilotReleaseLimit: "الإصدارات يوميًا", autopilotAiBudget: "ميزانية الذكاء الاصطناعي (دولار)",
     autopilotNoAi: "لا تسمح هذه السياسة بأي استدعاءات مدفوعة لخدمات الذكاء الاصطناعي.", autopilotPolicyUnavailable: "تتوفر المواعيد والحدود بعد استجابة الخدمة.",
@@ -1130,6 +1132,8 @@
       "security.authenticator_replaced": "auditMfaReplaced",
       "security.authenticator_verified": "auditMfaVerified",
       "security.authenticator_recovery_used": "auditMfaRecovery",
+      "security.authenticator_failed": "auditMfaFailed",
+      "security.authenticator_locked": "auditMfaLocked",
     };
     return t(labels[event.action] || (String(event.action || "").startsWith("content.") ? "auditContent" : "auditGeneric"));
   }

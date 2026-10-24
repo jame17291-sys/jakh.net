@@ -205,6 +205,18 @@ function rateLimited(windowSeconds: number): ApiError {
   });
 }
 
+/**
+ * The refusal from a used-up failure limit. It is the same public 429 as any
+ * other limit; `resetsAt` (Unix seconds) lets a caller say when it ends.
+ */
+export class FailureLimitError extends ApiError {
+  constructor(windowSeconds: number, readonly resetsAt: number) {
+    super(429, "Too many attempts. Please try again later.", {
+      "retry-after": String(windowSeconds),
+    });
+  }
+}
+
 export async function enforceRateLimit(
   env: Env,
   key: string,
@@ -213,6 +225,18 @@ export async function enforceRateLimit(
 ): Promise<void> {
   const { count } = await countRateLimitAttempt(env, key, windowSeconds);
   if (count > limit) throw rateLimited(windowSeconds);
+}
+
+/**
+ * Calling a reserved failure slot hands it back after a success. `used` is the
+ * number of slots taken in the current window, counting this attempt, so
+ * `used >= limit` means this attempt took the last one. `resetsAt` is the Unix
+ * time in seconds when the window, and any refusal in it, ends.
+ */
+export interface FailureSlot {
+  (): Promise<void>;
+  readonly used: number;
+  readonly resetsAt: number;
 }
 
 /**
@@ -226,16 +250,37 @@ export async function reserveFailureSlot(
   key: string,
   limit: number,
   windowSeconds: number,
-): Promise<() => Promise<void>> {
+): Promise<FailureSlot> {
   const { count, windowStart } = await countRateLimitAttempt(env, key, windowSeconds);
-  if (count > limit) throw rateLimited(windowSeconds);
-  return async () => {
+  if (count > limit) throw new FailureLimitError(windowSeconds, windowStart + windowSeconds);
+  const release = async () => {
     await env.DB.prepare(
       `UPDATE rate_limits
           SET count = count - 1
         WHERE key = ? AND window_start = ? AND count > 0`,
     ).bind(key, windowStart).run();
   };
+  return Object.assign(release, { used: count, resetsAt: windowStart + windowSeconds });
+}
+
+export const PASSWORD_RECHECK_FAILURE_LIMIT = 10;
+export const PASSWORD_RECHECK_WINDOW_SECONDS = 60 * 60;
+
+/**
+ * Password re-checks on a signed-in session (password change, recovery-code
+ * rotation, account deletion, administrator re-confirmation and authenticator
+ * setup) share one budget of failed passwords per account, whatever network
+ * the attempts come from. Take the slot just before the password is checked
+ * and hand it back as soon as the password is accepted, so correct passwords
+ * never use it up.
+ */
+export async function reservePasswordRecheckSlot(env: Env, userId: string): Promise<FailureSlot> {
+  return reserveFailureSlot(
+    env,
+    await sha256(`${env.IP_HASH_SALT}:password-recheck:${userId}`),
+    PASSWORD_RECHECK_FAILURE_LIMIT,
+    PASSWORD_RECHECK_WINDOW_SECONDS,
+  );
 }
 
 async function countRateLimitAttempt(

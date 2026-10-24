@@ -1,4 +1,4 @@
-import { enforceRateLimit, requireUser, touchPrivilegedSession } from "./db.js";
+import { enforceRateLimit, requireUser, reservePasswordRecheckSlot, touchPrivilegedSession } from "./db.js";
 import { validateCard } from "./catalog.js";
 import { ApiError, json, parseJson } from "./http.js";
 import { verifyPasswordInHasher } from "./password-hasher.js";
@@ -988,6 +988,7 @@ export async function reauthenticateAdmin(request: Request, env: Env): Promise<R
   const account = await env.DB.prepare(
     "SELECT password_hash, password_salt, password_iterations FROM users WHERE id = ?",
   ).bind(admin.id).first<PasswordRow>();
+  const releaseRecheck = await reservePasswordRecheckSlot(env, admin.id);
   const valid = account && await verifyPasswordInHasher(
     env,
     password,
@@ -998,6 +999,7 @@ export async function reauthenticateAdmin(request: Request, env: Env): Promise<R
   if (!valid) {
     throw new ApiError(401, "Password confirmation failed", undefined, "STEP_UP_INVALID");
   }
+  await releaseRecheck();
   const verifiedAt = timestamp();
   await env.DB.batch([
     env.DB.prepare(

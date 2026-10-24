@@ -1,4 +1,11 @@
-import { createSession, enforceRateLimit, requireUser, reserveFailureSlot, sessionUser } from "./db.js";
+import {
+  createSession,
+  enforceRateLimit,
+  requireUser,
+  reserveFailureSlot,
+  reservePasswordRecheckSlot,
+  sessionUser,
+} from "./db.js";
 import { canonicalStatus, getCardIndex, isPublicCard, validateCard } from "./catalog.js";
 import {
   PRODUCTION_QUARANTINE_MANIFEST_SHA256,
@@ -309,6 +316,37 @@ export async function register(request: Request, env: Env): Promise<Response> {
   );
 }
 
+/**
+ * Moves an account created under the old work factor to the current one, with
+ * a fresh salt, right after its password was accepted. The update is guarded
+ * by the old record, so a password change that lands in between is never
+ * overwritten. This is best effort: any failure leaves the old record, which
+ * still verifies, and never fails the sign-in. The extra hash costs the same
+ * as the padding a failed sign-in already pays, and happens once per account.
+ */
+async function upgradePasswordHash(env: Env, user: UserPasswordRow, password: string): Promise<void> {
+  try {
+    const record = await hashPasswordInHasher(env, password);
+    if (record.iterations !== PASSWORD_ITERATIONS) return;
+    await env.DB.prepare(
+      `UPDATE users
+          SET password_hash = ?, password_salt = ?, password_iterations = ?
+        WHERE id = ?
+          AND password_hash = ? AND password_salt = ? AND password_iterations = ?`,
+    ).bind(
+      record.hash,
+      record.salt,
+      record.iterations,
+      user.id,
+      user.password_hash,
+      user.password_salt,
+      user.password_iterations,
+    ).run();
+  } catch {
+    console.warn("PASSWORD_HASH_UPGRADE_SKIPPED");
+  }
+}
+
 export async function login(request: Request, env: Env): Promise<Response> {
   const body = await parseJson<{ username?: unknown; password?: unknown }>(request);
   const identifier = normalizeLoginIdentifier(body.username);
@@ -390,6 +428,7 @@ export async function login(request: Request, env: Env): Promise<Response> {
   }
   await releaseFailureSlot();
   if (user.is_banned) throw new ApiError(403, "This account has been suspended");
+  if (user.password_iterations < PASSWORD_ITERATIONS) await upgradePasswordHash(env, user, password);
 
   const timestamp = now();
   await env.DB.prepare("UPDATE users SET last_login_at = ?, updated_at = ? WHERE id = ?")
@@ -615,6 +654,7 @@ export async function rotateRecoveryCode(request: Request, env: Env): Promise<Re
   const user = await env.DB.prepare(
     "SELECT password_hash, password_salt, password_iterations FROM users WHERE id = ?",
   ).bind(session.id).first<Pick<UserPasswordRow, "password_hash" | "password_salt" | "password_iterations">>();
+  const releaseRecheck = await reservePasswordRecheckSlot(env, session.id);
   if (!user || !await verifyPasswordInHasher(
     env,
     currentPassword,
@@ -624,6 +664,7 @@ export async function rotateRecoveryCode(request: Request, env: Env): Promise<Re
   )) {
     throw new ApiError(401, "Current password is incorrect");
   }
+  await releaseRecheck();
 
   const replacement = await createRecoveryMaterial();
   const timestamp = now();
@@ -663,6 +704,7 @@ export async function changePassword(request: Request, env: Env): Promise<Respon
   const user = await env.DB.prepare(
     "SELECT password_hash, password_salt, password_iterations FROM users WHERE id = ?",
   ).bind(session.id).first<Pick<UserPasswordRow, "password_hash" | "password_salt" | "password_iterations">>();
+  const releaseRecheck = await reservePasswordRecheckSlot(env, session.id);
   if (!user || !await verifyPasswordInHasher(
     env,
     currentPassword,
@@ -672,6 +714,7 @@ export async function changePassword(request: Request, env: Env): Promise<Respon
   )) {
     throw new ApiError(401, "Current password is incorrect");
   }
+  await releaseRecheck();
 
   const [passwordRecord, replacementSession] = await Promise.all([
     hashPasswordInHasher(env, newPassword),

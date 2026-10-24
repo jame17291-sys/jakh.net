@@ -223,7 +223,7 @@ test("workflow contains exact rollback and required browser gates", async () => 
   // Manual releases retain the reviewer-protected production environment.
   // Only a nonempty, independently authorized reservation selects Autopilot.
   const releaseEnvironment = /inputs\.autopilot_run_id != '' && 'autopilot-production' \|\| 'production'/u;
-  const authorization = workflow.split("\n  authorize:\n")[1]?.split("\n  release:\n")[0] || "";
+  const authorization = workflow.split("\n  authorize:\n")[1]?.split("\n  build:\n")[0] || "";
   const release = workflow.split("\n  release:\n")[1] || "";
   assert.match(release, /environment:\n      name: \$\{\{ inputs\.autopilot_run_id != '' && 'autopilot-production' \|\| 'production' \}\}/u);
   assert.match(authorization, releaseEnvironment);
@@ -235,7 +235,9 @@ test("workflow contains exact rollback and required browser gates", async () => 
   assert.match(workflow, /AUTOPILOT_RELEASE_ENABLED: \$\{\{ vars\.AUTOPILOT_RELEASE_ENABLED \}\}/u);
   assert.match(workflow, /AUTOPILOT_RUN_ID: \$\{\{ inputs\.autopilot_run_id \}\}/u);
   assert.match(workflow, /AUTOPILOT_DAY: \$\{\{ inputs\.autopilot_day \}\}/u);
-  assert.match(release, /needs: authorize/u);
+  // Deployment waits for the protected authorization and the credential-free
+  // build that validated the exact candidate it deploys.
+  assert.match(release, /needs: \[authorize, build\]/u);
   const recheck = release.indexOf("Recheck automatic release permission immediately before deployment");
   const deploy = release.indexOf("id: deploy\n");
   assert.ok(recheck >= 0 && deploy > recheck, "The owner reservation must be rechecked before deploying");

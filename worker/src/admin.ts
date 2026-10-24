@@ -2,7 +2,7 @@ import { enforceRateLimit, requireUser, reservePasswordRecheckSlot, touchPrivile
 import { validateCard } from "./catalog.js";
 import { ApiError, json, parseJson } from "./http.js";
 import { verifyPasswordInHasher } from "./password-hasher.js";
-import { requireAdminMfa } from "./admin-mfa.js";
+import { authenticatorLockouts, clearAuthenticatorLockout, requireAdminMfa } from "./admin-mfa.js";
 import { clientIp, sha256, validatePassword } from "./security.js";
 import type {
   Env,
@@ -505,8 +505,17 @@ export async function adminUsers(request: Request, env: Env): Promise<Response> 
       ORDER BY created_at DESC LIMIT ? OFFSET ?`,
   ).bind(...values, limit + 1, offset).all<AdminUserRow>();
   const hasMore = rows.results.length > limit;
+  const users = rows.results.slice(0, limit);
+  // Only the owner can clear an authenticator lockout, so only the owner sees
+  // which privileged accounts are locked out.
+  const lockouts = admin.role === "OWNER"
+    ? await authenticatorLockouts(env, users.filter((row) => row.role !== "USER").map((row) => row.id))
+    : null;
   return json({
-    users: rows.results.slice(0, limit).map((row) => redactEmail(row, canViewEmail)),
+    users: users.map((row) => ({
+      ...redactEmail(row, canViewEmail),
+      ...(lockouts ? { authenticatorLocked: (lockouts.get(row.id)?.length || 0) > 0 } : {}),
+    })),
     nextOffset: hasMore ? offset + limit : null,
     permissions: { canViewEmail },
   });
@@ -567,6 +576,30 @@ export async function updateUserBan(request: Request, env: Env, targetId: string
     }, reason)),
   ]);
   return json({ success: true, changed: true, sessionsRevoked: body.banned });
+}
+
+// Lets the owner clear another account's authenticator lockout (both the app
+// code and recovery code budgets) after confirming their own password.
+export async function unlockUserAuthenticator(request: Request, env: Env, targetId: string): Promise<Response> {
+  const owner = await requireOwner(request, env);
+  await rateLimitAdmin(request, env, owner, "authenticator-unlock");
+  await requireRecentStepUp(env, owner);
+  const reason = await optionalReasonFromRequest(request);
+  if (targetId === owner.id) {
+    throw new ApiError(403, "Use one of your recovery codes to clear your own lockout", undefined, "UNLOCK_OWN_ACCOUNT");
+  }
+  const target = await env.DB.prepare("SELECT id FROM users WHERE id = ?").bind(targetId).first<Pick<AdminUserRow, "id">>();
+  if (!target) throw new ApiError(404, "User not found", undefined, "USER_NOT_FOUND");
+  const locked = (await authenticatorLockouts(env, [targetId])).get(targetId) || [];
+  if (!locked.length) return json({ success: true, changed: false });
+  await env.DB.batch([
+    await clearAuthenticatorLockout(env, targetId),
+    auditStatement(env, owner, "security.authenticator_unlocked", "user", targetId, detailWithReason({
+      method: "owner",
+      locked,
+    }, reason)),
+  ]);
+  return json({ success: true, changed: true });
 }
 
 export async function adminSuggestions(request: Request, env: Env): Promise<Response> {

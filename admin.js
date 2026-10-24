@@ -199,6 +199,10 @@
       roleChangeImpact: "The role will change to {role}, and active sessions will end.",
       suspendImpact: "The account will be suspended and active sessions will end immediately.",
       restoreImpact: "The account will regain access. Ended sessions remain ended.",
+      unlockAuthenticator: "Unlock authenticator",
+      unlockAuthenticatorAction: "Clear authenticator lockout",
+      unlockAuthenticatorImpact: "Failed authenticator and recovery codes for this account are cleared, so it can verify again straight away.",
+      authenticatorUnlocked: "Authenticator lockout cleared.",
       revokeSessionsImpact: "Every active non-owner session will end. This cannot be undone; your owner session stays signed in.",
       publishImpact: "Version {version} will become the live content for all visitors immediately.",
       unpublishImpact: "The published version will be removed and the static version will return.",
@@ -429,6 +433,10 @@
       roleChangeImpact: "سيتغير الدور إلى {role} وستنتهي الجلسات النشطة.",
       suspendImpact: "سيُعلّق الحساب وتنتهي جلساته النشطة فوراً.",
       restoreImpact: "سيستعيد الحساب الوصول. تبقى الجلسات المنتهية منتهية.",
+      unlockAuthenticator: "رفع إيقاف المصادقة",
+      unlockAuthenticatorAction: "رفع إيقاف المصادقة",
+      unlockAuthenticatorImpact: "ستُمحى محاولات رموز المصادقة والاسترداد الخاطئة لهذا الحساب، فيتمكن من التحقق مجددًا فورًا.",
+      authenticatorUnlocked: "رُفع إيقاف المصادقة.",
       revokeSessionsImpact: "ستنتهي كل جلسات غير المالك النشطة. لا يمكن التراجع عن ذلك؛ تبقى جلسة المالك مسجلة.",
       publishImpact: "ستصبح النسخة {version} المحتوى الظاهر لجميع الزوار فوراً.",
       unpublishImpact: "ستُزال النسخة المنشورة وتعود النسخة الأساسية للعرض.",
@@ -552,6 +560,7 @@
     auditMfaEnabled: "enabled an authenticator", auditMfaReplaced: "replaced their authenticator",
     auditMfaVerified: "verified their authenticator", auditMfaRecovery: "used an authenticator recovery code",
     auditMfaFailed: "entered an incorrect authenticator code", auditMfaLocked: "had authenticator sign-in paused after too many incorrect codes",
+    auditMfaUnlocked: "cleared an authenticator lockout",
     autopilotPolicy: "Schedule and limits", autopilotSchedule: "Scheduled check", autopilotDailySchedule: "Daily at 07:23 Dubai time",
     autopilotRunLimit: "Runs per day", autopilotReleaseLimit: "Releases per day", autopilotAiBudget: "AI budget (USD)",
     autopilotNoAi: "No paid AI calls are allowed by this policy.", autopilotPolicyUnavailable: "Schedule and limits are unavailable until the service responds.",
@@ -585,6 +594,7 @@
     auditMfaEnabled: "فعّل تطبيق المصادقة", auditMfaReplaced: "استبدل تطبيق المصادقة",
     auditMfaVerified: "أكّد رمز تطبيق المصادقة", auditMfaRecovery: "استخدم رمز استرداد المصادقة",
     auditMfaFailed: "أدخل رمز مصادقة غير صحيح", auditMfaLocked: "أُوقف تحققه مؤقتًا بعد رموز مصادقة غير صحيحة كثيرة",
+    auditMfaUnlocked: "رفع إيقاف مصادقة",
     autopilotPolicy: "المواعيد والحدود", autopilotSchedule: "موعد الفحص", autopilotDailySchedule: "يوميًا الساعة 07:23 بتوقيت دبي",
     autopilotRunLimit: "عمليات التشغيل يوميًا", autopilotReleaseLimit: "الإصدارات يوميًا", autopilotAiBudget: "ميزانية الذكاء الاصطناعي (دولار)",
     autopilotNoAi: "لا تسمح هذه السياسة بأي استدعاءات مدفوعة لخدمات الذكاء الاصطناعي.", autopilotPolicyUnavailable: "تتوفر المواعيد والحدود بعد استجابة الخدمة.",
@@ -969,6 +979,9 @@
     if (canManageBan) {
       actions.push(`<button class="${user.isBanned ? "secondary-button" : "danger-button"} compact-action" type="button" data-user-ban="${escapeHtml(user.id)}" data-banned="${user.isBanned ? "0" : "1"}" data-name="${escapeHtml(user.username)}">${escapeHtml(user.isBanned ? t("restore") : t("suspend"))}</button>`);
     }
+    if (isOwner && user.authenticatorLocked === true && user.id !== state.me.id) {
+      actions.push(`<button class="secondary-button compact-action" type="button" data-mfa-unlock="${escapeHtml(user.id)}" data-name="${escapeHtml(user.username)}">${escapeHtml(t("unlockAuthenticator"))}</button>`);
+    }
     return actions.length ? `<div class="person-actions">${actions.join("")}</div>` : `<div class="person-actions"><span class="person-meta">${escapeHtml(user.role === "OWNER" ? t("ownerOnly") : "—")}</span></div>`;
   }
 
@@ -1134,6 +1147,7 @@
       "security.authenticator_recovery_used": "auditMfaRecovery",
       "security.authenticator_failed": "auditMfaFailed",
       "security.authenticator_locked": "auditMfaLocked",
+      "security.authenticator_unlocked": "auditMfaUnlocked",
     };
     return t(labels[event.action] || (String(event.action || "").startsWith("content.") ? "auditContent" : "auditGeneric"));
   }
@@ -2276,6 +2290,30 @@
     }
   }
 
+  async function clearAuthenticatorLock(button) {
+    const userId = button.dataset.mfaUnlock;
+    if (!userId) return;
+    if (!await requestStepUp()) return;
+    const review = await requestActionReview({
+      actionKey: "unlockAuthenticatorAction",
+      target: button.dataset.name || t("member"),
+      impactKey: "unlockAuthenticatorImpact",
+      impactValues: {},
+    });
+    if (!review) return;
+    setButtonBusy(button, true);
+    try {
+      await api(`/admin/users/${encodeURIComponent(userId)}/authenticator-unlock`, { method: "POST", body: mutationPayload({}, review.reason) });
+      showToast(t("authenticatorUnlocked"));
+      await loadPeople(true);
+      if (state.audit) await loadAudit();
+    } catch (error) {
+      handleActionError(error);
+    } finally {
+      setButtonBusy(button, false);
+    }
+  }
+
   async function changeFeedbackStatus(select) {
     const suggestionId = select.dataset.feedbackStatus;
     const suggestion = state.feedback.items.find((item) => item.id === suggestionId);
@@ -2464,6 +2502,8 @@
       }
       const ban = event.target.closest("[data-user-ban]");
       if (ban) void changeUserBan(ban);
+      const mfaUnlock = event.target.closest("[data-mfa-unlock]");
+      if (mfaUnlock) void clearAuthenticatorLock(mfaUnlock);
       const question = event.target.closest("[data-content-question]");
       if (question) selectContentQuestion(question.dataset.contentQuestion);
       const restoreRevision = event.target.closest("[data-content-restore]");

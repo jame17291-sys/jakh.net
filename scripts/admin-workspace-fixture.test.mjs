@@ -97,6 +97,28 @@ test("real gate rendering keeps unverified OWNER and ADMIN actions visible in bo
   }
 });
 
+test("the authenticator unlock button appears only for the owner on another locked account", async () => {
+  const source = await readFile(new URL('../admin.js', import.meta.url), 'utf8');
+  const start = source.indexOf('  function personActionMarkup(user) {');
+  const end = source.indexOf('\n  function renderPeople()', start);
+  assert.ok(start > 0 && end > start);
+  const markup = (viewer, user) => runInNewContext(`${source.slice(start, end)}\npersonActionMarkup(user);`, {
+    state: { me: viewer }, user, t: key => `en:${key}`, escapeHtml: value => String(value),
+  });
+  const owner = { id: 'owner-id', role: 'OWNER' }, admin = { id: 'admin-id', role: 'ADMIN' };
+  const locked = { id: 'helper-id', username: 'Helper', role: 'ADMIN', isBanned: false, authenticatorLocked: true };
+  const shown = markup(owner, locked);
+  assert.match(shown, /data-mfa-unlock="helper-id"[^>]*data-name="Helper"[^>]*>en:unlockAuthenticator<\/button>/u);
+  for (const [viewer, user] of [
+    [owner, { ...locked, authenticatorLocked: false }],
+    [owner, { ...locked, authenticatorLocked: undefined }],
+    [owner, { ...locked, id: 'owner-id', role: 'OWNER' }],
+    [admin, locked],
+  ]) assert.doesNotMatch(markup(viewer, user), /data-mfa-unlock/u);
+  assert.match(source, /closest\("\[data-mfa-unlock\]"\);\s*if \(mfaUnlock\) void clearAuthenticatorLock\(mfaUnlock\);/u);
+  assert.match(source, /\/admin\/users\/\$\{encodeURIComponent\(userId\)\}\/authenticator-unlock`, \{ method: "POST"/u);
+});
+
 test("real refresh re-gates both MFA failures while retaining ordinary forbidden-error handling", async () => {
   const source = await readFile(new URL('../admin.js', import.meta.url), 'utf8');
   const start = source.indexOf('  async function refreshVisible(');

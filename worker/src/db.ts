@@ -263,6 +263,34 @@ export async function reserveFailureSlot(
   return Object.assign(release, { used: count, resetsAt: windowStart + windowSeconds });
 }
 
+function currentWindowStart(windowSeconds: number): number {
+  return Math.floor(Math.floor(Date.now() / 1000) / windowSeconds) * windowSeconds;
+}
+
+/**
+ * Failed attempts recorded so far in the current window, per key. Keys with
+ * nothing recorded in this window are left out.
+ */
+export async function currentFailureCounts(
+  env: Env,
+  keys: readonly string[],
+  windowSeconds: number,
+): Promise<Map<string, number>> {
+  if (keys.length < 1) return new Map();
+  const rows = await env.DB.prepare(
+    `SELECT key, count FROM rate_limits
+      WHERE window_start = ? AND key IN (${keys.map(() => "?").join(", ")})`,
+  ).bind(currentWindowStart(windowSeconds), ...keys).all<{ key: string; count: number }>();
+  return new Map(rows.results.map((row) => [row.key, row.count]));
+}
+
+/** Forgets every recorded failure for these keys, ending any refusal. */
+export function clearFailureCounts(env: Env, keys: readonly string[]): D1PreparedStatement {
+  return env.DB.prepare(
+    `DELETE FROM rate_limits WHERE key IN (${keys.map(() => "?").join(", ")})`,
+  ).bind(...keys);
+}
+
 export const PASSWORD_RECHECK_FAILURE_LIMIT = 10;
 export const PASSWORD_RECHECK_WINDOW_SECONDS = 60 * 60;
 
@@ -289,7 +317,7 @@ async function countRateLimitAttempt(
   windowSeconds: number,
 ): Promise<{ count: number; windowStart: number }> {
   const now = Math.floor(Date.now() / 1000);
-  const windowStart = Math.floor(now / windowSeconds) * windowSeconds;
+  const windowStart = currentWindowStart(windowSeconds);
   const expiresAt = windowStart + windowSeconds * 2;
   const row = await env.DB.prepare(
     `INSERT INTO rate_limits (key, window_start, count, expires_at)

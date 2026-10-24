@@ -822,11 +822,14 @@ export async function verifiedLeaderboard(request: Request, env: Env): Promise<R
 
   const quarantinePlaceholders = QUARANTINED_CATEGORY_IDS.map(() => "?").join(", ");
   const categoryClause = categoryId ? "AND s.category_id = ?" : "";
+  // Equal scores rank by who submitted first. An exact tie falls back to the
+  // random challenge id, so a chosen username never affects rank.
   const query = `
     WITH eligible AS (
       SELECT u.username, u.avatar, s.user_id, s.category_id AS categoryId,
              (s.correct_count * 1000) AS score, s.correct_count AS correctCount,
              s.question_count AS questionCount, s.completed_at AS achievedAt,
+             s.id AS sessionId,
              ROW_NUMBER() OVER (
                PARTITION BY s.user_id
                ORDER BY s.correct_count DESC, s.completed_at ASC, s.id ASC
@@ -840,7 +843,7 @@ export async function verifiedLeaderboard(request: Request, env: Env): Promise<R
     SELECT username, avatar, score, categoryId, correctCount, questionCount
      FROM eligible
      WHERE userBest = 1
-     ORDER BY score DESC, achievedAt ASC, username COLLATE NOCASE ASC, categoryId ASC
+     ORDER BY score DESC, achievedAt ASC, sessionId ASC
      LIMIT 50`;
   const statement = env.DB.prepare(query);
   const bindings = [

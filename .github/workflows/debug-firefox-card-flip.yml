@@ -13,7 +13,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { label: "before-today 7e5dc4bc", ref: "7e5dc4bc6d41558e30986e3d527e97d692f56ae5" }
           - { label: "main 7c78acfc", ref: "7c78acfc6ef453f90af1413d4ca8296b17109d70" }
           - { label: "fix PR 163 5a660e98", ref: "5a660e981c722a828992562850a3aa63e910a044" }
     runs-on: ubuntu-latest
@@ -31,6 +30,12 @@ jobs:
         run: |
           npm ci --no-audit --no-fund
           npm ci --prefix site-worker --no-audit --no-fund
+      - name: Fetch the instrumentation patch from the debug branch
+        run: |
+          git fetch --no-tags --depth=1 origin ${{ github.event.pull_request.head.sha }}
+          git show ${{ github.event.pull_request.head.sha }}:.github/debug/instrument.patch > /tmp/instrument.patch
+          git apply --3way /tmp/instrument.patch || git apply /tmp/instrument.patch
+          grep -c "audio-click-failed" scripts/speech-browser-cases.mjs
       - name: Run only the speech test when requested
         run: |
           grep -q "JAKH_ONLY" scripts/browser-regression.mjs || sed -i 's/^async function runTest(name, callback) {$/async function runTest(name, callback) {\n  if (process.env.JAKH_ONLY \&\& !new RegExp(process.env.JAKH_ONLY).test(name)) return;/' scripts/browser-regression.mjs
@@ -39,7 +44,7 @@ jobs:
         run: npm run build:site
       - name: Install Firefox
         run: ./node_modules/.bin/playwright install --with-deps firefox
-      - name: Run the speech test twelve times in Firefox
+      - name: Run the speech test twenty times in Firefox
         env:
           JAKH_SITE_ROOT: ${{ github.workspace }}/site-worker/dist
           JAKH_SITE_MANIFEST: ${{ github.workspace }}/site-worker/generated/site-manifest.json
@@ -47,10 +52,10 @@ jobs:
           JAKH_ONLY: "real Arabic question buttons"
         run: |
           pass=0
-          for i in $(seq 1 12); do
+          for i in $(seq 1 20); do
             if node scripts/browser-regression.mjs > run-$i.log 2>&1; then :; fi
-            if grep -q "PASS real Arabic question buttons" run-$i.log; then pass=$((pass+1)); echo "RUN $i PASS"; else echo "RUN $i FAIL"; grep "audio-click-failed" run-$i.log | cut -c1-6000; fi
+            if grep -q "PASS real Arabic question buttons" run-$i.log; then pass=$((pass+1)); echo "RUN $i PASS"; else echo "RUN $i FAIL"; grep "audio-click-failed" run-$i.log | cut -c1-6000; d=$(grep -m1 "audio-click-failed" run-$i.log | cut -c1-3800 | tr '\n' ' '); echo "::warning title=FAIL $i::$d"; fi
             true
           done
-          echo "RESULT ${{ matrix.label }}: $pass/12 passed"
-          echo "::notice title=RESULT::${{ matrix.label }}: $pass/12 passed"
+          echo "RESULT ${{ matrix.label }}: $pass/20 passed"
+          echo "::notice title=RESULT::${{ matrix.label }}: $pass/20 passed"

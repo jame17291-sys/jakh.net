@@ -1,0 +1,40 @@
+diff --git a/scripts/speech-browser-cases.mjs b/scripts/speech-browser-cases.mjs
+index e2fe00d2..97fcbb65 100644
+--- a/scripts/speech-browser-cases.mjs
++++ b/scripts/speech-browser-cases.mjs
+@@ -377,14 +377,34 @@ export async function runSpeechRegressions({ browser, createContext, runTest, tr
+       ['chemistry', 'chemistry-049', 'عند 25 درجة مئوية، شو يعني إن قيمة بي إتش لمحلول مائي تساوي 7، وهل قيمة بي إتش لازم تكون بين 0 و14 بس؟'],
+       ['logic-puzzles', 'logic-puzzles-036', null],
+     ];
++    await context.addInitScript(() => {
++      window.__dbg = [];
++      const log = (...entry) => window.__dbg.push([Math.round(performance.now()), ...entry]);
++      document.addEventListener('click', event => log('click', event.target?.dataset?.action || event.target?.className || event.target?.tagName, event.target?.closest?.('.riddle-card')?.className || ''), true);
++      new MutationObserver(records => {
++        for (const record of records) {
++          if (record.target?.id === 'cardGrid' && record.type === 'childList') log('grid-replaced', record.addedNodes.length);
++          if (record.type === 'attributes' && record.target?.classList?.contains('riddle-card') && record.target.dataset.id) log('card-class', record.target.dataset.id, record.target.className);
++        }
++      }).observe(document, { subtree: true, childList: true, attributes: true, attributeFilter: ['class'] });
++    });
++    const dump = async (label, id) => console.log(`DEBUG ${label} ${id} ` + JSON.stringify(await page.evaluate(id => ({
++      card: document.querySelector(`.riddle-card[data-id="${id}"]`)?.className,
++      cards: document.querySelectorAll(`.riddle-card[data-id="${id}"]`).length,
++      banner: Boolean(document.getElementById('privacyConsentBanner')?.offsetHeight),
++      log: (window.__dbg || []).filter(entry => entry[1] !== 'card-class' || entry[2] === id).slice(-40),
++    }), id)));
+     try {
+       for (const [category, id, expected] of cases) {
+         await page.goto(`${baseUrl}/ar/topics/${category}/?card=${id}`, { waitUntil: navigationReadyEvent });
+         const card = page.locator(`.riddle-card[data-id="${id}"]`);
++        await dump('before-flip', id).catch(() => {});
+         await card.locator('.card-back [data-action="flip"]').click();
++        await dump('after-flip', id);
+         await readyControl(page, 'card');
++        await dump('after-ready', id);
+         const control = card.locator('.card-audio-btn');
+-        await control.click();
++        try { await control.click({ timeout: 10_000 }); } catch (error) { await dump('audio-click-failed', id); throw error; }
+         await page.waitForFunction(() => window.__speech.records.length > 0);
+         const records = await page.evaluate(() => window.__speech.records);
+         const spoken = records.map(record => record.text).join(' ');

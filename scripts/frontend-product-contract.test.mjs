@@ -809,3 +809,21 @@ test('damaged guest progress entries never break progress counts', () => {
   assert.equal(context.total(), 2);
   assert.deepEqual({ ...context.category('math') }, { solved: 1, pct: 10 });
 });
+
+test('a shared card is brought into view once, instantly, and later re-renders do not move the page', () => {
+  const scrolls = [];
+  const card = { classList: { add() {} }, scrollIntoView: options => scrolls.push(options) };
+  const context = vm.createContext({
+    state: { sharedCardHandled: true },
+    location: { search: '?card=math-062' },
+    URLSearchParams, CSS: { escape: value => value },
+    els: { cardGrid: { querySelector: () => card } },
+    requestAnimationFrame: callback => callback(),
+  });
+  vm.runInContext(`${topLevelFunction('scrollToSharedCard')}\nthis.scroll = scrollToSharedCard;`, context);
+  context.scroll();
+  context.scroll();
+  assert.equal(scrolls.length, 1, 'a second render (cloud start-up, sign-in) does not pull the page back');
+  assert.equal(scrolls[0].behavior, undefined, 'no smooth animation that could move the card under a tap');
+  assert.equal(scrolls[0].block, 'center');
+});

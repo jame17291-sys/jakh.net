@@ -2979,18 +2979,18 @@ function prepareSharedCard() {
   });
 }
 
+// Jump to a shared card once, instantly: a later re-render must not pull the
+// page back, and a scroll still animating would move the card under a tap.
 function scrollToSharedCard() {
-  if (!state.sharedCardHandled) return;
+  if (!state.sharedCardHandled || state.sharedCardScrolled) return;
   const cardId = new URLSearchParams(location.search).get('card');
   if (!cardId) return;
+  state.sharedCardScrolled = true;
   requestAnimationFrame(() => {
     const card = els.cardGrid?.querySelector(`[data-id="${CSS.escape(cardId)}"]`);
     if (!card) return;
     card.classList.add('shared-card-target');
-    card.scrollIntoView({
-      behavior: preferredScrollBehavior(),
-      block: 'center',
-    });
+    card.scrollIntoView({ block: 'center' });
   });
 }
 

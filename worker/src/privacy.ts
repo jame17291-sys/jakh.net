@@ -9,6 +9,7 @@ import { ApiError, json, parseJson } from "./http.js";
 import { verifyPasswordInHasher } from "./password-hasher.js";
 import { requireAdminMfa } from "./admin-mfa.js";
 import {
+  clearLoginDeviceCookies,
   clearSessionCookies,
   clientIp,
   sha256,
@@ -104,9 +105,13 @@ async function privacyRateKey(
   );
 }
 
+// Used after account deletion: the sign-in device cookie names an account that
+// no longer exists, so it is cleared together with the session.
 function responseWithClearedSessionCookies(response: Response): Response {
   const headers = new Headers(response.headers);
-  for (const cookie of clearSessionCookies()) headers.append("set-cookie", cookie);
+  for (const cookie of [...clearSessionCookies(), ...clearLoginDeviceCookies()]) {
+    headers.append("set-cookie", cookie);
+  }
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,

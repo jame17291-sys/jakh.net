@@ -77,3 +77,21 @@ test('content API category is encoded and malformed result fails closed', async 
   assert.equal(requested, '/content/questions?category=math%26other%3D1');
   assert.deepEqual(overrides, []);
 });
+
+test('a hanging content API stops blocking cards after the wait limit', async () => {
+  const started = Date.now();
+  const overrides = await loadPublishedContentOverrides(() => new Promise(() => {}), 'geography', { timeoutMs: 30 });
+  assert.deepEqual(overrides, []);
+  assert.ok(Date.now() - started < 1000, 'the page must not wait for a request that never answers');
+});
+
+test('a prompt content API answer is still applied', async () => {
+  const published = [{ id: 'math-sample', question: { en: 'Changed', ar: 'معدّل' } }];
+  const overrides = await loadPublishedContentOverrides(async () => ({ overrides: published }), 'math', { timeoutMs: 1000 });
+  assert.deepEqual(overrides, published);
+});
+
+test('a synchronous apiFetch failure is contained', async () => {
+  const overrides = await loadPublishedContentOverrides(() => { throw new Error('boom'); }, 'math');
+  assert.deepEqual(overrides, []);
+});

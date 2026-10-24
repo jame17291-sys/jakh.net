@@ -119,10 +119,36 @@
     };
   }
 
+  // Room invite codes (Battle, Word Duel) are credentials, and search text is
+  // the visitor's own words. Neither may reach analytics.
+  const PRIVATE_URL_PARAM = /^(?:battle|duelroom|room|code|invite|token|q|search)$/iu;
+
+  function carriesRoomInvite() {
+    const params = new URLSearchParams(location.search);
+    return params.has('battle') || params.has('duelRoom') || /^#battle\//iu.test(location.hash);
+  }
+
+  function analyticsSafeUrl(value) {
+    if (!value) return '';
+    try {
+      const url = new URL(value, location.href);
+      // Another site's full address is not ours to record; its origin is enough.
+      if (url.origin !== location.origin) return `${url.origin}/`;
+      for (const key of [...url.searchParams.keys()]) {
+        if (PRIVATE_URL_PARAM.test(key)) url.searchParams.delete(key);
+      }
+      url.hash = '';
+      return url.href;
+    } catch {
+      return '';
+    }
+  }
+
   function loadAnalytics() {
     // Friendship quizzes contain nicknames, scores and private invitation
-    // URLs. A saved analytics choice still applies to other site pages.
-    if (document.body?.dataset?.partyGame === 'knowMe') {
+    // URLs, and an invite link carries a room code. A saved analytics choice
+    // still applies to other site pages.
+    if (document.body?.dataset?.partyGame === 'knowMe' || carriesRoomInvite()) {
       window[ANALYTICS_DISABLE_KEY] = true;
       return;
     }
@@ -138,14 +164,20 @@
     analyticsExecutedThisPage = true;
     window.gtag('consent', 'default', consentPayload(false));
     window.gtag('consent', 'update', consentPayload(true));
+    const pageLocation = analyticsSafeUrl(location.href);
+    const pageReferrer = analyticsSafeUrl(document.referrer);
     window.gtag('set', {
       allow_google_signals: false,
       allow_ad_personalization_signals: false,
+      page_location: pageLocation,
+      page_referrer: pageReferrer,
     });
     window.gtag('js', new Date());
     window.gtag('config', ANALYTICS_ID, {
       allow_google_signals: false,
       allow_ad_personalization_signals: false,
+      page_location: pageLocation,
+      page_referrer: pageReferrer,
     });
 
     const script = document.createElement('script');

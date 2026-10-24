@@ -1,5 +1,6 @@
 import { spawn } from "node:child_process";
-import { readFile, writeFile, appendFile, mkdir } from "node:fs/promises";
+import { constants } from "node:fs";
+import { readFile, writeFile, appendFile, mkdir, open } from "node:fs/promises";
 import { resolve, join } from "node:path";
 import { pathToFileURL } from "node:url";
 import { context, githubClient, autopilotRequest, assertMain, releaseInputs, REPOSITORY, REPOSITORY_ID, API_ORIGIN, SHA } from "./autopilot-client.mjs";
@@ -38,13 +39,84 @@ async function must(command, args, options) {
   return result.stdout;
 }
 
-export function findingBody(checks, runUrl) {
+export function findingBody(checks, runUrl, notes = []) {
   return `${FINDINGS_MARKER}\n## Daily maintenance findings\n\nThe latest run found checks that need attention. No unverified change was deployed.\n\n`
     + checks.map(check => `- ${check.replace(/[^a-zA-Z0-9 .:/_-]/gu, "").slice(0,120)}`).join("\n")
+    + notes.map(note => `\n\n${note.replace(/[^a-zA-Z0-9 .,:/_()-]/gu, "").slice(0,400)}`).join("")
     + `\n\n[View the run and evidence](${runUrl})\n\nAutopilot only repairs generated site files from approved source data. Other problems stay visible for review.\n`;
 }
 
-export async function syncFindings(gh, checks, runUrl) {
+// Source ahead of the live build is the normal state between a merge and its
+// release. It stays informational (listed, but the run is not red) while it is
+// explained by unreleased merges on top of the last verified static release
+// and has lasted at most this long.
+export const RELEASE_LAG_LIMIT_DAYS = 7;
+const DAY_MS = 86_400_000;
+
+function trustedStaticRelease(run) {
+  return Boolean(run) && Number.isSafeInteger(run.id) && run.id > 0
+    && run.path?.split("@")[0] === ".github/workflows/static-site.yml"
+    && run.head_branch === "main" && run.event === "workflow_dispatch"
+    && run.status === "completed" && run.conclusion === "success" && SHA.test(run.head_sha || "")
+    && run.repository?.full_name === REPOSITORY && run.head_repository?.full_name === REPOSITORY;
+}
+
+// Releases always ship the tip of protected main, so after the last verified
+// release the source can only be ahead through later merges. The lag is
+// measured from the later of the oldest unreleased commit's committer date
+// and that release's completion. Anything not explained this way is not
+// informational.
+export async function assessReleaseLag(gh, { sourceSha, now = new Date() }) {
+  const unknown = reason => ({ state: "unknown", reason, informational: false });
+  try {
+    const listing = await gh(`${PREFIX}/actions/workflows/static-site.yml/runs?branch=main&event=workflow_dispatch&status=success&per_page=30`);
+    const releases = (Array.isArray(listing?.workflow_runs) ? listing.workflow_runs : []).filter(trustedStaticRelease)
+      .sort((left, right) => Date.parse(right.run_started_at || right.created_at) - Date.parse(left.run_started_at || left.created_at));
+    const release = releases[0];
+    if (!release) return unknown("no verified static release was found");
+    const identity = { releaseRunId: String(release.id), releaseSha: release.head_sha };
+    if (release.head_sha === sourceSha) {
+      return { state: "not_explained", ...identity, informational: false, reason: "main has no merge after the last verified release" };
+    }
+    let previous = null;
+    for (let page = 1; page <= 3; page++) {
+      const commits = await gh(`${PREFIX}/commits?sha=${sourceSha}&per_page=100&page=${page}`);
+      if (!Array.isArray(commits)) return unknown("the commit history could not be read");
+      const index = commits.findIndex(commit => commit?.sha === release.head_sha);
+      if (index >= 0) {
+        const oldest = index > 0 ? commits[index - 1] : previous;
+        const mergedAt = Date.parse(oldest?.commit?.committer?.date || "");
+        const releasedAt = Date.parse(release.updated_at || "");
+        if (!oldest || !Number.isFinite(mergedAt) || !Number.isFinite(releasedAt)) return unknown("the release or merge time could not be read");
+        const since = Math.max(mergedAt, releasedAt);
+        const ageDays = Math.max(0, (now.getTime() - since) / DAY_MS);
+        return { state: "unreleased_merges", ...identity, unreleasedCommits: (page - 1) * 100 + index,
+          since: new Date(since).toISOString(), ageDays: Math.round(ageDays * 10) / 10,
+          informational: ageDays <= RELEASE_LAG_LIMIT_DAYS };
+      }
+      if (commits.length < 100) break;
+      previous = commits.at(-1);
+    }
+    return unknown("the last verified release is not in the recent history of main");
+  } catch {
+    return unknown("the release history could not be read");
+  }
+}
+
+function releaseLagNote(lag) {
+  if (!lag) return null;
+  const days = lag.ageDays === 1 ? "1 day" : `${lag.ageDays} days`;
+  if (lag.state === "unreleased_merges" && lag.informational) {
+    return `Informational: main is ${lag.unreleasedCommits} unreleased commit(s) ahead of the last verified static release (run ${lag.releaseRunId}), unreleased for ${days} since ${lag.since}. `
+      + `This is normal until the next release and does not turn the run red unless it lasts more than ${RELEASE_LAG_LIMIT_DAYS} days.`;
+  }
+  if (lag.state === "unreleased_merges") {
+    return `Needs attention: main has been ahead of the last verified static release (run ${lag.releaseRunId}) for ${days} since ${lag.since}, more than the ${RELEASE_LAG_LIMIT_DAYS}-day limit. Release main or review the unreleased changes.`;
+  }
+  return `Needs attention: the live build differs from the current source, and this is not explained by recent unreleased merges (${lag.reason}).`;
+}
+
+export async function syncFindings(gh, checks, runUrl, notes = []) {
   let existing;
   for (let page = 1; page <= 10; page++) {
     const issues = await gh(`${PREFIX}/issues?state=open&per_page=100&page=${page}`);
@@ -56,7 +128,7 @@ export async function syncFindings(gh, checks, runUrl) {
     if (existing) await gh(`${PREFIX}/issues/${existing.number}`, { method: "PATCH", body: { state: "closed", state_reason: "completed" } });
     return;
   }
-  const body = { title: "[Autopilot] Daily maintenance findings", body: findingBody(checks, runUrl) };
+  const body = { title: "[Autopilot] Daily maintenance findings", body: findingBody(checks, runUrl, notes) };
   await gh(existing ? `${PREFIX}/issues/${existing.number}` : `${PREFIX}/issues`, {
     method: existing ? "PATCH" : "POST", body,
   });
@@ -263,18 +335,184 @@ async function writeReport(path, report, env) {
     + (report.deploymentRunId ? `- [Production release](https://github.com/${REPOSITORY}/actions/runs/${report.deploymentRunId})\n` : ""));
 }
 
-export async function runAutopilot(env = process.env) {
-  const ctx = context(env);
-  const readiness = automaticReleaseReadiness(env);
-  // A reservation is a UTC-day budget. Never begin a manual cycle so late
-  // that its bounded release work could cross into another reservation day.
-  const start = new Date();
-  const minutesUntilMidnight = 1440 - (start.getUTCHours() * 60 + start.getUTCMinutes());
+// The workflow runs maintenance as two jobs. Inspection installs packages and
+// runs every check with a read-only token and no OIDC identity, deployment
+// environment or secret. Publication installs nothing: it claims the day,
+// reports, files findings and publishes only a repair it independently
+// re-derives from the trusted base. The handoff between them is data only.
+export const HANDOFF_FILE = "maintenance-handoff.json";
+const HANDOFF_MAX_BYTES = 256 * 1024;
+const BUILD_ID = /^[a-f0-9]{64}$/u;
+const MODE = /^(?:100644|100755)$/u;
+const HEX64 = /^[a-f0-9]{64}$/u;
+
+// A reservation is a UTC-day budget. Never begin a maintenance job so late
+// that its bounded work could cross into another reservation day.
+function assertEarlyEnough(now = new Date()) {
+  const minutesUntilMidnight = 1440 - (now.getUTCHours() * 60 + now.getUTCMinutes());
   if (minutesUntilMidnight < 105) throw new Error("Run maintenance earlier in the UTC day; the next scheduled run remains at 07:23 Dubai.");
-  const root = process.cwd();
+}
+
+function outputDirectory(env, ctx, root) {
   const outputDir = resolve(env.RUNNER_TEMP || "../autopilot-work", `autopilot-${ctx.runId}`);
   if (outputDir === root || outputDir.startsWith(`${root}/`)) throw new Error("Maintenance evidence must stay outside the checkout.");
+  return outputDir;
+}
+
+async function assertTrustedSource(gh, ctx) {
+  const metadata = await gh(PREFIX);
+  if (metadata.id !== Number(REPOSITORY_ID) || metadata.private !== false || metadata.default_branch !== "main") {
+    throw new Error("Free-run policy requires the exact public Riddle Arabia repository.");
+  }
+  assertMain(await gh(`${PREFIX}/branches/main`), ctx.sha);
+  if (await must("git", ["status", "--porcelain"], { capture: true })) throw new Error("Maintenance requires a clean checkout.");
+}
+
+function sanitizedChange(change) {
+  const valid = change && typeof change === "object" && typeof change.path === "string" && change.path.length > 0 && change.path.length <= 500
+    && !/[\x00-\x1f\x7f]/u.test(change.path) && ["add", "delete", "modify"].includes(change.change)
+    && (change.oldMode === null || MODE.test(change.oldMode)) && (change.newMode === null || MODE.test(change.newMode))
+    && (change.beforeSha256 === null || HEX64.test(change.beforeSha256)) && (change.afterSha256 === null || HEX64.test(change.afterSha256))
+    && Number.isSafeInteger(change.bytes) && change.bytes >= 0;
+  if (!valid) throw new Error("The inspection handoff lists an invalid changed file.");
+  const { path, oldMode, newMode, beforeSha256, afterSha256, bytes } = change;
+  return { path, change: change.change, oldMode, newMode, beforeSha256, afterSha256, bytes };
+}
+
+// The handoff comes from the job that ran installed packages. It is parsed as
+// bounded data, bound to this exact run and source, and never executed.
+export function validateHandoff(handoff, { runId, runAttempt, sourceSha }) {
+  const fail = message => { throw new Error(`The inspection handoff is invalid: ${message}.`); };
+  if (!handoff || typeof handoff !== "object" || Array.isArray(handoff) || handoff.version !== 1) fail("unsupported format");
+  if (handoff.runId !== runId || handoff.runAttempt !== runAttempt || handoff.sourceSha !== sourceSha) fail("it belongs to another run or source");
+  if (!["inspected", "failed"].includes(handoff.status)) fail("unknown status");
+  if (!Number.isSafeInteger(handoff.checksPassed) || handoff.checksPassed < 0 || handoff.checksPassed > 1_000) fail("invalid passed-check count");
+  if (!Array.isArray(handoff.failedChecks) || handoff.failedChecks.length > 50
+    || !handoff.failedChecks.every(check => typeof check === "string" && check.length > 0 && check.length <= 200)) fail("invalid findings");
+  if (!Array.isArray(handoff.changedFiles) || handoff.changedFiles.length > 250) fail("invalid changed files");
+  if (handoff.error !== null && (typeof handoff.error !== "string" || !handoff.error || handoff.error.length > 200)) fail("invalid error");
+  if ((handoff.status === "failed") !== (handoff.error !== null)) fail("status and error disagree");
+  const candidate = handoff.candidate;
+  if (candidate !== null && (typeof candidate !== "object" || !SHA.test(candidate.tree || "") || !BUILD_ID.test(candidate.buildId || ""))) fail("invalid candidate");
+  return {
+    version: 1, runId, runAttempt, sourceSha, status: handoff.status, checksPassed: handoff.checksPassed,
+    failedChecks: [...handoff.failedChecks], changedFiles: handoff.changedFiles.map(sanitizedChange), error: handoff.error,
+    candidate: candidate === null ? null : { tree: candidate.tree, buildId: candidate.buildId },
+  };
+}
+
+export async function readHandoff(path, expected) {
+  const file = await open(path, constants.O_RDONLY | constants.O_NOFOLLOW);
+  try {
+    const info = await file.stat();
+    if (!info.isFile() || info.size > HANDOFF_MAX_BYTES) throw new Error("The inspection handoff is missing or too large.");
+    const text = await file.readFile("utf8");
+    if (Buffer.byteLength(text) > HANDOFF_MAX_BYTES) throw new Error("The inspection handoff is missing or too large.");
+    let parsed;
+    try { parsed = JSON.parse(text); } catch { throw new Error("The inspection handoff is not valid JSON."); }
+    return validateHandoff(parsed, expected);
+  } finally { await file.close(); }
+}
+
+const ATTEMPT = /^[1-9][0-9]{0,3}$/u;
+
+function runIdentity(env, ctx) {
+  const runAttempt = ATTEMPT.test(env.GITHUB_RUN_ATTEMPT || "") ? env.GITHUB_RUN_ATTEMPT : "1";
+  return { runId: ctx.runId, runAttempt, sourceSha: ctx.sha };
+}
+
+// Publication reads the hand-off of this run's inspection attempt. It equals the
+// current attempt unless only the publish job was re-run.
+export function inspectionIdentity(env, ctx) {
+  const current = runIdentity(env, ctx);
+  const attempt = env.AUTOPILOT_INSPECTION_ATTEMPT;
+  if (attempt === undefined || attempt === "") return current;
+  if (!ATTEMPT.test(attempt) || Number(attempt) > Number(current.runAttempt)) {
+    throw new Error("The inspection attempt does not belong to this run.");
+  }
+  return { ...current, runAttempt: attempt };
+}
+
+// Read-only job: inspect, repair locally, test, and prove the exact candidate
+// tree. It has no write token, OIDC identity, environment or secret.
+export async function runInspection(env = process.env, { now = () => new Date() } = {}) {
+  const ctx = context(env);
+  const start = now();
+  assertEarlyEnough(start);
+  const root = process.cwd();
+  const outputDir = outputDirectory(env, ctx, root);
   await mkdir(outputDir, { recursive: true });
+  const handoff = { version: 1, ...runIdentity(env, ctx), status: "inspected", checksPassed: 0, failedChecks: [], changedFiles: [], error: null, candidate: null };
+  const finding = name => { if (!handoff.failedChecks.includes(name)) handoff.failedChecks.push(name); };
+  try {
+    await assertTrustedSource(githubClient(env), ctx);
+    // A repair may not sweep an unrelated, human-merged but unreleased change
+    // into production. Establish the current base's exact live static build.
+    await must("npm", ["run", "build:site"]);
+    const baselineManifest = JSON.parse(await readFile(join(root,"site-worker/generated/site-manifest.json"),"utf8"));
+    const baselineResponse = await fetch("https://riddlearabia.com/admin", { redirect: "error", signal: AbortSignal.timeout(20_000) });
+    if (!baselineResponse.ok || baselineResponse.headers.get("x-jakh-site-version") !== baselineManifest.buildId) finding(BASELINE_IDENTITY_FINDING);
+    const repairPath = join(outputDir, "repair-plan.json");
+    await must("node", ["scripts/autopilot-repairs.mjs", "repair", "--base", ctx.sha, "--repo", root, "--report", repairPath]);
+    const repair = JSON.parse(await readFile(repairPath, "utf8"));
+    handoff.changedFiles = repair.changedFiles || [];
+
+    const monitor = await runCommand("node", ["scripts/monitor-production.mjs"], {
+      env: { ...safeChildEnv(env), JAKH_SITE_ORIGIN: "https://riddlearabia.com", JAKH_API_ORIGIN: API_ORIGIN,
+        JAKH_MONITOR_RESULT_PATH: join(outputDir, "production-monitor.json") },
+    });
+    if (monitor.code) handoff.failedChecks.push("Production monitor"); else handoff.checksPassed++;
+    for (const [name, command, args] of DAILY_CHECKS) {
+      process.stdout.write(`\nMaintenance check: ${name}\n`);
+      const result = await runCommand(command, args, { env: { ...safeChildEnv(env),
+        JAKH_SITE_ROOT: join(root,"site-worker/dist"), JAKH_SITE_MANIFEST: join(root,"site-worker/generated/site-manifest.json") } });
+      if (result.code) handoff.failedChecks.push(name); else handoff.checksPassed++;
+      if (Date.now() - start.getTime() > 20 * 60_000) throw new Error("Daily inspection exceeded its 20-minute budget; no release was started.");
+    }
+    // A previous merged repair or a human change may still be unreleased.
+    // A zero diff is not proof that production matches the current source.
+    if (!handoff.changedFiles.length && !handoff.failedChecks.includes("Build site")) {
+      const manifest = JSON.parse(await readFile(join(root,"site-worker/generated/site-manifest.json"),"utf8"));
+      const live = await fetch("https://riddlearabia.com/admin", { redirect: "error", signal: AbortSignal.timeout(20_000) });
+      if (!live.ok || live.headers.get("x-jakh-site-version") !== manifest.buildId) finding(BASELINE_IDENTITY_FINDING);
+    }
+    // Only the generated, byte-for-byte reproducible bundle can reach a PR. The
+    // publication job re-derives it from the trusted base and must reach this
+    // exact tested tree before anything is pushed.
+    if (env.AUTOPILOT_RELEASE_ENABLED === "true" && handoff.changedFiles.length && !handoff.failedChecks.length) {
+      await must("node", ["scripts/autopilot-repairs.mjs", "verify", "--base", ctx.sha, "--repo", root]);
+      await must("git", ["switch", "-c", `autopilot-candidate-${ctx.runId}`]);
+      await must("git", ["config", "user.name", "Riddle Arabia Autopilot"]);
+      await must("git", ["config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"]);
+      await must("git", ["add", "--all"]);
+      await must("git", ["commit", "-m", "Refresh generated site files from approved sources"]);
+      const candidate = await must("git", ["rev-parse", "HEAD"], { capture: true });
+      if (!SHA.test(candidate)) throw new Error("Invalid repair commit.");
+      await must("node", ["scripts/autopilot-repairs.mjs", "verify", "--base", ctx.sha, "--candidate", candidate, "--repo", root]);
+      const tree = await must("git", ["rev-parse", `${candidate}^{tree}`], { capture: true });
+      const candidateManifest = JSON.parse(await readFile(join(root, "site-worker/generated/site-manifest.json"), "utf8"));
+      if (!SHA.test(tree) || !BUILD_ID.test(candidateManifest.buildId || "")) throw new Error("The verified repair candidate identity is invalid.");
+      handoff.candidate = { tree, buildId: candidateManifest.buildId };
+    }
+  } catch (error) {
+    handoff.status = "failed";
+    handoff.error = String(error.message || "Inspection failed").slice(0,200) || "Inspection failed";
+  }
+  const handoffPath = join(outputDir, HANDOFF_FILE);
+  await writeFile(handoffPath, `${JSON.stringify(handoff, null, 2)}\n`);
+  return { handoff, handoffPath };
+}
+
+// Writer job: no package install. It records the inspection under the daily
+// claim, files or closes findings, and publishes only a verified repair.
+export async function runPublication(env = process.env, { handoffPath, now = () => new Date() } = {}) {
+  const ctx = context(env);
+  assertEarlyEnough(now());
+  const readiness = automaticReleaseReadiness(env);
+  const root = process.cwd();
+  const outputDir = outputDirectory(env, ctx, root);
+  await mkdir(outputDir, { recursive: true });
+  const inspection = await readHandoff(handoffPath || join(outputDir, HANDOFF_FILE), inspectionIdentity(env, ctx));
   const reportPath = join(outputDir, "daily-report.json");
   const gh = githubClient(env);
   const report = { version: 1, runId: ctx.runId, sourceSha: ctx.sha, releaseMode: readiness.mode, status: "inspecting", checksPassed: 0, checksFailed: 0, changedFiles: [], failedChecks: [] };
@@ -287,71 +525,42 @@ export async function runAutopilot(env = process.env) {
     await writeReport(reportPath, report, env);
   };
   try {
-    const metadata = await gh(PREFIX);
-    if (metadata.id !== Number(REPOSITORY_ID) || metadata.private !== false || metadata.default_branch !== "main") {
-      throw new Error("Free-run policy requires the exact public Riddle Arabia repository.");
-    }
-    assertMain(await gh(`${PREFIX}/branches/main`), ctx.sha);
-    if (await must("git", ["status", "--porcelain"], { capture: true })) throw new Error("Maintenance requires a clean checkout.");
+    await assertTrustedSource(gh, ctx);
     try { day = (await autopilotRequest("claim", {}, { env })).day; report.day = day; }
     catch (error) {
       if ([409,423].includes(error.status)) { report.status = "paused_or_daily_limit"; await writeReport(reportPath, report, env); return report; }
       throw error;
     }
     await send("inspecting");
-    // A repair may not sweep an unrelated, human-merged but unreleased change
-    // into production. Establish the current base's exact live static build.
-    await must("npm", ["run", "build:site"]);
-    const baselineManifest = JSON.parse(await readFile(join(root,"site-worker/generated/site-manifest.json"),"utf8"));
-    const baselineResponse = await fetch("https://riddlearabia.com/admin", { redirect: "error", signal: AbortSignal.timeout(20_000) });
-    if (!baselineResponse.ok || baselineResponse.headers.get("x-jakh-site-version") !== baselineManifest.buildId) {
-      if (!report.failedChecks.includes(BASELINE_IDENTITY_FINDING)) report.failedChecks.push(BASELINE_IDENTITY_FINDING);
-      report.checksFailed = report.failedChecks.length;
-    }
-    const repairPath = join(outputDir, "repair-plan.json");
-    await must("node", ["scripts/autopilot-repairs.mjs", "repair", "--base", ctx.sha, "--repo", root, "--report", repairPath]);
-    const repair = JSON.parse(await readFile(repairPath, "utf8"));
-    report.changedFiles = repair.changedFiles || [];
+    // Record the read-only inspection exactly as the single job used to.
+    report.changedFiles = inspection.changedFiles;
+    report.checksPassed = inspection.checksPassed;
+    report.failedChecks = [...inspection.failedChecks];
+    report.checksFailed = report.failedChecks.length;
+    if (inspection.status === "failed") throw new Error(inspection.error);
     await send(report.changedFiles.length ? "fixing" : "inspecting");
-
-    const monitor = await runCommand("node", ["scripts/monitor-production.mjs"], {
-      env: { ...safeChildEnv(env), JAKH_SITE_ORIGIN: "https://riddlearabia.com", JAKH_API_ORIGIN: API_ORIGIN,
-        JAKH_MONITOR_RESULT_PATH: join(outputDir, "production-monitor.json") },
-    });
-    if (monitor.code) report.failedChecks.push("Production monitor"); else report.checksPassed++;
     await send("testing");
-    for (const [name, command, args] of DAILY_CHECKS) {
-      process.stdout.write(`\nMaintenance check: ${name}\n`);
-      const result = await runCommand(command, args, { env: { ...safeChildEnv(env),
-        JAKH_SITE_ROOT: join(root,"site-worker/dist"), JAKH_SITE_MANIFEST: join(root,"site-worker/generated/site-manifest.json") } });
-      if (result.code) report.failedChecks.push(name); else report.checksPassed++;
-      report.checksFailed = report.failedChecks.length;
-      if (Date.now() - start.getTime() > 20 * 60_000) throw new Error("Daily inspection exceeded its 20-minute budget; no release was started.");
-    }
-    // A previous merged repair or a human change may still be unreleased.
-    // A zero diff is not proof that production matches the current source.
-    if (!report.changedFiles.length && !report.failedChecks.includes("Build site")) {
-      const manifest = JSON.parse(await readFile(join(root,"site-worker/generated/site-manifest.json"),"utf8"));
-      const live = await fetch("https://riddlearabia.com/admin", { redirect: "error", signal: AbortSignal.timeout(20_000) });
-      if (!live.ok || live.headers.get("x-jakh-site-version") !== manifest.buildId) {
-        if (!report.failedChecks.includes(BASELINE_IDENTITY_FINDING)) report.failedChecks.push(BASELINE_IDENTITY_FINDING);
-        report.checksFailed = report.failedChecks.length;
-      }
-    }
     const publishingBlocker = publicationFinding(readiness, report.changedFiles);
     if (publishingBlocker) {
       report.failedChecks.push(publishingBlocker);
       report.checksFailed = report.failedChecks.length;
     }
     if (report.failedChecks.length) {
-      await syncFindings(gh, report.failedChecks, ctx.runUrl);
+      if (report.failedChecks.includes(BASELINE_IDENTITY_FINDING)) {
+        report.releaseLag = await assessReleaseLag(gh, { sourceSha: ctx.sha, now: now() });
+      }
+      const note = releaseLagNote(report.releaseLag);
+      await syncFindings(gh, report.failedChecks, ctx.runUrl, note ? [note] : []);
       await send("needs_attention");
       return report;
     }
     await syncFindings(gh, [], ctx.runUrl);
     if (!report.changedFiles.length) { await send("no_changes"); return report; }
 
-    // Only the generated, byte-for-byte reproducible bundle can reach a PR.
+    if (!inspection.candidate) throw new Error("The inspection job did not prove a repair candidate; nothing was published.");
+    // Re-derive the bundle from the trusted base in this package-free job.
+    const repairPath = join(outputDir, "publication-repair-plan.json");
+    await must("node", ["scripts/autopilot-repairs.mjs", "repair", "--base", ctx.sha, "--repo", root, "--report", repairPath]);
     await must("node", ["scripts/autopilot-repairs.mjs", "verify", "--base", ctx.sha, "--repo", root]);
     const branch = `autopilot/${day}-${ctx.runId}`;
     await must("git", ["switch", "-c", branch]);
@@ -362,6 +571,9 @@ export async function runAutopilot(env = process.env) {
     const candidate = await must("git", ["rev-parse", "HEAD"], { capture: true });
     if (!SHA.test(candidate)) throw new Error("Invalid repair commit.");
     await must("node", ["scripts/autopilot-repairs.mjs", "verify", "--base", ctx.sha, "--candidate", candidate, "--repo", root]);
+    if (await must("git", ["rev-parse", `${candidate}^{tree}`], { capture: true }) !== inspection.candidate.tree) {
+      throw new Error("The re-derived repair differs from the inspected and tested tree; nothing was published.");
+    }
     await send("testing");
     // A repository-scoped App is needed only for publishing the branch and PR:
     // its pull_request event can start ordinary required CI without a person
@@ -404,9 +616,8 @@ export async function runAutopilot(env = process.env) {
         await writeReport(reportPath, report, env);
       },
     });
-    const candidateManifest = JSON.parse(await readFile(join(root, "site-worker/generated/site-manifest.json"), "utf8"));
     const response = await fetch("https://riddlearabia.com/admin", { redirect: "error", signal: AbortSignal.timeout(20_000) });
-    const { buildId, workerVersion } = verifyPublishedBuild(response, { expectedBuildId: candidateManifest.buildId });
+    const { buildId, workerVersion } = verifyPublishedBuild(response, { expectedBuildId: inspection.candidate.buildId });
     report.deploymentRunId = String(released.id);
     await send("deployed", { candidateSha: mergedSha, buildId, workerVersion, deploymentRunId: String(released.id) });
     return report;
@@ -420,6 +631,45 @@ export async function runAutopilot(env = process.env) {
   }
 }
 
+function annotation(value) {
+  return String(value).replace(/[^a-zA-Z0-9 .:/_;-]/gu, "").slice(0, 900);
+}
+
+// A run that needs attention must not look green: the findings issue is filed
+// first, then the job fails with a visible annotation. The only exception is
+// a source-ahead-of-live finding that a recent unreleased merge explains.
+export function publicationExitCode(report, write = text => process.stdout.write(text)) {
+  if (report?.status !== "needs_attention") return 0;
+  const informational = report.releaseLag?.state === "unreleased_merges" && report.releaseLag.informational === true;
+  const blocking = report.failedChecks.filter(check => !(informational && check === BASELINE_IDENTITY_FINDING));
+  if (!blocking.length) {
+    write(`::notice title=Daily maintenance: release pending::${annotation(releaseLagNote(report.releaseLag))}\n`);
+    return 0;
+  }
+  const lag = blocking.includes(BASELINE_IDENTITY_FINDING) && report.releaseLag ? ` ${releaseLagNote(report.releaseLag)}` : "";
+  write(`::error title=Daily maintenance needs attention::${annotation(`${blocking.join("; ")}.${lag}`)} See the findings issue.\n`);
+  return 1;
+}
+
+async function main(argv, env) {
+  const [mode] = argv;
+  if (mode === "inspect") {
+    const { handoff } = await runInspection(env);
+    process.stdout.write(`Inspection ${handoff.status}: ${handoff.checksPassed} checks passed, ${handoff.failedChecks.length} need attention.\n`);
+    return 0;
+  }
+  if (mode === "publish") {
+    try {
+      return publicationExitCode(await runPublication(env));
+    } catch (error) {
+      process.stdout.write(`::error title=Daily maintenance failed::${annotation(error.message)}\n`);
+      throw error;
+    }
+  }
+  throw new Error("Usage: site-autopilot.mjs inspect | publish");
+}
+
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  runAutopilot().catch(error => { process.stderr.write(`${error.message}\n`); process.exitCode = 1; });
+  main(process.argv.slice(2), process.env).then(code => { process.exitCode = code; })
+    .catch(error => { process.stderr.write(`${error.message}\n`); process.exitCode = 1; });
 }

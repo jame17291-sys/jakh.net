@@ -594,6 +594,18 @@ Read `releaseMode` and `status` separately:
 - `failed` is a failed maintenance cycle.
 - `deployed` requires the linked release evidence to prove a deployment.
 
+Note (24 Oct 2026, PR #171): maintenance now runs as two jobs.
+- The read-only `inspect` job uploads `autopilot-handoff-<run-id>-<run-attempt>`. That is a hand-off to the
+  `publish` job, not a receipt.
+- `publish` uploads `autopilot-<run-id>` as before.
+- A run with findings now ends red. The exception is *Current source is not the verified live build* while
+  `main` is at most 7 days ahead of the last verified static release: it is informational and the run stays
+  green (see [AUTOPILOT.md](AUTOPILOT.md)).
+- Because the parser reports any unsuccessful workflow run as `failed`, a parser result of `needs_attention`
+  now means the run stayed green with only that informational finding.
+- Separately, the scheduled production monitor now reads the latest static and API release receipts to find
+  what is live. It does not inspect maintenance receipts.
+
 Inspection success is not proof of a new API or static release.
 Even a successful receipt describes its recorded time; continue live monitoring.
 Unavailable or expired evidence must be reported as unresolved, never verified.

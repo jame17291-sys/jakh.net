@@ -133,7 +133,11 @@ test("backups and the approval-gated drill never share a queue", async () => {
   });
   assert.equal(new Set(groups).size, groups.length);
   assert.match(job("restore-drill"), /environment: recovery-drill/u);
-  assert.doesNotMatch(job("weekly-backup"), /environment:/u);
+  // The backup secrets are scoped to the unattended `backup` environment, never
+  // to an approval-gated one such as the drill or production environment.
+  assert.equal((job("weekly-backup").match(/environment:/gu) || []).length, 1);
+  assert.match(job("weekly-backup"), /\n    environment: backup\n/u);
+  assert.doesNotMatch(job("weekly-backup"), /environment: (?:recovery-drill|production|autopilot-production)/u);
   const freshness = job("backup-freshness");
   assert.match(freshness, /needs: \[weekly-backup\]/u);
   assert.match(freshness, /always\(\)/u);

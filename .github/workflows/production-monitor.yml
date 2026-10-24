@@ -2,6 +2,11 @@ name: Monitor production
 
 on:
   schedule:
+    # Off the busy :00/:15/:30/:45 minutes. GitHub runs schedules on a
+    # best-effort basis and still drops most slots under load: from 6 to
+    # 24 Oct 2026 this twice-hourly schedule ran about 5 times a day (median gap
+    # 4.4 hours, longest 9.6 hours). Every completed release below also starts a
+    # run, so the gap only affects drift between releases.
     - cron: "17,47 * * * *"
   workflow_dispatch:
   workflow_run:
@@ -11,6 +16,9 @@ on:
 permissions:
   contents: read
   issues: write
+  # Scheduled and manual checks read release runs and their receipt artifacts
+  # to find the commits that are live.
+  actions: read
 
 concurrency:
   group: production-monitor
@@ -24,7 +32,7 @@ jobs:
       (github.event_name == 'workflow_dispatch' && github.ref_name == github.event.repository.default_branch) ||
       (github.event_name == 'workflow_run' && github.event.workflow_run.head_branch == github.event.repository.default_branch)
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -53,8 +61,63 @@ jobs:
         id: context
         run: node .monitor-workflow/scripts/monitor-workflow-context.mjs
 
+      # A scheduled or manual check compares production with the commits that
+      # are live (the latest verified releases), not with unreleased main, so a
+      # merge awaiting release is not a false alarm. Release-triggered runs above
+      # keep checking the exact commit that release deployed.
+      - name: Test live release resolution
+        if: ${{ github.event_name != 'workflow_run' }}
+        run: node --test scripts/monitor-live-release.test.mjs
+
+      - name: Find the live releases
+        id: live
+        if: ${{ github.event_name != 'workflow_run' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JAKH_MONITOR_RESULT_PATH: monitor-production-result.json
+        run: node scripts/monitor-live-release.mjs resolve --output "$RUNNER_TEMP/live-release.json"
+
+      - name: Load the live static site monitor contract
+        id: live_site
+        if: ${{ steps.live.outputs.state == 'live' }}
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          ref: ${{ steps.live.outputs.site-sha }}
+          path: .live-site
+
+      - name: Load the live API monitor contract
+        id: live_api
+        if: ${{ steps.live.outputs.state == 'live' && steps.live.outputs.api-sha != steps.live.outputs.site-sha }}
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          ref: ${{ steps.live.outputs.api-sha }}
+          path: .live-api
+
+      - name: Check production against the live releases
+        id: live_production
+        if: ${{ steps.live.outputs.state == 'live' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JAKH_SITE_ORIGIN: https://riddlearabia.com
+          JAKH_API_ORIGIN: https://api.riddlearabia.com
+          JAKH_MONITOR_LEGACY_SITE_ORIGINS: "none"
+          JAKH_MONITOR_TIMEOUT_MS: "10000"
+          JAKH_SITE_MAX_MS: "5000"
+          JAKH_API_MAX_MS: "5000"
+          JAKH_MONITOR_RESULT_PATH: monitor-production-result.json
+          JAKH_MONITOR_ANNOTATE: "1"
+          LIVE_API_CHECKOUT: ${{ steps.live.outputs.api-sha == steps.live.outputs.site-sha && '.live-site' || '.live-api' }}
+        run: >-
+          node scripts/monitor-live-release.mjs check
+          --resolution "$RUNNER_TEMP/live-release.json"
+          --site-checkout .live-site
+          --api-checkout "$LIVE_API_CHECKOUT"
+
       - name: Check production
         id: production
+        if: ${{ github.event_name == 'workflow_run' }}
         env:
           JAKH_SITE_ORIGIN: https://riddlearabia.com
           JAKH_API_ORIGIN: https://api.riddlearabia.com
@@ -68,11 +131,17 @@ jobs:
           JAKH_MONITOR_ANNOTATE: "1"
         run: node scripts/monitor-production.mjs
 
+      # A deferred check (a release is deploying) routes nothing; that release's
+      # completion starts its own bound monitor run.
       - name: Route production failure or recovery
-        if: ${{ always() && (steps.production.outcome == 'success' || steps.production.outcome == 'failure') }}
+        if: >-
+          always() && (
+          steps.production.outcome == 'success' || steps.production.outcome == 'failure' ||
+          steps.live_production.outcome == 'success' || steps.live_production.outcome == 'failure' ||
+          steps.live.outcome == 'failure' || steps.live_site.outcome == 'failure' || steps.live_api.outcome == 'failure')
         env:
           GITHUB_TOKEN: ${{ github.token }}
-          JAKH_ALERT_STATE: ${{ steps.production.outcome == 'success' && 'recovery' || 'failure' }}
+          JAKH_ALERT_STATE: ${{ (steps.production.outcome == 'success' || steps.live_production.outcome == 'success') && 'recovery' || 'failure' }}
           JAKH_ALERT_EVENT: ${{ github.event_name }}
           JAKH_ALERT_SOURCE_WORKFLOW: ${{ github.event.workflow_run.name }}
           JAKH_ALERT_SOURCE_CONCLUSION: ${{ github.event.workflow_run.conclusion }}

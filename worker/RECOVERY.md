@@ -26,12 +26,22 @@ Quarterly, the same workflow reconstructs the complete schema from migrations an
 ## Required configuration
 
 - Repository variable `CLOUDFLARE_ACCOUNT_ID`: the JAKH Cloudflare account ID.
-- Repository secret `CLOUDFLARE_D1_BACKUP_EXPORT_TOKEN`: account-owned Cloudflare token with only D1 Write, limited to the JAKH account and used exclusively for encrypted exports and their recovery evidence.
-- Repository secret `D1_BACKUP_ENCRYPTION_KEY`: 32 random bytes encoded as base64.
+- `CLOUDFLARE_D1_BACKUP_EXPORT_TOKEN`: account-owned Cloudflare token with only D1 Write, limited to the JAKH account and used exclusively for encrypted exports and their recovery evidence. Only the `weekly-backup` job reads it. Target home: the `backup` environment.
+- `D1_BACKUP_ENCRYPTION_KEY`: 32 random bytes encoded as base64. Two jobs read it: `weekly-backup` (environment `backup`) and the pre-migration backup in `api-deploy.yml`'s `migrate-final` job (environment `production`). Target home: both of those environments, with the same value.
 - Production environment secret `CLOUDFLARE_API_TOKEN`: deployment credential used only by protected production jobs.
 - Recovery-drill environment secrets `CLOUDFLARE_RECOVERY_DRILL_TOKEN`, `CLOUDFLARE_RECOVERY_DRILL_DATABASE_ID`, and `CLOUDFLARE_ACCOUNT_ID`: protected quarterly drill configuration. The token has D1 Write access and must never be moved to an unprotected repository secret.
 
-Recommended hardening (owner, in GitHub settings): move `CLOUDFLARE_D1_BACKUP_EXPORT_TOKEN` and `D1_BACKUP_ENCRYPTION_KEY` from repository secrets into a new `backup` environment limited to protected branches. Then add `environment: backup` to the `weekly-backup` job. As repository secrets, they are readable by a workflow on any branch.
+### Moving the backup secrets out of repository scope (owner steps)
+
+The `weekly-backup` job already runs in the `backup` environment. GitHub creates that environment on the first run if it does not exist, and repository secrets stay available to it, so backups keep working before and during the move. As repository secrets, the two values are readable by a workflow on any branch; the steps below restrict them to protected branches.
+
+1. In GitHub, open **Settings → Environments** and create (or open) `backup`.
+2. Under **Deployment branches and tags**, choose **Protected branches only**.
+3. Do **not** add required reviewers or a wait timer to `backup`. The weekly backup runs unattended; an approval gate would leave it waiting, and the freshness alert would fire after 8 days.
+4. Add the environment secrets `CLOUDFLARE_D1_BACKUP_EXPORT_TOKEN` and `D1_BACKUP_ENCRYPTION_KEY` to `backup`. GitHub never shows a stored secret's value, so take both from your own secure record. If the export token's value is lost, create a replacement Cloudflare token with the same D1 Write scope; the encryption key must be the existing one.
+5. Add `D1_BACKUP_ENCRYPTION_KEY` (same value) to the `production` environment as well, unless it is already there. `migrate-final` needs it for the encrypted pre-migration backup; without it every schema migration stops before touching the database.
+6. Run **Verify recovery readiness** from `main` with mode `weekly-backup` and confirm it succeeds.
+7. Only then delete the repository-level `CLOUDFLARE_D1_BACKUP_EXPORT_TOKEN` and `D1_BACKUP_ENCRYPTION_KEY` (**Settings → Secrets and variables → Actions → Repository secrets**).
 
 Do not print, copy into an issue, or commit any of these values. Replacing the encryption key makes older artifacts unreadable; retain the old key securely until every artifact encrypted with it has expired.
 

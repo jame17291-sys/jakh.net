@@ -427,3 +427,13 @@ test("MTA-STS handler is valid but fail-closed until mail-owner activation", asy
   assert.equal(legacyEnabled.status, 404);
   assert.equal(legacyEnabled.headers.get("location"), null);
 });
+
+test("HTML is sent as stored: the Worker does not compress it at runtime (Free-plan CPU budget)", async () => {
+  for (const pathname of ["/", "/ar/alghaz/", "/__missing_page__"]) {
+    const request = new Request(`${PRIMARY_ORIGIN}${pathname}`, { headers: { "accept-encoding": "gzip, br" } });
+    Object.defineProperty(request, "cf", { value: { clientAcceptEncoding: "gzip, deflate, br" } });
+    const response = await handler.fetch(request, environment());
+    assert.equal(response.headers.get("content-encoding"), null, pathname);
+    assert.match(response.headers.get("cache-control") || "", /no-transform/u, pathname);
+  }
+});

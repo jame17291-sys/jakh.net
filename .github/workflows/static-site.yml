@@ -554,6 +554,7 @@ jobs:
           JAKH_MONITOR_EXPECTED_WORKER_VERSION: ${{ steps.candidate_identity.outputs.worker-version }}
           JAKH_MONITOR_MAX_ATTEMPTS: 12
           JAKH_MONITOR_RETRY_DELAY_MS: 10000
+          JAKH_MONITOR_ANNOTATE: "1"
         run: node scripts/monitor-production.mjs
 
       - name: Bind live static quarantine proof to the exact candidate Worker

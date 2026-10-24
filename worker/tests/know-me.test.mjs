@@ -125,8 +125,8 @@ test('leaderboard ranks ties equally, never trusts forged scores and remains vis
   const { object } = await setup();
   const wrong = answerKeys.map(answer => (answer + 1) % 4);
   await object.fetch(internal('submit', { token: guestToken, name: 'Wrong', answers: wrong, score: 10 }));
-  await object.fetch(internal('submit', { token: 'A'.repeat(43), name: 'Perfect', answers: answerKeys }));
-  await object.fetch(internal('submit', { token: 'B'.repeat(43), name: 'Also perfect', answers: answerKeys }));
+  await object.fetch(internal('submit', { token: 'A'.repeat(43), name: 'Perfect', answers: answerKeys }, 'P'.repeat(43)));
+  await object.fetch(internal('submit', { token: 'B'.repeat(43), name: 'Also perfect', answers: answerKeys }, 'Q'.repeat(43)));
   const state = await (await object.fetch(internal('state', { token: 'C'.repeat(43) }))).json();
   assert.deepEqual(state.leaderboard.map(player => [player.score, player.rank]), [[10, 1], [10, 1], [0, 3]]);
   assert.equal(state.role, 'guest'); assert.equal(state.result, null);
@@ -140,12 +140,69 @@ test('invalid or owner submissions do not write scores; participant caps permit 
   assert.equal(ctx.data.get('know-me-room').players.length, 0);
   for (let index = 0; index < 50; index++) {
     const token = `${index}`.padEnd(43, 'T');
-    assert.equal((await object.fetch(internal('submit', { token, name: `Player ${index}`, answers: answerKeys }))).status, 200);
+    assert.equal((await object.fetch(internal('submit', { token, name: `Player ${index}`, answers: answerKeys }, `${index}`.padEnd(43, 'K')))).status, 200);
   }
   assert.equal(ctx.data.get('know-me-room').players.length, 50);
   assert.equal((await object.fetch(internal('submit', { token: '0'.padEnd(43, 'T') }))).status, 200);
   const full = await object.fetch(internal('submit', { token: guestToken, name: 'Extra', answers: answerKeys }));
   assert.equal(full.status, 409); assert.equal((await full.json()).code, 'QUIZ_FULL');
+});
+
+test('one network adds at most four scores per quiz, so fresh tokens cannot reveal the private answers', async () => {
+  const { ctx, object } = await setup();
+  const home = 'N'.repeat(43), elsewhere = 'M'.repeat(43);
+  const first = await object.fetch(internal('submit', { token: 'A'.repeat(43), name: 'First', answers: answerKeys }, home));
+  assert.equal(first.status, 200);
+  const firstResult = (await first.json()).result;
+  for (const [token, name, choice] of [['B', 'Second', 0], ['J', 'Third', 2], ['K', 'Fourth', 3]]) {
+    assert.equal((await object.fetch(internal('submit', { token: token.repeat(43), name, answers: Array(10).fill(choice) }, home))).status, 200);
+  }
+  const fifth = await object.fetch(internal('submit', { token: 'C'.repeat(43), name: 'Fifth', answers: Array(10).fill(1) }, home));
+  assert.equal(fifth.status, 409);
+  const refused = await fifth.json();
+  assert.equal(refused.code, 'QUIZ_NETWORK_LIMIT'); assert.equal(refused.result, undefined); assert.equal(refused.leaderboard, undefined);
+  assert.equal(ctx.data.get('know-me-room').players.length, 4);
+  // A lost-response retry still resumes its own score, and other networks can still play.
+  const retry = await object.fetch(internal('submit', { token: 'A'.repeat(43), name: 'First', answers: Array(10).fill(3) }, home));
+  assert.equal(retry.status, 200); assert.deepEqual((await retry.json()).result, firstResult);
+  assert.equal((await object.fetch(internal('submit', { token: 'D'.repeat(43), name: 'Elsewhere', answers: answerKeys }, elsewhere))).status, 200);
+  // The stored key is scoped to this quiz and never reaches the owner or a player.
+  const stored = ctx.data.get('know-me-room').players;
+  assert.ok(stored.slice(0, 4).every(player => player.networkKey === stored[0].networkKey)); assert.notEqual(stored[0].networkKey, stored[4].networkKey);
+  assert.ok(stored.every(player => /^[A-Za-z0-9_-]{43}$/u.test(player.networkKey) && player.networkKey !== home && player.networkKey !== elsewhere));
+  const other = context(), otherRoom = new KnowMeRoom(other);
+  await otherRoom.fetch(internal('init', { ...createBody(), code: 'ZYXWVUTS2345' }, home));
+  await otherRoom.fetch(internal('submit', { token: 'A'.repeat(43), name: 'First', answers: answerKeys }, home));
+  assert.notEqual(other.data.get('know-me-room').players[0].networkKey, stored[0].networkKey);
+  for (const token of [hostToken, 'A'.repeat(43), 'E'.repeat(43)]) {
+    const serialized = JSON.stringify(await (await object.fetch(internal('state', { token }, elsewhere))).json());
+    assert.equal(serialized.includes('networkKey'), false);
+    for (const player of stored) assert.equal(serialized.includes(player.networkKey), false);
+  }
+});
+
+test('scores saved before the network cap do not count against it', async () => {
+  const { ctx, object } = await setup();
+  const room = ctx.data.get('know-me-room');
+  room.players = [0, 1, 2].map(index => ({ id: `legacy${index}`, name: `Legacy ${index}`, tokenHash: `legacy-hash-${index}`, score: 5, submittedAt: Date.now() }));
+  ctx.data.set('know-me-room', room);
+  for (const token of ['A', 'B', 'J', 'K'].map(letter => letter.repeat(43))) assert.equal((await object.fetch(internal('submit', { token, name: 'Friend', answers: answerKeys }))).status, 200);
+  assert.equal((await (await object.fetch(internal('submit', { token: 'C'.repeat(43), name: 'Friend', answers: answerKeys }))).json()).code, 'QUIZ_NETWORK_LIMIT');
+});
+
+test('the public API applies the network cap from the connecting address, not from a client header', async () => {
+  const { env } = environment();
+  const created = await (await worker.fetch(external('create', createBody()), env)).json();
+  const submit = (token, ip, extra = {}) => worker.fetch(new Request(`https://api.riddlearabia.com/api/know-me/${created.code}/submit`, {
+    method: 'POST', headers: { 'content-type': 'application/json', origin: 'https://riddlearabia.com', 'cf-connecting-ip': ip, ...extra },
+    body: JSON.stringify({ token, name: 'Friend', answers: answerKeys }),
+  }), env);
+  assert.equal((await submit('A'.repeat(43), '198.51.100.10')).status, 200);
+  for (const token of ['B', 'J', 'K']) assert.equal((await submit(token.repeat(43), '198.51.100.10')).status, 200);
+  const fifth = await submit('C'.repeat(43), '198.51.100.10', { 'x-know-me-client-key': 'F'.repeat(43) });
+  assert.equal(fifth.status, 409); assert.equal((await fifth.json()).code, 'QUIZ_NETWORK_LIMIT');
+  assert.equal(fifth.headers.get('access-control-allow-origin'), 'https://riddlearabia.com');
+  assert.equal((await submit('C'.repeat(43), '198.51.100.11')).status, 200);
 });
 
 test('close is owner-only, deletes all stored quiz state immediately and permits harmless lost-response retry', async () => {

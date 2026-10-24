@@ -379,6 +379,7 @@ function assertInsideViewport(rect, viewport, label) {
 
 let completedSuites = 0;
 async function runTest(name, callback) {
+  if (process.env.JAKH_ONLY && !new RegExp(process.env.JAKH_ONLY).test(name)) return;
   const started = performance.now();
   await callback();
   completedSuites++;

@@ -1,0 +1,58 @@
+# TEMPORARY: reproduce the Firefox-only release-matrix failure from 24 Oct 2026
+# (speech test, math-062 card). Never merge; the PR is closed after diagnosis.
+name: Debug Firefox card flip
+on:
+  pull_request:
+    paths: [".github/workflows/debug-firefox-card-flip.yml"]
+permissions:
+  contents: read
+jobs:
+  firefox:
+    name: firefox ${{ matrix.label }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { label: "before-today 7e5dc4bc", ref: "7e5dc4bc6d41558e30986e3d527e97d692f56ae5" }
+          - { label: "after #157 f2a30cb1", ref: "f2a30cb1" }
+          - { label: "after #148 5ac01b7e", ref: "5ac01b7e" }
+          - { label: "after #160 985e07d5", ref: "985e07d5" }
+          - { label: "main 7c78acfc", ref: "7c78acfc6ef453f90af1413d4ca8296b17109d70" }
+          - { label: "instrumented main", ref: "" }
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ matrix.ref || github.event.pull_request.head.sha }}
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+      - name: Install
+        run: |
+          npm ci --no-audit --no-fund
+          npm ci --prefix site-worker --no-audit --no-fund
+      - name: Run only the speech test when requested
+        run: |
+          grep -q "JAKH_ONLY" scripts/browser-regression.mjs || sed -i 's/^async function runTest(name, callback) {$/async function runTest(name, callback) {\n  if (process.env.JAKH_ONLY \&\& !new RegExp(process.env.JAKH_ONLY).test(name)) return;/' scripts/browser-regression.mjs
+          grep -n "JAKH_ONLY" scripts/browser-regression.mjs
+      - name: Build
+        run: npm run build:site
+      - name: Install Firefox
+        run: ./node_modules/.bin/playwright install --with-deps firefox
+      - name: Run the speech test five times in Firefox
+        env:
+          JAKH_SITE_ROOT: ${{ github.workspace }}/site-worker/dist
+          JAKH_SITE_MANIFEST: ${{ github.workspace }}/site-worker/generated/site-manifest.json
+          JAKH_BROWSER_ENGINE: firefox
+          JAKH_ONLY: "real Arabic question buttons"
+        run: |
+          pass=0
+          for i in 1 2 3 4 5; do
+            if node scripts/browser-regression.mjs > run-$i.log 2>&1; then :; fi
+            if grep -q "PASS real Arabic question buttons" run-$i.log; then pass=$((pass+1)); echo "RUN $i PASS"; else echo "RUN $i FAIL"; grep -E "DEBUG|Error|intercepts" run-$i.log | head -30; fi
+            grep "DEBUG" run-$i.log | head -12 || true
+          done
+          echo "RESULT ${{ matrix.label }}: $pass/5 passed"

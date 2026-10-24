@@ -14,9 +14,8 @@ jobs:
       matrix:
         include:
           - { label: "before-today 7e5dc4bc", ref: "7e5dc4bc6d41558e30986e3d527e97d692f56ae5" }
-          - { label: "after #158 3e599bb6", ref: "3e599bb686e84aeca0d4e6367221b34b215e9652" }
-          - { label: "after #157 f2a30cb1", ref: "f2a30cb11ad820e9ae9b83a005dfe416b994baa5" }
-          - { label: "instrumented main", ref: "" }
+          - { label: "main 7c78acfc", ref: "7c78acfc6ef453f90af1413d4ca8296b17109d70" }
+          - { label: "fix PR 163 5a660e98", ref: "5a660e981c722a828992562850a3aa63e910a044" }
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
@@ -54,3 +53,4 @@ jobs:
             true
           done
           echo "RESULT ${{ matrix.label }}: $pass/12 passed"
+          echo "::notice title=RESULT::${{ matrix.label }}: $pass/12 passed"

@@ -73,9 +73,11 @@ jobs:
           node --test
           scripts/accessibility-contracts.test.mjs
           scripts/account-session.test.mjs
+          scripts/arabic-count.test.mjs
           scripts/arabic-routes.test.mjs
           scripts/content-review.test.mjs
           scripts/content-overrides.test.mjs
+          scripts/directory-ui.test.mjs
           scripts/quick-fire-content.test.mjs
           scripts/battle-selection.test.mjs
           scripts/game-selection-loader.test.mjs
@@ -98,6 +100,7 @@ jobs:
           scripts/public-seo-release-contract.test.mjs
           scripts/publication-quarantine.test.mjs
           scripts/responsive-layout-contract.test.mjs
+          scripts/search-index.test.mjs
           scripts/seo-pagination.test.mjs
           scripts/seo-validation-contract.test.mjs
           scripts/service-worker-contract.test.mjs

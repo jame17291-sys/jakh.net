@@ -2,6 +2,7 @@ import {
   ROUND_SIZE, LEVELS, normalizeLevel, planRound, replacementId, restoreRound, reveal, answerCard,
   replaceCurrent, isFinished, roundScore, rememberSeen, updateBest,
 } from './shuffle-challenge-engine.js';
+import { AR_COUNT, arabicCount } from './arabic-count.js';
 
 const KEYS = { round: 'ra-shuffle-round-v1', seen: 'ra-shuffle-seen-v1', best: 'ra-shuffle-best-v1', level: 'ra-shuffle-level-v1' };
 const LONG_QUESTION = 170;
@@ -12,7 +13,7 @@ const LEVEL_COLOR = { easy: 'var(--easy)', medium: 'var(--medium)', hard: 'var(-
 const COPY = {
   en: {
     setupTitle: 'Pick your level',
-    setupNote: '10 cards from 10 different topics, drawn at random from all {n} topics.',
+    setupNote: '10 cards from 10 different topics, drawn at random from all {n}.',
     levelLegend: 'Level',
     hints: { mixed: 'Any level', easy: 'Easy', medium: 'Medium', hard: 'Hard', 'very-advanced': 'Expert' },
     mixed: 'Mixed',
@@ -41,14 +42,14 @@ const COPY = {
   },
   ar: {
     setupTitle: 'اختر المستوى',
-    setupNote: '10 بطاقات من 10 مواضيع مختلفة، تُسحب عشوائيًا من بين {n} موضوعًا.',
+    setupNote: '10 بطاقات من 10 موضوعات مختلفة، تُسحب عشوائيًا من بين {n}.',
     levelLegend: 'المستوى',
     hints: { mixed: 'كل المستويات', easy: 'سهل', medium: 'متوسط', hard: 'صعب', 'very-advanced': 'صعب جدًا' },
     mixed: 'منوّع',
     start: 'اخلط وابدأ',
     savedNote: 'تبقى جولتك وأفضل نتائجك على هذا الجهاز فقط.',
     loading: 'جارٍ خلط البطاقات…',
-    unavailable: 'تعذّر تحميل قائمة المواضيع الآن. حاول مرة أخرى بعد قليل.',
+    unavailable: 'تعذّر تحميل قائمة الموضوعات الآن. حاول مرة أخرى بعد قليل.',
     loadError: 'تعذّر تحميل هذه البطاقة. تحقّق من اتصالك ثم حاول مجددًا.',
     retry: 'حاول مجددًا',
     progress: 'البطاقة {i} من {n}',
@@ -64,7 +65,7 @@ const COPY = {
     best: 'أفضل نتيجة لك في هذا المستوى: {b} من {n}',
     playAgain: 'اخلط مرة أخرى',
     changeLevel: 'غيّر المستوى',
-    recap: 'مواضيع هذه الجولة',
+    recap: 'موضوعات هذه الجولة',
     results: { knew: 'كنت أعرفها', missed: 'لم أعرفها', skipped: 'تم التخطي' },
     explore: 'افتح الموضوع',
   },
@@ -88,6 +89,10 @@ export function createShuffleChallenge(api) {
   const topics = () => api.topics();
   const topicMeta = slug => topics().find(topic => topic.slug === slug);
   const levelLabel = value => value === 'mixed' ? copy.mixed : api.levelLabel(value);
+  // «من بين» takes the genitive dual (موضوعين).
+  const topicCount = count => lang === 'ar'
+    ? arabicCount(count, { ...AR_COUNT.topic, two: 'موضوعين' })
+    : `${count} ${count === 1 ? 'topic' : 'topics'}`;
   const saveRound = () => api.saveJson(KEYS.round, round);
 
   function loadCards(slug) {
@@ -117,7 +122,7 @@ export function createShuffleChallenge(api) {
     }).join('');
     return `<section class="shuffle-panel shuffle-setup" aria-labelledby="shuffleSetupTitle">
       <h2 id="shuffleSetupTitle" tabindex="-1">${e(copy.setupTitle)}</h2>
-      <p class="shuffle-setup-note">${e(fill(copy.setupNote, { n: count }))}</p>
+      <p class="shuffle-setup-note">${e(fill(copy.setupNote, { n: topicCount(count) }))}</p>
       <fieldset class="shuffle-levels"><legend class="sr-only">${e(copy.levelLegend)}</legend>${options}</fieldset>
       <button type="button" class="primary-btn shuffle-start" data-shuffle="start">🔀 ${e(copy.start)}</button>
       <p class="shuffle-fine-print">${e(copy.savedNote)}</p>
@@ -138,18 +143,21 @@ export function createShuffleChallenge(api) {
     const item = round.items[round.position];
     const question = card.question[lang], answer = card.answer[lang];
     const topicColor = COLOR.test(meta?.color || '') ? meta.color : 'var(--accent)';
+    const subtopic = typeof card.subcategory?.[lang] === 'string' ? card.subcategory[lang].trim() : '';
+    // Focus moves to "I knew it" after a reveal, so both choices are described
+    // by the answer and a screen reader announces it with the focused button.
     const actions = round.revealed
-      ? `<button type="button" class="primary-btn shuffle-knew" data-shuffle="knew">✓ ${e(copy.knew)}</button>
-         <button type="button" class="ghost-btn shuffle-missed" data-shuffle="missed">✗ ${e(copy.missed)}</button>`
+      ? `<button type="button" class="primary-btn shuffle-knew" data-shuffle="knew" aria-describedby="shuffleAnswer">✓ ${e(copy.knew)}</button>
+         <button type="button" class="ghost-btn shuffle-missed" data-shuffle="missed" aria-describedby="shuffleAnswer">✗ ${e(copy.missed)}</button>`
       : `<button type="button" class="primary-btn shuffle-reveal" data-shuffle="reveal">${e(copy.showAnswer)}</button>
          <button type="button" class="ghost-btn shuffle-skip" data-shuffle="skip">${e(copy.skip)}</button>`;
     return `<article class="shuffle-card${round.revealed ? ' is-revealed' : ''}" style="--topic-color:${topicColor};--level-color:${LEVEL_COLOR[card.difficulty] || 'var(--accent)'}" data-card-id="${e(item.id)}">
       <header class="shuffle-card-head">
-        <span class="shuffle-topic"><span aria-hidden="true">${e(meta?.emoji || '🎯')}</span> ${e(meta?.title?.[lang] || item.slug)}</span>
+        <span class="shuffle-topic"><span aria-hidden="true">${e(meta?.emoji || '🎯')}</span> ${e(meta?.title?.[lang] || item.slug)}${subtopic ? `<span class="shuffle-subtopic"><span aria-hidden="true"> · </span><span class="sr-only">${lang === 'ar' ? '، ' : ', '}</span>${e(subtopic)}</span>` : ''}</span>
         <span class="shuffle-level-badge">${e(api.levelLabel(card.difficulty))}</span>
       </header>
       <h2 class="shuffle-question${question.length > LONG_QUESTION ? ' is-long' : ''}" tabindex="-1">${e(question)}</h2>
-      ${round.revealed ? `<div class="shuffle-answer"><p class="shuffle-answer-label">${e(copy.answer)}</p><p class="shuffle-answer-text${answer.length > LONG_ANSWER ? ' is-long' : ''}">${e(answer)}</p></div>` : ''}
+      ${round.revealed ? `<div class="shuffle-answer" id="shuffleAnswer"><p class="shuffle-answer-label">${e(copy.answer)}</p><p class="shuffle-answer-text${answer.length > LONG_ANSWER ? ' is-long' : ''}">${e(answer)}</p></div>` : ''}
       <footer class="shuffle-actions">${actions}</footer>
     </article>`;
   }

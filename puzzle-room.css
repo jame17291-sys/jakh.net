@@ -9,7 +9,7 @@
 .puzzle-card { display:flex; flex-direction:column; min-height:224px; padding:1.5rem; border:1px solid var(--line); border-radius:var(--radius-sm); background:var(--panel); box-shadow:0 3px 10px #46271305; transition:border-color .15s,transform .15s; }
 .puzzle-card:hover { border-color:var(--accent); transform:translateY(-2px); }
 .puzzle-card-top { display:flex; justify-content:space-between; gap:.5rem; color:var(--muted); font-size:.75rem; font-weight:700; }
-.puzzle-card h3 { font-family:var(--font-display); font-size:1.5rem; line-height:1.35; margin:.8rem 0 .55rem; }
+.puzzle-card :is(h2,h3) { font-family:var(--font-display); font-size:1.5rem; line-height:1.35; letter-spacing:normal; margin:.8rem 0 .55rem; }
 .puzzle-card p { color:var(--muted); font-size:.94rem; line-height:1.7; margin:0 0 1.1rem; }
 .puzzle-card-bottom { margin-top:auto; display:flex; justify-content:space-between; gap:.4rem; color:var(--accent); font-size:.82rem; font-weight:700; }
 .puzzle-saved { color:var(--easy); }

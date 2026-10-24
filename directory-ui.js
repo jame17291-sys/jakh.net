@@ -1,4 +1,10 @@
 import { illustrationMarkup, SECTION_ILLUSTRATIONS, TOPIC_ILLUSTRATIONS } from './site-illustrations.js';
+import { AR_COUNT, arabicCount } from './arabic-count.js';
+
+const plural = (count, one, many) => `${count} ${count === 1 ? one : many}`;
+// After على/في the dual takes its genitive form.
+const AR_MATCHING_TOPICS = { one: 'موضوع واحد مطابق', two: 'موضوعين مطابقين', few: 'موضوعات مطابقة', many: 'موضوعًا مطابقًا', other: 'موضوع مطابق' };
+const AR_SECTIONS_GENITIVE = { ...AR_COUNT.section, two: 'قسمين' };
 
 export function createDirectoryUi({
   state,
@@ -46,8 +52,8 @@ export function createDirectoryUi({
       const title = escapeHtml(section.title[state.lang] || section.title.en);
       const description = escapeHtml(section.description[state.lang] || section.description.en);
       const questionTotal = categories.reduce((total, category) => total + Number(category.count || 0), 0);
-      const categoryLabel = isAr ? `${categories.length} موضوعًا` : `${categories.length} topics`;
-      const questionLabel = isAr ? `${questionTotal} سؤال` : `${questionTotal} questions`;
+      const categoryLabel = isAr ? arabicCount(categories.length, AR_COUNT.topic) : plural(categories.length, 'topic', 'topics');
+      const questionLabel = isAr ? arabicCount(questionTotal, AR_COUNT.question) : plural(questionTotal, 'question', 'questions');
       return `<section id="section-${escapeHtml(section.key)}" class="directory-section-header" style="--section-gradient:${escapeHtml(section.gradient)};--section-accent:${escapeHtml(section.accent)};">
         ${illustrationMarkup(SECTION_ILLUSTRATIONS[section.key], 'section')}
         <div><h3>${title}</h3><p>${description}</p></div>
@@ -56,10 +62,10 @@ export function createDirectoryUi({
     }).join('');
 
     els.directoryResultsLabel.textContent = searchTerm
-      ? (isAr ? `عُثر على ${visibleCategoryCount} موضوعًا مطابقًا.` : `${visibleCategoryCount} matching topics found.`)
+      ? (isAr ? `عُثر على ${arabicCount(visibleCategoryCount, AR_MATCHING_TOPICS)}.` : `${plural(visibleCategoryCount, 'matching topic', 'matching topics')} found.`)
       : isAr
-        ? `${visibleCategoryCount} موضوعًا في ${visibleSectionCount} أقسام.`
-        : `${visibleCategoryCount} topics in ${visibleSectionCount} ${visibleSectionCount === 1 ? 'section' : 'sections'}.`;
+        ? `${arabicCount(visibleCategoryCount, AR_COUNT.topic)} في ${arabicCount(visibleSectionCount, AR_SECTIONS_GENITIVE)}.`
+        : `${plural(visibleCategoryCount, 'topic', 'topics')} in ${plural(visibleSectionCount, 'section', 'sections')}.`;
     els.categoryDirectoryGrid.setAttribute('aria-labelledby', `directory-tab-${state.cluster}`);
     els.categoryDirectoryGrid.innerHTML = markup || `<div class="empty-state directory-empty-state"><h3>${isAr ? 'لا توجد نتائج مطابقة.' : 'No matching topics.'}</h3><p>${isAr ? 'جرّب قسمًا آخر أو امسح البحث الحالي.' : 'Try another section or clear the current search.'}</p></div>`;
   }
@@ -82,7 +88,7 @@ export function createDirectoryUi({
       const name = section.title[state.lang] || section.title.en;
       const active = state.cluster === section.key;
       return `<button type="button" id="directory-tab-${escapeHtml(section.key)}" class="ml-cluster-tab${active ? ' is-active' : ''}" data-cluster="${escapeHtml(section.key)}" role="tab" aria-selected="${active}" aria-controls="categoryDirectoryGrid" tabindex="${active ? '0' : '-1'}" aria-label="${escapeHtml(name)}">
-        <span class="ml-cluster-tab-name">${escapeHtml(name)}</span><span class="ml-cluster-tab-count">${section.categoryCount} ${isAr ? 'موضوعًا' : 'topics'}</span>
+        <span class="ml-cluster-tab-name">${escapeHtml(name)}</span><span class="ml-cluster-tab-count">${isAr ? arabicCount(section.categoryCount, AR_COUNT.topic) : plural(section.categoryCount, 'topic', 'topics')}</span>
       </button>`;
     }).join('');
     const renderedTabs = [...tabBar.querySelectorAll('[role="tab"][data-cluster]')];

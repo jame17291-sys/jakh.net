@@ -1,3 +1,5 @@
+import { AR_COUNT, arabicCount } from './arabic-count.js';
+
 // Selection controls load only with Battle Room, outside the startup bundle.
 export function createBattleSelection(dependencies) {
   const {
@@ -175,7 +177,7 @@ function refreshBattleSelection() {
         : battleState.selectionError
           ? (isAr ? 'تعذّر فحص الأسئلة. تحقق من الاتصال ثم أعد المحاولة.' : 'Could not check questions. Check your connection and try again.')
           : ready && available >= 5
-            ? (isAr ? `${available} سؤالًا بخيارات مُعدّة متاحًا لهذا المستوى. المستويات التي تحتوي على أقل من 5 أسئلة غير متاحة للمعركة.` : `${available} prepared questions available for this level. Levels with fewer than 5 questions are unavailable for Battle Room.`)
+            ? (isAr ? `يتوفر لهذا المستوى ${arabicCount(available, AR_COUNT.question)} بخيارات مُعدّة. المستويات التي تحتوي على أقل من 5 أسئلة غير متاحة للمعركة.` : `${available} prepared questions available for this level. Levels with fewer than 5 questions are unavailable for Battle Room.`)
             : (isAr ? 'يحتاج هذا الموضوع إلى 5 أسئلة بخيارات مُعدّة لإنشاء غرفة. اختر موضوعًا آخر أو استخدم التدريب المجاني.' : 'This topic needs 5 prepared questions to create a room. Choose another topic or use free practice.');
   }
   document.getElementById('battleRetryQuestionsBtn')?.classList.toggle('hidden', !battleState.selectionError);

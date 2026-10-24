@@ -1,4 +1,5 @@
 import { KIDS_STORAGE_KEY, KIDS_DAYS, emptyToolkit, normalizeToolkit, toggleActivity, planActivity, mergeWeeklyPlan, movePlannedActivity, matchesActivity, localizedKidsURL } from '/kids-state.js';
+import { AR_COUNT, arabicCount } from '/arabic-count.js';
 
 const ar = document.documentElement.lang === 'ar';
 const lang = ar ? 'ar' : 'en';
@@ -267,7 +268,9 @@ function applyFilters(updateURL = true) {
     card.hidden = !match || matches.length > shownLimit;
   }
   const visible = Math.min(matches.length, shownLimit);
-  const description = t(`Showing ${visible} of ${matches.length} activities`, `عرض ${visible} من ${matches.length} نشاطًا`);
+  // «من» takes the genitive dual; "more" agrees with آخر/أخرى.
+  const description = t(`Showing ${visible} of ${matches.length} activities`, `عرض ${visible} من ${arabicCount(matches.length, { ...AR_COUNT.activity, two: 'نشاطين' })}`);
+  const moreCount = Math.max(0, Math.min(PAGE_SIZE, matches.length - visible));
   for (const mount of $$('[data-kids-count]')) {
     mount.setAttribute('role', 'status');
     mount.setAttribute('aria-live', 'polite');
@@ -277,7 +280,7 @@ function applyFilters(updateURL = true) {
   for (const mount of $$('[data-kids-empty]')) mount.hidden = matches.length !== 0;
   for (const more of $$('[data-kids-more]')) {
     more.hidden = matches.length <= shownLimit;
-    more.textContent = t(`Show ${Math.max(0, Math.min(PAGE_SIZE, matches.length - visible))} more activities`, `اعرض ${Math.max(0, Math.min(PAGE_SIZE, matches.length - visible))} أنشطة أخرى`);
+    more.textContent = t(`Show ${moreCount} more activities`, `اعرض ${arabicCount(moreCount, { one: 'نشاطًا آخر', two: 'نشاطين آخرين', few: 'أنشطة أخرى', many: 'نشاطًا آخر', other: 'نشاط آخر' })}`);
   }
   if (updateURL) {
     const url = new URL(location.href);

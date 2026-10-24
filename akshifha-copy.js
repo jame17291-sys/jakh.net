@@ -44,7 +44,7 @@ export const AKSHIFHA_UI = {
     akFeedback: 'Found an unclear clue?', akFeedbackNote: 'Tell us the case number and what felt ambiguous.',
   },
   ar: {
-    metaTitle: 'اكشفها: اربط الأدلة واكتشف الحل | Riddle Arabia',
+    metaTitle: 'اكشفها: اربط الأدلة واكتشف الحل | ريدل أرابيا',
     metaDescription: "اربط بين دليلين واكتشف ما يمكن استنتاجه. إحدى عشرة قضية مجانية، منها ست قضايا جديدة، بالعربية والإنجليزية. بلا حساب أو مؤقّت.",
     akSkip: 'انتقل إلى القضية', akHome: 'الصفحة الرئيسية لرِدل أرابيا', akNavigation: 'التنقل بين الألعاب',
     akGames: 'الألعاب', akLanguage: 'اللغة', akEyebrow: 'دليل صغير. لحظة اكتشاف كبيرة.',

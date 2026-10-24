@@ -1,5 +1,10 @@
 import { puzzleURL } from './puzzle-routes.js';
 import { PUZZLES, dayKey, seedFor, storageKey } from './puzzle-catalog.js';
+import { AR_COUNT, arabicCount } from './arabic-count.js';
+
+const AR_FOUND_WORDS = { one: 'كلمة واحدة مكتشفة', two: 'كلمتان مكتشفتان', few: 'كلمات مكتشفة', many: 'كلمة مكتشفة', other: 'كلمة مكتشفة' };
+const AR_MISTAKES = { one: 'خطأ واحد', two: 'خطآن', few: 'أخطاء', many: 'خطأً', other: 'خطأ' };
+const AR_HINTS = { one: 'تلميح واحد', two: 'تلميحان', few: 'تلميحات', many: 'تلميحًا', other: 'تلميح' };
 
 export const DAILY_GAMES = PUZZLES.filter(p => !['bonus', 'duel'].includes(p.id));
 export const ACTIVITY_KEY = 'ra-puzzle-activity-v1';
@@ -113,11 +118,11 @@ export function resultText({ game, lang, date, variant = 'standard', difficulty 
   else lines.push(t('Can you solve this puzzle?', 'هل تستطيع حل هذا اللغز؟'));
   if (ended) {
     if (game === 'word') lines.push(t(`${count(state.guesses, 6)}/${variant === 'clue' ? 5 : 6} guesses`, `${count(state.guesses, 6)}/${variant === 'clue' ? 5 : 6} محاولات`));
-    if (game === 'links') lines.push(t(`${count(state.mistakes, 4)} mistakes`, `${count(state.mistakes, 4)} أخطاء`));
-    if (game === 'hive') lines.push(t(`${count(state.found)} words found`, `${count(state.found)} كلمة مكتشفة`));
-    if (game === 'letter-square') lines.push(t(`${count(state.chain)} words`, `${count(state.chain)} كلمات`));
-    if (game === 'mosaic') lines.push(t(`${number(state.score)} points`, `${number(state.score)} نقطة`));
-    if (['sudoku', 'trails', 'mosaic'].includes(game)) lines.push(t(`${number(state.hints ?? state.hintsUsed)} hints`, `${number(state.hints ?? state.hintsUsed)} تلميحات`));
+    if (game === 'links') lines.push(t(`${count(state.mistakes, 4)} mistakes`, arabicCount(count(state.mistakes, 4), AR_MISTAKES)));
+    if (game === 'hive') lines.push(t(`${count(state.found)} words found`, arabicCount(count(state.found), AR_FOUND_WORDS)));
+    if (game === 'letter-square') lines.push(t(`${count(state.chain)} words`, arabicCount(count(state.chain), AR_COUNT.word)));
+    if (game === 'mosaic') lines.push(t(`${number(state.score)} points`, arabicCount(number(state.score), AR_COUNT.point)));
+    if (['sudoku', 'trails', 'mosaic'].includes(game)) lines.push(t(`${number(state.hints ?? state.hintsUsed)} hints`, arabicCount(number(state.hints ?? state.hintsUsed), AR_HINTS)));
     if (state.assisted || variant === 'clue' || variant === 'starter') lines.push(t('Played with help', 'بمساعدة'));
   }
   lines.push(t('Play the same puzzle:', 'جرّب اللغز نفسه:'), challengeURL({ game, lang, date, variant, difficulty: level }, origin));

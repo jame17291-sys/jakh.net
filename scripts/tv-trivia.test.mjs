@@ -76,6 +76,7 @@ test('the expansion preserves original identifiers and records every new or chan
   const original = JSON.parse(fs.readFileSync(new URL('../docs/content-review/mindlab-remediation-2026-09-23.json', import.meta.url)));
   const followup = JSON.parse(fs.readFileSync(new URL('../docs/content-review/tv-trivia-followup-2026-09-30.json', import.meta.url)));
   const arabicRewrite = JSON.parse(fs.readFileSync(new URL('../docs/content-review/arabic-everyday-2026-10-21.json', import.meta.url)));
+  const cardPolish = JSON.parse(fs.readFileSync(new URL('../docs/content-review/card-polish-2026-10-24.json', import.meta.url)));
   const digest = c => crypto.createHash('sha256').update(JSON.stringify(c)).digest('hex');
   const latestHash = entry => {
     const next = followup.changes.find(c => c.id === entry.id);
@@ -86,7 +87,9 @@ test('the expansion preserves original identifiers and records every new or chan
     const settled = next?.afterHash || entry.afterHash;
     const rewrite = arabicRewrite.changes.find(c => c.id === entry.id);
     if (rewrite) assert.equal(rewrite.beforeHash, settled, `${entry.id}: Arabic rewrite preserves earlier history`);
-    return rewrite?.afterHash || settled;
+    const polish = cardPolish.changes.find(c => c.id === entry.id);
+    if (polish) assert.equal(polish.beforeHash, rewrite?.afterHash || settled, `${entry.id}: card polish preserves earlier history`);
+    return polish?.afterHash || rewrite?.afterHash || settled;
   };
   assert.deepEqual(cards.slice(0,250).map(c => c.id), Array.from({length:250}, (_,i) => `tv-shows-trivia-${String(i+1).padStart(3,'0')}`));
   assert.equal(expansion.additions.length, 550);

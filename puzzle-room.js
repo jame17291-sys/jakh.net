@@ -78,7 +78,8 @@ function card(p,index,bonus=false) {
  a.append(top);
  const art=illustrationAttributes(gameIllustrationId(p.id,p.variant),'game');
  if(art){const image=element('img');for(const [name,value] of Object.entries(art))image.setAttribute(name,value);a.append(image);}
- a.append(element('h3',pick(p.title)),element('p',pick(p.desc)));
+ // Bonus cards sit directly under the page's h1, so they are level-2 headings there.
+ a.append(element(bonus?'h2':'h3',pick(p.title)),element('p',pick(p.desc)));
  const bottom=element('div',undefined,'puzzle-card-bottom');bottom.append(element('span',p.id==='bonus'?t('Explore puzzles','استكشف التحديات'):t('Play now','العب الآن')));
  const key=progressKey(p.id,lang,day,p.variant), saved=stored(key);
  const complete=verifiedResults.get(key)===true||(!bonus&&dailySummary(activity(),lang,day).completed.includes(p.id));

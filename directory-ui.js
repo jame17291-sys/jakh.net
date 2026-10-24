@@ -131,7 +131,7 @@ export function createDirectoryUi({
         state.directorySearch = els.categorySearchInput.value.trim().toLowerCase();
         renderDirectory();
         if (state.directorySearch) {
-          trackEvent('search', { search_term: state.directorySearch, search_scope: 'directory' });
+          trackEvent('search', { search_scope: 'directory' });
         }
       }, 250);
     });

@@ -169,14 +169,31 @@ test("quarantined paths return policy-complete 410 responses before asset access
   for (const pathname of paths) {
     const response = await handler.fetch(new Request(`${PRIMARY_ORIGIN}${pathname}`), blockedEnvironment);
     assert.equal(response.status, 410, pathname);
-    assert.equal(response.headers.get("cache-control"), "no-store", pathname);
+    // HTML keeps the site-wide no-transform guard (docs/HTML-DELIVERY-POLICY.md).
+    assert.match(response.headers.get("cache-control"), /^no-store(?:, no-transform)?$/u, pathname);
     assert.equal(response.headers.get("x-jakh-content-quarantine"), "active", pathname);
     assert.equal(response.headers.get("clear-site-data"), '"cache"', pathname);
     assert.match(response.headers.get("x-robots-tag"), /noindex.*nofollow.*noarchive.*nosnippet/u, pathname);
     assertSecurityHeaders(response);
   }
   const heldCopy = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/survival`), blockedEnvironment);
-  assert.equal(await heldCopy.text(), "This content is temporarily unavailable.\n");
+  assert.match(heldCopy.headers.get("content-type"), /^text\/html;/u);
+  const heldPage = await heldCopy.text();
+  assert.match(heldPage, /<html lang="en" dir="ltr">/u);
+  assert.match(heldPage, /This content is temporarily unavailable\./u);
+  assert.match(heldPage, /هذا المحتوى غير متاح مؤقتًا/u);
+  assert.doesNotMatch(heldPage, /<script|src=/iu, "held page loads nothing");
+  for (const slug of siteManifest.publication.quarantinedCategories) {
+    assert.ok(!heldPage.includes(slug), `held page never names or links ${slug}`);
+  }
+  const arabicHeld = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/ar/topics/pharmacy/`), blockedEnvironment);
+  assert.equal(arabicHeld.status, 410);
+  const arabicPage = await arabicHeld.text();
+  assert.match(arabicPage, /<html lang="ar" dir="rtl">/u);
+  assert.ok(arabicPage.indexOf("غير متاح") < arabicPage.indexOf("temporarily unavailable"), "Arabic first on Arabic paths");
+  const heldData = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/data/pharmacy.json`), blockedEnvironment);
+  assert.match(heldData.headers.get("content-type"), /^text\/plain;/u);
+  assert.equal(await heldData.text(), "This content is temporarily unavailable.\n");
   assert.doesNotMatch(await handler.fetch(new Request(`${PRIMARY_ORIGIN}/survival`), blockedEnvironment).then((response) => response.text()), /review/iu);
   const head = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/data/%73urvival.json`, { method: "HEAD" }), blockedEnvironment);
   assert.equal(head.status, 410);

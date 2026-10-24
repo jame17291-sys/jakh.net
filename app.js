@@ -1136,7 +1136,13 @@ function getGuestFavorites() { return projectPublicFavoriteIds(getRawGuestFavori
 function publicAccountProgress() { return (state.dbUser?.progress || []).filter(item => publicCardIds.has(item?.cardId)); }
 function publicAccountFavorites() { return (state.dbUser?.favorites || []).filter(item => publicCardIds.has(item?.cardId)); }
 function _guestStatus(v) {
-  return typeof v === 'object' && v !== null ? v.status : v;
+  const status = typeof v === 'object' && v !== null ? v.status : v;
+  // Stored progress can be damaged or hand-edited; never let it break the counts.
+  return typeof status === 'string' ? status : '';
+}
+
+function isSolvedStatus(status) {
+  return typeof status === 'string' && status !== '' && !status.startsWith('wrong-');
 }
 
 const ACHIEVEMENTS = [
@@ -1283,6 +1289,15 @@ const API_ORIGIN = IS_LOCAL_PREVIEW
   ? `${location.protocol}//${location.hostname}:8787`
   : 'https://api.riddlearabia.com';
 const API_URL = `${API_ORIGIN}/api`;
+// A stalled request must not leave Profile, Leaderboard or Battle loading forever.
+const API_TIMEOUT_MS = 15_000;
+
+function apiRequestSignal(callerSignal) {
+  if (typeof AbortSignal === 'undefined' || typeof AbortSignal.timeout !== 'function') return callerSignal;
+  const timeout = AbortSignal.timeout(API_TIMEOUT_MS);
+  if (!callerSignal) return timeout;
+  return typeof AbortSignal.any === 'function' ? AbortSignal.any([callerSignal, timeout]) : callerSignal;
+}
 
 async function apiFetch(endpoint, options = {}) {
   const requestOptions = { ...options, credentials: 'include' };
@@ -1294,7 +1309,7 @@ async function apiFetch(endpoint, options = {}) {
   const attempts = method === 'GET' ? 2 : 1;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
-      const res = await fetch(`${API_URL}${endpoint}`, requestOptions);
+      const res = await fetch(`${API_URL}${endpoint}`, { ...requestOptions, signal: apiRequestSignal(options.signal) });
       const contentType = res.headers.get('content-type') || '';
       const data = contentType.includes('application/json') ? await res.json() : {};
       if (!res.ok) {
@@ -1308,6 +1323,8 @@ async function apiFetch(endpoint, options = {}) {
       if (capabilityRecovered) applyCapabilityVisibility();
       return data;
     } catch (error) {
+      // The caller cancelled on purpose: neither retry nor mark the API as down.
+      if (options.signal?.aborted) throw error;
       if (attempt >= attempts || !isRetryableCloudError(error)) {
         if (isRetryableCloudError(error)) {
           state.apiAvailable = false;
@@ -1782,13 +1799,13 @@ function getCategoryProgress(slug) {
   const meta = state.catalog?.categories.find(c => c.slug === slug);
   const total = meta?.count || 1;
   if (state.dbUser) {
-    const solved = publicAccountProgress().filter(p => p.categoryId === slug && !p.status.startsWith('wrong-')).length;
+    const solved = publicAccountProgress().filter(p => p.categoryId === slug && isSolvedStatus(p.status)).length;
     return { solved, pct: Math.min(100, Math.round((solved / total) * 100)) };
   }
   const raw = getGuestSolvedMap();
   const solved = Object.values(raw).filter(v => {
     const entry = typeof v === 'object' && v !== null ? v : { status: v };
-    return entry.categoryId === slug && !entry.status.startsWith('wrong-');
+    return entry.categoryId === slug && isSolvedStatus(entry.status);
   }).length;
   return { solved, pct: Math.min(100, Math.round((solved / total) * 100)) };
 }
@@ -1812,8 +1829,8 @@ function getCorrectCountByDifficulty(diff, categoryId = null) {
 }
 
 function getTotalCorrectCount() {
-  if (state.dbUser) return publicAccountProgress().filter(p => !p.status.startsWith('wrong-')).length;
-  return Object.values(getGuestSolvedMap()).filter(v => !_guestStatus(v).startsWith('wrong-')).length;
+  if (state.dbUser) return publicAccountProgress().filter(p => isSolvedStatus(p.status)).length;
+  return Object.values(getGuestSolvedMap()).filter(v => isSolvedStatus(_guestStatus(v))).length;
 }
 
 function handleFlip(id) {
@@ -2430,8 +2447,8 @@ function bindCommonEvents() {
       syncFilterParams();
       renderCards();
       if (state.search) {
+        // Never send the visitor's own words to analytics; scope and category only.
         trackEvent('search', {
-          search_term: state.search,
           search_scope: 'category',
           category: state.categorySlug,
         });
@@ -3049,7 +3066,9 @@ function syncFilterParams() {
   if (state.view && state.view !== 'all') params.set('view', state.view); else params.delete('view');
   if (state.sort && state.sort !== 'featured') params.set('sort', state.sort); else params.delete('sort');
   if (state.subcategory && state.subcategory !== 'all') params.set('sub', state.subcategory); else params.delete('sub');
-  if (state.search) params.set('q', state.search); else params.delete('q');
+  // Search text stays out of the address bar so it never reaches analytics,
+  // history-based page views or referrers. Incoming ?q= links still work.
+  params.delete('q');
   history.replaceState(null, '', params.toString() ? `${location.pathname}?${params.toString()}` : location.pathname);
 }
 
@@ -4354,7 +4373,7 @@ async function loadStreak() {
   if (!state.dbUser) { state.streak = 0; state.freezeCount = 0; return; }
   try {
     const data = await apiFetch('/user/streak', { method: 'POST' });
-    state.streak = data.streak || 0;
+    state.streak = Math.max(0, Math.floor(Number(data.streak) || 0));
     state.freezeCount = data.freezeCount || 0;
   } catch (e) { state.streak = 0; state.freezeCount = 0; }
 }

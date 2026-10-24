@@ -182,9 +182,11 @@ test('service worker notifications use fixed safe text and only navigate to allo
   vm.runInNewContext(source, { self, URL, Request, Response, Set });
   const push = data => { let pending; handlers.get('push')({ data: { json: () => data }, waitUntil(value) { pending = value; } }); return pending; };
   await push({ type: 'word-duel', code: 'ABCD2345', lang: 'ar', kind: 'rematch', title: '<injected>', url: 'https://evil.test' });
-  assert.equal(notifications.length, 1); assert.match(notifications[0].title, /ريدل أرابيا/u); assert.match(notifications[0].options.data.url, /^\/ar\/play\/\?game=duel&duelRoom=ABCD2345$/u);
+  assert.equal(notifications.length, 1); assert.match(notifications[0].title, /ريدل أرابيا/u); assert.match(notifications[0].options.data.url, /^\/ar\/games\/word-duel\/\?duelRoom=ABCD2345$/u);
   await push({ type: 'word-duel', code: '../../evil' }); assert.equal(notifications.length, 1);
   let pending; const click = url => { handlers.get('notificationclick')({ notification: { tag: 'word-duel-ABCD2345', data: { url }, close() {} }, waitUntil(value) { pending = value; } }); return pending; };
   await click('https://evil.test/play?game=duel&duelRoom=ABCD2345'); assert.equal(opened.length, 0);
-  await click('/play?game=duel&duelRoom=ABCD2345&token=leak'); assert.deepEqual(opened, ['https://riddlearabia.com/play?game=duel&duelRoom=ABCD2345']);
+  // Old /play notifications land on the current address; extra parameters never pass through.
+  await click('/play?game=duel&duelRoom=ABCD2345&token=leak'); assert.deepEqual(opened, ['https://riddlearabia.com/word-duel?duelRoom=ABCD2345']);
+  await click('/ar/games/word-duel/?duelRoom=ABCD2345&token=leak'); assert.deepEqual(opened.at(-1), 'https://riddlearabia.com/ar/games/word-duel/?duelRoom=ABCD2345');
 });

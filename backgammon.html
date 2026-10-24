@@ -359,6 +359,7 @@
       text-align: center;
     }
     .bg-num-spacer { width: 36px; flex-shrink: 0; }
+    .bg-label-short { display: none; }
 
     @media (max-width: 480px) {
       .bg-controls { flex-direction: column; align-items: flex-start; }
@@ -381,18 +382,19 @@
         min-width: 22px;
       }
       .bg-bearoff-zone {
-        width: 26px !important;
-        min-width: 26px;
+        width: 30px !important;
+        min-width: 30px;
         padding-inline: 1px !important;
       }
-      .bg-bar-label,
+      .bg-bar-label { display: none; }
       .bg-bearoff-label {
         max-width: 100%;
-        overflow-wrap: anywhere;
         font-size: 0.625rem !important;
         line-height: 1.05;
         letter-spacing: 0 !important;
       }
+      .bg-label-full { display: none; }
+      .bg-label-short { display: inline; }
     }
   </style>
       <script type="application/ld+json">
@@ -471,6 +473,7 @@
       boardName: 'BACKGAMMON',
       bar: 'BAR',
       whiteOff: 'White Off',
+      offShort: 'Off',
       blackOff: 'Black Off',
       white: 'White',
       black: 'Black',
@@ -512,6 +515,7 @@
       boardName: 'طاولة الزهر',
       bar: 'الحاجز',
       whiteOff: 'الأبيض خارج الرقعة',
+      offShort: 'خارج',
       blackOff: 'الأسود خارج الرقعة',
       white: 'الأبيض',
       black: 'الأسود',
@@ -1032,9 +1036,9 @@
       // Checkers container
       var checkersDiv = document.createElement('div');
       if (rowClass === 'top') {
-        checkersDiv.style.cssText = 'display:flex;flex-direction:column;align-items:center;gap:1px;padding-top:2px;position:absolute;top:0;width:100%;';
+        checkersDiv.style.cssText = 'display:flex;flex-direction:column;align-items:center;gap:1px;padding-top:2px;position:absolute;top:0;width:100%;z-index:1;';
       } else {
-        checkersDiv.style.cssText = 'display:flex;flex-direction:column-reverse;align-items:center;gap:1px;padding-bottom:2px;position:absolute;bottom:0;width:100%;';
+        checkersDiv.style.cssText = 'display:flex;flex-direction:column-reverse;align-items:center;gap:1px;padding-bottom:2px;position:absolute;bottom:0;width:100%;z-index:1;';
       }
 
       if (pt.count > 0 && pt.color) {
@@ -1168,7 +1172,13 @@
       var lbl = document.createElement('div');
       lbl.className = 'bg-bearoff-label';
       lbl.style.cssText = 'font-size:0.8125rem;font-family:var(--font);color:#162638;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:4px;text-align:center;';
-      lbl.textContent = I.t(color === 'w' ? 'whiteOff' : 'blackOff');
+      var fullLabel = document.createElement('span');
+      fullLabel.className = 'bg-label-full';
+      fullLabel.textContent = I.t(color === 'w' ? 'whiteOff' : 'blackOff');
+      var shortLabel = document.createElement('span');
+      shortLabel.className = 'bg-label-short';
+      shortLabel.textContent = I.t('offShort');
+      lbl.append(fullLabel, shortLabel);
       lbl.dir = I.dir;
 
       var cnt = document.createElement('div');

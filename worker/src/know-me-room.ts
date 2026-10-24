@@ -89,7 +89,7 @@ export class KnowMeRoom {
     // deleted with the quiz when it closes or expires.
     const networkKey = await sha256(`know-me-submission:${room.code}:${clientKey}`);
     if (room.players.filter(player => player.networkKey === networkKey).length >= KNOW_ME_SUBMISSIONS_PER_NETWORK) {
-      throw new ApiError(409, 'Two people on this connection have already played this quiz.', undefined, 'QUIZ_NETWORK_LIMIT');
+      throw new ApiError(409, 'Four people on this connection have already played this quiz. Try another connection, such as mobile data.', undefined, 'QUIZ_NETWORK_LIMIT');
     }
     const name = cleanKnowMeName(body.name);
     if (!name) throw new ApiError(400, 'Enter a name of up to 24 characters.', undefined, 'INVALID_PLAYER_NAME');

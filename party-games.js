@@ -64,6 +64,7 @@ async function apiRequest(path, body) {
 function errorMessage(error) {
   if (['QUIZ_NOT_FOUND', 'QUIZ_EXPIRED', 'INVALID_QUIZ_CODE'].includes(error.code)) return t.unavailable;
   if (error.code === 'QUIZ_FULL') return t.full;
+  if (error.code === 'QUIZ_NETWORK_LIMIT') return t.networkLimit;
   if (error.code === 'RATE_LIMITED') return t.rate;
   if (['INVALID_PLAYER_NAME', 'INVALID_QUIZ'].includes(error.code)) return t.nameError;
   if (error.code === 'QUIZ_OWNER_CANNOT_SUBMIT') return t.ownerOnly;

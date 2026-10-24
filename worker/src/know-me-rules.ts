@@ -9,7 +9,9 @@ export const KNOW_ME_MAX_PLAYERS = 50;
 // Every score shows how many answers matched, so unlimited fresh browser tokens
 // would let one person work out the private answers. Each network may add at
 // most this many scores to one quiz.
-export const KNOW_ME_SUBMISSIONS_PER_NETWORK = 2;
+// Four lets a family or a small party on one Wi-Fi all play (owner decision,
+// 24 Oct 2026) while still needing several connections to work out the answers.
+export const KNOW_ME_SUBMISSIONS_PER_NETWORK = 4;
 export const KNOW_ME_QUESTION_COUNT = 10;
 
 export interface KnowMeQuestion {

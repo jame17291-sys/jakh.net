@@ -39,13 +39,84 @@ async function must(command, args, options) {
   return result.stdout;
 }
 
-export function findingBody(checks, runUrl) {
+export function findingBody(checks, runUrl, notes = []) {
   return `${FINDINGS_MARKER}\n## Daily maintenance findings\n\nThe latest run found checks that need attention. No unverified change was deployed.\n\n`
     + checks.map(check => `- ${check.replace(/[^a-zA-Z0-9 .:/_-]/gu, "").slice(0,120)}`).join("\n")
+    + notes.map(note => `\n\n${note.replace(/[^a-zA-Z0-9 .,:/_()-]/gu, "").slice(0,400)}`).join("")
     + `\n\n[View the run and evidence](${runUrl})\n\nAutopilot only repairs generated site files from approved source data. Other problems stay visible for review.\n`;
 }
 
-export async function syncFindings(gh, checks, runUrl) {
+// Source ahead of the live build is the normal state between a merge and its
+// release. It stays informational (listed, but the run is not red) while it is
+// explained by unreleased merges on top of the last verified static release
+// and has lasted at most this long.
+export const RELEASE_LAG_LIMIT_DAYS = 7;
+const DAY_MS = 86_400_000;
+
+function trustedStaticRelease(run) {
+  return Boolean(run) && Number.isSafeInteger(run.id) && run.id > 0
+    && run.path?.split("@")[0] === ".github/workflows/static-site.yml"
+    && run.head_branch === "main" && run.event === "workflow_dispatch"
+    && run.status === "completed" && run.conclusion === "success" && SHA.test(run.head_sha || "")
+    && run.repository?.full_name === REPOSITORY && run.head_repository?.full_name === REPOSITORY;
+}
+
+// Releases always ship the tip of protected main, so after the last verified
+// release the source can only be ahead through later merges. The lag is
+// measured from the later of the oldest unreleased commit's committer date
+// and that release's completion. Anything not explained this way is not
+// informational.
+export async function assessReleaseLag(gh, { sourceSha, now = new Date() }) {
+  const unknown = reason => ({ state: "unknown", reason, informational: false });
+  try {
+    const listing = await gh(`${PREFIX}/actions/workflows/static-site.yml/runs?branch=main&event=workflow_dispatch&status=success&per_page=30`);
+    const releases = (Array.isArray(listing?.workflow_runs) ? listing.workflow_runs : []).filter(trustedStaticRelease)
+      .sort((left, right) => Date.parse(right.run_started_at || right.created_at) - Date.parse(left.run_started_at || left.created_at));
+    const release = releases[0];
+    if (!release) return unknown("no verified static release was found");
+    const identity = { releaseRunId: String(release.id), releaseSha: release.head_sha };
+    if (release.head_sha === sourceSha) {
+      return { state: "not_explained", ...identity, informational: false, reason: "main has no merge after the last verified release" };
+    }
+    let previous = null;
+    for (let page = 1; page <= 3; page++) {
+      const commits = await gh(`${PREFIX}/commits?sha=${sourceSha}&per_page=100&page=${page}`);
+      if (!Array.isArray(commits)) return unknown("the commit history could not be read");
+      const index = commits.findIndex(commit => commit?.sha === release.head_sha);
+      if (index >= 0) {
+        const oldest = index > 0 ? commits[index - 1] : previous;
+        const mergedAt = Date.parse(oldest?.commit?.committer?.date || "");
+        const releasedAt = Date.parse(release.updated_at || "");
+        if (!oldest || !Number.isFinite(mergedAt) || !Number.isFinite(releasedAt)) return unknown("the release or merge time could not be read");
+        const since = Math.max(mergedAt, releasedAt);
+        const ageDays = Math.max(0, (now.getTime() - since) / DAY_MS);
+        return { state: "unreleased_merges", ...identity, unreleasedCommits: (page - 1) * 100 + index,
+          since: new Date(since).toISOString(), ageDays: Math.round(ageDays * 10) / 10,
+          informational: ageDays <= RELEASE_LAG_LIMIT_DAYS };
+      }
+      if (commits.length < 100) break;
+      previous = commits.at(-1);
+    }
+    return unknown("the last verified release is not in the recent history of main");
+  } catch {
+    return unknown("the release history could not be read");
+  }
+}
+
+function releaseLagNote(lag) {
+  if (!lag) return null;
+  const days = lag.ageDays === 1 ? "1 day" : `${lag.ageDays} days`;
+  if (lag.state === "unreleased_merges" && lag.informational) {
+    return `Informational: main is ${lag.unreleasedCommits} unreleased commit(s) ahead of the last verified static release (run ${lag.releaseRunId}), unreleased for ${days} since ${lag.since}. `
+      + `This is normal until the next release and does not turn the run red unless it lasts more than ${RELEASE_LAG_LIMIT_DAYS} days.`;
+  }
+  if (lag.state === "unreleased_merges") {
+    return `Needs attention: main has been ahead of the last verified static release (run ${lag.releaseRunId}) for ${days} since ${lag.since}, more than the ${RELEASE_LAG_LIMIT_DAYS}-day limit. Release main or review the unreleased changes.`;
+  }
+  return `Needs attention: the live build differs from the current source, and this is not explained by recent unreleased merges (${lag.reason}).`;
+}
+
+export async function syncFindings(gh, checks, runUrl, notes = []) {
   let existing;
   for (let page = 1; page <= 10; page++) {
     const issues = await gh(`${PREFIX}/issues?state=open&per_page=100&page=${page}`);
@@ -57,7 +128,7 @@ export async function syncFindings(gh, checks, runUrl) {
     if (existing) await gh(`${PREFIX}/issues/${existing.number}`, { method: "PATCH", body: { state: "closed", state_reason: "completed" } });
     return;
   }
-  const body = { title: "[Autopilot] Daily maintenance findings", body: findingBody(checks, runUrl) };
+  const body = { title: "[Autopilot] Daily maintenance findings", body: findingBody(checks, runUrl, notes) };
   await gh(existing ? `${PREFIX}/issues/${existing.number}` : `${PREFIX}/issues`, {
     method: existing ? "PATCH" : "POST", body,
   });
@@ -475,7 +546,11 @@ export async function runPublication(env = process.env, { handoffPath, now = () 
       report.checksFailed = report.failedChecks.length;
     }
     if (report.failedChecks.length) {
-      await syncFindings(gh, report.failedChecks, ctx.runUrl);
+      if (report.failedChecks.includes(BASELINE_IDENTITY_FINDING)) {
+        report.releaseLag = await assessReleaseLag(gh, { sourceSha: ctx.sha, now: now() });
+      }
+      const note = releaseLagNote(report.releaseLag);
+      await syncFindings(gh, report.failedChecks, ctx.runUrl, note ? [note] : []);
       await send("needs_attention");
       return report;
     }
@@ -561,10 +636,18 @@ function annotation(value) {
 }
 
 // A run that needs attention must not look green: the findings issue is filed
-// first, then the job fails with a visible annotation.
+// first, then the job fails with a visible annotation. The only exception is
+// a source-ahead-of-live finding that a recent unreleased merge explains.
 export function publicationExitCode(report, write = text => process.stdout.write(text)) {
   if (report?.status !== "needs_attention") return 0;
-  write(`::error title=Daily maintenance needs attention::${annotation(report.failedChecks.join("; "))}. See the findings issue.\n`);
+  const informational = report.releaseLag?.state === "unreleased_merges" && report.releaseLag.informational === true;
+  const blocking = report.failedChecks.filter(check => !(informational && check === BASELINE_IDENTITY_FINDING));
+  if (!blocking.length) {
+    write(`::notice title=Daily maintenance: release pending::${annotation(releaseLagNote(report.releaseLag))}\n`);
+    return 0;
+  }
+  const lag = blocking.includes(BASELINE_IDENTITY_FINDING) && report.releaseLag ? ` ${releaseLagNote(report.releaseLag)}` : "";
+  write(`::error title=Daily maintenance needs attention::${annotation(`${blocking.join("; ")}.${lag}`)} See the findings issue.\n`);
   return 1;
 }
 

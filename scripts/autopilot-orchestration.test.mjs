@@ -9,7 +9,7 @@ import { context, githubClient, oidcToken, autopilotRequest, diagnoseAutopilotId
 import { safeChildEnv, findingBody, syncFindings, matchDispatchedRun, dispatchAndWait,
   FINDINGS_MARKER, BOT_ID, publishVerifiedRepair, waitForPullRequestChecks, verifyPublishedBuild,
   automaticReleaseReadiness, publicationFinding, validateHandoff, readHandoff, HANDOFF_FILE,
-  publicationExitCode, runPublication, runInspection, inspectionIdentity } from './site-autopilot.mjs';
+  publicationExitCode, runPublication, runInspection, inspectionIdentity, assessReleaseLag, RELEASE_LAG_LIMIT_DAYS } from './site-autopilot.mjs';
 import { execFileSync } from 'node:child_process';
 
 import { loadProductionQuarantine } from './publication-quarantine.mjs';
@@ -927,7 +927,7 @@ test('a run whose findings need attention fails visibly after the findings issue
   assert.equal(lines.length, 1);
 });
 
-async function withPublicationFixture({ inspection, claimStatus = 200, existingIssue = false, release = '' }, callback) {
+async function withPublicationFixture({ inspection, claimStatus = 200, existingIssue = false, release = '', history = null }, callback) {
   const repository = await fs.mkdtemp(path.join(os.tmpdir(), 'autopilot-publication-repo-'));
   const runner = await fs.mkdtemp(path.join(os.tmpdir(), 'autopilot-publication-runner-'));
   const previousDirectory = process.cwd();
@@ -956,6 +956,10 @@ async function withPublicationFixture({ inspection, claimStatus = 200, existingI
       }
       if (target === `https://api.github.com${PREFIX}/issues` && method === 'POST') return response({ number: 78 }, 201);
       if (target === `https://api.github.com${PREFIX}/issues/77` && method === 'PATCH') return response({ number: 77 });
+      if (history && target.startsWith(`https://api.github.com${PREFIX}/actions/workflows/static-site.yml/runs?`)) return response({ workflow_runs: history.runs });
+      if (history && target.startsWith(`https://api.github.com${PREFIX}/commits?sha=${BASE}&per_page=100&page=`)) {
+        return response(history.commits[Number(new URL(target).searchParams.get('page')) - 1] || []);
+      }
       throw new Error(`Unexpected fixture request ${method} ${target}`);
     };
     process.chdir(repository);
@@ -1067,5 +1071,117 @@ test('neither maintenance job starts within 105 minutes of the UTC reservation b
     await assert.rejects(runPublication(env, { now: () => new Date('2026-10-24T22:16:00Z') }), /earlier in the UTC day/u);
     await assert.rejects(runInspection(env, { now: () => new Date('2026-10-24T23:59:00Z') }), /earlier in the UTC day/u);
     assert.deepEqual(calls, []);
+  });
+});
+
+const BASELINE_FINDING = 'Current source is not the verified live build; release needs attention';
+const LIVE_SHA = 'e'.repeat(40);
+function staticRelease(overrides = {}) {
+  return { id: 900, path: '.github/workflows/static-site.yml', head_branch: 'main', event: 'workflow_dispatch', status: 'completed',
+    conclusion: 'success', head_sha: LIVE_SHA, run_started_at: '2026-10-20T10:00:00Z', updated_at: '2026-10-20T10:20:00Z',
+    repository: { full_name: REPOSITORY }, head_repository: { full_name: REPOSITORY }, ...overrides };
+}
+const commit = (sha, date) => ({ sha, commit: { committer: { date } } });
+function historyGh({ runs = [staticRelease()], commits = [[commit(BASE, '2026-10-23T09:00:00Z'), commit('f'.repeat(40), '2026-10-22T09:00:00Z'), commit(LIVE_SHA, '2026-10-20T09:50:00Z')]], fail = false } = {}) {
+  const requests = [];
+  const gh = async (url, options = {}) => {
+    requests.push(url);
+    assert.equal(options.method, undefined, 'the assessment only reads');
+    if (fail) throw new Error('GitHub GET failed: HTTP 502');
+    if (url.startsWith(`${PREFIX}/actions/workflows/static-site.yml/runs?branch=main&event=workflow_dispatch&status=success`)) return { workflow_runs: runs };
+    const page = /\/commits\?sha=([a-f0-9]{40})&per_page=100&page=(\d+)$/u.exec(url);
+    if (page) { assert.equal(page[1], BASE); return commits[Number(page[2]) - 1] || []; }
+    throw new Error(`Unexpected ${url}`);
+  };
+  return { gh, requests };
+}
+
+test('a recent unreleased merge on top of the last verified release is informational for at most seven days', async () => {
+  const recent = await assessReleaseLag(historyGh().gh, { sourceSha: BASE, now: new Date('2026-10-24T09:00:00Z') });
+  assert.deepEqual(recent, { state: 'unreleased_merges', releaseRunId: '900', releaseSha: LIVE_SHA, unreleasedCommits: 2,
+    since: '2026-10-22T09:00:00.000Z', ageDays: 2, informational: true });
+  assert.equal(RELEASE_LAG_LIMIT_DAYS, 7);
+  const atLimit = await assessReleaseLag(historyGh().gh, { sourceSha: BASE, now: new Date('2026-10-29T09:00:00Z') });
+  assert.equal(atLimit.informational, true);
+  const stale = await assessReleaseLag(historyGh().gh, { sourceSha: BASE, now: new Date('2026-10-29T09:01:00Z') });
+  assert.equal(stale.state, 'unreleased_merges');
+  assert.equal(stale.informational, false);
+
+  // A merge commit can carry an older committer date; the lag never starts before the release completed.
+  const older = await assessReleaseLag(historyGh({ commits: [[commit(BASE, '2026-10-23T09:00:00Z'), commit('f'.repeat(40), '2026-10-01T00:00:00Z'), commit(LIVE_SHA, '2026-10-01T00:00:00Z')]] }).gh,
+    { sourceSha: BASE, now: new Date('2026-10-24T10:20:00Z') });
+  assert.equal(older.since, '2026-10-20T10:20:00.000Z');
+  assert.equal(older.ageDays, 4);
+
+  // The oldest unreleased commit may be the last entry of the previous page.
+  const firstPage = Array.from({ length: 100 }, (_, index) => commit(index === 0 ? BASE : index.toString(16).padStart(40, '1'), '2026-10-23T00:00:00Z'));
+  firstPage[99] = commit('9'.repeat(40), '2026-10-21T00:00:00Z');
+  const paged = historyGh({ commits: [firstPage, [commit(LIVE_SHA, '2026-10-20T00:00:00Z')]] });
+  const boundary = await assessReleaseLag(paged.gh, { sourceSha: BASE, now: new Date('2026-10-24T00:00:00Z') });
+  assert.equal(boundary.unreleasedCommits, 100);
+  assert.equal(boundary.since, '2026-10-21T00:00:00.000Z');
+  assert.equal(paged.requests.filter(url => url.includes('/commits?')).length, 2);
+});
+
+test('a live difference that unreleased merges do not explain is never informational', async () => {
+  const now = new Date('2026-10-24T09:00:00Z');
+  const same = await assessReleaseLag(historyGh({ runs: [staticRelease({ head_sha: BASE })] }).gh, { sourceSha: BASE, now });
+  assert.equal(same.state, 'not_explained');
+  assert.equal(same.informational, false);
+  for (const runs of [[], [staticRelease({ conclusion: 'failure' })], [staticRelease({ head_branch: 'feature' })], [staticRelease({ event: 'schedule' })],
+    [staticRelease({ path: '.github/workflows/pages.yml' })], [staticRelease({ head_repository: { full_name: 'someone/fork' } })]]) {
+    const result = await assessReleaseLag(historyGh({ runs }).gh, { sourceSha: BASE, now });
+    assert.equal(result.state, 'unknown', JSON.stringify(runs[0] || {}));
+    assert.equal(result.informational, false);
+  }
+  const missing = await assessReleaseLag(historyGh({ commits: [[commit(BASE, '2026-10-23T09:00:00Z')]] }).gh, { sourceSha: BASE, now });
+  assert.deepEqual([missing.state, missing.informational], ['unknown', false]);
+  const unbounded = historyGh({ commits: Array.from({ length: 4 }, () => Array.from({ length: 100 }, () => commit('8'.repeat(40), '2026-10-23T00:00:00Z'))) });
+  assert.equal((await assessReleaseLag(unbounded.gh, { sourceSha: BASE, now })).state, 'unknown');
+  assert.equal(unbounded.requests.filter(url => url.includes('/commits?')).length, 3);
+  const broken = await assessReleaseLag(historyGh({ fail: true }).gh, { sourceSha: BASE, now });
+  assert.deepEqual([broken.state, broken.informational], ['unknown', false]);
+  const undated = await assessReleaseLag(historyGh({ commits: [[commit(BASE, 'later'), commit(LIVE_SHA, 'x')]] }).gh, { sourceSha: BASE, now });
+  assert.equal(undated.state, 'unknown');
+});
+
+test('only a recent, explained release gap stays green; every other finding still fails the run', () => {
+  const informational = { state: 'unreleased_merges', releaseRunId: '900', unreleasedCommits: 2, since: '2026-10-22T09:00:00.000Z', ageDays: 2, informational: true };
+  const lines = [];
+  assert.equal(publicationExitCode({ status: 'needs_attention', failedChecks: [BASELINE_FINDING], releaseLag: informational }, text => lines.push(text)), 0);
+  assert.match(lines.at(-1), /^::notice title=Daily maintenance: release pending::Informational: main is 2 unreleased commits ahead/u);
+
+  assert.equal(publicationExitCode({ status: 'needs_attention', failedChecks: [BASELINE_FINDING, 'Accessibility'], releaseLag: informational }, text => lines.push(text)), 1);
+  assert.match(lines.at(-1), /^::error title=Daily maintenance needs attention::Accessibility\. See the findings issue\.\n$/u);
+
+  for (const releaseLag of [{ ...informational, ageDays: 8, informational: false }, { state: 'not_explained', informational: false, reason: 'main has no merge after the last verified release' },
+    { state: 'unknown', informational: false, reason: 'the release history could not be read' }, { ...informational, state: 'unknown' }, undefined]) {
+    assert.equal(publicationExitCode({ status: 'needs_attention', failedChecks: [BASELINE_FINDING], releaseLag }, text => lines.push(text)), 1, JSON.stringify(releaseLag));
+    assert.match(lines.at(-1), /^::error title=Daily maintenance needs attention::Current source is not the verified live build; release needs attention\./u);
+  }
+  assert.match(lines.at(-5), /for 8 days since .*more than the 7-day limit/u);
+});
+
+test('publication files the release gap as an informational finding and keeps the run green', async () => {
+  const history = { runs: [staticRelease()], commits: [[commit(BASE, '2026-10-23T09:00:00Z'), commit(LIVE_SHA, '2026-10-20T09:50:00Z')]] };
+  await withPublicationFixture({ inspection: handoff({ failedChecks: [BASELINE_FINDING] }), history }, async ({ calls, runner, run }) => {
+    const report = await run();
+    assert.equal(report.status, 'needs_attention');
+    assert.deepEqual(report.failedChecks, [BASELINE_FINDING]);
+    assert.equal(report.releaseLag.informational, true);
+    assert.deepEqual(reportedStatuses(calls), ['inspecting', 'inspecting', 'testing', 'needs_attention']);
+    const [created] = issueWrites(calls);
+    assert.match(created.body.body, /- Current source is not the verified live build release needs attention/u);
+    assert.match(created.body.body, /Informational: main is 1 unreleased commit\(s\) ahead of the last verified static release \(run 900\), unreleased for 0.8 days since 2026-10-23T09:00:00.000Z/u);
+    const receipt = JSON.parse(await fs.readFile(path.join(runner, 'autopilot-12345', 'daily-report.json'), 'utf8'));
+    assert.equal(receipt.releaseLag.state, 'unreleased_merges');
+    assert.equal(publicationExitCode(report, () => {}), 0);
+  });
+  const staleHistory = { runs: [staticRelease({ updated_at: '2026-10-10T00:00:00Z' })], commits: [[commit(BASE, '2026-10-12T00:00:00Z'), commit(LIVE_SHA, '2026-10-09T00:00:00Z')]] };
+  await withPublicationFixture({ inspection: handoff({ failedChecks: [BASELINE_FINDING] }), history: staleHistory }, async ({ calls, run }) => {
+    const report = await run();
+    assert.equal(report.releaseLag.informational, false);
+    assert.match(issueWrites(calls)[0].body.body, /Needs attention: main has been ahead of the last verified static release \(run 900\) for 12.1 days/u);
+    assert.equal(publicationExitCode(report, () => {}), 1);
   });
 });

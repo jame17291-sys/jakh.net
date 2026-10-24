@@ -87,6 +87,8 @@ The following evidence keys are used in the finding tables.
 
 **Later note (24 Oct 2026, OPS-03):** `production-monitor.yml` is still scheduled every 30 minutes (cron `17,47 * * * *`), but GitHub runs it far less often in practice. Between 6 and 24 October 2026, its 100 most recent scheduled runs started a median of about 4.4 hours apart (range 1.9 to 9.6 hours). GitHub does not guarantee scheduled start times. Treat the scheduled monitor as a check a few times a day, not every 30 minutes; the release workflows still trigger it when they finish. The OPS-03 row above is left as written in August.
 
+**Later note (24 Oct 2026, OPS-03, PR #171):** scheduled and manual monitor runs now compare production with the commits that are live, not with `main`. The live commits are the latest successful static and API releases. Each release receipt is verified by that release's own code, and the live Worker version and build headers must match it. Unreleased merges therefore no longer raise false alarms. Release-triggered runs still check the exact released commit. A drift from the last verified release fails as `Live release: … identity`. A scheduled run is skipped while a release is deploying, because that release's completion triggers its own run.
+
 ### Security and backend integrity
 
 | ID | Status | Implementation evidence | Verification evidence | Remaining owner or external action |

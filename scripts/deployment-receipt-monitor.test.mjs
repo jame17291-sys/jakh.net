@@ -169,6 +169,16 @@ test("maintenance outcomes remain distinct and fail closed", async t => {
   }
 });
 
+test("an informational release-gap run stays needs_attention; a red maintenance run reads as failed", async t => {
+  const releaseLag = { state: "unreleased_merges", releaseRunId: "900", unreleasedCommits: 2, since: "2026-10-22T09:00:00.000Z", ageDays: 2, informational: true };
+  const receipt = daily({ status: "needs_attention", checksFailed: 1, failedChecks: ["Current source is not the verified live build; release needs attention"], releaseLag });
+  const directory = await fixture(t, { "daily-report.json": receipt });
+  const green = await inspectReceipts({ directory, run: metadata(), runId: RUN_ID });
+  assert.equal(green.status, "needs_attention"); assert.equal(reportExitCode(green), 1);
+  const red = await inspectReceipts({ directory, run: metadata("maintenance", { conclusion: "failure" }), runId: RUN_ID });
+  assert.equal(red.status, "failed"); assert.equal(reportExitCode(red), 1);
+});
+
 test("a successful receipt cannot override a failed workflow conclusion", async t => {
   const directory = await fixture(t, { "daily-report.json": daily() });
   const report = await inspectReceipts({ directory, run: metadata("maintenance", { conclusion: "failure" }), runId: RUN_ID });

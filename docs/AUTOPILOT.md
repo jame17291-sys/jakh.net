@@ -16,10 +16,10 @@ The workflow is **Daily website maintenance**, defined in [site-autopilot.yml](.
 | Bundle limit | At most 250 files and 12 MiB of generated output; exact reproducibility is required |
 | AI spending | **$0**; no AI service is called |
 | Runner | Standard GitHub-hosted `ubuntu-latest`, in this exact public repository |
-| Maintenance job | 100-minute timeout; inspection has a 20-minute budget |
+| Maintenance jobs | `inspect` (read-only, 45-minute timeout, 20-minute inspection budget) then `publish` (no package install, 100-minute timeout) |
 | Evidence | Latest 30 claimed-run receipts in the API; small maintenance JSON artifacts retained for one day |
 
-The API and static stages belong to one daily release reservation; they are not two independent repair allowances. A failed or paused claimed run still occupies its day. Starting another run or rerunning a different attempt does not reset the allowance. The orchestrator refuses a start with less than 105 minutes remaining in the UTC day, so late manual runs do not cross the reservation boundary.
+The API and static stages belong to one daily release reservation; they are not two independent repair allowances. A failed or paused claimed run still occupies its day. Starting another run or rerunning a different attempt does not reset the allowance. Each maintenance job refuses to start with less than 105 minutes remaining in the UTC day, so late manual runs do not cross the reservation boundary.
 
 The repair engine executes generators from the trusted base, regenerates twice to establish a fixed point, and verifies the complete candidate tree. Authored question wording, answers, translations, application JavaScript, tests, workflows, API code, credentials and security settings are outside automatic repair scope. Deletions, renames, symlinks, submodules and file-mode changes are refused. See [Deterministic Autopilot repairs](AUTOPILOT-REPAIRS.md) for the exact engine contract and allowlist.
 
@@ -29,7 +29,7 @@ GitHub currently provides free Actions usage for public repositories using stand
 
 ## Enable daily inspection
 
-After the reviewed API and admin page are released, an OWNER can resume Autopilot in the panel. The scheduled job inspects protected `main`, validates the site, and records a receipt using its short-lived GitHub OIDC identity. No GitHub App, deployment environment, or `AUTOPILOT_RELEASE_ENABLED` variable is required for inspection. The default publishing mode is **Inspection only**. Generated repairs found in this mode become a **Needs attention** receipt and a review finding; they are not pushed, merged or deployed.
+After the reviewed API and admin page are released, an OWNER can resume Autopilot in the panel. The scheduled run inspects protected `main`, validates the site, and records a receipt using its short-lived GitHub OIDC identity. No GitHub App, deployment environment, or `AUTOPILOT_RELEASE_ENABLED` variable is required for inspection. The default publishing mode is **Inspection only**. Generated repairs found in this mode become a **Needs attention** receipt and a review finding; they are not pushed, merged or deployed.
 
 The owner switch is permission to inspect, not evidence that GitHub has run. Before the first receipt, the panel says **Awaiting first run**. A missing or overdue heartbeat is visible instead of a green Active label.
 
@@ -53,7 +53,7 @@ Keep automatic publishing disabled until its dedicated App and release environme
 6. Set repository Actions variable **`AUTOPILOT_RELEASE_ENABLED`** to the exact string **`true`**. This permits automatic publishing and its release gates; inspection already works without it. It does not change the API’s paused state.
 7. Sign in to [Riddle Arabia administration](https://riddlearabia.com/admin) as an **OWNER**, open **Autopilot**, and choose **Resume Autopilot**. Wait for the confirmed enabled state, then for a real run receipt. Administrators and members cannot control this service.
 
-The owner’s API state permits inspection. The repository variable independently permits automatic publishing. Both must permit a release; disabling publishing does not stop inspection. The App installation token is minted just before branch/PR publication and revoked afterward; the built-in `GITHUB_TOKEN` handles checks, merge, releases and findings issues. The Worker verifies a short-lived GitHub OIDC identity. The App’s private key remains an environment secret. No personal access token, stored website-admin password or AI API key is required, and this App publisher path does not require enabling the Actions setting for creating PRs with the built-in token.
+The owner’s API state permits inspection. The repository variable independently permits automatic publishing. Both must permit a release; disabling publishing does not stop inspection. The run has two jobs. `inspect` installs the pinned packages and runs every check with a read-only token: no OIDC identity, deployment environment or secret. It hands its results to `publish` as validated data through a pinned artifact. `publish` installs no packages. It claims the day and reports with the OIDC identity, and its built-in `GITHUB_TOKEN` handles the findings issue, merge and release dispatch. It publishes a repair only after re-deriving it from the trusted base and matching the tree that `inspect` tested. The App installation token is minted just before branch/PR publication and revoked afterward. The Worker verifies a short-lived GitHub OIDC identity. The App’s private key remains an environment secret. No personal access token, stored website-admin password or AI API key is required, and this App publisher path does not require enabling the Actions setting for creating PRs with the built-in token.
 
 ## Read the panel and evidence
 
@@ -70,7 +70,9 @@ The owner panel shows schedule limits, the latest recorded run and up to 30 run 
 | Deployed | The release workflows completed and the final site identity was recorded |
 | Failed / Rolled back / Paused | Inspect the linked runs and release evidence before proceeding |
 
-Autopilot creates or updates the bot-owned issue **`[Autopilot] Daily maintenance findings`** when checks fail or the cycle encounters an error. A subsequent clean cycle closes the open findings issue. Run details remain in GitHub according to its retention settings; the database keeps the latest 30 claimed runs, not an unlimited archive. The small `autopilot-<run-id>` artifact is intentionally retained for only one day. The existing deployment workflows retain their own release/rollback evidence separately.
+Autopilot creates or updates the bot-owned issue **`[Autopilot] Daily maintenance findings`** when checks fail or the cycle encounters an error. A subsequent clean cycle closes the open findings issue.
+
+After filing or updating that issue, a run with findings ends **red** with an error annotation, so it can't look healthy in GitHub. There is one exception. *Current source is not the verified live build* is the normal state between a merge and its release, so it is **informational**: listed in the issue, with a notice, and the run stays green. This applies while the last verified static release (the latest successful `static-site.yml` run from protected `main`) explains it, `main` is ahead of that release's commit, and the gap is at most **7 days**. The gap is measured from the later of the first unreleased commit's merge time and that release's completion. Past 7 days, or when unreleased merges don't explain the difference, the finding turns the run red. Every other finding always does. An informational run's receipt still records **Needs attention**, and its `releaseLag` field shows the measured gap. Run details remain in GitHub according to its retention settings; the database keeps the latest 30 claimed runs, not an unlimited archive. The small `autopilot-<run-id>` artifact is intentionally retained for only one day. The existing deployment workflows retain their own release/rollback evidence separately.
 
 Failures before a daily claim, skipped jobs, scheduler delays and a missing API do not necessarily produce a new database receipt. If activity looks stale, inspect the GitHub workflow and its logs before relying on the last entry displayed in the panel.
 

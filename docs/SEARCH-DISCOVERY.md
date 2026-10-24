@@ -51,13 +51,14 @@ appearing in Google:
 - The stale `https://www.jakh.net/sitemap.xml` entry (last read June 2026) was
   removed from that property. The ERP sitemap `https://jakh.net/sitemap.xml` was
   read on 23 Oct 2026 with 58 pages.
-- Left for the owner to remove by hand, because the tools could not do it:
+- Removed by the owner by hand on 23 Oct 2026 (confirmed afterwards):
   - the `https://www.jakh.net/` URL-prefix property, added in May 2026 while
     that address served Riddle Arabia; the `jakh.net` domain property already
-    covers it;
+    covers it and still works;
   - the Cloudflare rate-limiting rule *Protect API authentication* on the
-    `jakh.net` zone. It matches `/api/auth/*`, the Riddle Arabia API's sign-in
-    paths, which do not exist on the ERP site.
+    `jakh.net` zone. It matched `/api/auth/*`, the Riddle Arabia API's sign-in
+    paths, which do not exist on the ERP site. The zone now has no
+    rate-limiting rules.
 - The domain only went live on 16 Sep 2026. On 12 Oct 2026 `jakh.net` went to
   an unrelated project, so links or rankings earned there no longer lead here.
 

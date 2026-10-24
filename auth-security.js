@@ -34,7 +34,8 @@ export async function openAdminSecurity({ api, language = 'en', onVerified = () 
     invalid: 'الرمز غير صحيح أو انتهت صلاحيته أو سبق استخدامه. انتظر رمزًا جديدًا ثم حاول.',
     expired: 'انتهت مهلة الإعداد. أغلق النافذة وابدأ من جديد.',
     passwordWrong: 'كلمة المرور الحالية غير صحيحة.', limited: 'محاولات كثيرة. انتظر مدة قد تصل إلى ساعة ثم حاول مجددًا.',
-    locked: 'أُدخلت رموز غير صحيحة كثيرة، فأُوقف التحقق لهذا الحساب مدة قد تصل إلى 24 ساعة وانتهت هذه الجلسة. سجّل الدخول مجددًا لاحقًا.', retry: 'المحاولة مجددًا', restart: 'بدء الإعداد من جديد', sessionExpired: 'انتهت جلسة الدخول. سجّل الدخول مجددًا للمتابعة.', signIn: 'تسجيل الدخول مجددًا',
+    locked: 'أُدخلت رموز تطبيق غير صحيحة كثيرة، فأُوقفت رموز التطبيق لهذا الحساب حتى الساعة 00:00 بالتوقيت العالمي المنسق. أدخل أحد رموز الاسترداد المحفوظة بدلًا منها (وسجّل الدخول مجددًا أولًا إن انتهت جلستك)، أو اطلب من المالك رفع الإيقاف.',
+    recoveryLocked: 'أُدخلت رموز استرداد غير صحيحة كثيرة، فأُوقفت رموز الاسترداد لهذا الحساب حتى الساعة 00:00 بالتوقيت العالمي المنسق. استخدم تطبيق المصادقة، أو اطلب من المالك رفع الإيقاف.', retry: 'المحاولة مجددًا', restart: 'بدء الإعداد من جديد', sessionExpired: 'انتهت جلسة الدخول. سجّل الدخول مجددًا للمتابعة.', signIn: 'تسجيل الدخول مجددًا',
   } : {
     title: 'Protect administrator access', loading: 'Checking account security…', cancel: 'Cancel',
     setup: 'Add Riddle Arabia to an authenticator app. You will need a code from it when entering administration.',
@@ -51,7 +52,8 @@ export async function openAdminSecurity({ api, language = 'en', onVerified = () 
     invalid: 'The code is incorrect, expired, or already used. Wait for a new code and try again.',
     expired: 'Setup expired. Close this dialog and start again.', passwordWrong: 'Your current password is incorrect.',
     limited: 'Too many attempts. Wait up to an hour and try again.',
-    locked: 'Too many incorrect codes. Verification for this account is paused for up to 24 hours, and this session has ended. Sign in again later.', retry: 'Try again', restart: 'Start setup again', sessionExpired: 'Your session expired. Sign in again to continue.', signIn: 'Sign in again',
+    locked: 'Too many incorrect app codes. App codes for this account are paused until 00:00 UTC. Enter one of your saved recovery codes instead (sign in again first if your session ended), or ask the owner to unlock your account.',
+    recoveryLocked: 'Too many incorrect recovery codes. Recovery codes for this account are paused until 00:00 UTC. Use your authenticator app, or ask the owner to unlock your account.', retry: 'Try again', restart: 'Start setup again', sessionExpired: 'Your session expired. Sign in again to continue.', signIn: 'Sign in again',
   };
   const previousFocus = document.activeElement;
   const dialog = document.createElement('dialog');
@@ -164,7 +166,7 @@ export async function openAdminSecurity({ api, language = 'en', onVerified = () 
           error.append(document.createElement('br'), change);
         } else {
           error.textContent = ({ MFA_CODE_INVALID: copy.invalid, MFA_SETUP_EXPIRED: copy.expired,
-            CURRENT_PASSWORD_INCORRECT: copy.passwordWrong, RATE_LIMITED: copy.limited, MFA_LOCKED: copy.locked })[requestError.code] || copy.failed;
+            CURRENT_PASSWORD_INCORRECT: copy.passwordWrong, RATE_LIMITED: copy.limited, MFA_LOCKED: copy.locked, MFA_RECOVERY_LOCKED: copy.recoveryLocked })[requestError.code] || copy.failed;
           if (requestError.code === 'MFA_SETUP_EXPIRED') {
             const restart = element('button', copy.restart, { type: 'button' });
             restart.addEventListener('click', () => { setupSecret = ''; view = 'setup'; render(); });

@@ -109,6 +109,14 @@ involved.
   setup) keep their per-network limits and also share one budget of 10 failed
   passwords per account per hour, from any network. A correct password hands
   its slot back, so it never uses the budget up.
+- Administrator authenticator codes: on top of 10 codes per 15 minutes, app
+  codes allow 30 and recovery codes 10 failures per account per fixed UTC day
+  (reset at 00:00 UTC). A used-up budget refuses that kind of code until
+  00:00 UTC (`MFA_LOCKED` / `MFA_RECOVERY_LOCKED`) and ends the session that
+  used it up. A correct recovery code, or the owner through
+  `POST /api/admin/users/:id/authenticator-unlock` (owner role, verified
+  authenticator, password confirmed in the last 10 minutes), clears both
+  budgets. See `docs/ADMIN-MFA.md`.
 - A successful sign-in to an account still stored at the old password work
   factor re-hashes the password with a fresh salt at the current setting. The
   update is guarded by the old record, so a concurrent password change wins,

@@ -222,8 +222,13 @@ export function publicSearchArtifacts({ catalog, root = moduleRoot, quarantine }
   const categories = projectedCatalog.categories.map((category) => category.slug);
   const cardsByLanguage = { en: [], ar: [] };
   for (const [categoryIndex, slug] of categories.entries()) {
+    // Same row shape as scripts/generate-search-index.mjs: the last value is the
+    // card's subtopic position in this category's catalog topic list.
+    const topicIndex = new Map((projectedCatalog.categories[categoryIndex].topics || []).map((topic, index) => [topic?.en, index]));
     for (const card of cardSource(root, slug)) {
       invariant(!quarantine.cardIds.has(card.id), `quarantined card leaked into public search source: ${card.id}`);
+      const subtopic = topicIndex.get(card?.subcategory?.en);
+      invariant(Number.isInteger(subtopic), `public search card ${slug}/${card?.id || "unknown"} has no catalog subtopic`);
       for (const language of ["en", "ar"]) {
         invariant(card?.question?.[language] && card?.answer?.[language], `incomplete public search card ${slug}/${card?.id || "unknown"}`);
         cardsByLanguage[language].push([
@@ -231,6 +236,7 @@ export function publicSearchArtifacts({ catalog, root = moduleRoot, quarantine }
           card.id,
           card.question[language],
           card.answer[language],
+          subtopic,
         ]);
       }
     }
@@ -245,7 +251,7 @@ export function publicSearchArtifacts({ catalog, root = moduleRoot, quarantine }
   for (const language of ["en", "ar"]) {
     const relativePath = `data/search-index.${language}.json`;
     const serialized = `${JSON.stringify({
-      version: 2,
+      version: 3,
       language,
       total,
       categories,
@@ -262,7 +268,7 @@ export function publicSearchArtifacts({ catalog, root = moduleRoot, quarantine }
     };
   }
   outputs.set("data/search-index.json", `${JSON.stringify({
-    version: 2,
+    version: 3,
     total,
     budgets: {
       maxShardBytes: 800 * 1024,

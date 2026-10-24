@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 import { siteHeader, navigationScript } from "./site-navigation-markup.mjs";
 import { kidsRoutePairs } from "./generate-kids-pages.mjs";
 import { illustrationMarkup, SECTION_ILLUSTRATIONS, COLLECTION_ILLUSTRATIONS, TOPIC_ILLUSTRATIONS } from "../site-illustrations.js";
+import { AR_COUNT, arabicCount } from "../arabic-count.js";
 
 import {
   PRIMARY_SITE_ORIGIN,
@@ -121,7 +122,7 @@ const SOCIAL_IMAGE = socialImage();
 
 function socialMeta({ title, description, canonical, lang }) {
   const imageAlt = lang === "ar"
-    ? "ريـدل أرابيا — ألغاز واختبارات وألعاب دماغ بالعربية والإنجليزية"
+    ? "ريدل أرابيا — ألغاز واختبارات وألعاب دماغ بالعربية والإنجليزية"
     : "Riddle Arabia — bilingual riddles, quizzes, and brain games";
   return `    <meta property="og:title" content="${escapeHtml(title)}" />
     <meta property="og:description" content="${escapeHtml(description)}" />
@@ -161,8 +162,8 @@ function globalFooter(lang) {
   const isAr = lang === "ar";
   return `<footer class="site-footer shell">
       <div class="footer-inner">
-        <p class="footer-copy">${isAr ? "© 2026 ريـدل أرابيا" : "© 2026 Riddle Arabia"}</p>
-        <nav class="footer-site-links" aria-label="${isAr ? "معلومات ريـدل أرابيا" : "Riddle Arabia information"}">
+        <p class="footer-copy">${isAr ? "© 2026 ريدل أرابيا" : "© 2026 Riddle Arabia"}</p>
+        <nav class="footer-site-links" aria-label="${isAr ? "معلومات ريدل أرابيا" : "Riddle Arabia information"}">
           <a href="${isAr ? "/ar/collections/" : "/collections"}">${isAr ? "مجموعات قصيرة" : "Short collections"}</a>
           <a href="${isAr ? "/ar/play/" : "/play"}">${isAr ? "الألعاب" : "Games"}</a>
           <a href="${isAr ? "/ar/about/" : "/about"}">${isAr ? "عن الموقع" : "About"}</a>
@@ -601,7 +602,7 @@ function renderAboutPage(lang) {
   const canonical = `${SITE_ORIGIN}${isAr ? arPath : enPath}`;
   const blocks = isAr
     ? [
-      ["ما نصنعه", "ريـدل أرابيا مساحة ثنائية اللغة للألغاز والاختبارات وألعاب الدماغ الخفيفة. نفضّل مسارات واضحة وممتعة على مئات الصفحات التي لا تقدم سبباً حقيقياً للزيارة."],
+      ["ما نصنعه", "ريدل أرابيا مساحة ثنائية اللغة للألغاز والاختبارات وألعاب الدماغ الخفيفة. نفضّل مسارات واضحة وممتعة على مئات الصفحات التي لا تقدم سبباً حقيقياً للزيارة."],
       ["كيف نختار المحتوى", "نسعى إلى تلميحات مفهومة، وأجوبة محددة، وسياق واضح. تبقى موضوعات الصحة والقانون والمال للتعلّم والترفيه فقط، وليست بديلاً عن مختص."],
       ["اللغتان", "لا نتعامل مع العربية والإنجليزية كزر ترجمة فقط. نبني التجربة بحيث يستطيع القارئ استخدام اللغة التي يفكر بها، أو المقارنة بين اللغتين عند الحاجة."],
       ["التصحيح والتحسين", "إذا صادفت سؤالاً يحتاج تصحيحاً أو توضيحاً، استخدم أدوات الاقتراح داخل مختبر العقل. تساعدنا ملاحظاتك على تحسين التحديثات القادمة."],
@@ -692,7 +693,7 @@ function renderFunctionalCategoryShell(category, lang) {
   const alternate = isAr ? enPath : arPath;
   const section = sectionBySlug.get(category.slug);
   const title = isAr
-    ? `${category.title.ar} | ريـدل أرابيا`
+    ? `${category.title.ar} | ريدل أرابيا`
     : `${category.title.en} | Riddle Arabia`;
   const description = isAr
     ? `اختبر أسئلة ${category.title.ar} بالعربية والإنجليزية، وتابع تقدّمك داخل ريدل أرابيا.`
@@ -735,7 +736,7 @@ function renderFunctionalCategoryShell(category, lang) {
           <p class="eyebrow" id="categoryKicker">${escapeHtml(section?.title?.[lang] || category.cluster?.[lang] || "")}</p>
           <h1 id="categoryTitle">${escapeHtml(category.emoji || "❔")} ${escapeHtml(category.title[lang])}</h1>
           <p class="hero-text" id="categoryDescription">${escapeHtml(category.description?.[lang] || "")}</p>
-          <div class="hero-badges"><span id="categoryCountPill">${category.count} ${isAr ? "سؤالاً" : "questions"}</span><span id="categoryDiffBadge"></span></div>
+          <div class="hero-badges"><span id="categoryCountPill">${questionCountLabel(category.count, lang)}</span><span id="categoryDiffBadge"></span></div>
           <a class="primary-btn" href="#cardGrid">${isAr ? "ابدأ الأسئلة" : "Start practice"}</a>
         </div>
       </section>
@@ -752,9 +753,9 @@ function renderFunctionalCategoryShell(category, lang) {
           <div id="subcategoryWrap" class="subcategory-wrap"><p class="mini-label">${isAr ? "الموضوعات الفرعية" : "Subtopics"}</p><div class="chip-row" id="subcategoryFilters"><button class="category-chip is-active" data-subcategory="all">${isAr ? "الكل" : "All"} · ${category.count}</button>${topicOptions}</div></div>
           </section>
         </details>
-        <div class="library-toolbar"><p id="resultsLabel">${isAr ? `عرض ${category.count} بطاقة.` : `Showing ${category.count} cards.`}</p><button class="text-btn" id="resetPageBtn">${isAr ? "إعادة الضبط" : "Reset filters"}</button></div>
+        <div class="library-toolbar"><p id="resultsLabel" role="status" aria-live="polite" aria-atomic="true">${isAr ? `عرض ${arabicCount(category.count, AR_COUNT.card)}.` : `Showing ${category.count} cards.`}</p><button class="text-btn" id="resetPageBtn">${isAr ? "إعادة الضبط" : "Reset filters"}</button></div>
         <div id="emptyState" class="empty-state hidden"><strong>${isAr ? "لا توجد بطاقات مطابقة." : "No cards match that choice."}</strong></div>
-        <div id="cardGrid" class="riddle-grid" aria-live="polite" tabindex="-1"></div>
+        <div id="cardGrid" class="riddle-grid" tabindex="-1"></div>
         <div id="categorySummaryMount" class="category-progress-summary"></div>
       </section>
       <section class="shell section-block"><div class="section-heading library-head"><div><p class="eyebrow">${isAr ? "واصل" : "Keep going"}</p><h2>${isAr ? "موضوعات قريبة" : "Related topics"}</h2></div></div><div id="relatedCategories" class="category-grid"></div></section>

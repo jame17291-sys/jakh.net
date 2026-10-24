@@ -17,7 +17,7 @@ function bytesToBase64Url(bytes: Uint8Array): string {
   return btoa(binary).replaceAll("+", "-").replaceAll("/", "_").replace(/=+$/u, "");
 }
 
-function base64UrlToBytes(value: string): Uint8Array {
+function base64UrlToBytes(value: string): Uint8Array<ArrayBuffer> {
   const base64 = value.replaceAll("-", "+").replaceAll("_", "/");
   const padded = base64.padEnd(Math.ceil(base64.length / 4) * 4, "=");
   const binary = atob(padded);
@@ -100,8 +100,9 @@ export function parseCookies(request: Request): Map<string, string> {
   return cookies;
 }
 
-export function getSessionToken(request: Request, configuredStaticOrigin = ""): string | null {
-  const cookies = parseCookies(request);
+// Plain-HTTP local development cannot use `__Host-` cookies, so only there do
+// the unprefixed cookie names count.
+function acceptsLocalDevelopmentCookies(request: Request, configuredStaticOrigin: string): boolean {
   const url = new URL(request.url);
   let configuredLocalDevelopment = false;
   try {
@@ -111,14 +112,103 @@ export function getSessionToken(request: Request, configuredStaticOrigin = ""): 
   } catch {
     configuredLocalDevelopment = false;
   }
-  const localDevelopment = (
+  return (
     url.protocol === "http:"
     && (url.hostname === "localhost" || url.hostname === "127.0.0.1")
   ) || configuredLocalDevelopment;
+}
+
+export function getSessionToken(request: Request, configuredStaticOrigin = ""): string | null {
+  const cookies = parseCookies(request);
   const token = cookies.get("__Host-jakh_session")
-    || (localDevelopment ? cookies.get("jakh_session") : null)
+    || (acceptsLocalDevelopmentCookies(request, configuredStaticOrigin) ? cookies.get("jakh_session") : null)
     || null;
   return token && SESSION_TOKEN_PATTERN.test(token) ? token : null;
+}
+
+/*
+ * Sign-in device cookie (OWASP "device cookie" pattern)
+ * ------------------------------------------------------
+ * After a successful sign-in the browser receives an opaque value: a random
+ * nonce plus an HMAC over the account ID and that nonce. It is not a login
+ * credential and grants no access. It only lets a browser that has signed in
+ * to an account before skip that account's shared failed-attempt limit, so a
+ * stranger cannot lock the owner out. The MAC key is derived from the
+ * existing password pepper with its own HKDF salt and label, so no new secret
+ * and no database change are needed.
+ */
+const DEVICE_COOKIE_MAX_AGE_SECONDS = 180 * 24 * 60 * 60;
+const DEVICE_COOKIE_PATTERN = /^([A-Za-z0-9_-]{22})\.([A-Za-z0-9_-]{43})$/u;
+
+async function deviceCookieKey(pepper: string): Promise<CryptoKey> {
+  const base = await crypto.subtle.importKey("raw", encoder.encode(pepper), "HKDF", false, ["deriveKey"]);
+  return crypto.subtle.deriveKey(
+    {
+      name: "HKDF",
+      hash: "SHA-256",
+      salt: encoder.encode("riddlearabia/login-device/v1"),
+      info: encoder.encode("device-cookie-mac"),
+    },
+    base,
+    { name: "HMAC", hash: "SHA-256", length: 256 },
+    false,
+    ["sign", "verify"],
+  );
+}
+
+function deviceCookieMessage(userId: string, nonce: string): Uint8Array<ArrayBuffer> {
+  return encoder.encode(`login-device:v1:${userId}:${nonce}`);
+}
+
+export async function loginDeviceCookie(request: Request, pepper: string, userId: string): Promise<string> {
+  const nonce = randomToken(16);
+  const mac = new Uint8Array(await crypto.subtle.sign(
+    "HMAC",
+    await deviceCookieKey(pepper),
+    deviceCookieMessage(userId, nonce),
+  ));
+  const secure = new URL(request.url).protocol === "https:";
+  return [
+    `${secure ? "__Host-jakh_device" : "jakh_device"}=${nonce}.${bytesToBase64Url(mac)}`,
+    "Path=/",
+    "HttpOnly",
+    secure ? "Secure" : "",
+    "SameSite=Strict",
+    `Max-Age=${DEVICE_COOKIE_MAX_AGE_SECONDS}`,
+  ].filter(Boolean).join("; ");
+}
+
+export interface OfferedLoginDevice {
+  nonce: string;
+  mac: string;
+}
+
+/** A well-formed device cookie on the request, not yet checked for any account. */
+export function offeredLoginDevice(request: Request, configuredStaticOrigin: string): OfferedLoginDevice | null {
+  const cookies = parseCookies(request);
+  const value = cookies.get("__Host-jakh_device")
+    || (acceptsLocalDevelopmentCookies(request, configuredStaticOrigin) ? cookies.get("jakh_device") : null)
+    || "";
+  const match = DEVICE_COOKIE_PATTERN.exec(value);
+  return match?.[1] && match[2] ? { nonce: match[1], mac: match[2] } : null;
+}
+
+/** True only for a cookie this API issued to this account; forged or other accounts' cookies fail. */
+export async function isLoginDeviceFor(pepper: string, userId: string, offered: OfferedLoginDevice): Promise<boolean> {
+  return crypto.subtle.verify(
+    "HMAC",
+    await deviceCookieKey(pepper),
+    base64UrlToBytes(offered.mac),
+    deviceCookieMessage(userId, offered.nonce),
+  );
+}
+
+export function clearLoginDeviceCookies(): string[] {
+  const attributes = "Path=/; HttpOnly; Max-Age=0; SameSite=Strict";
+  return [
+    `__Host-jakh_device=; ${attributes}; Secure`,
+    `jakh_device=; ${attributes}`,
+  ];
 }
 
 export function sessionCookie(request: Request, token: string): string {

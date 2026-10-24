@@ -1,11 +1,13 @@
 import { ApiError, json, parseJson } from "./http.js";
 import { randomToken, sha256 } from "./security.js";
-import { DuelError, makeDeck, VOCABULARY_VERSION, playAction, rematchAction, privateSnapshot, scorePlacement, type DuelRoomState } from "./word-duel-rules.js";
+import { DuelError, ensureMoveAllowed, makeDeck, VOCABULARY_VERSION, playAction, rematchAction, privateSnapshot, scorePlacement, type DuelRoomState } from "./word-duel-rules.js";
 
 import { pushConfigured, pushReady, sendDuelPush, validateSubscription, type PushConfig } from "./word-duel-push.js";
 
 const TOKEN_PATTERN = /^[A-Za-z0-9_-]{43}$/u;
 const ENGLISH_WORD = /^[a-z]{2,9}$/u;
+// A slow dictionary must not hold the room's request queue for long.
+const DICTIONARY_TIMEOUT_MS = 3_000;
 const dictionaryChecks = new Map<string, Promise<boolean>>();
 
 export async function verifyEnglishWord(word: string, lookup: typeof fetch = fetch): Promise<boolean> {
@@ -14,7 +16,7 @@ export async function verifyEnglishWord(word: string, lookup: typeof fetch = fet
   if (existing) return existing;
   const request = (async () => {
     try {
-      const response = await lookup(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`, { headers: { accept: "application/json" } });
+      const response = await lookup(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`, { headers: { accept: "application/json" }, signal: AbortSignal.timeout(DICTIONARY_TIMEOUT_MS) });
       if (response.status === 404) return false;
       if (!response.ok) throw new Error("dictionary unavailable");
       const entries = await response.json() as unknown;
@@ -156,6 +158,9 @@ export class WordDuelRoom {
     if (path === "/state") return json(privateSnapshot(room, player.id));
     if (path === "/action") {
       if (body.kind === "place" && room.lang === "en") {
+        // Only the player whose turn it is, on the current board, may cause
+        // outbound dictionary lookups.
+        ensureMoveAllowed(room, player.id, body);
         const candidate = scorePlacement(room, player, body.placements, word => ENGLISH_WORD.test(word));
         for (const word of candidate.words) if (!await verifyEnglishWord(word)) throw new DuelError("WORD_NOT_LISTED", `“${word}” is not a correctly spelled English word.`);
         room = playAction(room, player.id, body, now, () => true);

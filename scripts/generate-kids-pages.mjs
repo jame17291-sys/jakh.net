@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { siteHeader } from './site-navigation-markup.mjs';
 import { KIDS_AGES, KIDS_AREAS, makeResources, pair } from './kids-resources.mjs';
 import { loadLegacy } from './kids-legacy.mjs';
+import { AR_COUNT, arabicCount } from '../arabic-count.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const origin = 'https://riddlearabia.com';
@@ -12,6 +13,14 @@ const e = value => String(value ?? '').replaceAll('&', '&amp;').replaceAll('<', 
 // Keep age ranges and arithmetic expressions in logical reading order in RTL prose.
 const rtlRanges = value => Array.isArray(value) ? value.map(rtlRanges) : typeof value === 'string' ? value.replace(/(?<![0-9٠-٩۰-۹])([0-9٠-٩۰-۹]+(?:[.:٫٬][0-9٠-٩۰-۹]+)*(?:\s*[+−×÷=<>–/-]\s*[0-9٠-٩۰-۹]+(?:[.:٫٬][0-9٠-٩۰-۹]+)*)+)(?![0-9٠-٩۰-۹])/gu, '\u2066\u202d$1\u202c\u2069') : value;
 const loc = (value, lang) => lang === 'ar' ? rtlRanges(value?.[lang] ?? '') : value?.[lang] ?? '';
+// <title>, meta descriptions, share previews and JSON-LD are plain text: invisible
+// direction controls there show up as stray characters in tabs, search results
+// and link cards. Strip them; in Arabic, an ASCII hyphen inside a number range
+// keeps the "3-4" order without any control characters (an en dash would not).
+const plainText = (value, lang) => {
+  const text = String(value ?? '').replace(/[\u2066-\u2069\u202a-\u202e\u200e\u200f]/gu, '');
+  return lang === 'ar' ? text.replace(/(?<=[0-9٠-٩])\s*–\s*(?=[0-9٠-٩])/gu, '-') : text;
+};
 export const kidsBase = lang => lang === 'ar' ? '/ar/topics/kids-riddles/' : '/kids-riddles';
 export const kidsPath = (lang, suffix = '') => suffix ? `${kidsBase(lang).replace(/\/$/, '')}/${suffix}/` : kidsBase(lang);
 export const activityPath = (lang, id) => kidsPath(lang, `activities/${id}`);
@@ -47,10 +56,11 @@ function art(name, cls = '', eager = false) {
   if (!fs.existsSync(path.join(root, `assets/illustrations/${name}-480.webp`))) name = 'kids-riddles';
   return `<img class="${cls}" src="/assets/illustrations/${name}-480.webp" srcset="/assets/illustrations/${name}-480.webp 480w, /assets/illustrations/${name}-960.webp 960w" sizes="(max-width: 600px) 160px, 300px" width="960" height="640" alt="" loading="${eager ? 'eager' : 'lazy'}" decoding="async"${eager ? ' fetchpriority="high"' : ''} />`;
 }
-function layout({lang, suffix = '', title, description, content, type = 'hub', activity, schema}) {
+function layout({lang, suffix = '', title: visibleTitle, description: visibleDescription, content, type = 'hub', activity, schema}) {
   const canonical = kidsPath(lang, suffix), alternate = kidsPath(lang === 'ar' ? 'en' : 'ar', suffix);
+  const title = plainText(visibleTitle, lang), description = plainText(visibleDescription, lang);
   const name = `${title} | ${ui(lang, 'Riddle Arabia', 'ريدل أرابيا')}`;
-  const structured = schema || { '@type': 'CollectionPage', name: title, description };
+  const structured = plainStructuredData(schema || { '@type': 'CollectionPage', name: title, description }, lang);
   const json = JSON.stringify({ '@context': 'https://schema.org', ...structured, url: origin + canonical, inLanguage: lang, isPartOf: { '@id': origin + '/#website' }, isAccessibleForFree: true }).replaceAll('<', '\\u003c');
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">
@@ -79,17 +89,23 @@ function layout({lang, suffix = '', title, description, content, type = 'hub', a
 <a class="skip-link" href="#top">${ui(lang, 'Skip to main content', 'انتقل إلى المحتوى الرئيسي')}</a>
 ${siteHeader({lang, alternate, active: 'kids'}).replace('class="language-route-link"', 'class="language-route-link" data-kids-language')}
 <main id="top" class="kids-shell" tabindex="-1">
-${suffix ? `<nav class="kids-breadcrumb" aria-label="${ui(lang, 'Breadcrumb', 'مسار التنقّل')}"><a href="${kidsBase(lang)}">${ui(lang, 'Kids Learning & Play', 'عالم الأطفال: تعلّم والعب')}</a><span aria-hidden="true"> / </span><span aria-current="page">${e(title)}</span></nav>` : ''}
+${suffix ? `<nav class="kids-breadcrumb" aria-label="${ui(lang, 'Breadcrumb', 'مسار التنقّل')}"><a href="${kidsBase(lang)}">${ui(lang, 'Kids Learning & Play', 'عالم الأطفال: تعلّم والعب')}</a><span aria-hidden="true"> / </span><span aria-current="page">${e(visibleTitle)}</span></nav>` : ''}
 ${content}
 </main>
-<footer class="kids-footer kids-shell"><p>${ui(lang, 'Small discoveries. Shared moments. At your own pace.', 'اكتشافات صغيرة ولحظات مشتركة، بالوتيرة التي تناسبكم.')}</p><nav aria-label="${ui(lang, 'Kids resources', 'موارد الأطفال')}"><a href="${kidsPath(lang, 'parents')}">${ui(lang, 'For parents', 'للأهل')}</a><a href="${kidsPath(lang, 'toolkit')}">${ui(lang, 'My family toolkit', 'أدوات الأسرة')}</a><a href="${lang === 'ar' ? '/ar/privacy/' : '/privacy'}">${ui(lang, 'Privacy', 'الخصوصية')}</a></nav><small>© 2026 Riddle Arabia</small></footer>
+<footer class="kids-footer kids-shell"><p>${ui(lang, 'Small discoveries. Shared moments. At your own pace.', 'اكتشافات صغيرة ولحظات مشتركة، بالوتيرة التي تناسبكم.')}</p><nav aria-label="${ui(lang, 'Kids resources', 'موارد الأطفال')}"><a href="${kidsPath(lang, 'parents')}">${ui(lang, 'For parents', 'للأهل')}</a><a href="${kidsPath(lang, 'toolkit')}">${ui(lang, 'My family toolkit', 'أدوات الأسرة')}</a><a href="${lang === 'ar' ? '/ar/privacy/' : '/privacy'}">${ui(lang, 'Privacy', 'الخصوصية')}</a></nav><small>© 2026 ${ui(lang, 'Riddle Arabia', 'ريدل أرابيا')}</small></footer>
 <p class="kids-status" data-kids-status role="status" aria-live="polite" aria-atomic="true"></p>
 </body></html>\n`;
+}
+function plainStructuredData(value, lang) {
+  if (typeof value === 'string') return plainText(value, lang);
+  if (Array.isArray(value)) return value.map(entry => plainStructuredData(entry, lang));
+  if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([key, entry]) => [key, plainStructuredData(entry, lang)]));
+  return value;
 }
 function hero(lang, title, description, {eyebrow = '', image = 'topic-kids-riddles', action = true} = {}) {
   return `<section class="kids-hero"><div class="kids-hero-copy"><p class="kids-eyebrow">${e(eyebrow || ui(lang, 'A little curiosity, a world of discovery', 'فضول صغير، وعالم من الاكتشاف'))}</p><h1>${e(title)}</h1><p class="kids-lead">${e(description)}</p>${action ? `<div class="kids-actions"><a class="kids-button" href="#find">${ui(lang, 'Find an activity', 'ابحث عن نشاط')}</a><a class="kids-button secondary" href="${kidsPath(lang, 'weekly-plans')}">${ui(lang, 'Plan a playful week', 'خطّط لأسبوع مرح')}</a></div><p class="kids-note">${ui(lang, 'Ages 3–12 · Arabic & English · Free, with no account needed', 'الأعمار 3–12 · العربية والإنجليزية · مجانًا دون حساب')}</p>` : ''}</div>${art(image, 'kids-hero-art', true)}</section>`;
 }
-function ageCards(lang) { return `<div class="kids-age-grid">${KIDS_AGES.map(a => `<a class="kids-age-card" data-age="${a.id}" href="${kidsPath(lang, `ages/${a.id}`)}"><span class="kids-eyebrow">${ageText(a.id, lang)}</span><h3>${e(loc(a.title, lang))}</h3><p>${e(loc(a.description, lang))}</p><span>${ui(lang, `Explore ${KIDS_INVENTORY.activitiesPerAgeAndArea * KIDS_AREAS.length} activities`, `استكشف ${KIDS_INVENTORY.activitiesPerAgeAndArea * KIDS_AREAS.length} نشاطًا`)} <span aria-hidden="true">${lang === 'ar' ? '←' : '→'}</span></span></a>`).join('')}</div>`; }
+function ageCards(lang) { return `<div class="kids-age-grid">${KIDS_AGES.map(a => `<a class="kids-age-card" data-age="${a.id}" href="${kidsPath(lang, `ages/${a.id}`)}"><span class="kids-eyebrow">${ageText(a.id, lang)}</span><h3>${e(loc(a.title, lang))}</h3><p>${e(loc(a.description, lang))}</p><span>${ui(lang, `Explore ${KIDS_INVENTORY.activitiesPerAgeAndArea * KIDS_AREAS.length} activities`, `استكشف ${arabicCount(KIDS_INVENTORY.activitiesPerAgeAndArea * KIDS_AREAS.length, AR_COUNT.activity)}`)} <span aria-hidden="true">${lang === 'ar' ? '←' : '→'}</span></span></a>`).join('')}</div>`; }
 function areaCards(lang) { return `<div class="kids-area-grid">${KIDS_AREAS.map(a => `<a class="kids-area-card" data-area="${a.id}" href="${kidsPath(lang, `areas/${a.id}`)}">${art(a.image, 'kids-card-icon')}<h3>${e(loc(a.title, lang))}</h3><p>${e(loc(a.description, lang))}</p><span>${ui(lang, `${KIDS_INVENTORY.activitiesPerAgeAndArea * KIDS_AGES.length} activities`, `${KIDS_INVENTORY.activitiesPerAgeAndArea * KIDS_AGES.length} نشاطًا`)}</span></a>`).join('')}</div>`; }
 function select(name, label, values, lang, selected = '') {
   return `<label><span>${e(label)}</span><select name="${name}"><option value="">${ui(lang, 'Any', 'الكلّ')}</option>${values.map(([id, text]) => `<option value="${id}"${selected === id ? ' selected' : ''}>${e(text)}</option>`).join('')}</select></label>`;
@@ -101,10 +117,10 @@ function activityCard(a, lang) {
   const area = KIDS_AREAS.find(v => v.id === a.area);
   return `<article class="kids-activity-card" data-activity-card data-activity-id="${a.id}"><div class="kids-card-meta"><span class="kids-tag">${ageText(a.age, lang)}</span><span>${timeText(a.minutes, lang)}</span></div><p class="kids-eyebrow">${e(loc(area.title, lang))} · ${e(loc(formats[a.format], lang))}</p><h3><a href="${activityPath(lang, a.id)}">${e(loc(a.title, lang))}</a></h3><p>${e(loc(a.summary, lang))}</p><p class="kids-note">${e(loc(materials[a.materialGroup], lang))} · ${e(loc(adults[a.adult], lang))}</p><div class="kids-card-actions"><a class="kids-button" href="${activityPath(lang, a.id)}">${ui(lang, 'Try this activity', 'جرّب هذا النشاط')}</a><button type="button" class="kids-button secondary" data-kids-save="${a.id}" aria-pressed="false">${ui(lang, 'Save', 'حفظ')}</button></div></article>`;
 }
-function library(activities, lang) { return `<section class="kids-section" id="activities">${sectionHead(ui(lang, 'The activity library', 'مكتبة الأنشطة'), ui(lang, 'Start small. Follow an interest. Try something together.', 'ابدأ بخطوة صغيرة، واتبع الاهتمام، وجرّبوا معًا.'))}<p data-kids-count>${ui(lang, `${activities.length} activities`, `${activities.length} نشاطًا`)}</p><p class="kids-empty" data-kids-empty hidden>${ui(lang, 'No activities match all those choices. Try a longer time or reset one filter.', 'لا توجد أنشطة تطابق كلّ الاختيارات. جرّب وقتًا أطول أو أعد ضبط أحد الخيارات.')}</p><div class="kids-card-grid">${activities.map(a => activityCard(a, lang)).join('')}</div><button type="button" class="kids-button secondary" data-kids-more hidden>${ui(lang, 'Show more activities', 'عرض مزيد من الأنشطة')}</button></section>`; }
-function resourceCard(item, lang, kind) {
+function library(activities, lang) { return `<section class="kids-section" id="activities">${sectionHead(ui(lang, 'The activity library', 'مكتبة الأنشطة'), ui(lang, 'Start small. Follow an interest. Try something together.', 'ابدأ بخطوة صغيرة، واتبع الاهتمام، وجرّبوا معًا.'))}<p data-kids-count>${ui(lang, `${activities.length} activities`, arabicCount(activities.length, AR_COUNT.activity))}</p><p class="kids-empty" data-kids-empty hidden>${ui(lang, 'No activities match all those choices. Try a longer time or reset one filter.', 'لا توجد أنشطة تطابق كلّ الاختيارات. جرّب وقتًا أطول أو أعد ضبط أحد الخيارات.')}</p><div class="kids-card-grid">${activities.map(a => activityCard(a, lang)).join('')}</div><button type="button" class="kids-button secondary" data-kids-more hidden>${ui(lang, 'Show more activities', 'عرض مزيد من الأنشطة')}</button></section>`; }
+function resourceCard(item, lang, kind, level = 3) {
   const label = {printables: pair('Open printable pack', 'افتح الحزمة القابلة للطباعة'), 'weekly-plans': pair('Explore this week', 'استكشف هذا الأسبوع'), parents: pair('Read the guide', 'اقرأ الدليل')}[kind];
-  return `<article class="kids-resource-card">${item.age ? `<p class="kids-eyebrow">${ageText(item.age,lang)}</p>` : ''}<h3><a href="${kidsPath(lang, `${kind}/${item.id}`)}">${e(loc(item.title,lang))}</a></h3><p>${e(loc(item.description,lang))}</p><a class="kids-button secondary" href="${kidsPath(lang, `${kind}/${item.id}`)}">${loc(label,lang)}</a></article>`;
+  return `<article class="kids-resource-card">${item.age ? `<p class="kids-eyebrow">${ageText(item.age,lang)}</p>` : ''}<h${level}><a href="${kidsPath(lang, `${kind}/${item.id}`)}">${e(loc(item.title,lang))}</a></h${level}><p>${e(loc(item.description,lang))}</p><a class="kids-button secondary" href="${kidsPath(lang, `${kind}/${item.id}`)}">${loc(label,lang)}</a></article>`;
 }
 function resourcesSection(items, lang, kind, title, description, limit) {
   return `<section class="kids-section" id="${kind}">${sectionHead(title, description, `<a href="${kidsPath(lang,kind)}">${ui(lang, 'View all', 'عرض الكلّ')}</a>`)}<div class="kids-resource-grid">${items.slice(0,limit ?? items.length).map(item => resourceCard(item,lang,kind)).join('')}</div></section>`;
@@ -120,12 +136,22 @@ function hub(content, lang, {age, area, listing = false} = {}) {
   const plans = main ? KIDS_AGES.map(a => content.plans.find(p => p.age === a.id)) : content.plans.filter(p => !age || p.age === age.id);
   const packs = main ? KIDS_AGES.map((a, i) => content.packs.find(p => p.age === a.id && p.area === KIDS_AREAS[i].id)) : content.packs.filter(p => (!age || p.age === age.id) && (!area || p.area === area.id));
   return layout({lang, suffix: age ? `ages/${age.id}` : area ? `areas/${area.id}` : listing ? 'activities' : '', title, description, content:
-    hero(lang,title,description,{image:area?.image}) + `<nav class="kids-subnav" aria-label="${ui(lang,'Explore kids learning','استكشف تعلّم الأطفال')}">${[['activities',ui(lang,'Activities','الأنشطة')],['weekly-plans',ui(lang,'Weekly plans','خطط أسبوعية')],['printables',ui(lang,'Printables','للطباعة')],['parents',ui(lang,'For parents','للأهل')],['toolkit',ui(lang,'My toolkit','أدواتي')]].map(([id,text])=>`<a href="${kidsPath(lang,id)}">${text}</a>`).join('')}</nav>` + finder(lang,{age:age?.id,area:area?.id}) +
+    hero(lang,title,description,{image:area?.image}) + subnav(lang, listing ? 'activities' : '') + (main ? riddlesCallout(content, lang) : '') + finder(lang,{age:age?.id,area:area?.id}) +
     (main ? `<section class="kids-section">${sectionHead(ui(lang,'A starting point for every stage','بداية مناسبة لكلّ مرحلة'),ui(lang,'Age is a guide. Explore nearby ages and use the easier or harder variations.', 'العمر دليل أولي. استكشف الأعمار القريبة واستخدم النسخة الأسهل أو الأصعب.'))}${ageCards(lang)}</section><section class="kids-section">${sectionHead(ui(lang,'Follow their curiosity','اتبع فضولهم'))}${areaCards(lang)}</section>` : '') + library(filtered,lang) +
     resourcesSection(plans,lang,'weekly-plans',ui(lang,'A playful week, ready for you','أسبوع مرح جاهز لكم'),ui(lang,'Five small invitations to explore. No daily pressure.','خمس دعوات صغيرة للاستكشاف، دون ضغط يومي.'),main?4:2) +
     resourcesSection(packs,lang,'printables',ui(lang,'Print, play & take it offline','اطبع والعب بعيدًا عن الشاشة'),ui(lang,'24 packs with instructions and parent answer guides. Every activity also works without a printer.','24 حزمة مع تعليمات وأدلة إجابات للأهل. ويمكن تنفيذ كلّ نشاط دون طابعة.'),main?4:2) +
     (main?resourcesSection(content.guides,lang,'parents',ui(lang,'A helping hand for parents','دعم عملي للأهل'),ui(lang,'Simple ways to support the thinking, without taking over.','طرق بسيطة لدعم التفكير دون أداء المهمّة عن الطفل.'),4):'') + toolkit(lang,main) +
     `<p class="kids-note"><a href="${kidsPath(lang,'riddles')}">${ui(lang,'Looking for the original 30 kids riddles? Find them here, now with explanations.','تبحث عن ألغاز الأطفال الثلاثين الأصلية؟ تجدها هنا مع شروح للإجابات.')}</a></p>` });
+}
+// The original 30 kids riddles (question + answer cards) live on their own page.
+// Keep them one tap away from every Kids page: a tab in the sub-navigation and a
+// callout near the top of the hub (the riddles were hard to find after 30 Sep).
+function subnav(lang, current = '') {
+  const items = [['activities',ui(lang,'Activities','الأنشطة')],['riddles',ui(lang,'Riddles','ألغاز')],['weekly-plans',ui(lang,'Weekly plans','خطط أسبوعية')],['printables',ui(lang,'Printables','للطباعة')],['parents',ui(lang,'For parents','للأهل')],['toolkit',ui(lang,'My toolkit','أدواتي')]];
+  return `<nav class="kids-subnav" aria-label="${ui(lang,'Explore kids learning','استكشف تعلّم الأطفال')}">${items.map(([id,text])=>`<a href="${kidsPath(lang,id)}"${id===current?' aria-current="page"':''}>${text}</a>`).join('')}</nav>`;
+}
+function riddlesCallout(content, lang) {
+  return `<section class="kids-section kids-callout kids-riddles-callout"><h2>${ui(lang,`${content.legacy.length} kids riddles with answers`,`${content.legacy.length} لغزًا للأطفال مع الإجابات`)}</h2><p>${ui(lang,'Read a clue together, guess, then open the answer and the explanation.','اقرأ القرينة مع طفلك، وخمّنا معًا، ثم افتحا الإجابة والشرح.')}</p><div class="kids-actions"><a class="kids-button" href="${kidsPath(lang,'riddles')}">${ui(lang,'See the riddles','اعرض الألغاز')}</a></div></section>`;
 }
 function dayPicker(a,lang) {
   const days = [pair('Monday','الاثنين'),pair('Tuesday','الثلاثاء'),pair('Wednesday','الأربعاء'),pair('Thursday','الخميس'),pair('Friday','الجمعة'),pair('Saturday','السبت'),pair('Sunday','الأحد')];
@@ -146,7 +172,7 @@ function indexPage(content,lang,kind) {
   const items = kind === 'printables' ? content.packs : kind === 'weekly-plans' ? content.plans : content.guides;
   const title = ui(lang,{printables:'Printable activity packs','weekly-plans':'A playful week, ready to use',parents:'A helping hand for parents'}[kind],{printables:'حزم أنشطة قابلة للطباعة','weekly-plans':'أسبوع مرح جاهز للاستخدام',parents:'دعم عملي للأهل'}[kind]);
   const description = ui(lang,{printables:'Choose an age and learning area. Each free pack brings twenty complete activities and a separate answer guide together.','weekly-plans':'Choose one of four weeks for your child’s age. Add five activities to your planner, then move, repeat or skip any day.',parents:'Eight practical guides for choosing activities, sharing languages, supporting ideas and making play work for your family.'}[kind],{printables:'اختر العمر ومجال التعلّم. تجمع كلّ حزمة مجانية عشرين نشاطًا كاملًا ودليل إجابات منفصلًا.','weekly-plans':'اختر أحد أربعة أسابيع لعمر طفلك. أضف خمسة أنشطة إلى المخطّط، ثم غيّر الأيام أو كرّر النشاط أو تجاوزه.',parents:'ثمانية أدلّة عملية لاختيار الأنشطة ومشاركة اللغات ودعم الأفكار وتكييف اللّعب مع أسرتك.'}[kind]);
-  return layout({lang,suffix:kind,title,description,type:'resources',content:hero(lang,title,description,{action:false}) + (kind==='parents'?`<div class="kids-resource-grid kids-section">${items.map(item=>resourceCard(item,lang,kind)).join('')}</div>`:content.ages.map(age=>`<section class="kids-section">${sectionHead(`${ageText(age.id,lang)} · ${loc(age.title,lang)}`)}<div class="kids-resource-grid">${items.filter(v=>v.age===age.id).map(item=>resourceCard(item,lang,kind)).join('')}</div></section>`).join(''))});
+  return layout({lang,suffix:kind,title,description,type:'resources',content:hero(lang,title,description,{action:false}) + (kind==='parents'?`<div class="kids-resource-grid kids-section">${items.map(item=>resourceCard(item,lang,kind,2)).join('')}</div>`:content.ages.map(age=>`<section class="kids-section">${sectionHead(`${ageText(age.id,lang)} · ${loc(age.title,lang)}`)}<div class="kids-resource-grid">${items.filter(v=>v.age===age.id).map(item=>resourceCard(item,lang,kind)).join('')}</div></section>`).join(''))});
 }
 function planPage(plan,content,lang) {
   const activities=plan.activityIds.map(id=>content.activities.find(a=>a.id===id));
@@ -160,7 +186,7 @@ function guidePage(guide,lang) {
   return layout({lang,suffix:`parents/${guide.id}`,title:loc(guide.title,lang),description:loc(guide.description,lang),type:'guide',schema:{'@type':'Article',headline:loc(guide.title,lang),description:loc(guide.description,lang)},content:hero(lang,loc(guide.title,lang),loc(guide.description,lang),{action:false})+`<article class="kids-section kids-guide-content" data-kids-read>${guide.sections.map(s=>`<section class="kids-detail-section"><h2>${e(loc(s.title,lang))}</h2><p>${e(loc(s.body,lang))}</p></section>`).join('')}<div class="kids-callout"><h2>${ui(lang,'Try one small thing today','جرّب شيئًا صغيرًا اليوم')}</h2><p>${ui(lang,'Choose one idea from this guide and one activity your child is curious about. Adapt it together, and keep what works for your family.','اختر فكرة واحدة من الدليل ونشاطًا يثير فضول طفلك. كيّفاه معًا واحتفظا بما يناسب أسرتكما.')}</p><a class="kids-button" href="${kidsPath(lang,'activities')}">${ui(lang,'Find an activity','ابحث عن نشاط')}</a></div></article>`});
 }
 function legacyPage(content,lang) {
-  return layout({lang,suffix:'riddles',title:ui(lang,'The original kids riddles','ألغاز الأطفال الأصلية'),description:ui(lang,'Thirty familiar riddles, now with age guidance and explanations. Read a clue together and talk about why an answer fits.','ثلاثون لغزًا مألوفًا مع إرشادات عمرية وشروح. اقرأ القرينة مع طفلك وناقشا سبب ملاءمة الإجابة.'),type:'riddles',content:hero(lang,ui(lang,'Thirty little mysteries','ثلاثون لغزًا صغيرًا'),ui(lang,'Read together. Think aloud. Find the clue that makes it click.','اقرآ معًا وفكّرا بصوت مسموع، وابحثا عن القرينة التي توضّح الفكرة.'),{action:false})+`<section class="kids-section"><div class="kids-card-grid">${content.legacy.map(c=>`<article class="kids-activity-card" id="${c.id}"><p class="kids-eyebrow">${ageText(c.age,lang)}</p><h2 tabindex="-1">${e(loc(c.question,lang))}</h2><details class="kids-answer"><summary>${ui(lang,'Answer & explanation','الإجابة والشرح')}</summary><p><strong>${e(loc(c.answer,lang))}</strong></p><p>${e(loc(c.explanation,lang))}</p></details><p class="kids-note">${ui(lang,'Which clue helped you? Can you invent another clue?','أيّ قرينة ساعدتك؟ هل تستطيع ابتكار قرينة أخرى؟')}</p><a href="${kidsPath(lang,`ages/${c.age}`)}">${ui(lang,'Explore activities for this age','استكشف أنشطة هذا العمر')}</a></article>`).join('')}</div></section>`});
+  return layout({lang,suffix:'riddles',title:ui(lang,'The original kids riddles','ألغاز الأطفال الأصلية'),description:ui(lang,'Thirty familiar riddles, now with age guidance and explanations. Read a clue together and talk about why an answer fits.','ثلاثون لغزًا مألوفًا مع إرشادات عمرية وشروح. اقرأ القرينة مع طفلك وناقشا سبب ملاءمة الإجابة.'),type:'riddles',content:hero(lang,ui(lang,'Thirty little mysteries','ثلاثون لغزًا صغيرًا'),ui(lang,'Read together. Think aloud. Find the clue that makes it click.','اقرآ معًا وفكّرا بصوت مسموع، وابحثا عن القرينة التي توضّح الفكرة.'),{action:false})+subnav(lang,'riddles')+`<section class="kids-section"><div class="kids-card-grid">${content.legacy.map(c=>`<article class="kids-activity-card" id="${c.id}"><p class="kids-eyebrow">${ageText(c.age,lang)}</p><h2 tabindex="-1">${e(loc(c.question,lang))}</h2><details class="kids-answer"><summary>${ui(lang,'Answer & explanation','الإجابة والشرح')}</summary><p><strong>${e(loc(c.answer,lang))}</strong></p><p>${e(loc(c.explanation,lang))}</p></details><p class="kids-note">${ui(lang,'Which clue helped you? Can you invent another clue?','أيّ قرينة ساعدتك؟ هل تستطيع ابتكار قرينة أخرى؟')}</p><a href="${kidsPath(lang,`ages/${c.age}`)}">${ui(lang,'Explore activities for this age','استكشف أنشطة هذا العمر')}</a></article>`).join('')}</div></section>`});
 }
 export function generateKidsPages({check=false}={}) {
   const content=loadKidsContent(), outputs=new Map(), stale=[];

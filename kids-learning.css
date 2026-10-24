@@ -173,7 +173,7 @@
 .kids-empty h3 { margin-top: 0; }
 .kids-resource-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 .kids-resource-card { display: flex; flex-direction: column; background: #fffdfa; border: 1px solid var(--kids-line); border-radius: 18px; padding: 1.4rem; }
-.kids-resource-card h3 { font-size: 1.15rem; margin: .65rem 0 .6rem; }
+.kids-resource-card :is(h2, h3) { font-size: 1.15rem; letter-spacing: normal; margin: .65rem 0 .6rem; }
 .kids-resource-card p { font-size: .88rem; color: var(--kids-muted); margin: 0 0 1rem; }
 .kids-resource-card .kids-actions, .kids-resource-card > a:last-child, .kids-resource-card > button:last-child { margin-top: auto; }
 .kids-toolkit { border: 1px solid #dfccb0; border-radius: 25px; padding: clamp(1.1rem, 3vw, 2.1rem); background: #f6ecdb; }

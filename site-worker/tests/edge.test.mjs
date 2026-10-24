@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import test from "node:test";
+import { brotliDecompressSync, gunzipSync } from "node:zlib";
 
 import {
   cachePolicy,
@@ -10,8 +11,11 @@ import {
   createSiteHandler,
   fingerprintCompatibilitySource,
   isQuarantinedPath,
+  negotiateHtmlEncoding,
   retiredSeoRedirectTarget,
   validateMtaStsPolicy,
+  visitorAcceptEncoding,
+  withWorkerVersion,
 } from "../src/site-edge.js";
 
 const repositoryRoot = resolve(import.meta.dirname, "../..");
@@ -169,14 +173,31 @@ test("quarantined paths return policy-complete 410 responses before asset access
   for (const pathname of paths) {
     const response = await handler.fetch(new Request(`${PRIMARY_ORIGIN}${pathname}`), blockedEnvironment);
     assert.equal(response.status, 410, pathname);
-    assert.equal(response.headers.get("cache-control"), "no-store", pathname);
+    // HTML keeps the site-wide no-transform guard (docs/HTML-DELIVERY-POLICY.md).
+    assert.match(response.headers.get("cache-control"), /^no-store(?:, no-transform)?$/u, pathname);
     assert.equal(response.headers.get("x-jakh-content-quarantine"), "active", pathname);
     assert.equal(response.headers.get("clear-site-data"), '"cache"', pathname);
     assert.match(response.headers.get("x-robots-tag"), /noindex.*nofollow.*noarchive.*nosnippet/u, pathname);
     assertSecurityHeaders(response);
   }
   const heldCopy = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/survival`), blockedEnvironment);
-  assert.equal(await heldCopy.text(), "This content is temporarily unavailable.\n");
+  assert.match(heldCopy.headers.get("content-type"), /^text\/html;/u);
+  const heldPage = await heldCopy.text();
+  assert.match(heldPage, /<html lang="en" dir="ltr">/u);
+  assert.match(heldPage, /This content is temporarily unavailable\./u);
+  assert.match(heldPage, /هذا المحتوى غير متاح مؤقتًا/u);
+  assert.doesNotMatch(heldPage, /<script|src=/iu, "held page loads nothing");
+  for (const slug of siteManifest.publication.quarantinedCategories) {
+    assert.ok(!heldPage.includes(slug), `held page never names or links ${slug}`);
+  }
+  const arabicHeld = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/ar/topics/pharmacy/`), blockedEnvironment);
+  assert.equal(arabicHeld.status, 410);
+  const arabicPage = await arabicHeld.text();
+  assert.match(arabicPage, /<html lang="ar" dir="rtl">/u);
+  assert.ok(arabicPage.indexOf("غير متاح") < arabicPage.indexOf("temporarily unavailable"), "Arabic first on Arabic paths");
+  const heldData = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/data/pharmacy.json`), blockedEnvironment);
+  assert.match(heldData.headers.get("content-type"), /^text\/plain;/u);
+  assert.equal(await heldData.text(), "This content is temporarily unavailable.\n");
   assert.doesNotMatch(await handler.fetch(new Request(`${PRIMARY_ORIGIN}/survival`), blockedEnvironment).then((response) => response.text()), /review/iu);
   const head = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/data/%73urvival.json`, { method: "HEAD" }), blockedEnvironment);
   assert.equal(head.status, 410);
@@ -409,4 +430,309 @@ test("MTA-STS handler is valid but fail-closed until mail-owner activation", asy
   );
   assert.equal(legacyEnabled.status, 404);
   assert.equal(legacyEnabled.headers.get("location"), null);
+});
+
+// ---------------------------------------------------------------------------
+// Build-time HTML compression. The Worker never compresses at request time
+// (Free-plan CPU budget, PR #161); it only picks a stored copy.
+
+const distRoot = resolve(repositoryRoot, "site-worker/dist");
+const largestPage = Object.entries(siteManifest.routes)
+  .filter(([route]) => route !== "/__404__")
+  .map(([route, physical]) => [route, physical, siteManifest.files[physical].bytes])
+  .sort((left, right) => right[2] - left[2])[0];
+
+function storedContentType(pathname) {
+  if (pathname.endsWith(".gz")) return "application/gzip";
+  return contentType(pathname);
+}
+
+// Serves the real built bytes, like the Workers static-assets binding, and
+// records every request so tests can prove which file was read.
+function builtEnvironment({ override } = {}) {
+  const requests = [];
+  const bodies = new Map();
+  return {
+    requests,
+    bodies,
+    env: {
+      MTA_STS_ENABLED: "false",
+      ASSETS: {
+        async fetch(request) {
+          const pathname = new URL(request.url).pathname;
+          requests.push({ pathname, headers: Object.fromEntries(request.headers) });
+          const custom = override?.(pathname, request);
+          if (custom) return custom;
+          if (!siteManifest.files[pathname]) return new Response("missing", { status: 404 });
+          const bytes = await readFile(resolve(distRoot, pathname.slice(1)));
+          const response = new Response(bytes, {
+            headers: { "content-type": storedContentType(pathname), "content-length": String(bytes.length) },
+          });
+          bodies.set(pathname, response.body);
+          return response;
+        },
+      },
+    },
+  };
+}
+
+function visitorRequest(pathname, { clientAcceptEncoding, header = "br, gzip", method = "GET", headers = {} } = {}) {
+  const request = new Request(`${PRIMARY_ORIGIN}${pathname}`, {
+    method,
+    headers: header === null ? headers : { "accept-encoding": header, ...headers },
+  });
+  if (clientAcceptEncoding !== undefined) {
+    Object.defineProperty(request, "cf", { value: { clientAcceptEncoding } });
+  }
+  return request;
+}
+
+function withoutRuntimeCompression(t) {
+  const original = { CompressionStream: globalThis.CompressionStream, DecompressionStream: globalThis.DecompressionStream };
+  const refuse = class {
+    constructor() {
+      throw new Error("the Worker must not compress or decompress at request time");
+    }
+  };
+  globalThis.CompressionStream = refuse;
+  globalThis.DecompressionStream = refuse;
+  t.after(() => Object.assign(globalThis, original));
+}
+
+function decode(encoding, bytes) {
+  if (encoding === "br") return brotliDecompressSync(bytes);
+  if (encoding === "gzip") return gunzipSync(bytes);
+  return bytes;
+}
+
+test("the production build lists br and gzip copies for its HTML pages", () => {
+  assert.equal(siteManifest.htmlPrecompression.enabled, true);
+  assert.deepEqual(siteManifest.htmlPrecompression.encodings, ["br", "gzip"]);
+  for (const page of ["/index.html", "/ar/alghaz/index.html", "/404.html", "/admin.html", largestPage[1]]) {
+    const variants = siteManifest.htmlPrecompression.variants[page];
+    assert.ok(variants?.br && variants?.gzip, `${page} has both compressed copies`);
+  }
+});
+
+test("HTML is served from its stored compressed copy, byte-exact, with no request-time compression", async (t) => {
+  withoutRuntimeCompression(t);
+  const pages = [["/", "/index.html"], ["/ar/alghaz/", "/ar/alghaz/index.html"], ["/admin", "/admin.html"], largestPage.slice(0, 2)];
+  for (const [pathname, physical] of pages) {
+    const stored = await readFile(resolve(distRoot, physical.slice(1)));
+    const { env, requests, bodies } = builtEnvironment();
+    const identity = await handler.fetch(visitorRequest(pathname, { clientAcceptEncoding: "identity" }), env);
+    assert.equal(identity.headers.get("content-encoding"), null, pathname);
+    assert.ok(Buffer.from(await identity.arrayBuffer()).equals(stored), `${pathname} identity bytes`);
+
+    for (const [clientAcceptEncoding, encoding] of [
+      ["gzip, deflate, br, zstd", "br"],
+      ["gzip, deflate, br", "br"],
+      ["gzip, deflate", "gzip"],
+      ["br;q=0, gzip", "gzip"],
+      ["gzip;q=1, br;q=0.5", "gzip"],
+      ["x-gzip", "gzip"],
+    ]) {
+      const response = await handler.fetch(visitorRequest(pathname, { clientAcceptEncoding }), env);
+      const label = `${pathname} (${clientAcceptEncoding})`;
+      assert.equal(response.status, 200, label);
+      assert.equal(response.headers.get("content-encoding"), encoding, label);
+      assert.equal(response.headers.get("content-type"), "text/html; charset=utf-8", label);
+      assert.match(response.headers.get("vary") || "", /accept-encoding/iu, label);
+      assert.equal(response.headers.get("content-length"), null, label);
+      assert.equal(response.headers.get("etag"), identity.headers.get("etag"), label);
+      for (const name of ["cache-control", "content-security-policy", "x-jakh-site-version", "x-frame-options", "x-robots-tag"]) {
+        assert.equal(response.headers.get(name), identity.headers.get(name), `${label} ${name}`);
+      }
+      assertSecurityHeaders(response);
+      const copy = siteManifest.htmlPrecompression.variants[physical][encoding];
+      assert.equal(requests.at(-1).pathname, copy, `${label} reads the stored copy`);
+      assert.deepEqual(Object.keys(requests.at(-1).headers), [], `${label} asks for the copy without visitor headers`);
+      // The stored stream is handed through untouched: no buffering, no transform.
+      assert.equal(response.body, bodies.get(copy), `${label} passes the stored body stream through`);
+      const decoded = decode(encoding, Buffer.from(await response.arrayBuffer()));
+      assert.ok(decoded.equals(stored), `${label} decodes to the exact stored HTML, so CSP hashes still match`);
+    }
+  }
+});
+
+test("compressed HTML is chosen only when the visitor's own Accept-Encoding allows it", async () => {
+  const { env } = builtEnvironment();
+  const cases = [
+    // Cloudflare replaced the header and kept the visitor's value.
+    [{ clientAcceptEncoding: "gzip, deflate, br" }, "br"],
+    [{ clientAcceptEncoding: "" }, null],
+    [{ clientAcceptEncoding: "identity" }, null],
+    [{ clientAcceptEncoding: "*" }, null],
+    [{ clientAcceptEncoding: "deflate" }, null],
+    [{ clientAcceptEncoding: "br;q=0, gzip;q=0" }, null],
+    [{ clientAcceptEncoding: "gzip;q=0.000, br;q=1.5" }, null],
+    // No original value: Cloudflare's own canonical header proves nothing.
+    [{ clientAcceptEncoding: null, header: "br, gzip" }, null],
+    [{ clientAcceptEncoding: null, header: "gzip" }, null],
+    [{ clientAcceptEncoding: null, header: "gzip, deflate, br" }, "br"],
+    // Off Cloudflare (tests, local preview) the header is the visitor's own.
+    [{ header: "br" }, "br"],
+    [{ header: "gzip" }, "gzip"],
+    [{ header: null }, null],
+  ];
+  for (const [options, expected] of cases) {
+    const response = await handler.fetch(visitorRequest("/", options), env);
+    assert.equal(response.status, 200, JSON.stringify(options));
+    assert.equal(response.headers.get("content-encoding"), expected, JSON.stringify(options));
+    assert.match(response.headers.get("vary") || "", /accept-encoding/iu, `${JSON.stringify(options)}: every form varies`);
+  }
+  assert.equal(negotiateHtmlEncoding("gzip, br", ["br", "gzip"]), "br", "brotli wins a tie");
+  assert.equal(negotiateHtmlEncoding("GZIP;Q=0.8, BR;Q=0.4", ["br", "gzip"]), "gzip");
+  assert.equal(negotiateHtmlEncoding("br, br;q=0", ["br", "gzip"]), null, "a repeated coding keeps its most cautious quality");
+  assert.equal(visitorAcceptEncoding(visitorRequest("/", { clientAcceptEncoding: "zstd", header: "br, gzip" })), "zstd");
+});
+
+test("HEAD, Range, conditional, 404 and quarantine responses keep their behaviour", async (t) => {
+  withoutRuntimeCompression(t);
+  const { env, requests } = builtEnvironment();
+  const br = { clientAcceptEncoding: "gzip, deflate, br" };
+
+  const head = await handler.fetch(visitorRequest("/ar/alghaz/", { ...br, method: "HEAD" }), env);
+  assert.equal(head.status, 200);
+  assert.equal(head.headers.get("content-encoding"), null, "HEAD describes the stored page as today");
+  assert.match(head.headers.get("vary") || "", /accept-encoding/iu);
+  assert.equal(await head.text(), "");
+
+  const range = await handler.fetch(visitorRequest("/ar/alghaz/", { ...br, headers: { range: "bytes=0-99" } }), env);
+  assert.equal(range.headers.get("content-encoding"), null, "a byte range is never taken from a compressed copy");
+
+  const full = await handler.fetch(visitorRequest("/ar/alghaz/", br), env);
+  const etag = full.headers.get("etag");
+  assert.match(etag, /^W\/"[a-f0-9]{64}"$/u);
+  const conditional = await handler.fetch(visitorRequest("/ar/alghaz/", { ...br, headers: { "if-none-match": etag } }), env);
+  assert.equal(conditional.status, 304);
+  assert.equal(conditional.headers.get("etag"), etag, "a 304 repeats the ETag");
+  assert.match(conditional.headers.get("vary") || "", /accept-encoding/iu, "a 304 repeats the Vary of the 200");
+  assert.equal(conditional.headers.get("content-encoding"), null);
+  assert.equal(conditional.headers.get("cache-control"), full.headers.get("cache-control"));
+
+  const stored404 = await readFile(resolve(distRoot, "404.html"));
+  for (const pathname of ["/definitely-missing", "/404", "/404.html"]) {
+    const missing = await handler.fetch(visitorRequest(pathname, br), env);
+    assert.equal(missing.status, 404, pathname);
+    assert.equal(missing.headers.get("cache-control"), "no-store, no-transform", pathname);
+    assert.equal(missing.headers.get("etag"), null, pathname);
+    assertSecurityHeaders(missing);
+    assert.ok(decode(missing.headers.get("content-encoding"), Buffer.from(await missing.arrayBuffer())).equals(stored404), pathname);
+  }
+
+  const before = requests.length;
+  const held = await handler.fetch(visitorRequest("/survival", br), env);
+  assert.equal(held.status, 410);
+  assert.equal(held.headers.get("content-encoding"), null);
+  assert.equal(held.headers.get("x-jakh-content-quarantine"), "active");
+  assert.equal(requests.length, before, "quarantine still answers before any asset access");
+});
+
+test("compressed copies are internal files, never public URLs", async () => {
+  const [page, variants] = Object.entries(siteManifest.htmlPrecompression.variants).find(([path]) => path !== "/404.html");
+  const stored404 = await readFile(resolve(distRoot, "404.html"));
+  for (const copy of [variants.br, variants.gzip]) {
+    for (const pathname of [copy, copy.toUpperCase(), copy.replace("/__precompressed/", "/__Precompressed/"), `${copy}?x=1`]) {
+      for (const method of ["GET", "HEAD"]) {
+        const { env, requests } = builtEnvironment();
+        const response = await handler.fetch(visitorRequest(pathname, { clientAcceptEncoding: "identity", method }), env);
+        assert.equal(response.status, 404, `${method} ${pathname} (copy of ${page})`);
+        assert.equal(response.headers.get("content-encoding"), null);
+        assert.deepEqual(requests.map((request) => request.pathname), ["/404.html"], `${pathname} only reads the 404 page`);
+        if (method === "GET") assert.ok(Buffer.from(await response.arrayBuffer()).equals(stored404));
+      }
+    }
+  }
+});
+
+test("a missing or unexpected compressed copy falls back to the stored page", async () => {
+  const stored = await readFile(resolve(distRoot, "index.html"));
+  const copy = siteManifest.htmlPrecompression.variants["/index.html"].br;
+  const brokenCopies = {
+    "missing": () => new Response("missing", { status: 404 }),
+    "server error": () => new Response("error", { status: 500 }),
+    "re-encoded by the asset server": () => new Response("x", { headers: { "content-encoding": "gzip" } }),
+    "wrong length": () => new Response("short", { headers: { "content-length": "5" } }),
+    "thrown": () => { throw new Error("asset binding unavailable"); },
+  };
+  for (const [label, broken] of Object.entries(brokenCopies)) {
+    const { env } = builtEnvironment({ override: (pathname) => pathname === copy ? broken() : null });
+    const response = await handler.fetch(visitorRequest("/", { clientAcceptEncoding: "gzip, deflate, br" }), env);
+    assert.equal(response.status, 200, label);
+    assert.equal(response.headers.get("content-encoding"), null, label);
+    assert.match(response.headers.get("vary") || "", /accept-encoding/iu, label);
+    assert.ok(Buffer.from(await response.arrayBuffer()).equals(stored), label);
+  }
+});
+
+test("turning precompression off in the manifest serves every page uncompressed", async () => {
+  const disabled = structuredClone(siteManifest);
+  disabled.htmlPrecompression.enabled = false;
+  disabled.htmlPrecompression.variants = {};
+  const offHandler = createSiteHandler({ siteManifest: disabled, mtaStsPolicy });
+  const { env, requests } = builtEnvironment();
+  for (const pathname of ["/", "/ar/alghaz/", "/definitely-missing"]) {
+    const response = await offHandler.fetch(visitorRequest(pathname, { clientAcceptEncoding: "gzip, deflate, br" }), env);
+    assert.equal(response.headers.get("content-encoding"), null, pathname);
+    assert.equal(response.headers.get("vary"), null, pathname);
+  }
+  assert.equal(requests.some(({ pathname }) => pathname.startsWith("/__precompressed/")), false);
+});
+
+test("handler rejects compressed copies that are routable, misnamed or held", () => {
+  const variantsFor = (manifest) => manifest.htmlPrecompression.variants;
+  const misnamed = structuredClone(siteManifest);
+  variantsFor(misnamed)["/index.html"].br = variantsFor(misnamed)["/ar/alghaz/index.html"].br;
+  assert.throws(() => createSiteHandler({ siteManifest: misnamed, mtaStsPolicy }), /Invalid precompressed br copy of \/index\.html/u);
+
+  const absent = structuredClone(siteManifest);
+  delete absent.files[variantsFor(absent)["/index.html"].gzip];
+  assert.throws(() => createSiteHandler({ siteManifest: absent, mtaStsPolicy }), /Invalid precompressed gzip copy/u);
+
+  const held = structuredClone(siteManifest);
+  variantsFor(held)["/survival.html"] = variantsFor(held)["/index.html"];
+  assert.throws(() => createSiteHandler({ siteManifest: held, mtaStsPolicy }), /not a deployed HTML file: \/survival\.html/u);
+
+  const routable = structuredClone(siteManifest);
+  routable.routes["/compressed-home"] = variantsFor(routable)["/index.html"].br;
+  assert.throws(() => createSiteHandler({ siteManifest: routable, mtaStsPolicy }), /Precompressed copy is routable/u);
+
+  const switchedOff = structuredClone(siteManifest);
+  switchedOff.htmlPrecompression.enabled = false;
+  assert.throws(() => createSiteHandler({ siteManifest: switchedOff, mtaStsPolicy }), /listed while precompression is off/u);
+});
+
+test("405 responses name the allowed methods and 304 responses keep their ETag", async () => {
+  for (const method of ["POST", "PUT", "DELETE", "PATCH", "OPTIONS"]) {
+    const response = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/`, { method }), environment());
+    assert.equal(response.status, 405, method);
+    assert.equal(response.headers.get("allow"), "GET, HEAD", method);
+    assertSecurityHeaders(response);
+  }
+  for (const pathname of ["/", "/privacy", siteManifest.fingerprints["/app.js"], "/sw.js"]) {
+    const first = await handler.fetch(new Request(`${PRIMARY_ORIGIN}${pathname}`), environment());
+    const etag = first.headers.get("etag");
+    assert.match(etag, /^W\/"[a-f0-9]{64}"$/u, pathname);
+    const conditional = await handler.fetch(new Request(`${PRIMARY_ORIGIN}${pathname}`, { headers: { "if-none-match": etag } }), environment());
+    assert.equal(conditional.status, 304, pathname);
+    assert.equal(conditional.headers.get("etag"), etag, pathname);
+  }
+});
+
+test("the Worker version header is added to the same Response object", () => {
+  const response = new Response("body", { headers: { "content-encoding": "br" } });
+  assert.equal(withWorkerVersion(response, "v1"), response, "re-wrapping would drop encodeBody: manual");
+  assert.equal(response.headers.get("x-jakh-worker-version"), "v1");
+  assert.equal(withWorkerVersion(response, undefined), response);
+  class ImmutableHeaders extends Headers {
+    set() {
+      throw new TypeError("immutable headers");
+    }
+  }
+  const fetched = { status: 200, statusText: "OK", body: null, headers: new ImmutableHeaders({ "content-type": "text/plain" }) };
+  const copied = withWorkerVersion(fetched, "v2");
+  assert.notEqual(copied, fetched);
+  assert.equal(copied.headers.get("x-jakh-worker-version"), "v2");
+  assert.equal(copied.headers.get("content-type"), "text/plain");
 });

@@ -79,9 +79,9 @@ test("login accepts a canonical username or email without weakening registration
     column: "username_key",
     value: "jameel",
   });
-  assert.deepEqual(normalizeLoginIdentifier(" Jame17291@Gmail.com "), {
+  assert.deepEqual(normalizeLoginIdentifier(" Quiz.Player@Example.COM "), {
     column: "email",
-    value: "jame17291@gmail.com",
+    value: "quiz.player@example.com",
   });
   assert.throws(
     () => normalizeLoginIdentifier("not an email@example"),

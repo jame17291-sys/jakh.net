@@ -125,6 +125,29 @@ test("withCors adds HSTS even when no CORS origin is present", () => {
     "max-age=31536000; includeSubDomains",
   );
   assert.equal(response.headers.has("access-control-allow-origin"), false);
+  assert.equal(response.headers.get("vary"), "Origin");
+});
+
+test("withCors always varies on Origin so caches never reuse a copy made for another origin", () => {
+  const allowed = "https://riddlearabia.com";
+  for (const headers of [{}, { origin: "https://untrusted.example" }, { origin: allowed }]) {
+    const response = withCors(
+      new Response("ok", { headers: { "cache-control": "public, max-age=30" } }),
+      new Request("https://api.riddlearabia.com/api/leaderboard", { headers }),
+      allowed,
+    );
+    assert.equal(response.headers.get("vary"), "Origin", JSON.stringify(headers));
+    assert.equal(
+      response.headers.get("access-control-allow-origin"),
+      headers.origin === allowed ? allowed : null,
+    );
+  }
+  const wildcard = withCors(
+    new Response("ok", { headers: { vary: "*" } }),
+    new Request("https://api.riddlearabia.com/api/leaderboard"),
+    allowed,
+  );
+  assert.equal(wildcard.headers.get("vary"), "*");
 });
 
 test("unsafe requests require an explicitly allowed Origin", () => {

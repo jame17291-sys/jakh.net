@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 import { createHash } from "node:crypto";
 import { loadProductionQuarantine } from "./publication-quarantine.mjs";
 import { PUZZLES, BONUS } from "../puzzle-catalog.js";
-import { ILLUSTRATIONS, TOPIC_ILLUSTRATIONS, GAME_ILLUSTRATIONS, gameIllustrationId } from "../site-illustrations.js";
+import { ILLUSTRATIONS, ILLUSTRATION_WIDTHS, TOPIC_ILLUSTRATIONS, GAME_ILLUSTRATIONS, gameIllustrationId } from "../site-illustrations.js";
 import { kidsImageContractFailures } from "./kids-image-contract.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -30,14 +30,41 @@ for (const id of assigned) {
   hashes.set(hash, id);
 }
 
-// Section and introduction artwork uses two local WebP sizes. Original PNGs
-// and superseded drafts are intentionally excluded from the deployed site.
-for (const id of ILLUSTRATIONS) {
-  for (const width of [480, 960]) {
-    const relative = `assets/illustrations/${id}-${width}.webp`;
-    if (!fs.existsSync(path.join(root, relative))) failures.push(`${relative}: missing responsive image`);
+function webpSize(file) {
+  const bytes = fs.readFileSync(file);
+  if (bytes.length < 30 || bytes.toString("ascii", 0, 4) !== "RIFF" || bytes.toString("ascii", 8, 12) !== "WEBP") return null;
+  const format = bytes.toString("ascii", 12, 16);
+  if (format === "VP8 ") return { width: bytes.readUInt16LE(26) & 0x3fff, height: bytes.readUInt16LE(28) & 0x3fff };
+  if (format === "VP8X") return { width: 1 + bytes.readUIntLE(24, 3), height: 1 + bytes.readUIntLE(27, 3) };
+  if (format === "VP8L") {
+    const bits = bytes.readUInt32LE(21);
+    return { width: 1 + (bits & 0x3fff), height: 1 + ((bits >> 14) & 0x3fff) };
+  }
+  return null;
+}
+
+function checkDerivative(relative, width, aspect) {
+  const target = path.join(root, relative);
+  if (!fs.existsSync(target)) {
+    failures.push(`${relative}: missing responsive image`);
+    return;
+  }
+  const size = webpSize(target);
+  if (!size) failures.push(`${relative}: not a WebP image`);
+  else if (size.width !== width || Math.abs(size.height - width / aspect) > 1) {
+    failures.push(`${relative}: expected ${width}x${Math.round(width / aspect)}, found ${size.width}x${size.height}`);
   }
 }
+
+// Section and introduction artwork uses four local WebP widths, all 3:2 and
+// listed in every srcset (scripts/generate-responsive-derivatives.py makes
+// the 240w and 640w files). Original PNGs and superseded drafts are
+// intentionally excluded from the deployed site.
+for (const id of ILLUSTRATIONS) {
+  for (const width of ILLUSTRATION_WIDTHS) checkDerivative(`assets/illustrations/${id}-${width}.webp`, width, 3 / 2);
+}
+// The header shows the 1536x1024 logo in a 132px box: 2x and 3x derivatives.
+for (const width of [264, 396]) checkDerivative(`assets/riddlearabia-logo-${width}.webp`, width, 3 / 2);
 
 for (const category of catalog.categories || []) {
   const relative = `assets/${category.slug}.svg`;

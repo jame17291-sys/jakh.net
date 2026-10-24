@@ -99,7 +99,7 @@
 .leaderboard-name { overflow-wrap: anywhere; }
 .leaderboard-username small { color: var(--muted); font-size: var(--text-xs); font-weight: 500; }
 .leaderboard-score { font-weight: 700; font-size: 0.9rem; color: var(--accent); }
-.leaderboard-you { color: var(--accent-3); }
+.leaderboard-you { color: var(--gilt); }
 
 /* ── Global search ───────────────────────────────────── */
 .global-search-overlay {
@@ -187,6 +187,7 @@
   outline-offset: -3px;
 }
 .gs-result-cat { font-size: var(--text-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--purple-ink); }
+.gs-result-subtopic { font-weight: 500; text-transform: none; letter-spacing: 0; }
 .gs-result-q { font-size: 0.9rem; font-weight: 500; color: var(--text); }
 .gs-result-a { font-size: var(--text-xs); color: var(--muted); }
 

@@ -95,9 +95,10 @@ test('privacy describes the shared quiz data boundary and retention in both auth
 
 test('optional analytics cannot receive quiz invitations or participant data and saved consent is untouched', async () => {
   const source = await read('privacy-consent.js');
-  const start = source.indexOf('  function loadAnalytics() {');
-  const end = source.indexOf('\n  }', start);
-  assert.ok(start >= 0 && end > start);
+  const start = source.indexOf('  const PRIVATE_URL_PARAM =');
+  const loaderStart = source.indexOf('  function loadAnalytics() {', start);
+  const end = source.indexOf('\n  }', loaderStart);
+  assert.ok(start >= 0 && loaderStart > start && end > loaderStart);
   const actualLoader = source.slice(start, end + 4);
   for (const partyGame of ['knowMe', 'mostLikely', undefined]) {
     const calls = [], scripts = [];
@@ -108,7 +109,9 @@ test('optional analytics cannot receive quiz invitations or participant data and
         getElementById: () => null,
         createElement: () => ({ dataset: {}, addEventListener() {} }),
         head: { appendChild: script => scripts.push(script) },
+        referrer: '',
       },
+      location: new URL('https://riddlearabia.com/play'), URL, URLSearchParams,
       window: { gtag: (...args) => calls.push(args) },
       ANALYTICS_DISABLE_KEY: 'ga-disable-example', ANALYTICS_SCRIPT_ID: 'analytics', ANALYTICS_ID: 'example',
       analyticsLoaded: false, analyticsLibraryReady: false, analyticsExecutedThisPage: false,
@@ -129,6 +132,64 @@ test('optional analytics cannot receive quiz invitations or participant data and
       assert.equal(context.window['ga-disable-example'], false);
     }
   }
+});
+
+test('analytics never receives room invite codes, search text or another site\'s full address', async () => {
+  const source = await read('privacy-consent.js');
+  const start = source.indexOf('  const PRIVATE_URL_PARAM =');
+  const loaderStart = source.indexOf('  function loadAnalytics() {', start);
+  const end = source.indexOf('\n  }', loaderStart);
+  const actualLoader = source.slice(start, end + 4);
+  function run(href, referrer = '') {
+    const calls = [], scripts = [];
+    const context = vm.createContext({
+      document: {
+        body: { dataset: {} },
+        getElementById: () => null,
+        createElement: () => ({ dataset: {}, addEventListener() {} }),
+        head: { appendChild: script => scripts.push(script) },
+        referrer,
+      },
+      location: new URL(href), URL, URLSearchParams,
+      window: { gtag: (...args) => calls.push(args) },
+      ANALYTICS_DISABLE_KEY: 'ga-disable-example', ANALYTICS_SCRIPT_ID: 'analytics', ANALYTICS_ID: 'example',
+      analyticsLoaded: false, analyticsLibraryReady: false, analyticsExecutedThisPage: false,
+      ensureGtag() {}, consentPayload: analytics => ({ analytics_storage: analytics ? 'granted' : 'denied' }), Date, encodeURIComponent,
+    });
+    vm.runInContext(`${actualLoader}\nloadAnalytics();`, context);
+    return { calls, scripts, context };
+  }
+  for (const invite of [
+    'https://riddlearabia.com/mind-lab?battle=GEO-AB12C',
+    'https://riddlearabia.com/ar/mind-lab/?battle=GEO-AB12C',
+    'https://riddlearabia.com/mind-lab#battle/GEO-AB12C',
+    'https://riddlearabia.com/word-duel?duelRoom=ABCD2345',
+  ]) {
+    const { calls, scripts, context } = run(invite);
+    assert.deepEqual(calls, [], `${invite} loads no analytics`);
+    assert.deepEqual(scripts, []);
+    assert.equal(context.window['ga-disable-example'], true);
+  }
+  const { calls } = run(
+    'https://riddlearabia.com/geography?q=my%20son%20ahmed&sub=capitals&search=x#questions',
+    'https://riddlearabia.com/kids?search=secret&age=3-4',
+  );
+  const sent = JSON.stringify(calls);
+  assert.doesNotMatch(sent, /ahmed|secret|search=|[?&]q=|#questions/u);
+  const config = calls.find(args => args[0] === 'config')[2];
+  assert.equal(config.page_location, 'https://riddlearabia.com/geography?sub=capitals');
+  assert.equal(config.page_referrer, 'https://riddlearabia.com/kids?age=3-4');
+  const external = run('https://riddlearabia.com/', 'https://chat.example/groups/private-invite-123?x=1');
+  assert.equal(external.calls.find(args => args[0] === 'config')[2].page_referrer, 'https://chat.example/');
+});
+
+test('search events and the address bar never carry typed search text', async () => {
+  const [app, directory, kids] = await Promise.all([read('app.js'), read('directory-ui.js'), read('kids-learning.js')]);
+  for (const [name, text] of [['app.js', app], ['directory-ui.js', directory]]) {
+    assert.doesNotMatch(text, /search_term/u, `${name} sends no search_term`);
+  }
+  assert.doesNotMatch(app, /params\.set\('q'/u, 'category search text is not written to the URL');
+  assert.match(kids, /name === 'search' \|\|/u, 'kids search text is not written to the URL');
 });
 
 test('the actual static validator rejects malformed party data and does not exempt similarly named structured banks', async t => {

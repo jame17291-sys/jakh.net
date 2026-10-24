@@ -1,5 +1,6 @@
 import { SHOWS } from './tv-trivia-engine.js';
 import { COPY } from './tv-trivia-copy.js';
+import { AR_COUNT, arabicCount } from './arabic-count.js';
 export const escape = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 
 export function landingMarkup(lang = 'en', ready = false, counts = {}) {
@@ -18,7 +19,7 @@ export function landingMarkup(lang = 'en', ready = false, counts = {}) {
       <div class="tv-show-grid">${SHOWS.map((s, i) => `<article class="tv-show-card">
         <button class="tv-show-play" data-tv="play-show" data-show="${s.id}" ${disabled} aria-label="${escape(`${t.play}: ${s[lang]}`)}">
           <img src="/assets/tv/${s.id}-600.webp" srcset="/assets/tv/${s.id}-360.webp 360w, /assets/tv/${s.id}-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="${i < 4 ? 'eager' : 'lazy'}" decoding="async" />
-          <span class="tv-show-body"><span class="tv-small">${s.genre[lang]}</span><strong>${escape(s[lang])}</strong>${Number.isInteger(counts[s.key]) ? `<span class="tv-small tv-bank-count">${counts[s.key]} ${t.bankCount}</span>` : ''}<span class="tv-card-action">${t.play}<span aria-hidden="true">↗</span></span></span>
+          <span class="tv-show-body"><span class="tv-small">${s.genre[lang]}</span><strong>${escape(s[lang])}</strong>${Number.isInteger(counts[s.key]) ? `<span class="tv-small tv-bank-count">${lang === 'ar' ? `${arabicCount(counts[s.key], AR_COUNT.question)} إجمالًا` : `${counts[s.key]} ${t.bankCount}`}</span>` : ''}<span class="tv-card-action">${t.play}<span aria-hidden="true">↗</span></span></span>
         </button><button class="tv-options-link" data-tv="options" data-show="${s.id}" ${disabled} aria-label="${escape(`${t.optionsFor} ${s[lang]}`)}">${t.options}</button>
       </article>`).join('')}</div>
     </section>

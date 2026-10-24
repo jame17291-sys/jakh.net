@@ -44,6 +44,28 @@ HTML, `/sw.js`, release metadata, and all stable compatibility URLs continue to
 revalidate. Exact Worker-version rollback therefore restores the complete
 prior HTML, asset graph, service worker, and manifest as one unit.
 
+The public card index (`/data/card-index.json`), `content-overrides.js` and
+the classic page scripts `site-i18n.js`, `game-i18n.js` and `privacy-page.js`
+are fingerprinted too. Their `?v=` tags in source HTML are replaced with the
+content hash at build time, so a changed file can never ship under an old
+version string. `site-worker/tests/runtime-asset-freshness.test.mjs` walks the
+built HTML and every reachable import/fetch and fails if a runtime asset is
+neither fingerprinted nor on its short, documented revalidation list (today
+only `/sw.js`, plus the catalog-pinned `/data/${slug}.json` fallback).
+
+## Responsive images
+
+Every illustration ships as 240w, 480w, 640w and 960w WebP
+(`ILLUSTRATION_WIDTHS` in `site-illustrations.js`). Generators take the srcset
+from that module; the static build upgrades any remaining 480w/960w pair
+(hand-written pages, Kids pages) and gives the header logo 264w/396w
+derivatives with `sizes="(max-width: 600px) 108px, 132px"`. The supplied
+full-size logo stays the `src` fallback. Make missing derivatives with
+`python3 scripts/generate-responsive-derivatives.py` (Pillow; 240w/640w at
+WebP quality 82 from the 960w file, logo at quality 90).
+`scripts/validate-responsive-images.mjs` checks that each file exists with
+its exact width.
+
 Run the deterministic budget gate with:
 
 ```sh

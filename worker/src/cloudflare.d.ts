@@ -56,6 +56,11 @@ interface ResponseInit {
   webSocket?: WebSocket | null;
 }
 
+interface CacheStorage {
+  /** Cloudflare's per-data-centre cache for this zone. */
+  readonly default: Cache;
+}
+
 interface ExportedHandler<Env = unknown> {
   fetch?(request: Request, env: Env, context: ExecutionContext): Response | Promise<Response>;
   scheduled?(event: ScheduledEvent, env: Env, context: ExecutionContext): void | Promise<void>;

@@ -24,6 +24,7 @@ import {
   reauthenticateAdmin,
   revokeNonOwnerSessions,
   updateSuggestion,
+  unlockUserAuthenticator,
   updateUserBan,
   updateUserRole,
   publishAdminContent,
@@ -205,6 +206,8 @@ async function route(request: Request, env: Env): Promise<Response> {
   if (roleMatch && method === "PATCH") return updateUserRole(request, env, roleMatch[1] || "");
   const banMatch = /^\/api\/admin\/users\/([A-Za-z0-9-]{36})\/ban$/u.exec(path);
   if (banMatch && method === "PATCH") return updateUserBan(request, env, banMatch[1] || "");
+  const unlockMatch = /^\/api\/admin\/users\/([A-Za-z0-9-]{36})\/authenticator-unlock$/u.exec(path);
+  if (unlockMatch && method === "POST") return unlockUserAuthenticator(request, env, unlockMatch[1] || "");
   // General feedback uses an 18-byte base64url token; privacy requests use UUIDs.
   const suggestionMatch = /^\/api\/admin\/suggestions\/([A-Za-z0-9_-]{24}|[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12})$/u.exec(path);
   if (suggestionMatch && method === "PATCH") return updateSuggestion(request, env, suggestionMatch[1] || "");

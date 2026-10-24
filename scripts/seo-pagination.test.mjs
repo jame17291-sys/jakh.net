@@ -269,11 +269,12 @@ test("the no-script topic directory gives public topics exclusive artwork and di
   assert.equal(new Set(Object.values(TOPIC_ILLUSTRATIONS)).size, 51, 'each public topic owns a different illustration');
   assert.equal((directory.match(/class="ra-art ra-art-section"/gu) || []).length, catalog.sections.length, "one illustration per subject section");
   const cards = [...directory.matchAll(/<a class="category-card compact-topic-card" href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gu)];
-  // Kids Riddles (listedInDirectory: false) is the Kids hub, reached from the Kids menu.
+  // Every public topic has a directory card again, Kids Riddles included (re-listed
+  // 24 Oct 2026 so the kids riddle cards are easy to find).
   const listed = catalog.categories.filter((category) => category.listedInDirectory !== false);
-  assert.equal(listed.length, catalog.categories.length - 1);
+  assert.equal(listed.length, catalog.categories.length);
   assert.equal(cards.length, listed.length, "every listed source topic has a no-script link before publication quarantine projection");
-  assert.ok(!cards.some(([, href]) => href === "/kids-riddles"), "Kids Riddles has no directory card");
+  assert.ok(cards.some(([, href]) => href === "/kids-riddles"), "Kids Riddles has a directory card");
   assert.equal(new Set(cards.map(([, href]) => href)).size, cards.length, "no duplicate topic links");
   for (const category of listed) {
     const [, , markup] = cards.find(([, href]) => href === `/${category.slug}`) || [];

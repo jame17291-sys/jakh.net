@@ -30,7 +30,7 @@ function primaryLinks(html) {
 }
 
 test('Arabic directory has localized status before the application hydrates', () => {
-  assert.match(read('ar/mind-lab/index.html'), /id="directoryResultsLabel"[^>]*>50 موضوعًا في 5 أقسام\.<\/p>/u);
+  assert.match(read('ar/mind-lab/index.html'), /id="directoryResultsLabel"[^>]*>51 موضوعًا في 5 أقسام\.<\/p>/u);
 });
 
 test('lazy-rendered cards reserve block height without an oversized intrinsic width', () => {

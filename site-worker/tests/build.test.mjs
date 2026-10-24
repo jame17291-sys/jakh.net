@@ -385,9 +385,8 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   }
 
   const sectionContracts = [
-    // Kids Riddles (30 questions) is the Kids hub and has no directory card.
     // Arabic labels follow MSA counting: 3–10 take the plural, 11–99 the accusative singular.
-    ["mind", 7, 450, "7 موضوعات", "450 سؤالًا"],
+    ["mind", 8, 480, "8 موضوعات", "480 سؤالًا"],
     ["science", 9, 730, "9 موضوعات", "730 سؤالًا"],
     ["tech", 11, 420, "11 موضوعًا", "420 سؤالًا"],
     ["world", 11, 570, "11 موضوعًا", "570 سؤالًا"],
@@ -395,8 +394,8 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   ];
   const mindLab = await readFile(join(repositoryRoot, "site-worker/dist/mind-lab.html"), "utf8");
   const arabicMindLab = await readFile(join(repositoryRoot, "site-worker/dist/ar/mind-lab/index.html"), "utf8");
-  assert.match(mindLab, /data-cluster="all"[\s\S]*?class="ml-cluster-tab-count">50 topics</u);
-  assert.match(arabicMindLab, /data-cluster="all"[\s\S]*?class="ml-cluster-tab-count">50 موضوعًا</u);
+  assert.match(mindLab, /data-cluster="all"[\s\S]*?class="ml-cluster-tab-count">51 topics</u);
+  assert.match(arabicMindLab, /data-cluster="all"[\s\S]*?class="ml-cluster-tab-count">51 موضوعًا</u);
   for (const [section, topics, questions, arabicTopics, arabicQuestions] of sectionContracts) {
     assert.match(mindLab, new RegExp(`data-cluster="${section}"[\\s\\S]*?class="ml-cluster-tab-count">${topics} topics`, "u"));
     assert.match(mindLab, new RegExp(`id="section-${section}"[\\s\\S]*?class="directory-section-count">${topics} topics · ${questions.toLocaleString("en-US")} questions`, "u"));

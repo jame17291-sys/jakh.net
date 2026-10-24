@@ -1,10 +1,11 @@
 import { spawn } from "node:child_process";
 import { constants } from "node:fs";
-import { readFile, writeFile, appendFile, mkdir, open } from "node:fs/promises";
+import { readFile, writeFile, appendFile, mkdir, open, rm } from "node:fs/promises";
 import { resolve, join } from "node:path";
 import { pathToFileURL } from "node:url";
 import { context, githubClient, autopilotRequest, assertMain, releaseInputs, REPOSITORY, REPOSITORY_ID, API_ORIGIN, SHA } from "./autopilot-client.mjs";
 import { mintAutopilotAppToken } from "./autopilot-github-app.mjs";
+import { createGitHubRequest, resolveLiveRelease, runLiveCheck } from "./monitor-live-release.mjs";
 
 export const FINDINGS_MARKER = "<!-- riddle-arabia-autopilot-findings:v1 -->";
 export const BOT_ID = 41898282;
@@ -433,6 +434,58 @@ export function inspectionIdentity(env, ctx) {
   return { ...current, runAttempt: attempt };
 }
 
+// The maintenance production check compares the site and API with the releases
+// that are live, exactly like the scheduled monitor, so a merge that changes
+// the monitor's expectations does not fail before it is released. A drift from
+// the live release, or any contract failure of the live commits, still fails.
+// The live commits are checked out as detached worktrees outside the checkout,
+// which keeps the repository clean for the repair engine.
+export async function runLiveProductionCheck(env, { root, outputDir, workDir,
+  resolve: resolveRelease = resolveLiveRelease, check = runLiveCheck, request } = {}) {
+  const resultPath = join(outputDir, "production-monitor.json");
+  const token = env.GITHUB_TOKEN;
+  const resolution = await resolveRelease({ request: request || createGitHubRequest({ token }) });
+  if (resolution.state === "deferred") {
+    process.stdout.write(`Production monitor deferred: ${resolution.reason}.\n`);
+    return { state: "deferred", reason: resolution.reason };
+  }
+  if (!SHA.test(resolution.site?.commit || "") || !SHA.test(resolution.api?.commit || "")) throw new Error("The live release resolution is malformed.");
+  if (workDir === root || workDir.startsWith(`${root}/`)) throw new Error("Live release checkouts must stay outside the checkout.");
+  const checkouts = new Map();
+  try {
+    await mkdir(workDir, { recursive: true });
+    for (const sha of new Set([resolution.site.commit, resolution.api.commit])) {
+      const path = join(workDir, sha);
+      await must("git", ["worktree", "add", "--detach", path, sha]);
+      checkouts.set(sha, path);
+    }
+    const report = await check({
+      resolution,
+      siteCheckout: checkouts.get(resolution.site.commit),
+      apiCheckout: checkouts.get(resolution.api.commit),
+      env: { ...safeChildEnv(env), GH_TOKEN: token || "", JAKH_SITE_ORIGIN: "https://riddlearabia.com", JAKH_API_ORIGIN: API_ORIGIN },
+    });
+    await writeFile(resultPath, `${JSON.stringify(report, null, 2)}\n`);
+    return { state: report.status === "success" ? "passed" : "failed" };
+  } finally {
+    for (const path of checkouts.values()) await runCommand("git", ["worktree", "remove", "--force", path], { capture: true });
+    await runCommand("git", ["worktree", "prune"], { capture: true });
+    await rm(workDir, { recursive: true, force: true });
+  }
+}
+
+async function liveProductionCheck(env, { ctx, root, outputDir }) {
+  try {
+    return (await runLiveProductionCheck(env, { root, outputDir, workDir: resolve(env.RUNNER_TEMP || "../autopilot-work", `autopilot-live-${ctx.runId}`) })).state;
+  } catch (error) {
+    process.stderr.write(`Production monitor could not check the live release: ${String(error.message).slice(0, 200)}\n`);
+    await writeFile(join(outputDir, "production-monitor.json"), `${JSON.stringify({ schemaVersion: 1, status: "failure", monitor: { scope: "all", basis: "live-release" },
+      totalChecks: 1, passedChecks: 0, failedChecks: 1, results: [],
+      failures: [{ name: "Live release: resolution", message: String(error.message).slice(0, 200), attempts: 1 }] }, null, 2)}\n`);
+    return "failed";
+  }
+}
+
 // Read-only job: inspect, repair locally, test, and prove the exact candidate
 // tree. It has no write token, OIDC identity, environment or secret.
 export async function runInspection(env = process.env, { now = () => new Date() } = {}) {
@@ -457,11 +510,11 @@ export async function runInspection(env = process.env, { now = () => new Date() 
     const repair = JSON.parse(await readFile(repairPath, "utf8"));
     handoff.changedFiles = repair.changedFiles || [];
 
-    const monitor = await runCommand("node", ["scripts/monitor-production.mjs"], {
-      env: { ...safeChildEnv(env), JAKH_SITE_ORIGIN: "https://riddlearabia.com", JAKH_API_ORIGIN: API_ORIGIN,
-        JAKH_MONITOR_RESULT_PATH: join(outputDir, "production-monitor.json") },
-    });
-    if (monitor.code) handoff.failedChecks.push("Production monitor"); else handoff.checksPassed++;
+    // A release that is deploying right now defers this check; it is neither
+    // passed nor failed, and that release's completion runs its own monitor.
+    const production = await liveProductionCheck(env, { ctx, root, outputDir });
+    if (production === "failed") handoff.failedChecks.push("Production monitor");
+    else if (production === "passed") handoff.checksPassed++;
     for (const [name, command, args] of DAILY_CHECKS) {
       process.stdout.write(`\nMaintenance check: ${name}\n`);
       const result = await runCommand(command, args, { env: { ...safeChildEnv(env),

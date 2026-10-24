@@ -246,7 +246,7 @@ const UI = {
     homeKidsCta: "Explore Kids Learning & Play",
     homeQuizText: "Browse trivia in Arabic and English across 51 topics, from science and history to culture and logic.",
     homeQuizTitle: "Explore trivia & quizzes",
-    homeSolveText: "Start with eight short clues. Reveal each answer when you’re ready.",
+    homeSolveText: "Start with easy clues and work up to harder ones. Reveal each answer when you’re ready.",
     homeSolveTitle: "Solve a riddle",
     brandSubtitle: 'bilingual topics, saved progress, and live Battle Rooms',
     navHome: 'Home',
@@ -667,7 +667,7 @@ const UI = {
     homeKidsCta: "استكشف عالم الأطفال: تعلّم والعب",
     homeQuizText: "تصفّح أسئلة معلومات عامة بالعربية والإنجليزية في 51 موضوعاً، من العلوم والتاريخ إلى الثقافة والمنطق.",
     homeQuizTitle: "استكشف الأسئلة الثقافية",
-    homeSolveText: "ابدأ بثمانية ألغاز قصيرة، واعرض الإجابة عندما تكون مستعدًا.",
+    homeSolveText: "ابدأ بألغاز سهلة ثم انتقل إلى الأصعب، واعرض الإجابة عندما تكون مستعدًا.",
     homeSolveTitle: "حلّ لغزًا",
     brandSubtitle: 'أسئلة بالعربية والإنجليزية، وتقدّم محفوظ، وغرف لعب مباشرة',
     navHome: 'الرئيسية',
@@ -2589,7 +2589,7 @@ function rerender() {
 
 function renderHome() {
   if (!state.catalog) return;
-  if (els.badgeCategories) els.badgeCategories.textContent = state.catalog.categories.length;
+  if (els.badgeCategories) els.badgeCategories.textContent = state.catalog.categories.filter(category => category.listedInDirectory !== false).length;
   if (els.badgeQuestions) els.badgeQuestions.textContent = state.catalog.site.totalQuestions.toLocaleString();
   renderAccountSummary(els.accountSummaryMount);
   if (els.categoryDirectoryGrid) {
@@ -3110,7 +3110,6 @@ function createCardMarkup(card) {
   const difficultyLabel = card.difficulty === 'very-advanced' ? t('veryAdvanced') : t(card.difficulty);
   const subcatText = card.subcategory ? (card.subcategory[state.lang] || card.subcategory.en || '') : '';
   const subcat = subcatText ? `<span class="badge badge-subcategory">${escapeHtml(subcatText)}</span>` : '';
-  const categoryBadge = `<span class="badge badge-category">${escapeHtml(card.mode === 'story' ? '🕯️' : state.categoryData.emoji || '❔')} ${escapeHtml(state.categoryData.title[state.lang])}</span>`;
   const difficultyBadge = `<span class="badge badge-difficulty" data-difficulty="${escapeHtml(card.difficulty)}">${escapeHtml(difficultyLabel)}</span>`;
   const explanationText = card.explanation?.[state.lang] || card.explanation?.en || '';
   const explanationMarkup = explanationText
@@ -3142,7 +3141,6 @@ function createCardMarkup(card) {
       <div class="card-inner">
         <section class="card-face card-front" aria-hidden="${flipped ? 'true' : 'false'}" ${flipped ? 'inert' : ''}>
           <div class="card-badges">
-            ${categoryBadge}
             ${difficultyBadge}
             ${subcat}
           </div>
@@ -5039,7 +5037,10 @@ function shareResult(score, total, categoryTitle) {
   const bar = '─────────────────';
   const pct = total > 0 ? Math.round((score / total) * 100) : 0;
   const medal = pct >= 90 ? '🥇' : pct >= 70 ? '🥈' : pct >= 50 ? '🥉' : '🎯';
-  const url = 'https://riddlearabia.com';
+  // Send friends to the same quiz in the same language, always on the public
+  // site (never a preview or app origin), so "Can you beat my score?" lands
+  // where they can try it instead of on the English homepage.
+  const url = new URL(location.pathname || '/', 'https://riddlearabia.com').href;
   const text = isAr
     ? `${medal} أنهيت "${categoryTitle}" على ريدل أرابيا!\n${bar}\n✓ ${score} صحيح من ${total}\n${bar}\nهل تستطيع التفوق عليّ؟ ← riddlearabia.com`
     : `${medal} I finished "${categoryTitle}" on Riddle Arabia!\n${bar}\n✓ ${score} / ${total} correct (${pct}%)\n${bar}\nCan you beat my score? → riddlearabia.com`;

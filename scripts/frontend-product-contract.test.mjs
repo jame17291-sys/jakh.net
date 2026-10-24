@@ -697,3 +697,60 @@ test('catalog, question-first layout, focus lifecycle, and centralized SW regist
   assert.equal((app.match(/serviceWorker\.register\('\/sw\.js'\)/gu) || []).length, 1);
   assert.match(styles, /\.share-fallback-card textarea/u);
 });
+
+test('a shared score links friends to the same quiz on the public site', () => {
+  for (const [pathname, origin, expected] of [
+    ['/geography', 'https://riddlearabia.com', 'https://riddlearabia.com/geography'],
+    ['/ar/topics/geography/', 'https://riddlearabia.com', 'https://riddlearabia.com/ar/topics/geography/'],
+    ['/daily', 'http://localhost:8080', 'https://riddlearabia.com/daily'],
+  ]) {
+    const shares = [];
+    const context = vm.createContext({
+      URL,
+      Math,
+      location: { pathname, origin },
+      state: { lang: pathname.startsWith('/ar/') ? 'ar' : 'en', categorySlug: 'geography' },
+      trackEvent() {},
+      t: key => key,
+      shareOrCopy: value => shares.push(value),
+    });
+    vm.runInContext(`${topLevelFunction('shareResult')}\nshareResult(7, 10, 'Geography');`, context);
+    assert.equal(shares.length, 1);
+    assert.equal(shares[0].url, expected, pathname);
+  }
+});
+
+test('the English home page sends only Arabic-first outside visitors to /ar/', () => {
+  const script = indexHtml.match(/<script>\s*(\/\* Arabic-first[\s\S]*?)<\/script>/u)?.[1];
+  assert.ok(script, 'home page carries the early Arabic redirect');
+  const arabicHome = fs.readFileSync(path.join(root, 'ar/index.html'), 'utf8');
+  function visit({ pathname = '/', search = '', hash = '', languages = ['en-US'], referrer = '', stored = {} } = {}) {
+    let target = null;
+    const storage = new Map(Object.entries(stored));
+    const context = vm.createContext({
+      URL,
+      JSON,
+      location: { pathname, search, hash, host: 'riddlearabia.com', replace: (value) => { target = value; } },
+      document: { referrer },
+      navigator: { languages, language: languages[0] },
+      localStorage: { getItem: (key) => (storage.has(key) ? storage.get(key) : null) },
+    });
+    vm.runInContext(script, context);
+    return target;
+  }
+  assert.equal(visit({ languages: ['ar-AE', 'en-US'] }), '/ar/');
+  assert.equal(visit({ languages: ['ar'] }), '/ar/');
+  assert.equal(visit({ languages: ['ar-SA'], search: '?battle=ABC123', hash: '#x' }), '/ar/?battle=ABC123#x');
+  assert.equal(visit({ languages: ['en-US', 'ar-AE'] }), null, 'English-first devices stay on English');
+  assert.equal(visit({ languages: ['arn-CL'] }), null, 'only the Arabic language tag matches');
+  assert.equal(visit({ languages: ['ar-AE'], referrer: 'https://riddlearabia.com/ar/' }), null, 'moves inside the site are never redirected');
+  assert.equal(visit({ languages: ['ar-AE'], referrer: 'https://www.google.com/' }), '/ar/');
+  assert.equal(visit({ languages: ['ar-AE'], stored: { 'jakh-home-language': 'en' } }), null, 'an explicit English choice wins');
+  assert.equal(visit({ languages: ['ar-AE'], stored: { 'jakh-riddles-settings': '{"lang":"en"}' } }), null, 'the saved site language wins');
+  assert.equal(visit({ languages: ['en-US'], stored: { 'jakh-home-language': 'ar' } }), '/ar/', 'an explicit Arabic choice wins');
+  assert.equal(visit({ languages: ['ar-AE'], stored: { 'jakh-riddles-settings': '{broken' } }), null, 'unreadable storage never blocks the page');
+  assert.equal(visit({ pathname: '/ar/', languages: ['ar-AE'] }), null, 'the copy on the Arabic home page is inert');
+  assert.ok(arabicHome.includes('jakh-home-language'), 'Arabic home page copy stays generated from the source');
+  const navigation = fs.readFileSync(path.join(root, 'site-navigation.js'), 'utf8');
+  assert.match(navigation, /localStorage\.setItem\('jakh-home-language', link\.hreflang === 'ar' \? 'ar' : 'en'\)/u, 'language links remember an explicit switch');
+});

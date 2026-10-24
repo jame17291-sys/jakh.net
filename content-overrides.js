@@ -1,9 +1,23 @@
-export async function loadPublishedContentOverrides(apiFetch, categorySlug) {
+// Cards come from the deployed static JSON; published Content Studio revisions
+// only refine their wording. A slow or hanging API must never keep a topic
+// page or Shuffle Challenge empty, so stop waiting after this long and show the
+// deployed wording. The request itself is not aborted, so a late answer still
+// leaves the API status unchanged.
+export const CONTENT_OVERRIDE_WAIT_MS = 2500;
+
+export async function loadPublishedContentOverrides(apiFetch, categorySlug, { timeoutMs = CONTENT_OVERRIDE_WAIT_MS } = {}) {
+  let timer;
+  const request = Promise.resolve()
+    .then(() => apiFetch(`/content/questions?category=${encodeURIComponent(categorySlug)}`))
+    .then((response) => (Array.isArray(response?.overrides) ? response.overrides : []))
+    .catch(() => []);
+  const timeout = new Promise((resolve) => {
+    timer = setTimeout(() => resolve([]), timeoutMs);
+  });
   try {
-    const response = await apiFetch(`/content/questions?category=${encodeURIComponent(categorySlug)}`);
-    return Array.isArray(response?.overrides) ? response.overrides : [];
-  } catch (_) {
-    return [];
+    return await Promise.race([request, timeout]);
+  } finally {
+    clearTimeout(timer);
   }
 }
 

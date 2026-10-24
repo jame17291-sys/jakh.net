@@ -14,6 +14,9 @@ export function inspectFeaturedCollections(pages, cardsByCategory, policy) {
   }
 
   let cardCount = 0;
+  // Each indexable collection must stay distinct: the same card on two pages
+  // makes them compete for the same searches and repeats content for readers.
+  const featuredOn = new Map();
   const selectedPages = pages.filter((page) => page.kind !== "games");
   for (const page of selectedPages) {
     const rule = policy.collections?.[page.key];
@@ -37,6 +40,8 @@ export function inspectFeaturedCollections(pages, cardsByCategory, policy) {
         continue;
       }
       if (seen.has(id)) errors.push(`${label}: duplicate selection.`);
+      else if (featuredOn.has(id)) errors.push(`${label}: already featured on ${featuredOn.get(id)}.`);
+      else featuredOn.set(id, page.key);
       seen.add(id);
       if (holds.has(id)) errors.push(`${label}: unresolved editorial hold.`);
       if (rule.sourceCategories && !rule.sourceCategories.includes(slug)) {

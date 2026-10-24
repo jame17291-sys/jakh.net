@@ -32,6 +32,7 @@ import {
   isGoogleVerificationAsset,
   isRetiredPublicSeoArtifactPath,
 } from "./public-seo-release-contract.mjs";
+import { ILLUSTRATION_WIDTHS, illustrationSrcset } from "../site-illustrations.js";
 
 const SCRIPT_DIRECTORY = dirname(fileURLToPath(import.meta.url));
 export const REPOSITORY_ROOT = resolve(SCRIPT_DIRECTORY, "..");
@@ -66,8 +67,16 @@ const PUZZLE_ASSETS = Object.freeze([
   "/puzzle-room.js",
 ]);
 
+// Classic page scripts that HTML still spells with hand-maintained `?v=` tags.
+// The build replaces those tags with content hashes so an edit can never ship
+// under an unchanged version string.
+const PAGE_RUNTIME_SCRIPTS = Object.freeze(["/site-i18n.js", "/game-i18n.js", "/privacy-page.js"]);
+
 export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
   "/privacy-consent.js",
+  ...PAGE_RUNTIME_SCRIPTS,
+  "/content-overrides.js",
+  "/data/card-index.json",
   "/auth-enhancements.js",
   "/speech-quality.js",
   "/auth-security.css", "/auth-security.js",
@@ -101,6 +110,7 @@ export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
 
 const HTML_FINGERPRINT_SOURCE_PATHS = new Set([
   "/privacy-consent.js",
+  ...PAGE_RUNTIME_SCRIPTS,
   "/party-games.js", "/friendship-games.js", "/party-games.css",
   "/tv-trivia.css",
   "/shuffle-challenge.css",
@@ -267,6 +277,11 @@ function rewriteApplication(source, fingerprints) {
     "/search-leaderboard.js",
     "/search-leaderboard.css",
     "/data/catalog.json",
+    // The public card index decides which saved progress is visible and which
+    // signed-in saves may publish. Pin it per release so no browser or service
+    // worker cache can keep an older question list alive.
+    "/data/card-index.json",
+    "/content-overrides.js",
   ]) {
     const target = fingerprints[dependency];
     if (!target) continue;
@@ -387,6 +402,36 @@ function rewriteHtmlAssetReferences(html, relativePath, fingerprints) {
       return `${prefix}${quote}${fingerprinted}${closingQuote}`;
     },
   );
+}
+
+// Generated pages take their srcset from site-illustrations.js. Hand-written
+// pages, the Kids generator and older generated pages may still list only
+// the 480w/960w pair; upgrade those to the shared width set at build time,
+// but only when every derivative is part of this release.
+const LEGACY_ILLUSTRATION_SRCSET = /(\ssrcset=")\/assets\/illustrations\/([a-z0-9-]+)-480\.webp 480w, \/assets\/illustrations\/\2-960\.webp 960w(")/gu;
+// The header logo is a 1536x1024 file shown in a 132x46 box (108x40 on
+// phones) with object-fit: cover, so its rendered width equals the box width.
+const BRAND_LOGO_SOURCE = "/assets/riddlearabia-logo.webp";
+const BRAND_LOGO_WIDTHS = Object.freeze([264, 396]);
+const BRAND_LOGO_SIZES = "(max-width: 600px) 108px, 132px";
+
+export function upgradeResponsiveImages(html, availableFiles) {
+  let rewritten = html.replace(LEGACY_ILLUSTRATION_SRCSET, (match, prefix, id, suffix) => (
+    ILLUSTRATION_WIDTHS.every((width) => availableFiles.has(`assets/illustrations/${id}-${width}.webp`))
+      ? `${prefix}${illustrationSrcset(id)}${suffix}`
+      : match
+  ));
+  const logoFiles = BRAND_LOGO_WIDTHS.map((width) => BRAND_LOGO_SOURCE.replace(/\.webp$/u, `-${width}.webp`));
+  if (logoFiles.every((file) => availableFiles.has(file.slice(1)))) {
+    const srcset = logoFiles.map((file, index) => `${file} ${BRAND_LOGO_WIDTHS[index]}w`).join(", ");
+    rewritten = rewritten.replace(/<img\b[^>]*>/gu, (tag) => {
+      if (!/\bclass="brand-logo"/u.test(tag) || /\bsrcset=/u.test(tag)) return tag;
+      // The supplied full-size logo stays the src fallback; browsers that
+      // understand width descriptors pick a header-sized file instead.
+      return tag.replace(`src="${BRAND_LOGO_SOURCE}"`, `src="${BRAND_LOGO_SOURCE}" srcset="${srcset}" sizes="${BRAND_LOGO_SIZES}"`);
+    });
+  }
+  return rewritten;
 }
 
 function hrefPathFromAnchor(anchor) {
@@ -959,6 +1004,9 @@ export async function buildStaticSite({
   for (const stableUrlPath of [
     ...SHARED_MODULES,
     "/privacy-consent.js",
+    ...PAGE_RUNTIME_SCRIPTS,
+    "/content-overrides.js",
+    "/data/card-index.json",
     "/auth-enhancements.js",
     "/speech-quality.js",
     "/auth-security.css",
@@ -1045,12 +1093,13 @@ export async function buildStaticSite({
   const adminSource = sourceBytes.get("admin.js");
   if (adminSource) addFingerprint("/admin.js", Buffer.from(rewriteApplication(adminSource.toString('utf8'), fingerprints), 'utf8'));
 
+  const availableFiles = new Set(sourceBytes.keys());
   for (const relativePath of selectedFiles.filter((value) => value.endsWith(".html"))) {
-    const rewritten = rewriteHtmlAssetReferences(
+    const rewritten = upgradeResponsiveImages(rewriteHtmlAssetReferences(
       sourceBytes.get(relativePath).toString("utf8"),
       relativePath,
       fingerprints,
-    );
+    ), availableFiles);
     artifactBytes.set(relativePath, Buffer.from(rewritten, "utf8"));
   }
 

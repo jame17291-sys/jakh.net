@@ -234,15 +234,23 @@ async function installOfflineShell() {
   await self.skipWaiting();
 }
 
-async function cacheResponse(cache, request, response, pathname, maximumEntries) {
-  if (!isCacheableResponse(response, pathname)) return false;
+// The page gets the network response at once. A copy is stored within the
+// event's lifetime, so a slow or failing cache write never delays the page.
+// Only cacheable responses are copied, so nothing else is buffered.
+function cacheInBackground(event, cache, request, response, pathname, maximumEntries) {
+  if (!isCacheableResponse(response, pathname)) return;
+  let copy;
   try {
-    await cache.put(request, response.clone());
-    await trimCache(cache, maximumEntries);
-    return true;
+    copy = response.clone();
   } catch (_) {
-    return false;
+    return;
   }
+  event.waitUntil((async () => {
+    try {
+      await cache.put(request, copy);
+      await trimCache(cache, maximumEntries);
+    } catch (_) {}
+  })());
 }
 
 async function trimCache(cache, maximumEntries) {
@@ -314,7 +322,8 @@ self.addEventListener('fetch', (event) => {
       const cache = await caches.open(NAVIGATION_CACHE);
       try {
         const response = await fetch(request);
-        if (navigationResponseMatches(request, response)) await cacheResponse(
+        if (navigationResponseMatches(request, response)) cacheInBackground(
+          event,
           cache,
           cacheKey,
           response,
@@ -335,7 +344,7 @@ self.addEventListener('fetch', (event) => {
     const cacheKey = staticCacheRequest(request);
     const networkFetch = caches.open(DATA_CACHE).then(async (cache) => {
       const response = await fetch(request);
-      await cacheResponse(cache, cacheKey, response, url.pathname, MAX_DATA_CACHE_ENTRIES);
+      cacheInBackground(event, cache, cacheKey, response, url.pathname, MAX_DATA_CACHE_ENTRIES);
       return response;
     });
     event.waitUntil(networkFetch.catch(() => {}));
@@ -354,7 +363,7 @@ self.addEventListener('fetch', (event) => {
       const cache = await caches.open(ASSET_CACHE);
       try {
         const response = await fetch(request);
-        await cacheResponse(cache, cacheKey, response, url.pathname, MAX_ASSET_CACHE_ENTRIES);
+        cacheInBackground(event, cache, cacheKey, response, url.pathname, MAX_ASSET_CACHE_ENTRIES);
         return response;
       } catch (error) {
         const cached = (await cache.match(cacheKey)) || (await matchCore(cacheKey));
@@ -372,7 +381,7 @@ self.addEventListener('fetch', (event) => {
       const cached = (await cache.match(cacheKey)) || (await matchCore(cacheKey));
       if (cached) return cached;
       const response = await fetch(request);
-      await cacheResponse(cache, cacheKey, response, url.pathname, MAX_ASSET_CACHE_ENTRIES);
+      cacheInBackground(event, cache, cacheKey, response, url.pathname, MAX_ASSET_CACHE_ENTRIES);
       return response;
     })());
   }

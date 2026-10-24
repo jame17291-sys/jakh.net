@@ -11,6 +11,7 @@ import {
   API_RELEASE_CONTRACT,
   buildMonitorReport,
   HTML_ROUTES,
+  htmlHasBilingualMarker,
   INDEXABLE_SITEMAP_PATHS,
   PARTY_GAME_HTML_ROUTES,
   PRE_KIDS_SITEMAP_PATHS,
@@ -357,6 +358,21 @@ function productionFixtureOptions(fixtureOrigin, overrides = {}) {
     ...overrides,
   };
 }
+
+test("game translation markers accept the content-hashed script the static build publishes", () => {
+  for (const html of [
+    '<script src="/game-i18n.js?v=2026080201"></script>',
+    '<script src="game-i18n.js?v=2026080201"></script>',
+    '<script src="/game-i18n.0123456789abcdef.js"></script>',
+  ]) assert.equal(htmlHasBilingualMarker(html, "game-i18n.js"), true, html);
+  for (const html of [
+    '<script src="/game-i18n.012345.js"></script>',
+    '<script src="/game-i18n-legacy.js"></script>',
+    '<script src="/other-game-i18n.0123456789abcdef.js"></script>',
+  ]) assert.equal(htmlHasBilingualMarker(html, "game-i18n.js"), false, html);
+  assert.equal(htmlHasBilingualMarker('<a hreflang="ar">', 'hreflang="ar"'), true);
+  assert.equal(htmlHasBilingualMarker('<a hreflang="en">', 'hreflang="ar"'), false);
+});
 
 test("release baseline is restricted to the exact production predecessor in site scope", async () => {
   const baseline = productionFixtureOptions("http://127.0.0.1");

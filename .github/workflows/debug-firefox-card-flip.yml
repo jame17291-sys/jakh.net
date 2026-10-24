@@ -14,9 +14,9 @@ jobs:
       matrix:
         include:
           - { label: "before-today 7e5dc4bc", ref: "7e5dc4bc6d41558e30986e3d527e97d692f56ae5" }
-          - { label: "after #157 f2a30cb1", ref: "f2a30cb1" }
-          - { label: "after #148 5ac01b7e", ref: "5ac01b7e" }
-          - { label: "after #160 985e07d5", ref: "985e07d5" }
+          - { label: "after #157 f2a30cb1", ref: "f2a30cb11ad820e9ae9b83a005dfe416b994baa5" }
+          - { label: "after #148 5ac01b7e", ref: "5ac01b7ea4983b71582b5799cf0c2b54ab090705" }
+          - { label: "after #160 985e07d5", ref: "985e07d5aa67eb55164c98180adabeed48f03d10" }
           - { label: "main 7c78acfc", ref: "7c78acfc6ef453f90af1413d4ca8296b17109d70" }
           - { label: "instrumented main", ref: "" }
     runs-on: ubuntu-latest

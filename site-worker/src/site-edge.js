@@ -395,6 +395,72 @@ function mtaStsResponse(siteManifest, env, pathname, mtaStsPolicy) {
   });
 }
 
+// HTML keeps `no-transform` (see applySiteHeaders), which also stops Cloudflare
+// from compressing it. Compress HTML here instead. The body bytes are
+// unchanged after decoding, so the hash-based CSP still matches.
+export function acceptsGzip(acceptEncoding) {
+  let gzip = null;
+  let wildcard = null;
+  for (const entry of String(acceptEncoding || "").split(",")) {
+    const [name, ...parameters] = entry.split(";");
+    const coding = name.trim().toLowerCase();
+    if (!coding) continue;
+    let quality = 1;
+    for (const parameter of parameters) {
+      const match = /^\s*q\s*=\s*([0-9]+(?:\.[0-9]*)?)\s*$/iu.exec(parameter);
+      if (match) quality = Number(match[1]);
+      else if (/^\s*q\s*=/iu.test(parameter)) quality = 0;
+    }
+    if (coding === "gzip" || coding === "x-gzip") gzip = Math.max(gzip ?? 0, quality);
+    else if (coding === "*") wildcard = quality;
+  }
+  if (gzip !== null) return gzip > 0;
+  return wildcard !== null && wildcard > 0;
+}
+
+function clientAcceptEncoding(request) {
+  // Cloudflare rewrites Accept-Encoding before the Worker runs and keeps the
+  // visitor's own value in request.cf.clientAcceptEncoding.
+  const original = request.cf?.clientAcceptEncoding;
+  return typeof original === "string" ? original : request.headers.get("accept-encoding") || "";
+}
+
+function varyOnAcceptEncoding(headers) {
+  const current = headers.get("vary");
+  const names = (current || "").split(",").map((name) => name.trim().toLowerCase());
+  if (names.includes("*") || names.includes("accept-encoding")) return;
+  headers.set("vary", current ? `${current}, Accept-Encoding` : "Accept-Encoding");
+}
+
+function isHtmlResponse(response) {
+  return /^text\/html(?:;|$)/iu.test(response.headers.get("content-type") || "");
+}
+
+export function negotiateHtmlEncoding(request, response) {
+  if (!isHtmlResponse(response)) return response;
+  varyOnAcceptEncoding(response.headers);
+  const currentEncoding = (response.headers.get("content-encoding") || "identity").trim().toLowerCase();
+  if (
+    ![200, 404].includes(response.status)
+    || currentEncoding !== "identity"
+    || !acceptsGzip(clientAcceptEncoding(request))
+  ) {
+    return response;
+  }
+  const headers = new Headers(response.headers);
+  headers.set("content-encoding", "gzip");
+  // The compressed length is unknown until the stream ends; the runtime sends
+  // the response chunked. HEAD advertises the same headers as GET.
+  headers.delete("content-length");
+  return new Response(response.body ? response.body.pipeThrough(new CompressionStream("gzip")) : null, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+    // The body is already gzip; the Workers runtime must not encode it again.
+    encodeBody: "manual",
+  });
+}
+
 function validateManifest(siteManifest) {
   invariant(siteManifest?.service === "jakh-site", "Invalid site manifest service");
   invariant(/^[a-f0-9]{64}$/u.test(siteManifest.buildId), "Invalid site manifest build ID");
@@ -469,10 +535,10 @@ export function createSiteHandler({ siteManifest, mtaStsPolicy }) {
       if (url.pathname === "/404.html" || url.pathname === "/404") {
         const assetRequest = new Request(new URL("/404.html", url), request);
         const asset = await env.ASSETS.fetch(assetRequest);
-        return applySiteHeaders(new Response(asset.body, {
+        return negotiateHtmlEncoding(request, applySiteHeaders(new Response(asset.body, {
           status: 404,
           headers: asset.headers,
-        }), { siteManifest, pathname: url.pathname, record: siteManifest.files["/404.html"] });
+        }), { siteManifest, pathname: url.pathname, record: siteManifest.files["/404.html"] }));
       }
 
       const resolved = manifestFile(siteManifest, url.pathname);
@@ -485,10 +551,10 @@ export function createSiteHandler({ siteManifest, mtaStsPolicy }) {
       if (!served.record) {
         try {
           const asset = await env.ASSETS.fetch(new Request(new URL("/404.html", url), request));
-          return applySiteHeaders(new Response(asset.body, {
+          return negotiateHtmlEncoding(request, applySiteHeaders(new Response(asset.body, {
             status: 404,
             headers: asset.headers,
-          }), { siteManifest, pathname: url.pathname, record: siteManifest.files["/404.html"] });
+          }), { siteManifest, pathname: url.pathname, record: siteManifest.files["/404.html"] }));
         } catch {
           return errorResponse(siteManifest, url.pathname, 503, "Static site temporarily unavailable");
         }
@@ -511,6 +577,9 @@ export function createSiteHandler({ siteManifest, mtaStsPolicy }) {
           }),
         });
         if (compatibilitySource) conditional.headers.set("x-jakh-compatibility-fallback", compatibilitySource);
+        // A 304 repeats the Vary of the 200 it revalidates. The weak ETag is
+        // shared by the gzip and identity forms of the same HTML.
+        if (served.path.endsWith(".html")) varyOnAcceptEncoding(conditional.headers);
         return conditional;
       }
 
@@ -531,7 +600,7 @@ export function createSiteHandler({ siteManifest, mtaStsPolicy }) {
           cacheControl: compatibilitySource ? NO_STORE : undefined,
         });
         if (compatibilitySource) withPolicy.headers.set("x-jakh-compatibility-fallback", compatibilitySource);
-        return withPolicy;
+        return negotiateHtmlEncoding(request, withPolicy);
       } catch {
         return errorResponse(siteManifest, url.pathname, 503, "Static site temporarily unavailable");
       }

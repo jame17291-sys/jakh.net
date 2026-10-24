@@ -276,9 +276,17 @@ test("workflow contains exact rollback and required browser gates", async () => 
   assert.doesNotMatch(legacyWorkflow, /build-static-site\.mjs/u);
   assert.doesNotMatch(legacyWorkflow, /\bpush:/u);
 
-  assert.match(runbook, /BOOTSTRAP jakh-site AND PRESERVE LEGACY DNS ROLLBACK/u);
-  assert.match(runbook, /DELETE \/accounts\/\{account_id\}\/workers\/domains\/\{domain_id\}/u);
-  assert.match(runbook, /POST \/zones\/\{zone_id\}\/dns_records\/batch/u);
-  assert.match(runbook, /field-for-field with the pre-cutover snapshot/u);
-  assert.match(runbook, /DEPLOY LEGACY GITHUB PAGES/u);
+  // The one-time jakh.net cut-over runbook is superseded: jakh.net belongs to
+  // another project and the Pages rollback it relied on is retired. The README
+  // describes the current riddlearabia.com release path and no longer carries
+  // DNS, Custom Domain or Pages steps that could reattach the retired domains.
+  assert.match(runbook, /Superseded: one-time `jakh\.net` cut-over runbook/u);
+  assert.match(runbook, /must never be attached to this Worker/u);
+  assert.match(runbook, /DEPLOY riddlearabia\.com FROM protected main/u);
+  assert.match(runbook, /`domain_cutover` stays `false`/u);
+  assert.match(runbook, /rolls back to that exact version and verifies the rollback/u);
+  assert.doesNotMatch(runbook, /BOOTSTRAP jakh-site AND PRESERVE LEGACY DNS ROLLBACK/u);
+  assert.doesNotMatch(runbook, /DEPLOY LEGACY GITHUB PAGES/u);
+  assert.doesNotMatch(runbook, /dns_records|workers\/domains/u);
+  assert.doesNotMatch(runbook, /wrangler deploy/u);
 });

@@ -145,12 +145,10 @@ Keep local secret files out of Git and out of the static public projection.
 Use test-only secrets where a local test requires them.
 Never copy production values into test fixtures.
 
-### 1.2 Run the proposed deployment safety validator
+### 1.2 Run the deployment safety validator
 
-The following helper is supplied by the separate
-`feature/deployment-validation-scripts` PR.
-Merge that reviewed dependency before using this command on `main`.
-Until it is available, use the existing workflow validators directly.
+`scripts/deployment-safety-check.mjs` has been on `main` since PR #116
+(3 October 2026). Run it from a clean checkout of the current protected `main`.
 
 ```sh
 node scripts/deployment-safety-check.mjs
@@ -308,7 +306,7 @@ It contains `release-receipt.json` and allow-listed supporting state;
 release receipts are retained for **90 days** by the current workflow.
 Keep approved longer-term evidence outside expiring Actions storage if needed.
 
-After the validation-scripts PR is merged, audit a specific completed run:
+Audit a specific completed run with the receipt parser (on `main` since PR #116):
 
 ```sh
 RUN_ID='REPLACE_WITH_NUMERIC_RUN_ID'
@@ -552,30 +550,34 @@ do not manufacture a successful receipt to fill that gap.
 
 ### 5.1 Understand daily maintenance and receipt monitoring
 
-`Daily website maintenance` is scheduled at **03:23 UTC / 07:23 Dubai daily**.
-It is not a twelve-hour receipt polling schedule.
-At this checklist's source baseline, the producer uses the legacy artifact
-`autopilot-<run-id>` and omits `runAttempt` from `daily-report.json`.
-The proposed monitoring PR updates the producer to
-`autopilot-<run-id>-<run-attempt>` and records `runAttempt` in the daily report.
-That attempt-bound artifact contains `daily-report.json` and non-secret JSON
-evidence, still retained for **one day**.
+`Daily website maintenance` is scheduled at **03:23 UTC / 07:23 Dubai daily**,
+but GitHub starts it hours later; [AUTOPILOT.md](AUTOPILOT.md) records the
+observed start times. It is not a twelve-hour receipt polling schedule.
+The producer on `main` uploads the artifact `autopilot-<run-id>` and does not
+record `runAttempt` in `daily-report.json`. The artifact contains
+`daily-report.json` and non-secret JSON evidence and is retained for **one day**.
 Run ID alone cannot identify a rerun's evidence.
-The parser accepts the legacy artifact/report contract only for attempt **1**.
-A legacy artifact or missing `runAttempt` for a rerun is unsupported and yields
-`unknown`; never reuse the original attempt's successful receipt as rerun proof.
+The parser accepts this artifact/report contract only for attempt **1**. It also
+reads an attempt-bound `autopilot-<run-id>-<run-attempt>` artifact, which the
+producer does not create yet. For a rerun, a legacy artifact or missing
+`runAttempt` is unsupported and yields `unknown`; never reuse the original
+attempt's successful receipt as rerun proof.
 The identity-only run has a separate `autopilot-identity-<run-id>` artifact;
 it is not a completed maintenance or deployment receipt.
 
-The proposed `monitor-deployments.yml` is supplied by
-`feature/deployment-monitoring-workflow` and depends on the validation scripts.
-After both reviewed dependencies are merged to the default branch, it follows
-completed `Daily website maintenance` runs through `workflow_run`.
-It parses the exact triggering run and posts bounded status to
-[issue #113](https://github.com/jame17291-sys/jakh.net/issues/113).
-Its bounded parsed report is retained in
-`deployment-report-<run-id>-<run-attempt>` for **30 days**.
-Creating its PR does not install or run that workflow on production.
+There is **no automatic deployment-receipt monitor** on `main`. A
+`monitor-deployments.yml` workflow and the attempt-bound producer change were
+written in PR #117, but #117 was merged into the
+`feature/deployment-validation-scripts` branch after that branch had already
+been merged to `main` as #116, so none of it reached `main`. It would have
+posted to [issue #113](https://github.com/jame17291-sys/jakh.net/issues/113),
+which is the Autopilot bot's own **[Autopilot] Daily maintenance findings**
+issue. Autopilot closed #113 after a clean run on 5 October 2026 and opens a new
+findings issue when checks fail again. Do not point a monitor at #113. A
+deployment monitor needs a new reviewed PR with its own issue. Until then, audit
+receipts by hand with the parser in 5.2, and watch the open
+**[Autopilot] Daily maintenance findings** and
+**[Production alert] riddlearabia.com monitor failure** issues.
 
 Monitor only trusted repository/main runs and the expected artifact.
 Privileged follow-up code must come from trusted default-branch source;
@@ -598,7 +600,7 @@ Unavailable or expired evidence must be reported as unresolved, never verified.
 
 ### 5.2 Audit a specific receipt without running a release
 
-After the validation-scripts PR is merged:
+The parser `scripts/deployment-receipt-monitor.mjs` is on `main` (PR #116):
 
 ```sh
 RUN_ID='REPLACE_WITH_NUMERIC_RUN_ID'

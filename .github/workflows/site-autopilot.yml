@@ -61,8 +61,11 @@ jobs:
       github.event.repository.private == false
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    # Read-only. actions: read lets the production check find the live releases
+    # and their receipts, exactly like the scheduled production monitor.
     permissions:
       contents: read
+      actions: read
     # Evaluated by GitHub, not by any step, so package code cannot change them.
     # "Re-run failed jobs" re-runs only publish, which still finds this attempt's hand-off.
     outputs:

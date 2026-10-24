@@ -199,12 +199,50 @@ export async function touchPrivilegedSession(env: Env, user: SessionUser): Promi
   ).bind(now.toISOString(), user.tokenHash).run();
 }
 
+function rateLimited(windowSeconds: number): ApiError {
+  return new ApiError(429, "Too many attempts. Please try again later.", {
+    "retry-after": String(windowSeconds),
+  });
+}
+
 export async function enforceRateLimit(
   env: Env,
   key: string,
   limit: number,
   windowSeconds: number,
 ): Promise<void> {
+  const { count } = await countRateLimitAttempt(env, key, windowSeconds);
+  if (count > limit) throw rateLimited(windowSeconds);
+}
+
+/**
+ * A limit that only failed attempts should use up. The slot is taken before
+ * the protected work runs, so a burst of parallel attempts cannot all slip
+ * past the limit; call the returned function after a success to give the slot
+ * back. A slot taken in a window that has since rolled over is left alone.
+ */
+export async function reserveFailureSlot(
+  env: Env,
+  key: string,
+  limit: number,
+  windowSeconds: number,
+): Promise<() => Promise<void>> {
+  const { count, windowStart } = await countRateLimitAttempt(env, key, windowSeconds);
+  if (count > limit) throw rateLimited(windowSeconds);
+  return async () => {
+    await env.DB.prepare(
+      `UPDATE rate_limits
+          SET count = count - 1
+        WHERE key = ? AND window_start = ? AND count > 0`,
+    ).bind(key, windowStart).run();
+  };
+}
+
+async function countRateLimitAttempt(
+  env: Env,
+  key: string,
+  windowSeconds: number,
+): Promise<{ count: number; windowStart: number }> {
   const now = Math.floor(Date.now() / 1000);
   const windowStart = Math.floor(now / windowSeconds) * windowSeconds;
   const expiresAt = windowStart + windowSeconds * 2;
@@ -234,11 +272,7 @@ export async function enforceRateLimit(
     ).bind(now).run();
   }
 
-  if ((row?.count || 1) > limit) {
-    throw new ApiError(429, "Too many attempts. Please try again later.", {
-      "retry-after": String(windowSeconds),
-    });
-  }
+  return { count: row?.count || 1, windowStart };
 }
 
 export async function cleanupExpiredSecurityState(env: Env): Promise<void> {

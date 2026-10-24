@@ -497,6 +497,21 @@ curl --silent --show-error --head https://www.riddlearabia.com/
 curl --fail --silent --show-error https://api.riddlearabia.com/api/health
 ```
 
+For build-time HTML compression (`docs/HTML-DELIVERY-POLICY.md`), these
+read-only probes show which stored copy a visitor receives:
+
+```sh
+curl --silent --show-error --output /dev/null --dump-header - -H 'Accept-Encoding: br' https://riddlearabia.com/ar/alghaz/
+curl --silent --show-error --output /dev/null --dump-header - -H 'Accept-Encoding: gzip' https://riddlearabia.com/ar/alghaz/
+curl --silent --show-error --output /dev/null --dump-header - https://riddlearabia.com/ar/alghaz/
+curl --compressed --fail --silent --show-error https://riddlearabia.com/ar/alghaz/ | grep -c '<html lang="ar" dir="rtl">'
+```
+
+Expect `content-encoding: br`, then `gzip`, then no `content-encoding` when no
+`Accept-Encoding` is sent; all three carry `vary: Accept-Encoding` and
+`cache-control` with `no-transform`. The last probe decodes the page and must
+print `1`. A `/__precompressed/…` URL must return the 404 page.
+
 The canonical site should serve successfully with `X-JAKH-Site-Version`.
 The `www.riddlearabia.com` host should redirect to the canonical site, preserving paths
 and queries according to the smoke contract; do not expect every host to be 200.

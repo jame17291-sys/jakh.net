@@ -7,6 +7,7 @@ import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import test from "node:test";
+import { brotliDecompressSync, gunzipSync } from "node:zlib";
 import {
   API_RELEASE_CONTRACT,
   buildMonitorReport,
@@ -31,7 +32,7 @@ import {
 import { navigationScript, siteHeader } from "./site-navigation-markup.mjs";
 import { buildStaticSite } from "./build-static-site.mjs";
 import { PUZZLE_ROUTES } from "../puzzle-routes.js";
-import { createSiteHandler } from "../site-worker/src/site-edge.js";
+import { createSiteHandler, withWorkerVersion } from "../site-worker/src/site-edge.js";
 import { classifyMonitorWorkflowContext } from "./monitor-workflow-context.mjs";
 import { runSmoke } from "./site-release-receipt.mjs";
 import { buildVersionBoundMonitorProof } from "./runtime-monitor-proof.mjs";
@@ -832,13 +833,11 @@ test("the complete site monitor passes the real edge handler and every byte of a
         headers: { "content-type": contentTypes[pathname.split('.').at(-1)] || "application/octet-stream" },
       });
     } } };
-    const fetchImpl = async (input, init) => {
-      const response = await handler.fetch(new Request(input, init), env);
-      // index.js adds Cloudflare's runtime identity to every edge response.
-      const headers = new Headers(response.headers);
-      headers.set("x-jakh-worker-version", FIXTURE_WORKER_VERSION);
-      return new Response(response.body, { status: response.status, headers });
-    };
+    // index.js adds Cloudflare's runtime identity to every edge response.
+    const fetchImpl = async (input, init) => withWorkerVersion(
+      await handler.fetch(new Request(input, init), env),
+      FIXTURE_WORKER_VERSION,
+    );
     // Exercise release smoke against the same real edge responses as the
     // monitor, rather than reproducing its expected headers in a fixture.
     const smoke = await runSmoke({
@@ -870,6 +869,41 @@ test("the complete site monitor passes the real edge handler and every byte of a
           `${name} must validate the complete deployed bytes`);
       }
     }
+
+    // The same monitor, as a real visitor through Cloudflare sees it: the
+    // header is rewritten to "br, gzip", the visitor's own value sits in
+    // request.cf, HTML arrives as the stored brotli or gzip copy, and the
+    // client decodes it. Alternate visitors so both copies are exercised.
+    const encodedResponses = { br: 0, gzip: 0 };
+    let visitor = 0;
+    const visitorFetchImpl = async (input, init) => {
+      const request = new Request(input, init);
+      request.headers.set("accept-encoding", "br, gzip");
+      const clientAcceptEncoding = visitor++ % 2 === 0 ? "gzip, deflate, br, zstd" : "gzip, deflate";
+      Object.defineProperty(request, "cf", { value: { clientAcceptEncoding } });
+      const response = withWorkerVersion(await handler.fetch(request, env), FIXTURE_WORKER_VERSION);
+      const encoding = response.headers.get("content-encoding");
+      if (!encoding) return response;
+      encodedResponses[encoding] += 1;
+      const bytes = Buffer.from(await response.arrayBuffer());
+      const headers = new Headers(response.headers);
+      headers.delete("content-encoding");
+      return new Response(encoding === "br" ? brotliDecompressSync(bytes) : gunzipSync(bytes), {
+        status: response.status, headers,
+      });
+    };
+    const visitorSmoke = await runSmoke({
+      expectedBuildId: manifest.buildId, expectedWorkerVersionId: FIXTURE_WORKER_VERSION,
+      attempts: 1, fetchImpl: visitorFetchImpl,
+    });
+    assert.deepEqual(visitorSmoke.errors, []);
+    const visitorSummary = await runProductionMonitor({
+      env: {}, scope: "site", siteOrigin: PRIMARY_SITE_ORIGIN, apiOrigin: PRIMARY_API_ORIGIN,
+      siteContract: "current", expectedWorkerVersion: FIXTURE_WORKER_VERSION, maxCheckAttempts: 1,
+      fetchImpl: visitorFetchImpl, logger: quietLogger(), throwOnFailure: false,
+    });
+    assert.deepEqual(visitorSummary.failures, []);
+    assert.ok(encodedResponses.br > 10 && encodedResponses.gzip > 10, `compressed HTML was exercised: ${JSON.stringify(encodedResponses)}`);
   } finally {
     await rm(temporary, { recursive: true, force: true });
   }

@@ -50,8 +50,61 @@ jobs:
           path: ${{ runner.temp }}/autopilot-identity.json
           if-no-files-found: ignore
           retention-days: 1
-  maintain:
-    name: Inspect, repair, test and verify
+  # Maintenance is split by privilege. This job installs packages and runs
+  # every check, so it gets a read-only token and no OIDC identity, deployment
+  # environment or secret. It hands its results to the publish job as data.
+  inspect:
+    name: Inspect, repair and test (read-only)
+    if: >-
+      inputs.identity_check_only != true && github.repository == 'jame17291-sys/jakh.net' &&
+      github.ref == 'refs/heads/main' && github.ref_protected &&
+      github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            worker/package-lock.json
+            site-worker/package-lock.json
+      - name: Install pinned validation dependencies
+        run: |
+          npm ci --no-audit --no-fund
+          npm ci --prefix worker --no-audit --no-fund
+          npm ci --prefix site-worker --no-audit --no-fund
+          ./node_modules/.bin/playwright install chromium
+      - name: Validate the immutable repair and release policy
+        run: node --test scripts/autopilot-policy.test.mjs scripts/autopilot-repairs.test.mjs scripts/autopilot-orchestration.test.mjs scripts/autopilot-github-app.test.mjs
+      - name: Inspect, repair locally and test
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          AUTOPILOT_RELEASE_ENABLED: ${{ vars.AUTOPILOT_RELEASE_ENABLED }}
+        run: node scripts/site-autopilot.mjs inspect
+      - name: Hand the inspection results to the publish job
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: autopilot-handoff-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/autopilot-${{ github.run_id }}/*.json
+          if-no-files-found: error
+          retention-days: 1
+
+  # The writing job installs no packages. It claims the daily run with the
+  # short-lived OIDC identity, reports to the website, files or closes the
+  # findings issue, keeps the receipt and, only when automatic publishing is
+  # enabled, publishes a repair it re-derives from the trusted base and binds
+  # to the inspected tree. It fails visibly when findings need attention.
+  publish:
+    name: Record results and publish verified repairs
+    needs: inspect
     if: >-
       inputs.identity_check_only != true && github.repository == 'jame17291-sys/jakh.net' &&
       github.ref == 'refs/heads/main' && github.ref_protected &&
@@ -77,27 +130,21 @@ jobs:
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: "24"
-          cache: npm
-          cache-dependency-path: |
-            package-lock.json
-            worker/package-lock.json
-            site-worker/package-lock.json
-      - name: Install pinned validation dependencies
-        run: |
-          npm ci --no-audit --no-fund
-          npm ci --prefix worker --no-audit --no-fund
-          npm ci --prefix site-worker --no-audit --no-fund
-          ./node_modules/.bin/playwright install chromium
       - name: Validate the immutable repair and release policy
         run: node --test scripts/autopilot-policy.test.mjs scripts/autopilot-repairs.test.mjs scripts/autopilot-orchestration.test.mjs scripts/autopilot-github-app.test.mjs
-      - name: Run one bounded daily maintenance cycle
+      - name: Receive the inspection results
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: autopilot-handoff-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/autopilot-${{ github.run_id }}
+      - name: Record results, file findings and publish a verified repair
         env:
           GITHUB_TOKEN: ${{ github.token }}
           AUTOPILOT_RELEASE_ENABLED: ${{ vars.AUTOPILOT_RELEASE_ENABLED }}
           AUTOPILOT_GITHUB_APP_ID: ${{ vars.AUTOPILOT_GITHUB_APP_ID }}
           AUTOPILOT_GITHUB_APP_INSTALLATION_ID: ${{ vars.AUTOPILOT_GITHUB_APP_INSTALLATION_ID }}
           AUTOPILOT_GITHUB_APP_PRIVATE_KEY: ${{ secrets.AUTOPILOT_GITHUB_APP_PRIVATE_KEY }}
-        run: node scripts/site-autopilot.mjs
+        run: node scripts/site-autopilot.mjs publish
       - name: Keep the small maintenance receipt
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2

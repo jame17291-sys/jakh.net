@@ -8,7 +8,9 @@ import { context, githubClient, oidcToken, autopilotRequest, diagnoseAutopilotId
   REPOSITORY, REPOSITORY_ID, API_ORIGIN, AUDIENCE } from './autopilot-client.mjs';
 import { safeChildEnv, findingBody, syncFindings, matchDispatchedRun, dispatchAndWait,
   FINDINGS_MARKER, BOT_ID, publishVerifiedRepair, waitForPullRequestChecks, verifyPublishedBuild,
-  automaticReleaseReadiness, publicationFinding } from './site-autopilot.mjs';
+  automaticReleaseReadiness, publicationFinding, validateHandoff, readHandoff, HANDOFF_FILE,
+  publicationExitCode, runPublication, runInspection } from './site-autopilot.mjs';
+import { execFileSync } from 'node:child_process';
 
 import { loadProductionQuarantine } from './publication-quarantine.mjs';
 
@@ -167,18 +169,26 @@ test('identity diagnostics never retry or claim after auth failures, wrong respo
   await assert.rejects(() => diagnoseAutopilotIdentity(ENV, async () => assert.fail('must not request a token')), /explicit manual/);
 });
 
+function workflowJob(source, name) {
+  const start = source.indexOf(`\n  ${name}:\n`);
+  assert.ok(start >= 0, `${name} job exists`);
+  const next = source.slice(start + 1).search(/\n {2}[a-z-]+:\n/u);
+  return next < 0 ? source.slice(start) : source.slice(start, start + 1 + next);
+}
+
 test('manual identity-check workflow cannot start a daily claim or request publishing credentials', async () => {
   const source = await fs.readFile(path.join(ROOT, '.github/workflows/site-autopilot.yml'), 'utf8');
-  const diagnostic = source.split('  identity-check:\n')[1].split('  maintain:\n')[0];
-  const maintenance = source.split('  maintain:\n')[1];
+  const diagnostic = workflowJob(source, 'identity-check');
+  const maintenance = source.split('\n  inspect:\n')[1];
   assert.match(source, /identity_check_only:[\s\S]*default: false\n\s+type: boolean/u);
   assert.match(diagnostic, /github\.event_name == 'workflow_dispatch' && inputs\.identity_check_only == true/u);
   assert.match(diagnostic, /github\.ref == 'refs\/heads\/main' && github\.ref_protected/u);
   assert.match(diagnostic, /permissions:\n\s+contents: read\n\s+id-token: write/u);
   assert.match(diagnostic, /autopilot-client\.mjs diagnose-identity/u);
   assert.doesNotMatch(diagnostic, /site-autopilot\.mjs|secrets\.|environment:|GITHUB_TOKEN:|contents: write|issues: write/u);
-  assert.match(maintenance, /inputs\.identity_check_only != true/u);
-  assert.match(maintenance, /node scripts\/site-autopilot\.mjs/u);
+  for (const job of ['inspect', 'publish']) assert.match(workflowJob(source, job), /inputs\.identity_check_only != true/u, job);
+  assert.match(maintenance, /node scripts\/site-autopilot\.mjs inspect/u);
+  assert.match(maintenance, /node scripts\/site-autopilot\.mjs publish/u);
 });
 
 test('OIDC audience and internal API destination are fixed and redirect-free', async () => {
@@ -341,8 +351,11 @@ test('daily workflow remains free, bounded, pinned and independent of a desktop 
   assert.match(source, /retention-days: 1/u);
   assert.doesNotMatch(source, /pull_request_target|OPENAI_API_KEY|ANTHROPIC_API_KEY|CLOUDFLARE_[A-Z_]*(?:TOKEN|SECRET|KEY)|self-hosted/iu);
   assert.match(source, /environment: \$\{\{ vars\.AUTOPILOT_RELEASE_ENABLED == 'true' && 'autopilot-production' \|\| '' \}\}/u);
-  const jobCondition = source.split('    if: >-')[1]?.split('    runs-on:')[0] || '';
-  assert.doesNotMatch(jobCondition, /AUTOPILOT_RELEASE_ENABLED/u, 'Inspection must not be silently skipped when automatic publishing is not set up');
+  for (const job of ['inspect', 'publish']) {
+    const jobCondition = workflowJob(source, job).split('    if: >-')[1]?.split('    runs-on:')[0] || '';
+    assert.match(jobCondition, /github\.ref_protected/u, job);
+    assert.doesNotMatch(jobCondition, /AUTOPILOT_RELEASE_ENABLED/u, 'Inspection must not be silently skipped when automatic publishing is not set up');
+  }
   for (const match of source.matchAll(/secrets\.([A-Za-z0-9_]+)/gu)) assert.equal(match[1], 'AUTOPILOT_GITHUB_APP_PRIVATE_KEY');
   for (const match of source.matchAll(/uses:\s+([^\s#]+)/gu)) assert.match(match[1], /@[a-f0-9]{40}$/u);
   const policy = source.indexOf('scripts/autopilot-policy.test.mjs');
@@ -370,11 +383,18 @@ test('daily inspection remains available while missing publishing setup fails cl
 
 test('inspection reports its mode before checks and blocks publication before branch creation', async () => {
   const source = await fs.readFile(path.join(ROOT, 'scripts/site-autopilot.mjs'), 'utf8');
-  const orchestrator = source.slice(source.indexOf('export async function runAutopilot'));
-  assert.doesNotMatch(orchestrator.slice(0, orchestrator.indexOf('const start =')), /throw.*maintenance is disabled/u);
-  assert.ok(orchestrator.indexOf('await send("inspecting")') < orchestrator.indexOf('const baselineManifest'));
-  assert.ok(orchestrator.indexOf('publicationFinding(readiness, report.changedFiles)') < orchestrator.indexOf('"switch", "-c"'));
-  assert.match(orchestrator, /releaseMode: report\.releaseMode/u);
+  const inspection = source.slice(source.indexOf('export async function runInspection'), source.indexOf('export async function runPublication'));
+  const publication = source.slice(source.indexOf('export async function runPublication'));
+  assert.doesNotMatch(inspection.slice(0, inspection.indexOf('const start =')), /throw.*maintenance is disabled/u);
+  assert.doesNotMatch(publication.slice(0, publication.indexOf('assertEarlyEnough(now())')), /throw.*maintenance is disabled/u);
+  // The read-only job never claims, reports, files issues or mints credentials.
+  assert.doesNotMatch(inspection, /autopilotRequest|syncFindings|mintAutopilotAppToken|method: "(?:POST|PATCH|PUT)"|"push"/u);
+  assert.ok(inspection.indexOf('const baselineManifest') > 0);
+  // The claimed run reports its mode before the inspection results are recorded.
+  assert.ok(publication.indexOf('await send("inspecting")') < publication.indexOf('report.failedChecks = [...inspection.failedChecks]'));
+  assert.ok(publication.indexOf('publicationFinding(readiness, report.changedFiles)') < publication.indexOf('"switch", "-c"'));
+  assert.ok(publication.indexOf('const inspection = await readHandoff(') < publication.indexOf('autopilotRequest("claim"'));
+  assert.match(publication, /releaseMode: report\.releaseMode/u);
 });
 
 test('automatic deployments use a reserved environment while manual approvals and rollback proofs remain enforced', async () => {
@@ -714,8 +734,14 @@ test('invalid PR check identities are rejected before network access', async () 
 });
 
 test('the App publisher credential is minted after candidate proof, used only for branch and PR publication, then revoked', async () => {
-  const source = await fs.readFile(path.join(ROOT, 'scripts/site-autopilot.mjs'), 'utf8');
+  const fullSource = await fs.readFile(path.join(ROOT, 'scripts/site-autopilot.mjs'), 'utf8');
+  // Only the package-free publication job may hold the App credential.
+  const source = fullSource.slice(fullSource.indexOf('export async function runPublication'));
+  assert.doesNotMatch(fullSource.slice(0, fullSource.indexOf('export async function runPublication')), /mintAutopilotAppToken\(|publisher\.token/u);
   const proof = source.indexOf('"--candidate", candidate, "--repo", root]);');
+  const treeBinding = source.indexOf('inspection.candidate.tree');
+  assert.ok(proof >= 0 && treeBinding > proof && treeBinding < source.indexOf('const publisher = await mintAutopilotAppToken({ env });'),
+    'The re-derived candidate must match the inspected tree after its own proof and before any credential exists');
   const minted = source.indexOf('const publisher = await mintAutopilotAppToken({ env });');
   const revoked = source.indexOf('finally { await publisher.revoke(); }', minted);
   const publish = source.indexOf('await publishVerifiedRepair(gh,', revoked);
@@ -815,4 +841,212 @@ test('final publication proof requires a valid local verified build identity', (
   for (const expectedBuildId of [undefined, null, '', 'a'.repeat(63), 'g'.repeat(64)]) {
     assert.throws(() => verifyPublishedBuild(publishedResponse(), { expectedBuildId }), /candidate build identity is missing or invalid/);
   }
+});
+
+test('maintenance installs packages only in a read-only job and writes only from a package-free job', async () => {
+  const source = await fs.readFile(path.join(ROOT, '.github/workflows/site-autopilot.yml'), 'utf8');
+  const inspect = workflowJob(source, 'inspect');
+  const publish = workflowJob(source, 'publish');
+  assert.match(inspect, /    permissions:\n      contents: read\n    steps:/u, 'the package job has exactly a read-only token');
+  assert.doesNotMatch(inspect, /id-token|environment:|secrets\.|: write|AUTOPILOT_GITHUB_APP/u);
+  assert.match(inspect, /npm ci --no-audit --no-fund/u);
+  assert.match(inspect, /run: node scripts\/site-autopilot\.mjs inspect/u);
+  assert.match(inspect, /uses: actions\/upload-artifact@[a-f0-9]{40} # v[\d.]+\n\s+with:\n\s+name: autopilot-handoff-\$\{\{ github\.run_id \}\}-\$\{\{ github\.run_attempt \}\}/u);
+
+  assert.match(publish, /needs: inspect/u);
+  assert.doesNotMatch(publish, /npm ci|npm install|npx |playwright|cache: npm|cache-dependency-path/u, 'the writing job installs no packages');
+  assert.match(publish, /environment: \$\{\{ vars\.AUTOPILOT_RELEASE_ENABLED == 'true' && 'autopilot-production' \|\| '' \}\}/u);
+  for (const permission of ['contents: write', 'pull-requests: write', 'issues: write', 'actions: write', 'id-token: write']) {
+    assert.ok(publish.includes(permission), permission);
+  }
+  assert.match(publish, /uses: actions\/download-artifact@[a-f0-9]{40} # v[\d.]+\n\s+with:\n\s+name: autopilot-handoff-\$\{\{ github\.run_id \}\}-\$\{\{ github\.run_attempt \}\}\n\s+path: \$\{\{ runner\.temp \}\}\/autopilot-\$\{\{ github\.run_id \}\}/u);
+  assert.doesNotMatch(publish, /digest-mismatch: (?:ignore|info|warn)/u, 'a tampered hand-off must fail the download');
+  assert.ok(publish.indexOf('scripts/autopilot-policy.test.mjs') < publish.indexOf('run: node scripts/site-autopilot.mjs publish'));
+  assert.ok(publish.indexOf('actions/download-artifact') < publish.indexOf('run: node scripts/site-autopilot.mjs publish'));
+  assert.match(publish, /name: Keep the small maintenance receipt\n\s+if: always\(\)[\s\S]*name: autopilot-\$\{\{ github\.run_id \}\}\n/u);
+  assert.equal((source.match(/secrets\.AUTOPILOT_GITHUB_APP_PRIVATE_KEY/gu) || []).length, 1);
+  assert.ok(publish.includes('secrets.AUTOPILOT_GITHUB_APP_PRIVATE_KEY'));
+});
+
+const HANDOFF_IDENTITY = Object.freeze({ runId: '12345', runAttempt: '1', sourceSha: BASE });
+const CHANGE = Object.freeze({ path: 'sitemap.xml', change: 'modify', oldMode: '100644', newMode: '100644',
+  beforeSha256: 'c'.repeat(64), afterSha256: 'd'.repeat(64), bytes: 120 });
+function handoff(overrides = {}) {
+  return { version: 1, ...HANDOFF_IDENTITY, status: 'inspected', checksPassed: 11, failedChecks: [], changedFiles: [], error: null, candidate: null, ...overrides };
+}
+
+test('the inspection hand-off is bounded data bound to this exact run, attempt and source', async () => {
+  assert.deepEqual(validateHandoff(handoff({ changedFiles: [{ ...CHANGE, extra: 'dropped' }], candidate: { tree: NEXT, buildId: 'e'.repeat(64), extra: 1 } }), HANDOFF_IDENTITY),
+    handoff({ changedFiles: [CHANGE], candidate: { tree: NEXT, buildId: 'e'.repeat(64) } }));
+  for (const [overrides, message] of [
+    [{ version: 2 }, /unsupported format/u],
+    [{ runId: '99999' }, /another run/u],
+    [{ runAttempt: '2' }, /another run/u],
+    [{ sourceSha: NEXT }, /another run/u],
+    [{ status: 'deployed' }, /unknown status/u],
+    [{ checksPassed: -1 }, /passed-check/u],
+    [{ failedChecks: Array.from({ length: 51 }, () => 'Accessibility') }, /invalid findings/u],
+    [{ failedChecks: [''] }, /invalid findings/u],
+    [{ changedFiles: Array.from({ length: 251 }, () => CHANGE) }, /invalid changed files/u],
+    [{ status: 'failed' }, /status and error disagree/u],
+    [{ error: 'boom' }, /status and error disagree/u],
+    [{ candidate: { tree: 'main', buildId: 'e'.repeat(64) } }, /invalid candidate/u],
+    [{ candidate: { tree: NEXT, buildId: 'short' } }, /invalid candidate/u],
+  ]) assert.throws(() => validateHandoff(handoff(overrides), HANDOFF_IDENTITY), message, JSON.stringify(overrides));
+  for (const change of [{ ...CHANGE, path: '' }, { ...CHANGE, path: 'a\nb' }, { ...CHANGE, change: 'rename' }, { ...CHANGE, newMode: '120000' },
+    { ...CHANGE, afterSha256: 'xyz' }, { ...CHANGE, bytes: -1 }]) {
+    assert.throws(() => validateHandoff(handoff({ changedFiles: [change] }), HANDOFF_IDENTITY), /invalid changed file/u);
+  }
+
+  const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'autopilot-handoff-'));
+  try {
+    const file = path.join(directory, HANDOFF_FILE);
+    await fs.writeFile(file, JSON.stringify(handoff()));
+    assert.equal((await readHandoff(file, HANDOFF_IDENTITY)).checksPassed, 11);
+    await fs.symlink(file, path.join(directory, 'linked.json'));
+    await assert.rejects(readHandoff(path.join(directory, 'linked.json'), HANDOFF_IDENTITY));
+    await fs.writeFile(file, ' '.repeat(256 * 1024 + 1));
+    await assert.rejects(readHandoff(file, HANDOFF_IDENTITY), /too large/u);
+    await fs.writeFile(file, '{');
+    await assert.rejects(readHandoff(file, HANDOFF_IDENTITY), /not valid JSON/u);
+  } finally { await fs.rm(directory, { recursive: true, force: true }); }
+});
+
+test('a run whose findings need attention fails visibly after the findings issue is filed', () => {
+  const lines = [];
+  assert.equal(publicationExitCode({ status: 'needs_attention', failedChecks: ['Accessibility', 'Current source is not the verified live build; release needs attention'] }, text => lines.push(text)), 1);
+  assert.equal(lines.length, 1);
+  assert.match(lines[0], /^::error title=Daily maintenance needs attention::Accessibility; Current source is not the verified live build; release needs attention\. See the findings issue\.\n$/u);
+  for (const status of ['no_changes', 'deployed', 'paused', 'paused_or_daily_limit']) {
+    assert.equal(publicationExitCode({ status, failedChecks: [] }, text => lines.push(text)), 0, status);
+  }
+  assert.equal(lines.length, 1);
+});
+
+async function withPublicationFixture({ inspection, claimStatus = 200, existingIssue = false, release = '' }, callback) {
+  const repository = await fs.mkdtemp(path.join(os.tmpdir(), 'autopilot-publication-repo-'));
+  const runner = await fs.mkdtemp(path.join(os.tmpdir(), 'autopilot-publication-runner-'));
+  const previousDirectory = process.cwd();
+  const previousFetch = globalThis.fetch;
+  const calls = [];
+  try {
+    const git = (...args) => execFileSync('git', args, { cwd: repository, stdio: 'pipe' });
+    git('init', '-q', '-b', 'main');
+    await fs.writeFile(path.join(repository, 'README.md'), 'fixture\n');
+    git('add', 'README.md');
+    git('-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-q', '-m', 'fixture');
+    await fs.mkdir(path.join(runner, 'autopilot-12345'), { recursive: true });
+    await fs.writeFile(path.join(runner, 'autopilot-12345', HANDOFF_FILE), JSON.stringify(inspection));
+    globalThis.fetch = async (url, options = {}) => {
+      const target = String(url);
+      const method = options.method || 'GET';
+      const body = options.body ? JSON.parse(options.body) : undefined;
+      calls.push({ target, method, body });
+      if (target.startsWith('https://pipelines.actions.githubusercontent.com/')) return response({ value: 'test-identity-jwt' });
+      if (target === `${API_ORIGIN}/api/internal/autopilot/claim`) return claimStatus === 200 ? response({ day: '2026-10-24' }) : response({ code: 'AUTOPILOT_PAUSED' }, claimStatus);
+      if (target === `${API_ORIGIN}/api/internal/autopilot/report`) return response({ ok: true });
+      if (target === `https://api.github.com${PREFIX}`) return response({ id: Number(REPOSITORY_ID), private: false, default_branch: 'main' });
+      if (target === `https://api.github.com${PREFIX}/branches/main`) return response({ name: 'main', protected: true, commit: { sha: BASE } });
+      if (target.startsWith(`https://api.github.com${PREFIX}/issues?state=open`)) {
+        return response(existingIssue ? [{ number: 77, user: { id: BOT_ID }, body: `${FINDINGS_MARKER}\nold` }] : []);
+      }
+      if (target === `https://api.github.com${PREFIX}/issues` && method === 'POST') return response({ number: 78 }, 201);
+      if (target === `https://api.github.com${PREFIX}/issues/77` && method === 'PATCH') return response({ number: 77 });
+      throw new Error(`Unexpected fixture request ${method} ${target}`);
+    };
+    process.chdir(repository);
+    const env = { ...ENV, GITHUB_RUN_ATTEMPT: '1', RUNNER_TEMP: runner, AUTOPILOT_RELEASE_ENABLED: release, GITHUB_STEP_SUMMARY: '' };
+    return await callback({ env, calls, runner, run: () => runPublication(env, { now: () => new Date('2026-10-24T03:30:00Z') }) });
+  } finally {
+    process.chdir(previousDirectory);
+    globalThis.fetch = previousFetch;
+    await fs.rm(repository, { recursive: true, force: true });
+    await fs.rm(runner, { recursive: true, force: true });
+  }
+}
+
+const reportedStatuses = calls => calls.filter(call => call.target.endsWith('/autopilot/report')).map(call => call.body.status);
+const issueWrites = calls => calls.filter(call => call.target.includes('/issues') && call.method !== 'GET');
+
+test('publication records findings under the daily claim, files the issue and keeps the receipt', async () => {
+  await withPublicationFixture({ inspection: handoff({ checksPassed: 10, failedChecks: ['Accessibility'] }) }, async ({ calls, runner, run }) => {
+    const report = await run();
+    assert.equal(report.status, 'needs_attention');
+    assert.deepEqual(report.failedChecks, ['Accessibility']);
+    assert.equal(report.checksPassed, 10);
+    assert.equal(report.releaseMode, 'inspection_only');
+    assert.deepEqual(reportedStatuses(calls), ['inspecting', 'inspecting', 'testing', 'needs_attention']);
+    const claim = calls.findIndex(call => call.target.endsWith('/autopilot/claim'));
+    assert.ok(claim > calls.findIndex(call => call.target.endsWith('/branches/main')), 'protected main is checked before the claim');
+    assert.deepEqual(issueWrites(calls).map(call => [call.method, call.body.title]), [['POST', '[Autopilot] Daily maintenance findings']]);
+    assert.match(issueWrites(calls)[0].body.body, /- Accessibility/u);
+    const receipt = JSON.parse(await fs.readFile(path.join(runner, 'autopilot-12345', 'daily-report.json'), 'utf8'));
+    assert.equal(receipt.status, 'needs_attention');
+    assert.equal(publicationExitCode(report, () => {}), 1);
+  });
+});
+
+test('a clean inspection closes the findings issue and reports no changes', async () => {
+  await withPublicationFixture({ inspection: handoff(), existingIssue: true }, async ({ calls, run }) => {
+    const report = await run();
+    assert.equal(report.status, 'no_changes');
+    assert.deepEqual(reportedStatuses(calls), ['inspecting', 'inspecting', 'testing', 'no_changes']);
+    assert.deepEqual(issueWrites(calls).map(call => [call.method, call.target.split('/').at(-1), call.body.state]), [['PATCH', '77', 'closed']]);
+    assert.equal(publicationExitCode(report, () => {}), 0);
+  });
+});
+
+test('generated repairs without automatic publishing stay a review finding, exactly as before the split', async () => {
+  await withPublicationFixture({ inspection: handoff({ changedFiles: [CHANGE] }) }, async ({ calls, run }) => {
+    const report = await run();
+    assert.equal(report.status, 'needs_attention');
+    assert.deepEqual(report.failedChecks, ['Generated repairs are ready for review; automatic publishing is disabled']);
+    assert.deepEqual(reportedStatuses(calls), ['inspecting', 'fixing', 'testing', 'needs_attention']);
+    assert.ok(!calls.some(call => call.target.includes('/pulls') || call.target.includes('/dispatches')));
+  });
+});
+
+test('a paused or already-claimed day discards the inspection without touching issues', async () => {
+  for (const status of [409, 423]) {
+    await withPublicationFixture({ inspection: handoff({ failedChecks: ['Accessibility'] }), claimStatus: status }, async ({ calls, run }) => {
+      const report = await run();
+      assert.equal(report.status, 'paused_or_daily_limit');
+      assert.deepEqual(reportedStatuses(calls), []);
+      assert.deepEqual(issueWrites(calls), []);
+      assert.equal(publicationExitCode(report, () => {}), 0);
+    });
+  }
+});
+
+test('an inspection error is filed as a failed claimed run and fails the job', async () => {
+  await withPublicationFixture({ inspection: handoff({ status: 'failed', error: 'npm run failed. See the workflow check output.', checksPassed: 3, failedChecks: ['Accessibility'] }) }, async ({ calls, run }) => {
+    await assert.rejects(run(), /npm run failed/u);
+    assert.deepEqual(reportedStatuses(calls), ['inspecting', 'failed']);
+    const [created] = issueWrites(calls);
+    assert.match(created.body.body, /- Accessibility\n- npm run failed\. See the workflow check output\./u);
+  });
+});
+
+test('a hand-off from another run attempt is rejected before any claim or GitHub write', async () => {
+  await withPublicationFixture({ inspection: handoff({ runAttempt: '2' }) }, async ({ calls, run }) => {
+    await assert.rejects(run(), /another run/u);
+    assert.deepEqual(calls, []);
+  });
+});
+
+test('automatic publishing never pushes without the inspected candidate tree', async () => {
+  await withPublicationFixture({ inspection: handoff({ changedFiles: [CHANGE] }), release: 'true' }, async ({ env, calls }) => {
+    const configured = { ...env, AUTOPILOT_GITHUB_APP_ID: '123', AUTOPILOT_GITHUB_APP_INSTALLATION_ID: '456', AUTOPILOT_GITHUB_APP_PRIVATE_KEY: 'fixture-key-not-a-real-key' };
+    await assert.rejects(runPublication(configured, { now: () => new Date('2026-10-24T03:30:00Z') }), /did not prove a repair candidate/u);
+    assert.deepEqual(reportedStatuses(calls), ['inspecting', 'fixing', 'testing', 'failed']);
+    assert.ok(!calls.some(call => call.target.includes('/pulls') || call.target.includes('access_tokens')));
+  });
+});
+
+test('neither maintenance job starts within 105 minutes of the UTC reservation boundary', async () => {
+  await withPublicationFixture({ inspection: handoff() }, async ({ env, calls }) => {
+    await assert.rejects(runPublication(env, { now: () => new Date('2026-10-24T22:16:00Z') }), /earlier in the UTC day/u);
+    await assert.rejects(runInspection(env, { now: () => new Date('2026-10-24T23:59:00Z') }), /earlier in the UTC day/u);
+    assert.deepEqual(calls, []);
+  });
 });

@@ -120,6 +120,7 @@ jobs:
           node --test scripts/api-release-receipt.test.mjs
           scripts/site-release-receipt.test.mjs
           scripts/monitor-production.test.mjs
+          scripts/monitor-live-release.test.mjs
           scripts/pages-quarantine-receipt.test.mjs
           scripts/route-production-alert.test.mjs
           scripts/runtime-monitor-proof.test.mjs

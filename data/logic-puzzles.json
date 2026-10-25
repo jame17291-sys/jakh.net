@@ -193,7 +193,7 @@
     },
     "question": {
       "en": "A doctor gives you three pills and tells you to take one every half hour. How long until you have taken them all?",
-      "ar": "الدكتور عطاك 3 حبوب وقال لك خذ وحدة كل نص ساعة. بعد كم تخلّصهم كلهم؟"
+      "ar": "أعطاك الطبيب 3 حبوب وقال لك: خذ واحدة كل نصف ساعة. بعد كم من الوقت تنتهي منها كلها؟"
     },
     "answer": {
       "en": "One hour: the first now, the second after 30 minutes and the third after 60 minutes.",
@@ -243,7 +243,7 @@
     },
     "question": {
       "en": "A rider arrives in town on Friday, stays three days, and leaves on Friday. How?",
-      "ar": "فارس وصل البلد على جمعة، وقعد ثلاث أيام، وطلع على جمعة. كيف؟"
+      "ar": "وصل فارس إلى البلدة على جمعة، وأقام ثلاثة أيام، ثم غادر على جمعة. كيف؟"
     },
     "answer": {
       "en": "His horse is called Friday.",
@@ -262,7 +262,7 @@
     },
     "question": {
       "en": "An electric train is travelling north and the wind is blowing west. Which way does its smoke blow?",
-      "ar": "قطار كهربائي ماشي ناحية الشمال، والهوا يهب ناحية الغرب. لأي جهة يروح دخانه؟"
+      "ar": "قطار كهربائي يسير نحو الشمال، والريح تهبّ نحو الغرب. في أيّ اتجاه يذهب دخانه؟"
     },
     "answer": {
       "en": "Nowhere: an electric train gives off no smoke.",
@@ -300,7 +300,7 @@
       ],
       "ar": [
         "لا يوجد دخان",
-        "ما في دخان"
+        "لا دخان"
       ]
     }
   },
@@ -1338,7 +1338,7 @@
     },
     "question": {
       "en": "You have a 4-minute hourglass and a 7-minute hourglass. How can you measure exactly 9 minutes?",
-      "ar": "عندك ساعة رملية 4 دقايق وساعة رملية 7 دقايق. كيف تقيس 9 دقايق بالضبط؟"
+      "ar": "لديك ساعة رملية مدتها 4 دقائق وأخرى مدتها 7 دقائق. كيف تقيس 9 دقائق بالضبط؟"
     },
     "answer": {
       "en": "Start both; turn the 4 over at minute 4 and the 7 at minute 7. When the 4 empties again (minute 8), turn the 7 over: its last minute of sand ends at minute 9.",
@@ -1384,11 +1384,11 @@
     },
     "question": {
       "en": "A census taker asks a mother the ages of her three children. 'Their ages multiply to 36,' she says, 'and add up to our house number.' He looks at the number and says he still can't tell. She adds, 'My oldest child loves dates.' What are the ages?",
-      "ar": "موظف تعداد سأل أم عن أعمار عيالها الثلاثة. قالت: «حاصل ضرب أعمارهم 36، ومجموعها يساوي رقم بيتنا». شاف رقم البيت وقال إنه لسّا ما يقدر يعرف. فقالت: «وولدي الكبير يحب التمر». كم أعمارهم؟"
+      "ar": "سأل موظف تعداد أمًّا عن أعمار أبنائها الثلاثة، فقالت: «حاصل ضرب أعمارهم 36، ومجموعها يساوي رقم بيتنا». نظر إلى رقم البيت وقال إنه ما زال لا يستطيع أن يعرف. فقالت: «وابني الأكبر يحب التمر». كم أعمارهم؟"
     },
     "answer": {
       "en": "2, 2 and 9. Only 1 + 6 + 6 and 2 + 2 + 9 share a sum (13), and 'my oldest' rules out twins aged 6.",
-      "ar": "2 و2 و9. فقط 1 + 6 + 6 و2 + 2 + 9 لهما المجموع نفسه (13)، وعبارة «الكبير» تستبعد التوأم ذوي الست سنوات."
+      "ar": "2 و2 و9. فقط 1 + 6 + 6 و2 + 2 + 9 لهما المجموع نفسه (13)، وعبارة «الأكبر» تستبعد التوأم ذوي الست سنوات."
     },
     "review": {
       "status": "pending"
@@ -1471,7 +1471,7 @@
     },
     "answer": {
       "en": "10. Number the bottles in binary and give strip k a drop from every bottle whose k-th binary digit is 1. The strips that change spell out the bad bottle's number (2¹⁰ = 1,024).",
-      "ar": "10. رقّم القناني بالنظام الثنائي، وأعطِ الشريط رقم k نقطة من كل قنينة خانتها رقم k تساوي 1. الأشرطة التي يتغيّر لونها تكتب رقم القنينة الخربانة (2¹⁰ = 1,024)."
+      "ar": "10. رقّم القناني بالنظام الثنائي، وأعطِ الشريط رقم k نقطة من كل قنينة خانتها رقم k تساوي 1. الأشرطة التي يتغيّر لونها تكتب رقم القنينة الفاسدة (2¹⁰ = 1,024)."
     },
     "review": {
       "status": "pending"
@@ -1498,7 +1498,7 @@
     },
     "answer": {
       "en": "9. The person at the back says 'red' if he sees an odd number of red hats, otherwise 'black'. Everyone else can then work out their own colour; only he takes a 50–50 chance.",
-      "ar": "9. يقول الأخير «أحمر» إذا رأى عددًا فرديًا من الطواقي الحمراء، وإلا قال «أسود». بعدها يستطيع كل الباقين استنتاج ألوانهم، ويبقى هو وحده باحتمال 50%."
+      "ar": "9. يقول الأخير «أحمر» إذا رأى عددًا فرديًا من القبعات الحمراء، وإلا قال «أسود». بعدها يستطيع كل الباقين استنتاج ألوانهم، ويبقى هو وحده باحتمال 50%."
     },
     "review": {
       "status": "pending"

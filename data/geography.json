@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "Which river flows through the heart of Baghdad?",
-      "ar": "أي نهر يمر بنص بغداد؟"
+      "ar": "أيّ نهر يمرّ في قلب بغداد؟"
     },
     "answer": {
       "en": "The Tigris",
@@ -388,7 +388,7 @@
     },
     "question": {
       "en": "Which mountain range stretches across Morocco, Algeria and Tunisia?",
-      "ar": "أي سلسلة جبال تمتد بالمغرب والجزائر وتونس؟"
+      "ar": "أيّ سلسلة جبال تمتد عبر المغرب والجزائر وتونس؟"
     },
     "answer": {
       "en": "The Atlas Mountains",
@@ -723,14 +723,14 @@
   },
   {
     "id": "geography-039",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Oceans, Seas & Straits",
       "ar": "المحيطات والبحار والمضائق"
     },
     "question": {
       "en": "The Sinai Peninsula lies between the Gulf of Suez and which other gulf?",
-      "ar": "شبه جزيرة سيناء محصورة بين خليج السويس وأي خليج ثاني؟"
+      "ar": "تقع شبه جزيرة سيناء بين خليج السويس وأيّ خليج آخر؟"
     },
     "answer": {
       "en": "The Gulf of Aqaba",
@@ -920,7 +920,7 @@
     },
     "question": {
       "en": "Which desert in the southern Arabian Peninsula is the world's largest continuous sand desert?",
-      "ar": "أي صحرا بجنوب الجزيرة العربية هي أكبر صحرا رملية متصلة بالعالم؟"
+      "ar": "أيّ صحراء في جنوب الجزيرة العربية هي أكبر صحراء رملية متصلة في العالم؟"
     },
     "answer": {
       "en": "The Rub' al Khali (Empty Quarter)",
@@ -939,7 +939,7 @@
     },
     "question": {
       "en": "Which sea has no land coastline at all and is bounded only by ocean currents?",
-      "ar": "أي بحر ما له ولا ساحل على اليابسة، وحدوده كلها تيارات محيطية؟"
+      "ar": "أيّ بحر ليس له أي ساحل على اليابسة، وحدوده كلها تيارات محيطية؟"
     },
     "answer": {
       "en": "The Sargasso Sea",
@@ -977,7 +977,7 @@
     },
     "question": {
       "en": "Which Arab League member is an island nation between Mozambique and Madagascar?",
-      "ar": "أي دولة عضو بجامعة الدول العربية عبارة عن جزر بين موزمبيق ومدغشقر؟"
+      "ar": "أيّ دولة عضو في جامعة الدول العربية هي دولة جزرية بين موزمبيق ومدغشقر؟"
     },
     "answer": {
       "en": "Comoros",
@@ -1053,7 +1053,7 @@
     },
     "question": {
       "en": "Which strait links the Red Sea with the Gulf of Aden?",
-      "ar": "أي مضيق يوصل البحر الأحمر بخليج عدن؟"
+      "ar": "أيّ مضيق يصل البحر الأحمر بخليج عدن؟"
     },
     "answer": {
       "en": "Bab el-Mandeb",
@@ -1110,7 +1110,7 @@
     },
     "question": {
       "en": "Which narrow strait links the Gulf with the Gulf of Oman?",
-      "ar": "أي مضيق ضيق يوصل الخليج بخليج عُمان؟"
+      "ar": "أيّ مضيق ضيق يصل الخليج بخليج عُمان؟"
     },
     "answer": {
       "en": "The Strait of Hormuz",
@@ -1338,7 +1338,7 @@
     },
     "question": {
       "en": "The Musandam Peninsula is cut off from the rest of its country by UAE territory. Which country does it belong to?",
-      "ar": "شبه جزيرة مسندم مفصولة عن باقي دولتها بأراضي إماراتية. لأي دولة تتبع؟"
+      "ar": "شبه جزيرة مسندم مفصولة عن بقية دولتها بأراضٍ إماراتية. إلى أيّ دولة تتبع؟"
     },
     "answer": {
       "en": "Oman",
@@ -1357,7 +1357,7 @@
     },
     "question": {
       "en": "In which capital city do the White Nile and the Blue Nile meet?",
-      "ar": "بأي عاصمة يلتقي النيل الأبيض بالنيل الأزرق؟"
+      "ar": "في أيّ عاصمة يلتقي النيل الأبيض بالنيل الأزرق؟"
     },
     "answer": {
       "en": "Khartoum",
@@ -1623,7 +1623,7 @@
     },
     "question": {
       "en": "Which country has the longest coastline on mainland Africa?",
-      "ar": "أي دولة عندها أطول ساحل على البر الإفريقي؟"
+      "ar": "أيّ دولة لها أطول ساحل على البر الإفريقي؟"
     },
     "answer": {
       "en": "Somalia",
@@ -1680,7 +1680,7 @@
     },
     "question": {
       "en": "Which continent has the highest average elevation?",
-      "ar": "أي قارة عندها أعلى متوسط ارتفاع؟"
+      "ar": "أيّ قارة لها أعلى متوسط ارتفاع؟"
     },
     "answer": {
       "en": "Antarctica",
@@ -1718,7 +1718,7 @@
     },
     "question": {
       "en": "Which desert in Chile is the driest non-polar desert on Earth?",
-      "ar": "أي صحرا بتشيلي هي أنشف صحرا غير قطبية على الأرض؟"
+      "ar": "أيّ صحراء في تشيلي هي أجفّ صحراء غير قطبية على الأرض؟"
     },
     "answer": {
       "en": "The Atacama Desert",
@@ -1737,7 +1737,7 @@
     },
     "question": {
       "en": "In which country is Lake Assal, the lowest point in Africa?",
-      "ar": "بأي دولة بحيرة عسل، أوطى نقطة بقارة إفريقيا؟"
+      "ar": "في أيّ دولة تقع بحيرة عسل، أخفض نقطة في قارة إفريقيا؟"
     },
     "answer": {
       "en": "Djibouti",
@@ -1813,7 +1813,7 @@
     },
     "question": {
       "en": "The Blue Nile flows out of which lake in Ethiopia?",
-      "ar": "النيل الأزرق يطلع من أي بحيرة بإثيوبيا؟"
+      "ar": "من أيّ بحيرة في إثيوبيا ينبع النيل الأزرق؟"
     },
     "answer": {
       "en": "Lake Tana",

@@ -13722,7 +13722,7 @@
               "ar": 2
             },
             "containsNumber": true,
-            "containsYear": false,
+            "containsYear": true,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -13823,7 +13823,9 @@
           "difficulty": "very-advanced",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [],
+          "mutableSignals": [
+            "current-state"
+          ],
           "contentSignals": {
             "answerWords": {
               "en": 2,
@@ -18343,8 +18345,8 @@
               "en": 2,
               "ar": 2
             },
-            "containsNumber": true,
-            "containsYear": true,
+            "containsNumber": false,
+            "containsYear": false,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -18496,7 +18498,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 9,
-              "ar": 7
+              "ar": 8
             },
             "containsNumber": false,
             "containsYear": false,
@@ -28301,7 +28303,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 8,
-              "ar": 6
+              "ar": 8
             },
             "containsNumber": true,
             "containsYear": true,
@@ -34840,7 +34842,7 @@
         },
         {
           "id": "geography-039",
-          "difficulty": "very-advanced",
+          "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
@@ -47072,7 +47074,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 11,
-              "ar": 11
+              "ar": 13
             },
             "containsNumber": true,
             "containsYear": false,
@@ -55086,7 +55088,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 5,
-              "ar": 5
+              "ar": 6
             },
             "containsNumber": false,
             "containsYear": false,
@@ -61259,7 +61261,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 13,
-              "ar": 11
+              "ar": 13
             },
             "containsNumber": true,
             "containsYear": true,
@@ -66916,9 +66918,7 @@
           "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [
-            "current-state"
-          ],
+          "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
               "en": 12,
@@ -88331,8 +88331,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 2,
-              "ar": 1
+              "en": 11,
+              "ar": 8
             },
             "containsNumber": false,
             "containsYear": false,
@@ -89721,7 +89721,7 @@
               "ar": 2
             },
             "containsNumber": true,
-            "containsYear": true,
+            "containsYear": false,
             "needsClaimDecomposition": false
           },
           "legacyReviewSources": [],
@@ -95651,7 +95651,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 7,
-              "ar": 5
+              "ar": 6
             },
             "containsNumber": false,
             "containsYear": false,

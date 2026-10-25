@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "Which small desert fox of the Sahara has huge ears that help it shed body heat?",
-      "ar": "أي ثعلب صغير بالصحراء الكبرى عنده آذان ضخمة تساعده يتخلّص من حرارة جسمه؟"
+      "ar": "أيّ ثعلب صغير يعيش في الصحراء الكبرى له أذنان ضخمتان تساعدانه على التخلص من حرارة جسمه؟"
     },
     "answer": {
       "en": "The fennec fox.",
@@ -501,8 +501,8 @@
       "ar": "الطيور والطيران"
     },
     "question": {
-      "en": "Which seabird has the widest wingspan of any living bird, up to about 3.5 metres?",
-      "ar": "أي طائر بحري عنده أعرض جناحين بين الطيور الحية، يوصل امتدادهم لحوالي 3.5 متر؟"
+      "en": "Which seabird has the widest wingspan of any living bird, at more than 3 metres from tip to tip?",
+      "ar": "أيّ طائر بحري له أعرض جناحين بين الطيور الحية، إذ يزيد امتدادهما على 3 أمتار؟"
     },
     "answer": {
       "en": "The wandering albatross.",
@@ -597,7 +597,7 @@
     },
     "question": {
       "en": "Which animal has the heaviest brain of any living animal?",
-      "ar": "أي حيوان عنده أثقل دماغ بين كل الحيوانات الحية؟"
+      "ar": "أيّ حيوان له أثقل دماغ بين جميع الحيوانات الحية؟"
     },
     "answer": {
       "en": "The sperm whale (about 7–8 kg).",
@@ -862,8 +862,8 @@
       "ar": "الطيور والطيران"
     },
     "question": {
-      "en": "Which bird of prey, a favourite of falconers, is the fastest animal on Earth, diving at over 300 km/h?",
-      "ar": "أي طير جارح، من الطيور المفضّلة عند الصقّارين، هو أسرع حيوان على الأرض، وينقضّ بسرعة تتجاوز 300 كم/ساعة؟"
+      "en": "Which bird of prey, a favourite of falconers, is called the fastest animal on Earth, with dives reported at over 300 km/h?",
+      "ar": "أيّ طير جارح، من الطيور المفضّلة عند الصقّارين، يوصف بأنه أسرع حيوان على الأرض، وتُقدَّر سرعة انقضاضه بأكثر من 300 كم/ساعة؟"
     },
     "answer": {
       "en": "The peregrine falcon.",
@@ -882,7 +882,7 @@
     },
     "question": {
       "en": "Which seagrass-grazing 'sea cow' lives in UAE waters in the world's second-largest population, after Australia's?",
-      "ar": "أي حيوان بحري يرعى الأعشاب البحرية ويلقّبونه «بقرة البحر»، وتعيش بمياه الإمارات ثاني أكبر مجموعة منه بالعالم بعد أستراليا؟"
+      "ar": "أيّ حيوان بحري يرعى الأعشاب البحرية ويُلقَّب «بقرة البحر»، وتعيش في مياه الإمارات ثاني أكبر مجموعة منه في العالم بعد أستراليا؟"
     },
     "answer": {
       "en": "The dugong.",
@@ -901,7 +901,7 @@
     },
     "question": {
       "en": "Which critically endangered big cat survives in the wild mainly in Oman's Dhofar mountains and in Yemen, and has its own UN international day on 10 February?",
-      "ar": "أي حيوان من فصيلة القطط الكبيرة مهدّد بالانقراض بشدّة، يعيش بالبرية بالأساس بجبال ظفار في عُمان وباليمن، وله يوم دولي بالأمم المتحدة في 10 فبراير؟"
+      "ar": "أيّ حيوان من فصيلة القطط الكبيرة مهدّد بالانقراض بشدّة، يعيش في البرية أساسًا في جبال ظفار في عُمان وفي اليمن، وله يوم دولي في الأمم المتحدة في 10 فبراير؟"
     },
     "answer": {
       "en": "The Arabian leopard.",
@@ -958,7 +958,7 @@
     },
     "question": {
       "en": "Which basic taste can cats not detect at all, because the gene for its receptor is broken?",
-      "ar": "أي طعم أساسي ما تقدر القطط تحسّ فيه أبداً، لأن الجين المسؤول عن مستقبِله معطّل؟"
+      "ar": "أيّ طعم أساسي لا تستطيع القطط الإحساس به أبدًا، لأن الجين المسؤول عن مستقبِله معطّل؟"
     },
     "answer": {
       "en": "Sweetness.",
@@ -996,7 +996,7 @@
     },
     "question": {
       "en": "Male sandgrouse fly long distances to water holes and bring water back to their chicks in the desert. How do they carry it?",
-      "ar": "ذكور طيور القطا تطير مسافات طويلة لموارد المي وترجّع مي لفراخها بالصحراء. كيف تشيل المي؟"
+      "ar": "تطير ذكور طيور القطا مسافات طويلة إلى موارد الماء وتعيد الماء إلى فراخها في الصحراء. كيف تحمل الماء؟"
     },
     "answer": {
       "en": "Soaked up in specially adapted belly feathers.",
@@ -1014,8 +1014,8 @@
       "ar": "السلوك والبيئة والتكيف"
     },
     "question": {
-      "en": "Which African mammal lives in underground colonies with a single breeding queen, like bees or ants?",
-      "ar": "أي حيوان ثديي إفريقي يعيش في مستعمرات تحت الأرض لا يتكاثر فيها إلا ملكة واحدة، كما في النحل والنمل؟"
+      "en": "Which nearly hairless African rodent lives in underground colonies with a single breeding queen, like bees or ants?",
+      "ar": "أيّ قارض إفريقي شبه عديم الشعر يعيش في مستعمرات تحت الأرض لا تتكاثر فيها إلا ملكة واحدة، كما في النحل والنمل؟"
     },
     "answer": {
       "en": "The naked mole-rat.",
@@ -1034,7 +1034,7 @@
     },
     "question": {
       "en": "Which small shrimp stuns its prey by snapping its claw so fast that it creates a collapsing bubble, one of the loudest sounds in the sea?",
-      "ar": "أي روبيان صغير يصعق فريسته لما يطقطق مخلبه بسرعة كبيرة لدرجة تتكوّن فقاعة تنهار بقوة وتطلّع صوت من أعلى الأصوات بالبحر؟"
+      "ar": "أيّ روبيان صغير يصعق فريسته بإطباق مخلبه بسرعة كبيرة تُكوِّن فقاعة تنهار محدثةً واحدًا من أعلى الأصوات في البحر؟"
     },
     "answer": {
       "en": "The pistol (snapping) shrimp.",
@@ -1072,7 +1072,7 @@
     },
     "question": {
       "en": "Which Australian animal has fingerprints so similar to ours that they could confuse investigators at a crime scene?",
-      "ar": "أي حيوان أسترالي بصمات أصابعه تشبه بصماتنا لدرجة إنها ممكن تلخبط المحققين بمسرح الجريمة؟"
+      "ar": "أيّ حيوان أسترالي تشبه بصمات أصابعه بصماتنا إلى حدّ أنها قد تربك المحققين في مسرح الجريمة؟"
     },
     "answer": {
       "en": "The koala.",
@@ -1129,7 +1129,7 @@
     },
     "question": {
       "en": "Which small bird can stay airborne for about 10 months without landing, feeding on insects in flight?",
-      "ar": "أي طير صغير يقدر يظل طاير حوالي 10 شهور بدون ما ينزل، وياكل الحشرات وهو طاير؟"
+      "ar": "أيّ طائر صغير يستطيع البقاء محلّقًا نحو 10 أشهر دون أن يهبط، ويأكل الحشرات وهو يطير؟"
     },
     "answer": {
       "en": "The common swift.",

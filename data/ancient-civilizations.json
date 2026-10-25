@@ -517,7 +517,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Near which Chinese city did farmers digging a well discover the Terracotta Army in 1974?",
-      "ar": "قرب أي مدينة صينية اكتشف فلاحين «جيش التيراكوتا» وهم يحفرون بير سنة 1974؟"
+      "ar": "قرب أيّ مدينة صينية اكتشف فلاحون «جيش التيراكوتا» وهم يحفرون بئرًا عام 1974؟"
     },
     "answer": {
       "en": "Xi'an",
@@ -783,7 +783,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which pet animal was sacred in ancient Egypt, linked to the goddess Bastet, and often mummified?",
-      "ar": "أي حيوان أليف كان مقدّس بمصر القديمة، مرتبط بالإلهة باستت، وكثير كانوا يحنّطونه؟"
+      "ar": "أيّ حيوان أليف كان مقدّسًا في مصر القديمة، وارتبط بالإلهة باستت، وكثيرًا ما كان يُحنَّط؟"
     },
     "answer": {
       "en": "The cat",
@@ -821,7 +821,7 @@
     "difficulty": "easy",
     "question": {
       "en": "The Carthaginian general Hannibal famously crossed the Alps with which animals?",
-      "ar": "القائد القرطاجي هانيبال عبر جبال الألب ومعه أي حيوانات مشهورة؟"
+      "ar": "عبر القائد القرطاجي هانيبال جبال الألب ومعه أيّ حيوانات مشهورة؟"
     },
     "answer": {
       "en": "Elephants",
@@ -839,12 +839,12 @@
     "id": "anc-45",
     "difficulty": "easy",
     "question": {
-      "en": "Which fragrant tree resin, gathered in ancient southern Arabia, became one of the most valuable goods of the ancient world?",
-      "ar": "ما الصمغ العطري الذي كان يُجمع قديمًا من أشجار جنوب الجزيرة العربية، وأصبح من أغلى السلع في العالم القديم؟"
+      "en": "Besides myrrh, which fragrant tree resin gathered in ancient southern Arabia became one of the most valuable goods of the ancient world?",
+      "ar": "غير المُرّ، ما الصمغ العطري الآخر الذي كان يُجمع قديمًا من أشجار جنوب الجزيرة العربية، وأصبح من أغلى السلع في العالم القديم؟"
     },
     "answer": {
       "en": "Frankincense",
-      "ar": "اللبان (البخور)"
+      "ar": "اللبان (الكُندُر)"
     },
     "subcategory": {
       "en": "Africa & Near East",
@@ -878,7 +878,7 @@
     "difficulty": "hard",
     "question": {
       "en": "The ancient trading civilization of Dilmun was centred on which present-day island country?",
-      "ar": "حضارة دلمون التجارية القديمة كان مركزها بأي دولة جزيرة اليوم؟"
+      "ar": "في أيّ دولة جزرية حالية كان مركز حضارة دلمون التجارية القديمة؟"
     },
     "answer": {
       "en": "Bahrain",
@@ -897,7 +897,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which Mauryan emperor of India turned to Buddhism after the devastating Kalinga War?",
-      "ar": "أي إمبراطور موري بالهند اتجه للبوذية بعد حرب كالينغا المدمّرة؟"
+      "ar": "أيّ إمبراطور موري في الهند اعتنق البوذية بعد حرب كالينغا المدمّرة؟"
     },
     "answer": {
       "en": "Ashoka",
@@ -935,7 +935,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Which South Arabian kingdom, with its capital at Zafar, was the last great Yemeni kingdom before Islam?",
-      "ar": "أي مملكة بجنوب الجزيرة العربية، عاصمتها ظفار، كانت آخر مملكة يمنية كبيرة قبل الإسلام؟"
+      "ar": "أيّ مملكة في جنوب الجزيرة العربية، عاصمتها ظفار، كانت آخر مملكة يمنية كبرى قبل الإسلام؟"
     },
     "answer": {
       "en": "Himyar",

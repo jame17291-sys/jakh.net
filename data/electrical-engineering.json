@@ -597,7 +597,7 @@
     },
     "question": {
       "en": "In three-phase power, how many degrees apart are the three voltage waves?",
-      "ar": "في الكهربا ثلاثية الطور، كم درجة بين كل موجة جهد والثانية؟"
+      "ar": "في الكهرباء ثلاثية الطور، كم درجة تفصل بين كل موجة جهد والتي تليها؟"
     },
     "answer": {
       "en": "120 degrees.",
@@ -635,7 +635,7 @@
     },
     "question": {
       "en": "Saudi Arabia's grid runs at 60 Hz while its Gulf neighbours use 50 Hz. What kind of link lets them share power?",
-      "ar": "شبكة كهربا السعودية تشتغل على 60 هرتز، وجيرانها بالخليج على 50 هرتز. أي نوع من الوصلات يخلّيهم يتبادلون الكهربا؟"
+      "ar": "تعمل شبكة الكهرباء السعودية بتردد 60 هرتز، وشبكات جيرانها في الخليج بتردد 50 هرتز. أيّ نوع من الوصلات يتيح لها تبادل الكهرباء؟"
     },
     "answer": {
       "en": "A back-to-back HVDC converter station (at Al-Fadhili).",
@@ -730,7 +730,7 @@
     },
     "question": {
       "en": "Drop a strong magnet down a copper pipe and it falls in slow motion. Which law explains this?",
-      "ar": "لو رميت مغناطيس قوي جوّا أنبوب نحاس، ينزل ببطء كأنه بالتصوير البطيء. أي قانون يفسّر هالشي؟"
+      "ar": "إذا أسقطت مغناطيسًا قويًا داخل أنبوب نحاسي، فإنه ينزل ببطء كأنه في تصوير بطيء. أيّ قانون يفسّر ذلك؟"
     },
     "answer": {
       "en": "Lenz's law: induced currents oppose the magnet's motion.",

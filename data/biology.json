@@ -673,7 +673,7 @@
     },
     "question": {
       "en": "Botanically speaking, is a tomato a fruit or a vegetable?",
-      "ar": "من ناحية علم النبات، الطماطم ثمرة ولا خضار؟"
+      "ar": "من الناحية النباتية، هل الطماطم ثمرة أم خضار؟"
     },
     "answer": {
       "en": "A fruit: it develops from the flower's ovary and holds the seeds.",
@@ -1756,7 +1756,7 @@
     },
     "question": {
       "en": "Which enzyme unzips the two strands of DNA at the replication fork?",
-      "ar": "أي إنزيم يفكّ شريطَي DNA عن بعض عند شوكة التضاعف؟"
+      "ar": "أيّ إنزيم يفصل شريطَي DNA أحدهما عن الآخر عند شوكة التضاعف؟"
     },
     "answer": {
       "en": "Helicase.",
@@ -1775,7 +1775,7 @@
     },
     "question": {
       "en": "Which small region at the base of the brain works as the body's thermostat and also controls hunger and thirst?",
-      "ar": "أي منطقة صغيرة بقاعدة الدماغ تشتغل كأنها «ترموستات» الجسم، وكمان تتحكّم بالجوع والعطش؟"
+      "ar": "أيّ منطقة صغيرة في قاعدة الدماغ تعمل بمثابة «منظّم حرارة» الجسم، وتتحكّم أيضًا في الجوع والعطش؟"
     },
     "answer": {
       "en": "The hypothalamus.",
@@ -1832,7 +1832,7 @@
     },
     "question": {
       "en": "Date palms grow as separate male and female trees. Which ones bear the dates?",
-      "ar": "النخيل فيه أشجار ذكور وأشجار إناث. أي وحدة منهم تطلّع التمر؟"
+      "ar": "للنخيل أشجار ذكور وأشجار إناث. أيّها يحمل التمر؟"
     },
     "answer": {
       "en": "The female trees; farmers often pollinate them by hand with pollen from male trees.",

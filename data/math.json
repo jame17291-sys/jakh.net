@@ -55,7 +55,7 @@
     "mode": "quiz",
     "question": {
       "en": "Divide 30 by a half, then add 10. What do you get?",
-      "ar": "اقسم 30 على نص، وبعدين زيد 10. كم يطلع معك؟"
+      "ar": "اقسم 30 على نصف، ثم أضف 10. ما الناتج؟"
     },
     "answer": {
       "en": "70. Dividing by a half doubles the number: 30 ÷ ½ = 60, and 60 + 10 = 70.",
@@ -205,7 +205,7 @@
     "mode": "quiz",
     "question": {
       "en": "A 'googol' is the number 1 followed by how many zeros?",
-      "ar": "«الغوغول» (googol) هو الرقم 1 وبعده كم صفر؟"
+      "ar": "كم صفرًا تتبع الرقم 1 في العدد «غوغول» (googol)؟"
     },
     "answer": {
       "en": "100 zeros (10¹⁰⁰). A nine-year-old boy suggested the name in 1920.",
@@ -525,11 +525,11 @@
     "mode": "quiz",
     "question": {
       "en": "A fair coin lands heads five times in a row. What is the chance that the next flip is heads?",
-      "ar": "عملة عادلة طلعت صورة خمس مرات ورا بعض. كم احتمال تطلع صورة بالرمية الجاية؟"
+      "ar": "رُميت عملة عادلة فظهرت الصورة خمس مرات متتالية. ما احتمال ظهور الصورة في الرمية التالية؟"
     },
     "answer": {
       "en": "1/2. The coin has no memory: every flip is still 50–50.",
-      "ar": "1/2. العملة ما عندها ذاكرة: كل رمية احتمالها 50% مثل قبل."
+      "ar": "1/2. العملة لا ذاكرة لها: احتمال كل رمية 50% كما كان من قبل."
     },
     "subcategory": {
       "en": "Probability, Combinatorics & Statistics",
@@ -595,11 +595,11 @@
     "mode": "quiz",
     "question": {
       "en": "In a queue, Sara is 8th from the front and 8th from the back. How many people are in the queue?",
-      "ar": "بطابور، سارة الثامنة من قدّام والثامنة من ورا. كم واحد بالطابور؟"
+      "ar": "في طابور، سارة هي الثامنة من الأمام والثامنة من الخلف. كم شخصًا في الطابور؟"
     },
     "answer": {
       "en": "15. Seven people stand ahead of her and seven behind: 7 + 1 + 7.",
-      "ar": "15. قدّامها 7 ووراها 7: 7 + 1 + 7."
+      "ar": "15. أمامها 7 وخلفها 7: 7 + 1 + 7."
     },
     "subcategory": {
       "en": "Patterns, Sequences & Word Problems",
@@ -1025,7 +1025,7 @@
     "mode": "quiz",
     "question": {
       "en": "Using exactly four 4s and any basic operations, how can you make 7?",
-      "ar": "باستخدام الرقم 4 أربع مرات بالضبط وأي عمليات حسابية، كيف توصل لـ7؟"
+      "ar": "باستخدام الرقم 4 أربع مرات بالضبط وأيّ عمليات حسابية أساسية، كيف تحصل على 7؟"
     },
     "answer": {
       "en": "44 ÷ 4 − 4 = 7 (another way: 4 + 4 − 4 ÷ 4 = 7).",
@@ -1668,7 +1668,7 @@
     },
     "question": {
       "en": "How many times can you subtract 10 from 100?",
-      "ar": "كم مرة تقدر تطرح 10 من 100؟"
+      "ar": "كم مرة يمكنك أن تطرح 10 من 100؟"
     },
     "answer": {
       "en": "Once. After that, you're subtracting from 90, not 100.",
@@ -1687,7 +1687,7 @@
     },
     "question": {
       "en": "Is zero even, odd, or neither?",
-      "ar": "الصفر زوجي ولا فردي، ولا لا هذا ولا هذا؟"
+      "ar": "هل الصفر عدد زوجي أم فردي، أم ليس هذا ولا ذاك؟"
     },
     "answer": {
       "en": "Even. It divides by 2 with no remainder, and it sits between the odd numbers −1 and 1.",
@@ -1725,7 +1725,7 @@
     },
     "question": {
       "en": "Fold a sheet of paper in half, then in half again, and once more. How many layers thick is it now?",
-      "ar": "طويت ورقة نصّين، وبعدين نصّين مرة ثانية، ومرة ثالثة. كم طبقة صار سمكها؟"
+      "ar": "طويت ورقة إلى نصفين، ثم إلى نصفين مرة ثانية، ثم مرة ثالثة. كم طبقة أصبح سُمكها؟"
     },
     "answer": {
       "en": "8 layers. Each fold doubles the thickness: 2 × 2 × 2.",
@@ -1772,7 +1772,7 @@
     },
     "question": {
       "en": "Give a strip of paper a half-twist and tape its ends together. How many sides does the loop have?",
-      "ar": "خذ شريط ورق، لفّه نص لفّة، وألزق طرفيه ببعض. كم وجه صار للحلقة؟"
+      "ar": "خذ شريطًا من الورق، ولُفّه نصف لفّة، ثم ألصق طرفيه معًا. كم وجهًا أصبح للحلقة؟"
     },
     "answer": {
       "en": "One. It's a Möbius strip: draw a line along it and you'll cover 'both' sides without lifting your pen.",
@@ -2014,7 +2014,7 @@
     },
     "question": {
       "en": "What is 111,111,111 × 111,111,111?",
-      "ar": "كم ناتج 111,111,111 × 111,111,111؟"
+      "ar": "ما ناتج 111,111,111 × 111,111,111؟"
     },
     "answer": {
       "en": "12,345,678,987,654,321",
@@ -2055,7 +2055,7 @@
     },
     "question": {
       "en": "A billionaire walks into a small café. Which average of the customers' wealth jumps the most: the mean or the median?",
-      "ar": "ملياردير دخل مقهى صغير. أي متوسط لثروة الزباين بيقفز أكثر: المتوسط الحسابي ولا الوسيط؟"
+      "ar": "دخل ملياردير مقهى صغيرًا. أيّ مقياس لمتوسط ثروة الزبائن يقفز أكثر: المتوسط الحسابي أم الوسيط؟"
     },
     "answer": {
       "en": "The mean. One huge value drags it up, while the median barely moves.",
@@ -2153,7 +2153,7 @@
     },
     "question": {
       "en": "What does 0.999… (with the 9s repeating forever) equal exactly?",
-      "ar": "كم يساوي بالضبط 0.999… (والتسعات تتكرر للأبد)؟"
+      "ar": "كم يساوي العدد 0.999… بالضبط (والتسعات تتكرر إلى ما لا نهاية)؟"
     },
     "answer": {
       "en": "Exactly 1. Since 0.333… = 1/3, multiplying both sides by 3 gives 0.999… = 1.",
@@ -2245,7 +2245,7 @@
     },
     "question": {
       "en": "Counting squares of every size, how many squares are there on a standard 8 × 8 chessboard?",
-      "ar": "إذا حسبت المربعات بكل الأحجام، كم مربع موجود على رقعة شطرنج عادية 8 × 8؟"
+      "ar": "إذا عددت المربعات بجميع أحجامها، فكم مربعًا توجد على رقعة شطرنج عادية 8 × 8؟"
     },
     "answer": {
       "en": "204: 64 + 49 + 36 + 25 + 16 + 9 + 4 + 1.",
@@ -2294,7 +2294,7 @@
     },
     "question": {
       "en": "A classic black-and-white football is stitched from 12 black pentagons and how many white hexagons?",
-      "ar": "كرة القدم الكلاسيكية الأبيض والأسود مخيّطة من 12 خماسي أسود وكم سداسي أبيض؟"
+      "ar": "تُخاط كرة القدم الكلاسيكية ذات اللونين الأبيض والأسود من 12 قطعة خماسية سوداء، وكم قطعة سداسية بيضاء؟"
     },
     "answer": {
       "en": "20 hexagons, making 32 panels in all.",
@@ -2438,7 +2438,7 @@
     },
     "question": {
       "en": "A hotel with infinitely many rooms is completely full. A new guest arrives. How can the manager give him a room without sending anyone away?",
-      "ar": "فندق فيه غرف لا نهائية، وكلها مليانة. وصل ضيف جديد. كيف المدير يعطيه غرفة من غير ما يطلّع أحد؟"
+      "ar": "فندق فيه عدد لا نهائي من الغرف، وكلها مشغولة. وصل ضيف جديد. كيف يمنحه المدير غرفة دون أن يُخرج أحدًا؟"
     },
     "answer": {
       "en": "Move every guest from room n to room n + 1. Room 1 becomes free (Hilbert's hotel).",
@@ -2457,7 +2457,7 @@
     },
     "question": {
       "en": "Which famous puzzle about crossing seven bridges, each exactly once, did Euler prove impossible in 1736, founding graph theory?",
-      "ar": "أي لغز مشهور عن عبور سبعة جسور، كل جسر مرة وحدة بالضبط، أثبت أويلر سنة 1736 إنه مستحيل، ومنه بدأت نظرية المخططات؟"
+      "ar": "أيّ لغز مشهور عن عبور سبعة جسور، كلّ جسر مرة واحدة بالضبط، أثبت أويلر عام 1736 أنه مستحيل، فكان بداية نظرية المخططات؟"
     },
     "answer": {
       "en": "The Seven Bridges of Königsberg.",
@@ -2612,7 +2612,7 @@
     "difficulty": "hard",
     "question": {
       "en": "If a hen and a half lays an egg and a half in a day and a half, how many eggs does one hen lay in one day?",
-      "ar": "إذا دجاجة ونص تبيض بيضة ونص في يوم ونص، كم بيضة تبيض الدجاجة الوحدة في يوم واحد؟"
+      "ar": "إذا كانت دجاجة ونصف تبيض بيضة ونصفًا في يوم ونصف، فكم بيضة تبيض الدجاجة الواحدة في يوم واحد؟"
     },
     "answer": {
       "en": "2/3 of an egg. One and a half hens lay 1.5 eggs in 1.5 days, so one hen lays 1 egg in 1.5 days.",
@@ -2694,7 +2694,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Draw a five-pointed star without lifting your pen. What do the angles at its five points add up to?",
-      "ar": "رسمت نجمة خماسية من غير ما ترفع القلم. كم مجموع زوايا رؤوسها الخمسة؟"
+      "ar": "رسمت نجمة خماسية دون أن ترفع القلم. كم مجموع زوايا رؤوسها الخمسة؟"
     },
     "answer": {
       "en": "180°. In a regular star each point is 36°, and the total is 180° for any star drawn this way.",
@@ -2750,7 +2750,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Legend says Queen Dido founded Carthage on as much land as an ox-hide could enclose, so she cut the hide into one long strip. On open ground, which shape encloses the most area with a strip of fixed length?",
-      "ar": "تقول الأسطورة إن الملكة ديدو أسّست قرطاج على أرض بقدر ما يحيط فيها جلد ثور، فقصّت الجلد لشريط طويل واحد. على أرض مفتوحة، أي شكل يحيط بأكبر مساحة بشريط طوله ثابت؟"
+      "ar": "تقول الأسطورة إن الملكة ديدو أسّست قرطاج على أرض بقدر ما يحيط بها جلد ثور، فقصّت الجلد شريطًا طويلًا واحدًا. على أرض مفتوحة، أيّ شكل يحيط بأكبر مساحة بشريط طوله ثابت؟"
     },
     "answer": {
       "en": "A circle. Of all closed curves with the same length, the circle encloses the most area.",
@@ -2779,7 +2779,7 @@
     "difficulty": "hard",
     "question": {
       "en": "On average, how many times do you need to roll a fair die to get your first six?",
-      "ar": "بالمتوسط، كم مرة لازم ترمي حجر نرد عادل لين يطلع لك أول 6؟"
+      "ar": "في المتوسط، كم مرة يجب أن ترمي حجر نرد عادلًا حتى يظهر لك أول 6؟"
     },
     "answer": {
       "en": "6 rolls. When something has a 1-in-6 chance on each try, you expect to wait 6 tries.",
@@ -2891,7 +2891,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Which famous unproven conjecture says that every even number greater than 2 is the sum of two primes?",
-      "ar": "أي حدسية مشهورة لسّا ما انبرهنت تقول إن كل عدد زوجي أكبر من 2 هو مجموع عددين أوليين؟"
+      "ar": "أيّ حدسية مشهورة لم تُبرهَن بعدُ تقول إن كل عدد زوجي أكبر من 2 هو مجموع عددين أوليين؟"
     },
     "answer": {
       "en": "Goldbach's conjecture (1742).",
@@ -2979,7 +2979,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Which mathematician proved that there are more real numbers than whole numbers, showing that some infinities are bigger than others?",
-      "ar": "أي عالم رياضيات أثبت إن الأعداد الحقيقية أكثر من الأعداد الصحيحة، يعني في لانهايات أكبر من لانهايات ثانية؟"
+      "ar": "أيّ عالم رياضيات أثبت أن الأعداد الحقيقية أكثر من الأعداد الصحيحة، أي أن هناك لانهايات أكبر من لانهايات أخرى؟"
     },
     "answer": {
       "en": "Georg Cantor.",
@@ -3008,7 +3008,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "In many real-life lists of numbers, such as town populations or house prices, which first digit turns up most often?",
-      "ar": "بكثير من قوائم الأرقام الحقيقية، مثل عدد سكان المدن أو أسعار البيوت، أي رقم يطلع بأول خانة أكثر شي؟"
+      "ar": "في كثير من قوائم الأرقام الحقيقية، مثل عدد سكان المدن أو أسعار البيوت، أيّ رقم يظهر في الخانة الأولى أكثر من غيره؟"
     },
     "answer": {
       "en": "1, which leads about 30% of the time (Benford's law).",
@@ -3062,7 +3062,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "In 2014, which Iranian mathematician became the first woman to win the Fields Medal?",
-      "ar": "سنة 2014، أي عالمة رياضيات إيرانية صارت أول امرأة تفوز بميدالية فيلدز؟"
+      "ar": "عام 2014، أيّ عالمة رياضيات إيرانية أصبحت أول امرأة تفوز بميدالية فيلدز؟"
     },
     "answer": {
       "en": "Maryam Mirzakhani.",
@@ -3091,7 +3091,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "In 1424, which astronomer working in Samarkand calculated π correctly to 16 decimal places, a record that stood for about 180 years?",
-      "ar": "سنة 1424، أي فلكي كان يشتغل بسمرقند حسب قيمة π صح لـ16 خانة عشرية، ورقمه القياسي صمد حوالي 180 سنة؟"
+      "ar": "عام 1424، أيّ فلكي كان يعمل في سمرقند حسب قيمة π بدقة حتى 16 خانة عشرية، وصمد رقمه القياسي نحو 180 عامًا؟"
     },
     "answer": {
       "en": "Jamshid al-Kashi.",

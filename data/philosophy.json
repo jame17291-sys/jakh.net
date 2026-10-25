@@ -167,7 +167,7 @@
     },
     "question": {
       "en": "Which branch of philosophy asks 'What is knowledge, and how do we know anything at all?'",
-      "ar": "أي فرع من الفلسفة يسأل: «شو هي المعرفة، وكيف نعرف أي شي أصلًا؟»"
+      "ar": "أيّ فرع من الفلسفة يسأل: «ما المعرفة، وكيف نعرف أيّ شيء أصلًا؟»"
     },
     "answer": {
       "en": "Epistemology (the theory of knowledge).",
@@ -195,7 +195,7 @@
     },
     "question": {
       "en": "Which old puzzle in philosophy asks how our thoughts and feelings relate to the physical brain and body?",
-      "ar": "أي مشكلة قديمة بالفلسفة تسأل عن علاقة أفكارنا ومشاعرنا بالدماغ والجسم؟"
+      "ar": "أيّ مشكلة قديمة في الفلسفة تسأل عن علاقة أفكارنا ومشاعرنا بالدماغ والجسم؟"
     },
     "answer": {
       "en": "The mind–body problem.",
@@ -347,7 +347,7 @@
     },
     "question": {
       "en": "Which philosopher's three-page paper of 1963 challenged the idea that knowledge is simply 'justified true belief'?",
-      "ar": "أي فيلسوف نشر سنة 1963 ورقة من ثلاث صفحات شكّكت إن المعرفة مجرد «اعتقاد صادق مبرَّر»؟"
+      "ar": "أيّ فيلسوف نشر عام 1963 ورقة من ثلاث صفحات شكّكت في أن المعرفة مجرد «اعتقاد صادق مبرَّر»؟"
     },
     "answer": {
       "en": "Edmund Gettier.",
@@ -374,7 +374,7 @@
     },
     "question": {
       "en": "Which philosopher asked us to design a fair society from behind a 'veil of ignorance', not knowing whether we would be rich or poor in it?",
-      "ar": "أي فيلسوف طلب منّا نصمّم مجتمع عادل من ورا «حجاب الجهل»، يعني من غير ما نعرف إذا بنكون فيه أغنياء ولا فقراء؟"
+      "ar": "أيّ فيلسوف دعانا إلى تصميم مجتمع عادل من وراء «حجاب الجهل»، أي دون أن نعرف هل سنكون فيه أغنياء أم فقراء؟"
     },
     "answer": {
       "en": "John Rawls.",
@@ -426,7 +426,7 @@
     },
     "answer": {
       "en": "False: it must be falsifiable.",
-      "ar": "خاطئة؛ لازم تكون قابلة للتكذيب."
+      "ar": "خاطئة؛ يجب أن تكون قابلة للتكذيب."
     },
     "review": {
       "status": "pending"
@@ -451,7 +451,7 @@
     },
     "question": {
       "en": "'The sun has always risen, so it will rise tomorrow.' Which philosopher argued that logic alone can't justify this kind of reasoning?",
-      "ar": "«الشمس دايمًا تشرق، إذن بتشرق بكرة». أي فيلسوف قال إن المنطق لحاله ما يقدر يبرّر هالنوع من الاستدلال؟"
+      "ar": "«أشرقت الشمس دائمًا، إذن ستشرق غدًا». أيّ فيلسوف قال إن المنطق وحده لا يستطيع تبرير هذا النوع من الاستدلال؟"
     },
     "answer": {
       "en": "David Hume (the problem of induction).",
@@ -576,7 +576,7 @@
     },
     "question": {
       "en": "Which thinker's 1962 book 'The Structure of Scientific Revolutions' made the phrase 'paradigm shift' famous?",
-      "ar": "أي مفكّر خلّى عبارة «تحوّل النموذج» مشهورة بكتابه «بنية الثورات العلمية» سنة 1962؟"
+      "ar": "أيّ مفكّر جعل عبارة «تحوّل النموذج» مشهورة في كتابه «بنية الثورات العلمية» عام 1962؟"
     },
     "answer": {
       "en": "Thomas Kuhn.",
@@ -614,7 +614,7 @@
     },
     "question": {
       "en": "In 1931, which logician proved that any consistent system of rules strong enough for basic arithmetic contains true statements it can never prove?",
-      "ar": "سنة 1931، أي عالم منطق أثبت إن أي نظام قواعد متّسق وقوي كفاية للحساب الأساسي فيه عبارات صحيحة ما يقدر يبرهنها أبدًا؟"
+      "ar": "عام 1931، أيّ عالم منطق أثبت أن كل نظام قواعد متّسق وقوي بما يكفي للحساب الأساسي يحتوي على عبارات صحيحة لا يمكن برهانها داخله أبدًا؟"
     },
     "answer": {
       "en": "Kurt Gödel (his incompleteness theorem).",
@@ -802,7 +802,7 @@
     },
     "question": {
       "en": "Which philosopher was known as 'the Second Teacher', second only to Aristotle?",
-      "ar": "أي فيلسوف لقّبوه «المعلم الثاني» بعد أرسطو؟"
+      "ar": "أيّ فيلسوف عُرف بلقب «المعلم الثاني» بعد أرسطو؟"
     },
     "answer": {
       "en": "Al-Farabi.",
@@ -821,7 +821,7 @@
     },
     "question": {
       "en": "In Ibn Tufayl's philosophical novel 'Hayy ibn Yaqdhan', the hero grows up alone on an island. Which animal raises him?",
-      "ar": "في رواية ابن طفيل الفلسفية «حي بن يقظان»، البطل يكبر لحاله بجزيرة. أي حيوان ربّاه؟"
+      "ar": "في رواية ابن طفيل الفلسفية «حي بن يقظان»، يكبر البطل وحيدًا على جزيرة. أيّ حيوان ربّاه؟"
     },
     "answer": {
       "en": "A gazelle.",
@@ -850,7 +850,7 @@
     },
     "question": {
       "en": "Which ancient paradox claims that swift Achilles can never overtake a tortoise that starts ahead of him?",
-      "ar": "أي مفارقة قديمة تقول إن أخيل السريع عمره ما يسبق سلحفاة بدأت قدّامه؟"
+      "ar": "أيّ مفارقة قديمة تقول إن أخيل السريع لا يمكنه أبدًا أن يسبق سلحفاة بدأت أمامه؟"
     },
     "answer": {
       "en": "Zeno's paradox (Achilles and the tortoise).",
@@ -879,7 +879,7 @@
     },
     "question": {
       "en": "Which thinker distinguished 'negative liberty', freedom from interference, from 'positive liberty', being your own master?",
-      "ar": "أي مفكّر فرّق بين «الحرية السلبية» يعني ما أحد يتدخل فيك، و«الحرية الإيجابية» يعني تكون سيّد نفسك؟"
+      "ar": "أيّ مفكّر ميّز بين «الحرية السلبية»، أي ألا يتدخل فيك أحد، و«الحرية الإيجابية»، أي أن تكون سيّد نفسك؟"
     },
     "answer": {
       "en": "Isaiah Berlin.",
@@ -927,7 +927,7 @@
     },
     "question": {
       "en": "Which philosopher called proper names 'rigid designators' that pick out the same thing in every possible world?",
-      "ar": "أي فيلسوف سمّى أسماء العلم «مُعيِّنات صارمة» تشير لنفس الشي بكل العوالم الممكنة؟"
+      "ar": "أيّ فيلسوف سمّى أسماء العلم «مُعيِّنات صارمة» تشير إلى الشيء نفسه في كل العوالم الممكنة؟"
     },
     "answer": {
       "en": "Saul Kripke.",
@@ -956,7 +956,7 @@
     },
     "question": {
       "en": "Which thought experiment imagines a donkey standing exactly between two identical piles of hay, unable to choose, and starving?",
-      "ar": "أي تجربة فكرية تتخيل حمار واقف بالضبط بين كومتين تبن متطابقتين، ما قدر يختار، ومات من الجوع؟"
+      "ar": "أيّ تجربة فكرية تتخيل حمارًا يقف تمامًا بين كومتين متطابقتين من التبن، فيعجز عن الاختيار ويموت جوعًا؟"
     },
     "answer": {
       "en": "Buridan's ass (Buridan's donkey).",
@@ -984,7 +984,7 @@
     },
     "question": {
       "en": "Which 9th-century Baghdad thinker is known as 'the Philosopher of the Arabs'?",
-      "ar": "أي مفكّر من بغداد بالقرن التاسع ينعرف بلقب «فيلسوف العرب»؟"
+      "ar": "أيّ مفكّر من بغداد في القرن التاسع يُعرف بلقب «فيلسوف العرب»؟"
     },
     "answer": {
       "en": "Al-Kindi.",

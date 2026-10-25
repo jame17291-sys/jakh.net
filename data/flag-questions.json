@@ -388,7 +388,7 @@
     },
     "question": {
       "en": "Denmark's flag, the Dannebrog, holds which record among national flags?",
-      "ar": "علم الدنمارك «دانيبروغ» عنده أي رقم قياسي بين أعلام الدول؟"
+      "ar": "أيّ رقم قياسي يحمله علم الدنمارك «دانيبروغ» بين أعلام الدول؟"
     },
     "answer": {
       "en": "The oldest national flag still in continuous use",
@@ -578,7 +578,7 @@
     },
     "question": {
       "en": "Which country's green flag shows the Shahada in white Arabic script above a sword?",
-      "ar": "أي دولة علمها أخضر، مكتوب عليه الشهادة بالأبيض وتحتها سيف؟"
+      "ar": "أيّ دولة علمها أخضر، كُتبت عليه الشهادة باللون الأبيض وتحتها سيف؟"
     },
     "answer": {
       "en": "Saudi Arabia",
@@ -597,7 +597,7 @@
     },
     "question": {
       "en": "Which Gulf country's flag has green, white and red horizontal stripes with a black trapezoid at the hoist?",
-      "ar": "أي دولة خليجية علمها فيه خطوط أفقية خضرا وبيضا وحمرا، وشكل شبه منحرف أسود جهة السارية؟"
+      "ar": "أيّ دولة خليجية يتكوّن علمها من خطوط أفقية خضراء وبيضاء وحمراء، مع شكل شبه منحرف أسود جهة السارية؟"
     },
     "answer": {
       "en": "Kuwait",
@@ -616,7 +616,7 @@
     },
     "question": {
       "en": "Which country's flag bears a khanjar dagger together with two crossed swords?",
-      "ar": "أي دولة علمها فيه خنجر مع سيفين متقاطعين؟"
+      "ar": "أيّ دولة يحمل علمها خنجرًا مع سيفين متقاطعين؟"
     },
     "answer": {
       "en": "Oman",
@@ -635,7 +635,7 @@
     },
     "question": {
       "en": "Which Gulf country's maroon flag has a white band with a nine-point serrated edge?",
-      "ar": "أي دولة خليجية علمها عنابي، وفيه شريط أبيض حافته مسنّنة بتسع رؤوس؟"
+      "ar": "أيّ دولة خليجية علمها عنابي، وفيه شريط أبيض حافته مسنّنة بتسعة رؤوس؟"
     },
     "answer": {
       "en": "Qatar",
@@ -711,7 +711,7 @@
     },
     "question": {
       "en": "Which Arab country's flag is a plain red, white and black horizontal tricolour with no emblem at all?",
-      "ar": "أي دولة عربية علمها ثلاث خطوط أفقية: أحمر وأبيض وأسود، بدون أي شعار؟"
+      "ar": "أيّ دولة عربية يتكوّن علمها من ثلاثة خطوط أفقية: أحمر وأبيض وأسود، دون أي شعار؟"
     },
     "answer": {
       "en": "Yemen",
@@ -734,7 +734,7 @@
     },
     "answer": {
       "en": "Two red stripes, at the top and bottom",
-      "ar": "خطين أحمرين، واحد فوق وواحد تحت"
+      "ar": "خطّين أحمرين، أحدهما في الأعلى والآخر في الأسفل"
     },
     "review": {
       "status": "pending"

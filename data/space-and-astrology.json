@@ -748,8 +748,8 @@
       "ar": "النظام الشمسي والكواكب"
     },
     "question": {
-      "en": "On which planet is a day longer than its year?",
-      "ar": "على أي كوكب اليوم أطول من السنة؟"
+      "en": "Which planet takes longer to spin once on its axis than to orbit the Sun once?",
+      "ar": "أيّ كوكب يستغرق دورانه حول نفسه مرة واحدة وقتًا أطول من دورانه حول الشمس؟"
     },
     "answer": {
       "en": "Venus: one spin takes about 243 Earth days, one orbit about 225.",
@@ -1015,7 +1015,7 @@
     },
     "question": {
       "en": "Which astronomer, observing mainly at Raqqa around 900 CE, measured the solar year as 365 days, 5 hours and 46 minutes?",
-      "ar": "أي فلكي كان يرصد غالباً من الرقّة حوالي سنة 900م، وقاس السنة الشمسية بـ365 يوم و5 ساعات و46 دقيقة؟"
+      "ar": "أيّ فلكي كان يرصد غالبًا من الرقّة نحو عام 900م، وقاس السنة الشمسية بـ365 يومًا و5 ساعات و46 دقيقة؟"
     },
     "answer": {
       "en": "Al-Battani (Albategnius).",
@@ -1034,7 +1034,7 @@
     },
     "question": {
       "en": "Bright stars such as Aldebaran, Altair and Betelgeuse take their names from which language?",
-      "ar": "نجوم لامعة مثل Aldebaran وAltair وBetelgeuse، أسماؤها جاية من أي لغة؟"
+      "ar": "نجوم لامعة مثل Aldebaran وAltair وBetelgeuse: من أيّ لغة جاءت أسماؤها؟"
     },
     "answer": {
       "en": "Arabic, e.g. Aldebaran from al-Dabaran, 'the follower'.",
@@ -1338,7 +1338,7 @@
     },
     "question": {
       "en": "How many hexagonal segments make up the James Webb Space Telescope's main mirror?",
-      "ar": "مرآة تلسكوب جيمس ويب الرئيسية مكوّنة من كم قطعة سداسية؟"
+      "ar": "من كم قطعة سداسية تتكوّن مرآة تلسكوب جيمس ويب الرئيسية؟"
     },
     "answer": {
       "en": "18 gold-coated segments, about 6.5 m across in total.",

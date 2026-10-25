@@ -668,7 +668,7 @@
     },
     "question": {
       "en": "In 1996, a European rocket destroyed itself about 40 seconds after launch because its software squeezed a 64-bit number into a 16-bit integer. Which rocket?",
-      "ar": "سنة 1996، صاروخ أوروبي دمّر نفسه بعد حوالي 40 ثانية من الإطلاق، لأن برنامجه حشر رقم 64 بت في عدد صحيح 16 بت. أي صاروخ؟"
+      "ar": "عام 1996، دمّر صاروخ أوروبي نفسه بعد نحو 40 ثانية من الإطلاق، لأن برنامجه حشر عددًا من 64 بت في عدد صحيح من 16 بت. ما هذا الصاروخ؟"
     },
     "answer": {
       "en": "Ariane 5 (Flight 501).",
@@ -801,7 +801,7 @@
     },
     "question": {
       "en": "In 1947, engineers found a real moth stuck inside the Harvard Mark II computer and taped it into their logbook. Which word for a program error does it famously illustrate?",
-      "ar": "سنة 1947، مهندسين لقوا عثّة حقيقية عالقة جوّا كمبيوتر «هارفارد مارك 2» ولصقوها في دفتر السجل. أي كلمة تعني غلط البرنامج اشتهرت بسببها؟"
+      "ar": "عام 1947، عثر مهندسون على عثّة حقيقية عالقة داخل حاسوب «هارفارد مارك 2» فألصقوها في دفتر السجل. أيّ كلمة تعني خطأ البرنامج اشتهرت بسببها؟"
     },
     "answer": {
       "en": "Bug.",
@@ -820,7 +820,7 @@
     },
     "question": {
       "en": "How many bits make up one byte?",
-      "ar": "كم بِت في البايت الواحد؟"
+      "ar": "كم بِتًا في البايت الواحد؟"
     },
     "answer": {
       "en": "8 bits.",
@@ -1124,7 +1124,7 @@
     },
     "question": {
       "en": "Solving which famous computer-science question would earn a US$1 million Millennium Prize from the Clay Mathematics Institute?",
-      "ar": "حلّ أي سؤال مشهور في علوم الكمبيوتر يجيب لصاحبه جائزة الألفية من معهد كلاي، وقيمتها مليون دولار؟"
+      "ar": "حلّ أيّ سؤال مشهور في علوم الحاسوب يمنح صاحبه جائزة الألفية من معهد كلاي، وقيمتها مليون دولار؟"
     },
     "answer": {
       "en": "P vs NP: can every problem that's quick to check also be solved quickly?",
@@ -1294,8 +1294,8 @@
       "ar": "علوم الحاسب"
     },
     "question": {
-      "en": "Many older systems count time as seconds since 1 January 1970 in a 32-bit number. In which year does that counter overflow?",
-      "ar": "أنظمة قديمة كثير تحسب الوقت بعدد الثواني من 1 يناير 1970 في رقم 32 بت. بأي سنة يفيض هالعدّاد؟"
+      "en": "Many older systems count time as seconds since 1 January 1970 in a signed 32-bit number. In which year does that counter overflow?",
+      "ar": "تحسب أنظمة قديمة كثيرة الوقت بعدد الثواني منذ 1 يناير 1970، وتخزّنه في عدد صحيح ذي إشارة (signed) من 32 بت. في أيّ سنة يفيض هذا العدّاد؟"
     },
     "answer": {
       "en": "2038 (on 19 January).",

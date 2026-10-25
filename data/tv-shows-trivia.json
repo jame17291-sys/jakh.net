@@ -664,7 +664,7 @@
     },
     "question": {
       "en": "Which two chemical elements appear as tiles in the Breaking Bad title?",
-      "ar": "أي عنصرين كيميائيين يطلعون كمربعات بعنوان «بريكنغ باد»؟"
+      "ar": "ما العنصران الكيميائيان اللذان يظهران في مربعين ضمن عنوان «بريكنغ باد»؟"
     },
     "answer": {
       "en": "Bromine (Br) and barium (Ba)",
@@ -693,7 +693,7 @@
         "en": "The title highlights bromine (Br) and barium (Ba) as periodic-table tiles, a nod to Walter's chemistry.",
         "ar": "يبرز العنوان عنصري البروم (Br) والباريوم (Ba) في مربعين على طريقة الجدول الدوري، في إشارة إلى كيمياء والتر."
       },
-      "contentKey": "db231448"
+      "contentKey": "d0e77cf4"
     }
   },
   {
@@ -3739,7 +3739,7 @@
     },
     "question": {
       "en": "In which year did Maraya air under the title 'Shoufou Al-Nas' ('Look at People')?",
-      "ar": "بأي سنة انعرض «مرايا» باسم «شوفوا الناس»؟"
+      "ar": "في أيّ سنة عُرض «مرايا» باسم «شوفوا الناس»؟"
     },
     "answer": {
       "en": "1991",
@@ -3768,7 +3768,7 @@
         "en": "In 1991 the series aired as 'Shoufou Al-Nas' before returning to the Maraya name.",
         "ar": "عُرض المسلسل سنة ١٩٩١ باسم «شوفوا الناس»، ثم عاد لاحقًا إلى اسم «مرايا»."
       },
-      "contentKey": "c02a2c1d"
+      "contentKey": "3fe0c979"
     }
   },
   {
@@ -5092,7 +5092,7 @@
     },
     "question": {
       "en": "Which famous Sufi scholar from al-Andalus appears in the show as a spiritual guide to Ertuğrul?",
-      "ar": "أي عالم صوفي مشهور من الأندلس يطلع بالمسلسل كمرشد روحي لأرطغرل؟"
+      "ar": "أيّ عالم صوفي مشهور من الأندلس يظهر في المسلسل مرشدًا روحيًا لأرطغرل؟"
     },
     "answer": {
       "en": "Muhyiddin Ibn Arabi",
@@ -5121,7 +5121,7 @@
         "en": "The drama uses Ibn Arabi as a spiritual guide in Ertuğrul's story.",
         "ar": "يستخدم المسلسل ابن عربي مرشدًا روحيًا في قصة أرطغرل."
       },
-      "contentKey": "8ff2b53b"
+      "contentKey": "9f687fa4"
     }
   },
   {
@@ -9356,7 +9356,7 @@
     },
     "question": {
       "en": "What disguise does Dragos use in season five?",
-      "ar": "أي تنكّر يستخدمه دراغوس بالموسم الخامس؟"
+      "ar": "أيّ تنكّر يستخدمه دراغوس في الموسم الخامس؟"
     },
     "review": {
       "status": "pending"
@@ -9385,7 +9385,7 @@
         "en": "The humble bell-ringer appearance conceals Dragos's plans.",
         "ar": "يخفي مظهر قارع الأجراس المتواضع خطط دراغوس."
       },
-      "contentKey": "dbf2379a"
+      "contentKey": "e44d117c"
     }
   },
   {
@@ -10463,7 +10463,7 @@
     },
     "question": {
       "en": "In the famous Maraya 98 sketch 'Thawr wa …' ('An Ox and …'), which modern machine tempts the farmer?",
-      "ar": "باللوحة المشهورة «ثور و…» من «مرايا 98»، أي آلة حديثة تغري المزارع؟"
+      "ar": "في اللوحة المشهورة «ثور و…» من «مرايا 98»، أيّ آلة حديثة تغري المزارع؟"
     },
     "review": {
       "status": "pending"
@@ -10492,7 +10492,7 @@
         "en": "The sketch “Thawr Wa Tractor” contrasts an animal-powered farm with mechanisation.",
         "ar": "تقارن لوحة «ثور وتراكتور» الزراعة بمساعدة الحيوان باستخدام الآلات."
       },
-      "contentKey": "309df806"
+      "contentKey": "719f08fc"
     }
   },
   {
@@ -11201,7 +11201,7 @@
     },
     "question": {
       "en": "In the drama, Hasan travels to the court of which caliphate?",
-      "ar": "بالدراما، حسن يروح لبلاط أي خلافة؟"
+      "ar": "في المسلسل، إلى بلاط أيّ خلافة يسافر حسن؟"
     },
     "review": {
       "status": "pending"
@@ -11230,7 +11230,7 @@
         "en": "The Egyptian storyline takes Hasan to the Fatimid court.",
         "ar": "تنقل قصة مصر حسن إلى البلاط الفاطمي."
       },
-      "contentKey": "8125db2f"
+      "contentKey": "c3ada03f"
     }
   },
   {
@@ -11611,7 +11611,7 @@
     },
     "question": {
       "en": "Which caliph does Hasan seek an audience with?",
-      "ar": "أي خليفة يحاول حسن يقابله؟"
+      "ar": "أيّ خليفة يسعى حسن إلى مقابلته؟"
     },
     "review": {
       "status": "pending"
@@ -11640,7 +11640,7 @@
         "en": "His visit centres on the court of Al-Mustansir Billah.",
         "ar": "تتمحور زيارته حول بلاط المستنصر بالله."
       },
-      "contentKey": "1a3d0fef"
+      "contentKey": "d96abfc2"
     }
   },
   {
@@ -12185,7 +12185,7 @@
     },
     "question": {
       "en": "Breaking Bad was first written to be set in which US state, before production moved to New Mexico?",
-      "ar": "قبل ما ينتقل التصوير لنيو مكسيكو، بأي ولاية أمريكية كانت قصة «بريكنغ باد» مكتوبة بالأصل؟"
+      "ar": "قبل أن ينتقل التصوير إلى نيو مكسيكو، في أيّ ولاية أمريكية كانت تدور قصة «بريكنغ باد» في نصّها الأصلي؟"
     },
     "review": {
       "status": "pending"
@@ -12214,7 +12214,7 @@
         "en": "The story was first set in Riverside, California; New Mexico's film tax incentives moved it to Albuquerque.",
         "ar": "كانت القصة في الأصل تدور في ريفرسايد بكاليفورنيا، ثم نقلتها حوافز التصوير الضريبية في نيو مكسيكو إلى ألباكركي."
       },
-      "contentKey": "689354bb"
+      "contentKey": "30c60918"
     }
   },
   {
@@ -12226,7 +12226,7 @@
     },
     "question": {
       "en": "How many Emmy Awards for best lead actor in a drama did Bryan Cranston win for Breaking Bad?",
-      "ar": "كم جائزة إيمي لأفضل ممثل رئيسي بمسلسل درامي فاز فيها برايان كرانستون عن «بريكنغ باد»؟"
+      "ar": "كم جائزة إيمي لأفضل ممثل رئيسي في مسلسل درامي فاز بها برايان كرانستون عن «بريكنغ باد»؟"
     },
     "review": {
       "status": "pending"
@@ -12255,7 +12255,7 @@
         "en": "Cranston won the award in 2008, 2009, 2010 and 2014.",
         "ar": "فاز كرانستون بالجائزة في 2008 و2009 و2010 و2014."
       },
-      "contentKey": "3449b659"
+      "contentKey": "d029afb3"
     }
   },
   {
@@ -12390,7 +12390,7 @@
     },
     "question": {
       "en": "Which Hollywood star, then married to Jennifer Aniston, guest-starred in the Friends Thanksgiving episode of 2001?",
-      "ar": "أي نجم هوليوودي، كان وقتها زوج جينيفر أنيستون، ظهر ضيف بحلقة عيد الشكر من «فريندز» سنة 2001؟"
+      "ar": "أيّ نجم هوليوودي، كان زوج جينيفر أنيستون آنذاك، ظهر ضيفًا في حلقة عيد الشكر من «فريندز» عام 2001؟"
     },
     "review": {
       "status": "pending"
@@ -12419,7 +12419,7 @@
         "en": "Brad Pitt guest-starred in the season-eight Thanksgiving episode, 'The One with the Rumor', while he was married to Jennifer Aniston.",
         "ar": "ظهر براد بيت ضيفًا في حلقة عيد الشكر من الموسم الثامن، حين كان متزوجًا من جينيفر أنيستون."
       },
-      "contentKey": "e4278b70"
+      "contentKey": "64f13037"
     }
   },
   {
@@ -12431,7 +12431,7 @@
     },
     "question": {
       "en": "Courteney Cox was first approached for which role before she asked to play Monica?",
-      "ar": "كورتني كوكس انعرض عليها بالبداية أي دور، قبل ما تطلب تلعب دور مونيكا؟"
+      "ar": "عُرض على كورتني كوكس في البداية دورٌ آخر قبل أن تطلب أداء دور مونيكا. ما ذلك الدور؟"
     },
     "review": {
       "status": "pending"
@@ -12460,7 +12460,7 @@
         "en": "The producers first saw Courteney Cox as Rachel, but she preferred Monica, and Jennifer Aniston became Rachel.",
         "ar": "رأى المنتجون في البداية أن كورتني كوكس تناسب دور رايتشل، لكنها فضّلت مونيكا، فذهب الدور إلى جينيفر أنيستون."
       },
-      "contentKey": "dbab0cf4"
+      "contentKey": "3bfc5244"
     }
   },
   {
@@ -12595,7 +12595,7 @@
     },
     "question": {
       "en": "In which US state was most of Stranger Things filmed?",
-      "ar": "بأي ولاية أمريكية انصوّر أغلب «أشياء غريبة»؟"
+      "ar": "في أيّ ولاية أمريكية صُوِّر معظم مسلسل «أشياء غريبة»؟"
     },
     "review": {
       "status": "pending"
@@ -12624,7 +12624,7 @@
         "en": "Most filming took place in and around Atlanta, Georgia, which stands in for the show's small-town Midwest.",
         "ar": "صُوّر معظم المسلسل في أتلانتا وما حولها بولاية جورجيا، بديلًا عن البلدة الصغيرة في الغرب الأوسط الأمريكي."
       },
-      "contentKey": "51b443b4"
+      "contentKey": "22b6a2c1"
     }
   },
   {
@@ -12718,7 +12718,7 @@
     },
     "question": {
       "en": "The Kayı are one of the tribes of which Turkic people?",
-      "ar": "قبيلة قايي وحدة من قبائل أي شعب تركي؟"
+      "ar": "قبيلة قايي إحدى قبائل أيّ شعب تركي؟"
     },
     "review": {
       "status": "pending"
@@ -12747,7 +12747,7 @@
         "en": "The Kayı were one of the Oghuz Turkic tribes, and Ottoman tradition traces the dynasty back to them.",
         "ar": "كانت قايي إحدى قبائل الأتراك الأوغوز، ويردّ التراث العثماني أصل السلالة إليها."
       },
-      "contentKey": "ceaf17a8"
+      "contentKey": "2b75bdbb"
     }
   },
   {
@@ -12759,7 +12759,7 @@
     },
     "question": {
       "en": "In which Turkish town is the real Ertuğrul Gazi buried?",
-      "ar": "بأي بلدة تركية مدفون أرطغرل غازي الحقيقي؟"
+      "ar": "في أيّ بلدة تركية دُفن أرطغرل غازي الحقيقي؟"
     },
     "review": {
       "status": "pending"
@@ -12788,7 +12788,7 @@
         "en": "Ertuğrul Gazi's tomb is in Söğüt, in today's Bilecik Province, a town often called the cradle of the Ottoman state.",
         "ar": "يقع ضريح أرطغرل غازي في سوغوت بولاية بيلجيك اليوم، وتوصف البلدة بأنها مهد الدولة العثمانية."
       },
-      "contentKey": "c162ff40"
+      "contentKey": "a2ee4dda"
     }
   },
   {
@@ -12964,7 +12964,7 @@
     },
     "question": {
       "en": "In which month was Maraya traditionally shown each year?",
-      "ar": "بأي شهر كان «مرايا» ينعرض عادةً كل سنة؟"
+      "ar": "في أيّ شهر كان «مرايا» يُعرض عادةً كل سنة؟"
     },
     "review": {
       "status": "pending"
@@ -12993,7 +12993,7 @@
         "en": "Maraya was a fixture of the Ramadan TV season, the time of year when Arab drama draws its biggest audiences.",
         "ar": "كان «مرايا» من ثوابت الموسم الرمضاني، وهو الوقت الذي تجذب فيه الدراما العربية أكبر جمهور."
       },
-      "contentKey": "78593c38"
+      "contentKey": "615a7c15"
     }
   },
   {
@@ -13046,7 +13046,7 @@
     },
     "question": {
       "en": "In the 1960s, long before Maraya, Yasser Al-Azmeh presented a TV programme that corrected mistakes in what?",
-      "ar": "بالستينيات، قبل «مرايا» بزمن طويل، قدّم ياسر العظمة برنامج تلفزيوني يصحّح الأخطاء بشو؟"
+      "ar": "في الستينيات، وقبل «مرايا» بزمن طويل، قدّم ياسر العظمة برنامجًا تلفزيونيًا يصحّح الأخطاء في أيّ مجال؟"
     },
     "review": {
       "status": "pending"
@@ -13075,7 +13075,7 @@
         "en": "His 1960s programme 'Abjad Hawwaz' corrected common Arabic-language mistakes.",
         "ar": "صحّح برنامجه «أبجد هوّز» في الستينيات الأخطاء الشائعة في اللغة العربية."
       },
-      "contentKey": "c2d76f55"
+      "contentKey": "fd4780d"
     }
   },
   {
@@ -13087,7 +13087,7 @@
     },
     "question": {
       "en": "Yasser Al-Azmeh won festival awards three times for his Maraya roles. In which Arab capital?",
-      "ar": "ياسر العظمة فاز بجوايز مهرجان ثلاث مرات عن أدواره بـ«مرايا». بأي عاصمة عربية؟"
+      "ar": "فاز ياسر العظمة بجوائز مهرجانات ثلاث مرات عن أدواره في «مرايا». في أيّ عاصمة عربية؟"
     },
     "review": {
       "status": "pending"
@@ -13116,7 +13116,7 @@
         "en": "He won three awards at festivals in Cairo for his Maraya performances.",
         "ar": "فاز بثلاث جوائز في مهرجانات بالقاهرة عن أدائه في «مرايا»."
       },
-      "contentKey": "73422f51"
+      "contentKey": "dfba564f"
     }
   },
   {
@@ -13456,7 +13456,7 @@
     },
     "question": {
       "en": "The big battles at Blackwater (season 2), Castle Black (season 4) and the Battle of the Bastards (season 6) all fall in which episode of their seasons?",
-      "ar": "معركة بلاك ووتر (الموسم 2)، ومعركة كاسل بلاك (الموسم 4)، و«معركة الأوغاد» (الموسم 6)، كلها بأي حلقة من مواسمها؟"
+      "ar": "معركة بلاك ووتر (الموسم 2)، ومعركة كاسل بلاك (الموسم 4)، و«معركة الأوغاد» (الموسم 6): في أيّ حلقة من مواسمها وقعت جميعها؟"
     },
     "review": {
       "status": "pending"
@@ -13467,7 +13467,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "ee587750",
+      "contentKey": "ba8e99e2",
       "spoilerSeason": 6,
       "distractors": {
         "en": [
@@ -13545,11 +13545,11 @@
     },
     "answer": {
       "en": "Oathkeeper and Widow's Wail",
-      "ar": "حافظة العهد وعويل الأرملة"
+      "ar": "حافظ العهد وعويل الأرملة"
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "ecebd72e",
+      "contentKey": "20d97a92",
       "spoilerSeason": 4,
       "distractors": {
         "en": [
@@ -13565,7 +13565,7 @@
       },
       "explanation": {
         "en": "In the season 4 opener, Tywin gives Oathkeeper to Jaime, who later passes it to Brienne, and Widow's Wail goes to Joffrey.",
-        "ar": "في افتتاح الموسم الرابع، يعطي تايوين «حافظة العهد» لجايمي الذي يمنحه لاحقًا لبريان، ويذهب «عويل الأرملة» إلى جوفري."
+        "ar": "في افتتاح الموسم الرابع، يعطي تايوين «حافظ العهد» لجايمي الذي يمنحه لاحقًا لبريان، ويذهب «عويل الأرملة» إلى جوفري."
       },
       "kind": "world"
     }
@@ -13590,8 +13590,8 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "38afeb37",
-      "spoilerSeason": 5,
+      "contentKey": "4241e1f8",
+      "spoilerSeason": 4,
       "distractors": {
         "en": [
           "Ser Whiskers",
@@ -13605,8 +13605,8 @@
         ]
       },
       "explanation": {
-        "en": "Ser Pounce, the kitten with a knight's title, is Tommen's pet in season 5.",
-        "ar": "سير باونس، القط الصغير الذي يحمل لقب فارس، هو الحيوان الأليف لتومن في الموسم الخامس."
+        "en": "Ser Pounce, the kitten with a knight's title, is Tommen's pet, first seen in season 4.",
+        "ar": "سير باونس، القط الصغير الذي يحمل لقب فارس، هو الحيوان الأليف لتومن، وظهر أول مرة في الموسم الرابع."
       },
       "kind": "character"
     }
@@ -13631,7 +13631,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "aa6ea4ec",
+      "contentKey": "f2b0246a",
       "spoilerSeason": 3,
       "distractors": {
         "en": [
@@ -13646,8 +13646,8 @@
         ]
       },
       "explanation": {
-        "en": "Hot Pie's lumpy wolf-shaped loaf, a nod to the Stark direwolf, is one of the show's sweetest small moments (season 3, episode 2).",
-        "ar": "رغيف هوت باي على شكل ذئب، في إشارة إلى ذئب آل ستارك، من ألطف اللحظات الصغيرة في المسلسل (الموسم الثالث، الحلقة الثانية)."
+        "en": "Hot Pie's lumpy wolf-shaped loaf, a nod to the Stark direwolf, is one of the show's sweetest small moments (season 3, episode 3).",
+        "ar": "رغيف هوت باي على شكل ذئب، في إشارة إلى ذئب آل ستارك، من ألطف اللحظات الصغيرة في المسلسل (الموسم الثالث، الحلقة الثالثة)."
       },
       "kind": "moment"
     }
@@ -13661,7 +13661,7 @@
     },
     "question": {
       "en": "In which Arab country were the cities of Astapor and Yunkai filmed for season 3?",
-      "ar": "مشاهد مدينتي أستابور ويونكاي بالموسم الثالث، بأي دولة عربية انصوّرت؟"
+      "ar": "في أيّ دولة عربية صُوّرت مشاهد مدينتي أستابور ويونكاي في الموسم الثالث؟"
     },
     "review": {
       "status": "pending"
@@ -13672,7 +13672,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "458d28ee",
+      "contentKey": "f87871ad",
       "spoilerSeason": 3,
       "distractors": {
         "en": [
@@ -13702,7 +13702,7 @@
     },
     "question": {
       "en": "When Abu Issam disappears, the French claim he died on his way to treat wounded rebels in which area near Damascus?",
-      "ar": "لما غاب أبو عصام، الفرنسيين قالوا إنه مات وهو رايح يداوي الثوار الجرحى بأي منطقة قريبة من دمشق؟"
+      "ar": "حين اختفى أبو عصام، زعم الفرنسيون أنه مات وهو في طريقه لمداواة الثوار الجرحى في أيّ منطقة قريبة من دمشق؟"
     },
     "review": {
       "status": "pending"
@@ -13713,7 +13713,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "ce8b2e1c",
+      "contentKey": "88b41da1",
       "spoilerSeason": 6,
       "distractors": {
         "en": [
@@ -13784,7 +13784,7 @@
     },
     "question": {
       "en": "It was once proposed to film Bab Al-Hara on studio sets in which city, sparking protests from Syrian fans?",
-      "ar": "مرة انطرح اقتراح يتصوّر «باب الحارة» باستوديوهات بأي مدينة، واعترض عليه كثير من السوريين؟"
+      "ar": "في استوديوهات أيّ مدينة اقتُرح مرةً تصوير «باب الحارة»، فاعترض على ذلك كثير من السوريين؟"
     },
     "review": {
       "status": "pending"
@@ -13795,7 +13795,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "74f91dc6",
+      "contentKey": "db13bbd8",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -13866,7 +13866,7 @@
     },
     "question": {
       "en": "Which recurring Tash Ma Tash character, played by Abdullah Al-Sadhan, is a stubborn traditional man who fights every change?",
-      "ar": "أي شخصية متكررة في «طاش ما طاش»، يلعبها عبد الله السدحان، رجل تقليدي عنيد يرفض أي تغيير؟"
+      "ar": "أيّ شخصية متكررة في «طاش ما طاش»، يؤديها عبد الله السدحان، هي رجل تقليدي عنيد يرفض أي تغيير؟"
     },
     "review": {
       "status": "pending"
@@ -13877,7 +13877,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "7a74a65d",
+      "contentKey": "c89a7953",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -13907,7 +13907,7 @@
     },
     "question": {
       "en": "In 2006, Tash Ma Tash moved from Saudi TV to which network?",
-      "ar": "سنة 2006، «طاش ما طاش» انتقل من التلفزيون السعودي لأي قناة؟"
+      "ar": "عام 2006، انتقل «طاش ما طاش» من التلفزيون السعودي إلى أيّ قناة؟"
     },
     "review": {
       "status": "pending"
@@ -13918,7 +13918,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "40398a71",
+      "contentKey": "5b7c5a29",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -14000,7 +14000,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "8c2b4e6d",
+      "contentKey": "ccd576d8",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -14010,7 +14010,7 @@
         ],
         "ar": [
           "عاصفة رملية",
-          "سيل بالبر",
+          "سيل في الصحراء",
           "حادث سيارة"
         ]
       },
@@ -14030,7 +14030,7 @@
     },
     "question": {
       "en": "Which TV talent show did Tash Ma Tash star Nasser Al-Qasabi judge from 2012 to 2015?",
-      "ar": "أي برنامج مواهب كان ناصر القصبي، نجم «طاش ما طاش»، عضو بلجنة تحكيمه من 2012 لـ2015؟"
+      "ar": "أيّ برنامج مواهب كان ناصر القصبي، نجم «طاش ما طاش»، عضوًا في لجنة تحكيمه من 2012 إلى 2015؟"
     },
     "review": {
       "status": "pending"
@@ -14041,7 +14041,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "53e062f3",
+      "contentKey": "38e27de1",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -14071,7 +14071,7 @@
     },
     "question": {
       "en": "In 2005, which magazine's Arabic edition named Al-Qasabi and Al-Sadhan among the most influential figures in the Arab world?",
-      "ar": "سنة 2005، النسخة العربية من أي مجلة اختارت القصبي والسدحان بين أكثر الشخصيات تأثيرًا بالعالم العربي؟"
+      "ar": "عام 2005، اختارت النسخة العربية من أيّ مجلة القصبي والسدحان ضمن أكثر الشخصيات تأثيرًا في العالم العربي؟"
     },
     "review": {
       "status": "pending"
@@ -14082,7 +14082,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "d009662e",
+      "contentKey": "ea3f4748",
       "spoilerSeason": 0,
       "distractors": {
         "en": [

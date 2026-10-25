@@ -1319,11 +1319,11 @@
     },
     "question": {
       "en": "On the Moon in 1971, Apollo 15 astronaut David Scott dropped a hammer and a falcon feather at the same moment. Which hit the ground first?",
-      "ar": "على سطح القمر سنة 1971، رائد الفضاء ديفيد سكوت من «أبولو 15» أسقط مطرقة وريشة صقر بنفس اللحظة. أي وحدة وصلت الأرض أول؟"
+      "ar": "على سطح القمر عام 1971، أسقط رائد الفضاء ديفيد سكوت من «أبولو 15» مطرقةً وريشة صقر في اللحظة نفسها. أيّهما وصل إلى السطح أولًا؟"
     },
     "answer": {
       "en": "Neither: they landed together, because there is no air resistance on the Moon.",
-      "ar": "ولا وحدة؛ وصلتا معاً، لأنه لا توجد مقاومة هواء على القمر."
+      "ar": "لم يسبق أيٌّ منهما الآخر؛ وصلا معًا، لعدم وجود مقاومة للهواء على القمر."
     },
     "review": {
       "status": "pending"
@@ -1338,7 +1338,7 @@
     },
     "question": {
       "en": "A spinning figure skater pulls in her arms and suddenly spins much faster. Which conservation law explains this?",
-      "ar": "متزلّجة تدور على الجليد، تضم يديها لجسمها فتصير تدور أسرع بكثير. أي قانون حفظ يفسّر هالشي؟"
+      "ar": "متزلّجة تدور على الجليد، تضمّ ذراعيها إلى جسمها فتدور أسرع بكثير. أيّ قانون حفظ يفسّر ذلك؟"
     },
     "answer": {
       "en": "Conservation of angular momentum.",
@@ -1433,7 +1433,7 @@
     },
     "question": {
       "en": "In the Sun's core, protons rarely have enough energy to overcome their mutual repulsion, yet they still fuse. Which quantum effect makes this possible?",
-      "ar": "بقلب الشمس، نادراً ما يكون عند البروتونات طاقة كافية تتغلّب فيها على تنافرها، ومع هذا تندمج. أي ظاهرة كمّية تخلّي هالشي ممكن؟"
+      "ar": "في قلب الشمس، نادرًا ما تملك البروتونات طاقة كافية للتغلّب على تنافرها، ومع ذلك تندمج. أيّ ظاهرة كمّية تجعل ذلك ممكنًا؟"
     },
     "answer": {
       "en": "Quantum tunnelling.",
@@ -1509,7 +1509,7 @@
     },
     "question": {
       "en": "In 1676, by timing the eclipses of Jupiter's moon Io, which Danish astronomer showed that light does not travel instantly?",
-      "ar": "سنة 1676، لما قاس توقيت كسوفات «آيو» قمر المشتري، أي فلكي دنماركي أثبت إن الضوء ما ينتقل بلحظة؟"
+      "ar": "عام 1676، عندما قاس توقيت كسوفات «آيو» قمر المشتري، أيّ فلكي دنماركي أثبت أن الضوء لا ينتقل لحظيًا؟"
     },
     "answer": {
       "en": "Ole Rømer.",

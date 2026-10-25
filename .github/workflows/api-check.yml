@@ -96,6 +96,8 @@ jobs:
           scripts/card-audit-ledger.test.mjs
           scripts/topic-merge-ledger.test.mjs
           scripts/content-phase2-ledger.test.mjs
+          scripts/arabic-msa-restore-ledger.test.mjs
+          scripts/arabic-msa-contract.test.mjs
           scripts/free-first-gameplay.test.mjs
           scripts/performance-budget.test.mjs
           scripts/synthetic-account-monitor.test.mjs

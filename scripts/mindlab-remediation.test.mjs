@@ -9,6 +9,7 @@ import { beforeArabicRewrite } from './arabic-everyday-ledger.mjs';
 import { CARD_POLISH_LEDGER, beforeCardPolish } from './card-polish-ledger.mjs';
 import { CARD_AUDIT_LEDGER, beforeCardAudit, idsBeforeAudit } from './card-audit-ledger.mjs';
 import { bankBeforeMerge, readTopicMergeLedger } from './topic-merge-ledger.mjs';
+import { bankBeforeMsaRestore } from './arabic-msa-restore-ledger.mjs';
 const read = filename => JSON.parse(fs.readFileSync(new URL(`../${filename}`,import.meta.url),'utf8'));
 const plan = read('docs/content-review/mindlab-remediation-2026-09-23.json');
 const tvAmendment = read('docs/content-review/tv-trivia-2026-09-30.json');
@@ -20,9 +21,10 @@ const cardPolish = read(CARD_POLISH_LEDGER);
 const cardAudit = read(CARD_AUDIT_LEDGER);
 const auditRemoved = new Map(cardAudit.removed.map(entry => [entry.id, entry]));
 // Every topic file as it stood before the 2026-10-25 topic merges, which moved,
-// removed or retired cards and topics recorded in their own ledger.
+// removed or retired cards and topics recorded in their own ledger, and before
+// the 2026-10-25 Modern Standard Arabic restore.
 const topicMerge = readTopicMergeLedger();
-const bank = slug => bankBeforeMerge(topicMerge, slug);
+const bank = slug => bankBeforeMerge(topicMerge, slug, bankBeforeMsaRestore);
 const cards = new Map(plan.scope.flatMap(topic => bank(topic.slug)).map(card=>[card.id,card]));
 const hash = card => crypto.createHash('sha256').update(JSON.stringify(card)).digest('hex');
 

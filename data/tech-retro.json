@@ -7,7 +7,7 @@
     },
     "question": {
       "en": "What was the first commercially successful video game arcade cabinet, released in 1972?",
-      "ar": "شو أول لعبة أركيد نجحت تجاريًا، ونزلت سنة 1972؟"
+      "ar": "ما هي أول لعبة أركيد ناجحة تجاريًا، صدرت عام 1972؟"
     },
     "answer": {
       "en": "Pong",
@@ -26,11 +26,11 @@
     },
     "question": {
       "en": "What did the world's first webcam, set up at Cambridge University in 1991, show?",
-      "ar": "شو كانت تعرض أول كاميرا ويب بالعالم، اللي انركّبت في جامعة كامبريدج سنة 1991؟"
+      "ar": "ماذا كانت تعرض أول كاميرا ويب في العالم، التي رُكّبت في جامعة كامبريدج عام 1991؟"
     },
     "answer": {
       "en": "A coffee pot (the 'Trojan Room coffee pot'), so researchers could check whether it was empty.",
-      "ar": "إبريق قهوة («إبريق قهوة غرفة تروجان»)، عشان يعرف الباحثون إذا كان فاضي."
+      "ar": "إبريق قهوة («إبريق قهوة غرفة تروجان»)، ليعرف الباحثون إن كان فارغًا."
     },
     "difficulty": "very-advanced",
     "review": {
@@ -83,7 +83,7 @@
     },
     "question": {
       "en": "Who proposed the imitation game in the 1950 paper 'Computing Machinery and Intelligence'?",
-      "ar": "مين اقترح «لعبة التقليد» في بحثه «آلات الحوسبة والذكاء» سنة 1950؟"
+      "ar": "من اقترح لعبة التقليد في بحث «آلات الحوسبة والذكاء» عام 1950؟"
     },
     "answer": {
       "en": "Alan Turing.",
@@ -102,7 +102,7 @@
     },
     "question": {
       "en": "What is the common name for a mobile-phone design that folds shut on a hinge?",
-      "ar": "شو الاسم الشائع لتصميم الجوال اللي ينطوي وينسكّر بمفصلة؟"
+      "ar": "ما الاسم الشائع لتصميم الهاتف المحمول الذي يُطوى ويُغلق بواسطة مفصلة؟"
     },
     "answer": {
       "en": "A flip phone, also called a clamshell phone.",
@@ -121,7 +121,7 @@
     },
     "question": {
       "en": "Which classic arcade game features a yellow character eating dots while avoiding ghosts?",
-      "ar": "شو اسم لعبة الأركيد القديمة اللي فيها شخصية صفرا تاكل النقاط وتهرب من الأشباح؟"
+      "ar": "ما هي لعبة الأركيد الكلاسيكية التي تتميز بشخصية صفراء تأكل النقاط مع تجنب الأشباح؟"
     },
     "answer": {
       "en": "Pac-Man",
@@ -140,7 +140,7 @@
     },
     "question": {
       "en": "What was the name of Apple's first personal computer released in 1976?",
-      "ar": "شو كان اسم أول كمبيوتر شخصي من أبل، اللي نزل سنة 1976؟"
+      "ar": "ما كان اسم أول كمبيوتر شخصي لشركة أبل صدر في عام 1976؟"
     },
     "answer": {
       "en": "Apple I",
@@ -159,7 +159,7 @@
     },
     "question": {
       "en": "Which company launched the Walkman, the pocket cassette player, in 1979?",
-      "ar": "أي شركة طلّعت «ووكمان»، مشغّل الكاسيت اللي ينحط بالجيب، سنة 1979؟"
+      "ar": "أي شركة أطلقت «ووكمان»، مشغل الكاسيت الذي يوضع في الجيب، عام 1979؟"
     },
     "answer": {
       "en": "Sony.",
@@ -178,7 +178,7 @@
     },
     "question": {
       "en": "What portable gaming device popularized the game Tetris in 1989?",
-      "ar": "أي جهاز ألعاب محمول خلّى لعبة تيتريس مشهورة سنة 1989؟"
+      "ar": "ما هو جهاز الألعاب المحمول الذي جعل لعبة تيتريس مشهورة في عام 1989؟"
     },
     "answer": {
       "en": "Game Boy",
@@ -197,7 +197,7 @@
     },
     "question": {
       "en": "Which simple game on classic Nokia phones involves steering a growing line without hitting obstacles or itself?",
-      "ar": "شو اللعبة البسيطة في جوالات نوكيا القديمة، اللي تتحكم فيها بخط يطوّل وتحاول ما يصطدم بشي أو بنفسه؟"
+      "ar": "ما اللعبة البسيطة في هواتف نوكيا الكلاسيكية التي تتحكم فيها بخط يطول وتتفادى اصطدامه بالعوائق أو بنفسه؟"
     },
     "answer": {
       "en": "Snake.",
@@ -216,7 +216,7 @@
     },
     "question": {
       "en": "What is the name of the iconic plumber in Nintendo's flagship video game franchise?",
-      "ar": "شو اسم السبّاك الشهير بطل أشهر ألعاب نينتندو؟"
+      "ar": "ما اسم السباك الشهير في سلسلة ألعاب الفيديو الرئيسية لشركة نينتندو؟"
     },
     "answer": {
       "en": "Mario",
@@ -235,7 +235,7 @@
     },
     "question": {
       "en": "What was the brand of Arabic-language MSX home computers, made by Kuwait's Al Alamiah, that many Arab children learned on in the 1980s?",
-      "ar": "شو اسم ماركة كمبيوترات MSX العربية اللي صنعتها شركة العالمية الكويتية، واللي تعلّم عليها أطفال عرب كثير بالثمانينيات؟"
+      "ar": "ما اسم علامة حواسيب MSX العربية التي صنعتها شركة العالمية الكويتية، وتعلّم عليها كثير من الأطفال العرب في الثمانينيات؟"
     },
     "answer": {
       "en": "Sakhr.",
@@ -254,7 +254,7 @@
     },
     "question": {
       "en": "What operating system was introduced by Microsoft in 1985 as a graphical shell for MS-DOS?",
-      "ar": "شو نظام التشغيل اللي قدّمته مايكروسوفت سنة 1985 كواجهة رسومية لـMS-DOS؟"
+      "ar": "ما هو نظام التشغيل الذي قدمته مايكروسوفت في عام 1985 كواجهة رسومية لنظام MS-DOS؟"
     },
     "answer": {
       "en": "Windows 1.0",
@@ -273,7 +273,7 @@
     },
     "question": {
       "en": "Which video game console introduced the 'DualShock' controller?",
-      "ar": "أي جهاز ألعاب جاب معه يد التحكم «دوال شوك»؟"
+      "ar": "أي جهاز ألعاب فيديو قدم وحدة تحكم «دوول شوك»؟"
     },
     "answer": {
       "en": "PlayStation 1",
@@ -292,7 +292,7 @@
     },
     "question": {
       "en": "Which high-density 3.5-inch removable storage medium commonly held 1.44 MB?",
-      "ar": "شو وسيلة التخزين اللي تنشال، ونسختها عالية الكثافة بقياس 3.5 بوصة كانت تتسع عادةً لـ1.44 ميغابايت؟"
+      "ar": "ما وسيط التخزين القابل للإزالة الذي كانت نسخته عالية الكثافة بقياس 3.5 بوصة تسع عادةً 1.44 ميغابايت؟"
     },
     "answer": {
       "en": "A floppy disk.",
@@ -311,7 +311,7 @@
     },
     "question": {
       "en": "Which company bought YouTube in 2006 for $1.65 billion?",
-      "ar": "أي شركة اشترت يوتيوب سنة 2006 بـ1.65 مليار دولار؟"
+      "ar": "أي شركة اشترت يوتيوب في عام 2006 مقابل 1.65 مليار دولار؟"
     },
     "answer": {
       "en": "Google",
@@ -330,7 +330,7 @@
     },
     "question": {
       "en": "What popular 1990s digital pet required users to feed, play, and care for it on a small keychain screen?",
-      "ar": "شو اسم الحيوان الأليف الرقمي الشهير بالتسعينيات، اللي كنت تطعمه وتلعب معه وتهتم فيه على شاشة صغيرة بميدالية مفاتيح؟"
+      "ar": "ما هو الحيوان الأليف الرقمي الشهير في التسعينيات الذي كان يتطلب من المستخدمين إطعامه واللعب معه والاعتناء به على شاشة صغيرة في سلسلة مفاتيح؟"
     },
     "answer": {
       "en": "Tamagotchi",
@@ -349,7 +349,7 @@
     },
     "question": {
       "en": "Which popular search engine was originally named 'Jerry and David's Guide to the World Wide Web'?",
-      "ar": "أي محرك بحث شهير كان اسمه بالبداية «دليل جيري وديفيد لشبكة الويب العالمية»؟"
+      "ar": "ما هو محرك البحث الشهير الذي كان يُسمى في الأصل «دليل جيري وديفيد لشبكة الويب العالمية»؟"
     },
     "answer": {
       "en": "Yahoo!",
@@ -368,7 +368,7 @@
     },
     "question": {
       "en": "Which 1993 first-person shooter follows a space marine fighting demons, beginning on Mars's moon Phobos?",
-      "ar": "شو لعبة التصويب من منظور الشخص الأول سنة 1993، اللي فيها جندي فضاء يحارب الشياطين وتبدأ من فوبوس، أحد قمرَي المريخ؟"
+      "ar": "ما لعبة التصويب من منظور الشخص الأول الصادرة عام 1993 التي يقاتل فيها جندي فضائي الشياطين، بدءاً من فوبوس أحد قمري المريخ؟"
     },
     "answer": {
       "en": "DOOM.",
@@ -387,7 +387,7 @@
     },
     "question": {
       "en": "What was the first registered .com domain name?",
-      "ar": "شو أول اسم نطاق انسجّل بامتداد ‎.com؟"
+      "ar": "ما أول اسم نطاق سُجّل بامتداد ‎.com؟"
     },
     "answer": {
       "en": "symbolics.com.",
@@ -406,7 +406,7 @@
     },
     "question": {
       "en": "Which programming language, created by James Gosling in 1995, features a coffee cup as its logo?",
-      "ar": "شو لغة البرمجة اللي ابتكرها جيمس جوسلينج سنة 1995 وشعارها فنجان قهوة؟"
+      "ar": "ما هي لغة البرمجة التي ابتكرها جيمس جوسلينج في عام 1995 وتتخذ من فنجان القهوة شعاراً لها؟"
     },
     "answer": {
       "en": "Java",
@@ -421,7 +421,7 @@
     "id": "tech-retro-23",
     "question": {
       "en": "Which early Internet protocol developed at the University of Minnesota organized documents into hierarchical menus?",
-      "ar": "أي بروتوكول إنترنت قديم انعمل في جامعة مينيسوتا ورتّب الملفات بقوائم متفرّعة؟"
+      "ar": "أي بروتوكول إنترنت مبكر طُوّر في جامعة مينيسوتا ونظّم المستندات في قوائم هرمية؟"
     },
     "answer": {
       "en": "Gopher.",
@@ -444,7 +444,7 @@
     },
     "question": {
       "en": "Which SEGA console launched in North America on the memorable date 9/9/99?",
-      "ar": "أي جهاز من سيجا نزل في أمريكا الشمالية بتاريخ مميز: 9/9/99؟"
+      "ar": "أي جهاز سيجا طُرح في أمريكا الشمالية في التاريخ اللافت 9/9/99؟"
     },
     "answer": {
       "en": "Dreamcast.",
@@ -463,7 +463,7 @@
     },
     "question": {
       "en": "What was the codename for the first release of the Windows 95 operating system?",
-      "ar": "شو كان الاسم الرمزي لأول نسخة من ويندوز 95؟"
+      "ar": "ما كان الاسم الرمزي لأول إصدار من نظام التشغيل ويندوز 95؟"
     },
     "answer": {
       "en": "Chicago",
@@ -482,7 +482,7 @@
     },
     "question": {
       "en": "Which Atari 2600 game based on a 1982 Steven Spielberg film became associated with the Alamogordo landfill story?",
-      "ar": "أي لعبة لجهاز أتاري 2600، مأخوذة من فيلم لستيفن سبيلبرغ سنة 1982، ارتبطت بقصة مكبّ ألاموغوردو؟"
+      "ar": "أي لعبة لجهاز أتاري 2600، مقتبسة من فيلم لستيفن سبيلبرغ صدر عام 1982، ارتبطت بقصة مكب ألاموغوردو؟"
     },
     "answer": {
       "en": "E.T. the Extra-Terrestrial.",
@@ -501,7 +501,7 @@
     },
     "question": {
       "en": "Which web browser, launched in 1994, dominated the early web before losing the 'browser war' to Microsoft's Internet Explorer?",
-      "ar": "أي متصفح انطلق سنة 1994 وسيطر على بدايات الإنترنت، قبل ما يخسر «حرب المتصفحات» قدام إنترنت إكسبلورر من مايكروسوفت؟"
+      "ar": "أي متصفح انطلق عام 1994 وهيمن على بدايات الإنترنت، قبل أن يخسر «حرب المتصفحات» أمام إنترنت إكسبلورر من مايكروسوفت؟"
     },
     "answer": {
       "en": "Netscape Navigator.",
@@ -520,7 +520,7 @@
     },
     "question": {
       "en": "Which interface standard, developed by a group of companies, introduced version 1.0 in 1996 to simplify connecting computer peripherals?",
-      "ar": "شو معيار التوصيل اللي طوّرته مجموعة شركات، ونزلت نسخته 1.0 سنة 1996 عشان يسهّل توصيل الأجهزة بالكمبيوتر؟"
+      "ar": "ما معيار التوصيل الذي طوّرته مجموعة شركات وأصدرت نسخته 1.0 عام 1996 لتسهيل توصيل الأجهزة الطرفية بالحاسوب؟"
     },
     "answer": {
       "en": "USB (Universal Serial Bus).",
@@ -539,7 +539,7 @@
     },
     "question": {
       "en": "What two-word greeting was the first text message (SMS), sent from a computer to a phone in December 1992?",
-      "ar": "شو التهنئة المكوّنة من كلمتين اللي كانت أول رسالة نصية SMS، انبعتت من كمبيوتر لجوال في ديسمبر 1992؟"
+      "ar": "ما التهنئة المكونة من كلمتين التي كانت أول رسالة نصية SMS، أُرسلت من حاسوب إلى هاتف محمول في ديسمبر 1992؟"
     },
     "answer": {
       "en": "\"Merry Christmas\".",
@@ -558,7 +558,7 @@
     },
     "question": {
       "en": "Who co-founded Microsoft alongside Bill Gates?",
-      "ar": "مين أسّس مايكروسوفت مع بيل جيتس؟"
+      "ar": "من شارك في تأسيس مايكروسوفت إلى جانب بيل جيتس؟"
     },
     "answer": {
       "en": "Paul Allen",
@@ -577,7 +577,7 @@
     },
     "question": {
       "en": "Which experimental self-replicating program, created in 1971, displayed a message ending 'catch me if you can!'?",
-      "ar": "شو البرنامج التجريبي اللي ينسخ نفسه، انعمل سنة 1971، وكان يطلّع رسالة آخرها «أمسكني إذا بتقدر!»؟"
+      "ar": "ما البرنامج التجريبي ذاتي النسخ الذي أُنشئ عام 1971 وعرض رسالة تنتهي بعبارة «أمسك بي إن استطعت!»؟"
     },
     "answer": {
       "en": "Creeper, an early worm-like program.",
@@ -596,7 +596,7 @@
     },
     "question": {
       "en": "Which 1982 home computer holds the Guinness World Record for the highest-selling single computer model of all time?",
-      "ar": "أي كمبيوتر منزلي من سنة 1982 داخل موسوعة غينيس كأكثر كمبيوتر انباع بالتاريخ؟"
+      "ar": "أي كمبيوتر منزلي لعام 1982 يحمل الرقم القياسي في موسوعة غينيس لكونه أكثر طراز كمبيوتر مبيعاً على الإطلاق؟"
     },
     "answer": {
       "en": "Commodore 64",
@@ -615,7 +615,7 @@
     },
     "question": {
       "en": "In the original Pac-Man arcade game, what temporary ability does eating a power pellet give Pac-Man?",
-      "ar": "في لعبة باك مان الأصلية، شو القدرة المؤقتة اللي تعطيها حبة الطاقة لباك مان؟"
+      "ar": "في لعبة باك مان الأصلية للأركيد، ما القدرة المؤقتة التي تمنحها حبة الطاقة لباك مان؟"
     },
     "answer": {
       "en": "He can eat the vulnerable ghosts.",
@@ -634,7 +634,7 @@
     },
     "question": {
       "en": "Which Danish king inspired the name Bluetooth?",
-      "ar": "أي ملك دنماركي انسمّت تقنية البلوتوث على اسمه؟"
+      "ar": "أي ملك دنماركي ألهم تسمية بلوتوث؟"
     },
     "answer": {
       "en": "Harald Bluetooth (Harald Gormsson).",
@@ -653,7 +653,7 @@
     },
     "question": {
       "en": "What tribute to its development team was molded inside the original Macintosh's plastic case?",
-      "ar": "شو التكريم لفريق التطوير اللي كان محفور من جوّا غطاء الماكنتوش الأول؟"
+      "ar": "ما التكريم لفريق التطوير الذي طُبع بالقالب داخل الغلاف البلاستيكي لماكنتوش الأصلي؟"
     },
     "answer": {
       "en": "The team members' signatures.",
@@ -672,7 +672,7 @@
     },
     "question": {
       "en": "Which keyboard symbol did Ray Tomlinson pick in 1971 to separate the user's name from the computer's name in the first network email?",
-      "ar": "أي رمز من الكيبورد اختاره راي توملينسون سنة 1971 عشان يفصل اسم المستخدم عن اسم الكمبيوتر بأول إيميل عبر الشبكة؟"
+      "ar": "أي رمز من لوحة المفاتيح اختاره راي توملينسون عام 1971 ليفصل اسم المستخدم عن اسم الحاسوب في أول بريد إلكتروني عبر الشبكة؟"
     },
     "answer": {
       "en": "The @ (at) sign.",
@@ -691,7 +691,7 @@
     },
     "question": {
       "en": "Which technique let the 1984 space game Elite squeeze eight whole galaxies into a home computer's tiny memory?",
-      "ar": "شو التقنية اللي خلّت لعبة الفضاء «إيليت» سنة 1984 تحط ثماني مجرات كاملة بذاكرة كمبيوتر منزلي صغيرة؟"
+      "ar": "ما التقنية التي مكّنت لعبة الفضاء «إيليت» عام 1984 من وضع ثماني مجرات كاملة في ذاكرة حاسوب منزلي صغيرة؟"
     },
     "answer": {
       "en": "Procedural generation.",
@@ -710,7 +710,7 @@
     },
     "question": {
       "en": "Which earlier language influenced Python's syntax and use of indentation?",
-      "ar": "أي لغة أقدم أثّرت في طريقة بايثون واستخدامها للمسافات البادئة؟"
+      "ar": "أي لغة سابقة أثّرت في صياغة بايثون واستخدامها للمسافات البادئة؟"
     },
     "answer": {
       "en": "ABC; it was a separate language, not a former name of Python.",
@@ -748,7 +748,7 @@
     },
     "question": {
       "en": "What string of text was the very first message sent over the ARPANET in 1969, which crashed after the first two letters?",
-      "ar": "شو النص اللي كان أول رسالة انبعتت على شبكة أربانيت سنة 1969، والشبكة وقعت بعد أول حرفين؟"
+      "ar": "ما هي سلسلة النص التي كانت أول رسالة تم إرسالها عبر شبكة أربانيت في عام 1969، والتي انهارت بعد أول حرفين؟"
     },
     "answer": {
       "en": "LO (intended to be LOGIN)",

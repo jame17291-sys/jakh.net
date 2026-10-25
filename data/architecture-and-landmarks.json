@@ -8,7 +8,7 @@
     "difficulty": "easy",
     "question": {
       "en": "The Eiffel Tower is about 12–15 cm taller in a hot summer than in winter. Why?",
-      "ar": "برج إيفل يطول حوالي 12 إلى 15 سم بالصيف الحار مقارنة بالشتاء. ليش؟"
+      "ar": "يزداد طول برج إيفل نحو 12 إلى 15 سنتيمترًا في الصيف الحار مقارنة بالشتاء. لماذا؟"
     },
     "answer": {
       "en": "Its iron expands in the heat.",
@@ -23,7 +23,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What architectural element forms a horizontal support across the top of a door or window opening?",
-      "ar": "شو العنصر المعماري اللي يكون مسند أفقي فوق فتحة الباب أو الشباك؟"
+      "ar": "ما العنصر المعماري الذي يشكّل دعامة أفقية فوق فتحة باب أو نافذة؟"
     },
     "answer": {
       "en": "A lintel",
@@ -46,7 +46,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which Dubai landmark became the world's tallest building when it opened in 2010?",
-      "ar": "أي معلم في دبي صار أطول مبنى بالعالم لما افتتح سنة 2010؟"
+      "ar": "أي معلم في دبي أصبح أطول مبنى في العالم عند افتتاحه عام 2010؟"
     },
     "answer": {
       "en": "Burj Khalifa",
@@ -65,7 +65,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which famous leaning tower is found in Italy?",
-      "ar": "أي برج مايل مشهور موجود في إيطاليا؟"
+      "ar": "أي برج مائل شهير يوجد في إيطاليا؟"
     },
     "answer": {
       "en": "Leaning Tower of Pisa",
@@ -84,7 +84,7 @@
     "difficulty": "easy",
     "question": {
       "en": "The Colosseum was built by which ancient civilization?",
-      "ar": "أي حضارة قديمة بنت الكولوسيوم؟"
+      "ar": "بني الكولوسيوم من قبل أي حضارة قديمة؟"
     },
     "answer": {
       "en": "Ancient Rome",
@@ -103,7 +103,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What is the name of the iconic white marble tomb in Agra, India?",
-      "ar": "شو اسم الضريح الرخامي الأبيض المشهور في أغرا بالهند؟"
+      "ar": "ما اسم الضريح الرخامي الأبيض الشهير في أغرا، الهند؟"
     },
     "answer": {
       "en": "Taj Mahal",
@@ -122,7 +122,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What material is cut into blocks to build a traditional igloo?",
-      "ar": "شو المادة اللي تنقطع لقوالب عشان يبنون الإيغلو التقليدي؟"
+      "ar": "ما المادة التي تُقطع إلى كتل لبناء الإيغلو التقليدي؟"
     },
     "answer": {
       "en": "Compacted snow, not solid ice.",
@@ -141,7 +141,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which famous opera house is known for its shell-like roof design?",
-      "ar": "أي دار أوبرا مشهورة سقفها مصمّم مثل الأصداف؟"
+      "ar": "أي دار أوبرا شهيرة تعرف بتصميم سقفها الذي يشبه الأصداف؟"
     },
     "answer": {
       "en": "Sydney Opera House",
@@ -160,7 +160,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What is the carved wooden lattice screen on traditional Arab windows that lets in air and light while keeping privacy?",
-      "ar": "شو اسم الشبّاك الخشبي المخرّم بالبيوت العربية القديمة، اللي يدخّل الهوا والنور ويحافظ على الخصوصية؟"
+      "ar": "ما اسم النافذة الخشبية المخرّمة في البيوت العربية القديمة، التي تُدخل الهواء والنور وتحافظ على الخصوصية؟"
     },
     "answer": {
       "en": "The mashrabiya.",
@@ -179,7 +179,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which city is famous for its 'Statue of Liberty'?",
-      "ar": "أي مدينة مشهورة بـ«تمثال الحرية»؟"
+      "ar": "أي مدينة تشتهر بـ «تمثال الحرية»؟"
     },
     "answer": {
       "en": "New York City",
@@ -198,7 +198,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What architectural style is known for pointed arches and flying buttresses?",
-      "ar": "أي طراز معماري مشهور بالأقواس المدبّبة والدعامات الطائرة؟"
+      "ar": "أي نمط معماري يشتهر بالأقواس المدببة والدعامات الطائرة؟"
     },
     "answer": {
       "en": "Gothic",
@@ -217,7 +217,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Who designed the Guggenheim Museum in Bilbao, Spain?",
-      "ar": "مين صمّم متحف غوغنهايم في بلباو بإسبانيا؟"
+      "ar": "من صمم متحف غوغنهايم في بلباو، إسبانيا؟"
     },
     "answer": {
       "en": "Frank Gehry",
@@ -236,7 +236,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What is the name of the ancient Greek temple dedicated to the goddess Athena on the Acropolis?",
-      "ar": "شو اسم المعبد اليوناني القديم المخصّص للإلهة أثينا على الأكروبوليس؟"
+      "ar": "ما اسم المعبد اليوناني القديم المخصص للإلهة أثينا في الأكروبوليس؟"
     },
     "answer": {
       "en": "Parthenon",
@@ -255,7 +255,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which movement, founded by Walter Gropius, aimed to combine crafts and the fine arts?",
-      "ar": "أي حركة أسّسها والتر غروبيوس وكان هدفها تجمع الحِرَف والفنون الجميلة؟"
+      "ar": "أي حركة أسسها والتر غروبيوس هدفت لدمج الحرف والفنون الجميلة؟"
     },
     "answer": {
       "en": "Bauhaus",
@@ -270,7 +270,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What was the central hall of a Roman house, often with a roof opening above a rainwater basin, called?",
-      "ar": "شو اسم القاعة اللي بنص البيت الروماني، واللي غالبًا سقفها فيه فتحة فوق حوض يجمع المطر؟"
+      "ar": "ماذا كانت تُسمّى القاعة المركزية في المنزل الروماني التي غالباً ما تضم فتحة سقف فوق حوض لتجميع المطر؟"
     },
     "answer": {
       "en": "The atrium.",
@@ -293,7 +293,7 @@
     "difficulty": "medium",
     "question": {
       "en": "The 'Sagrada Família' is a famous basilica in which city?",
-      "ar": "كنيسة «ساغرادا فاميليا» المشهورة بأي مدينة؟"
+      "ar": "كنيسة «ساغرادا فاميليا» هي كنيسة شهيرة في أي مدينة؟"
     },
     "answer": {
       "en": "Barcelona",
@@ -312,7 +312,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which architect is famous for the 'Fallingwater' house?",
-      "ar": "أي مهندس معماري اشتهر ببيت «الشلالات» (Fallingwater)؟"
+      "ar": "أي مهندس معماري اشتهر بمنزل «شلالات المياه» (Fallingwater)؟"
     },
     "answer": {
       "en": "Frank Lloyd Wright",
@@ -331,7 +331,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What is the traditional Gulf tower, seen in old Dubai's Al Fahidi district, that catches breezes to cool the house below?",
-      "ar": "شو اسم البرج التقليدي في الخليج، اللي نشوفه بحي الفهيدي في دبي القديمة، ويلقط الهوا عشان يبرّد البيت اللي تحته؟"
+      "ar": "ما اسم البرج التقليدي في الخليج، الذي نراه في حي الفهيدي في دبي القديمة، ويلتقط الهواء ليبرّد البيت الذي تحته؟"
     },
     "answer": {
       "en": "A wind tower (barjeel).",
@@ -350,7 +350,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What is the honeycomb-like, stalactite-style vaulting that decorates domes, niches and arches in Islamic architecture?",
-      "ar": "شو اسم الزخرفة المعمارية اللي تشبه خلايا النحل أو الهوابط، وتزيّن القباب والمحاريب والأقواس بالعمارة الإسلامية؟"
+      "ar": "ما اسم الزخرفة المعمارية التي تشبه خلايا النحل أو الهوابط، وتزيّن القباب والمحاريب والأقواس في العمارة الإسلامية؟"
     },
     "answer": {
       "en": "Muqarnas.",
@@ -365,7 +365,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What is the triangular section above the columns at the front of a classical temple called?",
-      "ar": "شو اسم الجزء المثلث اللي فوق الأعمدة بواجهة المعبد الكلاسيكي؟"
+      "ar": "ما اسم الجزء المثلث فوق الأعمدة عند واجهة المعبد الكلاسيكي؟"
     },
     "answer": {
       "en": "The pediment",
@@ -426,7 +426,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What is the central wedge-shaped stone at the crown of a masonry arch called?",
-      "ar": "شو اسم الحجر اللي بالنص فوق القوس الحجري ويقفله؟"
+      "ar": "ماذا يُسمّى الحجر الإسفيني المركزي عند قمة القوس المبني بالحجارة؟"
     },
     "answer": {
       "en": "The keystone.",
@@ -445,7 +445,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which architectural style is characterized by heavy masonry, small windows, and rounded arches?",
-      "ar": "أي طراز معماري فيه بناء ثقيل وشبابيك صغيرة وأقواس مدوّرة؟"
+      "ar": "أي نمط معماري يتميز بالبناء الثقيل والنوافذ الصغيرة والأقواس الدائرية؟"
     },
     "answer": {
       "en": "Romanesque",
@@ -464,7 +464,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Who is the architect of the Louvre Pyramid in Paris?",
-      "ar": "مين المهندس المعماري لهرم اللوفر في باريس؟"
+      "ar": "من هو المهندس المعماري لهرم اللوفر في باريس؟"
     },
     "answer": {
       "en": "I. M. Pei",
@@ -483,7 +483,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What is a 'Pendentive' in Byzantine architecture?",
-      "ar": "في العمارة البيزنطية، شو هو «المثلث الكروي» (Pendentive)؟"
+      "ar": "ما هو «المثلث الكروي» (Pendentive) في العمارة البيزنطية؟"
     },
     "answer": {
       "en": "A triangular segment of a sphere that allows a dome to be placed over a square room",
@@ -502,7 +502,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What does the term 'Brutalism' refer to in architecture?",
-      "ar": "شو يعني «الوحشية» (Brutalism) في العمارة؟"
+      "ar": "إلى ماذا يشير مصطلح «الوحشية» (Brutalism) في العمارة؟"
     },
     "answer": {
       "en": "A style characterized by raw, unadorned concrete surfaces",
@@ -521,7 +521,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Who won the first Pritzker Architecture Prize in 1979?",
-      "ar": "مين أخذ أول جائزة بريتزكر للعمارة سنة 1979؟"
+      "ar": "من فاز بأول جائزة بريتزكر للعمارة في عام 1979؟"
     },
     "answer": {
       "en": "Philip Johnson",
@@ -540,7 +540,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What is the name of the world's largest religious monument, located in Cambodia?",
-      "ar": "شو اسم أكبر معلم ديني بالعالم، الموجود في كمبوديا؟"
+      "ar": "ما اسم أكبر نصب ديني في العالم، يقع في كمبوديا؟"
     },
     "answer": {
       "en": "Angkor Wat",
@@ -559,7 +559,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What three parts make up a classical entablature?",
-      "ar": "شو الأجزاء الثلاثة اللي تكوّن الجزء الأفقي الكلاسيكي فوق الأعمدة، المعروف بـ«Entablature»؟"
+      "ar": "ما الأجزاء الثلاثة التي تكوّن البنية الأفقية الكلاسيكية فوق الأعمدة، المعروفة بـ Entablature؟"
     },
     "answer": {
       "en": "The architrave, frieze and cornice.",
@@ -578,7 +578,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Who designed the 'Villa Savoye' and developed the 'Five Points of Architecture'?",
-      "ar": "مين صمّم «فيلا سافوي» وطوّر «نقاط العمارة الخمس»؟"
+      "ar": "من صمم «فيلا سافوي» وطور «نقاط العمارة الخمس»؟"
     },
     "answer": {
       "en": "Le Corbusier",
@@ -597,7 +597,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is 'Deconstructivism' in architecture?",
-      "ar": "شو هي «التفكيكية» في العمارة؟"
+      "ar": "ما هي «التفكيكية» في العمارة؟"
     },
     "answer": {
       "en": "A movement characterized by fragmentation and non-rectilinear shapes",
@@ -616,7 +616,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Which Egyptian architect championed affordable mud-brick building, notably in the village of New Gourna near Luxor?",
-      "ar": "أي معماري مصري دافع عن البناء الرخيص بالطوب اللبن، وأشهر مشاريعه قرية القرنة الجديدة قرب الأقصر؟"
+      "ar": "أي معماري مصري دافع عن البناء الميسور التكلفة بالطوب اللبن، ومن أشهر مشاريعه قرية القرنة الجديدة قرب الأقصر؟"
     },
     "answer": {
       "en": "Hassan Fathy",
@@ -635,7 +635,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is the 'Vitruvian Man' based on in terms of architectural theory?",
-      "ar": "من ناحية النظرية المعمارية، على شو يعتمد «الرجل الفيتروفي»؟"
+      "ar": "على ماذا يعتمد «الرجل الفيتـروفي» من حيث النظرية المعمارية؟"
     },
     "answer": {
       "en": "The proportions of the human body as a guide for architectural design",
@@ -654,7 +654,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Who is the architect of the 'Chrysler Building' in New York?",
-      "ar": "مين المهندس المعماري لـ«مبنى كرايسلر» في نيويورك؟"
+      "ar": "من هو المهندس المعماري لـ «مبنى كرايسلر» في نيويورك؟"
     },
     "answer": {
       "en": "William Van Alen",
@@ -673,7 +673,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is the 'Modulor' system developed by Le Corbusier?",
-      "ar": "شو هو نظام «موديولور» (Modulor) اللي طوّره لو كوربوزييه؟"
+      "ar": "ما هو نظام «مودولور» (Modulor) الذي طوره لو كوربوزييه؟"
     },
     "answer": {
       "en": "An anthropometric scale of proportions based on the human body and the golden ratio",
@@ -692,7 +692,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Which ancient temple complex in Malta is among the oldest free-standing structures in the world?",
-      "ar": "أي معبد قديم في مالطا يعتبر من أقدم المباني القائمة بذاتها بالعالم؟"
+      "ar": "أي معبد قديم في مالطا يعتبر من أقدم الهياكل المستقلة في العالم؟"
     },
     "answer": {
       "en": "Ġgantija Temples",
@@ -711,7 +711,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Who designed the 'Vietnam Veterans Memorial' in Washington, D.C.?",
-      "ar": "مين صمّم «النصب التذكاري لمحاربي فيتنام» في واشنطن العاصمة؟"
+      "ar": "من صمم «النصب التذكاري لمحاربي فيتنام» في واشنطن العاصمة؟"
     },
     "answer": {
       "en": "Maya Lin",
@@ -730,7 +730,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "In parametric design, how are design elements linked?",
-      "ar": "في التصميم البارامتري، كيف تكون عناصر التصميم مرتبطة ببعض؟"
+      "ar": "كيف ترتبط عناصر التصميم في التصميم البارامتري؟"
     },
     "answer": {
       "en": "Through parameters and relationships, so changing an input can update related parts. Parametricism is a proposed architectural style, not a synonym for every use of this method.",
@@ -749,7 +749,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What do we call a vast hall whose roof rests on rows of many columns, like the famous one at Karnak Temple in Luxor?",
-      "ar": "شو نسمّي القاعة الضخمة اللي سقفها قايم على صفوف أعمدة كثيرة، مثل القاعة المشهورة بمعبد الكرنك في الأقصر؟"
+      "ar": "ماذا نسمّي القاعة الضخمة التي يقوم سقفها على صفوف كثيرة من الأعمدة، مثل القاعة الشهيرة في معبد الكرنك بالأقصر؟"
     },
     "answer": {
       "en": "A hypostyle hall.",
@@ -825,7 +825,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Which 9th-century Iraqi minaret is famous for a spiral ramp winding round its outside like a snail shell?",
-      "ar": "أي مئذنة عراقية من القرن التاسع مشهورة بدرجها الحلزوني اللي يلفّ من برّا مثل قوقعة الحلزون؟"
+      "ar": "أي مئذنة عراقية من القرن التاسع تشتهر بدرجها الحلزوني الذي يلتف من الخارج مثل قوقعة الحلزون؟"
     },
     "answer": {
       "en": "The Malwiya of Samarra.",

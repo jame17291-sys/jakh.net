@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "How many keys are on a standard modern piano?",
-      "ar": "كم مفتاح في البيانو الحديث العادي؟"
+      "ar": "كم عدداً من المفاتيح في البيانو الحديث القياسي؟"
     },
     "answer": {
       "en": "88",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "Which famous composer wrote the 'Fifth Symphony' and became deaf later in life?",
-      "ar": "أي ملحّن مشهور ألّف «السيمفونية الخامسة» وصار أصم بعدين؟"
+      "ar": "أي ملحن شهير ألف «السمفونية الخامسة» وأصيب بالصمم لاحقاً؟"
     },
     "answer": {
       "en": "Ludwig van Beethoven",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "Which string instrument is the smallest and has the highest pitch in an orchestra?",
-      "ar": "أي آلة وترية هي الأصغر وصوتها الأعلى في الأوركسترا؟"
+      "ar": "أي آلة وترية هي الأصغر ولها أعلى طبقة صوت في الأوركسترا؟"
     },
     "answer": {
       "en": "Violin",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "What do we call the musician who directs an orchestra during a performance?",
-      "ar": "شو نسمّي الموسيقي اللي يقود الأوركسترا وقت العزف؟"
+      "ar": "ماذا نسمي الموسيقي الذي يقود الأوركسترا أثناء العزف؟"
     },
     "answer": {
       "en": "Conductor",
@@ -84,7 +84,7 @@
     },
     "question": {
       "en": "Which country is the birthplace of Opera?",
-      "ar": "أي بلد انولدت فيه الأوبرا؟"
+      "ar": "أي بلد هو مسقط رأس الأوبرا؟"
     },
     "answer": {
       "en": "Italy",
@@ -103,7 +103,7 @@
     },
     "question": {
       "en": "How many strings does a standard guitar have?",
-      "ar": "كم وتر في الجيتار العادي؟"
+      "ar": "كم عدداً من الأوتار في الجيتار القياسي؟"
     },
     "answer": {
       "en": "Six",
@@ -122,7 +122,7 @@
     },
     "question": {
       "en": "Who is known as the 'King of Pop'?",
-      "ar": "مين اللي لقبه «ملك البوب»؟"
+      "ar": "من يلقب بـ «ملك البوب»؟"
     },
     "answer": {
       "en": "Michael Jackson",
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "What is the term for the speed at which a piece of music is played?",
-      "ar": "شو المصطلح الموسيقي اللي يعني السرعة اللي تنعزف فيها القطعة؟"
+      "ar": "ما المصطلح الذي يدل على السرعة التي تُعزف بها القطعة الموسيقية؟"
     },
     "answer": {
       "en": "Tempo",
@@ -160,7 +160,7 @@
     },
     "question": {
       "en": "Which family of instruments does the trumpet belong to?",
-      "ar": "من أي عائلة آلات البوق؟"
+      "ar": "إلى أي عائلة من الآلات ينتمي البوق؟"
     },
     "answer": {
       "en": "Brass",
@@ -179,7 +179,7 @@
     },
     "question": {
       "en": "What is the pear-shaped, fretless string instrument at the heart of Arabic music?",
-      "ar": "شو اسم الآلة الوترية اللي شكلها مثل الإجاصة، بدون دساتين، وتعتبر أساس الموسيقى العربية؟"
+      "ar": "ما اسم الآلة الوترية الكمثرية الشكل، الخالية من الدساتين، التي تُعد أساس الموسيقى العربية؟"
     },
     "answer": {
       "en": "The oud",
@@ -198,7 +198,7 @@
     },
     "question": {
       "en": "What does the term 'Forte' mean in music notation?",
-      "ar": "في الكتابة الموسيقية، شو معنى «Forte»؟"
+      "ar": "ماذا يعني مصطلح «Forte» في التدوين الموسيقي؟"
     },
     "answer": {
       "en": "Loud",
@@ -217,7 +217,7 @@
     },
     "question": {
       "en": "Who wrote the famous 'Four Seasons' concertos?",
-      "ar": "مين ألّف كونشيرتو «الفصول الأربعة» المشهور؟"
+      "ar": "من ألف كونشيرتو «الفصول الأربعة» الشهير؟"
     },
     "answer": {
       "en": "Antonio Vivaldi",
@@ -236,7 +236,7 @@
     },
     "question": {
       "en": "In jazz, what is the term for making up music on the spot?",
-      "ar": "في الجاز، شو نسمّي تأليف الموسيقى على الطاير وقت العزف؟"
+      "ar": "في موسيقى الجاز، ما هو المصطلح الذي يطلق على تأليف الموسيقى فوراً؟"
     },
     "answer": {
       "en": "Improvisation",
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "Which woodwind instrument has a double reed?",
-      "ar": "أي آلة نفخ خشبية عندها ريشة مزدوجة؟"
+      "ar": "أي آلة نفخ خشبية تمتلك ريشة مزدوجة؟"
     },
     "answer": {
       "en": "Oboe (or Bassoon)",
@@ -274,7 +274,7 @@
     },
     "question": {
       "en": "Which Lebanese singer is famous for her songs with the Rahbani Brothers, heard every morning on Arab radio?",
-      "ar": "مين المطربة اللبنانية المشهورة بأغانيها مع الأخوين رحباني، اللي تنسمع كل صبح بالإذاعات العربية؟"
+      "ar": "مَن المطربة اللبنانية المشهورة بأغانيها مع الأخوين رحباني، والتي تُسمع كل صباح في الإذاعات العربية؟"
     },
     "answer": {
       "en": "Fairuz",
@@ -293,7 +293,7 @@
     },
     "question": {
       "en": "Who is the 'Father of the Symphony' and the 'Father of the String Quartet'?",
-      "ar": "مين اللي لقبه «أبو السيمفونية» و«أبو الرباعي الوتري»؟"
+      "ar": "من يلقب بـ «أبو السمفونية» و «أبو الرباعي الوتري»؟"
     },
     "answer": {
       "en": "Joseph Haydn",
@@ -312,7 +312,7 @@
     },
     "question": {
       "en": "What does 'Staccato' mean?",
-      "ar": "شو معنى «Staccato»؟"
+      "ar": "ماذا يعني مصطلح «Staccato»؟"
     },
     "answer": {
       "en": "Short and detached notes",
@@ -331,7 +331,7 @@
     },
     "question": {
       "en": "Which famous Austrian composer was a child prodigy and wrote 'The Magic Flute'?",
-      "ar": "أي ملحّن نمساوي مشهور كان طفل عبقري وألّف «الناي السحري»؟"
+      "ar": "أي ملحن نمساوي شهير كان طفلاً عبقرياً وألف «الناي السحري»؟"
     },
     "answer": {
       "en": "Wolfgang Amadeus Mozart",
@@ -350,7 +350,7 @@
     },
     "question": {
       "en": "What is the name of the five lines and four spaces used for musical notation?",
-      "ar": "شو اسم الخطوط الخمسة والمسافات الأربعة اللي نكتب عليها النوتة الموسيقية؟"
+      "ar": "ما اسم الخطوط الخمسة والمسافات الأربعة المستخدمة للتدوين الموسيقي؟"
     },
     "answer": {
       "en": "Staff (or Stave)",
@@ -369,7 +369,7 @@
     },
     "question": {
       "en": "Which city is considered the birthplace of Jazz?",
-      "ar": "أي مدينة تعتبر مكان ولادة موسيقى الجاز؟"
+      "ar": "أي مدينة تعتبر مسقط رأس موسيقى الجاز؟"
     },
     "answer": {
       "en": "New Orleans",
@@ -388,7 +388,7 @@
     },
     "question": {
       "en": "What is the 'Circle of Fifths'?",
-      "ar": "شو هي «دائرة الخوامس»؟"
+      "ar": "ما هي «دائرة الأخماس»؟"
     },
     "answer": {
       "en": "A visual representation of the relationships between the 12 tones of the chromatic scale",
@@ -407,7 +407,7 @@
     },
     "question": {
       "en": "Who composed the revolutionary ballet 'The Rite of Spring'?",
-      "ar": "مين لحّن باليه «طقوس الربيع» الثوري؟"
+      "ar": "من لحن باليه «طقوس الربيع» الثوري؟"
     },
     "answer": {
       "en": "Igor Stravinsky",
@@ -426,7 +426,7 @@
     },
     "question": {
       "en": "What is the Arabic name for the system of melodic modes, such as Rast and Bayati?",
-      "ar": "شو اسم نظام الأنغام بالموسيقى العربية، مثل الراست والبياتي؟"
+      "ar": "ما اسم نظام الأنغام في الموسيقى العربية، مثل الراست والبياتي؟"
     },
     "answer": {
       "en": "Maqam (plural: maqamat)",
@@ -464,7 +464,7 @@
     },
     "question": {
       "en": "Which Baroque composer is famous for the 'Brandenburg Concertos' and 'The Well-Tempered Clavier'?",
-      "ar": "أي ملحّن من عصر الباروك اشتهر بـ«كونشيرتو براندنبورغ» و«الكلافير المعدّل»؟"
+      "ar": "أي ملحن باروكي اشتهر بـ «كونشيرتو براندنبورغ» و «الكلافير المنسجم»؟"
     },
     "answer": {
       "en": "Johann Sebastian Bach",
@@ -483,7 +483,7 @@
     },
     "question": {
       "en": "What is a 'Leitmotif'?",
-      "ar": "شو هو «اللايتموتيف» (Leitmotif)؟"
+      "ar": "ما هو الـ «لايتموتيف» (Leitmotif)؟"
     },
     "answer": {
       "en": "A recurring musical theme associated with a particular person, place, or idea",
@@ -502,7 +502,7 @@
     },
     "question": {
       "en": "Which scale consists entirely of half steps?",
-      "ar": "أي سلّم موسيقي كله أنصاف درجات؟"
+      "ar": "أي سلم موسيقي يتكون بالكامل من أنصاف الدرجات؟"
     },
     "answer": {
       "en": "Chromatic Scale",
@@ -521,7 +521,7 @@
     },
     "question": {
       "en": "Who is the female composer and mystic from the Middle Ages known for her 'Ordo Virtutum'?",
-      "ar": "مين الملحّنة والمتصوّفة من القرون الوسطى المعروفة بعملها «ترتيب الفضائل»؟"
+      "ar": "من هي الملحنة والمتصوفة من العصور الوسطى المعروفة بعملها «ترتيب الفضائل»؟"
     },
     "answer": {
       "en": "Hildegard von Bingen",
@@ -540,7 +540,7 @@
     },
     "question": {
       "en": "What is the term for the technique of playing a string instrument by plucking the strings?",
-      "ar": "شو نسمّي طريقة عزف الآلات الوترية بنقر الأوتار بالأصابع؟"
+      "ar": "ما هو المصطلح الذي يطلق على تقنية عزف الآلات الوترية عن طريق نقر الأوتار؟"
     },
     "answer": {
       "en": "Pizzicato",
@@ -559,7 +559,7 @@
     },
     "question": {
       "en": "What does the 'A' above middle C usually vibrate at (in Hertz)?",
-      "ar": "كم تردد (بالهرتز) نوتة «لا» (A) اللي فوق «دو» الوسطى عادةً؟"
+      "ar": "عند أي تردد (بالهرتز) يهتز نوتة «A» فوق «C» الوسطى عادة؟"
     },
     "answer": {
       "en": "440 Hz",
@@ -578,7 +578,7 @@
     },
     "question": {
       "en": "Which Egyptian singer was nicknamed 'Kawkab al-Sharq' (Star of the East)?",
-      "ar": "مين المطربة المصرية اللي لقبها «كوكب الشرق»؟"
+      "ar": "مَن المطربة المصرية الملقبة بـ«كوكب الشرق»؟"
     },
     "answer": {
       "en": "Umm Kulthum",
@@ -597,7 +597,7 @@
     },
     "question": {
       "en": "Who developed the 12-tone technique?",
-      "ar": "مين طوّر تقنية الاثنتي عشرة نغمة؟"
+      "ar": "من طور تقنية النغمات الـ 12؟"
     },
     "answer": {
       "en": "Arnold Schoenberg",
@@ -616,7 +616,7 @@
     },
     "question": {
       "en": "How does twelve-tone equal temperament divide an octave?",
-      "ar": "كيف يقسم نظام الضبط المتساوي بالاثنتي عشرة نغمة المسافة بين النوتة وجوابها؟"
+      "ar": "كيف يقسم نظام الضبط المتساوي ذي الاثنتي عشرة نغمة المسافة بين صوت وجوابه؟"
     },
     "answer": {
       "en": "Into twelve equal semitones",
@@ -635,7 +635,7 @@
     },
     "question": {
       "en": "What is a Picardy third?",
-      "ar": "شو المقصود بـ«الثالثة البيكاردية» في الموسيقى؟"
+      "ar": "ما المقصود بالثالثة البيكاردية في الموسيقى؟"
     },
     "answer": {
       "en": "Ending a piece in a minor key with a major chord on the tonic",
@@ -654,7 +654,7 @@
     },
     "question": {
       "en": "Who composed the 'Turangalîla-Symphonie', which features the Ondes Martenot?",
-      "ar": "مين ألّف «سيمفونية تورانغاليلا» اللي فيها آلة «موجات مارتنو»؟"
+      "ar": "من ألف «سمفونية تورانغاليلا» التي تتميز بآلة موجات مارتينو؟"
     },
     "answer": {
       "en": "Olivier Messiaen",
@@ -673,7 +673,7 @@
     },
     "question": {
       "en": "What is 'Musique Concrète'?",
-      "ar": "شو هي «الموسيقى الملموسة» (Musique Concrète)؟"
+      "ar": "ما هي «الموسيقى الملموسة» (Musique Concrète)؟"
     },
     "answer": {
       "en": "A genre of electroacoustic music that uses recorded sounds as raw material",
@@ -692,7 +692,7 @@
     },
     "question": {
       "en": "Which 9th-century musician from Baghdad moved to Córdoba and is credited with adding a fifth string to the oud?",
-      "ar": "مين الموسيقي البغدادي بالقرن التاسع اللي انتقل لقرطبة، وينسبون له إنه زاد وتر خامس على العود؟"
+      "ar": "مَن الموسيقي البغدادي في القرن التاسع الذي انتقل إلى قرطبة، ويُنسب إليه أنه أضاف وترًا خامسًا إلى العود؟"
     },
     "answer": {
       "en": "Ziryab",
@@ -711,7 +711,7 @@
     },
     "question": {
       "en": "Which composer's 'Symphony No. 9' is known as 'From the New World'?",
-      "ar": "أي ملحّن اشتهرت سيمفونيته التاسعة باسم «من العالم الجديد»؟"
+      "ar": "أي ملحن اشتهرت سمفونيته التاسعة باسم «من العالم الجديد»؟"
     },
     "answer": {
       "en": "Antonín Dvořák",
@@ -730,7 +730,7 @@
     },
     "question": {
       "en": "What is the 'Tritone' interval also known as due to its dissonance?",
-      "ar": "شو اللقب اللي انعطى لمسافة «التريتون» بسبب نشازها؟"
+      "ar": "ماذا يلقب فاصل «التريتون» بسبب نشازه؟"
     },
     "answer": {
       "en": "Diabolus in Musica (The Devil in Music)",
@@ -749,7 +749,7 @@
     },
     "question": {
       "en": "What is 'Aleatoric Music'?",
-      "ar": "شو هي «الموسيقى العشوائية» (Aleatoric Music)؟"
+      "ar": "ما هي «الموسيقى العشوائية» (Aleatoric Music)؟"
     },
     "answer": {
       "en": "Music in which some element of the composition is left to chance",
@@ -768,7 +768,7 @@
     },
     "question": {
       "en": "Which Egyptian singer was nicknamed 'al-Andaleeb al-Asmar' (the Dark Nightingale)?",
-      "ar": "مين المطرب المصري اللي لقبه «العندليب الأسمر»؟"
+      "ar": "مَن المطرب المصري الملقب بـ«العندليب الأسمر»؟"
     },
     "answer": {
       "en": "Abdel Halim Hafez",
@@ -787,7 +787,7 @@
     },
     "question": {
       "en": "Which trapezoid-shaped Arabic string instrument is laid flat on the lap and plucked with finger picks?",
-      "ar": "شو اسم الآلة الوترية العربية اللي شكلها شبه منحرف، تنحط على الحضن وتنعزف بريش بالأصابع؟"
+      "ar": "ما اسم الآلة الوترية العربية شبه المنحرفة الشكل، التي توضع على الحِجر ويُعزف عليها بريش في الأصابع؟"
     },
     "answer": {
       "en": "The qanun",
@@ -806,7 +806,7 @@
     },
     "question": {
       "en": "What is the improvised solo that explores a maqam on one instrument before a song begins?",
-      "ar": "شو اسم العزف المرتجل المنفرد اللي يستعرض المقام على آلة وحدة قبل ما تبدأ الأغنية؟"
+      "ar": "ما اسم العزف المنفرد المرتجل الذي يستعرض المقام على آلة واحدة قبل أن تبدأ الأغنية؟"
     },
     "answer": {
       "en": "Taqsim (taqasim)",
@@ -844,7 +844,7 @@
     },
     "question": {
       "en": "Who composed 'Enta Omri' for Umm Kulthum in 1964, a meeting of giants nicknamed 'Liqaa al-Sahab'?",
-      "ar": "مين الموسيقار اللي لحّن «إنت عمري» لأم كلثوم سنة 1964، بالتعاون اللي سمّوه «لقاء السحاب»؟"
+      "ar": "مَن الموسيقار الذي لحّن «إنت عمري» لأم كلثوم عام 1964، في التعاون الذي سُمّي «لقاء السحاب»؟"
     },
     "answer": {
       "en": "Mohammed Abdel Wahab",
@@ -863,7 +863,7 @@
     },
     "question": {
       "en": "Which composer, a father of modern Egyptian song, wrote the melody of Egypt's national anthem 'Bilady, Bilady, Bilady'?",
-      "ar": "مين الملحّن اللي يعتبرونه أبو الأغنية المصرية الحديثة، ولحّن النشيد الوطني المصري «بلادي بلادي بلادي»؟"
+      "ar": "مَن الملحن الذي يُعدّ أبا الأغنية المصرية الحديثة، ولحّن النشيد الوطني المصري «بلادي بلادي بلادي»؟"
     },
     "answer": {
       "en": "Sayed Darwish",
@@ -882,7 +882,7 @@
     },
     "question": {
       "en": "Which 10th-century philosopher wrote 'Kitab al-Musiqa al-Kabir' (The Great Book of Music)?",
-      "ar": "مين الفيلسوف اللي ألّف «كتاب الموسيقى الكبير» بالقرن العاشر؟"
+      "ar": "مَن الفيلسوف الذي ألّف «كتاب الموسيقى الكبير» في القرن العاشر؟"
     },
     "answer": {
       "en": "Al-Farabi",
@@ -901,7 +901,7 @@
     },
     "question": {
       "en": "Which Lebanese pioneer staged the first modern Arabic play, 'Al-Bakhil' (The Miser), in Beirut in 1847?",
-      "ar": "مين الرائد اللبناني اللي قدّم أول مسرحية عربية حديثة، «البخيل»، ببيروت سنة 1847؟"
+      "ar": "مَن الرائد اللبناني الذي قدّم أول مسرحية عربية حديثة، «البخيل»، في بيروت عام 1847؟"
     },
     "answer": {
       "en": "Marun al-Naqqash",
@@ -920,7 +920,7 @@
     },
     "question": {
       "en": "What is the suite form of Andalusian classical music, preserved in Morocco, Algeria and Tunisia, called?",
-      "ar": "شو اسم القالب (المتتالية) بالموسيقى الأندلسية اللي انحفظ بالمغرب والجزائر وتونس؟"
+      "ar": "ما اسم القالب (المتتالية) في الموسيقى الأندلسية الذي حُفظ في المغرب والجزائر وتونس؟"
     },
     "answer": {
       "en": "The nuba (nawba)",

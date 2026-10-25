@@ -4,24 +4,32 @@ let activeSpeech = null;
 const arabicTokens = { 'C++': 'سي بلس بلس', 'C#': 'سي شارب', DNA: 'دي إن إيه', RNA: 'آر إن إيه', pH: 'بي إتش' };
 
 // Use only installed device voices; never select browser-provided cloud voices.
+// Apple's novelty voices (sound effects, singing, whispering) are never chosen;
+// older robotic engines rank below well-known natural voices.
+const NOVELTY = /^(?:albert|bad ?news|bahh|bells|boing|bubbles|cellos|deranged|good ?news|hysterical|jester|(?:pipe ?)?organ|superstar|trinoids|whisper|wobble|zarvox)\b/u;
+const ROBOTIC = /\b(?:fred|junior|kathy|ralph|agnes|bruce|vicki|victoria|princess|eddy|flo|grandma|grandpa|reed|rocko|sandy|shelley|espeak|eloquence|compact|robot)\b/u;
+const NATURAL = /\b(?:premium|enhanced|neural|natural|studio|siri|samantha|alex|daniel|karen|moira|tessa|serena|ava|allison|susan|zoe|evan|nathan|tom|fiona|kate|oliver|arthur|martha|majed|maged|tarik|laila|mariam|hoda|naayf|hamed|google)\b/u;
 export function getBestVoice(voices, lang) {
   const language = languageOf(lang);
   if (!Array.isArray(voices) || !['ar', 'en'].includes(language)) return null;
   const candidates = voices.filter(voice => {
     const locale = voiceLanguage(voice);
-    return (locale === language || locale.startsWith(`${language}-`)) && voice.localService !== false;
+    return (locale === language || locale.startsWith(`${language}-`)) && voice.localService !== false
+      && ![voice.name, String(voice.voiceURI || '').split('.').pop()].some(name => NOVELTY.test(String(name || '').trim().toLowerCase()));
   });
   const score = voice => {
-    const name = `${voice.name || ''} ${voice.voiceURI || ''}`.toLowerCase();
-    return (/premium|enhanced|neural|natural|studio|siri/u.test(name) ? 100 : 0)
-      - (/compact|eloquence|espeak|robot/u.test(name) ? 25 : 0)
-      + (voice.localService ? 10 : 0) + (voice.default ? 5 : 0);
+    const name = `${voice.name || ''} ${voice.voiceURI || ''}`.toLowerCase().replace(/[._]/gu, ' ');
+    return (NATURAL.test(name) ? 100 : 0) - (ROBOTIC.test(name) ? 60 : 0) + (voice.localService ? 10 : 0)
+      + (voice.default ? 5 : 0) + ({ 'en-us': 8, 'en-gb': 6, 'ar-sa': 8, 'ar-001': 8 }[voiceLanguage(voice)] || 0);
   };
   return candidates.sort((a, b) => score(b) - score(a))[0] || null;
 }
 
 export function prepareSpeechText(text, lang) {
-  const clean = String(text || '').normalize('NFC').replace(/\s+/gu, ' ').trim();
+  // Invisible direction and joining marks are dropped; a ___ blank is a pause
+  // and a subscript underscore (S_N1) a space.
+  const clean = String(text || '').normalize('NFC').replace(/[\u00AD\u061C\u200B-\u200F\u202A-\u202E\u2066-\u2069\uFEFF]/gu, '')
+    .replace(/_{2,}/gu, ' … ').replace(/(?<=\w)_(?=\w)/gu, ' ').replace(/\s+/gu, ' ').trim();
   if (languageOf(lang) !== 'ar') return clean;
   return clean
     .replace(/C\+\+|C#|DNA|RNA|pH/gu, (token, offset, source) => {
@@ -35,7 +43,10 @@ export function prepareSpeechText(text, lang) {
     })
     .replace(/&/gu, ' و ').replace(/×/gu, ' في ').replace(/÷/gu, ' مقسوم على ')
     .replace(/=/gu, ' يساوي ').replace(/\+/gu, ' زائد ').replace(/−/gu, ' ناقص ')
-    .replace(/%/gu, ' بالمئة').replace(/[“”«»]/gu, '')
+    .replace(/%/gu, ' بالمئة').replace(/[“”«»‘’"]|(?<![A-Za-z])'|'(?![A-Za-z])/gu, '')
+    // بـ«…» joins its word once the quotes go; dashes become pauses or spaces.
+    .replace(/[بلك]ـ\s*(?=…)/gu, '').replace(/([بلك])ـ\s*(?=[ء-ي])/gu, '$1').replace(/ـ/gu, '')
+    .replace(/\s*—\s*/gu, '، ').replace(/(?<=[ء-ي])\s*–\s*(?=[ء-ي])/gu, ' ')
     .replace(/([،؛؟!])(?=\S)/gu, '$1 ').replace(/\s+/gu, ' ').trim();
 }
 

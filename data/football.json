@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "How many years are there between each FIFA World Cup?",
-      "ar": "كل كم سنة ينقام كأس العالم FIFA؟"
+      "ar": "كم عاماً بين كل كأس عالم FIFA؟"
     },
     "answer": {
       "en": "4 years",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "How long is regulation time in an adult football match, excluding added time and extra time?",
-      "ar": "كم مدة الوقت الأصلي بمباراة كرة قدم للكبار، من غير الوقت بدل الضايع أو الإضافي؟"
+      "ar": "كم يستغرق الوقت الأصلي في مباراة كرة قدم للكبار، دون الوقت بدل الضائع أو الوقت الإضافي؟"
     },
     "answer": {
       "en": "90 minutes",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "Which Argentinian player moved to Inter Miami in 2023?",
-      "ar": "أي لاعب أرجنتيني انتقل لإنتر ميامي سنة 2023؟"
+      "ar": "أي لاعب أرجنتيني انتقل إلى إنتر ميامي عام 2023؟"
     },
     "answer": {
       "en": "Lionel Messi",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "Which player scored the infamous 'Hand of God' goal?",
-      "ar": "مين سجّل هدف «يد الله» المثير للجدل؟"
+      "ar": "من سجّل هدف «يد الله» المثير للجدل؟"
     },
     "answer": {
       "en": "Diego Maradona",
@@ -84,7 +84,7 @@
     },
     "question": {
       "en": "What color card signals a player is sent off?",
-      "ar": "شو لون البطاقة اللي تعني طرد اللاعب؟"
+      "ar": "ما لون البطاقة التي تعني طرد اللاعب؟"
     },
     "answer": {
       "en": "Red",
@@ -103,7 +103,7 @@
     },
     "question": {
       "en": "How many players from one team are on the field at kick-off?",
-      "ar": "كم لاعب من كل فريق يكون بالملعب لما تبدأ المباراة؟"
+      "ar": "كم لاعباً من كل فريق يكون في الملعب عند بدء المباراة؟"
     },
     "answer": {
       "en": "11",
@@ -122,7 +122,7 @@
     },
     "question": {
       "en": "How many yards away from the goal is the penalty spot?",
-      "ar": "كم ياردة بين نقطة الجزاء والمرمى؟"
+      "ar": "كم يارداً يبعد نقطة الجزاء عن المرمى؟"
     },
     "answer": {
       "en": "12 yards",
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "Under the Laws of the Game, what is the minimum number of players a team must have for a match to start or continue?",
-      "ar": "حسب قوانين اللعبة، شو أقل عدد لاعبين لازم يكونون بالفريق عشان المباراة تبدأ أو تكمل؟"
+      "ar": "وفق قوانين اللعبة، ما الحد الأدنى لعدد لاعبي الفريق حتى تبدأ المباراة أو تستمر؟"
     },
     "answer": {
       "en": "Seven players",
@@ -160,7 +160,7 @@
     },
     "question": {
       "en": "What restart is awarded when the whole ball crosses the defending team's goal line outside the goal, last touched by a defender?",
-      "ar": "كيف يرجع اللعب إذا الكرة كلها عدّت خط مرمى الفريق المدافع برّا المرمى، وآخر واحد لمسها كان من المدافعين؟"
+      "ar": "كيف يُستأنف اللعب إذا تجاوزت الكرة بكاملها خط مرمى الفريق المدافع خارج المرمى، وكان آخر من لمسها أحد مدافعيه؟"
     },
     "answer": {
       "en": "A corner kick",
@@ -179,7 +179,7 @@
     },
     "question": {
       "en": "Which magazine awards the Ballon d'Or?",
-      "ar": "أي مجلة تعطي جايزة الكرة الذهبية؟"
+      "ar": "أي مجلة تمنح جائزة الكرة الذهبية؟"
     },
     "answer": {
       "en": "France Football",
@@ -198,7 +198,7 @@
     },
     "question": {
       "en": "Which EPL team went an entire season (2003-04) undefeated?",
-      "ar": "أي فريق بالدوري الإنجليزي لعب موسم كامل (2003-04) من غير ولا خسارة؟"
+      "ar": "أي فريق في الدوري الإنجليزي قضى موسماً كاملاً (2003-04) دون هزيمة؟"
     },
     "answer": {
       "en": "Arsenal",
@@ -217,7 +217,7 @@
     },
     "question": {
       "en": "What three trophies make up a 'Continental Treble' in European football?",
-      "ar": "شو الألقاب الثلاثة اللي تكوّن «الثلاثية» في كرة القدم الأوروبية؟"
+      "ar": "ما الألقاب الثلاثة التي تُشكّل «الثلاثية القارية» في كرة القدم الأوروبية؟"
     },
     "answer": {
       "en": "Domestic league, domestic cup and Champions League",
@@ -236,7 +236,7 @@
     },
     "question": {
       "en": "Which famous stadium is known as the 'Theater of Dreams'?",
-      "ar": "أي ملعب مشهور لقبه «مسرح الأحلام»؟"
+      "ar": "أي ملعب شهير يُعرف بـ«مسرح الأحلام»؟"
     },
     "answer": {
       "en": "Old Trafford",
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "Can receiving the ball directly from a throw-in constitute an offside offence?",
-      "ar": "ينحسب تسلل إذا اللاعب استلم الكرة مباشرة من رمية تماس؟"
+      "ar": "هل يُحتسب التسلل عند استلام الكرة مباشرةً من رمية تماس؟"
     },
     "answer": {
       "en": "No",
@@ -274,7 +274,7 @@
     },
     "question": {
       "en": "Which country won the first-ever European Championship in 1960?",
-      "ar": "أي دولة فازت بأول بطولة أوروبية سنة 1960؟"
+      "ar": "أي دولة فازت بأول بطولة أوروبية عام 1960؟"
     },
     "answer": {
       "en": "Soviet Union",
@@ -293,7 +293,7 @@
     },
     "question": {
       "en": "Which manager famously gave himself the nickname 'The Special One'?",
-      "ar": "أي مدرب سمّى نفسه بشكل لافت «المميّز» (The Special One)؟"
+      "ar": "أي مدرب أطلق على نفسه لقب «المميز» بشكل لافت؟"
     },
     "answer": {
       "en": "José Mourinho",
@@ -312,7 +312,7 @@
     },
     "question": {
       "en": "Whose 2017 move from Barcelona to Paris Saint-Germain set a €222 million football transfer record?",
-      "ar": "مين اللاعب اللي انتقل من برشلونة لباريس سان جيرمان سنة 2017 بصفقة قياسية 222 مليون يورو؟"
+      "ar": "انتقال أي لاعب من برشلونة إلى باريس سان جيرمان عام 2017 سجّل رقمًا قياسيًا بقيمة 222 مليون يورو؟"
     },
     "answer": {
       "en": "Neymar",
@@ -331,7 +331,7 @@
     },
     "question": {
       "en": "What is the term for a player scoring three goals in a single game?",
-      "ar": "شو نسمّي لما لاعب يسجّل ثلاث أهداف بمباراة وحدة؟"
+      "ar": "ما مصطلح تسجيل اللاعب ثلاثة أهداف في مباراة واحدة؟"
     },
     "answer": {
       "en": "Hat-trick",
@@ -350,7 +350,7 @@
     },
     "question": {
       "en": "What is the famous fixture between Bayern Munich and Borussia Dortmund nicknamed?",
-      "ar": "شو اللقب المشهور لمباراة بايرن ميونخ وبوروسيا دورتموند؟"
+      "ar": "ما اللقب الشهير لمباراة بايرن ميونخ وبوروسيا دورتموند؟"
     },
     "answer": {
       "en": "Der Klassiker",
@@ -369,7 +369,7 @@
     },
     "question": {
       "en": "Which country won the very first FIFA World Cup in 1930?",
-      "ar": "أي دولة فازت بأول كأس عالم FIFA سنة 1930؟"
+      "ar": "أي دولة فازت بأول كأس عالم FIFA عام 1930؟"
     },
     "answer": {
       "en": "Uruguay",
@@ -407,7 +407,7 @@
     },
     "question": {
       "en": "Which manager is most closely associated with perfecting 'Tiki-Taka' at Barcelona?",
-      "ar": "أي مدرب أكثر واحد مرتبط بإتقان أسلوب «تيكي-تاكا» مع برشلونة؟"
+      "ar": "أي مدرب يُعدّ الأكثر ارتباطاً بإتقان أسلوب «تيكي-تاكا» في برشلونة؟"
     },
     "answer": {
       "en": "Pep Guardiola",
@@ -426,7 +426,7 @@
     },
     "question": {
       "en": "Which goalkeeper won the Ballon d'Or in 1963?",
-      "ar": "أي حارس مرمى فاز بالكرة الذهبية سنة 1963؟"
+      "ar": "أي حارس مرمى فاز بالكرة الذهبية عام 1963؟"
     },
     "answer": {
       "en": "Lev Yashin",
@@ -445,7 +445,7 @@
     },
     "question": {
       "en": "Who scored Saudi Arabia's winning goal in their famous 2–1 win over Argentina at the 2022 World Cup?",
-      "ar": "مين سجّل هدف فوز السعودية بالمباراة التاريخية اللي غلبت فيها الأرجنتين 2–1 بكأس العالم 2022؟"
+      "ar": "مَن سجّل هدف فوز السعودية في المباراة التاريخية التي تغلبت فيها على الأرجنتين 2–1 في كأس العالم 2022؟"
     },
     "answer": {
       "en": "Salem Al-Dawsari",
@@ -464,7 +464,7 @@
     },
     "question": {
       "en": "Who scored for Turkey about 11 seconds into the 2002 men's World Cup third-place match?",
-      "ar": "مين سجّل لتركيا بعد حوالي 11 ثانية من بداية مباراة المركز الثالث بكأس العالم للرجال 2002؟"
+      "ar": "من سجل لتركيا بعد نحو 11 ثانية من بداية مباراة المركز الثالث في كأس العالم للرجال 2002؟"
     },
     "answer": {
       "en": "Hakan Şükür",
@@ -483,7 +483,7 @@
     },
     "question": {
       "en": "What is a 'Panenka' penalty?",
-      "ar": "شو هي ركلة «بانينكا»؟"
+      "ar": "ما ركلة «بانينكا»؟"
     },
     "answer": {
       "en": "A chipped shot down the center while the keeper dives",
@@ -502,7 +502,7 @@
     },
     "question": {
       "en": "Which Belgian player's legal challenge led to the 1995 ruling on out-of-contract EU footballers' transfers within the EU?",
-      "ar": "أي لاعب بلجيكي رفع قضية أدّت لحكم سنة 1995 بخصوص انتقال لاعبين الاتحاد الأوروبي داخل الاتحاد بعد ما تخلص عقودهم؟"
+      "ar": "أي لاعب بلجيكي أدت دعواه إلى حكم عام 1995 المتعلق بانتقال لاعبي الاتحاد الأوروبي داخل الاتحاد بعد انتهاء عقودهم؟"
     },
     "answer": {
       "en": "Jean-Marc Bosman",
@@ -521,7 +521,7 @@
     },
     "question": {
       "en": "Which annual competition matched the European and South American club champions from 1960 to 2004?",
-      "ar": "شو البطولة السنوية اللي كانت تجمع بطل أوروبا وبطل أمريكا الجنوبية للأندية من 1960 لـ2004؟"
+      "ar": "ما البطولة السنوية التي كانت تجمع بطل أوروبا وبطل أمريكا الجنوبية للأندية من 1960 إلى 2004؟"
     },
     "answer": {
       "en": "The Intercontinental Cup (Toyota Cup)",
@@ -540,7 +540,7 @@
     },
     "question": {
       "en": "Which Italian legend was known as 'Il Divin Codino' (The Divine Ponytail)?",
-      "ar": "أي أسطورة إيطالية كان لقبها «ذيل الحصان الإلهي»؟"
+      "ar": "أي أسطورة إيطالية كانت تُعرف بـ«ذيل الحصان الإلهي»؟"
     },
     "answer": {
       "en": "Roberto Baggio",
@@ -559,7 +559,7 @@
     },
     "question": {
       "en": "In the 1999 Champions League final, Bayern Munich led 1–0 with seconds remaining. Which club scored twice in injury time to win 2–1?",
-      "ar": "بنهائي دوري أبطال أوروبا 1999، بايرن ميونخ كان متقدّم 1–0 بآخر اللحظات. أي نادي سجّل هدفين بالوقت الضايع وفاز 2–1؟"
+      "ar": "في نهائي دوري أبطال أوروبا 1999، كانت بايرن ميونخ تتقدم 1–0 في اللحظات الأخيرة. أي نادٍ سجّل هدفين في الوقت الضائع ليفوز 2–1؟"
     },
     "answer": {
       "en": "Manchester United",
@@ -578,7 +578,7 @@
     },
     "question": {
       "en": "Which German striker reached 16 career men's World Cup goals at the 2014 tournament?",
-      "ar": "أي مهاجم ألماني وصل رصيده 16 هدف بكأس العالم للرجال خلال بطولة 2014؟"
+      "ar": "أي مهاجم ألماني بلغ رصيده 16 هدفاً في كأس العالم للرجال خلال بطولة 2014؟"
     },
     "answer": {
       "en": "Miroslav Klose",
@@ -597,7 +597,7 @@
     },
     "question": {
       "en": "Which Arsenal legend had a well-known fear of flying that limited his away trips?",
-      "ar": "أي أسطورة من أرسنال كان معروف إنه يخاف من الطيران، وهالشي قلّل سفراته؟"
+      "ar": "أي أسطورة أرسنال كانت لديه رهبة معروفة من الطيران حدّت من رحلاته؟"
     },
     "answer": {
       "en": "Dennis Bergkamp",
@@ -616,7 +616,7 @@
     },
     "question": {
       "en": "Who scored 91 goals in the calendar year 2012?",
-      "ar": "مين سجّل 91 هدف بسنة 2012 الميلادية؟"
+      "ar": "من سجّل 91 هدفاً في السنة الميلادية 2012؟"
     },
     "answer": {
       "en": "Lionel Messi",
@@ -635,7 +635,7 @@
     },
     "question": {
       "en": "Which country won the 2026 men's World Cup, beating Argentina 1–0 after extra time in the final?",
-      "ar": "أي منتخب فاز بكأس العالم للرجال 2026، بعد ما غلب الأرجنتين 1–0 بالأشواط الإضافية في النهائي؟"
+      "ar": "أي منتخب فاز بكأس العالم للرجال 2026، بعد أن تغلّب على الأرجنتين 1–0 في الأشواط الإضافية في النهائي؟"
     },
     "answer": {
       "en": "Spain",
@@ -654,7 +654,7 @@
     },
     "question": {
       "en": "Which men's club won the Premier League, FA Cup and UEFA Champions League in 2023?",
-      "ar": "أي نادي للرجال جمع الدوري الإنجليزي الممتاز وكأس الاتحاد الإنجليزي ودوري أبطال أوروبا سنة 2023؟"
+      "ar": "أي نادٍ للرجال جمع الدوري الإنجليزي الممتاز وكأس الاتحاد الإنجليزي ودوري أبطال أوروبا عام 2023؟"
     },
     "answer": {
       "en": "Manchester City",
@@ -673,7 +673,7 @@
     },
     "question": {
       "en": "Which club won the English Premier League in the 2015–16 season?",
-      "ar": "أي نادي فاز بالدوري الإنجليزي الممتاز بموسم 2015–2016؟"
+      "ar": "أي نادٍ فاز بالدوري الإنجليزي الممتاز في موسم 2015–2016؟"
     },
     "answer": {
       "en": "Leicester City",
@@ -692,7 +692,7 @@
     },
     "question": {
       "en": "What was the final score in the Brazil vs Germany semi-final at the 2014 World Cup?",
-      "ar": "شو كانت النتيجة النهائية بنصف نهائي 2014 بين البرازيل وألمانيا؟"
+      "ar": "ما النتيجة النهائية في نصف نهائي 2014 بين البرازيل وألمانيا؟"
     },
     "answer": {
       "en": "1-7 (to Germany)",
@@ -711,7 +711,7 @@
     },
     "question": {
       "en": "Which English club has the mythical Liver bird on its crest?",
-      "ar": "أي نادي إنجليزي على شعاره طائر الليفر الأسطوري؟"
+      "ar": "أي نادٍ إنجليزي يظهر طائر الليفر الأسطوري على شعاره؟"
     },
     "answer": {
       "en": "Liverpool",
@@ -730,7 +730,7 @@
     },
     "question": {
       "en": "Which team has a red devil holding a pitchfork?",
-      "ar": "أي فريق على شعاره شيطان أحمر ماسك شوكة؟"
+      "ar": "أي فريق يحمل شيطاناً أحمر ممسكاً شوكة؟"
     },
     "answer": {
       "en": "Manchester United",
@@ -768,7 +768,7 @@
     },
     "question": {
       "en": "Which Italian club's logo shows a wolf nursing two twins?",
-      "ar": "أي نادي إيطالي على شعاره ذئبة ترضّع توأم؟"
+      "ar": "أي نادٍ إيطالي يُظهر شعاره ذئبة ترضع التوأمين؟"
     },
     "answer": {
       "en": "AS Roma",
@@ -806,7 +806,7 @@
     },
     "question": {
       "en": "Which national team is famous for wearing bright orange?",
-      "ar": "أي منتخب مشهور إنه يلبس اللون البرتقالي الفاقع؟"
+      "ar": "أي منتخب وطني يشتهر بارتداء اللون البرتقالي الزاهي؟"
     },
     "answer": {
       "en": "Netherlands",
@@ -825,7 +825,7 @@
     },
     "question": {
       "en": "'The Azzurri' — which national team wears blue despite it not being on their flag?",
-      "ar": "«الأتزوري» — أي منتخب يلبس الأزرق مع إن الأزرق مش بعلمه؟"
+      "ar": "«الأزوري» — أي منتخب يرتدي الأزرق رغم غيابه عن علمه؟"
     },
     "answer": {
       "en": "Italy",
@@ -863,7 +863,7 @@
     },
     "question": {
       "en": "Which manager won a record fifth European Cup or Champions League title in 2024?",
-      "ar": "أي مدرب فاز سنة 2024 بلقبه الخامس القياسي في كأس أوروبا أو دوري أبطال أوروبا؟"
+      "ar": "أي مدرب فاز عام 2024 بلقبه الخامس القياسي في كأس أوروبا أو دوري أبطال أوروبا؟"
     },
     "answer": {
       "en": "Carlo Ancelotti",
@@ -901,7 +901,7 @@
     },
     "question": {
       "en": "Which country won the 2022 FIFA World Cup?",
-      "ar": "أي دولة فازت بكأس العالم FIFA سنة 2022؟"
+      "ar": "أي دولة فازت بكأس العالم FIFA لعام 2022؟"
     },
     "answer": {
       "en": "Argentina",
@@ -920,7 +920,7 @@
     },
     "question": {
       "en": "What does VAR stand for in football?",
-      "ar": "في كرة القدم، شو معنى اختصار VAR؟"
+      "ar": "ماذا تعني اختصار VAR في كرة القدم؟"
     },
     "answer": {
       "en": "Video Assistant Referee",
@@ -939,7 +939,7 @@
     },
     "question": {
       "en": "Which English club is nicknamed 'The Gunners'?",
-      "ar": "أي نادي إنجليزي لقبه «المدفعجية»؟"
+      "ar": "أي نادٍ إنجليزي يُعرف بلقب «المدفعيون»؟"
     },
     "answer": {
       "en": "Arsenal",
@@ -958,7 +958,7 @@
     },
     "question": {
       "en": "Which player is known by the nickname 'CR7'?",
-      "ar": "أي لاعب معروف باسم «CR7»؟"
+      "ar": "أي لاعب يُعرف بالاسم «CR7»؟"
     },
     "answer": {
       "en": "Cristiano Ronaldo",
@@ -977,7 +977,7 @@
     },
     "question": {
       "en": "At the 2022 men's World Cup, how many ordinary substitutions could a team make during regulation time?",
-      "ar": "بكأس العالم للرجال 2022، كم تبديل عادي كان مسموح لكل فريق بالوقت الأصلي؟"
+      "ar": "كم تبديلاً عادياً سُمح لكل فريق بإجرائه خلال الوقت الأصلي في كأس العالم للرجال 2022؟"
     },
     "answer": {
       "en": "Five",
@@ -996,7 +996,7 @@
     },
     "question": {
       "en": "In which city is the Camp Nou stadium located?",
-      "ar": "بأي مدينة ملعب كامب نو؟"
+      "ar": "في أي مدينة يقع ملعب كامب نو؟"
     },
     "answer": {
       "en": "Barcelona, Spain",
@@ -1015,7 +1015,7 @@
     },
     "question": {
       "en": "How many clubs compete in the English Premier League?",
-      "ar": "كم نادي يتنافس بالدوري الإنجليزي الممتاز؟"
+      "ar": "كم ناديًا يتنافس في الدوري الإنجليزي الممتاز؟"
     },
     "answer": {
       "en": "20 clubs",
@@ -1034,7 +1034,7 @@
     },
     "question": {
       "en": "Who managed England's 1966 World Cup-winning team?",
-      "ar": "مين درّب منتخب إنجلترا اللي فاز بكأس العالم 1966؟"
+      "ar": "من درَّب المنتخب الإنجليزي الذي فاز بكأس العالم 1966؟"
     },
     "answer": {
       "en": "Sir Alf Ramsey",
@@ -1053,7 +1053,7 @@
     },
     "question": {
       "en": "What nationality is Mohamed Salah?",
-      "ar": "محمد صلاح من أي جنسية؟"
+      "ar": "ما جنسية محمد صلاح؟"
     },
     "answer": {
       "en": "Egyptian",
@@ -1072,7 +1072,7 @@
     },
     "question": {
       "en": "What award is given to the Premier League's top scorer each season?",
-      "ar": "شو الجايزة اللي تنعطى لهدّاف الدوري الإنجليزي الممتاز كل موسم؟"
+      "ar": "ما الجائزة التي تُمنح لهداف الدوري الإنجليزي الممتاز كل موسم؟"
     },
     "answer": {
       "en": "The Golden Boot",
@@ -1110,7 +1110,7 @@
     },
     "question": {
       "en": "Which country won UEFA Euro 2020 (played in 2021)?",
-      "ar": "أي دولة فازت بيورو 2020 اللي انقام سنة 2021؟"
+      "ar": "أي دولة فازت بيورو 2020 الذي أُقيم عام 2021؟"
     },
     "answer": {
       "en": "Italy",
@@ -1129,7 +1129,7 @@
     },
     "question": {
       "en": "Which competition do South American clubs enter to win the continental title?",
-      "ar": "بأي مسابقة تتنافس أندية أمريكا الجنوبية على لقب القارة؟"
+      "ar": "في أي مسابقة تتنافس أندية أمريكا الجنوبية على لقب القارة؟"
     },
     "answer": {
       "en": "Copa Libertadores",
@@ -1148,7 +1148,7 @@
     },
     "question": {
       "en": "Which Italian club is nicknamed 'La Vecchia Signora' (The Old Lady)?",
-      "ar": "أي نادي إيطالي لقبه «السيدة العجوز»؟"
+      "ar": "أي نادٍ إيطالي يُلقَّب بـ «السيدة العجوز»؟"
     },
     "answer": {
       "en": "Juventus",
@@ -1167,7 +1167,7 @@
     },
     "question": {
       "en": "Who scored the winning goal in the 2010 FIFA World Cup final?",
-      "ar": "مين سجّل هدف الفوز بنهائي كأس العالم 2010؟"
+      "ar": "من سجَّل هدف الفوز في نهائي كأس العالم 2010؟"
     },
     "answer": {
       "en": "Andrés Iniesta (for Spain vs Netherlands)",
@@ -1205,7 +1205,7 @@
     },
     "question": {
       "en": "What two colours traditionally identify FC Barcelona's home kit?",
-      "ar": "شو اللونين اللي يميّزون لبس برشلونة الأساسي التقليدي؟"
+      "ar": "ما اللونان اللذان يميزان الزي الأساسي التقليدي لبرشلونة؟"
     },
     "answer": {
       "en": "Blue and garnet red",
@@ -1224,7 +1224,7 @@
     },
     "question": {
       "en": "Which club is nicknamed 'Los Blancos' (The Whites)?",
-      "ar": "أي نادي معروف بـ«لوس بلانكوس» (البيض)؟"
+      "ar": "أي نادٍ يُعرف بـ «لوس بلانكوس» (البِيض)؟"
     },
     "answer": {
       "en": "Real Madrid",
@@ -1243,7 +1243,7 @@
     },
     "question": {
       "en": "Which league does Paris Saint-Germain (PSG) play in?",
-      "ar": "باريس سان جيرمان يلعب بأي دوري؟"
+      "ar": "في أي دوري يلعب باريس سان جيرمان؟"
     },
     "answer": {
       "en": "Ligue 1 (France)",
@@ -1262,7 +1262,7 @@
     },
     "question": {
       "en": "Which three countries co-hosted the 2026 men's FIFA World Cup?",
-      "ar": "شو الدول الثلاث اللي استضافوا مع بعض كأس العالم للرجال 2026؟"
+      "ar": "ما الدول الثلاث التي استضافت كأس العالم للرجال 2026 بشكل مشترك؟"
     },
     "answer": {
       "en": "Canada, Mexico and the United States",
@@ -1281,7 +1281,7 @@
     },
     "question": {
       "en": "Which Brazilian player scored his 78th senior international goal against Bolivia in September 2023, passing Pelé's FIFA-recognized total?",
-      "ar": "أي لاعب برازيلي سجّل هدفه الدولي رقم 78 مع المنتخب الأول ضد بوليفيا في سبتمبر 2023، وتجاوز رصيد بيليه المعتمد عند فيفا؟"
+      "ar": "أي لاعب برازيلي سجل هدفه الدولي رقم 78 مع المنتخب الأول أمام بوليفيا في سبتمبر 2023، متجاوزاً رصيد بيليه المعتمد لدى فيفا؟"
     },
     "answer": {
       "en": "Neymar",
@@ -1300,7 +1300,7 @@
     },
     "question": {
       "en": "Which club signed Lionel Messi when he left Barcelona in 2021?",
-      "ar": "أي نادي ضم ليونيل ميسي بعد ما ترك برشلونة سنة 2021؟"
+      "ar": "أي نادٍ ضمَّ ليونيل ميسي بعد مغادرته برشلونة عام 2021؟"
     },
     "answer": {
       "en": "Paris Saint-Germain (PSG)",
@@ -1319,7 +1319,7 @@
     },
     "question": {
       "en": "Which club has won the most Premier League titles?",
-      "ar": "أي نادي فاز بأكثر ألقاب الدوري الإنجليزي الممتاز؟"
+      "ar": "أي نادٍ فاز بأكبر عدد من ألقاب الدوري الإنجليزي الممتاز؟"
     },
     "answer": {
       "en": "Manchester United (13 titles)",
@@ -1338,7 +1338,7 @@
     },
     "question": {
       "en": "Which club did Erling Haaland join from Borussia Dortmund in 2022?",
-      "ar": "لأي نادي انتقل إيرلينغ هالاند من بوروسيا دورتموند سنة 2022؟"
+      "ar": "إلى أي نادٍ انتقل إيرلينغ هالاند من بوروسيا دورتموند عام 2022؟"
     },
     "answer": {
       "en": "Manchester City",
@@ -1357,7 +1357,7 @@
     },
     "question": {
       "en": "Can a player be in an offside position while entirely in their own half of the field?",
-      "ar": "يكون اللاعب متسلل إذا كان جسمه كله بنص ملعب فريقه؟"
+      "ar": "هل يكون اللاعب في موقف تسلل إذا كان موجوداً بكامل جسمه في نصف ملعب فريقه؟"
     },
     "answer": {
       "en": "No",
@@ -1376,7 +1376,7 @@
     },
     "question": {
       "en": "Which men's national team is nicknamed the Three Lions?",
-      "ar": "أي منتخب رجال لقبه «الأسود الثلاثة»؟"
+      "ar": "أي منتخب وطني للرجال يُلقب بالأسود الثلاثة؟"
     },
     "answer": {
       "en": "England",
@@ -1395,7 +1395,7 @@
     },
     "question": {
       "en": "Which legendary German striker was nicknamed 'Der Bomber der Nation'?",
-      "ar": "أي مهاجم ألماني أسطوري كان لقبه «قاذفة الأمة» (Der Bomber der Nation)؟"
+      "ar": "أي مهاجم ألماني أسطوري كان يُلقَّب بـ«قاذفة الأمة» (Der Bomber der Nation)؟"
     },
     "answer": {
       "en": "Gerd Müller",
@@ -1414,7 +1414,7 @@
     },
     "question": {
       "en": "Which two countries co-hosted the men's World Cup that Brazil won in 2002?",
-      "ar": "شو الدولتين اللي استضافوا كأس العالم للرجال اللي فازت فيها البرازيل سنة 2002؟"
+      "ar": "ما الدولتان اللتان استضافتا كأس العالم للرجال التي فازت بها البرازيل عام 2002؟"
     },
     "answer": {
       "en": "South Korea and Japan",
@@ -1433,7 +1433,7 @@
     },
     "question": {
       "en": "Who scored the winning goal in the 2023 UEFA Champions League final?",
-      "ar": "مين سجّل هدف الفوز بنهائي دوري أبطال أوروبا 2023؟"
+      "ar": "من سجَّل هدف الفوز في نهائي دوري أبطال أوروبا 2023؟"
     },
     "answer": {
       "en": "Rodri (Manchester City vs Inter Milan)",
@@ -1452,7 +1452,7 @@
     },
     "question": {
       "en": "In what year did Zinedine Zidane score his iconic volley in the Champions League final?",
-      "ar": "بأي سنة سجّل زين الدين زيدان تسديدته الطايرة المشهورة بنهائي دوري الأبطال؟"
+      "ar": "في أي عام سجَّل زين الدين زيدان تسديدته الطائرة الشهيرة في نهائي دوري الأبطال؟"
     },
     "answer": {
       "en": "2002 (Real Madrid vs Bayer Leverkusen)",
@@ -1471,7 +1471,7 @@
     },
     "question": {
       "en": "Who is Chelsea's all-time top scorer?",
-      "ar": "مين الهدّاف التاريخي لنادي تشيلسي؟"
+      "ar": "من هو الهداف التاريخي لنادي تشيلسي؟"
     },
     "answer": {
       "en": "Frank Lampard (211 goals in all competitions)",
@@ -1490,7 +1490,7 @@
     },
     "question": {
       "en": "In which year was the tournament rebranded from the European Cup to the UEFA Champions League?",
-      "ar": "بأي سنة تغيّر اسم البطولة من «كأس الأندية الأوروبية» لـ«دوري أبطال أوروبا»؟"
+      "ar": "في أي عام أُعيدت تسمية البطولة من كأس الأندية الأوروبية إلى دوري أبطال أوروبا؟"
     },
     "answer": {
       "en": "1992 (the 1992-93 season was the first UCL)",
@@ -1509,7 +1509,7 @@
     },
     "question": {
       "en": "Which club has won the most Serie A (Italian league) titles?",
-      "ar": "أي نادي فاز بأكثر ألقاب الدوري الإيطالي؟"
+      "ar": "أي نادٍ فاز بأكبر عدد من ألقاب الدوري الإيطالي؟"
     },
     "answer": {
       "en": "Juventus",
@@ -1528,7 +1528,7 @@
     },
     "question": {
       "en": "What was the score in the 1966 World Cup final?",
-      "ar": "شو نتيجة نهائي كأس العالم 1966؟"
+      "ar": "ما نتيجة نهائي كأس العالم 1966؟"
     },
     "answer": {
       "en": "England 4-2 West Germany (after extra time)",
@@ -1566,7 +1566,7 @@
     },
     "question": {
       "en": "What is an 'Olimpico' goal in football?",
-      "ar": "شو هو الهدف اللي اسمه «أوليمبيكو» بكرة القدم؟"
+      "ar": "ما الهدف المعروف باسم «أوليمبيكو» في كرة القدم؟"
     },
     "answer": {
       "en": "A goal scored directly from a corner kick",
@@ -1585,7 +1585,7 @@
     },
     "question": {
       "en": "How many Premier League goals did Alan Shearer score in his career (the all-time record)?",
-      "ar": "كم هدف سجّل آلان شيرر بالدوري الإنجليزي بمسيرته؟ (الرقم التاريخي)"
+      "ar": "كم هدفًا سجَّله ألان شيرر في الدوري الإنجليزي خلال مسيرته؟ (الرقم التاريخي)"
     },
     "answer": {
       "en": "260 goals",
@@ -1604,7 +1604,7 @@
     },
     "question": {
       "en": "Which country won the first FIFA Women's World Cup in 1991?",
-      "ar": "أي دولة فازت بأول كأس عالم للسيدات سنة 1991؟"
+      "ar": "أي دولة فازت بكأس العالم للسيدات الأول عام 1991؟"
     },
     "answer": {
       "en": "USA",
@@ -1623,7 +1623,7 @@
     },
     "question": {
       "en": "In which city is FIFA's headquarters located?",
-      "ar": "بأي مدينة مقر الاتحاد الدولي لكرة القدم FIFA؟"
+      "ar": "في أي مدينة يقع مقر الاتحاد الدولي لكرة القدم FIFA؟"
     },
     "answer": {
       "en": "Zurich, Switzerland",
@@ -1642,7 +1642,7 @@
     },
     "question": {
       "en": "Which manager led Liverpool to Champions League glory in 2019?",
-      "ar": "أي مدرب قاد ليفربول للفوز بدوري الأبطال سنة 2019؟"
+      "ar": "أي مدرب قاد ليفربول إلى التتويج بدوري الأبطال عام 2019؟"
     },
     "answer": {
       "en": "Jürgen Klopp",
@@ -1661,7 +1661,7 @@
     },
     "question": {
       "en": "Which country has won the most UEFA European Championships?",
-      "ar": "أي دولة فازت بأكثر بطولات أمم أوروبا؟"
+      "ar": "أي دولة فازت بأكبر عدد من بطولات أمم أوروبا؟"
     },
     "answer": {
       "en": "Spain — 4 titles (1964, 2008, 2012, 2024)",
@@ -1680,7 +1680,7 @@
     },
     "question": {
       "en": "What was Pelé's real full name?",
-      "ar": "شو الاسم الحقيقي الكامل لبيليه؟"
+      "ar": "ما الاسم الحقيقي الكامل لبيليه؟"
     },
     "answer": {
       "en": "Edson Arantes do Nascimento",
@@ -1699,7 +1699,7 @@
     },
     "question": {
       "en": "How many Premier League goals did Erling Haaland score in his debut PL season (2022-23)?",
-      "ar": "كم هدف سجّل إيرلينغ هالاند بأول موسم له بالدوري الإنجليزي (2022-23)؟"
+      "ar": "كم هدفًا سجَّله إيرلينغ هالاند في أول موسم له في الدوري الإنجليزي (2022-23)؟"
     },
     "answer": {
       "en": "36 goals — a new Premier League record",
@@ -1718,7 +1718,7 @@
     },
     "question": {
       "en": "Who scored an acrobatic overhead kick goal in the 2018 Champions League final?",
-      "ar": "مين سجّل هدف المقصّية بنهائي دوري الأبطال 2018؟"
+      "ar": "من سجَّل هدف المقص الجوي في نهائي دوري الأبطال 2018؟"
     },
     "answer": {
       "en": "Gareth Bale (for Real Madrid vs Liverpool)",
@@ -1756,7 +1756,7 @@
     },
     "question": {
       "en": "In February 2026, which player broke Gareth Barry's record for the most Premier League appearances?",
-      "ar": "في فبراير 2026، مين اللاعب اللي كسر رقم غاريث باري لأكثر مباريات بالدوري الإنجليزي الممتاز؟"
+      "ar": "في فبراير 2026، مَن اللاعب الذي حطّم رقم غاريث باري في عدد المباريات في الدوري الإنجليزي الممتاز؟"
     },
     "answer": {
       "en": "James Milner",
@@ -1775,7 +1775,7 @@
     },
     "question": {
       "en": "What is a false nine?",
-      "ar": "في كرة القدم، شو المقصود بـ«المهاجم الوهمي»؟"
+      "ar": "ما المقصود بالمهاجم الوهمي في كرة القدم؟"
     },
     "answer": {
       "en": "A nominal centre-forward who drops into midfield to link play and draw defenders out of position",
@@ -1794,7 +1794,7 @@
     },
     "question": {
       "en": "Which manager won 13 Premier League titles with Manchester United?",
-      "ar": "أي مدرب فاز بـ13 لقب دوري إنجليزي مع مانشستر يونايتد؟"
+      "ar": "أي مدرب فاز بـ 13 لقبًا في الدوري الإنجليزي مع مانشستر يونايتد؟"
     },
     "answer": {
       "en": "Sir Alex Ferguson",
@@ -1813,7 +1813,7 @@
     },
     "question": {
       "en": "Which Saudi player dribbled from his own half to score a famous solo goal against Belgium at the 1994 World Cup?",
-      "ar": "مين اللاعب السعودي اللي راوغ من نص ملعبه وسجّل هدف فردي مشهور ضد بلجيكا بكأس العالم 1994؟"
+      "ar": "مَن اللاعب السعودي الذي راوغ من نصف ملعبه وسجّل هدفًا فرديًا شهيرًا في مرمى بلجيكا في كأس العالم 1994؟"
     },
     "answer": {
       "en": "Saeed Al-Owairan",
@@ -1832,7 +1832,7 @@
     },
     "question": {
       "en": "Which Egyptian club has won the CAF Champions League a record number of times?",
-      "ar": "أي نادي مصري فاز بدوري أبطال إفريقيا أكثر عدد من المرات؟"
+      "ar": "أي نادٍ مصري فاز بدوري أبطال إفريقيا أكبر عدد من المرات؟"
     },
     "answer": {
       "en": "Al Ahly",
@@ -1870,7 +1870,7 @@
     },
     "question": {
       "en": "Which Brazilian striker was nicknamed 'O Fenômeno' (The Phenomenon)?",
-      "ar": "أي مهاجم برازيلي كان لقبه «الظاهرة»؟"
+      "ar": "أي مهاجم برازيلي كان يُلقَّب بـ «الظاهرة»؟"
     },
     "answer": {
       "en": "Ronaldo (R9)",
@@ -1908,7 +1908,7 @@
     },
     "question": {
       "en": "Who scored a hat-trick in the 2022 World Cup final?",
-      "ar": "مين سجّل هاتريك بنهائي كأس العالم 2022؟"
+      "ar": "من سجَّل هاتريك في نهائي كأس العالم 2022؟"
     },
     "answer": {
       "en": "Kylian Mbappé (for France, though Argentina won on penalties)",
@@ -1927,7 +1927,7 @@
     },
     "question": {
       "en": "In what year did Pelé play his final professional match?",
-      "ar": "بأي سنة لعب بيليه آخر مباراة احترافية له؟"
+      "ar": "في أي عام لعب بيليه مباراته المهنية الأخيرة؟"
     },
     "answer": {
       "en": "1977 (for New York Cosmos)",
@@ -1946,7 +1946,7 @@
     },
     "question": {
       "en": "Which player is the only one to have won the Champions League with three different clubs?",
-      "ar": "أي لاعب هو الوحيد اللي فاز بدوري الأبطال مع ثلاث أندية مختلفة؟"
+      "ar": "أي لاعب هو الوحيد الذي فاز بدوري الأبطال مع ثلاثة أندية مختلفة؟"
     },
     "answer": {
       "en": "Clarence Seedorf (Ajax, Real Madrid and AC Milan)",
@@ -1965,7 +1965,7 @@
     },
     "question": {
       "en": "Which Real Madrid winger won a record six European Cups, a total no player matched until 2024?",
-      "ar": "مين جناح ريال مدريد اللي فاز بستة ألقاب كأس أوروبا، رقم ما حد عادله إلا سنة 2024؟"
+      "ar": "مَن جناح ريال مدريد الذي فاز بستة ألقاب لكأس أوروبا، وهو رقم لم يعادله أي لاعب حتى عام 2024؟"
     },
     "answer": {
       "en": "Francisco Gento",
@@ -1984,7 +1984,7 @@
     },
     "question": {
       "en": "What does a sell-on clause give a former club in a football transfer?",
-      "ar": "في انتقال لاعب الكورة، شو يعطي «شرط إعادة البيع» للنادي السابق؟"
+      "ar": "ماذا يمنح شرط إعادة البيع للنادي السابق في انتقال لاعب كرة القدم؟"
     },
     "answer": {
       "en": "A percentage of a future transfer fee when the player is sold again",
@@ -2003,7 +2003,7 @@
     },
     "question": {
       "en": "Who managed Argentina to their 2022 World Cup triumph?",
-      "ar": "مين قاد الأرجنتين للفوز بكأس العالم 2022؟"
+      "ar": "من قاد الأرجنتين إلى التتويج بكأس العالم 2022؟"
     },
     "answer": {
       "en": "Lionel Scaloni",
@@ -2022,7 +2022,7 @@
     },
     "question": {
       "en": "Who won the Golden Glove (best goalkeeper) at the 2022 World Cup?",
-      "ar": "مين فاز بالقفاز الذهبي (أفضل حارس) بكأس العالم 2022؟"
+      "ar": "من فاز بالقفاز الذهبي (أفضل حارس مرمى) في كأس العالم 2022؟"
     },
     "answer": {
       "en": "Emiliano Martínez (Argentina)",
@@ -2041,7 +2041,7 @@
     },
     "question": {
       "en": "What infamous incident ended Zinedine Zidane's playing career in the 2006 World Cup final?",
-      "ar": "شو الحادثة المشهورة اللي خلّصت مسيرة زيدان بنهائي كأس العالم 2006؟"
+      "ar": "ما الحادثة الشهيرة التي أنهت مسيرة زيدان في نهائي كأس العالم 2006؟"
     },
     "answer": {
       "en": "He headbutted Marco Materazzi and was sent off",
@@ -2060,7 +2060,7 @@
     },
     "question": {
       "en": "Who scored the extra-time winning goal in the 2014 World Cup final?",
-      "ar": "مين سجّل هدف الفوز بالوقت الإضافي بنهائي كأس العالم 2014؟"
+      "ar": "مَن سجّل هدف الفوز في الوقت الإضافي لنهائي كأس العالم 2014؟"
     },
     "answer": {
       "en": "Mario Götze (Germany)",
@@ -2079,7 +2079,7 @@
     },
     "question": {
       "en": "Which England player had a clear goal wrongly disallowed against Germany at the 2010 World Cup?",
-      "ar": "أي لاعب إنجليزي انلغى له هدف واضح بالغلط ضد ألمانيا بكأس العالم 2010؟"
+      "ar": "أي لاعب إنجليزي أُلغي له هدف واضح خطأً ضد ألمانيا في كأس العالم 2010؟"
     },
     "answer": {
       "en": "Frank Lampard",
@@ -2098,7 +2098,7 @@
     },
     "question": {
       "en": "Which club is the only one to win the UEFA Champions League three consecutive times in the modern era?",
-      "ar": "أي نادي هو الوحيد اللي فاز بدوري الأبطال ثلاث مرات ورا بعض بعصره الحديث؟"
+      "ar": "أي نادٍ هو الوحيد الذي فاز بدوري الأبطال ثلاث مرات متتالية في عصره الحديث؟"
     },
     "answer": {
       "en": "Real Madrid — 2016, 2017, and 2018",
@@ -2117,7 +2117,7 @@
     },
     "question": {
       "en": "Which Liberian player won the men's Ballon d'Or in 1995?",
-      "ar": "أي لاعب ليبيري فاز بالكرة الذهبية للرجال سنة 1995؟"
+      "ar": "أي لاعب ليبيري فاز بالكرة الذهبية للرجال عام 1995؟"
     },
     "answer": {
       "en": "George Weah",
@@ -2174,7 +2174,7 @@
     },
     "question": {
       "en": "Which English striker won the men's Ballon d'Or in 2001?",
-      "ar": "أي مهاجم إنجليزي فاز بالكرة الذهبية للرجال سنة 2001؟"
+      "ar": "أي مهاجم إنجليزي فاز بالكرة الذهبية للرجال عام 2001؟"
     },
     "answer": {
       "en": "Michael Owen",
@@ -2193,7 +2193,7 @@
     },
     "question": {
       "en": "What significant rule change was introduced in 1992 that still governs football today?",
-      "ar": "شو التغيير الكبير بالقوانين اللي دخل سنة 1992 ولسّا شغّال لليوم؟"
+      "ar": "ما التغيير الجوهري في القواعد الذي أُدخل عام 1992 ولا يزال سارياً حتى اليوم؟"
     },
     "answer": {
       "en": "Goalkeepers can no longer handle deliberate back-passes played with the foot by their own team",
@@ -2212,7 +2212,7 @@
     },
     "question": {
       "en": "Who scored the fastest goal in Premier League history, about 7.7 seconds after kick-off in 2019?",
-      "ar": "مين سجّل أسرع هدف بتاريخ الدوري الإنجليزي الممتاز، بعد حوالي 7.7 ثواني من البداية سنة 2019؟"
+      "ar": "مَن سجّل أسرع هدف في تاريخ الدوري الإنجليزي الممتاز، بعد نحو 7.7 ثوانٍ من صافرة البداية عام 2019؟"
     },
     "answer": {
       "en": "Shane Long (Southampton)",
@@ -2231,7 +2231,7 @@
     },
     "question": {
       "en": "Who scored both goals as Brazil beat Germany 2-0 in the 2002 World Cup final?",
-      "ar": "مين سجّل الهدفين بفوز البرازيل على ألمانيا 2-0 بنهائي كأس العالم 2002؟"
+      "ar": "من سجَّل كلا الهدفَين في فوز البرازيل على ألمانيا 2-0 في نهائي كأس العالم 2002؟"
     },
     "answer": {
       "en": "Ronaldo (R9)",
@@ -2250,7 +2250,7 @@
     },
     "question": {
       "en": "Who is the England men's senior team's all-time record goalscorer?",
-      "ar": "مين الهدّاف التاريخي القياسي لمنتخب إنجلترا الأول للرجال؟"
+      "ar": "من هو الهداف التاريخي القياسي لمنتخب إنجلترا الأول للرجال؟"
     },
     "answer": {
       "en": "Harry Kane",
@@ -2278,7 +2278,7 @@
     },
     "question": {
       "en": "Who were the first two players in history to appear in five FIFA World Cups?",
-      "ar": "مين أول لاعبين بالتاريخ شاركوا بخمس نسخ من كأس العالم FIFA؟"
+      "ar": "من كانا أول لاعبَين في التاريخ يشاركان في خمس نسخ من كأس العالم FIFA؟"
     },
     "answer": {
       "en": "Antonio Carbajal (Mexico) and Lothar Matthäus (Germany)",
@@ -2297,7 +2297,7 @@
     },
     "question": {
       "en": "Which goalkeeper holds the record for most appearances in Champions League history?",
-      "ar": "أي حارس مرمى عنده رقم أكثر مباريات بتاريخ دوري الأبطال؟"
+      "ar": "أي حارس مرمى يمتلك رقم أكثر مباريات في تاريخ دوري الأبطال؟"
     },
     "answer": {
       "en": "Iker Casillas — 177 appearances",
@@ -2354,7 +2354,7 @@
     },
     "question": {
       "en": "Which extra-time rule, used at Euro 1996 and the 1998 World Cup, ended a match the moment a goal was scored?",
-      "ar": "شو اسم قاعدة الوقت الإضافي، اللي انطبقت بيورو 1996 وكأس العالم 1998، وكانت تنهي المباراة أول ما ينسجّل هدف؟"
+      "ar": "ما اسم قاعدة الوقت الإضافي التي طُبقت في يورو 1996 وكأس العالم 1998، وكانت تنهي المباراة فور تسجيل هدف؟"
     },
     "answer": {
       "en": "The golden goal",
@@ -2373,7 +2373,7 @@
     },
     "question": {
       "en": "Who was the first player ever to be sent off in a World Cup final?",
-      "ar": "مين أول لاعب انطرد بنهائي كأس العالم؟"
+      "ar": "من هو أول لاعب يُطرد في نهائي كأس العالم؟"
     },
     "answer": {
       "en": "Pedro Monzón (Argentina) in the 1990 final against West Germany",
@@ -2392,7 +2392,7 @@
     },
     "question": {
       "en": "Which Colombian player won the Golden Boot at the 2014 men's World Cup?",
-      "ar": "أي لاعب كولومبي فاز بالحذاء الذهبي بكأس العالم للرجال 2014؟"
+      "ar": "أي لاعب كولومبي فاز بالحذاء الذهبي في كأس العالم للرجال 2014؟"
     },
     "answer": {
       "en": "James Rodríguez",
@@ -2411,7 +2411,7 @@
     },
     "question": {
       "en": "Which team beat American Samoa 31–0 in a men's World Cup qualifier in 2001?",
-      "ar": "أي منتخب هزم ساموا الأمريكية 31–0 بتصفيات كأس العالم للرجال سنة 2001؟"
+      "ar": "أي منتخب هزم ساموا الأمريكية 31–0 في تصفيات كأس العالم للرجال عام 2001؟"
     },
     "answer": {
       "en": "Australia",
@@ -2430,7 +2430,7 @@
     },
     "question": {
       "en": "Which Saudi club won the AFC Champions League in both 2019 and 2021?",
-      "ar": "أي نادي سعودي فاز بدوري أبطال آسيا سنة 2019 وسنة 2021؟"
+      "ar": "أي نادٍ سعودي فاز بدوري أبطال آسيا في عامي 2019 و2021؟"
     },
     "answer": {
       "en": "Al-Hilal",
@@ -2449,7 +2449,7 @@
     },
     "question": {
       "en": "Which pressing style, winning the ball back straight after losing it, is most associated with Jürgen Klopp?",
-      "ar": "شو اسم أسلوب الضغط اللي يحاول يسترجع الكرة فورًا بعد خسارتها، وأكثر مدرب ارتبط فيه يورغن كلوب؟"
+      "ar": "ما اسم أسلوب الضغط الذي يسعى لاستعادة الكرة فور خسارتها، والذي يرتبط أكثر من غيره بالمدرب يورغن كلوب؟"
     },
     "answer": {
       "en": "Gegenpressing (counter-pressing)",
@@ -2487,7 +2487,7 @@
     },
     "question": {
       "en": "In football tactics, what is the main role of a 'regista'?",
-      "ar": "في تكتيكات الكورة، شو الدور الأساسي للاعب «الريجيستا»؟"
+      "ar": "في تكتيكات كرة القدم، ما الدور الأساسي للاعب «الريجيستا»؟"
     },
     "answer": {
       "en": "A deep-lying playmaker who dictates tempo and starts attacks",
@@ -2506,7 +2506,7 @@
     },
     "question": {
       "en": "Which men's national team went 37 matches unbeaten between 2018 and 2021?",
-      "ar": "أي منتخب رجال لعب 37 مباراة ورا بعض من غير خسارة بين 2018 و2021؟"
+      "ar": "أي منتخب وطني للرجال خاض 37 مباراة متتالية دون هزيمة بين 2018 و2021؟"
     },
     "answer": {
       "en": "Italy",
@@ -2525,7 +2525,7 @@
     },
     "question": {
       "en": "Which Cameroonian scored at the 1994 men's World Cup aged 42?",
-      "ar": "أي لاعب كاميروني سجّل بكأس العالم للرجال 1994 وعمره 42 سنة؟"
+      "ar": "أي لاعب كاميروني سجل في كأس العالم للرجال 1994 وعمره 42 عاماً؟"
     },
     "answer": {
       "en": "Roger Milla",
@@ -2544,7 +2544,7 @@
     },
     "question": {
       "en": "Which player scored five goals in nine minutes for Bayern Munich against Wolfsburg in 2015?",
-      "ar": "مين اللاعب اللي سجّل خمس أهداف بتسع دقايق لبايرن ميونخ ضد فولفسبورغ سنة 2015؟"
+      "ar": "من هو اللاعب الذي سجل خمسة أهداف في تسع دقائق لصالح بايرن ميونخ ضد فولفسبورغ عام 2015؟"
     },
     "answer": {
       "en": "Robert Lewandowski",
@@ -2563,7 +2563,7 @@
     },
     "question": {
       "en": "Which player holds the record for the most goals scored in a single World Cup tournament?",
-      "ar": "مين صاحب الرقم القياسي لأكثر أهداف ببطولة كأس عالم وحدة؟"
+      "ar": "من هو اللاعب الذي يحمل الرقم القياسي لأكبر عدد من الأهداف في بطولة كأس عالم واحدة؟"
     },
     "answer": {
       "en": "Just Fontaine (13 goals in 1958)",
@@ -2582,7 +2582,7 @@
     },
     "question": {
       "en": "Which goalkeeper captained Italy to the 1982 World Cup title at age 40?",
-      "ar": "أي حارس مرمى قاد إيطاليا كقائد للفوز بكأس العالم 1982 وعمره أربعين سنة؟"
+      "ar": "أي حارس مرمى قاد إيطاليا بصفته قائداً للفوز بكأس العالم 1982 في سن الأربعين؟"
     },
     "answer": {
       "en": "Dino Zoff",
@@ -2601,7 +2601,7 @@
     },
     "question": {
       "en": "Which Romanian club won the 1986 European Cup final against Barcelona on penalties?",
-      "ar": "أي نادي روماني فاز على برشلونة بركلات الترجيح بنهائي كأس أوروبا سنة 1986؟"
+      "ar": "أي نادٍ روماني فاز على برشلونة بركلات الترجيح في نهائي كأس أوروبا عام 1986؟"
     },
     "answer": {
       "en": "Steaua București",
@@ -2620,7 +2620,7 @@
     },
     "question": {
       "en": "Who is the only defender to win the Ballon d'Or in the 21st century?",
-      "ar": "مين المدافع الوحيد اللي فاز بالكرة الذهبية بالقرن الحادي والعشرين؟"
+      "ar": "من هو المدافع الوحيد الذي فاز بالكرة الذهبية في القرن الحادي والعشرين؟"
     },
     "answer": {
       "en": "Fabio Cannavaro (2006)",
@@ -2639,7 +2639,7 @@
     },
     "question": {
       "en": "Which men's national team lost the World Cup finals of 1974, 1978 and 2010?",
-      "ar": "أي منتخب رجال خسر نهائيات كأس العالم سنة 1974 و1978 و2010؟"
+      "ar": "أي منتخب للرجال خسر نهائيات كأس العالم أعوام 1974 و1978 و2010؟"
     },
     "answer": {
       "en": "The Netherlands",
@@ -2658,7 +2658,7 @@
     },
     "question": {
       "en": "Who scored the fastest hat-trick in Premier League history (2 minutes 56 seconds)?",
-      "ar": "مين سجّل أسرع هاتريك بتاريخ الدوري الإنجليزي الممتاز (دقيقتين و56 ثانية)؟"
+      "ar": "من سجل أسرع هاتريك في تاريخ الدوري الإنجليزي الممتاز (دقيقتين و 56 ثانية)؟"
     },
     "answer": {
       "en": "Sadio Mané (for Southampton vs Aston Villa, 2015)",
@@ -2677,7 +2677,7 @@
     },
     "question": {
       "en": "Which national team won UEFA EURO 1992 after being admitted to the finals in place of Yugoslavia?",
-      "ar": "أي منتخب فاز ببطولة أمم أوروبا 1992 بعد ما دخل النهائيات بدل يوغوسلافيا؟"
+      "ar": "أي منتخب فاز ببطولة أمم أوروبا 1992 بعدما أُدخل إلى النهائيات بدلاً من يوغوسلافيا؟"
     },
     "answer": {
       "en": "Denmark",
@@ -2696,7 +2696,7 @@
     },
     "question": {
       "en": "What was the name of the dog that famously found the stolen Jules Rimet Trophy in 1966?",
-      "ar": "شو كان اسم الكلب اللي اشتهر لأنه لقى كأس جول ريميه المسروق سنة 1966؟"
+      "ar": "ما كان اسم الكلب الذي اشتهر بالعثور على كأس جول ريميه المسروق عام 1966؟"
     },
     "answer": {
       "en": "Pickles",
@@ -2715,7 +2715,7 @@
     },
     "question": {
       "en": "Who is the all-time top goalscorer in the history of the FIFA Women's World Cup?",
-      "ar": "مين الهدّافة التاريخية بكأس العالم للسيدات؟"
+      "ar": "من هي الهدافة التاريخية في تاريخ كأس العالم للسيدات؟"
     },
     "answer": {
       "en": "Marta (Brazil, 17 goals)",
@@ -2734,7 +2734,7 @@
     },
     "question": {
       "en": "In a traditional catenaccio system, what is the defender operating behind the main defensive line called?",
-      "ar": "في نظام «الكاتيناتشو» التقليدي، شو اسم المدافع اللي يلعب ورا خط الدفاع الأساسي؟"
+      "ar": "في نظام الكاتيناتشو التقليدي، ماذا يُسمّى المدافع الذي يلعب خلف خط الدفاع الأساسي؟"
     },
     "answer": {
       "en": "The libero (sweeper)",
@@ -2753,7 +2753,7 @@
     },
     "question": {
       "en": "Which Arsenal manager is credited with popularizing the WM formation after the 1925 offside-law change?",
-      "ar": "أي مدرب لأرسنال ينسب له نشر خطة WM بعد تعديل قانون التسلل سنة 1925؟"
+      "ar": "أي مدرب لأرسنال يُنسب إليه نشر خطة WM بعد تعديل قانون التسلل عام 1925؟"
     },
     "answer": {
       "en": "Herbert Chapman",
@@ -2772,7 +2772,7 @@
     },
     "question": {
       "en": "Which player scored the \"Goal of the Century\" against England in the 1986 World Cup?",
-      "ar": "مين اللاعب اللي سجّل «هدف القرن» ضد إنجلترا بكأس العالم 1986؟"
+      "ar": "من هو اللاعب الذي سجل «هدف القرن» ضد إنجلترا في كأس العالم 1986؟"
     },
     "answer": {
       "en": "Diego Maradona",
@@ -2791,7 +2791,7 @@
     },
     "question": {
       "en": "Which team achieved the lowest points total in a single Premier League season (11 points)?",
-      "ar": "أي فريق جاب أقل مجموع نقاط بموسم واحد بالدوري الإنجليزي الممتاز (11 نقطة)؟"
+      "ar": "أي فريق حقق أدنى إجمالي نقاط في موسم واحد بالدوري الإنجليزي الممتاز (11 نقطة)؟"
     },
     "answer": {
       "en": "Derby County (2007-08)",
@@ -2810,7 +2810,7 @@
     },
     "question": {
       "en": "Who is the highest goalscorer in the history of international men's football?",
-      "ar": "مين الهدّاف التاريخي بكرة القدم الدولية للرجال؟"
+      "ar": "من هو الهداف التاريخي في تاريخ كرة القدم الدولية للرجال؟"
     },
     "answer": {
       "en": "Cristiano Ronaldo",
@@ -2829,7 +2829,7 @@
     },
     "question": {
       "en": "Which African national team became the continent's first to reach a men's World Cup semifinal?",
-      "ar": "أي منتخب إفريقي صار أول منتخب من القارة يوصل لنصف نهائي كأس العالم للرجال؟"
+      "ar": "أي منتخب أفريقي أصبح أول منتخب من القارة يبلغ نصف نهائي كأس العالم للرجال؟"
     },
     "answer": {
       "en": "Morocco, in 2022",
@@ -2848,7 +2848,7 @@
     },
     "question": {
       "en": "What is the highest-scoring game in World Cup history (12 goals)?",
-      "ar": "شو المباراة اللي فيها أكثر أهداف بتاريخ كأس العالم (12 هدف)؟"
+      "ar": "ما هي المباراة ذات أعلى عدد أهداف في تاريخ كأس العالم (12 هدفاً)؟"
     },
     "answer": {
       "en": "Austria 7-5 Switzerland (1954)",
@@ -2867,7 +2867,7 @@
     },
     "question": {
       "en": "Which club won the first ever European Cup (now Champions League) in 1956?",
-      "ar": "أي نادي فاز بأول كأس أوروبية (دوري أبطال أوروبا اليوم) سنة 1956؟"
+      "ar": "أي نادٍ فاز بأول كأس أوروبية (دوري أبطال أوروبا حالياً) في عام 1956؟"
     },
     "answer": {
       "en": "Real Madrid",
@@ -2886,7 +2886,7 @@
     },
     "question": {
       "en": "Who holds the record for most red cards in the history of La Liga?",
-      "ar": "مين صاحب الرقم القياسي لأكثر بطاقات حمرا بتاريخ الدوري الإسباني؟"
+      "ar": "من يحمل الرقم القياسي لأكبر عدد من البطاقات الحمراء في تاريخ الدوري الإسباني؟"
     },
     "answer": {
       "en": "Sergio Ramos",
@@ -2905,7 +2905,7 @@
     },
     "question": {
       "en": "Which Frenchman won the men's World Cup as a player in 1998 and as a manager in 2018?",
-      "ar": "أي فرنسي فاز بكأس العالم للرجال كلاعب سنة 1998 وكمدرب سنة 2018؟"
+      "ar": "أي فرنسي فاز بكأس العالم للرجال لاعباً عام 1998 ومدرباً عام 2018؟"
     },
     "answer": {
       "en": "Didier Deschamps",
@@ -2962,7 +2962,7 @@
     },
     "question": {
       "en": "Which Algerian scored a famous backheel goal for Porto in the 1987 European Cup final?",
-      "ar": "مين اللاعب الجزائري اللي سجّل هدف مشهور بالكعب لبورتو بنهائي كأس أوروبا 1987؟"
+      "ar": "مَن اللاعب الجزائري الذي سجّل هدفًا شهيرًا بالكعب لبورتو في نهائي كأس أوروبا 1987؟"
     },
     "answer": {
       "en": "Rabah Madjer",
@@ -3038,7 +3038,7 @@
     },
     "question": {
       "en": "Which Qatari forward scored a hat-trick of penalties in the 2023 Asian Cup final against Jordan?",
-      "ar": "مين المهاجم القطري اللي سجّل هاتريك كله ركلات جزاء بنهائي كأس آسيا 2023 ضد الأردن؟"
+      "ar": "مَن المهاجم القطري الذي سجّل ثلاثية كلها من ركلات جزاء في نهائي كأس آسيا 2023 أمام الأردن؟"
     },
     "answer": {
       "en": "Akram Afif",

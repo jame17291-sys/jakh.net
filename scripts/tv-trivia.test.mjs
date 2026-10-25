@@ -6,6 +6,7 @@ import { landingMarkup } from '../tv-trivia-markup.js';
 import { AR_COUNT, arabicCount } from '../arabic-count.js';
 import { SHOWS, ROUND_SIZE, MIN_SHOW_BANK, MAX_SHOW_BANK, roundsFor, isPrepared, eligibleCards, createRound, answerRound, nextQuestion, restoreRound, remainingSeconds, roundScore, bestKey } from '../tv-trivia-engine.js';
 import { bankBeforeMerge, readTopicMergeLedger } from './topic-merge-ledger.mjs';
+import { bankBeforeMsaRestore } from './arabic-msa-restore-ledger.mjs';
 const cards = JSON.parse(fs.readFileSync(new URL('../data/tv-shows-trivia.json', import.meta.url)));
 const catalog = JSON.parse(fs.readFileSync(new URL('../data/catalog.json', import.meta.url)));
 const now = Date.now();
@@ -147,7 +148,7 @@ test('the expansion preserves original identifiers and records every new or chan
   };
   // The 2026-10-25 topic merges dropped The Wire; its cards are restored from
   // that ledger so this history stays verifiable card by card.
-  const history = bankBeforeMerge(readTopicMergeLedger(), 'tv-shows-trivia');
+  const history = bankBeforeMerge(readTopicMergeLedger(), 'tv-shows-trivia', bankBeforeMsaRestore);
   assert.deepEqual(history.slice(0,250).map(c => c.id), Array.from({length:250}, (_,i) => `tv-shows-trivia-${String(i+1).padStart(3,'0')}`));
   assert.equal(expansion.additions.length, 550);
   for (const change of expansion.changes) {

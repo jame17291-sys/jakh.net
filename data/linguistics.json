@@ -3,7 +3,7 @@
     "id": "linguistics-1",
     "question": {
       "en": "Arabic and Hebrew belong to which branch of the Afro-Asiatic language family?",
-      "ar": "العربية والعبرية من أي فرع في عائلة اللغات الأفروآسيوية؟"
+      "ar": "تنتمي العربية والعبرية إلى أيّ فرع من عائلة اللغات الأفروآسيوية؟"
     },
     "answer": {
       "en": "The Semitic branch",
@@ -22,7 +22,7 @@
     "id": "linguistics-2",
     "question": {
       "en": "Which language is primarily spoken in Brazil?",
-      "ar": "شو اللغة الأساسية اللي يحكيها الناس في البرازيل؟"
+      "ar": "ما هي اللغة الأساسية التي يتم التحدث بها في البرازيل؟"
     },
     "answer": {
       "en": "Portuguese",
@@ -41,7 +41,7 @@
     "id": "linguistics-3",
     "question": {
       "en": "Arabic is often called 'the language of' which letter, a sound said to be rare in other languages?",
-      "ar": "العربية يسمّونها «لغة ...» نسبةً لحرف يقولون إنه نادر باللغات الثانية. شو هالحرف؟"
+      "ar": "تُلقَّب العربية كثيرًا بـ«لغة ...» نسبةً إلى حرف يُقال إنه نادر في اللغات الأخرى. ما هذا الحرف؟"
     },
     "answer": {
       "en": "Ḍād",
@@ -60,7 +60,7 @@
     "id": "linguistics-4",
     "question": {
       "en": "How many letters are in the English alphabet?",
-      "ar": "كم حرف في الأبجدية الإنجليزية؟"
+      "ar": "كم عدد الأحرف في الأبجدية الإنجليزية؟"
     },
     "answer": {
       "en": "26",
@@ -79,7 +79,7 @@
     "id": "linguistics-5",
     "question": {
       "en": "What is a word that has the same pronunciation as another word but a different meaning called?",
-      "ar": "شو نسمّي الكلمة اللي تنلفظ نفس كلمة ثانية بس معناها مختلف؟"
+      "ar": "ماذا تُسمّى الكلمة التي تُنطق بالطريقة نفسها التي تُنطق بها كلمة أخرى، لكن يختلف معناها؟"
     },
     "answer": {
       "en": "A homophone",
@@ -98,7 +98,7 @@
     "id": "linguistics-6",
     "question": {
       "en": "Which language uses characters called Kanji?",
-      "ar": "أي لغة تستخدم حروف «الكانجي» (Kanji)؟"
+      "ar": "أي لغة تستخدم الحروف المعروفة باسم الكانجي (Kanji)؟"
     },
     "answer": {
       "en": "Japanese",
@@ -117,7 +117,7 @@
     "id": "linguistics-7",
     "question": {
       "en": "Which language has the most native speakers in the world?",
-      "ar": "أي لغة عندها أكبر عدد من الناس اللي هي لغتهم الأم بالعالم؟"
+      "ar": "أي لغة لها أكبر عدد من الناطقين بها لغةً أمًّا في العالم؟"
     },
     "answer": {
       "en": "Mandarin Chinese",
@@ -136,7 +136,7 @@
     "id": "linguistics-8",
     "question": {
       "en": "From which ancient language did the Romance languages, including French, Spanish and Italian, develop?",
-      "ar": "من أي لغة قديمة طلعت الفرنسية والإسبانية والإيطالية؟"
+      "ar": "من أيّ لغة قديمة تطورت اللغات الرومانسية، ومنها الفرنسية والإسبانية والإيطالية؟"
     },
     "answer": {
       "en": "Latin",
@@ -155,7 +155,7 @@
     "id": "linguistics-9",
     "question": {
       "en": "What is a prefix?",
-      "ar": "شو هي «البادئة» (Prefix)؟"
+      "ar": "ما هي البادئة (Prefix)؟"
     },
     "answer": {
       "en": "Letters added to the beginning of a word",
@@ -212,7 +212,7 @@
     "id": "linguistics-12",
     "question": {
       "en": "Which language family does English belong to?",
-      "ar": "من أي عائلة لغات الإنجليزية؟"
+      "ar": "إلى أي عائلة لغوية تنتمي اللغة الإنجليزية؟"
     },
     "answer": {
       "en": "Indo-European (Germanic)",
@@ -231,7 +231,7 @@
     "id": "linguistics-13",
     "question": {
       "en": "Like 'level' and 'racecar', some words and sentences read the same backwards, letter by letter. What are they called?",
-      "ar": "جملة «مودّته تدوم لكل هول، وهل كل مودّته تدوم» تنقرا من آخرها لأولها حرف حرف بنفس الشكل. شو نسمّي هالنوع من الكلمات والجمل؟"
+      "ar": "جملة «مودّته تدوم لكل هول، وهل كل مودّته تدوم» تُقرأ من آخرها إلى أولها حرفًا حرفًا بالشكل نفسه. ماذا نسمّي هذا النوع من الكلمات والجمل؟"
     },
     "answer": {
       "en": "Palindromes",
@@ -250,7 +250,7 @@
     "id": "linguistics-14",
     "question": {
       "en": "What is the term for a community using two varieties of one language for different purposes, like Modern Standard Arabic for the news and a dialect at home?",
-      "ar": "شو المصطلح اللي يوصف استخدام مجتمع لشكلين من نفس اللغة لأغراض مختلفة، مثل الفصحى بالأخبار واللهجة بالبيت؟"
+      "ar": "ما المصطلح الذي يصف استخدام مجتمع لشكلين من لغة واحدة لأغراض مختلفة، مثل الفصحى في الأخبار واللهجة في البيت؟"
     },
     "answer": {
       "en": "Diglossia",
@@ -269,7 +269,7 @@
     "id": "linguistics-15",
     "question": {
       "en": "What type of writing system records mainly consonants, as Arabic and Hebrew traditionally do?",
-      "ar": "شو نوع نظام الكتابة اللي يكتب الحروف الساكنة بالأساس، مثل العربية والعبرية تقليديًا؟"
+      "ar": "ما نوع نظام الكتابة الذي يسجّل الحروف الساكنة أساساً، كما في العربية والعبرية تقليدياً؟"
     },
     "answer": {
       "en": "An abjad",
@@ -288,7 +288,7 @@
     "id": "linguistics-16",
     "question": {
       "en": "Which 8th-century Basra scholar compiled «Kitab al-Ayn», the first Arabic dictionary, ordering letters by where they are pronounced?",
-      "ar": "مين عالم البصرة بالقرن الثامن اللي ألّف «كتاب العين»، أول معجم عربي، ورتّب الحروف حسب مخارجها؟"
+      "ar": "مَن عالم البصرة في القرن الثامن الذي ألّف «كتاب العين»، أول معجم عربي، ورتّب الحروف بحسب مخارجها؟"
     },
     "answer": {
       "en": "Al-Khalil ibn Ahmad al-Farahidi",
@@ -307,7 +307,7 @@
     "id": "linguistics-17",
     "question": {
       "en": "What term describes a language acquired from early childhood, rather than one first learned later in life?",
-      "ar": "شو نسمّي اللغة اللي يتعلمها الواحد من وهو صغير، مش اللي يتعلمها بعدين؟"
+      "ar": "ما المصطلح الذي يصف لغة يكتسبها الشخص منذ طفولته المبكرة، لا لغة يبدأ تعلمها لاحقًا؟"
     },
     "answer": {
       "en": "A first or native language. A person can acquire more than one.",
@@ -326,7 +326,7 @@
     "id": "linguistics-18",
     "question": {
       "en": "'Brunch' blends 'breakfast' and 'lunch' into one word. What is a blended word like this called?",
-      "ar": "كلمة «برمائي» انصنعت من دمج كلمتين: «برّ» و«ماء». شو نسمّي الكلمة اللي تنصنع بهالطريقة؟"
+      "ar": "كلمة «برمائي» صيغت بدمج كلمتين: «برّ» و«ماء». ماذا نسمّي الكلمة التي تُصاغ بهذه الطريقة؟"
     },
     "answer": {
       "en": "A portmanteau (blend)",
@@ -345,7 +345,7 @@
     "id": "linguistics-19",
     "question": {
       "en": "Esperanto is an example of what kind of language?",
-      "ar": "الإسبرانتو مثال على أي نوع من اللغات؟"
+      "ar": "تعتبر لغة الإسبرانتو مثالاً على أي نوع من اللغات؟"
     },
     "answer": {
       "en": "Constructed language (Conlang)",
@@ -364,7 +364,7 @@
     "id": "linguistics-20",
     "question": {
       "en": "'Dog bites man' and 'Man bites dog' use the same words but mean different things. Which branch of linguistics studies word order in sentences?",
-      "ar": "«الكلب عضّ الرجل» و«الرجل عضّ الكلب»: نفس الكلمات بس المعنى تغيّر. شو اسم فرع علم اللغة اللي يدرس ترتيب الكلمات بالجملة؟"
+      "ar": "«الكلب عضّ الرجل» و«الرجل عضّ الكلب»: الكلمات نفسها لكن المعنى تغيّر. ما اسم فرع علم اللغة الذي يدرس ترتيب الكلمات في الجملة؟"
     },
     "answer": {
       "en": "Syntax",
@@ -383,7 +383,7 @@
     "id": "linguistics-21",
     "question": {
       "en": "Which linguist is closely associated with the development of generative grammar and wrote Syntactic Structures?",
-      "ar": "مين عالم اللغة المرتبط بالنحو التوليدي، واللي كتب «البنى التركيبية»؟"
+      "ar": "أيّ لغوي يرتبط بتطوير النحو التوليدي وألّف كتاب «البنى التركيبية»؟"
     },
     "answer": {
       "en": "Noam Chomsky",
@@ -402,7 +402,7 @@
     "id": "linguistics-22",
     "question": {
       "en": "What is the process called when a lexical word gradually becomes a grammatical marker?",
-      "ar": "شو نسمّي لما كلمة عادية تتحول شوي شوي لأداة نحوية؟"
+      "ar": "ماذا تُسمّى العملية التي تتحول فيها كلمة معجمية تدريجياً إلى علامة نحوية؟"
     },
     "answer": {
       "en": "Grammaticalization",
@@ -421,7 +421,7 @@
     "id": "linguistics-23",
     "question": {
       "en": "Which language underwent a modern revival as an everyday native spoken language after continuing for centuries in religious and scholarly use?",
-      "ar": "أي لغة رجعت لغة حكي يومي ولغة أم بالعصر الحديث، بعد قرون كانت فيها للدين والدراسة بس؟"
+      "ar": "أيّ لغة شهدت إحياءً حديثًا بوصفها لغة محكية يومية أمًّا، بعدما استمر استخدامها قرونًا في الدين والدراسة؟"
     },
     "answer": {
       "en": "Hebrew",
@@ -440,7 +440,7 @@
     "id": "linguistics-24",
     "question": {
       "en": "Kataba, kātib, maktab and maktaba all grow from the Arabic root k-t-b. Which branch of linguistics studies how words are built like this?",
-      "ar": "«كَتَب» و«كاتب» و«مكتب» و«مكتبة» كلها طالعة من جذر واحد (ك-ت-ب). شو اسم العلم اللي يدرس كيف تنبني الكلمات بهالشكل؟"
+      "ar": "«كَتَب» و«كاتب» و«مكتب» و«مكتبة» كلها مشتقة من جذر واحد (ك-ت-ب). ما اسم العلم الذي يدرس كيفية بناء الكلمات على هذا النحو؟"
     },
     "answer": {
       "en": "Morphology",
@@ -459,7 +459,7 @@
     "id": "linguistics-25",
     "question": {
       "en": "Which script is used to write Russian, Bulgarian, and Serbian?",
-      "ar": "شو الخط اللي تنكتب فيه الروسية والبلغارية والصربية؟"
+      "ar": "ما هو الخط المستخدم لكتابة الروسية والبلغارية والصربية؟"
     },
     "answer": {
       "en": "Cyrillic",
@@ -478,7 +478,7 @@
     "id": "linguistics-26",
     "question": {
       "en": "A speaker switches between Arabic and English within a conversation. What is this linguistic practice commonly called?",
-      "ar": "واحد ينقّل بين العربية والإنجليزية وهو يحكي. شو اسم هالعادة اللغوية؟"
+      "ar": "ينتقل متحدث بين العربية والإنجليزية أثناء محادثة. ماذا تُسمّى هذه الممارسة اللغوية عادةً؟"
     },
     "answer": {
       "en": "Code-switching",
@@ -497,7 +497,7 @@
     "id": "linguistics-27",
     "question": {
       "en": "Xhosa and Zulu in southern Africa are famous for which unusual type of consonant?",
-      "ar": "لغتا الكوسا والزولو بجنوب إفريقيا مشهورتين بنوع غريب من الأصوات الساكنة. شو هو؟"
+      "ar": "تشتهر لغتا الكوسا والزولو في جنوب إفريقيا بنوع غير مألوف من الأصوات الساكنة. ما هو؟"
     },
     "answer": {
       "en": "Click consonants",
@@ -535,7 +535,7 @@
     "id": "linguistics-29",
     "question": {
       "en": "Which alphabet was created in 15th-century Korea under King Sejong?",
-      "ar": "أي أبجدية انخترعت بكوريا بالقرن الخامس عشر أيام الملك سيجونغ؟"
+      "ar": "أي أبجدية اختُرعت في كوريا في القرن الخامس عشر في عهد الملك سيجونغ؟"
     },
     "answer": {
       "en": "Hangul",
@@ -554,7 +554,7 @@
     "id": "linguistics-30",
     "question": {
       "en": "What is an 'agglutinative' language?",
-      "ar": "شو يعني إن اللغة «إلصاقية» (Agglutinative)؟"
+      "ar": "ما هي اللغة «الإلصاقية» (Agglutinative)؟"
     },
     "answer": {
       "en": "A language type in which words are typically built by joining morphemes, with each affix tending to express a relatively distinct grammatical function. Morphemes are meaning-bearing units, not necessarily syllables.",
@@ -573,7 +573,7 @@
     "id": "linguistics-31",
     "question": {
       "en": "What is the loss of a sound from inside a word called, as in an English pronunciation of camera as “camra”?",
-      "ar": "شو نسمّي حذف صوت من نص الكلمة، مثل لما تنقال camera «camra»؟"
+      "ar": "ماذا يُسمّى حذف صوت من داخل كلمة، مثل نطق الكلمة الإنجليزية camera على صورة «camra»؟"
     },
     "answer": {
       "en": "Syncope",
@@ -592,7 +592,7 @@
     "id": "linguistics-32",
     "question": {
       "en": "Which ancient Indo-European language, discovered in Anatolia, provided crucial evidence for the laryngeal theory?",
-      "ar": "أي لغة هندو-أوروبية قديمة انكشفت في الأناضول، وأعطت دليل حاسم لنظرية الحنجرة؟"
+      "ar": "أي لغة هندو-أوروبية قديمة، اكتُشفت في الأناضول، قدمت دليلاً حاسماً لنظرية الحنجرة؟"
     },
     "answer": {
       "en": "Hittite",
@@ -611,7 +611,7 @@
     "id": "linguistics-33",
     "question": {
       "en": "Jacob Grimm, of fairy-tale fame, also has a law in linguistics named after him. What does Grimm's Law describe?",
-      "ar": "ياكوب غريم، صاحب الحكايات الخرافية المشهورة، عنده كمان قانون بعلم اللغة باسمه. عن شو يتكلم «قانون غريم»؟"
+      "ar": "ياكوب غريم، صاحب الحكايات الخرافية الشهيرة، يحمل اسمه أيضًا قانون في علم اللغة. ماذا يصف «قانون غريم»؟"
     },
     "answer": {
       "en": "Regular consonant shifts from Proto-Indo-European into the Germanic languages (e.g. p became f: Latin pater, English father)",
@@ -649,7 +649,7 @@
     "id": "linguistics-35",
     "question": {
       "en": "What is the exact term for a word that is its own antonym (e.g., 'cleave' meaning to stick together or to split apart)?",
-      "ar": "شو اسم الكلمة اللي تحمل معنى وعكسه (مثل «cleave»)؟"
+      "ar": "ما هو المصطلح الدقيق للكلمة التي تكون مضاداً لنفسها (مثل «cleave»)؟"
     },
     "answer": {
       "en": "Contranym (or auto-antonym)",
@@ -668,7 +668,7 @@
     "id": "linguistics-36",
     "question": {
       "en": "What typological term describes languages in which a single complex word can combine many morphemes and express information that requires a whole sentence in another language?",
-      "ar": "شو نسمّي اللغات اللي ممكن كلمة وحدة فيها تجمع أجزاء كثيرة، وتعطي معنى يحتاج جملة كاملة بلغة ثانية؟"
+      "ar": "ما المصطلح التصنيفي الذي يصف لغات قد تجمع فيها كلمة مركبة واحدة وحدات صرفية كثيرة وتعبّر عن معلومات تحتاج جملة كاملة في لغة أخرى؟"
     },
     "answer": {
       "en": "Polysynthetic",
@@ -687,7 +687,7 @@
     "id": "linguistics-37",
     "question": {
       "en": "What is the 'bouba/kiki effect'?",
-      "ar": "شو هو «تأثير بوبا/كيكي»؟"
+      "ar": "ما هو «تأثير بوبا/كيكي»؟"
     },
     "answer": {
       "en": "A tendency for people to associate sounds such as “bouba” with rounded shapes and “kiki” with angular shapes. It illustrates an association between speech sounds and visual form.",
@@ -706,7 +706,7 @@
     "id": "linguistics-38",
     "question": {
       "en": "Sibawayh's 8th-century founding work of Arabic grammar is known by a simple one-word title. What is it?",
-      "ar": "كتاب سيبويه، أساس النحو العربي من القرن الثامن الميلادي، معروف باسم بسيط من كلمة وحدة. شو هو؟"
+      "ar": "يُعرف كتاب سيبويه، العمل المؤسس للنحو العربي في القرن الثامن الميلادي، بعنوان بسيط من كلمة واحدة. ما هو؟"
     },
     "answer": {
       "en": "Al-Kitāb ('The Book')",
@@ -725,7 +725,7 @@
     "id": "linguistics-39",
     "question": {
       "en": "What is a 'shibboleth'?",
-      "ar": "شو هو «الشيبولث» (Shibboleth)؟"
+      "ar": "ما هو «الشيبولث» (Shibboleth)؟"
     },
     "answer": {
       "en": "In linguistics, a word, pronunciation or other language feature used as a marker of group membership.",
@@ -744,7 +744,7 @@
     "id": "linguistics-40",
     "question": {
       "en": "Which ancient language has a writing system known as Linear B, deciphered by Michael Ventris?",
-      "ar": "أي لغة قديمة كانت تنكتب بخط «Linear B» اللي فكّ رموزه مايكل فينتريس؟"
+      "ar": "أي لغة قديمة لها نظام كتابة يُعرف باسم Linear B، والذي فك رموزه مايكل فينتريس؟"
     },
     "answer": {
       "en": "Mycenaean Greek",

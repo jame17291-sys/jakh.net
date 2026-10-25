@@ -875,9 +875,7 @@
           "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [
-            "current-state"
-          ],
+          "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
               "en": 30,
@@ -2600,7 +2598,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 16,
-              "ar": 12
+              "ar": 11
             },
             "containsNumber": true,
             "containsYear": true,
@@ -3718,7 +3716,9 @@
           "difficulty": "hard",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [],
+          "mutableSignals": [
+            "current-state"
+          ],
           "contentSignals": {
             "answerWords": {
               "en": 3,
@@ -11756,7 +11756,9 @@
           "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [],
+          "mutableSignals": [
+            "current-state"
+          ],
           "contentSignals": {
             "answerWords": {
               "en": 7,
@@ -11810,7 +11812,9 @@
           "difficulty": "easy",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [],
+          "mutableSignals": [
+            "current-state"
+          ],
           "contentSignals": {
             "answerWords": {
               "en": 3,
@@ -22336,7 +22340,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 6,
-              "ar": 5
+              "ar": 8
             },
             "containsNumber": false,
             "containsYear": false,
@@ -24773,7 +24777,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 11,
-              "ar": 6
+              "ar": 8
             },
             "containsNumber": false,
             "containsYear": false,
@@ -25036,7 +25040,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 17,
-              "ar": 16
+              "ar": 19
             },
             "containsNumber": true,
             "containsYear": false,
@@ -30154,9 +30158,7 @@
           "difficulty": "hard",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [
-            "current-state"
-          ],
+          "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
               "en": 2,
@@ -45816,7 +45818,9 @@
           "difficulty": "very-advanced",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [],
+          "mutableSignals": [
+            "current-state"
+          ],
           "contentSignals": {
             "answerWords": {
               "en": 12,
@@ -46886,7 +46890,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 15,
-              "ar": 12
+              "ar": 14
             },
             "containsNumber": true,
             "containsYear": false,
@@ -47118,9 +47122,7 @@
           "difficulty": "hard",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [
-            "current-state"
-          ],
+          "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
               "en": 2,
@@ -52623,7 +52625,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 6,
-              "ar": 3
+              "ar": 4
             },
             "containsNumber": true,
             "containsYear": true,
@@ -68543,7 +68545,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 12,
-              "ar": 8
+              "ar": 10
             },
             "containsNumber": false,
             "containsYear": false,
@@ -68671,7 +68673,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 16,
-              "ar": 11
+              "ar": 13
             },
             "containsNumber": false,
             "containsYear": false,
@@ -69246,7 +69248,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 18,
-              "ar": 11
+              "ar": 12
             },
             "containsNumber": false,
             "containsYear": false,
@@ -69552,7 +69554,9 @@
           "difficulty": "easy",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [],
+          "mutableSignals": [
+            "current-state"
+          ],
           "contentSignals": {
             "answerWords": {
               "en": 15,
@@ -78673,7 +78677,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 8,
-              "ar": 5
+              "ar": 6
             },
             "containsNumber": false,
             "containsYear": false,
@@ -79422,7 +79426,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 14,
-              "ar": 6
+              "ar": 9
             },
             "containsNumber": false,
             "containsYear": false,
@@ -80166,7 +80170,7 @@
           "contentSignals": {
             "answerWords": {
               "en": 15,
-              "ar": 9
+              "ar": 10
             },
             "containsNumber": false,
             "containsYear": false,
@@ -82449,9 +82453,7 @@
           "difficulty": "easy",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [
-            "current-state"
-          ],
+          "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
               "en": 1,
@@ -83275,9 +83277,7 @@
           "difficulty": "very-advanced",
           "reviewStatus": "pending",
           "highStakes": false,
-          "mutableSignals": [
-            "current-state"
-          ],
+          "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
               "en": 1,

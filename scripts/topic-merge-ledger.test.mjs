@@ -3,8 +3,9 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import test from 'node:test';
 import {
-  TOPIC_MERGE_LEDGER, bankBeforeMerge, beforeTopicMove, cardBeforeMerge, cardMoveHistory, readBankAfterMerge, readCurrentBank, readTopicMergeLedger,
+  TOPIC_MERGE_LEDGER, bankBeforeMerge, beforeTopicMove, cardBeforeMerge, cardMoveHistory, readCurrentBank, readTopicMergeLedger,
 } from './topic-merge-ledger.mjs';
+import { bankBeforeMsaRestore } from './arabic-msa-restore-ledger.mjs';
 import { removedByPhase2 } from './content-phase2-ledger.mjs';
 import { RETIRED_TOPIC_REDIRECTS, RETIRED_TV_SHOWS, retiredTopicRouteTarget } from '../site-worker/src/topic-route-migrations.js';
 import { SHOWS } from '../tv-trivia-engine.js';
@@ -21,9 +22,11 @@ const held = new Set(quarantine.categories.map(category => category.slug));
 const slugs = new Set(catalog.categories.map(category => category.slug));
 const retired = new Map(ledger.retiredTopics.map(topic => [topic.slug, topic]));
 const LEVELS = new Set(['easy', 'medium', 'hard', 'very-advanced']);
+// Topic files as they stood before the 2026-10-25 return to Modern Standard
+// Arabic, which changed only Arabic wording and is recorded in its own ledger.
 // The later 2026-10-25 phase-2 content pass edited, removed and added cards;
-// topic files are checked as the merge left them (restored from that ledger),
-// and the card index only lists cards that pass kept.
+// it is reversed first, and the card index only lists cards that pass kept.
+const beforeMsa = bankBeforeMsaRestore;
 const laterRemoved = removedByPhase2();
 const indexedTopic = id => (laterRemoved.has(id) ? undefined : index[id]?.[0]);
 
@@ -56,10 +59,10 @@ test('every moved card keeps its id and content, changes only topic and subtopic
   for (const move of ledger.moved) {
     assert.ok(slugs.has(move.to), `${move.id}: target topic exists`);
     assert.notEqual(move.from, move.to, `${move.id}: a real move`);
-    const target = readBankAfterMerge(move.to);
+    const target = beforeMsa(move.to);
     const matches = target.filter(card => card.id === move.id);
     assert.equal(matches.length, 1, `${move.id}: present once in ${move.to}`);
-    assert.ok(!readBankAfterMerge(move.from).some(card => card.id === move.id), `${move.id}: gone from ${move.from}`);
+    assert.ok(!beforeMsa(move.from).some(card => card.id === move.id), `${move.id}: gone from ${move.from}`);
     assert.deepEqual(index[move.id]?.[0], indexedTopic(move.id) && move.to, `${move.id}: the card index places it in ${move.to} unless phase 2 removed it`);
     if (laterRemoved.has(move.id)) assert.ok(!Object.hasOwn(index, move.id), `${move.id}: removed later, absent from the card index`);
     const [card] = matches;
@@ -74,7 +77,7 @@ test('every moved card keeps its id and content, changes only topic and subtopic
     assert.ok(LEVELS.has(card.difficulty), `${move.id}: valid level`);
     // A new subtopic is one the target topic already uses; a merged topic may
     // keep its own subtopic name when the target has no equivalent.
-    const original = bankBeforeMerge(ledger, move.to);
+    const original = bankBeforeMerge(ledger, move.to, beforeMsa);
     const existing = original.some(other => other.subcategory.en === card.subcategory.en && other.subcategory.ar === card.subcategory.ar);
     const kept = JSON.stringify(move.subcategory.before) === JSON.stringify(move.subcategory.after);
     assert.ok(existing || (kept && retired.has(move.from)), `${move.id}: lands in an existing subtopic of ${move.to}`);
@@ -94,8 +97,7 @@ test('removed cards are recorded in full at their original positions and gone fr
     assert.equal(hash(entry.card), entry.beforeHash, `${entry.id}: recorded card matches its fingerprint`);
     assert.ok(Number.isInteger(entry.position) && entry.position >= 0, `${entry.id}: original position`);
     assert.ok(!Object.hasOwn(index, entry.id), `${entry.id}: absent from the card index`);
-    assert.ok(!readBankAfterMerge(entry.category).some(card => card.id === entry.id), `${entry.id}: removed from ${entry.category}`);
-    assert.ok(!readCurrentBank(entry.category).some(card => card.id === entry.id), `${entry.id}: still absent from ${entry.category}`);
+    assert.ok(!readCurrentBank(entry.category).some(card => card.id === entry.id), `${entry.id}: removed from ${entry.category}`);
     if (entry.category === 'tv-shows-trivia') {
       assert.equal(entry.card.subcategory.en, 'The Wire', `${entry.id}: only the retired show leaves the TV bank`);
     } else {
@@ -110,9 +112,9 @@ test('the ledger restores every pre-merge topic file and the 3,798-card public c
   assert.equal(before.size, 56);
   let publicCards = 0;
   for (const slug of before) {
-    const cards = bankBeforeMerge(ledger, slug);
+    const cards = bankBeforeMerge(ledger, slug, beforeMsa);
     const touched = ledger.moved.some(move => move.from === slug || move.to === slug) || ledger.removed.some(entry => entry.category === slug);
-    if (!touched) assert.deepEqual(cards, readBankAfterMerge(slug), `${slug}: untouched topics are unchanged`);
+    if (!touched) assert.deepEqual(cards, beforeMsa(slug), `${slug}: untouched topics are unchanged`);
     for (const entry of [...ledger.moved.filter(move => move.from === slug), ...ledger.removed.filter(item => item.category === slug)]) {
       assert.equal(cards[entry.position]?.id, entry.id, `${entry.id}: restores to its recorded position in ${slug}`);
     }

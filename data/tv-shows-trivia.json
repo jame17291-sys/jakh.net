@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "Which character does Bryan Cranston play in Breaking Bad?",
-      "ar": "أي شخصية يلعبها برايان كرانستون في «بريكنغ باد»؟"
+      "ar": "أي شخصية يجسّد برايان كرانستون في «بريكينغ باد»؟"
     },
     "answer": {
       "en": "Walter White",
@@ -19,7 +19,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "79165798",
+      "contentKey": "e6595d04",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -49,7 +49,7 @@
     },
     "question": {
       "en": "What subject does Walter White teach at the beginning of the show?",
-      "ar": "شو كان يدرّس والتر وايت ببداية المسلسل؟"
+      "ar": "ماذا يُدرِّس والتر وايت في بداية المسلسل؟"
     },
     "answer": {
       "en": "Chemistry",
@@ -60,7 +60,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "477972f6",
+      "contentKey": "87f2bb53",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -90,7 +90,7 @@
     },
     "question": {
       "en": "What street alias does Walter White adopt?",
-      "ar": "شو اللقب اللي يستخدمه والتر وايت بالشارع؟"
+      "ar": "ما اللقب الذي يتبناه والتر وايت في الشارع؟"
     },
     "answer": {
       "en": "Heisenberg",
@@ -101,7 +101,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "d445f535",
+      "contentKey": "9349db36",
       "spoilerSeason": 1,
       "distractors": {
         "en": [
@@ -131,7 +131,7 @@
     },
     "question": {
       "en": "Which former student becomes Walter White's partner?",
-      "ar": "مين طالب والتر السابق اللي يصير شريكه؟"
+      "ar": "من الطالب السابق لوالتر الذي يصبح شريكه؟"
     },
     "answer": {
       "en": "Jesse Pinkman",
@@ -142,7 +142,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "c1c08f24",
+      "contentKey": "600e13b1",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -172,7 +172,7 @@
     },
     "question": {
       "en": "What is the name of Walter White's wife?",
-      "ar": "شو اسم زوجة والتر وايت؟"
+      "ar": "ما اسم زوجة والتر وايت؟"
     },
     "answer": {
       "en": "Skyler White",
@@ -183,7 +183,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "68b8aace",
+      "contentKey": "5bbdb2ae",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -213,7 +213,7 @@
     },
     "question": {
       "en": "What is the name of Walter's DEA brother-in-law?",
-      "ar": "شو اسم نسيب والتر اللي يشتغل بوكالة مكافحة المخدرات DEA؟"
+      "ar": "ما اسم صهر والتر العامل في وكالة DEA؟"
     },
     "answer": {
       "en": "Hank Schrader",
@@ -224,7 +224,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "35e3513b",
+      "contentKey": "17bff186",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -254,7 +254,7 @@
     },
     "question": {
       "en": "What is the name of the fried-chicken restaurant chain that Gus Fring runs?",
-      "ar": "شو اسم سلسلة مطاعم الدجاج المقلي اللي يديرها غاس فرينغ؟"
+      "ar": "ما اسم سلسلة مطاعم الدجاج المقلي التي يديرها غاس فرينغ؟"
     },
     "answer": {
       "en": "Los Pollos Hermanos",
@@ -265,7 +265,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "5e7aed11",
+      "contentKey": "ac2b536b",
       "spoilerSeason": 2,
       "distractors": {
         "en": [
@@ -295,7 +295,7 @@
     },
     "question": {
       "en": "Which type of cancer is Walter White diagnosed with in Breaking Bad's pilot?",
-      "ar": "بأول حلقة من «بريكنغ باد»، بأي نوع سرطان يتشخّص والتر وايت؟"
+      "ar": "بأي نوع من السرطان يُشخَّص والتر وايت في الحلقة الأولى من «بريكينغ باد»؟"
     },
     "answer": {
       "en": "Lung cancer",
@@ -306,7 +306,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "b68f9c5f",
+      "contentKey": "1647cd48",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -336,7 +336,7 @@
     },
     "question": {
       "en": "What iconic phrase does Walter say: 'I am the one who ___'?",
-      "ar": "شو الجملة المشهورة اللي يقولها والتر: «أنا اللي ___»؟"
+      "ar": "ما العبارة الأيقونية التي يقولها والتر: «أنا من ___»؟"
     },
     "answer": {
       "en": "Knocks",
@@ -347,7 +347,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "e6185b02",
+      "contentKey": "a58e96c6",
       "spoilerSeason": 4,
       "distractors": {
         "en": [
@@ -418,7 +418,7 @@
     },
     "question": {
       "en": "In the pilot, Walt tells his class that chemistry is the study of what?",
-      "ar": "بالحلقة الأولى، والتر يقول لطلابه إن الكيمياء هي دراسة شو؟"
+      "ar": "في الحلقة الأولى، يقول والتر لطلابه إن الكيمياء دراسة ماذا؟"
     },
     "answer": {
       "en": "Change",
@@ -447,7 +447,7 @@
         "en": "In the pilot Walt calls chemistry 'the study of change', an early hint at his own transformation.",
         "ar": "في الحلقة الأولى يصف والتر الكيمياء بأنها «دراسة التغيّر»، في إشارة مبكرة إلى تحوّله هو."
       },
-      "contentKey": "ba4eae31"
+      "contentKey": "80695544"
     }
   },
   {
@@ -459,7 +459,7 @@
     },
     "question": {
       "en": "What is the name of the 'disappearer' who gives people new identities?",
-      "ar": "شو اسم «المُخفي» اللي يعطي الناس هويات جديدة؟"
+      "ar": "ما اسم «المُختفي» الذي يمنح الناس هويات جديدة؟"
     },
     "answer": {
       "en": "Ed Galbraith",
@@ -488,7 +488,7 @@
         "en": "Ed's vacuum-repair shop conceals his identity-changing service.",
         "ar": "يخفي متجر إد لإصلاح المكانس خدمة توفير هويات جديدة."
       },
-      "contentKey": "a652f441"
+      "contentKey": "c18139a9"
     }
   },
   {
@@ -500,7 +500,7 @@
     },
     "question": {
       "en": "In Breaking Bad, what name does Walter White Jr. ask everyone to call him?",
-      "ar": "في «بريكنغ باد»، شو الاسم اللي يبي والتر وايت الابن الكل يناديه فيه؟"
+      "ar": "في «بريكنغ باد»، ما الاسم الذي يطلب والتر وايت الابن من الجميع أن ينادوه به؟"
     },
     "answer": {
       "en": "Flynn",
@@ -529,7 +529,7 @@
         "en": "Walter Jr. asks people to call him Flynn, a name he chose for himself.",
         "ar": "يطلب والتر الابن من الناس أن ينادوه فلين، وهو اسم اختاره لنفسه."
       },
-      "contentKey": "c505360c"
+      "contentKey": "a307f761"
     }
   },
   {
@@ -541,7 +541,7 @@
     },
     "question": {
       "en": "What type of vehicle do Walter and Jesse use as a mobile laboratory early in Breaking Bad?",
-      "ar": "ببداية «بريكنغ باد»، شو نوع المركبة اللي يستخدمونها والتر وجيسي كمختبر متنقل؟"
+      "ar": "ما نوع المركبة التي يستخدمها والتر وجيسي مختبراً متنقلاً في بداية «بريكينغ باد»؟"
     },
     "answer": {
       "en": "An RV (motorhome)",
@@ -552,7 +552,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "b294e7fa",
+      "contentKey": "2dd4d9fc",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -582,7 +582,7 @@
     },
     "question": {
       "en": "Which company did Walter White co-found with Elliott Schwartz before the events of Breaking Bad?",
-      "ar": "قبل أحداث «بريكنغ باد»، شو الشركة اللي أسّسها والتر وايت مع إليوت شوارتز؟"
+      "ar": "ما الشركة التي شارك والتر وايت في تأسيسها مع إليوت شوارتز قبل أحداث «بريكينغ باد»؟"
     },
     "answer": {
       "en": "Gray Matter Technologies",
@@ -593,7 +593,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "b720fda5",
+      "contentKey": "f8a192d2",
       "spoilerSeason": 1,
       "distractors": {
         "en": [
@@ -623,7 +623,7 @@
     },
     "question": {
       "en": "What song plays over the final scene of Breaking Bad?",
-      "ar": "شو الأغنية اللي تشتغل بآخر مشهد من «بريكنغ باد»؟"
+      "ar": "ما الأغنية التي تُسمع في المشهد الأخير من «بريكنغ باد»؟"
     },
     "answer": {
       "en": "Baby Blue by Badfinger",
@@ -652,7 +652,7 @@
         "en": "Badfinger's song accompanies the final laboratory scene in Felina.",
         "ar": "ترافق أغنية بادفينغر مشهد المختبر الأخير في حلقة «فيلينا»."
       },
-      "contentKey": "8167bde2"
+      "contentKey": "5ae51d04"
     }
   },
   {
@@ -705,7 +705,7 @@
     },
     "question": {
       "en": "Who created the television series Breaking Bad?",
-      "ar": "مين صاحب فكرة «بريكنغ باد»؟"
+      "ar": "من ابتكر مسلسل «بريكينغ باد»؟"
     },
     "answer": {
       "en": "Vince Gilligan",
@@ -716,7 +716,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "982f7bf2",
+      "contentKey": "4ce52f9d",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -746,7 +746,7 @@
     },
     "question": {
       "en": "Which noble house has the words 'Winter is Coming'?",
-      "ar": "أي بيت نبيل شعاره «الشتاء قادم»؟"
+      "ar": "أي بيت نبيل يحمل شعار «الشتاء قادم»؟"
     },
     "answer": {
       "en": "House Stark",
@@ -757,7 +757,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "7fffc9c2",
+      "contentKey": "a4272d33",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -787,7 +787,7 @@
     },
     "question": {
       "en": "Who sits on the Iron Throne at the start of the series?",
-      "ar": "مين قاعد على العرش الحديدي ببداية المسلسل؟"
+      "ar": "من يجلس على العرش الحديدي في بداية المسلسل؟"
     },
     "answer": {
       "en": "King Robert Baratheon",
@@ -798,7 +798,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "acc78a20",
+      "contentKey": "6ffe4cbd",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -828,7 +828,7 @@
     },
     "question": {
       "en": "What is the main continent where Game of Thrones takes place?",
-      "ar": "شو القارة الأساسية اللي تصير فيها أحداث «صراع العروش»؟"
+      "ar": "ما القارة الرئيسية التي تدور فيها أحداث صراع العروش؟"
     },
     "answer": {
       "en": "Westeros",
@@ -839,7 +839,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "d8dac6b1",
+      "contentKey": "69b541ad",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -869,7 +869,7 @@
     },
     "question": {
       "en": "Who is known as the Mother of Dragons?",
-      "ar": "مين اللي لقبها «أم التنانين»؟"
+      "ar": "من تُعرف بـ«أم التنانين»؟"
     },
     "answer": {
       "en": "Daenerys Targaryen",
@@ -898,7 +898,7 @@
         "en": "Daenerys gains this title after the events of the first-season finale.",
         "ar": "تحصل دينيريس على هذا اللقب بعد أحداث ختام الموسم الأول."
       },
-      "contentKey": "4502ea0e"
+      "contentKey": "392e55e5"
     }
   },
   {
@@ -910,7 +910,7 @@
     },
     "question": {
       "en": "What is the name of Jon Snow's direwolf?",
-      "ar": "شو اسم ذئب جون سنو العملاق؟"
+      "ar": "ما اسم ذئب جون سنو العملاق؟"
     },
     "answer": {
       "en": "Ghost",
@@ -921,7 +921,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "7ec8e4e6",
+      "contentKey": "f9a8b3a2",
       "spoilerSeason": 1,
       "distractors": {
         "en": [
@@ -951,7 +951,7 @@
     },
     "question": {
       "en": "What is the name of Arya Stark's sword?",
-      "ar": "شو اسم سيف آريا ستارك؟"
+      "ar": "ما اسم سيف آريا ستارك؟"
     },
     "answer": {
       "en": "Needle",
@@ -962,7 +962,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "6df8aa8d",
+      "contentKey": "ca228dd",
       "spoilerSeason": 1,
       "distractors": {
         "en": [
@@ -992,7 +992,7 @@
     },
     "question": {
       "en": "Who is revealed to be Jon Snow's true father?",
-      "ar": "مين اللي ينكشف إنه أبو جون سنو الحقيقي؟"
+      "ar": "من يُكشف أنه والد جون سنو الحقيقي؟"
     },
     "answer": {
       "en": "Rhaegar Targaryen",
@@ -1003,7 +1003,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "cd61fb3d",
+      "contentKey": "c06f3ecc",
       "spoilerSeason": 7,
       "distractors": {
         "en": [
@@ -1033,7 +1033,7 @@
     },
     "question": {
       "en": "Who is the royal spymaster known as 'The Spider'?",
-      "ar": "مين رئيس الجواسيس اللي لقبه «العنكبوت»؟"
+      "ar": "مَن رئيس الجواسيس الملكي الملقّب بـ«العنكبوت»؟"
     },
     "answer": {
       "en": "Varys",
@@ -1044,7 +1044,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "eda4ac74",
+      "contentKey": "69e75f64",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -1074,7 +1074,7 @@
     },
     "question": {
       "en": "What are the names of Daenerys's three dragons?",
-      "ar": "شو أسماء تنانين دينيريس الثلاثة؟"
+      "ar": "ما أسماء تنانين دينيريس الثلاثة؟"
     },
     "answer": {
       "en": "Drogon, Rhaegal, and Viserion",
@@ -1085,7 +1085,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "ce4b394c",
+      "contentKey": "bef665bc",
       "spoilerSeason": 2,
       "distractors": {
         "en": [
@@ -1115,7 +1115,7 @@
     },
     "question": {
       "en": "What is the phrase meaning 'all men must die' in High Valyrian?",
-      "ar": "شو العبارة الفاليرية اللي معناها «كل الرجال لازم يموتون»؟"
+      "ar": "ما العبارة الفاليرية التي تعني «كل الرجال يجب أن يموتوا»؟"
     },
     "answer": {
       "en": "Valar Morghulis",
@@ -1144,7 +1144,7 @@
         "en": "The High Valyrian phrase means that all men must die.",
         "ar": "تعني العبارة بالفاليرية العليا أن جميع الرجال يجب أن يموتوا."
       },
-      "contentKey": "9733b2de"
+      "contentKey": "cba157d8"
     }
   },
   {
@@ -1156,7 +1156,7 @@
     },
     "question": {
       "en": "Who wrote the book series Game of Thrones is based on?",
-      "ar": "مين كتب سلسلة الروايات اللي المسلسل مأخوذ منها؟"
+      "ar": "من كتب سلسلة الروايات التي يستند إليها المسلسل؟"
     },
     "answer": {
       "en": "George R.R. Martin",
@@ -1167,7 +1167,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "50690a51",
+      "contentKey": "17e5b47",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -1197,7 +1197,7 @@
     },
     "question": {
       "en": "What Valyrian steel sword belongs to House Stark?",
-      "ar": "شو السيف المصنوع من فولاذ فاليريا واللي يخص بيت ستارك؟"
+      "ar": "ما السيف الفالاريي الفولاذي المنتمي إلى بيت ستارك؟"
     },
     "answer": {
       "en": "Ice",
@@ -1208,7 +1208,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "74d2094c",
+      "contentKey": "a9deee66",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -1238,7 +1238,7 @@
     },
     "question": {
       "en": "Who ultimately kills the Night King?",
-      "ar": "مين قتل ملك الليل بالآخر؟"
+      "ar": "من يقتل ملك الليل في نهاية المطاف؟"
     },
     "answer": {
       "en": "Arya Stark",
@@ -1249,7 +1249,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "d9339ba9",
+      "contentKey": "816a07c2",
       "spoilerSeason": 8,
       "distractors": {
         "en": [
@@ -1279,7 +1279,7 @@
     },
     "question": {
       "en": "What is the seat of House Lannister?",
-      "ar": "وين مقر بيت لانستر؟"
+      "ar": "ما مقر بيت لانستر؟"
     },
     "answer": {
       "en": "Casterly Rock",
@@ -1290,7 +1290,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "3809e780",
+      "contentKey": "d9d06f48",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -1320,7 +1320,7 @@
     },
     "question": {
       "en": "Which actor plays Tyrion Lannister in Game of Thrones?",
-      "ar": "مين يلعب دور تيريون لانستر في «صراع العروش»؟"
+      "ar": "من يجسد تيريون لانستر في مسلسل «صراع العروش»؟"
     },
     "answer": {
       "en": "Peter Dinklage",
@@ -1331,7 +1331,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "7a3cb875",
+      "contentKey": "6355b03d",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -1361,7 +1361,7 @@
     },
     "question": {
       "en": "In Game of Thrones, which city is the headquarters of the Iron Bank?",
-      "ar": "في «صراع العروش»، بأي مدينة مقر «البنك الحديدي»؟"
+      "ar": "في «صراع العروش»، في أي مدينة يقع مقرّ البنك الحديدي؟"
     },
     "answer": {
       "en": "Braavos",
@@ -1390,7 +1390,7 @@
         "en": "The Iron Bank is based in the wealthy Free City of Braavos.",
         "ar": "يتخذ البنك الحديدي من مدينة برافوس الحرة والغنية مقرًا له."
       },
-      "contentKey": "ca61d2a7"
+      "contentKey": "e41c574"
     }
   },
   {
@@ -1402,7 +1402,7 @@
     },
     "question": {
       "en": "In Game of Thrones, which three-word English command becomes the name 'Hodor'?",
-      "ar": "في «صراع العروش»، شو الأمر الإنجليزي اللي من ثلاث كلمات وتحوّل لاسم «هودور»؟"
+      "ar": "في «صراع العروش»، ما الأمر الإنجليزي المؤلف من ثلاث كلمات الذي يتحول إلى اسم «هودور»؟"
     },
     "answer": {
       "en": "Hold the door",
@@ -1413,7 +1413,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "fa5d817",
+      "contentKey": "693bf7a1",
       "spoilerSeason": 6,
       "distractors": {
         "en": [
@@ -1443,7 +1443,7 @@
     },
     "question": {
       "en": "What is the name of the coffee shop where the Friends gang hangs out?",
-      "ar": "شو اسم المقهى اللي يروح له أبطال «فريندز»؟"
+      "ar": "ما اسم المقهى الذي يرتاده أبطال فريندز؟"
     },
     "answer": {
       "en": "Central Perk",
@@ -1454,7 +1454,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "7e97ff70",
+      "contentKey": "45243127",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -1484,7 +1484,7 @@
     },
     "question": {
       "en": "What field does Chandler work in during the early seasons?",
-      "ar": "بأي مجال كان يشتغل تشاندلر بالمواسم الأولى؟"
+      "ar": "في أي مجال يعمل تشاندلر خلال المواسم الأولى؟"
     },
     "answer": {
       "en": "Statistical analysis and data reconfiguration",
@@ -1513,7 +1513,7 @@
         "en": "His friends struggle to name Chandler's job, which becomes a quiz-night joke.",
         "ar": "يعجز أصدقاؤه عن تذكر اسم وظيفته، فيتحول ذلك إلى مزحة في مسابقة بينهم."
       },
-      "contentKey": "cf09db96"
+      "contentKey": "1bfadc34"
     }
   },
   {
@@ -1525,7 +1525,7 @@
     },
     "question": {
       "en": "What is the name of Joey's character on the soap opera 'Days of Our Lives'?",
-      "ar": "شو اسم شخصية جوي بمسلسل «أيام حياتنا»؟"
+      "ar": "ما اسم شخصية جوي في مسلسل «أيام حياتنا»؟"
     },
     "answer": {
       "en": "Dr. Drake Ramoray",
@@ -1536,7 +1536,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "a940f95e",
+      "contentKey": "a9205b35",
       "spoilerSeason": 2,
       "distractors": {
         "en": [
@@ -1566,7 +1566,7 @@
     },
     "question": {
       "en": "What is Monica's passion and profession?",
-      "ar": "شو هواية مونيكا وشغلتها؟"
+      "ar": "ما هواية مونيكا ومهنتها؟"
     },
     "answer": {
       "en": "Cooking / she is a chef",
@@ -1577,7 +1577,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "d7859d27",
+      "contentKey": "1d10bee3",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -1607,7 +1607,7 @@
     },
     "question": {
       "en": "What song is Phoebe's signature at Central Perk?",
-      "ar": "شو أغنية فيبي المميزة في «سنترال بيرك»؟"
+      "ar": "ما أغنية فيبي المميزة في سنترال بيرك؟"
     },
     "answer": {
       "en": "Smelly Cat",
@@ -1618,7 +1618,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "25bd51b9",
+      "contentKey": "a9ed1c07",
       "spoilerSeason": 2,
       "distractors": {
         "en": [
@@ -1648,7 +1648,7 @@
     },
     "question": {
       "en": "What is the name of Ross's first wife in Friends?",
-      "ar": "في «فريندز»، شو اسم زوجة روس الأولى؟"
+      "ar": "في «فريندز»، ما اسم زوجة روس الأولى؟"
     },
     "answer": {
       "en": "Carol Willick",
@@ -1659,7 +1659,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "a94ba300",
+      "contentKey": "5e5aa738",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -1689,7 +1689,7 @@
     },
     "question": {
       "en": "What is the name of Ross's pet monkey in the first season of Friends?",
-      "ar": "بالموسم الأول من «فريندز»، شو اسم قرد روس الأليف؟"
+      "ar": "ما اسم قرد روس الأليف في الموسم الأول من «فريندز»؟"
     },
     "answer": {
       "en": "Marcel",
@@ -1700,7 +1700,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "9a989de9",
+      "contentKey": "6237a946",
       "spoilerSeason": 1,
       "distractors": {
         "en": [
@@ -1730,7 +1730,7 @@
     },
     "question": {
       "en": "Which café-themed working title was used while Friends was being developed?",
-      "ar": "أي عنوان مؤقت مرتبط بمقهى انستخدم وقت تطوير مسلسل «فريندز»؟"
+      "ar": "أي عنوان مؤقت مرتبط بمقهى استُخدم خلال تطوير مسلسل «فريندز»؟"
     },
     "answer": {
       "en": "Insomnia Café",
@@ -1758,7 +1758,7 @@
         "en": "Insomnia Café was an early working title before the series became Friends.",
         "ar": "كان «مقهى الأرق» أحد عناوين التطوير المبكرة قبل اعتماد اسم «فريندز»."
       },
-      "contentKey": "152f9835",
+      "contentKey": "f5365041",
       "kind": "behind-scenes"
     }
   },
@@ -1771,7 +1771,7 @@
     },
     "question": {
       "en": "Which actor plays Chandler Bing in Friends?",
-      "ar": "مين يلعب دور تشاندلر بينغ في «فريندز»؟"
+      "ar": "من يجسد تشاندلر بينغ في «فريندز»؟"
     },
     "answer": {
       "en": "Matthew Perry",
@@ -1782,7 +1782,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "13ecea45",
+      "contentKey": "f8255e3c",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -1812,7 +1812,7 @@
     },
     "question": {
       "en": "How much did each main cast member earn per episode in the final two seasons?",
-      "ar": "بالموسمين الأخيرين، كم كان أجر كل ممثل أساسي بالحلقة؟"
+      "ar": "كم كان أجر كل ممثل رئيسي في الحلقة خلال الموسمين الأخيرين؟"
     },
     "answer": {
       "en": "$1 million per episode",
@@ -1840,7 +1840,7 @@
         "en": "Each of the six leads earned $1 million per episode in seasons nine and ten, after negotiating together.",
         "ar": "حصل كل من الممثلين الستة الرئيسيين على مليون دولار للحلقة في الموسمين التاسع والعاشر، بعد تفاوضهم معًا."
       },
-      "contentKey": "3c1433a1",
+      "contentKey": "327e751",
       "kind": "behind-scenes"
     }
   },
@@ -1853,7 +1853,7 @@
     },
     "question": {
       "en": "What does Ross misdefine as 'total awareness' but is actually a sushi term?",
-      "ar": "شو المصطلح اللي روس عرّفه غلط إنه «الوعي الكامل»، وهو بالأصل اسم أكلة يابانية؟"
+      "ar": "ما المصطلح الذي يعرّفه روس خطأً بـ«الوعي الكامل» بينما هو مصطلح طعام ياباني؟"
     },
     "answer": {
       "en": "Unagi",
@@ -1864,7 +1864,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "c5d0f91b",
+      "contentKey": "5de73d4b",
       "spoilerSeason": 6,
       "distractors": {
         "en": [
@@ -1894,7 +1894,7 @@
     },
     "question": {
       "en": "What is the name of the television series in which Joey plays a detective partnered with a robot in Friends?",
-      "ar": "شو اسم المسلسل اللي يلعب فيه جوي دور محقق يشتغل مع روبوت ضمن أحداث «فريندز»؟"
+      "ar": "ما اسم المسلسل الذي يؤدي فيه جوي دور محقق يعمل مع روبوت ضمن أحداث «فريندز»؟"
     },
     "answer": {
       "en": "Mac and C.H.E.E.S.E.",
@@ -1923,7 +1923,7 @@
         "en": "Joey's detective co-star is a robot in this fictional television show.",
         "ar": "يشارك جوي البطولةَ روبوتٌ في هذا المسلسل التلفزيوني الخيالي."
       },
-      "contentKey": "e3d98f95"
+      "contentKey": "f4d582f9"
     }
   },
   {
@@ -1935,7 +1935,7 @@
     },
     "question": {
       "en": "What is the name of the Central Perk employee played by James Michael Tyler in Friends?",
-      "ar": "في «فريندز»، شو اسم موظف «سنترال بيرك» اللي يلعب دوره جيمس مايكل تايلر؟"
+      "ar": "ما اسم موظف سنترال بيرك الذي يجسده جيمس مايكل تايلر في «فريندز»؟"
     },
     "answer": {
       "en": "Gunther",
@@ -1946,7 +1946,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "3b510888",
+      "contentKey": "d46c0b39",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -1976,7 +1976,7 @@
     },
     "question": {
       "en": "What is Ross Geller's scientific specialty in Friends?",
-      "ar": "في «فريندز»، شو تخصص روس غيلر العلمي؟"
+      "ar": "ما التخصص العلمي لروس غيلر في «فريندز»؟"
     },
     "answer": {
       "en": "Paleontology",
@@ -1987,7 +1987,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "15d4b744",
+      "contentKey": "57a658bf",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -2017,7 +2017,7 @@
     },
     "question": {
       "en": "Which band performs the Friends opening theme?",
-      "ar": "أي فرقة تغني أغنية شارة «فريندز»؟"
+      "ar": "أي فرقة تؤدي أغنية شارة «فريندز»؟"
     },
     "answer": {
       "en": "The Rembrandts",
@@ -2046,7 +2046,7 @@
         "en": "The Rembrandts perform I'll Be There for You, the opening theme.",
         "ar": "تؤدي فرقة ذا ريمبرانتس أغنية «آيل بي ذير فور يو» في الشارة."
       },
-      "contentKey": "7e517006"
+      "contentKey": "eb21e46b"
     }
   },
   {
@@ -2058,7 +2058,7 @@
     },
     "question": {
       "en": "In what decade is most of Stranger Things set?",
-      "ar": "بأي عقد تصير أغلب أحداث «أشياء غريبة»؟"
+      "ar": "في أي عقد تدور معظم أحداث أشياء غريبة؟"
     },
     "answer": {
       "en": "The 1980s",
@@ -2069,7 +2069,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "a21e5feb",
+      "contentKey": "370ba064",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -2099,7 +2099,7 @@
     },
     "question": {
       "en": "What is the name of the fictional town where Stranger Things takes place?",
-      "ar": "شو اسم المدينة الخيالية اللي تصير فيها أحداث «أشياء غريبة»؟"
+      "ar": "ما اسم المدينة الخيالية حيث تدور أحداث أشياء غريبة؟"
     },
     "answer": {
       "en": "Hawkins, Indiana",
@@ -2110,7 +2110,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "92f16661",
+      "contentKey": "c2a277fb",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -2140,7 +2140,7 @@
     },
     "question": {
       "en": "What is the name of the mysterious girl with psychic powers?",
-      "ar": "شو اسم البنت الغامضة اللي عندها قدرات خارقة؟"
+      "ar": "ما اسم الفتاة الغامضة ذات القدرات الخارقة؟"
     },
     "answer": {
       "en": "Eleven (El)",
@@ -2151,7 +2151,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "b68ae8a3",
+      "contentKey": "71e7cc00",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -2181,7 +2181,7 @@
     },
     "question": {
       "en": "Who is the main boy who goes missing in Season 1?",
-      "ar": "مين الولد الأساسي اللي يختفي بالموسم الأول؟"
+      "ar": "من هو الفتى الرئيسي الذي يختفي في الموسم الأول؟"
     },
     "answer": {
       "en": "Will Byers",
@@ -2192,7 +2192,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "4ae42830",
+      "contentKey": "d4f4aa0f",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -2222,7 +2222,7 @@
     },
     "question": {
       "en": "What is the name of the dark parallel dimension in Stranger Things?",
-      "ar": "شو اسم البُعد الموازي المظلم في «أشياء غريبة»؟"
+      "ar": "ما اسم البُعد الموازي المظلم في أشياء غريبة؟"
     },
     "answer": {
       "en": "The Upside Down",
@@ -2233,7 +2233,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "13c2883e",
+      "contentKey": "4cd6aecc",
       "spoilerSeason": 1,
       "distractors": {
         "en": [
@@ -2263,7 +2263,7 @@
     },
     "question": {
       "en": "What is Eleven's birth name in Stranger Things, before she takes Hopper's surname?",
-      "ar": "في «أشياء غريبة»، شو كان اسم إليفن لما انولدت، قبل ما تاخذ اسم عيلة هوبر؟"
+      "ar": "ما اسم إيلفن عند الولادة في «سترينجر ثينغز»، قبل أن تحمل اسم عائلة هوبر؟"
     },
     "answer": {
       "en": "Jane Ives",
@@ -2292,7 +2292,7 @@
         "en": "Ives is her birth surname, before the later Hopper identity.",
         "ar": "آيفز اسم عائلتها عند الولادة قبل استخدامها اسم هوبر لاحقًا."
       },
-      "contentKey": "b1d7b81a"
+      "contentKey": "7310b4b0"
     }
   },
   {
@@ -2304,7 +2304,7 @@
     },
     "question": {
       "en": "What is the name of the main monster in Season 1?",
-      "ar": "شو اسم الوحش الأساسي بالموسم الأول؟"
+      "ar": "ما اسم الوحش الرئيسي في الموسم الأول؟"
     },
     "answer": {
       "en": "The Demogorgon",
@@ -2315,7 +2315,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "14728c14",
+      "contentKey": "bd599bd7",
       "spoilerSeason": 1,
       "distractors": {
         "en": [
@@ -2345,7 +2345,7 @@
     },
     "question": {
       "en": "What Dungeons & Dragons-inspired name do the children give the shadow monster in season two of Stranger Things?",
-      "ar": "بالموسم الثاني من «أشياء غريبة»، شو الاسم المأخوذ من «دنجنز آند دراغنز» اللي سمّوا فيه الأطفال «وحش الظل»؟"
+      "ar": "ما الاسم المستوحى من «دنجنز آند دراغنز» الذي يطلقه الأطفال على وحش الظل في الموسم الثاني من «سترينجر ثينغز»؟"
     },
     "answer": {
       "en": "The Mind Flayer",
@@ -2356,7 +2356,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "c2135c21",
+      "contentKey": "ae84b42f",
       "spoilerSeason": 2,
       "distractors": {
         "en": [
@@ -2386,7 +2386,7 @@
     },
     "question": {
       "en": "Who plays Chief Jim Hopper?",
-      "ar": "مين يلعب دور قائد الشرطة جيم هوبر؟"
+      "ar": "من يؤدي دور الرئيس جيم هوبر؟"
     },
     "answer": {
       "en": "David Harbour",
@@ -2397,7 +2397,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "effb8503",
+      "contentKey": "8f845804",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -2427,7 +2427,7 @@
     },
     "question": {
       "en": "What Kate Bush song is central to Season 4?",
-      "ar": "شو أغنية كيت بوش المحورية بالموسم الرابع؟"
+      "ar": "ما أغنية كيت بوش المحورية في الموسم الرابع؟"
     },
     "answer": {
       "en": "Running Up That Hill",
@@ -2438,7 +2438,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "c8f4abbb",
+      "contentKey": "8e12d116",
       "spoilerSeason": 4,
       "distractors": {
         "en": [
@@ -2468,7 +2468,7 @@
     },
     "question": {
       "en": "What was Stranger Things' working title before Netflix released it?",
-      "ar": "شو كان الاسم المبدئي لمسلسل «أشياء غريبة» قبل ما تطلقه نتفليكس؟"
+      "ar": "ما الاسم المبدئي لمسلسل «أشياء غريبة» قبل أن تطلقه نتفليكس؟"
     },
     "answer": {
       "en": "Montauk",
@@ -2497,7 +2497,7 @@
         "en": "The Duffer Brothers developed the series as Montauk, set on Long Island, before moving the story to fictional Hawkins, Indiana.",
         "ar": "طوّر الأخوان دافر المسلسل باسم «مونتوك» وكانت أحداثه في لونغ آيلاند، قبل أن ينقلا القصة إلى بلدة هوكينز الخيالية في إنديانا."
       },
-      "contentKey": "d62143f5"
+      "contentKey": "fdca4de8"
     }
   },
   {
@@ -2509,7 +2509,7 @@
     },
     "question": {
       "en": "What is Vecna's real identity?",
-      "ar": "شو الهوية الحقيقية لـ«فيكنا»؟"
+      "ar": "ما الهوية الحقيقية لـ«فيكنا»؟"
     },
     "answer": {
       "en": "Henry Creel / One",
@@ -2538,7 +2538,7 @@
         "en": "The fourth season connects Henry, One and Vecna as the same person.",
         "ar": "يربط الموسم الرابع هنري وواحد وفيكنا بوصفهم شخصًا واحدًا."
       },
-      "contentKey": "980b81a8"
+      "contentKey": "13d08cd0"
     }
   },
   {
@@ -2550,7 +2550,7 @@
     },
     "question": {
       "en": "What character sacrifices himself in the Season 4 finale?",
-      "ar": "مين يضحّي بنفسه بآخر الموسم الرابع؟"
+      "ar": "من يُضحي بنفسه في نهاية الموسم الرابع؟"
     },
     "answer": {
       "en": "Eddie Munson",
@@ -2579,7 +2579,7 @@
         "en": "Eddie stays behind to draw the demobats away in the finale.",
         "ar": "يبقى إيدي ليجذب الخفافيش الشيطانية بعيدًا في الحلقة الختامية."
       },
-      "contentKey": "5bc9ded2"
+      "contentKey": "17abdbb5"
     }
   },
   {
@@ -2591,7 +2591,7 @@
     },
     "question": {
       "en": "What actual Cold War US government program do the Hawkins Lab experiments parallel?",
-      "ar": "شو البرنامج الحكومي الأمريكي الحقيقي من أيام الحرب الباردة اللي يشبه تجارب مختبر هوكينز؟"
+      "ar": "ما البرنامج الحكومي الأمريكي الحقيقي من حقبة الحرب الباردة الذي يُشابه تجارب مختبر هوكينز؟"
     },
     "answer": {
       "en": "MKUltra",
@@ -2620,7 +2620,7 @@
         "en": "The fictional experiments echo the real MKUltra programme, with supernatural additions.",
         "ar": "تستلهم التجارب الخيالية برنامج إم كي ألترا الحقيقي مع إضافات خارقة."
       },
-      "contentKey": "7e3228a9"
+      "contentKey": "4c45cd90"
     }
   },
   {
@@ -2632,7 +2632,7 @@
     },
     "question": {
       "en": "Which twin brothers created Stranger Things?",
-      "ar": "مين الأخوين التوأم اللي ابتكروا «أشياء غريبة»؟"
+      "ar": "مَن الأخوان التوأم اللذان ابتكرا «أشياء غريبة»؟"
     },
     "answer": {
       "en": "Matt and Ross Duffer",
@@ -2643,7 +2643,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "884ee0f0",
+      "contentKey": "cf09814a",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -2673,7 +2673,7 @@
     },
     "question": {
       "en": "What tabletop role-playing game are the boys playing near the beginning of Stranger Things' first episode?",
-      "ar": "شو لعبة تقمّص الأدوار اللي يلعبونها الأولاد قريب من بداية أول حلقة من «أشياء غريبة»؟"
+      "ar": "ما لعبة تقمّص الأدوار اللوحية التي يلعبها الفتيان قرب بداية الحلقة الأولى من «سترينجر ثينغز»؟"
     },
     "answer": {
       "en": "Dungeons & Dragons",
@@ -2684,7 +2684,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "f1f85965",
+      "contentKey": "3265a8",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -2714,7 +2714,7 @@
     },
     "question": {
       "en": "In season three of Stranger Things, what is the name of the ice-cream shop where Steve and Robin work?",
-      "ar": "بالموسم الثالث من «أشياء غريبة»، شو اسم محل الآيس كريم اللي يشتغلون فيه ستيف وروبن؟"
+      "ar": "ما اسم متجر المثلجات الذي يعمل فيه ستيف وروبن في الموسم الثالث من «سترينجر ثينغز»؟"
     },
     "answer": {
       "en": "Scoops Ahoy",
@@ -2725,7 +2725,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "146ed157",
+      "contentKey": "3091c664",
       "spoilerSeason": 3,
       "distractors": {
         "en": [
@@ -2755,7 +2755,7 @@
     },
     "question": {
       "en": "What is the name of Eddie Munson's Dungeons & Dragons club in Stranger Things season four?",
-      "ar": "بالموسم الرابع من «أشياء غريبة»، شو اسم نادي «دنجنز آند دراغنز» اللي يقوده إيدي مانسون؟"
+      "ar": "ما اسم نادي «دنجنز آند دراغنز» الذي يقوده إيدي مانسون في الموسم الرابع من «سترينجر ثينغز»؟"
     },
     "answer": {
       "en": "The Hellfire Club",
@@ -2766,7 +2766,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "29674c74",
+      "contentKey": "d5f1a026",
       "spoilerSeason": 4,
       "distractors": {
         "en": [
@@ -2796,7 +2796,7 @@
     },
     "question": {
       "en": "Which two musicians composed the main title theme of Stranger Things?",
-      "ar": "شو اسمين الموسيقيّين اللي ألّفوا موسيقى شارة «أشياء غريبة»؟"
+      "ar": "ما اسما الموسيقيَّين اللذين ألّفا موسيقى شارة «سترينجر ثينغز»؟"
     },
     "answer": {
       "en": "Kyle Dixon and Michael Stein",
@@ -2807,7 +2807,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "c107be4c",
+      "contentKey": "6f9b41e8",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -2837,7 +2837,7 @@
     },
     "question": {
       "en": "What historical era is Bab Al-Hara primarily set in?",
-      "ar": "بأي فترة تاريخية تصير أحداث «باب الحارة» بالأساس؟"
+      "ar": "في أي حقبة تاريخية تدور أحداث باب الحارة بشكل رئيسي؟"
     },
     "answer": {
       "en": "The French Mandate period in Syria (1920s–1940s)",
@@ -2848,7 +2848,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "a29ff27c",
+      "contentKey": "75d9a1be",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -2878,7 +2878,7 @@
     },
     "question": {
       "en": "Which fictional Damascus neighborhood is the main setting of early Bab Al-Hara seasons?",
-      "ar": "شو اسم الحارة الدمشقية الخيالية اللي تصير فيها أحداث أول أجزاء «باب الحارة»؟"
+      "ar": "ما اسم الحارة الدمشقية الخيالية التي تدور فيها أحداث الأجزاء الأولى من «باب الحارة»؟"
     },
     "answer": {
       "en": "Haret Al-Dabaa",
@@ -2889,7 +2889,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "a562d165",
+      "contentKey": "1db5e2c9",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -2919,7 +2919,7 @@
     },
     "question": {
       "en": "On which Arabic channel did Bab Al-Hara first air?",
-      "ar": "على أي قناة عربية انعرض «باب الحارة» أول مرة؟"
+      "ar": "على أي قناة عربية بُث باب الحارة لأول مرة؟"
     },
     "answer": {
       "en": "MBC",
@@ -2930,7 +2930,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "85241fba",
+      "contentKey": "686b5115",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -2960,7 +2960,7 @@
     },
     "question": {
       "en": "During which Islamic month is Bab Al-Hara traditionally broadcast?",
-      "ar": "بأي شهر هجري ينعرض «باب الحارة» عادةً؟"
+      "ar": "في أي شهر إسلامي يُبث باب الحارة تقليدياً؟"
     },
     "answer": {
       "en": "Ramadan",
@@ -2971,7 +2971,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "3c2817",
+      "contentKey": "d7949840",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -3001,7 +3001,7 @@
     },
     "question": {
       "en": "What is Abu Issam's trade in the early seasons of Bab Al-Hara?",
-      "ar": "بأول أجزاء «باب الحارة»، شو كانت شغلة أبو عصام؟"
+      "ar": "ما مهنة أبو عصام في الأجزاء الأولى من «باب الحارة»؟"
     },
     "answer": {
       "en": "Barber and traditional healer",
@@ -3012,7 +3012,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "c8945352",
+      "contentKey": "3e424ed",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -3042,7 +3042,7 @@
     },
     "question": {
       "en": "Who plays Abu Issam in Bab Al-Hara?",
-      "ar": "مين يلعب دور أبو عصام في «باب الحارة»؟"
+      "ar": "من يجسد أبو عصام في «باب الحارة»؟"
     },
     "answer": {
       "en": "Abbas Al-Nouri",
@@ -3053,7 +3053,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "ddb7b249",
+      "contentKey": "aa93fa06",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -3083,7 +3083,7 @@
     },
     "question": {
       "en": "What year did the first season of Bab Al-Hara premiere?",
-      "ar": "بأي سنة انعرض أول جزء من «باب الحارة»؟"
+      "ar": "في أي عام عُرض الموسم الأول من باب الحارة؟"
     },
     "answer": {
       "en": "2006",
@@ -3094,7 +3094,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "926504c3",
+      "contentKey": "e7168aa3",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -3124,7 +3124,7 @@
     },
     "question": {
       "en": "Who directed the first seasons of Bab Al-Hara?",
-      "ar": "مين أخرج أول أجزاء «باب الحارة»؟"
+      "ar": "من أخرج المواسم الأولى من باب الحارة؟"
     },
     "answer": {
       "en": "Bassam Al-Mulla",
@@ -3135,7 +3135,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "88419718",
+      "contentKey": "f9643425",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -3165,7 +3165,7 @@
     },
     "question": {
       "en": "What is the name of Abu Issam's wife, known as Umm Issam, in Bab Al-Hara?",
-      "ar": "في «باب الحارة»، شو اسم زوجة أبو عصام المعروفة بأم عصام؟"
+      "ar": "ما اسم زوجة أبو عصام، المعروفة بأم عصام، في «باب الحارة»؟"
     },
     "answer": {
       "en": "Souad",
@@ -3194,7 +3194,7 @@
         "en": "Umm Issam's personal name is Souad.",
         "ar": "الاسم الشخصي لأم عصام هو سعاد."
       },
-      "contentKey": "8e2cf667"
+      "contentKey": "827e4e7d"
     }
   },
   {
@@ -3206,7 +3206,7 @@
     },
     "question": {
       "en": "Roughly how many viewers did the season-two finale of Bab Al-Hara reportedly draw across the Arab world?",
-      "ar": "تقريبًا كم مشاهد يقولون إن حلقة ختام الجزء الثاني من «باب الحارة» جمعت بالعالم العربي؟"
+      "ar": "كم مشاهدًا تقريبًا يُقال إن حلقة ختام الجزء الثاني من «باب الحارة» جذبتهم في العالم العربي؟"
     },
     "answer": {
       "en": "More than 50 million",
@@ -3235,7 +3235,7 @@
         "en": "Press reports credited the 2007 season-two finale with more than 50 million viewers, a sign of the show's huge reach.",
         "ar": "نسبت تقارير صحفية إلى ختام الجزء الثاني عام 2007 أكثر من 50 مليون مشاهد، دلالةً على انتشاره الواسع."
       },
-      "contentKey": "50b3f847"
+      "contentKey": "ae897e46"
     }
   },
   {
@@ -3247,7 +3247,7 @@
     },
     "question": {
       "en": "Which actor plays Abu Shihab in the first seasons of Bab Al-Hara?",
-      "ar": "مين يلعب دور أبو شهاب بأول أجزاء «باب الحارة»؟"
+      "ar": "من يجسد أبو شهاب في الأجزاء الأولى من «باب الحارة»؟"
     },
     "answer": {
       "en": "Samer Al-Masri",
@@ -3276,7 +3276,7 @@
         "en": "Samer Al-Masri plays Abu Shihab in the early seasons.",
         "ar": "يجسد سامر المصري أبو شهاب في المواسم الأولى."
       },
-      "contentKey": "4ddfcd3e"
+      "contentKey": "dde37ef0"
     }
   },
   {
@@ -3288,7 +3288,7 @@
     },
     "question": {
       "en": "What business does Abu Hatem run in Bab Al-Hara?",
-      "ar": "في «باب الحارة»، شو المحل اللي يديره أبو حاتم؟"
+      "ar": "ما المحل الذي يديره أبو حاتم في «باب الحارة»؟"
     },
     "answer": {
       "en": "A café",
@@ -3317,7 +3317,7 @@
         "en": "Abu Hatem's café is a regular gathering place for the men.",
         "ar": "مقهى أبو حاتم مكان معتاد لاجتماع رجال الحارة."
       },
-      "contentKey": "db5ad758"
+      "contentKey": "add5511c"
     }
   },
   {
@@ -3329,7 +3329,7 @@
     },
     "question": {
       "en": "What is Abu Bashir's trade in Bab Al-Hara?",
-      "ar": "في «باب الحارة»، شو شغلة أبو بشير؟"
+      "ar": "ما مهنة أبو بشير في «باب الحارة»؟"
     },
     "answer": {
       "en": "Baker",
@@ -3358,7 +3358,7 @@
         "en": "Abu Bashir is also known through his work at the oven.",
         "ar": "يرتبط أبو بشير كذلك بعمله في الفرن."
       },
-      "contentKey": "4e488e84"
+      "contentKey": "f2ec04d8"
     }
   },
   {
@@ -3370,7 +3370,7 @@
     },
     "question": {
       "en": "Who created and stars in the comedy show Maraya?",
-      "ar": "مين صاحب فكرة مسلسل «مرايا» وبطله؟"
+      "ar": "مَن ابتكر مسلسل «مرايا» ويقوم ببطولته؟"
     },
     "answer": {
       "en": "Yasser Al-Azmeh",
@@ -3381,7 +3381,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "f999db3",
+      "contentKey": "4c82fd38",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -3411,7 +3411,7 @@
     },
     "question": {
       "en": "What is the English translation of the Arabic title Maraya?",
-      "ar": "شو الترجمة الإنجليزية لعنوان «مرايا»؟"
+      "ar": "ما الترجمة الإنجليزية لعنوان «مرايا»؟"
     },
     "answer": {
       "en": "Mirrors",
@@ -3422,7 +3422,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "af00ab74",
+      "contentKey": "e160a98",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -3452,7 +3452,7 @@
     },
     "question": {
       "en": "What type of show is Maraya?",
-      "ar": "«مرايا» أي نوع من البرامج؟"
+      "ar": "ما نوع برنامج مرايا؟"
     },
     "answer": {
       "en": "A satirical comedy sketch show",
@@ -3463,7 +3463,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "afaceb10",
+      "contentKey": "33643723",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -3493,7 +3493,7 @@
     },
     "question": {
       "en": "In what decade did Maraya first air?",
-      "ar": "بأي عقد بدأ عرض «مرايا»؟"
+      "ar": "في أي عقد بدأ بث مرايا؟"
     },
     "answer": {
       "en": "The 1980s (1982)",
@@ -3504,7 +3504,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "7a1b4542",
+      "contentKey": "36d29e7a",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -3534,7 +3534,7 @@
     },
     "question": {
       "en": "In which city was Maraya's creator Yasser Al-Azmeh born?",
-      "ar": "بأي مدينة انولد ياسر العظمة، صاحب «مرايا»؟"
+      "ar": "في أي مدينة وُلد ياسر العظمة، صاحب «مرايا»؟"
     },
     "answer": {
       "en": "Damascus",
@@ -3545,7 +3545,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "b7319324",
+      "contentKey": "74d7fe7",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -3575,7 +3575,7 @@
     },
     "question": {
       "en": "Which director worked with Yasser Al-Azmeh on the very first Maraya?",
-      "ar": "مين المخرج اللي اشتغل مع ياسر العظمة على أول «مرايا»؟"
+      "ar": "من المخرج الذي عمل مع ياسر العظمة على أول «مرايا»؟"
     },
     "answer": {
       "en": "Hisham Sharbatji",
@@ -3586,7 +3586,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "538698fa",
+      "contentKey": "e74fc21f",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -3616,7 +3616,7 @@
     },
     "question": {
       "en": "What social issues did Maraya famously address?",
-      "ar": "شو القضايا الاجتماعية اللي اشتهر «مرايا» إنه يطرحها؟"
+      "ar": "ما القضايا الاجتماعية التي اشتهر مرايا بمعالجتها؟"
     },
     "answer": {
       "en": "Bureaucracy, corruption and hypocrisy",
@@ -3645,7 +3645,7 @@
         "en": "Its humour often grows from unfair rules and double standards.",
         "ar": "تنمو فكاهته كثيرًا من القواعد المجحفة وازدواجية المعايير."
       },
-      "contentKey": "617fd746"
+      "contentKey": "23656234"
     }
   },
   {
@@ -3657,7 +3657,7 @@
     },
     "question": {
       "en": "Which renowned Syrian director, known for 'Al-Zir Salem' and 'Al-Taghriba Al-Filastiniya', directed Maraya 98 and Maraya 99?",
-      "ar": "مين المخرج السوري المشهور، صاحب «الزير سالم» و«التغريبة الفلسطينية»، اللي أخرج «مرايا 98» و«مرايا 99»؟"
+      "ar": "من المخرج السوري الشهير، صاحب «الزير سالم» و«التغريبة الفلسطينية»، الذي أخرج «مرايا 98» و«مرايا 99»؟"
     },
     "answer": {
       "en": "Hatem Ali",
@@ -3686,7 +3686,7 @@
         "en": "Hatem Ali directed Maraya 98 and 99, and even appeared on screen in Maraya 98, before his celebrated historical dramas.",
         "ar": "أخرج حاتم علي «مرايا 98» و«مرايا 99»، وظهر ممثلًا في «مرايا 98»، قبل أعماله التاريخية الشهيرة."
       },
-      "contentKey": "d64c33a8"
+      "contentKey": "f5f131db"
     }
   },
   {
@@ -3698,7 +3698,7 @@
     },
     "question": {
       "en": "What alternative title was used for Maraya's 2004 edition?",
-      "ar": "شو العنوان الثاني اللي حمله «مرايا» بنسخة 2004؟"
+      "ar": "ما العنوان الآخر الذي حمله «مرايا» في نسخة عام 2004؟"
     },
     "answer": {
       "en": "Eshna W Shofna",
@@ -3709,7 +3709,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "a816e8a5",
+      "contentKey": "23bbb0fa",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -3780,7 +3780,7 @@
     },
     "question": {
       "en": "Which director made Maraya 97, one of the show's most popular editions and still re-run today?",
-      "ar": "مين المخرج اللي أخرج «مرايا 97»، من أشهر أجزاء المسلسل اللي لسا ينعاد عرضها لليوم؟"
+      "ar": "من المخرج الذي أخرج «مرايا 97»، أحد أشهر أجزاء المسلسل وما زال يُعاد عرضه حتى اليوم؟"
     },
     "answer": {
       "en": "Mamoun Al-Bunni",
@@ -3791,7 +3791,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "5ee07b1d",
+      "contentKey": "85727874",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -3821,7 +3821,7 @@
     },
     "question": {
       "en": "In which country outside Syria was Maraya 2013 filmed?",
-      "ar": "بأي بلد برّا سوريا انصوّر «مرايا 2013»؟"
+      "ar": "في أي بلد خارج سوريا صُوّر «مرايا 2013»؟"
     },
     "answer": {
       "en": "Algeria",
@@ -3848,9 +3848,9 @@
       },
       "explanation": {
         "en": "The 2013 production moved filming to Algeria.",
-        "ar": "انتقل تصوير نسخة عام ٢٠١٣ إلى الجزائر."
+        "ar": "انتقل تصوير نسخة عام 2013 إلى الجزائر."
       },
-      "contentKey": "77ddd754"
+      "contentKey": "6339e9ec"
     }
   },
   {
@@ -3903,7 +3903,7 @@
     },
     "question": {
       "en": "In which country was Tash Ma Tash produced?",
-      "ar": "بأي دولة انعمل «طاش ما طاش»؟"
+      "ar": "في أي دولة أُنتج طاش ما طاش؟"
     },
     "answer": {
       "en": "Saudi Arabia",
@@ -3914,7 +3914,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "b066ea77",
+      "contentKey": "332d495",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -3944,7 +3944,7 @@
     },
     "question": {
       "en": "What title was used for the 2023 revival of Tash Ma Tash?",
-      "ar": "شو عنوان رجعة «طاش ما طاش» سنة 2023؟"
+      "ar": "ما عنوان عودة «طاش ما طاش» في عام 2023؟"
     },
     "answer": {
       "en": "Tash Al-Awda",
@@ -3955,7 +3955,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "c1b48101",
+      "contentKey": "f2009ca9",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -3985,7 +3985,7 @@
     },
     "question": {
       "en": "In Tash Ma Tash's family sketches, how are Abu Hazar and Abu Nizar related?",
-      "ar": "في لوحات العائلة في «طاش ما طاش»، شو صلة أبو هزار بأبو نزار؟"
+      "ar": "في لوحات العائلة في «طاش ما طاش»، ما صلة القرابة بين أبي هزار وأبي نزار؟"
     },
     "answer": {
       "en": "They are brothers",
@@ -3996,7 +3996,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "918634f8",
+      "contentKey": "81f2d810",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -4026,7 +4026,7 @@
     },
     "question": {
       "en": "Which two actors lead Tash Ma Tash?",
-      "ar": "مين الممثلين اللي يتصدّرون بطولة «طاش ما طاش»؟"
+      "ar": "من الممثلان اللذان يتصدران بطولة «طاش ما طاش»؟"
     },
     "answer": {
       "en": "Nasser Al-Qasabi and Abdullah Al-Sadhan",
@@ -4037,7 +4037,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "682a564e",
+      "contentKey": "1fd4ab9c",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -4067,7 +4067,7 @@
     },
     "question": {
       "en": "In which year was the first season of Tash Ma Tash broadcast?",
-      "ar": "بأي سنة انعرض أول موسم من «طاش ما طاش»؟"
+      "ar": "في أي عام عُرض الموسم الأول من «طاش ما طاش»؟"
     },
     "answer": {
       "en": "1993",
@@ -4078,7 +4078,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "3bb65e91",
+      "contentKey": "af37d703",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -4108,7 +4108,7 @@
     },
     "question": {
       "en": "On which Saudi channel did Tash Ma Tash originally air?",
-      "ar": "على أي قناة سعودية انعرض «طاش ما طاش» بالبداية؟"
+      "ar": "على أي قناة سعودية عُرض طاش ما طاش في البداية؟"
     },
     "answer": {
       "en": "Saudi Television (Channel 1)",
@@ -4119,7 +4119,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "30f4b2e6",
+      "contentKey": "60e727cf",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -4149,7 +4149,7 @@
     },
     "question": {
       "en": "During which month does Tash Ma Tash traditionally air?",
-      "ar": "بأي شهر ينعرض «طاش ما طاش» عادةً؟"
+      "ar": "في أي شهر يُبث طاش ما طاش تقليدياً؟"
     },
     "answer": {
       "en": "Ramadan",
@@ -4160,7 +4160,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "8baf3ab3",
+      "contentKey": "71b9c856",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -4190,7 +4190,7 @@
     },
     "question": {
       "en": "Who directed the first two seasons of Tash Ma Tash?",
-      "ar": "مين أخرج أول موسمين من «طاش ما طاش»؟"
+      "ar": "من أخرج أول موسمين من «طاش ما طاش»؟"
     },
     "answer": {
       "en": "Amer Al-Hamoud",
@@ -4201,7 +4201,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "ccb7b3a",
+      "contentKey": "d7e19128",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -4231,11 +4231,11 @@
     },
     "question": {
       "en": "Where does the name 'Tash Ma Tash' come from?",
-      "ar": "اسم «طاش ما طاش» من وين جاي؟"
+      "ar": "من أين جاء اسم «طاش ما طاش»؟"
     },
     "answer": {
       "en": "An old traditional game of the same name",
-      "ar": "لعبة شعبية قديمة بنفس الاسم"
+      "ar": "لعبة شعبية قديمة تحمل الاسم نفسه"
     },
     "review": {
       "status": "pending"
@@ -4260,7 +4260,7 @@
         "en": "Saudipedia notes that the title was taken from an old traditional game that bears the same name.",
         "ar": "تذكر موسوعة «سعوديبيديا» أن العنوان مأخوذ من لعبة شعبية قديمة تحمل الاسم نفسه."
       },
-      "contentKey": "8bf8b0e5"
+      "contentKey": "c9f4ebc2"
     }
   },
   {
@@ -4272,7 +4272,7 @@
     },
     "question": {
       "en": "Which recurring Tash Ma Tash character is the naive, good-hearted one whom everyone takes advantage of?",
-      "ar": "أي شخصية متكررة في «طاش ما طاش» هي الطيب الساذج اللي الكل يستغله؟"
+      "ar": "أي شخصية متكررة في «طاش ما طاش» هي الطيب الساذج الذي يستغله الجميع؟"
     },
     "answer": {
       "en": "Fouad",
@@ -4283,7 +4283,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "1ded1d34",
+      "contentKey": "ae339725",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -4313,7 +4313,7 @@
     },
     "question": {
       "en": "Who plays Fouad's uncle Asaad Omar Galli in Tash Ma Tash?",
-      "ar": "مين يلعب دور خال فؤاد، أسعد عمر قلّي، في «طاش ما طاش»؟"
+      "ar": "من يجسد خال فؤاد، أسعد عمر قلّي، في «طاش ما طاش»؟"
     },
     "answer": {
       "en": "Youssef Al-Jarrah",
@@ -4342,7 +4342,7 @@
         "en": "Youssef Al-Jarrah gives Asaad Omar Galli his distinctive Jeddah delivery.",
         "ar": "يمنح يوسف الجراح أسعد عمر قلي أداءه الجداوي المميز."
       },
-      "contentKey": "2484239c"
+      "contentKey": "2a01f82d"
     }
   },
   {
@@ -4354,7 +4354,7 @@
     },
     "question": {
       "en": "Which actor plays Hazar, the son in the recurring Abu Hazar family sketches in Tash Ma Tash?",
-      "ar": "في «طاش ما طاش»، مين يلعب دور هزار بلوحات عيلة أبو هزار المتكررة؟"
+      "ar": "من يجسد هزار في لوحات عائلة أبو هزار المتكررة في «طاش ما طاش»؟"
     },
     "answer": {
       "en": "Fahad Al-Hayyan",
@@ -4383,7 +4383,7 @@
         "en": "Fahad Al-Hayyan plays Hazar in the familiar family sketches.",
         "ar": "يجسد فهد الحيان هزار في اللوحات العائلية المعروفة."
       },
-      "contentKey": "888a46bd"
+      "contentKey": "b467a53c"
     }
   },
   {
@@ -4436,7 +4436,7 @@
     },
     "question": {
       "en": "Which satirical Ramadan series did Nasser Al-Qasabi lead from 2015, during Tash Ma Tash's long break?",
-      "ar": "أي مسلسل رمضاني ساخر بطّله ناصر القصبي من سنة 2015، وقت توقف «طاش ما طاش» الطويل؟"
+      "ar": "أي مسلسل رمضاني ساخر قام ناصر القصبي ببطولته منذ عام 2015، خلال توقف «طاش ما طاش» الطويل؟"
     },
     "answer": {
       "en": "Selfie",
@@ -4465,7 +4465,7 @@
         "en": "Selfie ran for three Ramadan seasons, from 2015 to 2017.",
         "ar": "عُرض «سيلفي» ثلاثة مواسم رمضانية، من 2015 إلى 2017."
       },
-      "contentKey": "8089825a"
+      "contentKey": "4f85e2c9"
     }
   },
   {
@@ -4477,7 +4477,7 @@
     },
     "question": {
       "en": "Which Saudi public authority sponsored the 2023 revival of Tash Ma Tash?",
-      "ar": "شو الهيئة السعودية اللي رعت رجعة «طاش ما طاش» سنة 2023؟"
+      "ar": "ما الهيئة السعودية التي رعت عودة «طاش ما طاش» عام 2023؟"
     },
     "answer": {
       "en": "The General Entertainment Authority",
@@ -4506,7 +4506,7 @@
         "en": "The General Entertainment Authority supported the revival.",
         "ar": "دعمت الهيئة العامة للترفيه عودة المسلسل."
       },
-      "contentKey": "51a81cca"
+      "contentKey": "d0675d9b"
     }
   },
   {
@@ -4518,7 +4518,7 @@
     },
     "question": {
       "en": "What Saudi word describes the desert outings frequently taken by the Abu Hazar and Abu Nizar families in Tash Ma Tash?",
-      "ar": "شو الكلمة السعودية اللي تنقال للطلعات البرية المتكررة عند عيلتين أبو هزار وأبو نزار في «طاش ما طاش»؟"
+      "ar": "ما الكلمة السعودية التي تُطلق على الرحلات البرية التي تتكرر لدى عائلتَي أبو هزار وأبو نزار في «طاش ما طاش»؟"
     },
     "answer": {
       "en": "Kashta",
@@ -4547,7 +4547,7 @@
         "en": "Kashta describes an outdoor outing, often into the desert.",
         "ar": "تصف الكشتة نزهة خارجية تكون غالبًا في البر."
       },
-      "contentKey": "2731266a"
+      "contentKey": "9ed4925"
     }
   },
   {
@@ -4559,7 +4559,7 @@
     },
     "question": {
       "en": "Which country produced Diriliş: Ertuğrul?",
-      "ar": "بأي دولة انعمل «قيامة أرطغرل»؟"
+      "ar": "في أي دولة أُنتج قيامة أرطغرل؟"
     },
     "answer": {
       "en": "Turkey",
@@ -4570,7 +4570,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "5da94c16",
+      "contentKey": "2bbb7bba",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -4600,7 +4600,7 @@
     },
     "question": {
       "en": "What historical period is the show set in?",
-      "ar": "بأي فترة تاريخية تصير الأحداث؟"
+      "ar": "في أي حقبة تاريخية تدور الأحداث؟"
     },
     "answer": {
       "en": "The 13th century",
@@ -4611,7 +4611,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "d3b34900",
+      "contentKey": "7473db6a",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -4641,7 +4641,7 @@
     },
     "question": {
       "en": "Who is Ertuğrul's famous son who founded the Ottoman Empire?",
-      "ar": "مين ولد أرطغرل المشهور اللي أسّس الدولة العثمانية؟"
+      "ar": "من هو الابن الشهير لأرطغرل الذي أسس الإمبراطورية العثمانية؟"
     },
     "answer": {
       "en": "Osman I",
@@ -4670,7 +4670,7 @@
         "en": "The series presents Ertuğrul's world as the background to Osman's rise.",
         "ar": "يقدم المسلسل عالم أرطغرل خلفية لصعود عثمان."
       },
-      "contentKey": "cfa43e59"
+      "contentKey": "e68433d2"
     }
   },
   {
@@ -4682,7 +4682,7 @@
     },
     "question": {
       "en": "What is the name of Ertuğrul's tribe?",
-      "ar": "شو اسم قبيلة أرطغرل؟"
+      "ar": "ما اسم قبيلة أرطغرل؟"
     },
     "answer": {
       "en": "The Kayi tribe",
@@ -4693,7 +4693,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "e9232c05",
+      "contentKey": "5ac04ac5",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -4723,7 +4723,7 @@
     },
     "question": {
       "en": "Who plays Ertuğrul in the Turkish series?",
-      "ar": "مين يلعب دور أرطغرل بالمسلسل التركي؟"
+      "ar": "من يؤدي دور أرطغرل في المسلسل التركي؟"
     },
     "answer": {
       "en": "Engin Altan Düzyatan",
@@ -4734,7 +4734,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "c2bfddbd",
+      "contentKey": "1f8f2898",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -4764,7 +4764,7 @@
     },
     "question": {
       "en": "Which Turkish television channel originally broadcast Diriliş: Ertuğrul?",
-      "ar": "شو القناة التركية اللي عرضت «قيامة أرطغرل» أول مرة؟"
+      "ar": "ما القناة التركية التي عرضت «قيامة أرطغرل» لأول مرة؟"
     },
     "answer": {
       "en": "TRT 1",
@@ -4775,7 +4775,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "a121b20e",
+      "contentKey": "8971294e",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -4805,7 +4805,7 @@
     },
     "question": {
       "en": "What is the name of Ertuğrul's main love interest and wife?",
-      "ar": "شو اسم حبيبة أرطغرل وزوجته الأساسية؟"
+      "ar": "ما اسم محبوبة أرطغرل وزوجته الرئيسية؟"
     },
     "answer": {
       "en": "Halime Hatun",
@@ -4816,7 +4816,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "cad24fbf",
+      "contentKey": "62578d62",
       "spoilerSeason": 1,
       "distractors": {
         "en": [
@@ -4846,7 +4846,7 @@
     },
     "question": {
       "en": "Who is Ertuğrul's father and chief of the Kayi tribe?",
-      "ar": "مين أبو أرطغرل وزعيم قبيلة قايي؟"
+      "ar": "من هو والد أرطغرل وزعيم قبيلة قايي؟"
     },
     "answer": {
       "en": "Suleyman Shah",
@@ -4857,7 +4857,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "d0efc5d0",
+      "contentKey": "81627f2",
       "spoilerSeason": 1,
       "distractors": {
         "en": [
@@ -4887,7 +4887,7 @@
     },
     "question": {
       "en": "What are the names of Ertuğrul's close companions known as 'alps'?",
-      "ar": "شو أسماء رفاق أرطغرل المقرّبين المعروفين بـ«الألبات»؟"
+      "ar": "ما أسماء مرافقي أرطغرل المقربين المعروفين بـ«الألبات»؟"
     },
     "answer": {
       "en": "Turgut, Bamsi and Dogan",
@@ -4916,7 +4916,7 @@
         "en": "The three alps form Ertuğrul's loyal early fighting circle.",
         "ar": "يشكل المحاربون الثلاثة دائرة أرطغرل القتالية المخلصة في البداية."
       },
-      "contentKey": "301bc002"
+      "contentKey": "7cc4b512"
     }
   },
   {
@@ -4928,7 +4928,7 @@
     },
     "question": {
       "en": "Who are the main enemies in the early seasons of the show?",
-      "ar": "مين الأعداء الأساسيين بالمواسم الأولى؟"
+      "ar": "من هم الأعداء الرئيسيون في المواسم الأولى؟"
     },
     "answer": {
       "en": "Templars and Mongols",
@@ -4957,7 +4957,7 @@
         "en": "The Templars dominate the first season's threats; Mongols rise in the second.",
         "ar": "يهيمن فرسان الهيكل على تهديدات الموسم الأول، ويبرز المغول في الثاني."
       },
-      "contentKey": "34411cb8"
+      "contentKey": "d7f29d51"
     }
   },
   {
@@ -4969,7 +4969,7 @@
     },
     "question": {
       "en": "In which country did an Urdu-dubbed version of Diriliş: Ertuğrul become a huge hit on state television in 2020?",
-      "ar": "بأي دولة صار عرض «قيامة أرطغرل» مدبلج بالأردية على التلفزيون الرسمي نجاح كبير سنة 2020؟"
+      "ar": "في أي دولة حقق عرض «قيامة أرطغرل» مدبلجًا بالأردية على التلفزيون الرسمي نجاحًا كبيرًا عام 2020؟"
     },
     "answer": {
       "en": "Pakistan",
@@ -4980,7 +4980,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "44a1d5f1",
+      "contentKey": "17cab2f1",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -5010,7 +5010,7 @@
     },
     "question": {
       "en": "What is the name of the spin-off series focusing on Ertuğrul's son?",
-      "ar": "شو اسم المسلسل المتفرّع اللي يدور حول ولد أرطغرل؟"
+      "ar": "ما اسم المسلسل المشتق الذي يتمحور حول ابن أرطغرل؟"
     },
     "answer": {
       "en": "Kuruluş: Osman",
@@ -5039,7 +5039,7 @@
         "en": "Kuruluş: Osman follows the next generation in the television saga.",
         "ar": "يتابع «المؤسس عثمان» الجيل التالي من الحكاية التلفزيونية."
       },
-      "contentKey": "c3ad5b25"
+      "contentKey": "98d9f5c4"
     }
   },
   {
@@ -5051,7 +5051,7 @@
     },
     "question": {
       "en": "Who plays Halime Hatun in Diriliş: Ertuğrul?",
-      "ar": "مين تلعب دور حليمة خاتون في «قيامة أرطغرل»؟"
+      "ar": "من تجسد حليمة خاتون في «قيامة أرطغرل»؟"
     },
     "answer": {
       "en": "Esra Bilgiç",
@@ -5062,7 +5062,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "d65cf582",
+      "contentKey": "80ab89b9",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -5133,7 +5133,7 @@
     },
     "question": {
       "en": "What is the name of Ertuğrul's mother in Diriliş: Ertuğrul?",
-      "ar": "في «قيامة أرطغرل»، شو اسم أم أرطغرل؟"
+      "ar": "ما اسم والدة أرطغرل في «قيامة أرطغرل»؟"
     },
     "answer": {
       "en": "Hayme Ana",
@@ -5144,7 +5144,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "7404a673",
+      "contentKey": "9972503e",
       "spoilerSeason": 1,
       "distractors": {
         "en": [
@@ -5174,7 +5174,7 @@
     },
     "question": {
       "en": "Which weapon is Turgut Alp particularly associated with in Diriliş: Ertuğrul?",
-      "ar": "في «قيامة أرطغرل»، شو السلاح اللي تتميز فيه شخصية تورغوت ألب؟"
+      "ar": "ما السلاح الذي تتميز به شخصية تورغوت ألب في «قيامة أرطغرل»؟"
     },
     "answer": {
       "en": "An axe",
@@ -5185,7 +5185,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "6299e3de",
+      "contentKey": "5e158463",
       "spoilerSeason": 1,
       "distractors": {
         "en": [
@@ -5215,7 +5215,7 @@
     },
     "question": {
       "en": "Which English word is traced back to \"Hashasheen\", a hostile nickname that opponents gave Hasan Al-Sabbah's followers?",
-      "ar": "أي كلمة إنجليزية يرجع أصلها لكلمة «الحشاشين»، اللقب العدائي اللي أطلقه الخصوم على أتباع حسن الصباح؟"
+      "ar": "أي كلمة إنجليزية يعود أصلها إلى كلمة «الحشاشين»، وهو لقب عدائي أطلقه الخصوم على أتباع حسن الصباح؟"
     },
     "answer": {
       "en": "Assassin",
@@ -5226,7 +5226,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "4866fea8",
+      "contentKey": "9aabbca6",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -5256,7 +5256,7 @@
     },
     "question": {
       "en": "In what country was Al-Hashasheen produced?",
-      "ar": "بأي دولة انعمل «الحشاشين»؟"
+      "ar": "في أي دولة أُنتج الحشاشين؟"
     },
     "answer": {
       "en": "Egypt",
@@ -5267,7 +5267,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "c6a02b84",
+      "contentKey": "160c3abc",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -5297,7 +5297,7 @@
     },
     "question": {
       "en": "In which year did Al-Hashasheen premiere during Ramadan?",
-      "ar": "بأي سنة بدأ عرض «الحشاشين» برمضان؟"
+      "ar": "في أي عام بدأ عرض مسلسل «الحشاشين» خلال رمضان؟"
     },
     "answer": {
       "en": "2024",
@@ -5308,7 +5308,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "5fe28185",
+      "contentKey": "f5132559",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -5338,7 +5338,7 @@
     },
     "question": {
       "en": "Who is the main star of Al-Hashasheen?",
-      "ar": "مين النجم الأساسي في «الحشاشين»؟"
+      "ar": "من هو النجم الرئيسي في الحشاشين؟"
     },
     "answer": {
       "en": "Karim Abdel Aziz",
@@ -5349,7 +5349,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "7df085d4",
+      "contentKey": "e3950f9b",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -5379,7 +5379,7 @@
     },
     "question": {
       "en": "What historical period is Al-Hashasheen set in?",
-      "ar": "بأي فترة تاريخية تصير أحداث «الحشاشين»؟"
+      "ar": "في أي حقبة تاريخية تدور أحداث الحشاشين؟"
     },
     "answer": {
       "en": "The eleventh and twelfth centuries",
@@ -5408,7 +5408,7 @@
         "en": "The drama is set in the medieval world of Hasan Al-Sabbah.",
         "ar": "تدور الدراما في عالم حسن الصباح في العصور الوسطى."
       },
-      "contentKey": "427631c8"
+      "contentKey": "5dc0350e"
     }
   },
   {
@@ -5420,7 +5420,7 @@
     },
     "question": {
       "en": "What historical group is Al-Hashasheen based on?",
-      "ar": "شو الجماعة التاريخية اللي مأخوذ منها «الحشاشين»؟"
+      "ar": "ما الجماعة التاريخية التي يستند إليها الحشاشين؟"
     },
     "answer": {
       "en": "The Nizari Ismailis",
@@ -5449,7 +5449,7 @@
         "en": "The series dramatises the group associated with Hasan Al-Sabbah.",
         "ar": "يقدم المسلسل معالجة درامية للجماعة المرتبطة بحسن الصباح."
       },
-      "contentKey": "d92ee00a"
+      "contentKey": "401cf570"
     }
   },
   {
@@ -5461,7 +5461,7 @@
     },
     "question": {
       "en": "Which character does Karim Abdel Aziz play in Al-Hashasheen?",
-      "ar": "شو الشخصية اللي يلعبها كريم عبد العزيز في «الحشاشين»؟"
+      "ar": "ما الشخصية التي يجسدها كريم عبد العزيز في «الحشاشين»؟"
     },
     "answer": {
       "en": "Hasan Al-Sabbah",
@@ -5472,7 +5472,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "36b6be8d",
+      "contentKey": "2a66c4d2",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -5502,7 +5502,7 @@
     },
     "question": {
       "en": "What is the name of Hasan Al-Sabbah's mountain stronghold?",
-      "ar": "شو اسم قلعة حسن الصباح الجبلية؟"
+      "ar": "ما اسم قلعة حسن الصباح الجبلية؟"
     },
     "answer": {
       "en": "Alamut",
@@ -5531,7 +5531,7 @@
         "en": "The mountain fortress is a central location in the drama.",
         "ar": "تشكل القلعة الجبلية موقعًا محوريًا في الدراما."
       },
-      "contentKey": "44d3e7cf"
+      "contentKey": "b11e41e3"
     }
   },
   {
@@ -5543,7 +5543,7 @@
     },
     "question": {
       "en": "Which medieval wars form part of Al-Hashasheen’s wider dramatic backdrop?",
-      "ar": "أي حروب من العصور الوسطى جزء من الخلفية الدرامية الأوسع لـ«الحشاشين»؟"
+      "ar": "أي حروب وسيطة تشكل جزءًا من الخلفية الدرامية الأوسع للحشاشين؟"
     },
     "answer": {
       "en": "The Crusades",
@@ -5572,7 +5572,7 @@
         "en": "The medieval setting includes conflicts involving Crusader forces.",
         "ar": "تشمل البيئة الوسيطة صراعات تتصل بالقوات الصليبية."
       },
-      "contentKey": "2ef3e936"
+      "contentKey": "9cbcd66"
     }
   },
   {
@@ -5584,7 +5584,7 @@
     },
     "question": {
       "en": "Who wrote Al-Hashasheen?",
-      "ar": "مين كتب مسلسل «الحشاشين»؟"
+      "ar": "من كتب مسلسل «الحشاشين»؟"
     },
     "answer": {
       "en": "Abdel Rahim Kamal",
@@ -5595,7 +5595,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "a0d57377",
+      "contentKey": "56aca207",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -5625,7 +5625,7 @@
     },
     "question": {
       "en": "Who directed Al-Hashasheen?",
-      "ar": "مين أخرج مسلسل «الحشاشين»؟"
+      "ar": "من أخرج مسلسل «الحشاشين»؟"
     },
     "answer": {
       "en": "Peter Mimi",
@@ -5636,7 +5636,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "dcb37db7",
+      "contentKey": "7d3b52a1",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -5666,7 +5666,7 @@
     },
     "question": {
       "en": "How many episodes are in the 2024 series Al-Hashasheen?",
-      "ar": "كم حلقة في مسلسل «الحشاشين» سنة 2024؟"
+      "ar": "كم حلقة يضم مسلسل «الحشاشين» الصادر عام 2024؟"
     },
     "answer": {
       "en": "30",
@@ -5677,7 +5677,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "e7d5f691",
+      "contentKey": "e1eb9507",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -5707,7 +5707,7 @@
     },
     "question": {
       "en": "The opening theme of Al-Hashasheen draws on quatrains by which poet?",
-      "ar": "كلمات شارة «الحشاشين» مأخوذة من رباعيات أي شاعر؟"
+      "ar": "تستند كلمات شارة «الحشاشين» إلى رباعيات أيّ شاعر؟"
     },
     "answer": {
       "en": "Omar Khayyam",
@@ -5736,7 +5736,7 @@
         "en": "The quatrains connect the music with a poet who is also a character.",
         "ar": "تربط الرباعيات الموسيقى بشاعر حاضر كذلك كشخصية."
       },
-      "contentKey": "867d371"
+      "contentKey": "e76961be"
     }
   },
   {
@@ -5748,7 +5748,7 @@
     },
     "question": {
       "en": "Who brings Jesse Pinkman to life on screen?",
-      "ar": "مين يلعب دور جيسي بينكمان؟"
+      "ar": "من يجسد جيسي بينكمان على الشاشة؟"
     },
     "review": {
       "status": "pending"
@@ -5777,7 +5777,7 @@
         "en": "Aaron Paul plays Jesse, Walt's former chemistry student.",
         "ar": "يلعب آرون بول دور جيسي، تلميذ والتر السابق في الكيمياء."
       },
-      "contentKey": "1ffbc8ab"
+      "contentKey": "aaa7b0bb"
     }
   },
   {
@@ -5789,7 +5789,7 @@
     },
     "question": {
       "en": "Who plays the wonderfully flashy Saul Goodman?",
-      "ar": "مين يلعب دور المحامي الاستعراضي سول غودمان؟"
+      "ar": "من يجسد المحامي الاستعراضي سول غودمان؟"
     },
     "review": {
       "status": "pending"
@@ -5818,7 +5818,7 @@
         "en": "Bob Odenkirk also leads the prequel Better Call Saul.",
         "ar": "يتصدر بوب أودينكيرك أيضًا بطولة المسلسل السابق زمنيًا «بيتر كول سول»."
       },
-      "contentKey": "9bb6a8bc"
+      "contentKey": "3df8ccc9"
     }
   },
   {
@@ -5830,7 +5830,7 @@
     },
     "question": {
       "en": "Who plays the remarkably composed Gus Fring?",
-      "ar": "مين يلعب دور غاس فرينغ الهادي كثير؟"
+      "ar": "من يجسد غاس فرينغ شديد الهدوء؟"
     },
     "review": {
       "status": "pending"
@@ -5859,7 +5859,7 @@
         "en": "Giancarlo Esposito uses a restrained performance for Gus.",
         "ar": "يعتمد جيانكارلو إسبوزيتو أداءً هادئًا ومتحفظًا لشخصية غاس."
       },
-      "contentKey": "e909458a"
+      "contentKey": "5c70b764"
     }
   },
   {
@@ -5871,7 +5871,7 @@
     },
     "question": {
       "en": "Who composed Breaking Bad's original score?",
-      "ar": "مين ألّف الموسيقى الأصلية لـ«بريكنغ باد»؟"
+      "ar": "من ألّف الموسيقى التصويرية الأصلية لـ«بريكينغ باد»؟"
     },
     "review": {
       "status": "pending"
@@ -5900,7 +5900,7 @@
         "en": "Dave Porter also composed the show's distinctive title theme.",
         "ar": "ألّف ديف بورتر أيضًا موسيقى شارة البداية المميزة."
       },
-      "contentKey": "daf50c5f"
+      "contentKey": "7c2ad3e9"
     }
   },
   {
@@ -5912,7 +5912,7 @@
     },
     "question": {
       "en": "Before Breaking Bad, Bryan Cranston was best known as the dad in which family sitcom?",
-      "ar": "قبل «بريكنغ باد»، برايان كرانستون كان مشهور بدور الأب بأي مسلسل كوميدي عائلي؟"
+      "ar": "قبل «بريكنغ باد»، اشتهر برايان كرانستون بدور الأب في أي مسلسل كوميدي عائلي؟"
     },
     "review": {
       "status": "pending"
@@ -5941,7 +5941,7 @@
         "en": "Cranston played Hal, the father in Malcolm in the Middle (2000–2006), before becoming Walter White.",
         "ar": "أدّى كرانستون دور هال، الأب في «مالكوم في المنتصف» (2000–2006)، قبل أن يصبح والتر وايت."
       },
-      "contentKey": "e7b07934"
+      "contentKey": "28512121"
     }
   },
   {
@@ -5953,7 +5953,7 @@
     },
     "question": {
       "en": "Which New Mexico city is Walt's home base?",
-      "ar": "أي مدينة في نيو مكسيكو يعيش فيها والتر؟"
+      "ar": "أي مدينة في نيو مكسيكو هي موطن والتر؟"
     },
     "review": {
       "status": "pending"
@@ -5982,7 +5982,7 @@
         "en": "Albuquerque's streets and desert surroundings shape the show's look.",
         "ar": "تمنح شوارع ألباكركي وصحراؤها المحيطة المسلسل مظهره المميز."
       },
-      "contentKey": "1df7f274"
+      "contentKey": "3dd234d3"
     }
   },
   {
@@ -5994,7 +5994,7 @@
     },
     "question": {
       "en": "What job does Jane's father Donald have?",
-      "ar": "شو شغلة دونالد، أبو جين؟"
+      "ar": "ما مهنة دونالد، والد جين؟"
     },
     "review": {
       "status": "pending"
@@ -6023,7 +6023,7 @@
         "en": "Donald works in air traffic control, a key detail in season two.",
         "ar": "يعمل دونالد في مراقبة الحركة الجوية، وهو تفصيل مهم في الموسم الثاني."
       },
-      "contentKey": "9f5c3197"
+      "contentKey": "846924a6"
     }
   },
   {
@@ -6035,7 +6035,7 @@
     },
     "question": {
       "en": "What food forms Walt's birthday number on his plate?",
-      "ar": "بصحن عيد ميلاد والتر، أي أكل يرسم رقم عمره؟"
+      "ar": "أي طعام يشكل رقم عمر والتر في طبق عيد ميلاده؟"
     },
     "review": {
       "status": "pending"
@@ -6064,7 +6064,7 @@
         "en": "The arranged bacon becomes a recurring birthday image.",
         "ar": "يتكرر ترتيب شرائح اللحم على شكل أرقام في أعياد ميلاده."
       },
-      "contentKey": "99543f74"
+      "contentKey": "a510a2e4"
     }
   },
   {
@@ -6076,7 +6076,7 @@
     },
     "question": {
       "en": "Finish the flashy lawyer's TV-ad slogan: 'Better Call ___'.",
-      "ar": "كمّل شعار إعلان المحامي: «الأحسن تتصل بـ___»."
+      "ar": "أكمل شعار إعلان المحامي الاستعراضي: «من الأفضل أن تتصل بـ___»."
     },
     "review": {
       "status": "pending"
@@ -6105,7 +6105,7 @@
         "en": "Saul's advertising slogan later became the prequel's title.",
         "ar": "تحول شعار إعلان سول لاحقًا إلى عنوان المسلسل السابق زمنيًا."
       },
-      "contentKey": "90f4ccd0"
+      "contentKey": "8789b4d7"
     }
   },
   {
@@ -6117,7 +6117,7 @@
     },
     "question": {
       "en": "Where does Walt's thrown pizza famously land?",
-      "ar": "بالمشهد المشهور، وين تطيح البيتزا اللي يرميها والتر؟"
+      "ar": "أين تهبط البيتزا التي يقذفها والتر في المشهد الشهير؟"
     },
     "review": {
       "status": "pending"
@@ -6146,7 +6146,7 @@
         "en": "The pizza lands on the house roof during Walt's outburst.",
         "ar": "تهبط البيتزا على سطح المنزل أثناء نوبة غضب والتر."
       },
-      "contentKey": "7ea0373f"
+      "contentKey": "8281cd7d"
     }
   },
   {
@@ -6158,7 +6158,7 @@
     },
     "question": {
       "en": "Hank insists his collection contains minerals, not what?",
-      "ar": "هانك يصرّ إن مجموعته معادن ومش شو؟"
+      "ar": "يصر هانك على أن مجموعته معادن وليست ماذا؟"
     },
     "review": {
       "status": "pending"
@@ -6187,7 +6187,7 @@
         "en": "His correction becomes a running joke during his recovery.",
         "ar": "يتحول تصحيح هانك للتسمية إلى مزحة متكررة أثناء تعافيه."
       },
-      "contentKey": "99bd0f6f"
+      "contentKey": "93e20c29"
     }
   },
   {
@@ -6199,7 +6199,7 @@
     },
     "question": {
       "en": "In Breaking Bad, which poetry book, inscribed 'To my other favorite W.W.', makes Hank suspect Walt?",
-      "ar": "في «بريكنغ باد»، أي ديوان شعر عليه إهداء «إلى W.W. المفضّل الآخر» يخلّي هانك يشك بوالتر؟"
+      "ar": "في «بريكنغ باد»، أي ديوان شعر يحمل إهداء «إلى W.W. المفضّل الآخر» يجعل هانك يشك في والتر؟"
     },
     "review": {
       "status": "pending"
@@ -6228,7 +6228,7 @@
         "en": "Gale's inscription to 'W.W.' in Leaves of Grass leads Hank to realise that Walt is Heisenberg.",
         "ar": "يقود إهداء غيل إلى «W.W.» في «أوراق العشب» هانك إلى إدراك أن والتر هو هايزنبرغ."
       },
-      "contentKey": "65776648"
+      "contentKey": "e8d7a64b"
     }
   },
   {
@@ -6240,7 +6240,7 @@
     },
     "question": {
       "en": "Which country is Gus originally from?",
-      "ar": "غاس من أي بلد بالأصل؟"
+      "ar": "من أي بلد ينحدر غاس أصلًا؟"
     },
     "review": {
       "status": "pending"
@@ -6269,7 +6269,7 @@
         "en": "Gus's Chilean past remains deliberately mysterious.",
         "ar": "يظل ماضي غاس في تشيلي محاطًا بالغموض عمدًا."
       },
-      "contentKey": "548badce"
+      "contentKey": "6ca677a2"
     }
   },
   {
@@ -6281,7 +6281,7 @@
     },
     "question": {
       "en": "What is Saul Goodman's real name?",
-      "ar": "شو الاسم الحقيقي لسول غودمان؟"
+      "ar": "ما الاسم الحقيقي لسول غودمان؟"
     },
     "review": {
       "status": "pending"
@@ -6310,7 +6310,7 @@
         "en": "Saul admits his real surname is McGill; the prequel Better Call Saul follows him as Jimmy McGill.",
         "ar": "يعترف سول بأن اسم عائلته الحقيقي ماكغيل، ويتابعه المسلسل السابق زمنيًا «بيتر كول سول» باسم جيمي ماكغيل."
       },
-      "contentKey": "8c3c94c"
+      "contentKey": "48de9ff4"
     }
   },
   {
@@ -6322,7 +6322,7 @@
     },
     "question": {
       "en": "What device is central to the police-evidence-room plan?",
-      "ar": "شو الجهاز الأساسي لخطة غرفة أدلة الشرطة؟"
+      "ar": "ما الجهاز الأساسي لخطة غرفة أدلة الشرطة؟"
     },
     "review": {
       "status": "pending"
@@ -6351,7 +6351,7 @@
         "en": "The plan aims to damage a laptop using a powerful magnet.",
         "ar": "تهدف الخطة إلى إتلاف حاسوب محمول باستخدام مغناطيس قوي."
       },
-      "contentKey": "486accd1"
+      "contentKey": "2b2e595d"
     }
   },
   {
@@ -6363,7 +6363,7 @@
     },
     "question": {
       "en": "Which poet wrote Ozymandias, the title of a late episode?",
-      "ar": "مين الشاعر اللي كتب «أوزيماندياس»، عنوان وحدة من الحلقات الأخيرة؟"
+      "ar": "من الشاعر الذي كتب «أوزيماندياس»، عنوان إحدى الحلقات المتأخرة؟"
     },
     "review": {
       "status": "pending"
@@ -6392,7 +6392,7 @@
         "en": "Shelley's poem about fallen power suits the episode's theme.",
         "ar": "تناسب قصيدة شيلي عن زوال السلطة موضوع الحلقة."
       },
-      "contentKey": "a218b3e6"
+      "contentKey": "f0a0e953"
     }
   },
   {
@@ -6404,7 +6404,7 @@
     },
     "question": {
       "en": "What is Breaking Bad's series finale called?",
-      "ar": "شو عنوان الحلقة الأخيرة من «بريكنغ باد»؟"
+      "ar": "ما عنوان الحلقة الختامية لـ«بريكينغ باد»؟"
     },
     "review": {
       "status": "pending"
@@ -6433,7 +6433,7 @@
         "en": "Felina closes the series; the other titles belong to earlier episodes.",
         "ar": "تختتم «فيلينا» المسلسل، بينما تنتمي العناوين الأخرى إلى حلقات سابقة."
       },
-      "contentKey": "af972451"
+      "contentKey": "76554798"
     }
   },
   {
@@ -6445,7 +6445,7 @@
     },
     "question": {
       "en": "Which state does Walt hide in during Granite State?",
-      "ar": "في حلقة «ولاية الغرانيت»، بأي ولاية يتخبى والتر؟"
+      "ar": "في أي ولاية يختبئ والتر في حلقة «ولاية الغرانيت»؟"
     },
     "review": {
       "status": "pending"
@@ -6474,7 +6474,7 @@
         "en": "Granite State is New Hampshire's nickname, explaining the title.",
         "ar": "«ولاية الغرانيت» لقب نيوهامبشير، ومنه جاء عنوان الحلقة."
       },
-      "contentKey": "e8366f21"
+      "contentKey": "4ded843"
     }
   },
   {
@@ -6486,7 +6486,7 @@
     },
     "question": {
       "en": "Who greets a crush with How you doin'?",
-      "ar": "مين اللي يسلّم على اللي تعجبه بجملة «كيف حالك؟» المشهورة؟"
+      "ar": "من يحيي من تعجبه بعبارة «كيف حالك؟» الشهيرة؟"
     },
     "review": {
       "status": "pending"
@@ -6515,7 +6515,7 @@
         "en": "Joey turns a simple greeting into his signature flirtation.",
         "ar": "يحول جوي تحية بسيطة إلى طريقته المميزة في المغازلة."
       },
-      "contentKey": "21dfa495"
+      "contentKey": "349092c7"
     }
   },
   {
@@ -6527,7 +6527,7 @@
     },
     "question": {
       "en": "Which friend works as a massage therapist?",
-      "ar": "أي وحدة من الأصحاب تشتغل معالجة بالمساج؟"
+      "ar": "أي الأصدقاء تعمل معالجة بالتدليك؟"
     },
     "review": {
       "status": "pending"
@@ -6556,7 +6556,7 @@
         "en": "Phoebe balances massage work with performing her own songs.",
         "ar": "تجمع فيبي بين العمل بالتدليك وغناء أغانيها الخاصة."
       },
-      "contentKey": "a56cada2"
+      "contentKey": "a4642b36"
     }
   },
   {
@@ -6568,7 +6568,7 @@
     },
     "question": {
       "en": "What names do Monica and Chandler give their twins?",
-      "ar": "شو الاسمين اللي سمّوا فيهم مونيكا وتشاندلر توأمهم؟"
+      "ar": "ما الاسمان اللذان يمنحهما مونيكا وتشاندلر لتوأمهما؟"
     },
     "review": {
       "status": "pending"
@@ -6597,7 +6597,7 @@
         "en": "Jack honours Monica's father; Erica honours the twins' birth mother.",
         "ar": "يكرم اسم جاك والد مونيكا، وإريكا أم التوأمين التي أنجبتهما."
       },
-      "contentKey": "e7029c2a"
+      "contentKey": "1d0b53a9"
     }
   },
   {
@@ -6609,7 +6609,7 @@
     },
     "question": {
       "en": "What is Chandler's embarrassing middle name?",
-      "ar": "شو اسم تشاندلر الوسطي اللي يحرجه؟"
+      "ar": "ما اسم تشاندلر الأوسط الذي يحرجه؟"
     },
     "review": {
       "status": "pending"
@@ -6638,7 +6638,7 @@
         "en": "Muriel is revealed on screen during the wedding storyline.",
         "ar": "يُكشف اسم مورييل على الشاشة ضمن أحداث الزفاف."
       },
-      "contentKey": "91347f5f"
+      "contentKey": "830b7848"
     }
   },
   {
@@ -6650,7 +6650,7 @@
     },
     "question": {
       "en": "What misspelled name is printed on Chandler's TV Guide?",
-      "ar": "شو الاسم المكتوب غلط على مجلة التلفزيون اللي توصل تشاندلر؟"
+      "ar": "ما الاسم المكتوب خطأً على مجلة التلفزيون التي تصل إلى تشاندلر؟"
     },
     "review": {
       "status": "pending"
@@ -6679,7 +6679,7 @@
         "en": "The misspelled name on Chandler's TV Guide later turns up as an answer in a quiz between the friends.",
         "ar": "يظهر الاسم المكتوب خطأً على مجلة تشاندلر لاحقًا كإجابة في مسابقة بين الأصدقاء."
       },
-      "contentKey": "651cbed2"
+      "contentKey": "2f118f8e"
     }
   },
   {
@@ -6691,7 +6691,7 @@
     },
     "question": {
       "en": "Who plays Mike Hannigan?",
-      "ar": "مين يلعب دور مايك هانيغان؟"
+      "ar": "من يجسد مايك هانيغان؟"
     },
     "review": {
       "status": "pending"
@@ -6720,7 +6720,7 @@
         "en": "Paul Rudd joins the cast as Mike in season nine.",
         "ar": "ينضم بول راد إلى طاقم المسلسل بدور مايك في الموسم التاسع."
       },
-      "contentKey": "db98f375"
+      "contentKey": "4872f1dc"
     }
   },
   {
@@ -6732,7 +6732,7 @@
     },
     "question": {
       "en": "Who created Friends together?",
-      "ar": "مين اللي ابتكروا «فريندز» مع بعض؟"
+      "ar": "من ابتكرا «فريندز» معًا؟"
     },
     "review": {
       "status": "pending"
@@ -6761,7 +6761,7 @@
         "en": "Crane and Kauffman created the six-friend ensemble.",
         "ar": "ابتكر كرين وكوفمان مجموعة الأصدقاء الستة."
       },
-      "contentKey": "94a4f0c9"
+      "contentKey": "3a391b4b"
     }
   },
   {
@@ -6773,7 +6773,7 @@
     },
     "question": {
       "en": "What colour are Monica's apartment walls famously painted?",
-      "ar": "حيطان شقة مونيكا مشهورة بأي لون؟"
+      "ar": "بأي لون تشتهر جدران شقة مونيكا؟"
     },
     "review": {
       "status": "pending"
@@ -6802,7 +6802,7 @@
         "en": "The purple walls are one of the set's most recognisable details.",
         "ar": "الجدران البنفسجية من أكثر تفاصيل الديكور سهولة في التعرف عليها."
       },
-      "contentKey": "b789739"
+      "contentKey": "9a59b699"
     }
   },
   {
@@ -6814,7 +6814,7 @@
     },
     "question": {
       "en": "What name does Phoebe use as an alter ego?",
-      "ar": "شو الاسم اللي تستخدمه فيبي كشخصية ثانية؟"
+      "ar": "ما الاسم الذي تستخدمه فيبي كشخصية بديلة؟"
     },
     "review": {
       "status": "pending"
@@ -6843,7 +6843,7 @@
         "en": "Regina Phalange reappears whenever Phoebe needs an invented identity.",
         "ar": "تعود ريجينا فالانجي كلما احتاجت فيبي هوية مختلقة."
       },
-      "contentKey": "ade16d07"
+      "contentKey": "aab51402"
     }
   },
   {
@@ -6855,7 +6855,7 @@
     },
     "question": {
       "en": "What outrageous name does Phoebe legally choose after marrying?",
-      "ar": "شو الاسم الغريب اللي تختاره فيبي رسميًا بعد الزواج؟"
+      "ar": "ما الاسم الغريب الذي تختاره فيبي قانونيًا بعد الزواج؟"
     },
     "review": {
       "status": "pending"
@@ -6884,7 +6884,7 @@
         "en": "She gets carried away by the freedom of changing her name.",
         "ar": "تبالغ فيبي في استغلال حرية اختيار اسم جديد."
       },
-      "contentKey": "2f4d331c"
+      "contentKey": "781f752"
     }
   },
   {
@@ -6896,7 +6896,7 @@
     },
     "question": {
       "en": "What savoury ingredient accidentally ends up in Rachel's trifle?",
-      "ar": "أي مكوّن مالح انحط بالغلط بحلويات رايتشل؟"
+      "ar": "أي مكون مالح يدخل بالخطأ في حلوى رايتشل؟"
     },
     "review": {
       "status": "pending"
@@ -6925,7 +6925,7 @@
         "en": "Two cookbook pages stick together, mixing dessert with a meat recipe.",
         "ar": "تلتصق صفحتان من كتاب الطبخ فتختلط الحلوى بوصفة لحم."
       },
-      "contentKey": "e1ff9e2b"
+      "contentKey": "aabd9d66"
     }
   },
   {
@@ -6937,7 +6937,7 @@
     },
     "question": {
       "en": "What word does Ross repeatedly shout while moving his sofa?",
-      "ar": "أي كلمة يكررها روس وهو يحاول ينقل الكنبة؟"
+      "ar": "أي كلمة يكررها روس وهو يحاول نقل الأريكة؟"
     },
     "review": {
       "status": "pending"
@@ -6966,7 +6966,7 @@
         "en": "Ross's instructions only make the staircase operation more chaotic.",
         "ar": "تزيد تعليمات روس محاولة النقل على الدرج فوضى."
       },
-      "contentKey": "11739797"
+      "contentKey": "31c76b7"
     }
   },
   {
@@ -6978,7 +6978,7 @@
     },
     "question": {
       "en": "What do Monica and Rachel lose in Ross's trivia contest?",
-      "ar": "شو اللي تخسره مونيكا ورايتشل بمسابقة روس؟"
+      "ar": "ماذا تخسر مونيكا ورايتشل في مسابقة روس؟"
     },
     "review": {
       "status": "pending"
@@ -7007,7 +7007,7 @@
         "en": "The apartment swap raises the stakes of a friendly quiz.",
         "ar": "يرفع تبادل الشقتين رهانات المسابقة الودية."
       },
-      "contentKey": "b9375853"
+      "contentKey": "c9eea55f"
     }
   },
   {
@@ -7019,7 +7019,7 @@
     },
     "question": {
       "en": "Which city does Phoebe's boyfriend David move to for his research?",
-      "ar": "لأي مدينة ينتقل ديفيد، صاحب فيبي، عشان أبحاثه؟"
+      "ar": "إلى أي مدينة ينتقل ديفيد، صديق فيبي، لإجراء أبحاثه؟"
     },
     "review": {
       "status": "pending"
@@ -7048,7 +7048,7 @@
         "en": "David's move to Minsk complicates his relationship with Phoebe.",
         "ar": "يعقد انتقال ديفيد إلى مينسك علاقته بفيبي."
       },
-      "contentKey": "bb3ebc99"
+      "contentKey": "195687d8"
     }
   },
   {
@@ -7060,7 +7060,7 @@
     },
     "question": {
       "en": "What is the name of Joey's talent agent?",
-      "ar": "شو اسم وكيلة أعمال جوي؟"
+      "ar": "ما اسم وكيلة أعمال جوي؟"
     },
     "review": {
       "status": "pending"
@@ -7089,7 +7089,7 @@
         "en": "Estelle Leonard handles Joey's acting auditions.",
         "ar": "تتولى إستيل ليونارد ترتيب اختبارات جوي التمثيلية."
       },
-      "contentKey": "6b76945f"
+      "contentKey": "96a78583"
     }
   },
   {
@@ -7101,7 +7101,7 @@
     },
     "question": {
       "en": "Which country does Chandler pretend he is moving to?",
-      "ar": "لأي بلد يدّعي تشاندلر إنه بينتقل؟"
+      "ar": "إلى أي بلد يدعي تشاندلر أنه سينتقل؟"
     },
     "review": {
       "status": "pending"
@@ -7130,7 +7130,7 @@
         "en": "His excuse to escape Janice goes much further than expected.",
         "ar": "تتطور حجته للهرب من جانيس أكثر مما توقع."
       },
-      "contentKey": "8a01e9b5"
+      "contentKey": "ee02021b"
     }
   },
   {
@@ -7142,7 +7142,7 @@
     },
     "question": {
       "en": "What does Monica wear on her head to cheer Chandler up at Thanksgiving?",
-      "ar": "بعيد الشكر، شو تحط مونيكا على راسها عشان تضحّك تشاندلر؟"
+      "ar": "ماذا تضع مونيكا على رأسها لإضحاك تشاندلر في عيد الشكر؟"
     },
     "review": {
       "status": "pending"
@@ -7171,7 +7171,7 @@
         "en": "The turkey also gets sunglasses and a fez in the comic scene.",
         "ar": "يرتدي الديك الرومي أيضًا نظارة شمسية وطربوشًا في المشهد الكوميدي."
       },
-      "contentKey": "965d21b7"
+      "contentKey": "4159d401"
     }
   },
   {
@@ -7183,7 +7183,7 @@
     },
     "question": {
       "en": "Who gets stuck in leather trousers on a date?",
-      "ar": "مين علق ببنطلون جلد وقت موعد غرامي؟"
+      "ar": "من يعلق في بنطال جلدي أثناء موعد غرامي؟"
     },
     "review": {
       "status": "pending"
@@ -7212,7 +7212,7 @@
         "en": "Ross's attempts with lotion and powder only worsen the problem.",
         "ar": "تزيد محاولات روس بالكريم والبودرة المشكلة سوءًا."
       },
-      "contentKey": "5f4de19"
+      "contentKey": "a2d5bf6b"
     }
   },
   {
@@ -7224,7 +7224,7 @@
     },
     "question": {
       "en": "What familiar structure opens most Friends episode titles?",
-      "ar": "أغلب عناوين حلقات «فريندز» تبدأ بأي تركيبة معروفة؟"
+      "ar": "بأي تركيب مألوف تبدأ معظم عناوين حلقات «فريندز»؟"
     },
     "review": {
       "status": "pending"
@@ -7253,7 +7253,7 @@
         "en": "The titles describe episodes as friends might recall them.",
         "ar": "تصف العناوين الحلقات بطريقة تشبه تذكر الأصدقاء لها."
       },
-      "contentKey": "83a7d64d"
+      "contentKey": "98108708"
     }
   },
   {
@@ -7265,7 +7265,7 @@
     },
     "question": {
       "en": "In which US state is the fountain from the Friends opening credits?",
-      "ar": "النافورة اللي تطلع بشارة «فريندز»، بأي ولاية أمريكية موجودة؟"
+      "ar": "في أي ولاية أمريكية توجد النافورة التي تظهر في شارة «فريندز»؟"
     },
     "review": {
       "status": "pending"
@@ -7294,7 +7294,7 @@
         "en": "The fountain stands on the Warner Bros. Ranch in Burbank, California, not in a New York park.",
         "ar": "تقع النافورة في مزرعة وارنر براذرز في بوربانك بكاليفورنيا، وليست في حديقة بنيويورك."
       },
-      "contentKey": "77bb7fea"
+      "contentKey": "78d09792"
     }
   },
   {
@@ -7306,7 +7306,7 @@
     },
     "question": {
       "en": "What creature appears on the Targaryen sigil?",
-      "ar": "أي مخلوق على شعار آل تارغاريان؟"
+      "ar": "أي مخلوق يظهر على شعار آل تارغاريان؟"
     },
     "review": {
       "status": "pending"
@@ -7335,7 +7335,7 @@
         "en": "The red dragon has three heads on a black background.",
         "ar": "يحمل التنين الأحمر ثلاثة رؤوس على خلفية سوداء."
       },
-      "contentKey": "8f1727a9"
+      "contentKey": "23f8a269"
     }
   },
   {
@@ -7347,7 +7347,7 @@
     },
     "question": {
       "en": "What is the ancestral home of House Stark?",
-      "ar": "شو الموطن التاريخي لآل ستارك؟"
+      "ar": "ما الموطن التاريخي لآل ستارك؟"
     },
     "review": {
       "status": "pending"
@@ -7376,7 +7376,7 @@
         "en": "Winterfell is the Stark stronghold in the North.",
         "ar": "وينترفيل معقل آل ستارك في الشمال."
       },
-      "contentKey": "5bfa0ded"
+      "contentKey": "c3fa8921"
     }
   },
   {
@@ -7388,7 +7388,7 @@
     },
     "question": {
       "en": "Which birds carry written messages between castles in Game of Thrones?",
-      "ar": "في «صراع العروش»، أي طيور تنقل الرسائل المكتوبة بين القلاع؟"
+      "ar": "أي طيور تحمل الرسائل المكتوبة بين القلاع في صراع العروش؟"
     },
     "review": {
       "status": "pending"
@@ -7417,7 +7417,7 @@
         "en": "Ravens are Westeros's familiar long-distance messengers.",
         "ar": "الغربان رسل ويستروس المألوفون للمسافات البعيدة."
       },
-      "contentKey": "240cfccd"
+      "contentKey": "be6ee1a5"
     }
   },
   {
@@ -7470,7 +7470,7 @@
     },
     "question": {
       "en": "Who is nicknamed Littlefinger?",
-      "ar": "مين اللي لقبه «ليتلفينغر»؟"
+      "ar": "من يُلقب بليتلفينغر؟"
     },
     "review": {
       "status": "pending"
@@ -7499,7 +7499,7 @@
         "en": "Petyr Baelish's nickname follows him into royal politics.",
         "ar": "يرافق لقب بيتر بايليش شخصيته في عالم السياسة الملكية."
       },
-      "contentKey": "2257bebb"
+      "contentKey": "e63eba6e"
     }
   },
   {
@@ -7511,7 +7511,7 @@
     },
     "question": {
       "en": "What immense structure does the Night's Watch guard?",
-      "ar": "شو البناء الضخم اللي يحرسه حرس الليل؟"
+      "ar": "ما البناء الهائل الذي يحرسه حرس الليل؟"
     },
     "review": {
       "status": "pending"
@@ -7540,7 +7540,7 @@
         "en": "The Wall forms the icy northern boundary of the kingdoms.",
         "ar": "يشكل الجدار الحدود الجليدية الشمالية للممالك."
       },
-      "contentKey": "a5d34ecd"
+      "contentKey": "92d105c2"
     }
   },
   {
@@ -7552,7 +7552,7 @@
     },
     "question": {
       "en": "Who teaches Arya the water-dancing style of swordplay?",
-      "ar": "مين يعلّم آريا أسلوب «رقصة الماء» بالمبارزة؟"
+      "ar": "من يعلم آريا أسلوب رقصة الماء في المبارزة؟"
     },
     "review": {
       "status": "pending"
@@ -7581,7 +7581,7 @@
         "en": "Syrio brings the fencing style of Braavos to Arya's lessons.",
         "ar": "ينقل سيريو أسلوب المبارزة في برافوس إلى دروس آريا."
       },
-      "contentKey": "7d14134"
+      "contentKey": "35a4b438"
     }
   },
   {
@@ -7593,7 +7593,7 @@
     },
     "question": {
       "en": "Who plays Arya Stark?",
-      "ar": "مين تلعب دور آريا ستارك؟"
+      "ar": "من تؤدي دور آريا ستارك؟"
     },
     "review": {
       "status": "pending"
@@ -7622,7 +7622,7 @@
         "en": "Maisie Williams made her professional acting debut as Arya.",
         "ar": "كان دور آريا بداية مايسي ويليامز في التمثيل الاحترافي."
       },
-      "contentKey": "2490bc81"
+      "contentKey": "78230e91"
     }
   },
   {
@@ -7634,7 +7634,7 @@
     },
     "question": {
       "en": "Who composed the show's famous main theme?",
-      "ar": "مين ألّف موسيقى الشارة المشهورة للمسلسل؟"
+      "ar": "من ألّف موسيقى الشارة الشهيرة للمسلسل؟"
     },
     "review": {
       "status": "pending"
@@ -7663,7 +7663,7 @@
         "en": "Djawadi's cello-led theme accompanies the moving map.",
         "ar": "ترافق موسيقى جوادي التي يتصدرها التشيلو خريطة الشارة المتحركة."
       },
-      "contentKey": "f296cdd2"
+      "contentKey": "99206f43"
     }
   },
   {
@@ -7675,7 +7675,7 @@
     },
     "question": {
       "en": "What does the opening sequence build before our eyes?",
-      "ar": "شو اللي تبنيه شارة البداية قدام عيوننا؟"
+      "ar": "ماذا تبني شارة البداية أمام أعيننا؟"
     },
     "review": {
       "status": "pending"
@@ -7704,7 +7704,7 @@
         "en": "The locations change as the story's geography expands.",
         "ar": "تتغير المواقع الظاهرة مع اتساع جغرافيا الأحداث."
       },
-      "contentKey": "c740c5c1"
+      "contentKey": "e186ade2"
     }
   },
   {
@@ -7716,7 +7716,7 @@
     },
     "question": {
       "en": "Which house trains Arya in Braavos?",
-      "ar": "أي دار تدرّب آريا في برافوس؟"
+      "ar": "أي دار تدرب آريا في برافوس؟"
     },
     "review": {
       "status": "pending"
@@ -7745,7 +7745,7 @@
         "en": "The House of Black and White is associated with the Faceless Men.",
         "ar": "ترتبط دار الأسود والأبيض بجماعة عديمي الوجوه."
       },
-      "contentKey": "14303fb9"
+      "contentKey": "481a39a8"
     }
   },
   {
@@ -7757,7 +7757,7 @@
     },
     "question": {
       "en": "Who repeatedly tells Jon that he knows nothing?",
-      "ar": "مين اللي تكرر لجون إنه «ما يعرف شي»؟"
+      "ar": "من تكرر لجون أنه لا يعرف شيئًا؟"
     },
     "review": {
       "status": "pending"
@@ -7786,7 +7786,7 @@
         "en": "Ygritte's teasing line becomes a signature of their relationship.",
         "ar": "تصبح عبارة يغريت الساخرة علامة مميزة لعلاقتهما."
       },
-      "contentKey": "352a1428"
+      "contentKey": "3120f28e"
     }
   },
   {
@@ -7798,7 +7798,7 @@
     },
     "question": {
       "en": "What is dragonglass actually made of?",
-      "ar": "من شو يتكوّن «زجاج التنين»؟"
+      "ar": "مم يتكون زجاج التنين؟"
     },
     "review": {
       "status": "pending"
@@ -7827,7 +7827,7 @@
         "en": "Dragonglass is the world's name for volcanic obsidian.",
         "ar": "زجاج التنين هو الاسم المستخدم للسبج البركاني في عالم المسلسل."
       },
-      "contentKey": "c12f9dc7"
+      "contentKey": "9b0c41c1"
     }
   },
   {
@@ -7839,7 +7839,7 @@
     },
     "question": {
       "en": "Who becomes king of the Six Kingdoms at the end?",
-      "ar": "مين يصير بالآخر ملك الممالك الست؟"
+      "ar": "من يصبح ملك الممالك الست في النهاية؟"
     },
     "review": {
       "status": "pending"
@@ -7868,7 +7868,7 @@
         "en": "Bran is chosen by the surviving leaders at the final council.",
         "ar": "يختار القادة الناجون بران في المجلس الأخير."
       },
-      "contentKey": "ec6ec643"
+      "contentKey": "9ddfb30e"
     }
   },
   {
@@ -7880,7 +7880,7 @@
     },
     "question": {
       "en": "What are the official words of House Lannister?",
-      "ar": "شو الشعار الرسمي لآل لانستر؟"
+      "ar": "ما الشعار الرسمي لآل لانستر؟"
     },
     "review": {
       "status": "pending"
@@ -7909,7 +7909,7 @@
         "en": "The debt saying is famous, but Hear Me Roar is the formal motto.",
         "ar": "عبارة الديون مشهورة، لكن «اسمعوا زئيري» هي الشعار الرسمي."
       },
-      "contentKey": "b5d96547"
+      "contentKey": "99617837"
     }
   },
   {
@@ -7921,7 +7921,7 @@
     },
     "question": {
       "en": "Which royal post does Ned Stark accept before travelling to King's Landing in season one?",
-      "ar": "أي منصب يقبله نيد ستارك قبل ما يروح على كينغز لاندينغ بالموسم الأول؟"
+      "ar": "أي منصب يقبله نيد ستارك قبل أن يسافر إلى كينغز لاندينغ في الموسم الأول؟"
     },
     "review": {
       "status": "pending"
@@ -7950,7 +7950,7 @@
         "en": "Robert asks Ned to be Hand of the King, his chief adviser and deputy.",
         "ar": "يطلب روبرت من نيد أن يكون «يد الملك»، كبير مستشاريه ونائبه."
       },
-      "contentKey": "71e8d007"
+      "contentKey": "30adf789"
     }
   },
   {
@@ -7962,7 +7962,7 @@
     },
     "question": {
       "en": "Which pair developed Game of Thrones for television?",
-      "ar": "أي ثنائي حوّل «صراع العروش» لمسلسل تلفزيوني؟"
+      "ar": "أي ثنائي طوّر «صراع العروش» للتلفزيون؟"
     },
     "review": {
       "status": "pending"
@@ -7991,7 +7991,7 @@
         "en": "Benioff and Weiss adapted Martin's novels for HBO.",
         "ar": "اقتبس بينيوف ووايس روايات مارتن لشبكة إتش بي أو."
       },
-      "contentKey": "2aeac601"
+      "contentKey": "f680dd0d"
     }
   },
   {
@@ -8003,7 +8003,7 @@
     },
     "question": {
       "en": "Who plays Eleven?",
-      "ar": "مين تلعب دور إليفن؟"
+      "ar": "من تؤدي دور إليفن؟"
     },
     "review": {
       "status": "pending"
@@ -8032,7 +8032,7 @@
         "en": "Millie Bobby Brown plays the girl also nicknamed El.",
         "ar": "تجسد ميلي بوبي براون الفتاة المعروفة أيضًا باسم إل."
       },
-      "contentKey": "c0e70de2"
+      "contentKey": "6ec78090"
     }
   },
   {
@@ -8044,7 +8044,7 @@
     },
     "question": {
       "en": "Who plays Bob Newby?",
-      "ar": "مين يلعب دور بوب نيوبي؟"
+      "ar": "من يجسد بوب نيوبي؟"
     },
     "review": {
       "status": "pending"
@@ -8073,7 +8073,7 @@
         "en": "Sean Astin, also known from The Goonies, plays Bob.",
         "ar": "يجسد بوب شون أستين المعروف أيضًا من فيلم «ذا غونيز»."
       },
-      "contentKey": "f4d3a6e7"
+      "contentKey": "14b87cd6"
     }
   },
   {
@@ -8085,7 +8085,7 @@
     },
     "question": {
       "en": "In which year does the first season begin?",
-      "ar": "بأي سنة يبدأ الموسم الأول؟"
+      "ar": "في أي عام يبدأ الموسم الأول؟"
     },
     "review": {
       "status": "pending"
@@ -8114,7 +8114,7 @@
         "en": "The opening mystery begins in November 1983.",
         "ar": "يبدأ لغز افتتاح المسلسل في نوفمبر ١٩٨٣."
       },
-      "contentKey": "fb5f926c"
+      "contentKey": "f9b43d06"
     }
   },
   {
@@ -8126,7 +8126,7 @@
     },
     "question": {
       "en": "Which frozen breakfast food becomes Eleven's favourite?",
-      "ar": "أي فطور مجمّد يصير المفضل عند إليفن؟"
+      "ar": "أي فطور مجمد يصبح المفضل لدى إليفن؟"
     },
     "review": {
       "status": "pending"
@@ -8155,7 +8155,7 @@
         "en": "Eggo waffles become one of the show's signature food props.",
         "ar": "تصبح وافلات إيغو من أبرز الأطعمة المرتبطة بالمسلسل."
       },
-      "contentKey": "fe8183f9"
+      "contentKey": "58035442"
     }
   },
   {
@@ -8167,7 +8167,7 @@
     },
     "question": {
       "en": "What does Joyce hang up to communicate with Will?",
-      "ar": "شو تعلّق جويس عشان تتواصل مع ويل؟"
+      "ar": "ماذا تعلق جويس للتواصل مع ويل؟"
     },
     "review": {
       "status": "pending"
@@ -8196,7 +8196,7 @@
         "en": "The blinking lights offer Joyce an unusual means of contact.",
         "ar": "تمنح الأضواء الوامضة جويس وسيلة اتصال غير مألوفة."
       },
-      "contentKey": "daef4f19"
+      "contentKey": "8931fd99"
     }
   },
   {
@@ -8208,7 +8208,7 @@
     },
     "question": {
       "en": "How do the boys often talk when they are apart?",
-      "ar": "كيف يحكون الأولاد مع بعض كثير لما يكونون بعيدين؟"
+      "ar": "كيف يتحدث الأولاد كثيرًا عندما يكونون متباعدين؟"
     },
     "review": {
       "status": "pending"
@@ -8237,7 +8237,7 @@
         "en": "Handheld radios suit the show's pre-smartphone setting.",
         "ar": "تناسب أجهزة اللاسلكي المحمولة زمن المسلسل السابق للهواتف الذكية."
       },
-      "contentKey": "2aec4faf"
+      "contentKey": "f3d309af"
     }
   },
   {
@@ -8249,7 +8249,7 @@
     },
     "question": {
       "en": "What is the boys' usual transport around Hawkins?",
-      "ar": "شو وسيلة تنقّل الأولاد المعتادة في هوكينز؟"
+      "ar": "ما وسيلة تنقل الأولاد المعتادة في هوكينز؟"
     },
     "review": {
       "status": "pending"
@@ -8278,7 +8278,7 @@
         "en": "Their bicycles are central to the show's adventure imagery.",
         "ar": "الدراجات عنصر أساسي في الصور المرتبطة بمغامرات المسلسل."
       },
-      "contentKey": "f1a9a421"
+      "contentKey": "91c558ec"
     }
   },
   {
@@ -8290,7 +8290,7 @@
     },
     "question": {
       "en": "What does Dustin call the creature he secretly keeps?",
-      "ar": "شو يسمّي داستن المخلوق اللي مخبّيه سرًا؟"
+      "ar": "ماذا يسمي داستن المخلوق الذي يحتفظ به سرًا؟"
     },
     "review": {
       "status": "pending"
@@ -8319,7 +8319,7 @@
         "en": "Dart is short for D'Artagnan, Dustin's chosen name.",
         "ar": "دارت اختصار لاسم دارتانيان الذي يختاره داستن."
       },
-      "contentKey": "dab7f161"
+      "contentKey": "6c3bde8b"
     }
   },
   {
@@ -8331,7 +8331,7 @@
     },
     "question": {
       "en": "Which brand of hairspray does Steve recommend to Dustin as his hair secret?",
-      "ar": "شو ماركة بخاخ الشعر اللي ينصح فيها ستيف داستن كسرّ لشعره؟"
+      "ar": "ما ماركة بخاخ الشعر التي ينصح بها ستيف داستن بوصفها سر تسريحته؟"
     },
     "review": {
       "status": "pending"
@@ -8360,7 +8360,7 @@
         "en": "Steve's routine: Fabergé Organics shampoo and conditioner, then four puffs of Farrah Fawcett spray.",
         "ar": "روتين ستيف: شامبو وبلسم «فابرجيه أورغانيكس»، ثم أربع بخّات من بخاخ «فرح فوسيت»."
       },
-      "contentKey": "5dd68f4d"
+      "contentKey": "4778f199"
     }
   },
   {
@@ -8372,7 +8372,7 @@
     },
     "question": {
       "en": "Which arcade game has the score that Max beats?",
-      "ar": "بأي لعبة أركيد تتفوّق ماكس بالنتيجة؟"
+      "ar": "في أي لعبة أركيد تتفوق ماكس بالنتيجة؟"
     },
     "review": {
       "status": "pending"
@@ -8401,7 +8401,7 @@
         "en": "Dig Dug's leaderboard introduces the mysterious MADMAX.",
         "ar": "تعرف لوحة نتائج ديغ داغ الأولاد إلى مادماكس الغامضة."
       },
-      "contentKey": "bebe4d2f"
+      "contentKey": "2ca518ef"
     }
   },
   {
@@ -8454,7 +8454,7 @@
     },
     "question": {
       "en": "Which song do Dustin and Suzie sing over the radio?",
-      "ar": "أي أغنية يغنونها داستن وسوزي على اللاسلكي؟"
+      "ar": "أي أغنية يغنيها داستن وسوزي عبر اللاسلكي؟"
     },
     "review": {
       "status": "pending"
@@ -8483,7 +8483,7 @@
         "en": "Their duet interrupts an otherwise urgent radio exchange.",
         "ar": "تقاطع أغنيتهما الثنائية اتصالًا لاسلكيًا بالغ الاستعجال."
       },
-      "contentKey": "fa65d1a0"
+      "contentKey": "eb92d6a0"
     }
   },
   {
@@ -8495,7 +8495,7 @@
     },
     "question": {
       "en": "What does Dustin call his powerful radio tower?",
-      "ar": "شو يسمّي داستن برج اللاسلكي القوي حقه؟"
+      "ar": "ماذا يسمي داستن برج اللاسلكي القوي الخاص به؟"
     },
     "review": {
       "status": "pending"
@@ -8524,7 +8524,7 @@
         "en": "Cerebro is built to contact Suzie over a long distance.",
         "ar": "يبني داستن سيريبرو للاتصال بسوزي من مسافة بعيدة."
       },
-      "contentKey": "70f39797"
+      "contentKey": "5be7d3b5"
     }
   },
   {
@@ -8536,7 +8536,7 @@
     },
     "question": {
       "en": "At what camp does Dustin meet Suzie?",
-      "ar": "بأي مخيّم التقى داستن بسوزي؟"
+      "ar": "في أي مخيم يلتقي داستن بسوزي؟"
     },
     "review": {
       "status": "pending"
@@ -8565,7 +8565,7 @@
         "en": "The science camp connects two enthusiastic young radio users.",
         "ar": "يجمع المخيم العلمي بين شابين متحمسين لاستخدام اللاسلكي."
       },
-      "contentKey": "490eed67"
+      "contentKey": "c5857cdf"
     }
   },
   {
@@ -8577,7 +8577,7 @@
     },
     "question": {
       "en": "Which Metallica song does Eddie play on guitar?",
-      "ar": "أي أغنية لميتاليكا يعزفها إيدي على الجيتار؟"
+      "ar": "أي أغنية لميتاليكا يعزفها إيدي على الغيتار؟"
     },
     "review": {
       "status": "pending"
@@ -8606,7 +8606,7 @@
         "en": "The rooftop performance is a major moment in the season-four finale.",
         "ar": "يشكل العزف على السطح لحظة بارزة في ختام الموسم الرابع."
       },
-      "contentKey": "74c83f80"
+      "contentKey": "7b36d6d6"
     }
   },
   {
@@ -8618,7 +8618,7 @@
     },
     "question": {
       "en": "Which horror-film veteran plays Victor Creel?",
-      "ar": "أي نجم مخضرم بأفلام الرعب يلعب دور فيكتور كريل؟"
+      "ar": "أي نجم مخضرم في أفلام الرعب يجسد فيكتور كريل؟"
     },
     "review": {
       "status": "pending"
@@ -8647,7 +8647,7 @@
         "en": "Englund is also famous for playing Freddy Krueger.",
         "ar": "يشتهر إنغلوند أيضًا بتجسيد فريدي كروغر."
       },
-      "contentKey": "aa4a27e2"
+      "contentKey": "d951d1de"
     }
   },
   {
@@ -8659,7 +8659,7 @@
     },
     "question": {
       "en": "Who created Diriliş: Ertuğrul?",
-      "ar": "مين صاحب فكرة مسلسل «قيامة أرطغرل»؟"
+      "ar": "من ابتكر مسلسل «قيامة أرطغرل»؟"
     },
     "review": {
       "status": "pending"
@@ -8688,7 +8688,7 @@
         "en": "Bozdağ created the historical adventure for Turkish television.",
         "ar": "ابتكر بوزداغ هذه المغامرة التاريخية للتلفزيون التركي."
       },
-      "contentKey": "a6645a67"
+      "contentKey": "a0d8213"
     }
   },
   {
@@ -8700,7 +8700,7 @@
     },
     "question": {
       "en": "Which duo composed music for Diriliş: Ertuğrul?",
-      "ar": "أي ثنائي ألّفوا موسيقى «قيامة أرطغرل»؟"
+      "ar": "أي ثنائي ألّف موسيقى «قيامة أرطغرل»؟"
     },
     "review": {
       "status": "pending"
@@ -8729,7 +8729,7 @@
         "en": "Their music supports both the camp scenes and the battles.",
         "ar": "ترافق موسيقاهما مشاهد المخيم والمعارك على السواء."
       },
-      "contentKey": "3dee83cc"
+      "contentKey": "ced2861d"
     }
   },
   {
@@ -8741,7 +8741,7 @@
     },
     "question": {
       "en": "In which year did the Turkish broadcast begin?",
-      "ar": "بأي سنة بدأ العرض التركي للمسلسل؟"
+      "ar": "في أي عام بدأ العرض التركي للمسلسل؟"
     },
     "review": {
       "status": "pending"
@@ -8770,7 +8770,7 @@
         "en": "The series premiered on TRT 1 in December 2014.",
         "ar": "بدأ المسلسل على تي آر تي ١ في ديسمبر ٢٠١٤."
       },
-      "contentKey": "7e1c0736"
+      "contentKey": "15c87b60"
     }
   },
   {
@@ -8782,7 +8782,7 @@
     },
     "question": {
       "en": "What does Diriliş mean in the show's title?",
-      "ar": "شو معنى «ديريليش» بعنوان المسلسل؟"
+      "ar": "ما معنى «ديريليش» في عنوان المسلسل؟"
     },
     "review": {
       "status": "pending"
@@ -8811,7 +8811,7 @@
         "en": "The title is often rendered Resurrection: Ertuğrul in English.",
         "ar": "يُترجم العنوان إلى الإنجليزية Resurrection: Ertuğrul، أي «قيامة أرطغرل»."
       },
-      "contentKey": "5d0a477e"
+      "contentKey": "b245d465"
     }
   },
   {
@@ -8823,7 +8823,7 @@
     },
     "question": {
       "en": "What does the title Bey generally identify in the show?",
-      "ar": "لقب «بك» بالمسلسل يأشّر عادةً لشو؟"
+      "ar": "إلى ماذا يشير لقب «بك» عادة في المسلسل؟"
     },
     "review": {
       "status": "pending"
@@ -8852,7 +8852,7 @@
         "en": "Bey is attached to the names of tribal and political leaders.",
         "ar": "يلحق لقب بك بأسماء قادة القبائل والزعماء السياسيين."
       },
-      "contentKey": "af89d7b8"
+      "contentKey": "dc4afef"
     }
   },
   {
@@ -8864,7 +8864,7 @@
     },
     "question": {
       "en": "Which respectful title often follows women's names?",
-      "ar": "أي لقب احترام يجي كثير بعد أسماء النساء؟"
+      "ar": "أي لقب احترام يأتي كثيرًا بعد أسماء النساء؟"
     },
     "review": {
       "status": "pending"
@@ -8893,7 +8893,7 @@
         "en": "Hatun is a title used for women such as Halime and Selcan.",
         "ar": "يُستخدم لقب خاتون لنساء مثل حليمة وسلجان."
       },
-      "contentKey": "17fceac3"
+      "contentKey": "b02e3e86"
     }
   },
   {
@@ -8905,7 +8905,7 @@
     },
     "question": {
       "en": "What is an alp in Ertuğrul's circle?",
-      "ar": "في جماعة أرطغرل، شو معنى «ألب»؟"
+      "ar": "ما معنى «ألب» في دائرة أرطغرل؟"
     },
     "review": {
       "status": "pending"
@@ -8934,7 +8934,7 @@
         "en": "Alp refers to the brave fighters who accompany their bey.",
         "ar": "يشير اللقب إلى المحاربين الشجعان الذين يرافقون قائدهم."
       },
-      "contentKey": "c9b6dbe0"
+      "contentKey": "ce467e0e"
     }
   },
   {
@@ -8946,7 +8946,7 @@
     },
     "question": {
       "en": "Which region is central to the show's tribal migrations?",
-      "ar": "أي منطقة محورية بهجرات القبائل بالمسلسل؟"
+      "ar": "أي منطقة محورية في هجرات القبائل في المسلسل؟"
     },
     "review": {
       "status": "pending"
@@ -8975,7 +8975,7 @@
         "en": "The tribes seek security and a homeland in Anatolia.",
         "ar": "تبحث القبائل عن الأمان والوطن في الأناضول."
       },
-      "contentKey": "a23186c3"
+      "contentKey": "e0495709"
     }
   },
   {
@@ -9028,7 +9028,7 @@
     },
     "question": {
       "en": "What makes Bamsi's usual sword-fighting style distinctive?",
-      "ar": "شو اللي يميّز أسلوب بامسي المعتاد بالمبارزة؟"
+      "ar": "ما الذي يميز أسلوب بامسي المعتاد في المبارزة؟"
     },
     "review": {
       "status": "pending"
@@ -9057,7 +9057,7 @@
         "en": "Bamsi's paired blades make his fighting style easy to recognise.",
         "ar": "يجعل سيفا بامسي أسلوبه القتالي سهل التعرف عليه."
       },
-      "contentKey": "f981a115"
+      "contentKey": "ef37f8af"
     }
   },
   {
@@ -9069,7 +9069,7 @@
     },
     "question": {
       "en": "Which trusted adviser is especially skilled in healing?",
-      "ar": "أي مستشار موثوق مميز بمهارته بالعلاج؟"
+      "ar": "أي مستشار موثوق يتميز بمهارته في العلاج؟"
     },
     "review": {
       "status": "pending"
@@ -9098,7 +9098,7 @@
         "en": "Artuk Bey combines medical knowledge with political judgment.",
         "ar": "يجمع أرتوك بك المعرفة الطبية والحكمة السياسية."
       },
-      "contentKey": "7a22e326"
+      "contentKey": "8a8f74fa"
     }
   },
   {
@@ -9110,7 +9110,7 @@
     },
     "question": {
       "en": "Which brother secretly works among the Mongols?",
-      "ar": "أي أخ يشتغل سرًا بين المغول؟"
+      "ar": "أي شقيق يعمل سرًا بين المغول؟"
     },
     "review": {
       "status": "pending"
@@ -9139,7 +9139,7 @@
         "en": "Sungurtekin's intelligence work explains his long absence.",
         "ar": "يفسر عمل سونغور تكين الاستخباري غيابه الطويل."
       },
-      "contentKey": "e4fc694"
+      "contentKey": "32a0aa99"
     }
   },
   {
@@ -9151,7 +9151,7 @@
     },
     "question": {
       "en": "Which tribe hosts the Kayi in the second season?",
-      "ar": "أي قبيلة تستضيف قايي بالموسم الثاني؟"
+      "ar": "أي قبيلة تستضيف قايي في الموسم الثاني؟"
     },
     "review": {
       "status": "pending"
@@ -9180,7 +9180,7 @@
         "en": "The Dodurga camp becomes the second season's key setting.",
         "ar": "يصبح مخيم دودورغا موقعًا أساسيًا في الموسم الثاني."
       },
-      "contentKey": "d20cd745"
+      "contentKey": "b52e8fc2"
     }
   },
   {
@@ -9192,7 +9192,7 @@
     },
     "question": {
       "en": "Who is Hayme's brother and the Dodurga bey?",
-      "ar": "مين أخو هايمه وقائد دودورغا؟"
+      "ar": "من شقيق هايمة وقائد دودورغا؟"
     },
     "review": {
       "status": "pending"
@@ -9221,7 +9221,7 @@
         "en": "Korkut's family connection shapes the tribes' uneasy alliance.",
         "ar": "تشكل صلة كوركوت العائلية أساسًا لتحالف القبيلتين المضطرب."
       },
-      "contentKey": "b4dd3d5d"
+      "contentKey": "c5b4779a"
     }
   },
   {
@@ -9233,7 +9233,7 @@
     },
     "question": {
       "en": "Which real Seljuk sultan, often called the dynasty's greatest ruler in Anatolia, appears as Ertuğrul's sultan in the show?",
-      "ar": "مين السلطان السلجوقي الحقيقي، اللي ينوصف بأعظم سلاطين السلاجقة بالأناضول، ويطلع بالمسلسل كسلطان أرطغرل؟"
+      "ar": "من السلطان السلجوقي الحقيقي، الموصوف بأنه أعظم سلاطين السلاجقة في الأناضول، والذي يظهر في المسلسل سلطانًا لأرطغرل؟"
     },
     "review": {
       "status": "pending"
@@ -9262,7 +9262,7 @@
         "en": "Alaeddin Keykubad (Kayqubad I) ruled the Seljuk Sultanate of Rum from 1220 to 1237, the era of the show's early seasons.",
         "ar": "حكم علاء الدين كيقباد الأول سلطنة سلاجقة الروم من 1220 إلى 1237، وهي الحقبة التي تدور فيها المواسم الأولى من المسلسل."
       },
-      "contentKey": "bf13d630"
+      "contentKey": "3504b9ad"
     }
   },
   {
@@ -9274,7 +9274,7 @@
     },
     "question": {
       "en": "What name does Ares take after his conversion?",
-      "ar": "شو الاسم اللي ياخذه آريس بعد ما يسلم؟"
+      "ar": "ما الاسم الذي يتخذه آريس بعد إسلامه؟"
     },
     "review": {
       "status": "pending"
@@ -9303,7 +9303,7 @@
         "en": "Ares becomes Ahmet as his loyalties change.",
         "ar": "يصبح آريس أحمد مع تغير ولاءاته."
       },
-      "contentKey": "287cb0c3"
+      "contentKey": "9753b21b"
     }
   },
   {
@@ -9315,7 +9315,7 @@
     },
     "question": {
       "en": "Who hides behind the feared identity Albasti?",
-      "ar": "مين مخبّا ورا هوية «ألباستي» المخيفة؟"
+      "ar": "من يختبئ وراء هوية ألباستي المخيفة؟"
     },
     "review": {
       "status": "pending"
@@ -9344,7 +9344,7 @@
         "en": "Beybolat's double identity drives a major season-five conflict.",
         "ar": "تحرك هوية بيبولات المزدوجة صراعًا أساسيًا في الموسم الخامس."
       },
-      "contentKey": "2f8ca956"
+      "contentKey": "413216a8"
     }
   },
   {
@@ -9397,7 +9397,7 @@
     },
     "question": {
       "en": "Who plays the police officer Abu Jawdat?",
-      "ar": "مين يلعب دور رجل الشرطة أبو جودت؟"
+      "ar": "من يجسد رجل الشرطة أبو جودت؟"
     },
     "review": {
       "status": "pending"
@@ -9426,7 +9426,7 @@
         "en": "Zuhair Ramadan plays the officer with the unmistakable manner.",
         "ar": "يجسد زهير رمضان الشرطي صاحب الأسلوب المميز."
       },
-      "contentKey": "641225e3"
+      "contentKey": "d303abf2"
     }
   },
   {
@@ -9438,7 +9438,7 @@
     },
     "question": {
       "en": "Which writer is credited with creating the first Bab Al-Hara story?",
-      "ar": "أي كاتب ينسب له تأليف قصة الجزء الأول؟"
+      "ar": "أي كاتب يُنسب إليه تأليف قصة الجزء الأول؟"
     },
     "review": {
       "status": "pending"
@@ -9467,7 +9467,7 @@
         "en": "Marwan Qawouq is credited as the first season's author.",
         "ar": "يُذكر مروان قاووق مؤلفًا للموسم الأول."
       },
-      "contentKey": "1bbda9e7"
+      "contentKey": "ad4549ad"
     }
   },
   {
@@ -9479,7 +9479,7 @@
     },
     "question": {
       "en": "Which city provides the show's urban setting?",
-      "ar": "أي مدينة هي البيئة الحضرية للمسلسل؟"
+      "ar": "أي مدينة تمثل البيئة الحضرية للمسلسل؟"
     },
     "review": {
       "status": "pending"
@@ -9508,7 +9508,7 @@
         "en": "The story evokes the lanes and houses of old Damascus.",
         "ar": "تستحضر القصة أزقة دمشق القديمة وبيوتها."
       },
-      "contentKey": "52d6665f"
+      "contentKey": "fed231c2"
     }
   },
   {
@@ -9520,7 +9520,7 @@
     },
     "question": {
       "en": "Which Arabic drama category best describes Bab Al-Hara?",
-      "ar": "«باب الحارة» من أي نوع دراما عربية؟"
+      "ar": "إلى أي نوع درامي عربي ينتمي «باب الحارة»؟"
     },
     "review": {
       "status": "pending"
@@ -9549,7 +9549,7 @@
         "en": "The setting, dialect and customs are characteristic of shamiyyeh drama.",
         "ar": "البيئة واللهجة والعادات من سمات دراما البيئة الشامية."
       },
-      "contentKey": "f2420edd"
+      "contentKey": "cccf10ff"
     }
   },
   {
@@ -9561,7 +9561,7 @@
     },
     "question": {
       "en": "What feature can be closed to protect the neighbourhood at night?",
-      "ar": "شو المعلم اللي ينسكّر بالليل عشان يحمي الحارة؟"
+      "ar": "ما المعلم الذي يمكن إغلاقه لحماية الحارة ليلًا؟"
     },
     "review": {
       "status": "pending"
@@ -9590,7 +9590,7 @@
         "en": "The gate is both a physical boundary and the show's central symbol.",
         "ar": "الباب حد مادي ورمز أساسي للمسلسل في الوقت نفسه."
       },
-      "contentKey": "5c1a443b"
+      "contentKey": "5a471b83"
     }
   },
   {
@@ -9602,7 +9602,7 @@
     },
     "question": {
       "en": "What is Abu Issam's personal name?",
-      "ar": "شو الاسم الشخصي لأبو عصام؟"
+      "ar": "ما الاسم الشخصي لأبي عصام؟"
     },
     "review": {
       "status": "pending"
@@ -9631,7 +9631,7 @@
         "en": "Abu Issam is the familiar kunya of Shawkat.",
         "ar": "أبو عصام الكنية التي يُعرف بها شوكت."
       },
-      "contentKey": "9c2511d"
+      "contentKey": "c3d248d7"
     }
   },
   {
@@ -9643,7 +9643,7 @@
     },
     "question": {
       "en": "What work makes Umm Zaki important to local families?",
-      "ar": "أي شغل يخلّي أم زكي مهمة للعائلات؟"
+      "ar": "أي عمل يجعل أم زكي مهمة للعائلات؟"
     },
     "review": {
       "status": "pending"
@@ -9672,7 +9672,7 @@
         "en": "Umm Zaki helps women give birth in the neighbourhood.",
         "ar": "تساعد أم زكي النساء على الولادة في الحارة."
       },
-      "contentKey": "d00a90b5"
+      "contentKey": "2669322d"
     }
   },
   {
@@ -9684,7 +9684,7 @@
     },
     "question": {
       "en": "Who takes over guarding the neighbourhood early in season one?",
-      "ar": "مين اللي يحرس الحارة ببداية الموسم الأول؟"
+      "ar": "من يتولى حراسة الحارة في بداية الموسم الأول؟"
     },
     "review": {
       "status": "pending"
@@ -9713,7 +9713,7 @@
         "en": "Abu Majed assumes the guard's responsibilities after the opening crime.",
         "ar": "يتولى أبو ماجد مسؤوليات الحراسة بعد جريمة البداية."
       },
-      "contentKey": "e76f8135"
+      "contentKey": "692025b6"
     }
   },
   {
@@ -9725,7 +9725,7 @@
     },
     "question": {
       "en": "What snack does Abu Ghalib sell?",
-      "ar": "أي أكلة خفيفة يبيعها أبو غالب؟"
+      "ar": "أي وجبة خفيفة يبيعها أبو غالب؟"
     },
     "review": {
       "status": "pending"
@@ -9754,7 +9754,7 @@
         "en": "His balila calls are a familiar part of the street soundscape.",
         "ar": "نداءاته لبيع البليلة جزء مألوف من أصوات الشارع."
       },
-      "contentKey": "8de4bc86"
+      "contentKey": "5e22b8ec"
     }
   },
   {
@@ -9766,7 +9766,7 @@
     },
     "question": {
       "en": "Who is Moataz's father?",
-      "ar": "مين أبو معتز؟"
+      "ar": "من والد معتز؟"
     },
     "review": {
       "status": "pending"
@@ -9795,7 +9795,7 @@
         "en": "Moataz belongs to Abu Issam and Umm Issam's family.",
         "ar": "ينتمي معتز إلى أسرة أبي عصام وأم عصام."
       },
-      "contentKey": "e2ae523"
+      "contentKey": "51a8ae2e"
     }
   },
   {
@@ -9807,7 +9807,7 @@
     },
     "question": {
       "en": "Which pair are Abu Issam's daughters?",
-      "ar": "أي ثنائي من بنات أبو عصام؟"
+      "ar": "أي ثنائي من بنات أبي عصام؟"
     },
     "review": {
       "status": "pending"
@@ -9836,7 +9836,7 @@
         "en": "Boran and Dalal are sisters within the Abu Issam family.",
         "ar": "بوران ودلال شقيقتان من أسرة أبي عصام."
       },
-      "contentKey": "dbba0a0d"
+      "contentKey": "7b30fedb"
     }
   },
   {
@@ -9848,7 +9848,7 @@
     },
     "question": {
       "en": "How is Abu Shihab related to Umm Issam?",
-      "ar": "شو صلة أبو شهاب بأم عصام؟"
+      "ar": "ما صلة أبي شهاب بأم عصام؟"
     },
     "review": {
       "status": "pending"
@@ -9877,7 +9877,7 @@
         "en": "His kinship makes him close to the central family.",
         "ar": "تجعله هذه القرابة قريبًا من الأسرة المحورية."
       },
-      "contentKey": "55d1d726"
+      "contentKey": "18aa1b1c"
     }
   },
   {
@@ -9889,7 +9889,7 @@
     },
     "question": {
       "en": "What water feature is typical of the houses' inner courtyards?",
-      "ar": "شو المعلم المائي المعتاد بحوش البيوت من جوّا؟"
+      "ar": "ما المعلم المائي المعتاد في باحات البيوت الداخلية؟"
     },
     "review": {
       "status": "pending"
@@ -9918,7 +9918,7 @@
         "en": "The courtyard basin is a familiar detail of the Damascene house.",
         "ar": "البحرة تفصيل مألوف في البيت الدمشقي."
       },
-      "contentKey": "5625ebd"
+      "contentKey": "ab625cbb"
     }
   },
   {
@@ -9930,7 +9930,7 @@
     },
     "question": {
       "en": "Which red headwear appears in the traditional costumes?",
-      "ar": "أي غطا راس أحمر يطلع باللبس التقليدي؟"
+      "ar": "أي غطاء رأس أحمر يظهر في الملابس التقليدية؟"
     },
     "review": {
       "status": "pending"
@@ -9959,7 +9959,7 @@
         "en": "The fez helps establish the period's urban dress.",
         "ar": "يساعد الطربوش على إظهار اللباس الحضري لتلك الفترة."
       },
-      "contentKey": "2cbd4795"
+      "contentKey": "ef5a2bae"
     }
   },
   {
@@ -9971,7 +9971,7 @@
     },
     "question": {
       "en": "What are the loose traditional trousers seen in the show called?",
-      "ar": "شو اسم السروال التقليدي الواسع اللي يطلع بالمسلسل؟"
+      "ar": "ما اسم السروال التقليدي الفضفاض الظاهر في المسلسل؟"
     },
     "review": {
       "status": "pending"
@@ -10000,7 +10000,7 @@
         "en": "The sherwal is part of the characters' traditional clothing.",
         "ar": "الشروال جزء من الملابس التقليدية للشخصيات."
       },
-      "contentKey": "cca877e2"
+      "contentKey": "7bf7aaee"
     }
   },
   {
@@ -10012,7 +10012,7 @@
     },
     "question": {
       "en": "Whom does Issam marry in the first season?",
-      "ar": "مين يتزوج عصام بالموسم الأول؟"
+      "ar": "من يتزوج عصام في الموسم الأول؟"
     },
     "review": {
       "status": "pending"
@@ -10041,7 +10041,7 @@
         "en": "Issam and Lutfiya's marriage follows family disagreements.",
         "ar": "يأتي زواج عصام ولطفية بعد خلافات بين العائلتين."
       },
-      "contentKey": "ecbe79e"
+      "contentKey": "43e3d793"
     }
   },
   {
@@ -10053,7 +10053,7 @@
     },
     "question": {
       "en": "Which seemingly harmless man in the hara is exposed as a spy?",
-      "ar": "مين الرجل اللي كان يبين مسالم بالحارة وانكشف إنه جاسوس؟"
+      "ar": "من الرجل الذي بدا مسالمًا في الحارة ثم انكشف أنه جاسوس؟"
     },
     "review": {
       "status": "pending"
@@ -10082,7 +10082,7 @@
         "en": "Satife's apparent harmlessness conceals his real role.",
         "ar": "يخفي مظهر صطيف الذي يبدو مسالمًا دوره الحقيقي."
       },
-      "contentKey": "38ef747b"
+      "contentKey": "5715426a"
     }
   },
   {
@@ -10094,7 +10094,7 @@
     },
     "question": {
       "en": "Whose gold is stolen in the opening storyline?",
-      "ar": "ذهب مين ينسرق ببداية القصة؟"
+      "ar": "ذهب من يُسرق في بداية القصة؟"
     },
     "review": {
       "status": "pending"
@@ -10123,7 +10123,7 @@
         "en": "Abu Ibrahim's stolen gold sets off the first major neighbourhood mystery.",
         "ar": "يفجر ذهب أبي إبراهيم المسروق أول لغز كبير في الحارة."
       },
-      "contentKey": "bc880fd0"
+      "contentKey": "38bba7f8"
     }
   },
   {
@@ -10135,7 +10135,7 @@
     },
     "question": {
       "en": "What object makes Abu Ibrahim suspect Al-Idaashari?",
-      "ar": "أي غرض يخلّي أبو إبراهيم يشك بالإدعشري؟"
+      "ar": "أي غرض يدفع أبا إبراهيم للاشتباه بالإدعشري؟"
     },
     "review": {
       "status": "pending"
@@ -10164,7 +10164,7 @@
         "en": "The shoe clue appears during the early search for the thief.",
         "ar": "يظهر دليل الحذاء خلال البحث المبكر عن السارق."
       },
-      "contentKey": "7d8c50ae"
+      "contentKey": "35b619ad"
     }
   },
   {
@@ -10176,7 +10176,7 @@
     },
     "question": {
       "en": "Where does Al-Idaashari hide the stolen gold?",
-      "ar": "وين يخبّي الإدعشري الذهب المسروق؟"
+      "ar": "أين يخفي الإدعشري الذهب المسروق؟"
     },
     "review": {
       "status": "pending"
@@ -10205,7 +10205,7 @@
         "en": "The burial place becomes central to recovering the gold.",
         "ar": "يصبح موضع الدفن محوريًا في استرداد الذهب."
       },
-      "contentKey": "6662a375"
+      "contentKey": "2d2dcc80"
     }
   },
   {
@@ -10217,7 +10217,7 @@
     },
     "question": {
       "en": "Which title identifies Abu Shihab's neighbourhood leadership role?",
-      "ar": "أي لقب يحدد دور أبو شهاب القيادي بالحارة؟"
+      "ar": "أي لقب يحدد دور أبي شهاب القيادي في الحارة؟"
     },
     "review": {
       "status": "pending"
@@ -10246,7 +10246,7 @@
         "en": "Aqid is his familiar title as the neighbourhood's fighting leader.",
         "ar": "العقيد لقبه المألوف بصفته قائد رجال الحارة في المواجهات."
       },
-      "contentKey": "5f484f72"
+      "contentKey": "bd83c87d"
     }
   },
   {
@@ -10258,7 +10258,7 @@
     },
     "question": {
       "en": "Which resident is addressed as the zaim in the first season?",
-      "ar": "مين ينادونه «الزعيم» بالموسم الأول؟"
+      "ar": "من يُنادى بالزعيم في الموسم الأول؟"
     },
     "review": {
       "status": "pending"
@@ -10287,7 +10287,7 @@
         "en": "Abu Saleh acts as the senior authority of the neighbourhood.",
         "ar": "يعمل أبو صالح مرجعًا كبيرًا لأهل الحارة."
       },
-      "contentKey": "b187061e"
+      "contentKey": "5c3bd704"
     }
   },
   {
@@ -10299,7 +10299,7 @@
     },
     "question": {
       "en": "Which name belongs to one of Al-Idaashari's sons?",
-      "ar": "شو اسم واحد من أولاد الإدعشري؟"
+      "ar": "أي اسم لأحد أبناء الإدعشري؟"
     },
     "review": {
       "status": "pending"
@@ -10328,7 +10328,7 @@
         "en": "Maaruf belongs to Al-Idaashari's troubled household.",
         "ar": "ينتمي معروف إلى أسرة الإدعشري المضطربة."
       },
-      "contentKey": "232eb615"
+      "contentKey": "67cb5231"
     }
   },
   {
@@ -10340,7 +10340,7 @@
     },
     "question": {
       "en": "Why can Yasser Al-Azmeh have a different job in the next Maraya sketch?",
-      "ar": "ليش ممكن تتغير شغلة ياسر العظمة باللوحة اللي بعدها من «مرايا»؟"
+      "ar": "لماذا قد تتغير مهنة ياسر العظمة في لوحة مرايا التالية؟"
     },
     "review": {
       "status": "pending"
@@ -10369,7 +10369,7 @@
         "en": "The ensemble takes on fresh roles across separate sketches.",
         "ar": "يتقمص فريق التمثيل أدوارًا جديدة عبر لوحات منفصلة."
       },
-      "contentKey": "49f5e2a"
+      "contentKey": "e216f7c0"
     }
   },
   {
@@ -10381,7 +10381,7 @@
     },
     "question": {
       "en": "Which dialect is especially associated with Maraya's everyday conversations?",
-      "ar": "أي لهجة مرتبطة بالذات بحوارات «مرايا» اليومية؟"
+      "ar": "أي لهجة ترتبط خصوصًا بحوارات مرايا اليومية؟"
     },
     "review": {
       "status": "pending"
@@ -10410,7 +10410,7 @@
         "en": "Syrian speech helps give the social sketches their familiar flavour.",
         "ar": "تمنح اللهجة السورية اللوحات الاجتماعية نكهتها المألوفة."
       },
-      "contentKey": "dfdc3440"
+      "contentKey": "96cd14d4"
     }
   },
   {
@@ -10422,7 +10422,7 @@
     },
     "question": {
       "en": "Despite its title, in which year did Maraya 98 begin airing?",
-      "ar": "مع إن عنوانها «مرايا 98»، بأي سنة بدأ عرضها؟"
+      "ar": "رغم عنوانها، في أي عام بدأت مرايا 98 بالعرض؟"
     },
     "review": {
       "status": "pending"
@@ -10451,7 +10451,7 @@
         "en": "Its Ramadan premiere fell at the end of December 1997.",
         "ar": "وقع عرضها الرمضاني الأول في نهاية ديسمبر 1997."
       },
-      "contentKey": "16d5c387"
+      "contentKey": "6fef0d89"
     }
   },
   {
@@ -10504,7 +10504,7 @@
     },
     "question": {
       "en": "Before Maraya made him a TV star, where did Yasser Al-Azmeh begin his acting career in 1963?",
-      "ar": "قبل ما يشتهر ياسر العظمة بـ«مرايا»، وين بدأ مشواره بالتمثيل سنة 1963؟"
+      "ar": "قبل أن يشتهر ياسر العظمة بـ«مرايا»، أين بدأ مسيرته في التمثيل عام 1963؟"
     },
     "review": {
       "status": "pending"
@@ -10533,7 +10533,7 @@
         "en": "He began on stage in 1963 with the play 'Sheikh Al-Munafiqin', almost two decades before Maraya started.",
         "ar": "بدأ على المسرح سنة 1963 بمسرحية «شيخ المنافقين»، قبل انطلاق «مرايا» بنحو عقدين."
       },
-      "contentKey": "383065c4"
+      "contentKey": "8af52b30"
     }
   },
   {
@@ -10545,7 +10545,7 @@
     },
     "question": {
       "en": "Who plays Saeedan in the familiar Saeedan-and-Alyan sketches?",
-      "ar": "مين يلعب دور سعيدان بلوحات «سعيدان وعليان» المعروفة؟"
+      "ar": "من يجسد سعيدان في لوحات سعيدان وعليان المعروفة؟"
     },
     "review": {
       "status": "pending"
@@ -10574,7 +10574,7 @@
         "en": "Abdullah Al-Sadhan plays Saeedan opposite Al-Qasabi's Alyan.",
         "ar": "يجسد عبد الله السدحان سعيدان أمام عليان الذي يلعبه القصبي."
       },
-      "contentKey": "f7df3c00"
+      "contentKey": "47e9eac"
     }
   },
   {
@@ -10586,7 +10586,7 @@
     },
     "question": {
       "en": "Where are Saeedan and Alyan's recurring Tash Ma Tash sketches set?",
-      "ar": "وين تدور لوحات سعيدان وعليان المتكررة في «طاش ما طاش»؟"
+      "ar": "أين تدور لوحات سعيدان وعليان المتكررة في «طاش ما طاش»؟"
     },
     "review": {
       "status": "pending"
@@ -10615,7 +10615,7 @@
         "en": "Saeedan and Alyan are two young men living in an old village.",
         "ar": "سعيدان وعليان شابان يعيشان في قرية قديمة."
       },
-      "contentKey": "ae0f9782"
+      "contentKey": "8a1e307b"
     }
   },
   {
@@ -10627,7 +10627,7 @@
     },
     "question": {
       "en": "Which city's accent is central to Asaad Omar Galli's character?",
-      "ar": "لهجة أي مدينة أساسية بشخصية أسعد عمر قلّي؟"
+      "ar": "لهجة أي مدينة أساسية في شخصية أسعد عمر قلي؟"
     },
     "review": {
       "status": "pending"
@@ -10656,7 +10656,7 @@
         "en": "His Jeddah speech is a major part of the character's flavour.",
         "ar": "اللهجة الجداوية جزء كبير من نكهة الشخصية."
       },
-      "contentKey": "df5cb655"
+      "contentKey": "fae521a5"
     }
   },
   {
@@ -10668,7 +10668,7 @@
     },
     "question": {
       "en": "What is Asaad Omar Galli's former profession?",
-      "ar": "شو كانت شغلة أسعد عمر قلّي قبل؟"
+      "ar": "ما مهنة أسعد عمر قلي السابقة؟"
     },
     "review": {
       "status": "pending"
@@ -10697,7 +10697,7 @@
         "en": "The character is known as a retired brigadier.",
         "ar": "تُعرف الشخصية بوصفها عميدًا متقاعدًا."
       },
-      "contentKey": "1550aec6"
+      "contentKey": "21ef78e1"
     }
   },
   {
@@ -10709,7 +10709,7 @@
     },
     "question": {
       "en": "What is Fouad's father's name in the Jeddah family backstory?",
-      "ar": "في قصة العيلة الجداوية، شو اسم أبو فؤاد؟"
+      "ar": "ما اسم والد فؤاد في قصة العائلة الجداوية؟"
     },
     "review": {
       "status": "pending"
@@ -10738,7 +10738,7 @@
         "en": "The Jeddah sketch revisits Jaafar and Khadija's family story.",
         "ar": "تعود اللوحة الجداوية إلى حكاية عائلة جعفر وخديجة."
       },
-      "contentKey": "6534355f"
+      "contentKey": "3f0eebf3"
     }
   },
   {
@@ -10750,7 +10750,7 @@
     },
     "question": {
       "en": "Which vehicle brand is associated with Abu Hazar and Abu Nizar's desert outings?",
-      "ar": "أي ماركة سيارات مرتبطة بكشتات أبو هزار وأبو نزار؟"
+      "ar": "أي علامة سيارات ترتبط بكشتات أبي هزار وأبي نزار؟"
     },
     "review": {
       "status": "pending"
@@ -10779,7 +10779,7 @@
         "en": "Their familiar GMC returns in the 2023 opening outing.",
         "ar": "تعود سيارتهما الجمس المألوفة في نزهة افتتاح عام ٢٠٢٣."
       },
-      "contentKey": "2ee358a6"
+      "contentKey": "23f074bd"
     }
   },
   {
@@ -10791,7 +10791,7 @@
     },
     "question": {
       "en": "What year did season eighteen air before the long break?",
-      "ar": "بأي سنة انعرض الجزء الثامن عشر قبل التوقف الطويل؟"
+      "ar": "في أي عام عُرض الجزء الثامن عشر قبل التوقف الطويل؟"
     },
     "review": {
       "status": "pending"
@@ -10820,7 +10820,7 @@
         "en": "The eighteenth edition belongs to the 2011 Ramadan season.",
         "ar": "ينتمي الجزء الثامن عشر إلى موسم رمضان ٢٠١١."
       },
-      "contentKey": "8aceda1c"
+      "contentKey": "737ebf88"
     }
   },
   {
@@ -10832,7 +10832,7 @@
     },
     "question": {
       "en": "What is the name of the production company that Nasser Al-Qasabi and Abdullah Al-Sadhan co-own?",
-      "ar": "شو اسم شركة الإنتاج اللي يملكها ناصر القصبي وعبد الله السدحان مع بعض؟"
+      "ar": "ما اسم شركة الإنتاج التي يملكها ناصر القصبي وعبد الله السدحان معًا؟"
     },
     "review": {
       "status": "pending"
@@ -10861,7 +10861,7 @@
         "en": "The two Tash Ma Tash stars co-own the production company Al-Hadaf.",
         "ar": "يملك نجما «طاش ما طاش» معًا شركة الإنتاج «الهدف»."
       },
-      "contentKey": "57db5f3b"
+      "contentKey": "762868d0"
     }
   },
   {
@@ -10873,7 +10873,7 @@
     },
     "question": {
       "en": "In recurring Tash Ma Tash sketches, Hamoud and Muhaimeed are two country friends struggling to adjust to what?",
-      "ar": "في لوحات «طاش ما طاش» المتكررة، حمود ومحيميد صاحبين من الريف يحاولون يتأقلمون مع شو؟"
+      "ar": "في لوحات «طاش ما طاش» المتكررة، حمود ومحيميد صديقان من الريف يحاولان التأقلم مع ماذا؟"
     },
     "review": {
       "status": "pending"
@@ -10902,7 +10902,7 @@
         "en": "Hamoud and Muhaimeed's comedy comes from two rural friends meeting modern city life.",
         "ar": "تنبع كوميديا حمود ومحيميد من صديقين ريفيين يواجهان حياة المدينة الحديثة."
       },
-      "contentKey": "6ddc6f25"
+      "contentKey": "a1b3bae0"
     }
   },
   {
@@ -10914,7 +10914,7 @@
     },
     "question": {
       "en": "In the 2023 revival's sketch Ibtizaz, what job is Fouad doing?",
-      "ar": "في لوحة «ابتزاز» من رجعة «طاش» سنة 2023، شو شغلة فؤاد؟"
+      "ar": "في لوحة «ابتزاز» من عودة «طاش» عام 2023، ما عمل فؤاد؟"
     },
     "review": {
       "status": "pending"
@@ -10943,7 +10943,7 @@
         "en": "The sketch brings Fouad into app-based work.",
         "ar": "تضع اللوحة فؤاد في عالم العمل عبر التطبيقات."
       },
-      "contentKey": "69850f3e"
+      "contentKey": "970a76a8"
     }
   },
   {
@@ -10955,7 +10955,7 @@
     },
     "question": {
       "en": "Who buys the material in Baee Muhtawa?",
-      "ar": "في «بائع محتوى»، مين يشتري المادة؟"
+      "ar": "من يشتري المادة في «بائع محتوى»؟"
     },
     "review": {
       "status": "pending"
@@ -10984,7 +10984,7 @@
         "en": "The premise links writing work with the influencer economy.",
         "ar": "تربط الفكرة بين عمل الكتابة واقتصاد المؤثرين."
       },
-      "contentKey": "d26a34d6"
+      "contentKey": "922e6456"
     }
   },
   {
@@ -10996,7 +10996,7 @@
     },
     "question": {
       "en": "What surprises Hamad about his new office in Bahr Al-Nisaa?",
-      "ar": "في «بحر النساء»، شو اللي يفاجئ حمد بمكتبه الجديد؟"
+      "ar": "ما الذي يفاجئ حمد في مكتبه الجديد في «بحر النساء»؟"
     },
     "review": {
       "status": "pending"
@@ -11025,7 +11025,7 @@
         "en": "The workplace change starts the domestic comedy.",
         "ar": "يبدأ التغيير في العمل الكوميديا العائلية."
       },
-      "contentKey": "168794fb"
+      "contentKey": "bb27c03c"
     }
   },
   {
@@ -11037,7 +11037,7 @@
     },
     "question": {
       "en": "Which dialect is prominent in the original dialogue?",
-      "ar": "أي لهجة بارزة بالحوار الأصلي؟"
+      "ar": "أي لهجة بارزة في الحوار الأصلي؟"
     },
     "review": {
       "status": "pending"
@@ -11066,7 +11066,7 @@
         "en": "The Egyptian production uses Egyptian colloquial dialogue.",
         "ar": "يستخدم الإنتاج المصري الحوار بالعامية المصرية."
       },
-      "contentKey": "869936ef"
+      "contentKey": "1a879b3c"
     }
   },
   {
@@ -11078,7 +11078,7 @@
     },
     "question": {
       "en": "In which historical region is Alamut located?",
-      "ar": "ألموت بأي إقليم تاريخي؟"
+      "ar": "في أي إقليم تاريخي تقع ألموت؟"
     },
     "review": {
       "status": "pending"
@@ -11107,7 +11107,7 @@
         "en": "Alamut lies in the region of present-day Iran.",
         "ar": "تقع ألموت في منطقة إيران الحالية."
       },
-      "contentKey": "2ed3e263"
+      "contentKey": "9a46779b"
     }
   },
   {
@@ -11119,7 +11119,7 @@
     },
     "question": {
       "en": "Which dynasty does Malik Shah belong to in the story?",
-      "ar": "بالقصة، ملكشاه من أي سلالة؟"
+      "ar": "إلى أي سلالة ينتمي ملك شاه في القصة؟"
     },
     "review": {
       "status": "pending"
@@ -11148,7 +11148,7 @@
         "en": "Malik Shah's court represents Seljuk political power.",
         "ar": "يمثل بلاط ملك شاه القوة السياسية السلجوقية."
       },
-      "contentKey": "742ed741"
+      "contentKey": "283bd54e"
     }
   },
   {
@@ -11160,7 +11160,7 @@
     },
     "question": {
       "en": "Scenes of Al-Hashasheen were shot in Malta and in which Central Asian country?",
-      "ar": "مشاهد من «الحشاشين» تصوّرت في مالطا وفي أي دولة بآسيا الوسطى؟"
+      "ar": "صُوّرت مشاهد من «الحشاشين» في مالطا وفي أي دولة في آسيا الوسطى؟"
     },
     "review": {
       "status": "pending"
@@ -11189,7 +11189,7 @@
         "en": "Filming in Malta and Kazakhstan, on real locations across several countries, delayed the series' premiere to 2024.",
         "ar": "أخّر تصوير مشاهد في مالطا وكازاخستان، ضمن مواقع حقيقية في عدة دول، عرضَ المسلسل إلى عام 2024."
       },
-      "contentKey": "ba9febe1"
+      "contentKey": "5682fb73"
     }
   },
   {
@@ -11242,7 +11242,7 @@
     },
     "question": {
       "en": "Which Persian city is a major court setting in Al-Hashasheen?",
-      "ar": "أي مدينة فارسية كانت مقر مهم للبلاط في «الحشاشين»؟"
+      "ar": "أي مدينة فارسية مقر مهم للبلاط في «الحشاشين»؟"
     },
     "review": {
       "status": "pending"
@@ -11271,7 +11271,7 @@
         "en": "Isfahan provides a setting for court politics and family life.",
         "ar": "توفر أصفهان إطارًا لسياسة البلاط والحياة العائلية."
       },
-      "contentKey": "52bbeaba"
+      "contentKey": "b97b6900"
     }
   },
   {
@@ -11283,7 +11283,7 @@
     },
     "question": {
       "en": "Who is Hasan Al-Sabbah's wife at the start of the series?",
-      "ar": "ببداية المسلسل، مين زوجة حسن الصباح؟"
+      "ar": "من زوجة حسن الصباح في بداية المسلسل؟"
     },
     "review": {
       "status": "pending"
@@ -11312,7 +11312,7 @@
         "en": "Dunya Zad's family life is closely tied to Hasan's ambitions.",
         "ar": "ترتبط حياة دنيا زاد العائلية بطموحات حسن."
       },
-      "contentKey": "e145e81e"
+      "contentKey": "7c751795"
     }
   },
   {
@@ -11324,7 +11324,7 @@
     },
     "question": {
       "en": "Which statesman is also called Abu Ali Al-Tusi?",
-      "ar": "أي رجل دولة ينقال له كمان «أبو علي الطوسي»؟"
+      "ar": "أي رجل دولة يُسمى أيضًا أبا علي الطوسي؟"
     },
     "review": {
       "status": "pending"
@@ -11353,7 +11353,7 @@
         "en": "Nizam Al-Mulk and Abu Ali Al-Tusi refer to the same character.",
         "ar": "يشير نظام الملك وأبو علي الطوسي إلى الشخصية نفسها."
       },
-      "contentKey": "836bdc93"
+      "contentKey": "8f0d19d2"
     }
   },
   {
@@ -11365,7 +11365,7 @@
     },
     "question": {
       "en": "Besides poetry, which discipline is Omar Khayyam associated with?",
-      "ar": "غير الشعر، عمر الخيام مرتبط بأي علم؟"
+      "ar": "إلى جانب الشعر، بأي علم يرتبط عمر الخيام؟"
     },
     "review": {
       "status": "pending"
@@ -11394,7 +11394,7 @@
         "en": "Khayyam is remembered as a mathematician and astronomer as well as a poet.",
         "ar": "يُذكر الخيام عالم رياضيات وفلك إلى جانب كونه شاعرًا."
       },
-      "contentKey": "b60dbf4e"
+      "contentKey": "691064ff"
     }
   },
   {
@@ -11406,7 +11406,7 @@
     },
     "question": {
       "en": "Which pair are presented as Hasan's childhood friends in the drama?",
-      "ar": "بالدراما، أي اثنين ينقدّمون كأصحاب حسن من الطفولة؟"
+      "ar": "أي ثنائي يُقدَّم صديقين لحسن منذ الطفولة في الدراما؟"
     },
     "review": {
       "status": "pending"
@@ -11435,7 +11435,7 @@
         "en": "The drama follows the old \"three schoolfellows\" tale; historians treat it as a legend, since Nizam Al-Mulk was decades older than the other two.",
         "ar": "يتبنى المسلسل حكاية «الرفاق الثلاثة» القديمة، لكن المؤرخين يعدّونها أسطورة، لأن نظام الملك كان أكبر من الاثنين بعقود."
       },
-      "contentKey": "6ad0891d"
+      "contentKey": "11ae513e"
     }
   },
   {
@@ -11447,7 +11447,7 @@
     },
     "question": {
       "en": "Which pair are Hasan's sons in the series?",
-      "ar": "بالمسلسل، أي اثنين من أولاد حسن؟"
+      "ar": "أي ثنائي من أبناء حسن في المسلسل؟"
     },
     "review": {
       "status": "pending"
@@ -11476,7 +11476,7 @@
         "en": "The two sons become central to Hasan's family story.",
         "ar": "يصبح الابنان محوريين في قصة عائلة حسن."
       },
-      "contentKey": "77af9604"
+      "contentKey": "d842416f"
     }
   },
   {
@@ -11488,7 +11488,7 @@
     },
     "question": {
       "en": "What was Yahya's father's occupation?",
-      "ar": "شو كانت شغلة والد يحيى؟"
+      "ar": "ما مهنة والد يحيى؟"
     },
     "review": {
       "status": "pending"
@@ -11517,7 +11517,7 @@
         "en": "The series identifies Yahya through his father, the muezzin.",
         "ar": "يربط المسلسل هوية يحيى بوالده المؤذن."
       },
-      "contentKey": "2b853d3c"
+      "contentKey": "54d73818"
     }
   },
   {
@@ -11529,7 +11529,7 @@
     },
     "question": {
       "en": "Which future follower begins as Hasan's jailer in the drama?",
-      "ar": "بالدراما، أي تابع مستقبلي يبدأ كحارس لسجن حسن؟"
+      "ar": "أي تابع مستقبلي يبدأ حارسًا لسجن حسن في الدراما؟"
     },
     "review": {
       "status": "pending"
@@ -11558,7 +11558,7 @@
         "en": "Barzak Amid's relationship with Hasan begins in imprisonment.",
         "ar": "تبدأ علاقة برزك أميد بحسن خلال السجن."
       },
-      "contentKey": "c6e7b394"
+      "contentKey": "dd6b7cfc"
     }
   },
   {
@@ -11570,7 +11570,7 @@
     },
     "question": {
       "en": "To which country does Hasan flee with his family early on?",
-      "ar": "بالبداية، لأي بلد يهرب حسن مع عيلته؟"
+      "ar": "إلى أي بلد يهرب حسن مع أسرته في البداية؟"
     },
     "review": {
       "status": "pending"
@@ -11599,7 +11599,7 @@
         "en": "Hasan's journey to Egypt is an early turning point in the drama.",
         "ar": "رحلة حسن إلى مصر نقطة تحول مبكرة في الدراما."
       },
-      "contentKey": "39615f08"
+      "contentKey": "9f5af2c7"
     }
   },
   {
@@ -11652,7 +11652,7 @@
     },
     "question": {
       "en": "Whom does Al-Mustansir name as his successor in the drama?",
-      "ar": "بالدراما، مين يسمّيه المستنصر خليفة له؟"
+      "ar": "من يسمي المستنصر خليفةً له في الدراما؟"
     },
     "review": {
       "status": "pending"
@@ -11681,7 +11681,7 @@
         "en": "The dispute over Al-Mustansir's succession is historical: the Ismailis who backed Nizar became known as Nizaris.",
         "ar": "الخلاف على خلافة المستنصر حدث تاريخيًا، ومن ناصروا نزارًا من الإسماعيليين عُرفوا بالنزاريين."
       },
-      "contentKey": "27b211e4"
+      "contentKey": "e27882dc"
     }
   },
   {
@@ -11693,7 +11693,7 @@
     },
     "question": {
       "en": "Where does Hasan go after the ship's storm, instead of Morocco?",
-      "ar": "بعد عاصفة السفينة، لوين يتجه حسن بدل المغرب؟"
+      "ar": "إلى أين يتجه حسن بعد عاصفة السفينة بدلًا من المغرب؟"
     },
     "review": {
       "status": "pending"
@@ -11722,7 +11722,7 @@
         "en": "The storm changes the destination of his journey.",
         "ar": "تغير العاصفة وجهة رحلته."
       },
-      "contentKey": "7a4d35e1"
+      "contentKey": "37398207"
     }
   },
   {
@@ -11734,7 +11734,7 @@
     },
     "question": {
       "en": "What office does Al-Tusi assign Hasan to test his loyalty?",
-      "ar": "أي منصب يعطيه الطوسي لحسن عشان يختبر ولاءه؟"
+      "ar": "أي منصب يسنده الطوسي لحسن لاختبار ولائه؟"
     },
     "review": {
       "status": "pending"
@@ -11763,7 +11763,7 @@
         "en": "The post gives Hasan access to sensitive state information.",
         "ar": "يمنح المنصب حسن وصولًا إلى معلومات حساسة للدولة."
       },
-      "contentKey": "1ab5e183"
+      "contentKey": "1acf3dda"
     }
   },
   {
@@ -11775,7 +11775,7 @@
     },
     "question": {
       "en": "What does Zayd distribute near Alamut before its takeover?",
-      "ar": "شو يوزّع زيد قريب من ألموت قبل ما يسيطرون عليها؟"
+      "ar": "ماذا يوزع زيد قرب ألموت قبل الاستيلاء عليها؟"
     },
     "review": {
       "status": "pending"
@@ -11804,7 +11804,7 @@
         "en": "The distribution is intended to gain the villagers' goodwill.",
         "ar": "يهدف التوزيع إلى كسب ود أهل القرى."
       },
-      "contentKey": "168b6b51"
+      "contentKey": "a9f23fc8"
     }
   },
   {
@@ -11816,7 +11816,7 @@
     },
     "question": {
       "en": "What religious journey does Al-Ghazali leave to undertake?",
-      "ar": "أي رحلة دينية يطلع الغزالي يسويها؟"
+      "ar": "أي رحلة دينية يغادر الغزالي لأدائها؟"
     },
     "review": {
       "status": "pending"
@@ -11845,7 +11845,7 @@
         "en": "The drama shows Al-Ghazali leaving for the pilgrimage.",
         "ar": "تُظهر الدراما مغادرة الغزالي لأداء الحج."
       },
-      "contentKey": "89f23975"
+      "contentKey": "1f83c370"
     }
   },
   {
@@ -11857,7 +11857,7 @@
     },
     "question": {
       "en": "Who takes power after Malik Shah in the series?",
-      "ar": "بالمسلسل، مين يستلم الحكم بعد ملكشاه؟"
+      "ar": "من يتولى السلطة بعد ملك شاه في المسلسل؟"
     },
     "review": {
       "status": "pending"
@@ -11886,7 +11886,7 @@
         "en": "Barkiyaruq's accession creates a new confrontation with Hasan.",
         "ar": "يخلق تولي بركياروق الحكم مواجهة جديدة مع حسن."
       },
-      "contentKey": "e370bda6"
+      "contentKey": "a947559e"
     }
   },
   {
@@ -11898,7 +11898,7 @@
     },
     "question": {
       "en": "What does the sultan ask Khayyam to draw after his visit to Alamut?",
-      "ar": "بعد زيارته لألموت، شو يطلب السلطان من الخيام يرسم؟"
+      "ar": "ماذا يطلب السلطان من الخيام رسمه بعد زيارته لألموت؟"
     },
     "review": {
       "status": "pending"
@@ -11927,7 +11927,7 @@
         "en": "Khayyam's knowledge of the fortress becomes politically valuable.",
         "ar": "تصبح معرفة الخيام بالقلعة ذات قيمة سياسية."
       },
-      "contentKey": "f22748fb"
+      "contentKey": "a95e85f7"
     }
   },
   {
@@ -11939,7 +11939,7 @@
     },
     "question": {
       "en": "Who helps Dunya Zad and Nourhan escape Alamut?",
-      "ar": "مين يساعد دنيا زاد ونورهان يهربون من ألموت؟"
+      "ar": "من يساعد دنيا زاد ونورهان على الهرب من ألموت؟"
     },
     "review": {
       "status": "pending"
@@ -11968,7 +11968,7 @@
         "en": "Al-Hadi's help places him in conflict with his father.",
         "ar": "تضع مساعدة الهادي لهما إياه في خلاف مع والده."
       },
-      "contentKey": "1f4d44c6"
+      "contentKey": "5e5972b1"
     }
   },
   {
@@ -11980,7 +11980,7 @@
     },
     "question": {
       "en": "Who gives Dunya Zad shelter after she leaves the fortress?",
-      "ar": "مين يأوي دنيا زاد بعد ما تطلع من القلعة؟"
+      "ar": "من يؤوي دنيا زاد بعد خروجها من القلعة؟"
     },
     "review": {
       "status": "pending"
@@ -12009,7 +12009,7 @@
         "en": "Khayyam receives her despite his fear of Hasan.",
         "ar": "يستقبلها الخيام رغم خوفه من حسن."
       },
-      "contentKey": "dcc851b8"
+      "contentKey": "dbadb016"
     }
   },
   {
@@ -12021,7 +12021,7 @@
     },
     "question": {
       "en": "What position does Yahya request on reaching Isfahan?",
-      "ar": "لما يوصل يحيى لأصفهان، أي منصب يطلب؟"
+      "ar": "أي منصب يطلب يحيى عندما يصل إلى أصفهان؟"
     },
     "review": {
       "status": "pending"
@@ -12050,7 +12050,7 @@
         "en": "Yahya seeks a military role in opposing Hasan.",
         "ar": "يسعى يحيى إلى دور عسكري في مواجهة حسن."
       },
-      "contentKey": "483f2d4e"
+      "contentKey": "2690bfb2"
     }
   },
   {
@@ -12062,7 +12062,7 @@
     },
     "question": {
       "en": "Which minister secretly serves Hasan while advising the sultan?",
-      "ar": "أي وزير يخدم حسن سرًا وهو يعطي مشورة للسلطان؟"
+      "ar": "أي وزير يخدم حسن سرًا أثناء تقديم المشورة للسلطان؟"
     },
     "review": {
       "status": "pending"
@@ -12091,7 +12091,7 @@
         "en": "Siraj Al-Din's divided loyalties undermine the court.",
         "ar": "تقوض ولاءات سراج الدين المزدوجة البلاط."
       },
-      "contentKey": "a9b2002f"
+      "contentKey": "854a5559"
     }
   },
   {
@@ -12103,7 +12103,7 @@
     },
     "question": {
       "en": "Who writes a biography of Hasan in the later episodes?",
-      "ar": "بالحلقات الأخيرة، مين يكتب سيرة حسن؟"
+      "ar": "من يكتب سيرة حسن في الحلقات المتأخرة؟"
     },
     "review": {
       "status": "pending"
@@ -12132,7 +12132,7 @@
         "en": "Al-Hadi's account spreads beyond the fortress.",
         "ar": "تنتشر رواية الهادي خارج حدود القلعة."
       },
-      "contentKey": "e74790b8"
+      "contentKey": "a1288866"
     }
   },
   {
@@ -12144,7 +12144,7 @@
     },
     "question": {
       "en": "In the American South, what does the expression 'breaking bad' mean?",
-      "ar": "عبارة «بريكنغ باد» بجنوب أمريكا، شو معناها؟"
+      "ar": "ماذا تعني عبارة «بريكنغ باد» في جنوب الولايات المتحدة؟"
     },
     "review": {
       "status": "pending"
@@ -12173,7 +12173,7 @@
         "en": "Vince Gilligan took the title from a Southern US expression for raising hell or turning to crime, which is exactly Walter's path.",
         "ar": "أخذ فينس غيليغان العنوان من تعبير في جنوب الولايات المتحدة يعني إثارة المتاعب أو الانحراف إلى الجريمة، وهو طريق والتر بالضبط."
       },
-      "contentKey": "bcadfab4"
+      "contentKey": "282424d7"
     }
   },
   {
@@ -12267,7 +12267,7 @@
     },
     "question": {
       "en": "What is Walter White's middle name?",
-      "ar": "شو الاسم الأوسط لوالتر وايت؟"
+      "ar": "ما الاسم الأوسط لوالتر وايت؟"
     },
     "review": {
       "status": "pending"
@@ -12296,7 +12296,7 @@
         "en": "His full name is Walter Hartwell White.",
         "ar": "اسمه الكامل والتر هارتويل وايت."
       },
-      "contentKey": "456252ac"
+      "contentKey": "978a0410"
     }
   },
   {
@@ -12308,7 +12308,7 @@
     },
     "question": {
       "en": "What nickname was given to Jennifer Aniston's widely copied Friends haircut?",
-      "ar": "قصة شعر جينيفر أنيستون بـ«فريندز» صارت موضة بكل مكان. شو كان اسمها؟"
+      "ar": "أصبحت قصة شعر جينيفر أنيستون في «فريندز» موضة في كل مكان. ما اسمها؟"
     },
     "review": {
       "status": "pending"
@@ -12337,7 +12337,7 @@
         "en": "Rachel Green's layered cut became one of the most requested hairstyles of the 1990s, known simply as 'the Rachel'.",
         "ar": "صارت قصة رايتشل غرين المدرّجة من أكثر القصّات طلبًا في التسعينيات، وعُرفت ببساطة باسم «ذا رايتشل»."
       },
-      "contentKey": "c347d542"
+      "contentKey": "eb051694"
     }
   },
   {
@@ -12349,7 +12349,7 @@
     },
     "question": {
       "en": "What was the name of the Friends spin-off series starring Matt LeBlanc?",
-      "ar": "شو اسم المسلسل المتفرّع من «فريندز» اللي بطله مات لوبلان؟"
+      "ar": "ما اسم المسلسل المتفرع من «فريندز» الذي يقوم ببطولته مات لوبلان؟"
     },
     "review": {
       "status": "pending"
@@ -12378,7 +12378,7 @@
         "en": "Joey (2004–2006) followed Joey Tribbiani to Los Angeles; Episodes was a later, separate Matt LeBlanc comedy.",
         "ar": "تابع مسلسل «جوي» (2004–2006) جوي تريبياني في لوس أنجلوس، أما «إبيسودز» فكوميديا لاحقة مستقلة لمات لوبلان."
       },
-      "contentKey": "3240288f"
+      "contentKey": "b77ce39b"
     }
   },
   {
@@ -12472,7 +12472,7 @@
     },
     "question": {
       "en": "The friends' apartment building seen in exterior shots stands on a real corner in which New York neighbourhood?",
-      "ar": "عمارة الأصحاب اللي تطلع باللقطات الخارجية موجودة على زاوية حقيقية بأي حي بنيويورك؟"
+      "ar": "البناية التي تظهر في اللقطات الخارجية لشقق الأصدقاء تقع على زاوية حقيقية في أي حي من أحياء نيويورك؟"
     },
     "review": {
       "status": "pending"
@@ -12501,7 +12501,7 @@
         "en": "The exterior shots show the corner of Bedford and Grove Streets in Greenwich Village; the interiors were filmed on a studio stage in Burbank.",
         "ar": "تُظهر اللقطات الخارجية زاوية شارعي بيدفورد وغروف في غرينتش فيليج، بينما صُوّرت المشاهد الداخلية في استوديو ببوربانك."
       },
-      "contentKey": "6cae1f32"
+      "contentKey": "de7ac76a"
     }
   },
   {
@@ -12513,7 +12513,7 @@
     },
     "question": {
       "en": "What number is tattooed on Eleven's wrist?",
-      "ar": "شو الرقم الموشوم على معصم إليفن؟"
+      "ar": "ما الرقم الموشوم على معصم إليفن؟"
     },
     "review": {
       "status": "pending"
@@ -12542,7 +12542,7 @@
         "en": "The number 011 on her wrist is where her name, Eleven, comes from.",
         "ar": "من الرقم 011 على معصمها جاء اسمها: إليفن."
       },
-      "contentKey": "c27d0452"
+      "contentKey": "be0016f2"
     }
   },
   {
@@ -12677,7 +12677,7 @@
     },
     "question": {
       "en": "Dustin's missing teeth come from a real condition that actor Gaten Matarazzo has. What is it called?",
-      "ar": "سنون داستن الناقصة سببها حالة حقيقية عند الممثل غاتن ماتاراتزو. شو اسمها؟"
+      "ar": "سبب أسنان داستن الناقصة حالة حقيقية لدى الممثل غاتن ماتاراتزو. ما اسمها؟"
     },
     "review": {
       "status": "pending"
@@ -12706,7 +12706,7 @@
         "en": "The Duffer brothers wrote Gaten Matarazzo's real condition, cleidocranial dysplasia, into Dustin's character.",
         "ar": "أضاف الأخوان دافر حالة غاتن ماتاراتزو الحقيقية، خلل التنسّج الترقوي القحفي، إلى شخصية داستن."
       },
-      "contentKey": "de22bf5c"
+      "contentKey": "de23c12c"
     }
   },
   {
@@ -12841,7 +12841,7 @@
     },
     "question": {
       "en": "The feared Mongol commander of season two is named after a real general. What is his full name in the show?",
-      "ar": "القائد المغولي المرعب بالموسم الثاني على اسم قائد حقيقي. شو اسمه الكامل بالمسلسل؟"
+      "ar": "في الموسم الثاني، يحمل القائد المغولي المرعب اسم قائد حقيقي. ما اسمه الكامل في المسلسل؟"
     },
     "review": {
       "status": "pending"
@@ -12870,7 +12870,7 @@
         "en": "Baycu Noyan is based on Baiju, the Mongol general who defeated the Seljuks at Köse Dağ in 1243.",
         "ar": "شخصية بايجو نويان مستوحاة من القائد المغولي بايجو الذي هزم السلاجقة في معركة كوسه داغ سنة 1243."
       },
-      "contentKey": "8da90aa0"
+      "contentKey": "aaa7180a"
     }
   },
   {
@@ -12882,7 +12882,7 @@
     },
     "question": {
       "en": "Which real Seljuk emir, notorious for his ruthless ambition, becomes a major villain in the show's later seasons?",
-      "ar": "مين الأمير السلجوقي الحقيقي، المعروف بطموحه القاسي، اللي يصير من أبرز الأشرار بالمواسم المتأخرة؟"
+      "ar": "مَن الأمير السلجوقي الحقيقي، المعروف بطموحه القاسي، الذي يصبح من أبرز الأشرار في المواسم المتأخرة؟"
     },
     "review": {
       "status": "pending"
@@ -12911,7 +12911,7 @@
         "en": "Sa'd al-Din Köpek was a real Seljuk emir who grew very powerful in the 1230s; the show makes him one of Ertuğrul's fiercest enemies.",
         "ar": "كان سعد الدين كوبيك أميرًا سلجوقيًا حقيقيًا بلغ نفوذًا كبيرًا في ثلاثينيات القرن الثالث عشر، وجعله المسلسل من ألدّ أعداء أرطغرل."
       },
-      "contentKey": "a3fe238b"
+      "contentKey": "61d90fcc"
     }
   },
   {
@@ -12923,7 +12923,7 @@
     },
     "question": {
       "en": "Besides Osman, what are the names of Ertuğrul's two other sons in the show?",
-      "ar": "غير عثمان، شو أسماء ولاد أرطغرل الثانيين بالمسلسل؟"
+      "ar": "إلى جانب عثمان، ما أسماء ابنَي أرطغرل الآخرين في المسلسل؟"
     },
     "review": {
       "status": "pending"
@@ -12952,7 +12952,7 @@
         "en": "Ertuğrul's sons Gündüz, Savcı and Osman grow up in the later seasons; history remembers Osman as founder of the Ottoman state.",
         "ar": "يكبر أبناء أرطغرل غوندوز وصاوجي وعثمان في المواسم الأخيرة، ويذكر التاريخ عثمان مؤسسًا للدولة العثمانية."
       },
-      "contentKey": "63e4461"
+      "contentKey": "b38c52b0"
     }
   },
   {
@@ -13005,7 +13005,7 @@
     },
     "question": {
       "en": "In Maraya's historical sketches, which title do Yasser Al-Azmeh's comic rulers, such as Fafoush, hold?",
-      "ar": "باللوحات التاريخية بـ«مرايا»، شو لقب الحكّام الكوميديين اللي يلعبهم ياسر العظمة، مثل «فافوش»؟"
+      "ar": "في اللوحات التاريخية في «مرايا»، ما اللقب الذي يحمله الحكام الكوميديون الذين يؤديهم ياسر العظمة، مثل «فافوش»؟"
     },
     "review": {
       "status": "pending"
@@ -13034,7 +13034,7 @@
         "en": "Satirical governors such as Al-Wali Fafoush, first seen in Maraya 96, are among the show's best-remembered characters.",
         "ar": "الولاة الساخرون، مثل الوالي فافوش الذي ظهر أول مرة في «مرايا 96»، من أشهر شخصيات المسلسل."
       },
-      "contentKey": "2ba864a"
+      "contentKey": "db427e26"
     }
   },
   {
@@ -13128,7 +13128,7 @@
     },
     "question": {
       "en": "Seif Al-Din Subaie first appeared in Maraya as an actor. What role did he later take on for the series?",
-      "ar": "سيف الدين سبيعي ظهر بالبداية كممثل بـ«مرايا». شو الدور اللي صار ياخذه بالمسلسل بعدين؟"
+      "ar": "ظهر سيف الدين سبيعي في البداية ممثلًا في «مرايا». ما الدور الذي صار يتولاه في المسلسل لاحقًا؟"
     },
     "review": {
       "status": "pending"
@@ -13157,7 +13157,7 @@
         "en": "After acting in editions around 2000, Seif Al-Din Subaie moved behind the camera and directed for the series.",
         "ar": "بعد أن مثّل في أجزاء قريبة من عام 2000، انتقل سيف الدين سبيعي إلى خلف الكاميرا وأخرج للمسلسل."
       },
-      "contentKey": "ed7b87d0"
+      "contentKey": "112c5990"
     }
   },
   {
@@ -13210,7 +13210,7 @@
     },
     "question": {
       "en": "Which poet and playwright wrote the 1970s plays 'Ghurba' and 'Day'at Tishreen', in which Yasser Al-Azmeh acted alongside Duraid Lahham?",
-      "ar": "مين الشاعر والكاتب المسرحي اللي كتب مسرحيتي «غربة» و«ضيعة تشرين» بالسبعينيات، اللي مثّل فيهم ياسر العظمة مع دريد لحام؟"
+      "ar": "مَن الشاعر والكاتب المسرحي الذي كتب مسرحيتي «غربة» و«ضيعة تشرين» في السبعينيات، اللتين مثّل فيهما ياسر العظمة مع دريد لحام؟"
     },
     "review": {
       "status": "pending"
@@ -13239,7 +13239,7 @@
         "en": "Before Maraya, Yasser Al-Azmeh acted in Muhammad al-Maghout's plays 'Ghurba' and 'Day'at Tishreen' with Duraid Lahham and Nihad Qalai.",
         "ar": "قبل «مرايا»، مثّل ياسر العظمة في مسرحيتي محمد الماغوط «غربة» و«ضيعة تشرين» مع دريد لحام ونهاد قلعي."
       },
-      "contentKey": "1408cc92"
+      "contentKey": "fa63a99e"
     }
   },
   {
@@ -13292,7 +13292,7 @@
     },
     "question": {
       "en": "Which veteran actor, a close friend of Yasser Al-Azmeh, appeared in Maraya from its very first edition until 2011?",
-      "ar": "مين الممثل المخضرم، صديق ياسر العظمة المقرّب، اللي شارك بـ«مرايا» من أول نسخة لحد 2011؟"
+      "ar": "مَن الممثل المخضرم، الصديق المقرب لياسر العظمة، الذي شارك في «مرايا» منذ أول نسخة حتى 2011؟"
     },
     "review": {
       "status": "pending"
@@ -13321,7 +13321,7 @@
         "en": "Selim Kallas stayed with Maraya from its start until Maraya 2011, thanks to his long friendship with Yasser Al-Azmeh.",
         "ar": "رافق سليم كلاس «مرايا» من بدايته حتى «مرايا 2011»، بفضل صداقته الطويلة مع ياسر العظمة."
       },
-      "contentKey": "531acc70"
+      "contentKey": "ecb8d32f"
     }
   },
   {
@@ -13333,7 +13333,7 @@
     },
     "question": {
       "en": "Which director, later behind the hit series 'Al-Hayba', directed Maraya 2011?",
-      "ar": "مين المخرج اللي أخرج «مرايا 2011»، وصار بعدين مخرج مسلسل «الهيبة» الناجح؟"
+      "ar": "مَن المخرج الذي أخرج «مرايا 2011»، وأصبح لاحقًا مخرج مسلسل «الهيبة» الناجح؟"
     },
     "review": {
       "status": "pending"
@@ -13362,7 +13362,7 @@
         "en": "Samer Barqawi directed Maraya 2011, years before his big success with 'Al-Hayba' (2017).",
         "ar": "أخرج سامر البرقاوي «مرايا 2011»، قبل سنوات من نجاحه الكبير مع «الهيبة» (2017)."
       },
-      "contentKey": "d5187340"
+      "contentKey": "bad879ea"
     }
   },
   {
@@ -13374,7 +13374,7 @@
     },
     "question": {
       "en": "In his 2021 series 'Al-Sununu', Yasser Al-Azmeh brought back a ship captain first seen in a Maraya 97 sketch. What is the captain's name?",
-      "ar": "بمسلسل «السنونو» سنة 2021، رجّع ياسر العظمة شخصية قبطان ظهرت أول مرة بلوحة من «مرايا 97». شو اسمه؟"
+      "ar": "في مسلسل «السنونو» عام 2021، أعاد ياسر العظمة شخصية قبطان ظهرت أول مرة في لوحة من «مرايا 97». ما اسمه؟"
     },
     "review": {
       "status": "pending"
@@ -13403,7 +13403,7 @@
         "en": "Captain Awni Al-Nakesh comes from the Maraya 97 sketch 'The Man Who Knows Everything'.",
         "ar": "القبطان عوني الناكش شخصية من لوحة «الرجل الذي يعرف كل شيء» في «مرايا 97»."
       },
-      "contentKey": "82f0d883"
+      "contentKey": "8aac27e5"
     }
   },
   {
@@ -13497,7 +13497,7 @@
     },
     "question": {
       "en": "Which linguist invented the Dothraki and Valyrian languages spoken in the show?",
-      "ar": "مين اللغوي اللي اخترع اللغتين الدوثراكية والفاليرية اللي يحكونها بالمسلسل؟"
+      "ar": "مَن اللغوي الذي ابتكر اللغتين الدوثراكية والفاليرية اللتين تتحدث بهما شخصيات المسلسل؟"
     },
     "review": {
       "status": "pending"
@@ -13508,7 +13508,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "98e40a73",
+      "contentKey": "add3bf2f",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -13538,7 +13538,7 @@
     },
     "question": {
       "en": "Tywin Lannister has Ned Stark's Valyrian steel greatsword melted down. Which two swords are forged from it?",
-      "ar": "تايوين لانستر يذوّب سيف نيد ستارك الكبير المصنوع من فولاذ فاليريا. شو السيفين اللي انصنعوا منه؟"
+      "ar": "يذيب تايوين لانستر سيف نيد ستارك الكبير المصنوع من فولاذ فاليريا. ما السيفان اللذان صُنعا منه؟"
     },
     "review": {
       "status": "pending"
@@ -13549,7 +13549,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "ad5babcf",
+      "contentKey": "ecebd72e",
       "spoilerSeason": 4,
       "distractors": {
         "en": [
@@ -13579,7 +13579,7 @@
     },
     "question": {
       "en": "What is the name of King Tommen's cat?",
-      "ar": "شو اسم قط الملك تومن؟"
+      "ar": "ما اسم قط الملك تومن؟"
     },
     "review": {
       "status": "pending"
@@ -13590,7 +13590,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "e4782c73",
+      "contentKey": "38afeb37",
       "spoilerSeason": 5,
       "distractors": {
         "en": [
@@ -13620,7 +13620,7 @@
     },
     "question": {
       "en": "When Hot Pie stays behind at an inn, what parting gift does he bake for Arya?",
-      "ar": "لما قرر هوت باي يبقى بالنُّزُل، شو الهدية اللي خبزها لآريا قبل ما يفترقون؟"
+      "ar": "حين قرر هوت باي البقاء في النُّزُل، ما الهدية التي خبزها لآريا قبل أن يفترقا؟"
     },
     "review": {
       "status": "pending"
@@ -13631,7 +13631,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "3a7d39c6",
+      "contentKey": "aa6ea4ec",
       "spoilerSeason": 3,
       "distractors": {
         "en": [
@@ -13743,7 +13743,7 @@
     },
     "question": {
       "en": "Abu Issam comes back in season 6 married to Nadia. What does she turn out to be?",
-      "ar": "أبو عصام رجع بالجزء السادس متزوج ناديا. شو طلعت بالحقيقة؟"
+      "ar": "يعود أبو عصام في الجزء السادس متزوجًا من ناديا. فما حقيقتها التي تنكشف لاحقًا؟"
     },
     "review": {
       "status": "pending"
@@ -13754,7 +13754,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "eade61d4",
+      "contentKey": "e3c148f6",
       "spoilerSeason": 7,
       "distractors": {
         "en": [
@@ -13825,7 +13825,7 @@
     },
     "question": {
       "en": "Once Abu Shihab is gone, which young man takes over leading the hara's men?",
-      "ar": "بعد ما غاب أبو شهاب، مين الشاب اللي استلم قيادة رجال الحارة؟"
+      "ar": "بعد غياب أبي شهاب، مَن الشاب الذي تولى قيادة رجال الحارة؟"
     },
     "review": {
       "status": "pending"
@@ -13836,7 +13836,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "ebfbfaa0",
+      "contentKey": "68213dee",
       "spoilerSeason": 6,
       "distractors": {
         "en": [
@@ -13948,7 +13948,7 @@
     },
     "question": {
       "en": "Tash Ma Tash gave prizes to viewers who sent in the best what?",
-      "ar": "«طاش ما طاش» كان يعطي جوائز للمشاهدين اللي يرسلون أفضل شو؟"
+      "ar": "كان «طاش ما طاش» يمنح جوائز للمشاهدين الذين يرسلون أفضل ماذا؟"
     },
     "review": {
       "status": "pending"
@@ -13959,7 +13959,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "da116adf",
+      "contentKey": "c24d7158",
       "spoilerSeason": 0,
       "distractors": {
         "en": [
@@ -13989,7 +13989,7 @@
     },
     "question": {
       "en": "In the 2023 revival's first episode, what knocks out the Abu Hazar and Abu Nizar families for eight years?",
-      "ar": "بأول حلقة من رجعة «طاش» سنة 2023، شو اللي خلّى عيلتين أبو هزار وأبو نزار يغيبون عن الوعي 8 سنين؟"
+      "ar": "في الحلقة الأولى من عودة «طاش» عام 2023، ما الذي جعل عائلتي أبي هزار وأبي نزار تغيبان عن الوعي 8 سنوات؟"
     },
     "review": {
       "status": "pending"
@@ -14000,7 +14000,7 @@
     },
     "tvQuiz": {
       "version": 1,
-      "contentKey": "d9923cae",
+      "contentKey": "8c2b4e6d",
       "spoilerSeason": 0,
       "distractors": {
         "en": [

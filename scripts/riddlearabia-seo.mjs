@@ -43,6 +43,7 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   {
     key: "riddles",
     // Expanded from 8 to 30 riddles, ordered from easy to hard, on 2026-10-23.
+    // Arabic card wording returned to Modern Standard Arabic on 2026-10-25.
     // Cards removed in the 2026-10-25 phase-2 content pass replaced with current cards of the same topic.
     lastModified: "2026-10-25",
     paths: { en: "/riddles", ar: "/ar/alghaz/" },
@@ -101,6 +102,7 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   {
     key: "arabic-riddles",
     // Expanded from 8 to 30 riddles whose wording works naturally in Arabic on 2026-10-23.
+    // Arabic card wording returned to Modern Standard Arabic on 2026-10-25.
     // Cards removed in the 2026-10-25 phase-2 content pass replaced with current cards of the same topic.
     lastModified: "2026-10-25",
     paths: { en: "/arabic-riddles", ar: "/ar/alghaz-arabiya/" },
@@ -159,6 +161,7 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   {
     key: "logic-puzzles",
     // Expanded from 8 to 30 puzzles, easy to hard, on 2026-10-23.
+    // Arabic card wording returned to Modern Standard Arabic on 2026-10-25.
     // Cards removed in the 2026-10-25 phase-2 content pass replaced with current cards of the same topic.
     lastModified: "2026-10-25",
     paths: { en: "/logic-challenges", ar: "/ar/alghaz-mantiq/" },
@@ -217,7 +220,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   {
     key: "kids-riddles",
     // Expanded from 8 to 24 riddles, easy to hard, with kids search wording on 2026-10-23.
-    lastModified: "2026-10-23",
+    // Arabic card wording returned to Modern Standard Arabic on 2026-10-25.
+    lastModified: { en: "2026-10-23", ar: "2026-10-25" },
     paths: { en: "/family-riddles", ar: "/ar/alghaz-atfal/" },
     titles: {
       en: "Riddles for Kids With Answers | Riddle Arabia",
@@ -267,8 +271,9 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   },
   {
     key: "general-knowledge",
-    // Arabic cards rewritten in light everyday Arabic on 2026-10-21 (#144).
     // Expanded from 8 to 30 evergreen questions across 15 topics on 2026-10-23.
+    // Arabic cards briefly used everyday Arabic (2026-10-21, #144) and returned
+    // to Modern Standard Arabic on 2026-10-25.
     // Cards removed in the 2026-10-25 phase-2 content pass replaced with current cards of the same topic.
     lastModified: "2026-10-25",
     paths: { en: "/general-knowledge", ar: "/ar/malumat-amma/" },
@@ -326,7 +331,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   },
   {
     key: "arabia-quiz",
-    // Arabic cards rewritten in light everyday Arabic on 2026-10-21 (#144).
+    // Arabic cards briefly used everyday Arabic (2026-10-21, #144) and returned
+    // to Modern Standard Arabic on 2026-10-25.
     // Card wording updated in the 2026-10-25 phase-2 content pass.
     lastModified: "2026-10-25",
     paths: { en: "/arabia-quiz", ar: "/ar/tarikh-al-arab/" },
@@ -362,7 +368,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   },
   {
     key: "spacetoon-nostalgia",
-    // Arabic cards rewritten in light everyday Arabic on 2026-10-21 (#144).
+    // Arabic cards briefly used everyday Arabic (2026-10-21, #144) and returned
+    // to Modern Standard Arabic on 2026-10-25.
     // Cards removed in the 2026-10-25 phase-2 content pass replaced with current cards of the same topic.
     lastModified: "2026-10-25",
     paths: { en: "/spacetoon-nostalgia", ar: "/ar/hanin-spacetoon/" },

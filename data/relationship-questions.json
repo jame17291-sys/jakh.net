@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "Your friend says they had a difficult day. Which response invites them to explain without guessing the cause? A: “Would you like to tell me what happened?” B: “Your manager must have upset you again.”",
-      "ar": "صاحبك قال إن يومه كان صعب. أي رد يخلّيه يشرح من غير ما تفترض السبب؟ A: «تحب تحكيلي شو صار؟» B: «أكيد مديرك ضايقك مرة ثانية.»"
+      "ar": "يقول صديقك إن يومه كان صعبًا. أيّ رد يدعوه إلى الشرح دون افتراض السبب؟ A: «هل ترغب في إخباري بما حدث؟» B: «لا بد أن مديرك أزعجك مجددًا.»"
     },
     "answer": {
       "en": "A — It asks for their account instead of assuming an explanation.",
@@ -36,7 +36,7 @@
     },
     "question": {
       "en": "Which response checks that you understood a friend’s message? A: “I know exactly what you mean; no need to explain.” B: “It sounds like the changed plan bothered you. Did I understand correctly?”",
-      "ar": "أي رد يتأكد إنك فهمت رسالة صاحبك صح؟ A: «فاهم عليك تمامًا؛ ما في داعي تشرح.» B: «يبان إن تغيير الخطة ضايقك. فهمتك صح؟»"
+      "ar": "أيّ رد يتحقق من فهمك لرسالة صديق؟ A: «أعرف تمامًا ما تقصده؛ لا داعي للشرح.» B: «يبدو أن تغيير الخطة أزعجك. هل فهمت بصورة صحيحة؟»"
     },
     "answer": {
       "en": "B — It offers a summary and invites correction.",
@@ -64,7 +64,7 @@
     },
     "question": {
       "en": "Which sentence names a specific behavior instead of judging someone’s whole character? A: “You arrived 20 minutes after our agreed time.” B: “You are always selfish.”",
-      "ar": "أي جملة توصف تصرف محدد بدل ما تحكم على شخصية الإنسان كلها؟ A: «وصلت بعد الموعد اللي اتفقنا عليه بعشرين دقيقة.» B: «إنت دايمًا أناني.»"
+      "ar": "أيّ جملة تصف سلوكًا محددًا بدل الحكم على شخصية الشخص كلها؟ A: «وصلت بعد الموعد المتفق عليه بعشرين دقيقة.» B: «أنت أناني دائمًا.»"
     },
     "answer": {
       "en": "A — It describes an observable event without a global label.",
@@ -92,7 +92,7 @@
     },
     "question": {
       "en": "Which reply asks whether a friend wants advice before giving it? A: “Would you prefer that I listen, or would ideas be useful?” B: “Here is what you must do.”",
-      "ar": "أي رد يسأل صاحبك إذا يبي نصيحة قبل ما تعطيه؟ A: «تفضّل أسمعك بس، ولا تفيدك شوية أفكار؟» B: «هذا اللي لازم تسويه.»"
+      "ar": "أيّ رد يسأل الصديق هل يريد نصيحة قبل تقديمها؟ A: «هل تفضل أن أستمع، أم تفيدك بعض الأفكار؟» B: «إليك ما يجب عليك فعله.»"
     },
     "answer": {
       "en": "A — It lets the friend state what kind of support they want.",
@@ -120,7 +120,7 @@
     },
     "question": {
       "en": "You want to discuss an important issue. Which opener checks timing? A: “We are discussing this now, whatever you are doing.” B: “Is now a good time to talk for ten minutes?”",
-      "ar": "تبي تحكي بموضوع مهم. أي بداية تتأكد إن الوقت مناسب؟ A: «بنحكي فيه الحين مهما كنت مشغول.» B: «يناسبك نحكي عشر دقايق الحين؟»"
+      "ar": "تريد مناقشة مسألة مهمة. أيّ بداية تتحقق من ملاءمة الوقت؟ A: «سنناقش هذا الآن مهما كنت تفعل.» B: «هل يناسبك أن نتحدث عشر دقائق الآن؟»"
     },
     "answer": {
       "en": "B — It asks whether the other person is available.",
@@ -148,7 +148,7 @@
     },
     "question": {
       "en": "A short message seems rude to you. Which response checks intent rather than assuming it? A: “You wrote “fine” because you wanted to insult me.” B: “When you wrote “fine,” did you mean the plan works for you?”",
-      "ar": "جاتك رسالة قصيرة وحسّيتها جافة. أي رد يتأكد من المقصود بدل ما يفترضه؟ A: «كتبت «تمام» لأنك تبي تهينّي.» B: «لما كتبت «تمام»، قصدك إن الخطة تناسبك؟»"
+      "ar": "تبدو لك رسالة قصيرة فظة. أيّ رد يتحقق من المقصود بدل افتراضه؟ A: «كتبت «حسنًا» لأنك أردت إهانتي.» B: «عندما كتبت «حسنًا»، هل قصدت أن الخطة تناسبك؟»"
     },
     "answer": {
       "en": "B — It treats the interpretation as a question, not a fact.",
@@ -176,7 +176,7 @@
     },
     "question": {
       "en": "Which response acknowledges a feeling without necessarily agreeing with the person’s interpretation of events? A: “If I disagree with your explanation, your feelings cannot be real.” B: “I can hear that you felt left out; tell me more.”",
-      "ar": "أي رد يعترف بالشعور من غير ما يوافق بالضرورة على تفسير الشخص للي صار؟ A: «إذا ما اتفقت مع تفسيرك، يعني مشاعرك مش حقيقية.» B: «فهمت من كلامك إنك حسّيت إنك مستبعد؛ احكيلي أكثر.»"
+      "ar": "أيّ رد يعترف بالشعور دون أن يوافق بالضرورة على تفسير الشخص للأحداث؟ A: «إذا اختلفت مع تفسيرك فلا يمكن أن تكون مشاعرك حقيقية.» B: «أفهم من كلامك أنك شعرت بالاستبعاد؛ أخبرني أكثر.»"
     },
     "answer": {
       "en": "B — Acknowledging a reported feeling is different from endorsing every factual claim.",
@@ -204,7 +204,7 @@
     },
     "question": {
       "en": "You remember an agreement differently. Which reply separates your memory from certainty? A: “I remember Tuesday, but I may be mistaken. Can we check the message?” B: “My memory is perfect, so you must be lying.”",
-      "ar": "تتذكّر اتفاق بشكل مختلف. أي رد يفرّق بين ذاكرتك واليقين؟ A: «أتذكّر الثلاثاء، بس يمكن أكون غلطان. نرجع للرسالة؟» B: «ذاكرتي ما تغلط، يعني أكيد إنت تكذب.»"
+      "ar": "تتذكر اتفاقًا بصورة مختلفة. أيّ رد يميز ذاكرتك عن اليقين؟ A: «أتذكر الثلاثاء، لكن قد أكون مخطئًا. هل نراجع الرسالة؟» B: «ذاكرتي كاملة، إذن لا بد أنك تكذب.»"
     },
     "answer": {
       "en": "A — It allows error and proposes checking shared evidence.",
@@ -232,7 +232,7 @@
     },
     "question": {
       "en": "Which question is open-ended rather than answerable only with yes or no? A: “Do you want to change the plan?” B: “What part of the plan would you like to change?”",
-      "ar": "أي سؤال مفتوح، مش بس جوابه نعم أو لا؟ A: «تبي تغيّر الخطة؟» B: «أي جزء من الخطة تحب تغيّره؟»"
+      "ar": "أيّ سؤال مفتوح بدلًا من الاقتصار على نعم أو لا؟ A: «هل تريد تغيير الخطة؟» B: «أيّ جزء من الخطة ترغب في تغييره؟»"
     },
     "answer": {
       "en": "B — It asks for details, not just confirmation.",
@@ -260,7 +260,7 @@
     },
     "question": {
       "en": "A friend declines an invitation. Which reply accepts the refusal without pressure? A: “Thanks for letting me know. Perhaps another time.” B: “If you cared about me, you would come.”",
-      "ar": "صاحبك اعتذر عن عزيمة. أي رد يقبل الرفض من غير ضغط؟ A: «شكرًا إنك خبّرتني؛ يمكن مرة ثانية.» B: «لو كنت تهتم فيني كان جيت.»"
+      "ar": "يرفض صديق دعوة. أيّ رد يقبل الرفض دون ضغط؟ A: «شكرًا لإخباري؛ ربما في وقت آخر.» B: «لو كنت تهتم بي لأتيت.»"
     },
     "answer": {
       "en": "A — It does not make affection conditional on accepting the invitation.",
@@ -288,7 +288,7 @@
     },
     "question": {
       "en": "Before posting a photograph that clearly shows your friend, which action seeks their permission? A: “Assume that posing for the photo permits every future use.” B: “Ask whether they are comfortable with that photo being posted.”",
-      "ar": "قبل ما تنشر صورة فيها صاحبك واضح، أي تصرف يطلب إذنه؟ A: «افترض إنه لما وقف للصورة يعني موافق على أي استخدام بعدين.» B: «اسأله إذا مرتاح إنك تنشر هالصورة.»"
+      "ar": "قبل نشر صورة يظهر فيها صديقك بوضوح، أيّ تصرف يطلب إذنه؟ A: «افترض أن الوقوف للصورة يسمح بكل استخدام لاحق لها.» B: «اسأله هل يرتاح لنشر هذه الصورة.»"
     },
     "answer": {
       "en": "B — Being photographed and agreeing to publication are separate choices.",
@@ -316,7 +316,7 @@
     },
     "question": {
       "en": "A friend wants to borrow an item you do not lend out. Which reply states the boundary without attacking them? A: “I do not lend this item, but I can help you find another option.” B: “Sorry, I can't lend it. People like you tend to be careless with things.”",
-      "ar": "صاحبك يبي يستعير شي إنت ما تعيره لأحد. أي رد يوضح حدّك من غير ما تهاجمه؟ A: «ما أعير هالشي، بس أقدر أساعدك تلاقي بديل.» B: «آسف، ما أقدر أعيره؛ اللي مثلك عادةً ما ينتبهون للأغراض.»"
+      "ar": "يريد صديقك أن يستعير غرضًا لا تعيره لأحد. أي رد يوضح حدّك دون أن تهاجمه؟ A: «لا أعير هذا الغرض، لكن يمكنني مساعدتك في إيجاد بديل.» B: «آسف، لا أستطيع إعارته؛ فأمثالك لا ينتبهون عادةً للأغراض.»"
     },
     "answer": {
       "en": "A — It states the rule without judging the friend’s character.",
@@ -344,7 +344,7 @@
     },
     "question": {
       "en": "Psychologist John Gottman named four habits in arguments that predict a relationship breaking down, the 'Four Horsemen'. What are they?",
-      "ar": "عالم النفس جون غوتمان سمّى أربع عادات بالخلافات تنبّئ إن العلاقة رايحة للانهيار، ولقّبها «الفرسان الأربعة». شو هي؟"
+      "ar": "أطلق عالم النفس جون غوتمان على أربع عادات في الخلافات تنبئ بانهيار العلاقة لقب «الفرسان الأربعة». ما هي؟"
     },
     "answer": {
       "en": "Criticism, contempt, defensiveness and stonewalling.",
@@ -372,7 +372,7 @@
     },
     "question": {
       "en": "Your friend says a joke about them is unwelcome. Which reply responds to the stated limit rather than debating their right to have it? A: “You must learn to enjoy it because I find it funny.” B: “I hear you. I will stop making that joke about you.”",
-      "ar": "صاحبك قال إن مزحة عنه ما تعجبه. أي رد يحترم الحد اللي وضّحه بدل ما تجادله؟ A: «لازم تتعلم تستمتع فيها لأني أشوفها مضحكة.» B: «سمعتك؛ بوقّف هالمزحة عنك.»"
+      "ar": "يقول صديق إن مزحة عنه غير مرغوبة. أيّ رد يستجيب للحد الذي أوضحه بدل مجادلة حقه فيه؟ A: «يجب أن تتعلم الاستمتاع بها لأنني أجدها مضحكة.» B: «سمعت ما قلت؛ سأتوقف عن هذه المزحة عنك.»"
     },
     "answer": {
       "en": "B — It addresses the behavior the friend asked to stop.",
@@ -400,7 +400,7 @@
     },
     "question": {
       "en": "What name is given to a sentence like 'I feel worried when plans change at the last minute', which starts from your own feelings instead of blaming?",
-      "ar": "شو اسم الجملة اللي تبدأ من مشاعرك إنت بدل اللوم، مثل «أنا أقلق لما تتغيّر الخطة آخر لحظة»؟"
+      "ar": "ما اسم الجملة التي تبدأ بمشاعرك أنت بدل اللوم، مثل «أنا أقلق حين تتغير الخطة في اللحظة الأخيرة»؟"
     },
     "answer": {
       "en": "An 'I-statement' (I-message).",
@@ -461,7 +461,7 @@
     },
     "question": {
       "en": "Two housemates disagree about guests. Which proposal creates a shared rule rather than a unilateral demand? A: “Only my preferences count because I mentioned the problem first.” B: “Let us agree on notice, visiting hours and how either of us can raise a concern.”",
-      "ar": "شريكين بالسكن مختلفين على موضوع الضيوف. أي اقتراح يعمل قاعدة مشتركة بدل أمر من طرف واحد؟ A: «رأيي بس هو اللي ينحسب لأني أنا اللي طرحت المشكلة أول.» B: «خلّنا نتفق على إنا نخبّر قبل، وعلى مواعيد الزيارة، وكيف أي واحد فينا يعترض.»"
+      "ar": "يختلف شريكا سكن حول الضيوف. أيّ اقتراح ينشئ قاعدة مشتركة بدل أمر أحادي؟ A: «تُحتسب تفضيلاتي وحدها لأنني طرحت المشكلة أولًا.» B: «لنتفق على الإشعار المسبق ومواعيد الزيارة وكيف يطرح أيّ منا اعتراضًا.»"
     },
     "answer": {
       "en": "B — It invites both people to define the agreement.",
@@ -489,7 +489,7 @@
     },
     "question": {
       "en": "Which statement distinguishes a request from a demand by allowing the other person to decline? A: “Would you be willing to help Saturday? It is okay if you cannot.” B: “Would you be willing to help Saturday? I'll be really hurt if you say no.”",
-      "ar": "أي جملة تفرّق بين الطلب والأمر لأنها تسمح للثاني يرفض؟ A: «تقدر تساعدني السبت؟ عادي إذا ما تقدر.» B: «تقدر تساعدني السبت؟ بزعل منك كثير إذا رفضت.»"
+      "ar": "أي عبارة تميّز الطلب عن الأمر لأنها تسمح للطرف الآخر بالرفض؟ A: «هل يمكنك مساعدتي يوم السبت؟ لا بأس إن لم تستطع.» B: «هل يمكنك مساعدتي يوم السبت؟ سأحزن كثيرًا إن رفضت.»"
     },
     "answer": {
       "en": "A — It leaves a genuine option to decline; B adds guilt pressure.",
@@ -517,7 +517,7 @@
     },
     "question": {
       "en": "An agreed apology format has three parts: name your action, acknowledge its effect, and offer a repair. “I interrupted twice, so you could not finish. I am sorry.” Which part is still missing?",
-      "ar": "نموذج الاعتذار اللي اتفقوا عليه فيه ثلاث أجزاء: تسمّي اللي سويته، تعترف بأثره، وتقترح تصليح. «قاطعتك مرتين، وما قدرت تكمّل كلامك. أنا آسف». شو الجزء اللي لسّا ناقص؟"
+      "ar": "يتكوّن نموذج اعتذار متفق عليه من ثلاثة أجزاء: تسمية فعلك، والإقرار بأثره، واقتراح إصلاح. «قاطعتك مرتين، فلم تستطع إكمال كلامك. أنا آسف». ما الجزء الذي ما زال ناقصاً؟"
     },
     "answer": {
       "en": "A repair offer, such as: “Please finish; I will listen without interrupting.”",
@@ -537,7 +537,7 @@
     },
     "question": {
       "en": "Which four-pane model (open, blind, hidden and unknown) maps what you and other people know about you?",
-      "ar": "أي نموذج فيه أربع خانات (مكشوفة، وعمياء، ومخفية، ومجهولة) يبيّن شو تعرف إنت عن نفسك وشو يعرفون الناس عنك؟"
+      "ar": "أي نموذج ذي أربع خانات (المكشوفة، والعمياء، والمخفية، والمجهولة) يبيّن ما تعرفه عن نفسك وما يعرفه الآخرون عنك؟"
     },
     "answer": {
       "en": "The Johari window.",
@@ -567,7 +567,7 @@
     },
     "question": {
       "en": "Which sentence stays with the current disagreement rather than introducing an unrelated past complaint? A: “This reminds me of everything you did wrong last year.” B: “Let us first decide how to divide tonight’s cleanup.”",
-      "ar": "أي جملة تخلّيك بالخلاف الحالي بدل ما تجيب شكوى قديمة ما لها علاقة؟ A: «هذا يذكّرني بكل شي سويته غلط السنة اللي فاتت.» B: «خلّنا أول شي نقرر كيف نقسم ترتيب المكان الليلة.»"
+      "ar": "أيّ جملة تبقى ضمن الخلاف الحالي بدل إدخال شكوى قديمة لا تتعلق به؟ A: «هذا يذكرني بكل ما فعلته خطأ العام الماضي.» B: «لنقرر أولًا كيف نقسم ترتيب المكان الليلة.»"
     },
     "answer": {
       "en": "B — It keeps the immediate problem defined.",
@@ -595,7 +595,7 @@
     },
     "question": {
       "en": "“I meant the comment as a joke.” “I felt embarrassed when you said it in front of the group.” Which statement describes intent, and which describes reported impact?",
-      "ar": "«كنت أقصد التعليق مزح». «انحرجت لما قلته قدام المجموعة». أي جملة توصف النية، وأيها توصف الأثر اللي انحس؟"
+      "ar": "«قصدتُ التعليق مزاحاً». «شعرتُ بالإحراج عندما قلته أمام المجموعة». أي العبارتين تصف النية، وأيهما تصف الأثر المعبَّر عنه؟"
     },
     "answer": {
       "en": "The first describes intent; the second reports impact. They can both be true.",
@@ -615,7 +615,7 @@
     },
     "question": {
       "en": "Maya suggests a café because she wants somewhere quiet. Sam suggests a park because he needs a free outing. Before comparing venues, what two underlying needs should their plan address?",
-      "ar": "مايا تقترح مقهى لأنها تبي مكان هادي. وسام يقترح حديقة لأنه يحتاج طلعة ببلاش. قبل ما يقارنون الأماكن، شو الحاجتين اللي لازم خطتهم تغطيها؟"
+      "ar": "تقترح مايا مقهى لأنها تريد مكاناً هادئاً. ويقترح سام حديقة لأنه يحتاج إلى نزهة بلا تكلفة. قبل مقارنة الأماكن، ما الاحتياجان اللذان ينبغي أن تعالجهما خطتهما؟"
     },
     "answer": {
       "en": "A quiet setting and no cost; the café and park are proposed solutions, not the underlying needs.",
@@ -635,7 +635,7 @@
     },
     "question": {
       "en": "Anthropologist Robin Dunbar proposed a rough limit on how many stable relationships one person can keep up. About how many?",
-      "ar": "عالم الأنثروبولوجيا روبن دنبار اقترح حد تقريبي لعدد العلاقات الثابتة اللي يقدر الشخص يحافظ عليها. كم تقريباً؟"
+      "ar": "اقترح عالم الأنثروبولوجيا روبن دنبار حدًا تقريبيًا لعدد العلاقات المستقرة التي يستطيع الشخص الحفاظ عليها. كم يبلغ تقريبًا؟"
     },
     "answer": {
       "en": "About 150 ('Dunbar's number').",
@@ -665,7 +665,7 @@
     },
     "question": {
       "en": "The word for manipulating someone until they doubt their own memory comes from the title of which 1938 play, later a 1944 film?",
-      "ar": "الكلمة اللي توصف التلاعب بشخص لين يشك بذاكرته، جاية من عنوان أي مسرحية سنة 1938 صارت فيلم سنة 1944؟"
+      "ar": "الكلمة التي تصف التلاعب بشخص حتى يشك في ذاكرته مأخوذة من عنوان أي مسرحية من عام 1938 تحولت إلى فيلم عام 1944؟"
     },
     "answer": {
       "en": "'Gaslight', hence 'gaslighting'.",
@@ -695,7 +695,7 @@
     },
     "question": {
       "en": "Why do we often grow to like a song, a face or a neighbour simply because we keep encountering it? Name the effect.",
-      "ar": "ليش أحياناً نحب أغنية أو وجه أو جار بس لأننا نصادفه كثير؟ شو اسم هالأثر؟"
+      "ar": "لماذا نحب أحيانًا أغنية أو وجهًا أو جارًا لمجرد أننا نصادفه كثيرًا؟ ما اسم هذا الأثر؟"
     },
     "answer": {
       "en": "The mere-exposure effect.",
@@ -758,7 +758,7 @@
     },
     "question": {
       "en": "Classify these as observation, interpretation, or request: 1 “We spoke for five minutes.” 2 “You wanted to avoid me.” 3 “Could we set aside half an hour tomorrow?”",
-      "ar": "صنّف الجمل: ملاحظة ولا تفسير ولا طلب: 1 «حكينا خمس دقايق». 2 «كنت تبي تتجنّبني». 3 «نخصص نص ساعة بكرة؟»"
+      "ar": "صنّف العبارات إلى ملاحظة أو تفسير أو طلب: 1 «تحدثنا خمس دقائق». 2 «أردتَ تجنّبي». 3 «هل نخصص نصف ساعة غداً؟»"
     },
     "answer": {
       "en": "1: observation. 2: interpretation of motive. 3: request.",
@@ -778,7 +778,7 @@
     },
     "question": {
       "en": "What did John Gottman call any joke, smile or 'let's take a break' that stops an argument from spiralling?",
-      "ar": "شو سمّى جون غوتمان أي نكتة أو ابتسامة أو «خلّنا ناخذ استراحة» توقف الخلاف قبل ما يكبر؟"
+      "ar": "ماذا سمّى جون غوتمان أي نكتة أو ابتسامة أو عبارة مثل «لنأخذ استراحة» توقف الخلاف قبل أن يتفاقم؟"
     },
     "answer": {
       "en": "A repair attempt.",
@@ -808,7 +808,7 @@
     },
     "question": {
       "en": "Both friends know a train takes 40 minutes and a bus takes 70. One values saving time; the other values the bus's lower fare. Is the remaining disagreement about the travel-time facts or about priorities?",
-      "ar": "الصاحبين يعرفون إن القطار ياخذ 40 دقيقة والباص 70. واحد يفضّل يوفّر وقت، والثاني يفضّل إن الباص أرخص. الخلاف الباقي على معلومات مدة الطريق ولا على الأولويات؟"
+      "ar": "يعرف الصديقان أن القطار يستغرق 40 دقيقة والحافلة 70. يفضّل أحدهما توفير الوقت، والآخر انخفاض أجرة الحافلة. هل الخلاف المتبقي حول معلومات مدة الرحلة أم حول الأولويات؟"
     },
     "answer": {
       "en": "Priorities: they agree on the times but weigh time and cost differently.",
@@ -828,7 +828,7 @@
     },
     "question": {
       "en": "Marshall Rosenberg's 'Nonviolent Communication' is built on four components. Name them.",
-      "ar": "أسلوب «التواصل اللاعنفي» عند مارشال روزنبرغ قايم على أربع مكوّنات. شو هي؟"
+      "ar": "يقوم أسلوب «التواصل اللاعنفي» لدى مارشال روزنبرغ على أربعة مكونات. ما هي؟"
     },
     "answer": {
       "en": "Observations, feelings, needs and requests.",
@@ -856,7 +856,7 @@
     },
     "question": {
       "en": "A popular rule says only 7% of a message's meaning comes from words. What did Albert Mehrabian, whose experiments it comes from, say about it?",
-      "ar": "قاعدة منتشرة تقول إن 7% بس من معنى الكلام يجي من الكلمات. شو قال ألبرت مهرابيان، صاحب التجارب اللي طلعت منها القاعدة؟"
+      "ar": "تقول قاعدة شائعة إن 7% فقط من معنى الكلام يأتي من الكلمات. ماذا قال ألبرت مهرابيان، صاحب التجارب التي نشأت منها هذه القاعدة؟"
     },
     "answer": {
       "en": "That it is misapplied: his studies only covered words about feelings and attitudes, not communication in general.",
@@ -916,7 +916,7 @@
     },
     "question": {
       "en": "In 1987, Cindy Hazan and Phillip Shaver applied infant attachment theory to adult relationships. Which three styles did they describe?",
-      "ar": "سنة 1987، سيندي هازان وفيليب شيفر طبّقوا نظرية التعلّق عند الرضّع على علاقات الكبار. شو الأنماط الثلاثة اللي وصفوها؟"
+      "ar": "في عام 1987، طبّقت سيندي هازان وفيليب شيفر نظرية التعلّق لدى الرضّع على علاقات البالغين. ما الأنماط الثلاثة التي وصفاها؟"
     },
     "answer": {
       "en": "Secure, anxious-ambivalent and avoidant.",
@@ -946,7 +946,7 @@
     },
     "question": {
       "en": "In Elliot Aronson's 1966 study, a highly skilled quiz contestant became more likeable after spilling coffee on himself. What is this called?",
-      "ar": "في دراسة إليوت آرونسون سنة 1966، متسابق شاطر كثير صار محبوب أكثر بعد ما كبّ القهوة على نفسه. شو اسم هالأثر؟"
+      "ar": "في دراسة إليوت آرونسون عام 1966، صار متسابق بارع جدًا محبوبًا أكثر بعد أن سكب القهوة على نفسه. ما اسم هذا الأثر؟"
     },
     "answer": {
       "en": "The pratfall effect.",
@@ -976,7 +976,7 @@
     },
     "question": {
       "en": "A 1950 study of student housing by Festinger, Schachter and Back found that friendships depended heavily on which simple factor?",
-      "ar": "دراسة فستنجر وشاختر وباك سنة 1950 على سكن طلاب لقت إن الصداقات تعتمد كثير على عامل بسيط. شو هو؟"
+      "ar": "وجدت دراسة فستنجر وشاختر وباك عام 1950 على سكن طلابي أن الصداقات تعتمد كثيرًا على عامل بسيط. ما هو؟"
     },
     "answer": {
       "en": "Physical closeness: people mostly befriended their nearest neighbours.",
@@ -1037,7 +1037,7 @@
     },
     "question": {
       "en": "A friend permits you to send one photograph to Noor by private message, without reposting it. Which action stays within that permission? A: Send it to Noor privately. B: Add it to a private group that includes Noor. C: Post it without naming the friend.",
-      "ar": "صاحبك سمح لك تبعت صورة وحدة لنور برسالة خاصة، من غير ما تنشرها. أي تصرف يظل ضمن الإذن؟ A: تبعتها لنور على الخاص. B: تحطها بمجموعة خاصة فيها نور. C: تنشرها من غير ما تذكر اسم صاحبك."
+      "ar": "يسمح لك صديق بإرسال صورة واحدة إلى نور برسالة خاصة دون إعادة نشرها. أي تصرف يبقى ضمن الإذن؟ A: إرسالها إلى نور على انفراد. B: وضعها في مجموعة خاصة تضم نور. C: نشرها دون ذكر اسم الصديق."
     },
     "answer": {
       "en": "A. The permission specifies one recipient and a private message; a group or unnamed post extends the audience.",
@@ -1065,7 +1065,7 @@
     },
     "question": {
       "en": "The group agreed: book only after all three people explicitly confirm both the date and venue. Noor confirms Friday at Café X; Sam confirms Friday but asks about another venue; Lina has not replied. What confirmations are still needed?",
-      "ar": "المجموعة اتفقت ما تحجز إلا لما الثلاثة يأكدون صراحة الموعد والمكان مع بعض. نور أكدت الجمعة في مقهى X؛ وسام أكد الجمعة بس سأل عن مكان ثاني؛ ولينا ما ردّت. شو التأكيدات اللي لسّا مطلوبة؟"
+      "ar": "اتفقت المجموعة على ألّا تحجز إلا بعد أن يؤكد الأشخاص الثلاثة صراحةً الموعد والمكان معاً. تؤكد نور الجمعة في مقهى X؛ ويؤكد سام الجمعة لكنه يسأل عن مكان آخر؛ ولم ترد لينا. ما التأكيدات التي ما زالت مطلوبة؟"
     },
     "answer": {
       "en": "Sam must confirm the venue, and Lina must confirm both date and venue. Any changed plan needs renewed confirmation from everyone.",
@@ -1085,7 +1085,7 @@
     },
     "question": {
       "en": "A chat shows “read at 2:10.” By 2:30 there is no reply. Name one observation the record supports and one conclusion about motive it does not establish.",
-      "ar": "الدردشة تبيّن «انقرأت الساعة 2:10»، وما في رد لحد 2:30. اذكر ملاحظة يدعمها السجل، واستنتاج عن السبب ما يثبته السجل."
+      "ar": "تُظهر الدردشة «قُرئت عند 2:10»، ولا يوجد رد عند 2:30. اذكر ملاحظة يدعمها السجل واستنتاجاً عن الدافع لا يثبته."
     },
     "answer": {
       "en": "Observation: no reply appears by 2:30. Not established: that the person is deliberately ignoring or upsetting the sender.",
@@ -1135,7 +1135,7 @@
     },
     "question": {
       "en": "To study how it feels to be left out, psychologist Kipling Williams created an online ball-tossing game in which the other 'players' stop passing to you. What is it called?",
-      "ar": "عشان يدرس شعور الاستبعاد، عالم النفس كيبلنغ ويليامز صمّم لعبة إلكترونية لتمرير الكرة، فيها «اللاعبين» الباقين يوقفون يمرّرون لك. شو اسمها؟"
+      "ar": "لدراسة الشعور بالإقصاء، صمّم عالم النفس كيبلنغ ويليامز لعبة إلكترونية لتمرير الكرة يتوقف فيها «اللاعبون» الآخرون عن تمريرها إليك. ما اسمها؟"
     },
     "answer": {
       "en": "Cyberball.",
@@ -1165,7 +1165,7 @@
     },
     "question": {
       "en": "What do psychologists call our unconscious habit of copying the posture and gestures of people we're with, which can increase liking?",
-      "ar": "شو يسمّي علماء النفس عادتنا اللاواعية إننا نقلّد جلسة وحركات اللي معنا، واللي ممكن تزيد المودّة بيننا؟"
+      "ar": "ماذا يسمّي علماء النفس عادتنا اللاواعية في تقليد جلسة من معنا وحركاته، وهي عادة قد تزيد المودة بيننا؟"
     },
     "answer": {
       "en": "The chameleon effect (mimicry).",

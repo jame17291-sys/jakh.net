@@ -3,7 +3,7 @@
     "id": "pop-culture-1",
     "question": {
       "en": "What 1997 movie directed by James Cameron features Jack and Rose?",
-      "ar": "شو اسم فيلم جيمس كاميرون سنة 1997 اللي فيه قصة جاك وروز؟"
+      "ar": "ما هو فيلم عام 1997 من إخراج جيمس كاميرون والذي يعرض جاك وروز؟"
     },
     "answer": {
       "en": "Titanic",
@@ -22,7 +22,7 @@
     "id": "pop-culture-2",
     "question": {
       "en": "Which animated sitcom follows Homer, Marge, Bart, Lisa, and Maggie in Springfield?",
-      "ar": "شو اسم المسلسل الكرتوني الكوميدي عن هومر ومارج وبارت وليزا وماغي في مدينة سبرينغفيلد؟"
+      "ar": "أي مسلسل رسوم متحركة كوميدي يتابع هومر ومارج وبارت وليزا وماغي في سبرينغفيلد؟"
     },
     "answer": {
       "en": "The Simpsons",
@@ -41,7 +41,7 @@
     "id": "pop-culture-3",
     "question": {
       "en": "Which Korean boy band's fans call themselves the 'ARMY'?",
-      "ar": "أي فرقة كورية معجبينها يسمّون نفسهم «ARMY»؟"
+      "ar": "أي فرقة كورية يسمّي معجبوها أنفسهم «ARMY»؟"
     },
     "answer": {
       "en": "BTS",
@@ -60,7 +60,7 @@
     "id": "pop-culture-4",
     "question": {
       "en": "Which almost-silent British comedy character, played by Rowan Atkinson, drives a small green Mini?",
-      "ar": "أي شخصية كوميدية بريطانية ما تكاد تتكلم، يلعبها روان أتكينسون، وتسوق سيارة ميني خضرا صغيرة؟"
+      "ar": "أي شخصية كوميدية بريطانية لا تكاد تتكلم، يؤديها روان أتكينسون، وتقود سيارة ميني خضراء صغيرة؟"
     },
     "answer": {
       "en": "Mr. Bean",
@@ -79,7 +79,7 @@
     "id": "pop-culture-5",
     "question": {
       "en": "Who plays the pirate Captain Jack Sparrow?",
-      "ar": "مين الممثل اللي لعب دور القرصان جاك سبارو؟"
+      "ar": "من يلعب دور القرصان الكابتن جاك سبارو؟"
     },
     "answer": {
       "en": "Johnny Depp",
@@ -98,7 +98,7 @@
     "id": "pop-culture-6",
     "question": {
       "en": "Which short-video app absorbed Musical.ly in 2018?",
-      "ar": "أي تطبيق فيديوهات قصيرة اندمج معه ميوزيكالي سنة 2018؟"
+      "ar": "ما تطبيق الفيديوهات القصيرة الذي اندمج فيه ميوزيكالي عام 2018؟"
     },
     "answer": {
       "en": "TikTok",
@@ -117,7 +117,7 @@
     "id": "pop-culture-7",
     "question": {
       "en": "Which artist sang 'Shape of You' and 'Perfect'?",
-      "ar": "مين المغني اللي غنّى «Shape of You» و«Perfect»؟"
+      "ar": "أي فنان غنى «Shape of You» و «Perfect»؟"
     },
     "answer": {
       "en": "Ed Sheeran",
@@ -136,7 +136,7 @@
     "id": "pop-culture-8",
     "question": {
       "en": "What is the name of Mattel's fashion doll introduced in 1959?",
-      "ar": "شو اسم الدمية الشهيرة اللي طرحتها شركة ماتيل سنة 1959؟"
+      "ar": "ما اسم دمية الأزياء التي طرحتها شركة ماتيل عام 1959؟"
     },
     "answer": {
       "en": "Barbie",
@@ -155,7 +155,7 @@
     "id": "pop-culture-9",
     "question": {
       "en": "Which Egyptian comedy star is nicknamed 'Al-Zaeem' (The Leader)?",
-      "ar": "مين نجم الكوميديا المصري اللي لقبه «الزعيم»؟"
+      "ar": "مَن نجم الكوميديا المصري الملقب بـ«الزعيم»؟"
     },
     "answer": {
       "en": "Adel Imam",
@@ -174,7 +174,7 @@
     "id": "pop-culture-10",
     "question": {
       "en": "What is the name of the internet dog meme featuring a Shiba Inu?",
-      "ar": "شو اسم ميم الكلب الشهير على الإنترنت، اللي بطله كلب من نوع شيبا إينو؟"
+      "ar": "ما هو اسم ميم الكلب على الإنترنت الذي يتميز بكلب من نوع شيبا إينو؟"
     },
     "answer": {
       "en": "Doge",
@@ -193,7 +193,7 @@
     "id": "pop-culture-11",
     "question": {
       "en": "Which Egyptian actor became an international star with 'Lawrence of Arabia' (1962) and 'Doctor Zhivago' (1965)?",
-      "ar": "أي ممثل مصري صار نجم عالمي بفيلمي «لورنس العرب» (1962) و«دكتور زيفاغو» (1965)؟"
+      "ar": "أي ممثل مصري أصبح نجمًا عالميًا بفيلمي «لورنس العرب» (1962) و«دكتور زيفاغو» (1965)؟"
     },
     "answer": {
       "en": "Omar Sharif",
@@ -212,7 +212,7 @@
     "id": "pop-culture-12",
     "question": {
       "en": "What word describes dressing up as a fictional character, especially at fan conventions?",
-      "ar": "شو اسم هواية لبس زي شخصية خيالية، خصوصًا في تجمعات المعجبين؟"
+      "ar": "ما الكلمة التي تصف ارتداء زي شخصية خيالية، خصوصاً في ملتقيات المعجبين؟"
     },
     "answer": {
       "en": "Cosplay",
@@ -231,7 +231,7 @@
     "id": "pop-culture-13",
     "question": {
       "en": "Which US mockumentary sitcom is set at the Dunder Mifflin paper company?",
-      "ar": "أي مسلسل كوميدي أمريكي مصوّر كأنه وثائقي، وأحداثه في شركة الورق داندر ميفلين؟"
+      "ar": "أي مسلسل كوميدي أمريكي بأسلوب وثائقي ساخر تدور أحداثه في شركة الورق داندر ميفلين؟"
     },
     "answer": {
       "en": "The Office",
@@ -250,7 +250,7 @@
     "id": "pop-culture-14",
     "question": {
       "en": "In the Matrix, what color pill does Neo take?",
-      "ar": "في فيلم «الماتريكس»، شو لون الحبة اللي أخذها نيو؟"
+      "ar": "في فيلم الماتريكس، ما هو لون الحبة التي يأخذها نيو؟"
     },
     "answer": {
       "en": "The Red Pill",
@@ -269,7 +269,7 @@
     "id": "pop-culture-15",
     "question": {
       "en": "Who became the first person to reach 500 million Instagram followers in 2022?",
-      "ar": "مين أول شخص وصل لـ500 مليون متابع على إنستغرام سنة 2022؟"
+      "ar": "من أصبح أول شخص يصل إلى 500 مليون متابع على إنستغرام عام 2022؟"
     },
     "answer": {
       "en": "Cristiano Ronaldo",
@@ -288,7 +288,7 @@
     "id": "pop-culture-16",
     "question": {
       "en": "Which pop star’s fans are known as 'Swifties'?",
-      "ar": "مين نجمة البوب اللي معجبينها اسمهم «السويفتيز»؟"
+      "ar": "مَن هي نجمة البوب التي يُعرف معجبوها باسم «السويفتيز»؟"
     },
     "answer": {
       "en": "Taylor Swift",
@@ -307,7 +307,7 @@
     "id": "pop-culture-17",
     "question": {
       "en": "Which viral 2012 song became the first YouTube video to reach one billion views?",
-      "ar": "شو الأغنية اللي انتشرت سنة 2012 وصار الفيديو تبعها أول مقطع على يوتيوب يوصل لمليار مشاهدة؟"
+      "ar": "ما أغنية عام 2012 الواسعة الانتشار التي أصبح فيديوها أول مقطع على يوتيوب يبلغ مليار مشاهدة؟"
     },
     "answer": {
       "en": "Gangnam Style by Psy",
@@ -326,7 +326,7 @@
     "id": "pop-culture-18",
     "question": {
       "en": "Which popular video game involves building with blocks and surviving against creepers?",
-      "ar": "شو اسم اللعبة اللي تبني فيها بالمكعبات وتهرب من وحوش الكريبر؟"
+      "ar": "ما هي لعبة الفيديو الشهيرة التي تتضمن البناء بالكتل والبقاء على قيد الحياة ضد مخلوقات الكريبر؟"
     },
     "answer": {
       "en": "Minecraft",
@@ -345,7 +345,7 @@
     "id": "pop-culture-19",
     "question": {
       "en": "Which singer performed under the alter ego Sasha Fierce?",
-      "ar": "أي مغنية قدّمت أعمال باسم شخصية ثانية اسمها «ساشا فيرس»؟"
+      "ar": "أي مغنية قدّمت أعمالاً تحت الشخصية البديلة ساشا فيرس؟"
     },
     "answer": {
       "en": "Beyoncé",
@@ -364,7 +364,7 @@
     "id": "pop-culture-20",
     "question": {
       "en": "Which Syrian-born director made 'The Message' (1976) and 'Lion of the Desert' (1981), the epic about Omar Mukhtar?",
-      "ar": "مين المخرج السوري الأصل اللي أخرج «الرسالة» (1976) و«عمر المختار» (أسد الصحراء، 1981)؟"
+      "ar": "مَن المخرج السوري الأصل الذي أخرج «الرسالة» (1976) و«عمر المختار» (أسد الصحراء، 1981)؟"
     },
     "answer": {
       "en": "Moustapha Akkad",
@@ -383,7 +383,7 @@
     "id": "pop-culture-21",
     "question": {
       "en": "What was the first music video ever played on MTV in 1981?",
-      "ar": "شو أول فيديو كليب انعرض على قناة MTV سنة 1981؟"
+      "ar": "ما هو أول فيديو موسيقي تم بثه على الإطلاق على قناة MTV في عام 1981؟"
     },
     "answer": {
       "en": "Video Killed the Radio Star (The Buggles)",
@@ -402,7 +402,7 @@
     "id": "pop-culture-22",
     "question": {
       "en": "Which actress won the Best Actress Oscar for The Iron Lady in 2012?",
-      "ar": "أي ممثلة أخذت أوسكار أفضل ممثلة سنة 2012 عن فيلم «المرأة الحديدية»؟"
+      "ar": "أي ممثلة فازت بأوسكار أفضل ممثلة عن فيلم المرأة الحديدية عام 2012؟"
     },
     "answer": {
       "en": "Meryl Streep",
@@ -421,7 +421,7 @@
     "id": "pop-culture-23",
     "question": {
       "en": "What was the name of the massive 1999 internet panic involving computer dates?",
-      "ar": "شو اسم الخوف الكبير اللي صار سنة 1999 من مشكلة التواريخ في الكمبيوترات؟"
+      "ar": "ما كان اسم الذعر الجماعي على الإنترنت في عام 1999 المتعلق بتواريخ الكمبيوتر؟"
     },
     "answer": {
       "en": "Y2K bug",
@@ -440,7 +440,7 @@
     "id": "pop-culture-24",
     "question": {
       "en": "Which annual San Diego fan convention, first held in 1970, is the world's best-known comics and pop-culture event?",
-      "ar": "أي معرض سنوي للمعجبين في سان دييغو، بدأ سنة 1970، هو أشهر حدث للقصص المصورة وثقافة البوب بالعالم؟"
+      "ar": "أي معرض سنوي للمعجبين في سان دييغو، أُقيم أول مرة عام 1970، يُعد أشهر حدث للقصص المصورة وثقافة البوب في العالم؟"
     },
     "answer": {
       "en": "Comic-Con (San Diego Comic-Con)",
@@ -459,7 +459,7 @@
     "id": "pop-culture-25",
     "question": {
       "en": "Which Japanese word is used around the world for a devoted, sometimes obsessive fan of anime and manga?",
-      "ar": "أي كلمة يابانية تنستخدم بالعالم للمعجب المهووس بالأنمي والمانغا؟"
+      "ar": "أي كلمة يابانية تُستخدم حول العالم لوصف المعجب المتفاني، والمهووس أحيانًا، بالأنمي والمانغا؟"
     },
     "answer": {
       "en": "Otaku",
@@ -478,7 +478,7 @@
     "id": "pop-culture-26",
     "question": {
       "en": "Which Algerian singer, known as the 'King of Raï', had a worldwide hit with 'Didi' in 1992?",
-      "ar": "مين المغني الجزائري الملقّب بـ«ملك الراي» اللي اشتهرت أغنيته «ديدي» عالميًا سنة 1992؟"
+      "ar": "مَن المغني الجزائري الملقّب بـ«ملك الراي» الذي حققت أغنيته «ديدي» نجاحًا عالميًا عام 1992؟"
     },
     "answer": {
       "en": "Khaled (Cheb Khaled)",
@@ -497,7 +497,7 @@
     "id": "pop-culture-27",
     "question": {
       "en": "Which animated dancing infant became a widely circulated internet animation in the 1990s?",
-      "ar": "شو اسم الرسمة المتحركة لطفل رضيع يرقص، اللي انتشرت على الإنترنت بالتسعينيات؟"
+      "ar": "ما الشخصية الراقصة على هيئة رضيع التي انتشرت كرسوم متحركة على الإنترنت في التسعينيات؟"
     },
     "answer": {
       "en": "The Dancing Baby",
@@ -516,7 +516,7 @@
     "id": "pop-culture-28",
     "question": {
       "en": "Which Japanese film studio, co-founded by Hayao Miyazaki, produced 'Spirited Away'?",
-      "ar": "شو اسم الاستوديو الياباني اللي أسّسه هاياو ميازاكي مع شركائه وأنتج فيلم «المخطوفة»؟"
+      "ar": "ما هو استوديو الأفلام الياباني، الذي شارك في تأسيسه هاياو ميازاكي، وأنتج فيلم «المخطوفة»؟"
     },
     "answer": {
       "en": "Studio Ghibli",
@@ -535,7 +535,7 @@
     "id": "pop-culture-29",
     "question": {
       "en": "In the NES version of Contra, which famous input sequence can be used to start with 30 lives?",
-      "ar": "في لعبة «كونترا» على جهاز NES، شو اسم سلسلة الأزرار الشهيرة اللي تعطيك ثلاثين روح بالبداية؟"
+      "ar": "في نسخة كونترا على جهاز NES، ما اسم تسلسل الأزرار الشهير الذي يتيح البدء بثلاثين حياة؟"
     },
     "answer": {
       "en": "The Konami Code",
@@ -554,7 +554,7 @@
     "id": "pop-culture-30",
     "question": {
       "en": "Who directed Apple's 1984 Super Bowl television commercial?",
-      "ar": "مين أخرج إعلان أبل «1984» اللي انعرض خلال السوبر بول؟"
+      "ar": "من أخرج إعلان أبل التلفزيوني «1984» الذي عُرض خلال السوبر بول؟"
     },
     "answer": {
       "en": "Ridley Scott",
@@ -573,7 +573,7 @@
     "id": "pop-culture-31",
     "question": {
       "en": "What is the title of the very first video uploaded to YouTube, in April 2005?",
-      "ar": "شو عنوان أول فيديو انرفع على يوتيوب، في أبريل 2005؟"
+      "ar": "ما عنوان أول فيديو رُفع على يوتيوب، في أبريل 2005؟"
     },
     "answer": {
       "en": "Me at the zoo",
@@ -592,7 +592,7 @@
     "id": "pop-culture-32",
     "question": {
       "en": "Which Rick Astley song is used in the internet prank known as Rickrolling?",
-      "ar": "شو أغنية ريك أستلي اللي صارت مقلب الإنترنت المعروف بـ«الريكرول»؟"
+      "ar": "ما أغنية ريك أستلي المستخدمة في مقلب الإنترنت المعروف بالريكرولينغ؟"
     },
     "answer": {
       "en": "Never Gonna Give You Up",
@@ -611,7 +611,7 @@
     "id": "pop-culture-33",
     "question": {
       "en": "Which existing typeface was used as the basis of the original Avatar film logo?",
-      "ar": "أي خط جاهز استخدموه بالأساس لشعار فيلم «أفاتار» الأول؟"
+      "ar": "ما الخط الموجود مسبقاً الذي استُخدم أساساً لشعار فيلم أفاتار الأصلي؟"
     },
     "answer": {
       "en": "Papyrus",
@@ -630,7 +630,7 @@
     "id": "pop-culture-34",
     "question": {
       "en": "What does the internet abbreviation 'FOMO' stand for?",
-      "ar": "شو معنى اختصار «FOMO» المنتشر على الإنترنت؟"
+      "ar": "ما معنى الاختصار «FOMO» المنتشر على الإنترنت؟"
     },
     "answer": {
       "en": "Fear of missing out",
@@ -649,7 +649,7 @@
     "id": "pop-culture-35",
     "question": {
       "en": "Which Emirati animated series, first shown in Ramadan 2006, follows four elderly women living in an old Dubai neighbourhood?",
-      "ar": "شو اسم المسلسل الكرتوني الإماراتي اللي بدأ برمضان 2006، وبطلاته أربع عجايز عايشين بحي قديم في دبي؟"
+      "ar": "ما اسم المسلسل الكرتوني الإماراتي الذي بدأ عرضه في رمضان 2006، وبطلاته أربع عجائز يعشن في حي قديم في دبي؟"
     },
     "answer": {
       "en": "Freej",
@@ -668,7 +668,7 @@
     "id": "pop-culture-36",
     "question": {
       "en": "In the context of the history of the internet, what was the first item ever purchased on eBay (then AuctionWeb)?",
-      "ar": "شو أول غرض انباع على موقع إيباي، لما كان اسمه لسّا AuctionWeb؟"
+      "ar": "في سياق تاريخ الإنترنت، ما هو أول عنصر تم شراؤه على الإطلاق على إيباي (كان يسمى آنذاك AuctionWeb)؟"
     },
     "answer": {
       "en": "A broken laser pointer",
@@ -687,7 +687,7 @@
     "id": "pop-culture-37",
     "question": {
       "en": "What internet aesthetic combines retro-futurism, neon colours and slowed-down 1980s elevator music?",
-      "ar": "شو اسم الطابع الفني على الإنترنت اللي يعتمد على المستقبل بعيون الماضي، وألوان النيون، وموسيقى المصاعد البطيئة من الثمانينيات؟"
+      "ar": "ما اسم الطابع الفني على الإنترنت الذي يجمع بين المستقبلية الرجعية وألوان النيون وموسيقى المصاعد المبطّأة من الثمانينيات؟"
     },
     "answer": {
       "en": "Vaporwave",
@@ -706,7 +706,7 @@
     "id": "pop-culture-38",
     "question": {
       "en": "Which Saudi animated comedy, created by Malik Nejer, began on YouTube in 2011 and later got its own Netflix series?",
-      "ar": "شو اسم المسلسل الكرتوني الكوميدي السعودي اللي ابتكره مالك نجر، وبدأ على يوتيوب سنة 2011 وبعدين صار له مسلسل على نتفليكس؟"
+      "ar": "ما اسم المسلسل الكرتوني الكوميدي السعودي الذي ابتكره مالك نجر، وبدأ على يوتيوب عام 2011 ثم صار له مسلسل على نتفليكس؟"
     },
     "answer": {
       "en": "Masameer",
@@ -725,7 +725,7 @@
     "id": "pop-culture-39",
     "question": {
       "en": "Which singer from Gaza won the second season of 'Arab Idol' in 2013?",
-      "ar": "مين المغني من غزة اللي فاز بالموسم الثاني من «عرب آيدول» سنة 2013؟"
+      "ar": "مَن المغني الغزّي الذي فاز بالموسم الثاني من «عرب آيدول» عام 2013؟"
     },
     "answer": {
       "en": "Mohammed Assaf",
@@ -744,7 +744,7 @@
     "id": "pop-culture-40",
     "question": {
       "en": "What specific event in 2014 involved users coordinating across the internet to play a single emulator of Pokémon Red together?",
-      "ar": "شو اسم التجربة اللي صارت سنة 2014، لما تعاون الناس أونلاين ليلعبوا مع بعض نسخة وحدة من لعبة «بوكيمون ريد»؟"
+      "ar": "ما هو الحدث المحدد في عام 2014 الذي تضمن قيام المستخدمين بالتنسيق عبر الإنترنت للعب محاكي واحد للعبة بوكيمون ريد معاً؟"
     },
     "answer": {
       "en": "Twitch Plays Pokémon",
@@ -782,7 +782,7 @@
     "id": "pop-culture-42",
     "question": {
       "en": "Which city hosts the Esports World Cup, first held in 2024?",
-      "ar": "بأي مدينة تنقام «كأس العالم للرياضات الإلكترونية» اللي انطلقت أول مرة سنة 2024؟"
+      "ar": "في أي مدينة تُقام «كأس العالم للرياضات الإلكترونية» التي انطلقت أول مرة عام 2024؟"
     },
     "answer": {
       "en": "Riyadh",
@@ -820,7 +820,7 @@
     "id": "pop-culture-44",
     "question": {
       "en": "In the Egyptian Ramadan cartoon 'Bakkar', what is the name of Bakkar's pet goat?",
-      "ar": "في الكرتون المصري الرمضاني «بكّار»، شو اسم العنزة اللي يربّيها بكّار؟"
+      "ar": "في الكرتون المصري الرمضاني «بكّار»، ما اسم العنزة التي يربيها بكّار؟"
     },
     "answer": {
       "en": "Rashida",
@@ -839,7 +839,7 @@
     "id": "pop-culture-45",
     "question": {
       "en": "What did the first-ever tweet, posted by Jack Dorsey in 2006, say?",
-      "ar": "شو كانت أول تغريدة بالتاريخ، اللي كتبها جاك دورسي سنة 2006؟"
+      "ar": "ما أول تغريدة في التاريخ، التي كتبها جاك دورسي عام 2006؟"
     },
     "answer": {
       "en": "\"just setting up my twttr\"",

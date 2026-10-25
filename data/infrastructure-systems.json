@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "What is the hard surface material made from bitumen and gravel commonly used to pave roads?",
-      "ar": "شو مادة السطح الصلبة المصنوعة من القار والحصى اللي نرصف فيها الطرق عادةً؟"
+      "ar": "ما مادة السطح الصلبة المصنوعة من القار والحصى والمستخدمة عادةً لرصف الطرق؟"
     },
     "answer": {
       "en": "Asphalt.",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "Which London bridge has two towers and a road deck that lifts to let tall ships pass?",
-      "ar": "أي جسر في لندن له برجين وطريق ينرفع عشان تمر السفن العالية؟"
+      "ar": "أي جسر في لندن له برجان وطريق يرتفع لتمر السفن العالية؟"
     },
     "answer": {
       "en": "Tower Bridge",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "What is the name for a high-speed rail system that uses magnetic levitation instead of wheels on rails?",
-      "ar": "شو اسم نظام القطارات السريعة اللي يستخدم الرفع المغناطيسي بدل العجلات؟"
+      "ar": "ما اسم نظام السكك الحديدية عالي السرعة الذي يستخدم الرفع المغناطيسي بدلًا من العجلات؟"
     },
     "answer": {
       "en": "Maglev (magnetic levitation) train.",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "What physical cables carry the majority of international internet data across oceans?",
-      "ar": "شو الكابلات اللي تحمل أغلب بيانات الإنترنت الدولية عبر المحيطات؟"
+      "ar": "ما الكابلات المادية التي تحمل معظم بيانات الإنترنت الدولية عبر المحيطات؟"
     },
     "answer": {
       "en": "Submarine (undersea) fiber-optic cables.",
@@ -84,7 +84,7 @@
     },
     "question": {
       "en": "What is the name for the large-scale network of high-speed motorways in Germany?",
-      "ar": "شو اسم شبكة الطرق السريعة الكبيرة في ألمانيا؟"
+      "ar": "ما اسم شبكة الطرق السريعة واسعة النطاق في ألمانيا؟"
     },
     "answer": {
       "en": "The Autobahn.",
@@ -103,7 +103,7 @@
     },
     "question": {
       "en": "What process removes salt from seawater to produce drinking water?",
-      "ar": "شو العملية اللي تشيل الملح من مي البحر عشان تصير صالحة للشرب؟"
+      "ar": "ما العملية التي تزيل الملح من مياه البحر لإنتاج مياه الشرب؟"
     },
     "answer": {
       "en": "Desalination.",
@@ -122,7 +122,7 @@
     },
     "question": {
       "en": "What type of bridge uses diagonal cables running from towers directly to the deck, without a main horizontal cable?",
-      "ar": "أي نوع جسر يستخدم كابلات مايلة نازلة من الأبراج للسطح مباشرة، من غير كابل أفقي رئيسي؟"
+      "ar": "ما نوع الجسر الذي يستخدم كابلات قطرية تمتد من الأبراج مباشرةً إلى السطح دون كابل أفقي رئيسي؟"
     },
     "answer": {
       "en": "A cable-stayed bridge.",
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "What does load shedding mean in an electrical power grid?",
-      "ar": "في شبكة الكهربا، شو يعني «تخفيف الأحمال»؟"
+      "ar": "ماذا يعني فصل الأحمال في شبكة القدرة الكهربائية؟"
     },
     "answer": {
       "en": "Temporarily reducing or disconnecting demand to keep supply and demand balanced and prevent grid collapse.",
@@ -160,7 +160,7 @@
     },
     "question": {
       "en": "On the Panama Canal, ships are lifted about 26 m up to Gatun Lake and lowered again. What structures do this?",
-      "ar": "في قناة بنما، السفن ترتفع حوالي 26 متر لحد بحيرة غاتون وبعدين تنزل. شو المنشآت اللي تسوي هالشي؟"
+      "ar": "في قناة بنما، ترتفع السفن نحو 26 مترًا حتى بحيرة غاتون ثم تنخفض. ما المنشآت التي تقوم بذلك؟"
     },
     "answer": {
       "en": "Canal locks.",
@@ -179,7 +179,7 @@
     },
     "question": {
       "en": "Which 50-km rail tunnel under the sea, opened in 1994, links England and France?",
-      "ar": "أي نفق قطارات تحت البحر طوله 50 كم، افتُتح سنة 1994، يربط إنجلترا بفرنسا؟"
+      "ar": "أي نفق للقطارات تحت البحر طوله 50 كم، افتُتح عام 1994، يربط إنجلترا بفرنسا؟"
     },
     "answer": {
       "en": "The Channel Tunnel.",
@@ -198,7 +198,7 @@
     },
     "question": {
       "en": "How far apart are the rails on standard-gauge track, used by most of the world's railways?",
-      "ar": "كم المسافة بين قضبان السكة بالمقاس القياسي، اللي تستخدمه أغلب سكك الحديد بالعالم؟"
+      "ar": "كم تبلغ المسافة بين قضبان السكة في المقاس القياسي الذي تستخدمه معظم سكك الحديد في العالم؟"
     },
     "answer": {
       "en": "1,435 mm (4 ft 8½ in).",
@@ -217,7 +217,7 @@
     },
     "question": {
       "en": "Which self-excited aerodynamic instability was central to the 1940 Tacoma Narrows Bridge collapse?",
-      "ar": "شو عدم الاستقرار الهوائي اللي يثير نفسه بنفسه، واللي كان سبب أساسي بانهيار جسر تاكوما ناروز سنة 1940؟"
+      "ar": "ما عدم الاستقرار الديناميكي الهوائي ذاتي الإثارة الذي كان محورياً في انهيار جسر تاكوما ناروز عام 1940؟"
     },
     "answer": {
       "en": "Aeroelastic flutter: wind-driven twisting that fed on itself (not simple resonance).",
@@ -236,7 +236,7 @@
     },
     "question": {
       "en": "What is the difference between potable water and grey water?",
-      "ar": "شو الفرق بين المي الصالحة للشرب والمي الرمادية؟"
+      "ar": "ما الفرق بين المياه الصالحة للشرب والمياه الرمادية؟"
     },
     "answer": {
       "en": "Potable is drinkable; grey is used sink and shower water, reusable for irrigation.",
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "Why is electricity transmitted at very high voltages over long distances?",
-      "ar": "ليش الكهربا تنتقل بجهد عالي كثير للمسافات الطويلة؟"
+      "ar": "لماذا تُنقل الكهرباء بجهود عالية جدًا عبر مسافات طويلة؟"
     },
     "answer": {
       "en": "Higher voltage means less current for the same power, so less heat loss.",
@@ -274,7 +274,7 @@
     },
     "question": {
       "en": "What is a pile foundation and when is it used?",
-      "ar": "شو هو «أساس الخوازيق»، ومتى نستخدمه؟"
+      "ar": "ما أساس الخازوق ومتى يُستخدم؟"
     },
     "answer": {
       "en": "Long columns driven deep into the ground where the surface soil is too weak.",
@@ -293,7 +293,7 @@
     },
     "question": {
       "en": "What is a combined sewer overflow, and why can it pollute receiving waters?",
-      "ar": "شو هو «فيضان الصرف المشترك»، وليش ممكن يلوّث المي اللي يصب فيها؟"
+      "ar": "ما تصريف الفائض من شبكة الصرف المشتركة، ولماذا قد يلوث المياه المستقبلة؟"
     },
     "answer": {
       "en": "In heavy rain, combined sewers overflow, spilling untreated sewage into rivers or the sea.",
@@ -312,7 +312,7 @@
     },
     "question": {
       "en": "What is the water hammer effect in pipelines?",
-      "ar": "في خطوط الأنابيب، شو هو تأثير «المطرقة المائية»؟"
+      "ar": "ما تأثير المطرقة المائية في خطوط الأنابيب؟"
     },
     "answer": {
       "en": "A pressure surge, often with a bang, when flowing water is stopped suddenly.",
@@ -331,7 +331,7 @@
     },
     "question": {
       "en": "What is a breakwater in harbor engineering?",
-      "ar": "في هندسة الموانئ، شو هو «حاجز الأمواج»؟"
+      "ar": "ما حاجز الأمواج في هندسة الموانئ؟"
     },
     "answer": {
       "en": "A sea barrier that breaks the waves and shelters the harbour.",
@@ -350,7 +350,7 @@
     },
     "question": {
       "en": "What is the purpose of expansion joints in concrete bridges and roads?",
-      "ar": "شو فايدة «فواصل التمدد» بالجسور والطرق الخرسانية؟"
+      "ar": "ما الغرض من وصلات التمدد في الجسور والطرق الخرسانية؟"
     },
     "answer": {
       "en": "Gaps that let the concrete expand in heat and shrink in cold without cracking.",
@@ -388,7 +388,7 @@
     },
     "question": {
       "en": "What is the difference between a metro (subway) and a light rail system?",
-      "ar": "شو الفرق بين المترو ونظام القطار الخفيف؟"
+      "ar": "ما الفرق بين المترو (الأنفاق) ونظام القطار الخفيف؟"
     },
     "answer": {
       "en": "Metro: its own separate tracks and more passengers. Light rail: can run along streets.",
@@ -407,7 +407,7 @@
     },
     "question": {
       "en": "What guidance does an Instrument Landing System (ILS) provide to an approaching aircraft?",
-      "ar": "شو التوجيه اللي يعطيه نظام الهبوط بالأجهزة (ILS) للطيارة وهي تقرّب من المدرج؟"
+      "ar": "ما التوجيه الذي يوفره نظام الهبوط بالأجهزة ILS لطائرة تقترب من المدرج؟"
     },
     "answer": {
       "en": "Radio beams that guide the plane sideways (localizer) and down the approach slope (glideslope).",
@@ -426,7 +426,7 @@
     },
     "question": {
       "en": "What is the California Bearing Ratio (CBR) test used for in road construction?",
-      "ar": "شو هو اختبار «نسبة تحمّل كاليفورنيا» (CBR) المستخدم بإنشاء الطرق؟"
+      "ar": "ما اختبار نسبة تحمّل كاليفورنيا (CBR) المستخدم في إنشاء الطرق؟"
     },
     "answer": {
       "en": "Testing the strength of the soil under a road against standard crushed rock.",
@@ -445,7 +445,7 @@
     },
     "question": {
       "en": "What is a cascading failure in an electrical grid?",
-      "ar": "شو هو «الانهيار المتسلسل» في شبكة الكهربا؟"
+      "ar": "ما الفشل المتسلسل في الشبكة الكهربائية؟"
     },
     "answer": {
       "en": "An initial outage changes power flows and can overload or trip other elements, whose loss triggers further outages.",
@@ -464,7 +464,7 @@
     },
     "question": {
       "en": "What is induced demand in transportation planning?",
-      "ar": "في تخطيط النقل، شو هو «الطلب المُستحدَث»؟"
+      "ar": "ما الطلب المُحدَث في تخطيط النقل؟"
     },
     "answer": {
       "en": "New road capacity attracts extra traffic, so congestion often returns.",
@@ -483,7 +483,7 @@
     },
     "question": {
       "en": "What is non-revenue water (NRW) and why does it matter for utilities?",
-      "ar": "شو هي «المي غير المدرّة للإيراد» (NRW)، وليش تهم شركات المرافق؟"
+      "ar": "ما المياه غير المدرّة للإيراد (NRW) ولماذا تهم شركات المرافق؟"
     },
     "answer": {
       "en": "Water that's produced but never billed, lost to leaks, meter errors or theft.",
@@ -502,7 +502,7 @@
     },
     "question": {
       "en": "What is structural health monitoring (SHM) and how is it applied to bridges?",
-      "ar": "شو هي «مراقبة صحة الهياكل» (SHM)، وكيف تنطبّق على الجسور؟"
+      "ar": "ما مراقبة الصحة الهيكلية (SHM) وكيف تُطبَّق على الجسور؟"
     },
     "answer": {
       "en": "Sensors that track a structure's strain, vibration and corrosion to catch problems early.",
@@ -521,7 +521,7 @@
     },
     "question": {
       "en": "What are pumped-storage hydropower plants and why are they valuable to power grids?",
-      "ar": "شو هي محطات «التخزين بالضخ» الكهرومائية، وليش مهمة لشبكات الكهربا؟"
+      "ar": "ما محطات الطاقة الكهرومائية بالضخ التخزيني ولماذا هي قيّمة لشبكات الطاقة؟"
     },
     "answer": {
       "en": "Pumping water uphill with spare power, then releasing it through turbines at peak times.",
@@ -540,7 +540,7 @@
     },
     "question": {
       "en": "Why are many big desalination plants in the Gulf built right next to power stations?",
-      "ar": "ليش محطات تحلية كبيرة كثير بالخليج تنبني لزق محطات الكهربا؟"
+      "ar": "لماذا تُبنى محطات تحلية كبيرة كثيرة في الخليج ملاصقة لمحطات الكهرباء؟"
     },
     "answer": {
       "en": "They reuse the power plant's waste heat to heat seawater for distillation, saving energy.",
@@ -559,7 +559,7 @@
     },
     "question": {
       "en": "What moves the water through Oman's ancient aflaj irrigation channels, a UNESCO World Heritage site?",
-      "ar": "شو اللي يحرّك المي في قنوات الأفلاج القديمة بعُمان، المسجّلة بالتراث العالمي لليونسكو؟"
+      "ar": "ما الذي يحرّك الماء في قنوات الأفلاج القديمة في عُمان، المدرجة في قائمة التراث العالمي لليونسكو؟"
     },
     "answer": {
       "en": "Gravity alone: the channels slope gently downhill from springs or groundwater.",
@@ -578,7 +578,7 @@
     },
     "question": {
       "en": "What type of bridge is the Golden Gate Bridge?",
-      "ar": "شو نوع جسر البوابة الذهبية؟"
+      "ar": "ما نوع جسر البوابة الذهبية؟"
     },
     "answer": {
       "en": "Suspension Bridge",
@@ -597,7 +597,7 @@
     },
     "question": {
       "en": "What are the three basic ingredients in concrete?",
-      "ar": "شو المكوّنات الأساسية الثلاثة للخرسانة؟"
+      "ar": "ما المكونات الثلاثة الأساسية للخرسانة؟"
     },
     "answer": {
       "en": "Water, aggregate, and cement",
@@ -616,7 +616,7 @@
     },
     "question": {
       "en": "In reinforced concrete, what metal are the reinforcing bars (rebar) that carry tension usually made of?",
-      "ar": "في الخرسانة المسلحة، من أي مادة تكون عادةً قضبان التسليح اللي تتحمّل الشدّ؟"
+      "ar": "في الخرسانة المسلحة، من أي معدن تُصنع عادةً قضبان التسليح التي تتحمّل الشد؟"
     },
     "answer": {
       "en": "Steel.",
@@ -654,7 +654,7 @@
     },
     "question": {
       "en": "Why is an arch a strong shape for a bridge?",
-      "ar": "ليش القوس شكل قوي للجسور؟"
+      "ar": "لماذا يعدّ القوس شكلاً قوياً للجسور؟"
     },
     "answer": {
       "en": "It turns the load into compression, which stone and concrete resist well.",
@@ -673,7 +673,7 @@
     },
     "question": {
       "en": "What is the structure that channels water beneath a road called?",
-      "ar": "شو اسم المنشأة اللي تمرّر المي من تحت الطريق؟"
+      "ar": "ماذا تُسمّى المنشأة التي تمرّر المياه من تحت الطريق؟"
     },
     "answer": {
       "en": "A culvert",
@@ -692,7 +692,7 @@
     },
     "question": {
       "en": "What do you call a machine used to excavate tunnels through soil and rock?",
-      "ar": "شو اسم الآلة اللي تحفر الأنفاق في التربة والصخر؟"
+      "ar": "ما اسم الآلة المستخدمة لحفر الأنفاق عبر التربة والصخر؟"
     },
     "answer": {
       "en": "TBM - Tunnel Boring Machine",
@@ -730,7 +730,7 @@
     },
     "question": {
       "en": "What is the term for when soil loses strength and behaves like a liquid during an earthquake?",
-      "ar": "شو نسمّي لما التربة تفقد صلابتها وتتصرف مثل السائل وقت الزلزال؟"
+      "ar": "ما مصطلح فقدان التربة لمتانتها وتصرفها كسائل أثناء الزلزال؟"
     },
     "answer": {
       "en": "Liquefaction",
@@ -749,7 +749,7 @@
     },
     "question": {
       "en": "What do you call a beam supported at only one end?",
-      "ar": "شو نسمّي الكمرة اللي مسنودة من طرف واحد بس؟"
+      "ar": "ماذا تُسمّى الكمرة المدعومة من طرف واحد فقط؟"
     },
     "answer": {
       "en": "Cantilever",
@@ -768,7 +768,7 @@
     },
     "question": {
       "en": "Why does the Leaning Tower of Pisa lean?",
-      "ar": "ليش برج بيزا مايل؟"
+      "ar": "لماذا يميل برج بيزا؟"
     },
     "answer": {
       "en": "Its shallow foundation sits on soft ground that sank more on one side.",
@@ -787,7 +787,7 @@
     },
     "question": {
       "en": "What geometric shape is the fundamental building block of a truss?",
-      "ar": "شو الشكل الهندسي الأساسي اللي ينبني منه الجمالون؟"
+      "ar": "ما الشكل الهندسي الأساسي لبناء الجمالون (الترس)؟"
     },
     "answer": {
       "en": "Triangle",
@@ -806,7 +806,7 @@
     },
     "question": {
       "en": "What is the job of the 660-tonne steel ball hanging inside the Taipei 101 skyscraper?",
-      "ar": "شو شغلة الكرة الفولاذية اللي وزنها 660 طن ومعلّقة جوّا ناطحة سحاب تايبيه 101؟"
+      "ar": "ما وظيفة الكرة الفولاذية التي تزن 660 طنًا والمعلقة داخل ناطحة السحاب تايبيه 101؟"
     },
     "answer": {
       "en": "It's a tuned mass damper that counters the tower's sway in wind and earthquakes.",
@@ -825,7 +825,7 @@
     },
     "question": {
       "en": "What geometric cross-section property I appears in the flexural rigidity EI of a beam?",
-      "ar": "شو الخاصية الهندسية للمقطع، اللي رمزها I، وتظهر في جساءة الانحناء EI للكمرة؟"
+      "ar": "ما الخاصية الهندسية للمقطع، التي يرمز إليها بالحرف I، وتظهر في جساءة الانحناء EI للكمرة؟"
     },
     "answer": {
       "en": "The second moment of area about the bending axis. It describes how the cross-section's area is distributed around that axis.",
@@ -844,7 +844,7 @@
     },
     "question": {
       "en": "What is the purpose of 'pre-tensioning' concrete?",
-      "ar": "شو الفايدة من الشدّ المسبق في الخرسانة؟"
+      "ar": "ما الغرض من الشد المسبق في الخرسانة؟"
     },
     "answer": {
       "en": "To introduce compressive stress to counteract tensile stress from loads",
@@ -863,7 +863,7 @@
     },
     "question": {
       "en": "By Bernoulli's principle, what happens to water's pressure when it speeds up through a narrower section of pipe?",
-      "ar": "حسب مبدأ برنولي، شو يصير لضغط المي لما تسرع وهي ماشية بجزء أضيق من الأنبوب؟"
+      "ar": "بحسب مبدأ برنولي، ماذا يحدث لضغط الماء حين تزداد سرعته وهو يمر في جزء أضيق من الأنبوب؟"
     },
     "answer": {
       "en": "It drops.",
@@ -882,7 +882,7 @@
     },
     "question": {
       "en": "Under a stationary annual flood model, what does a 100-year return period mean?",
-      "ar": "لو افترضنا خصائص الفيضانات ثابتة كل سنة، شو معنى «فترة عودة 100 سنة»؟"
+      "ar": "وفق نموذج سنوي ثابت الخصائص للفيضانات، ماذا تعني فترة عودة 100 سنة؟"
     },
     "answer": {
       "en": "A 1% chance of exceeding that flood magnitude in any given year. It does not mean floods occur exactly 100 years apart.",
@@ -901,7 +901,7 @@
     },
     "question": {
       "en": "Which natural ingredient helps explain why ancient Roman concrete has lasted 2,000 years, even in seawater?",
-      "ar": "أي مكوّن طبيعي يفسّر ليش الخرسانة الرومانية القديمة عاشت 2000 سنة، حتى بمي البحر؟"
+      "ar": "أي مكوّن طبيعي يفسر صمود الخرسانة الرومانية القديمة 2000 عام، حتى في ماء البحر؟"
     },
     "answer": {
       "en": "Volcanic ash (pozzolana) mixed with lime.",
@@ -920,7 +920,7 @@
     },
     "question": {
       "en": "What is the purpose of a 'roundabout' from a traffic engineering perspective?",
-      "ar": "من ناحية هندسة المرور، شو الهدف من الدوّار؟"
+      "ar": "ما الغرض من الدوار من منظور هندسة المرور؟"
     },
     "answer": {
       "en": "Reduce conflict points and improve traffic flow at intersections",
@@ -939,7 +939,7 @@
     },
     "question": {
       "en": "Dubai's palm-shaped island, Palm Jumeirah, was built with sand taken from where: the desert or the seabed?",
-      "ar": "جزيرة نخلة جميرا في دبي، اللي على شكل نخلة، انبنت برمل جابوه من وين: من الصحرا ولا من قاع البحر؟"
+      "ar": "من أين جُلب الرمل الذي بُنيت به جزيرة نخلة جميرا في دبي، ذات الشكل النخلي: من الصحراء أم من قاع البحر؟"
     },
     "answer": {
       "en": "The seabed.",
@@ -977,7 +977,7 @@
     },
     "question": {
       "en": "While building Burj Khalifa, why did crews pour concrete at night and add ice to the mix?",
-      "ar": "وقت بناء برج خليفة، ليش العمّال كانوا يصبّون الخرسانة بالليل ويحطون ثلج بالخلطة؟"
+      "ar": "في أثناء بناء برج خليفة، لماذا كان العمال يصبّون الخرسانة ليلًا ويضيفون الثلج إلى الخلطة؟"
     },
     "answer": {
       "en": "So the desert heat wouldn't make the concrete set too fast.",
@@ -1034,7 +1034,7 @@
     },
     "question": {
       "en": "Which French diplomat led the company that built the Suez Canal, opened in 1869?",
-      "ar": "أي دبلوماسي فرنسي قاد الشركة اللي حفرت قناة السويس، اللي انفتحت سنة 1869؟"
+      "ar": "أي دبلوماسي فرنسي قاد الشركة التي حفرت قناة السويس، التي افتُتحت عام 1869؟"
     },
     "answer": {
       "en": "Ferdinand de Lesseps.",
@@ -1053,7 +1053,7 @@
     },
     "question": {
       "en": "Libya's 'Great Man-Made River' pipes water thousands of kilometres to its coastal cities. Where does the water come from?",
-      "ar": "«النهر الصناعي العظيم» في ليبيا يوصّل المي بأنابيب آلاف الكيلومترات للمدن الساحلية. من وين تجي هالمي؟"
+      "ar": "ينقل «النهر الصناعي العظيم» في ليبيا الماء بالأنابيب آلاف الكيلومترات إلى المدن الساحلية. من أين يأتي هذا الماء؟"
     },
     "answer": {
       "en": "Ancient groundwater pumped from aquifers deep under the Sahara.",

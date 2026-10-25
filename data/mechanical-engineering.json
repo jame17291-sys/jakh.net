@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "Archimedes boasted that with a long enough lever and a place to stand he could move the Earth. What is the point a lever pivots on called?",
-      "ar": "أرخميدس قال إنه لو عنده رافعة طويلة كفاية ومكان يوقف فيه، بيحرّك الأرض. شو اسم النقطة اللي تدور عليها الرافعة؟"
+      "ar": "قال أرخميدس إنه لو كانت لديه رافعة طويلة بما يكفي ومكان يقف فيه لحرّك الأرض. ما اسم النقطة التي تدور عليها الرافعة؟"
     },
     "answer": {
       "en": "The fulcrum.",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "What is the SI unit for force?",
-      "ar": "شو وحدة القوة في النظام الدولي؟"
+      "ar": "ما وحدة القياس الدولية للقوة؟"
     },
     "answer": {
       "en": "Newton (N)",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "A ramp is an example of which simple machine?",
-      "ar": "المنحدر (الرامب) مثال على أي آلة بسيطة؟"
+      "ar": "الرامب (المنحدر) مثال على أي آلة بسيطة؟"
     },
     "answer": {
       "en": "Inclined plane",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "If a large gear drives a smaller gear, does the smaller gear spin faster or slower?",
-      "ar": "إذا ترس كبير دوّر ترس أصغر منه، الصغير بيدور أسرع ولا أبطأ؟"
+      "ar": "إذا قادت تروس كبيرة تروساً أصغر، هل تدور الأصغر بسرعة أكبر أم أقل؟"
     },
     "answer": {
       "en": "Faster",
@@ -84,7 +84,7 @@
     },
     "question": {
       "en": "Which tool is specifically designed to tighten or loosen bolts?",
-      "ar": "شو الأداة المصمّمة بالذات لشدّ البراغي أو فكّها؟"
+      "ar": "ما الأداة المصممة خصيصاً لشدّ البراغي أو إرخائها؟"
     },
     "answer": {
       "en": "Wrench / Spanner",
@@ -103,7 +103,7 @@
     },
     "question": {
       "en": "An axe head and a doorstop are both examples of which simple machine?",
-      "ar": "رأس الفأس وقطعة الخشب اللي نحطها تحت الباب عشان يظل مفتوح، مثالين على أي آلة بسيطة؟"
+      "ar": "رأس الفأس وقطعة الخشب التي توضع تحت الباب ليبقى مفتوحًا مثالان على أي آلة بسيطة؟"
     },
     "answer": {
       "en": "The wedge.",
@@ -122,7 +122,7 @@
     },
     "question": {
       "en": "Is steel an alloy or a pure element?",
-      "ar": "الفولاذ سبيكة ولا عنصر نقي؟"
+      "ar": "هل الفولاذ سبيكة أم عنصر خالص؟"
     },
     "answer": {
       "en": "Alloy (iron and carbon)",
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "What tool measures the thickness of an object with high precision?",
-      "ar": "شو الأداة اللي تقيس سماكة الشي بدقة عالية؟"
+      "ar": "ما الأداة التي تقيس سماكة الجسم بدقة عالية؟"
     },
     "answer": {
       "en": "Caliper or Micrometer",
@@ -160,7 +160,7 @@
     },
     "question": {
       "en": "What substance is added to machines to reduce friction between moving parts?",
-      "ar": "شو المادة اللي نحطها بالآلات عشان نقلّل الاحتكاك بين القطع المتحركة؟"
+      "ar": "ما المادة التي تُضاف للآلات لتقليل الاحتكاك بين الأجزاء المتحركة؟"
     },
     "answer": {
       "en": "Lubricant / Oil",
@@ -179,7 +179,7 @@
     },
     "question": {
       "en": "Why does a sharp knife cut more easily than a blunt one, with the same push?",
-      "ar": "ليش السكين الحادة تقطع أسهل من الثلمة، بنفس قوة الضغط؟"
+      "ar": "لماذا تقطع السكين الحادة بسهولة أكبر من السكين الكليلة، بقوة الضغط نفسها؟"
     },
     "answer": {
       "en": "The force acts on a tiny area, so the pressure is much higher.",
@@ -198,7 +198,7 @@
     },
     "question": {
       "en": "Which ideal thermodynamic cycle models a spark-ignition gasoline engine?",
-      "ar": "شو الدورة الحرارية المثالية اللي تمثّل محرك البنزين اللي يشتغل بالشرارة؟"
+      "ar": "ما الدورة الديناميكية الحرارية المثالية التي تمثل محرك بنزين يعمل بالإشعال بالشرارة؟"
     },
     "answer": {
       "en": "The Otto Cycle",
@@ -217,7 +217,7 @@
     },
     "question": {
       "en": "What is the ratio of change in length to the original length of a material?",
-      "ar": "شو نسمّي نسبة التغيّر في الطول للطول الأصلي في المادة؟"
+      "ar": "ما نسبة التغير في الطول إلى الطول الأصلي للمادة؟"
     },
     "answer": {
       "en": "Strain",
@@ -236,7 +236,7 @@
     },
     "question": {
       "en": "What do we call a machine that would run forever with no energy input, something the laws of thermodynamics rule out?",
-      "ar": "شو نسمّي الآلة اللي تشتغل للأبد من غير أي مصدر طاقة، وهي شي تمنعه قوانين الديناميكا الحرارية؟"
+      "ar": "ماذا نسمّي الآلة التي تعمل إلى الأبد من دون أي مصدر للطاقة، وهو أمر تمنعه قوانين الديناميكا الحرارية؟"
     },
     "answer": {
       "en": "A perpetual motion machine.",
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "A 20-tooth driving gear meshes with a 60-tooth driven gear. What is the driving-speed to driven-speed ratio?",
-      "ar": "ترس قائد فيه 20 سن معشّق مع ترس مقاد فيه 60 سن. كم نسبة سرعة القائد لسرعة المقاد؟"
+      "ar": "يتعشق ترس قائد ذو 20 سنًّا مع ترس مقاد ذي 60 سنًّا. ما نسبة سرعة القائد إلى سرعة المقاد؟"
     },
     "answer": {
       "en": "3:1. The driven gear rotates at one-third the driving gear's speed.",
@@ -274,7 +274,7 @@
     },
     "question": {
       "en": "Pascal's Law states that pressure applied to a confined fluid is transmitted how?",
-      "ar": "حسب قانون باسكال، كيف ينتقل الضغط اللي ننطبّقه على سائل محصور؟"
+      "ar": "ينص قانون باسكال على أن الضغط المُطبَّق على سائل محصور ينتقل كيف؟"
     },
     "answer": {
       "en": "Undiminished in all directions",
@@ -293,7 +293,7 @@
     },
     "question": {
       "en": "What is the term for a material's ability to be stretched into a wire without breaking?",
-      "ar": "شو نسمّي قدرة المادة إنها تنسحب لسلك من غير ما تنكسر؟"
+      "ar": "ما المصطلح الذي يصف قدرة المادة على السحب إلى سلك دون كسر؟"
     },
     "answer": {
       "en": "Ductility",
@@ -312,7 +312,7 @@
     },
     "question": {
       "en": "Why is a door easiest to push open at the handle side, far from the hinges?",
-      "ar": "ليش أسهل تفتح الباب لما تدفّه من جهة المقبض، بعيد عن المفصلات؟"
+      "ar": "لماذا يكون فتح الباب أسهل حين تدفعه من جهة المقبض، بعيدًا عن المفصلات؟"
     },
     "answer": {
       "en": "A longer lever arm gives more torque for the same force.",
@@ -331,7 +331,7 @@
     },
     "question": {
       "en": "Why do car radiators have many thin metal fins?",
-      "ar": "ليش مشعاع السيارة (الرادياتير) فيه زعانف معدنية رقيقة كثيرة؟"
+      "ar": "لماذا يحتوي مشعاع السيارة (الرادياتير) على زعانف معدنية رقيقة كثيرة؟"
     },
     "answer": {
       "en": "To increase the surface area, so heat passes into the air faster",
@@ -350,7 +350,7 @@
     },
     "question": {
       "en": "James Watt fitted steam engines with two spinning balls that swung outward to cut the steam as speed rose. What is this device?",
-      "ar": "جيمس وات ركّب على المحركات البخارية كرتين تدوران وتنفرجان لبرّا كل ما زادت السرعة، فتخفف البخار. شو اسم هالجهاز؟"
+      "ar": "ركّب جيمس وات على المحركات البخارية كرتين تدوران وتنفرجان إلى الخارج كلما زادت السرعة، فتقلّلان البخار. ما اسم هذا الجهاز؟"
     },
     "answer": {
       "en": "A centrifugal (flyball) governor.",
@@ -369,7 +369,7 @@
     },
     "question": {
       "en": "What is the term for weakening of a material caused by repeatedly applied loads?",
-      "ar": "شو نسمّي ضعف المادة اللي يصير بسبب الأحمال المتكررة؟"
+      "ar": "ما مصطلح ضعف المادة الناتج عن الأحمال المتكررة؟"
     },
     "answer": {
       "en": "Fatigue",
@@ -388,7 +388,7 @@
     },
     "question": {
       "en": "What dimensionless number predicts if a fluid flow is laminar or turbulent?",
-      "ar": "شو الرقم اللي بدون وحدة ويتنبأ إذا الجريان طبقي ولا مضطرب؟"
+      "ar": "ما الرقم عديم الأبعاد الذي يتنبأ بما إذا كان التدفق طبقياً أم مضطرباً؟"
     },
     "answer": {
       "en": "Reynolds Number",
@@ -407,7 +407,7 @@
     },
     "question": {
       "en": "What is the theoretical maximum efficiency of a heat engine called?",
-      "ar": "شو اسم أقصى كفاءة نظرية للمحرك الحراري؟"
+      "ar": "ما الاسم المعطى لأقصى كفاءة نظرية لمحرك حراري؟"
     },
     "answer": {
       "en": "Carnot Efficiency",
@@ -426,7 +426,7 @@
     },
     "question": {
       "en": "What is the ratio of shear stress to shear strain?",
-      "ar": "شو نسمّي نسبة إجهاد القص لانفعال القص؟"
+      "ar": "ما نسبة إجهاد القص إلى انفعال القص؟"
     },
     "answer": {
       "en": "Shear Modulus (Modulus of Rigidity)",
@@ -445,7 +445,7 @@
     },
     "question": {
       "en": "What is a four-bar linkage?",
-      "ar": "شو هي آلية الوصلات الأربع؟"
+      "ar": "ما آلية الوصلات الأربع؟"
     },
     "answer": {
       "en": "Four rigid links connected in a closed loop by four joints, usually with one link fixed as the frame.",
@@ -464,7 +464,7 @@
     },
     "question": {
       "en": "What chart is used to study the properties of moist air?",
-      "ar": "شو الرسم البياني اللي ندرس فيه خصائص الهوا الرطب؟"
+      "ar": "ما الرسم البياني المستخدم لدراسة خصائص الهواء الرطب؟"
     },
     "answer": {
       "en": "Psychrometric Chart",
@@ -483,7 +483,7 @@
     },
     "question": {
       "en": "What component in an engine converts reciprocating motion into rotational motion?",
-      "ar": "شو القطعة في المحرك اللي تحوّل الحركة الترددية (رايح جاي) لحركة دورانية؟"
+      "ar": "ما المكوّن في المحرك الذي يحوّل الحركة الترددية إلى دورانية؟"
     },
     "answer": {
       "en": "Crankshaft",
@@ -502,7 +502,7 @@
     },
     "question": {
       "en": "What phenomenon can produce a large vibration response when periodic forcing is near a system's natural frequency?",
-      "ar": "شو الظاهرة اللي ممكن تسبب اهتزاز كبير لما تردد قوة متكررة يقرب من التردد الطبيعي للنظام؟"
+      "ar": "ما الظاهرة التي قد تنتج استجابة اهتزازية كبيرة عندما يقترب تردد قوة دورية من التردد الطبيعي للنظام؟"
     },
     "answer": {
       "en": "Resonance",
@@ -521,7 +521,7 @@
     },
     "question": {
       "en": "The Rankine cycle models the performance of what type of power plant?",
-      "ar": "دورة رانكين تمثّل أداء أي نوع من محطات الطاقة؟"
+      "ar": "دورة رانكين تُنمذج أداء أي نوع من محطات الطاقة؟"
     },
     "answer": {
       "en": "Steam Power Plant",
@@ -540,7 +540,7 @@
     },
     "question": {
       "en": "Which indentation-hardness test uses a square-based diamond pyramid indenter?",
-      "ar": "شو اختبار الصلادة بالانبعاج اللي يستخدم رأس ألماس هرمي قاعدته مربعة؟"
+      "ar": "ما اختبار صلادة الانبعاج الذي يستخدم مخترقاً ألماسياً هرمياً ذا قاعدة مربعة؟"
     },
     "answer": {
       "en": "The Vickers hardness test.",
@@ -559,7 +559,7 @@
     },
     "question": {
       "en": "What is the method of joints used for in truss analysis?",
-      "ar": "ليش نستخدم «طريقة المفاصل» في تحليل الجمالونات؟"
+      "ar": "لماذا تُستخدم طريقة المفاصل في تحليل الجمالونات؟"
     },
     "answer": {
       "en": "To find the internal forces in the members of a truss",
@@ -578,7 +578,7 @@
     },
     "question": {
       "en": "Why do airliner windows have rounded corners instead of square ones?",
-      "ar": "ليش شبابيك الطيارات زواياها مدوّرة مو مربعة؟"
+      "ar": "لماذا تكون زوايا نوافذ الطائرات مستديرة لا مربعة؟"
     },
     "answer": {
       "en": "Sharp corners concentrate stress and can start fatigue cracks.",
@@ -597,7 +597,7 @@
     },
     "question": {
       "en": "Why do golf balls have dimples?",
-      "ar": "ليش كرة الغولف سطحها فيه نقر صغيرة؟"
+      "ar": "لماذا يحتوي سطح كرة الغولف على نُقَر صغيرة؟"
     },
     "answer": {
       "en": "They cut air drag, so the ball flies farther.",
@@ -616,7 +616,7 @@
     },
     "question": {
       "en": "What are the giant wooden wheels on the Orontes River in Hama, Syria, that lift river water using only the current?",
-      "ar": "شو اسم الدواليب الخشبية العملاقة على نهر العاصي في حماة بسوريا، اللي ترفع مي النهر بقوة التيار بس؟"
+      "ar": "ما اسم الدواليب الخشبية العملاقة على نهر العاصي في حماة بسوريا، التي ترفع ماء النهر بقوة التيار وحدها؟"
     },
     "answer": {
       "en": "Norias (water wheels).",
@@ -635,7 +635,7 @@
     },
     "question": {
       "en": "In a mechanical clock, which mechanism lets the gears advance in small, regular steps, making the 'tick'?",
-      "ar": "في الساعة الميكانيكية، أي آلية تخلّي التروس تتقدّم بخطوات صغيرة منتظمة، وهي اللي تطلّع صوت «التك»؟"
+      "ar": "في الساعة الميكانيكية، أي آلية تجعل التروس تتقدم بخطوات صغيرة منتظمة، وهي التي تُصدر صوت «التك»؟"
     },
     "answer": {
       "en": "The escapement.",
@@ -654,7 +654,7 @@
     },
     "question": {
       "en": "What eats tiny pits into fast ship propellers when low pressure forms vapour bubbles that then collapse violently?",
-      "ar": "شو الظاهرة اللي تحفر نقر صغيرة بمراوح السفن السريعة، لما الضغط المنخفض يكوّن فقاعات بخار تنفجر بعنف؟"
+      "ar": "ما الظاهرة التي تحفر نُقَرًا صغيرة في مراوح السفن السريعة، حين يكوّن الضغط المنخفض فقاعات بخار تنفجر بعنف؟"
     },
     "answer": {
       "en": "Cavitation.",
@@ -692,7 +692,7 @@
     },
     "question": {
       "en": "What is the slow, permanent stretching of a material under a constant load, a big worry for red-hot jet turbine blades?",
-      "ar": "شو اسم التمدد البطيء والدائم للمادة تحت حمل ثابت، اللي يقلق المهندسين كثير بشفرات توربينات الطيارات الحامية؟"
+      "ar": "ما اسم التمدد البطيء والدائم للمادة تحت حمل ثابت، الذي يقلق المهندسين كثيرًا في شفرات توربينات الطائرات الساخنة؟"
     },
     "answer": {
       "en": "Creep.",
@@ -730,7 +730,7 @@
     },
     "question": {
       "en": "In a modern airliner's turbofan engine, where does most of the thrust come from?",
-      "ar": "في محرك التوربوفان بالطيارات الحديثة، من وين تجي أغلب قوة الدفع؟"
+      "ar": "في محرك التوربوفان في الطائرات الحديثة، من أين يأتي معظم قوة الدفع؟"
     },
     "answer": {
       "en": "The big front fan, pushing 'bypass' air around the engine's core.",
@@ -749,7 +749,7 @@
     },
     "question": {
       "en": "Whose 1712 'atmospheric' steam engine pumped water out of mines, decades before James Watt's improvements?",
-      "ar": "مين صاحب المحرك البخاري «الجوي» سنة 1712 اللي كان يضخ المي من المناجم، قبل تحسينات جيمس وات بعشرات السنين؟"
+      "ar": "مَن صاحب المحرك البخاري «الجوي» عام 1712 الذي كان يضخ الماء من المناجم، قبل تحسينات جيمس وات بعشرات السنين؟"
     },
     "answer": {
       "en": "Thomas Newcomen.",

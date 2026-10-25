@@ -9,7 +9,7 @@
     },
     "question": {
       "en": "A man at a café asks for water. The waiter puts a bowl on the floor instead of a glass on the table. The man thanks him, although he never drinks from it. Wet animal pawprints appear beside the bowl. Why?",
-      "ar": "رجل طلب مي بمقهى، فحط له الجرسون وعاء على الأرض بدل كاسة على الطاولة. الرجل شكره مع إنه ما شرب منه. وبعدين بانت آثار رجلين حيوان مبلولة جنب الوعاء. ليش؟"
+      "ar": "طلب رجل في مقهى ماءً، فوضع له النادل وعاءً على الأرض بدل كأس على الطاولة. شكره الرجل مع أنه لم يشرب منه. ثم ظهرت آثار أقدام حيوان مبللة بجانب الوعاء. لماذا؟"
     },
     "answer": {
       "en": "The water was for the man's dog, which was sitting under the table.",
@@ -29,7 +29,7 @@
     },
     "question": {
       "en": "A man is found dead in a field next to a small unopened package. What happened?",
-      "ar": "لقوا رجل ميت بحقل، وجنبه شنطة صغيرة ما انفتحت. شو اللي صار؟"
+      "ar": "وُجد رجل ميتًا في حقل إلى جانبه حقيبة صغيرة لم تُفتح. ماذا حدث؟"
     },
     "answer": {
       "en": "The man jumped from an airplane. The unopened package was his parachute that failed to open.",
@@ -61,7 +61,7 @@
     },
     "question": {
       "en": "Romeo and Juliet are found dead on the floor next to a broken glass bowl. Nobody entered the house. What happened?",
-      "ar": "لقوا روميو وجولييت ميتين على الأرض جنب وعاء زجاج مكسور. ولا أحد دخل البيت. شو اللي صار؟"
+      "ar": "وُجد روميو وجولييت ميتَين على الأرض بجانب وعاء زجاجي مكسور. لم يدخل أحد المنزل. ماذا حدث؟"
     },
     "answer": {
       "en": "Romeo and Juliet are fish. The cat knocked their fishbowl off the shelf and they died.",
@@ -93,11 +93,11 @@
     },
     "question": {
       "en": "A girl is waiting for her operation while her father waits outside. Someone from the surgical team looks at her and says, 'That's my daughter!' The speaker is not a step-parent. Who is it?",
-      "ar": "بنت صغيرة تستنى عمليتها، وأبوها يستنى برّا. فجأة انسمع صوت من فريق الجراحة: «هذي بنتي!». واللي حكى مش زوج أمها ولا زوجة أبوها. مين اللي حكى؟"
+      "ar": "فتاة صغيرة تنتظر إجراء عمليتها، وأبوها ينتظر في الخارج. ينظر إليها أحد أفراد فريق الجراحة ويقول: «هذه ابنتي!». والمتكلم ليس زوج أمها ولا زوجة أبيها. مَن هو؟"
     },
     "answer": {
       "en": "The surgeon: the girl's mother.",
-      "ar": "الجرّاحة، أم البنت."
+      "ar": "الجرّاحة، أم الفتاة."
     },
     "review": {
       "status": "pending"
@@ -113,7 +113,7 @@
     },
     "question": {
       "en": "On a cliff whose face is 100 metres high, a girl trips and falls. She gets up unhurt without a rope, parachute, or rescue. She never reaches the beach below. Where did she land?",
-      "ar": "على جرف ارتفاع واجهته 100 متر، بنت تعثّرت وطاحت. قامت سليمة من غير حبل ولا مظلة ولا أحد أنقذها، وما وصلت للشاطئ اللي تحت. وين طاحت؟"
+      "ar": "على جرف يبلغ ارتفاع واجهته 100 متر، تعثرت فتاة وسقطت. نهضت سالمة من دون حبل أو مظلة أو إنقاذ، ولم تصل قط إلى الشاطئ في الأسفل. أين سقطت؟"
     },
     "answer": {
       "en": "She fell onto the broad, level ground at the top, well away from the edge. The cliff's height was not her falling distance.",
@@ -133,7 +133,7 @@
     },
     "question": {
       "en": "A man pushes his car to a hotel and immediately goes bankrupt. What happened?",
-      "ar": "رجل دفّ سيارته لعند فندق وأفلس على طول. شو اللي صار؟"
+      "ar": "دفع رجل سيارته نحو فندق وأفلس على الفور. ماذا حدث؟"
     },
     "answer": {
       "en": "He is playing Monopoly and landed on a hotel he couldn't afford.",
@@ -165,7 +165,7 @@
     },
     "question": {
       "en": "A brass key is displayed on a clear pedestal inside a locked glass case. The next morning, the case is still locked and unbroken, but the key is on the bottom beside a puddle. The pedestal has vanished. What was it made of?",
-      "ar": "مفتاح نحاس كان معروض فوق قاعدة شفافة داخل صندوق زجاج مقفول. الصبح الصندوق لسّا مقفول وسليم، بس المفتاح صار تحت جنب بركة مي صغيرة، والقاعدة اختفت. من شو كانت مصنوعة؟"
+      "ar": "كان مفتاح نحاسي معروضًا فوق قاعدة شفافة داخل صندوق زجاجي مقفل. في الصباح التالي كان الصندوق ما يزال مقفلًا وسليمًا، لكن المفتاح صار في قاعه بجانب بركة ماء صغيرة، واختفت القاعدة. مِمَّ كانت مصنوعة؟"
     },
     "answer": {
       "en": "Ice. As the pedestal melted, the key settled onto the bottom of the case.",
@@ -185,7 +185,7 @@
     },
     "question": {
       "en": "While making a family album, a woman removes her husband's head with one quick action. Neither person is hurt, and he asks her to undo it. What did she do?",
-      "ar": "وهي تجهّز ألبوم العيلة، شالت امرأة راس زوجها بحركة سريعة. ولا واحد فيهم انأذى، وهو طلب منها ترجّع اللي سوته. شو سوّت؟"
+      "ar": "بينما كانت امرأة تُعدّ ألبوم العائلة، أزالت رأس زوجها بحركة واحدة سريعة. لم يُصب أيٌّ منهما بأذى، وطلب منها أن تتراجع عما فعلت. ماذا فعلت؟"
     },
     "answer": {
       "en": "She cropped his head out of a digital photograph. Undo restored the original framing.",
@@ -245,7 +245,7 @@
     },
     "question": {
       "en": "Sami scored the winning goal in a World Cup final, yet he never left his living room. How?",
-      "ar": "سامي سجّل هدف الفوز بنهائي كأس العالم، ومع هذا ما طلع من صالة بيته. كيف؟"
+      "ar": "سجّل سامي هدف الفوز في نهائي كأس العالم، ومع ذلك لم يغادر غرفة الجلوس في بيته. كيف؟"
     },
     "answer": {
       "en": "He was playing a football video game.",
@@ -285,7 +285,7 @@
     },
     "question": {
       "en": "Two men are born on the same day to the same mother, look identical, but are not twins. How?",
-      "ar": "رجلين انولدوا بنفس اليوم من نفس الأم، ومتشابهين تمامًا، بس مش توأم. كيف؟"
+      "ar": "وُلد رجلان في نفس اليوم لنفس الأم، يتشابهان تمامًا، لكنهما ليسا توأمَين. كيف؟"
     },
     "answer": {
       "en": "They are two of a set of triplets (or quadruplets, etc.).",
@@ -317,7 +317,7 @@
     },
     "question": {
       "en": "A sculpture vanished during a 20-minute blackout. Emergency logs show the elevator stayed open on the ground floor throughout. Noor used the stairs, Hadi says the elevator trapped him between floors, and Mariam used her phone light in the lobby. Which account is impossible?",
-      "ar": "تمثال اختفى خلال انقطاع كهربا طوّل 20 دقيقة. سجلات الطوارئ تبيّن إن المصعد ظل مفتوح بالطابق الأرضي طول الوقت. نور قالت استخدمت الدرج، وهادي قال إن المصعد علق فيه بين الطوابق، ومريم قالت استخدمت ضوء جوالها بالممر. أي رواية مستحيلة؟"
+      "ar": "اختفى تمثال خلال انقطاع للكهرباء دام 20 دقيقة. تُظهر سجلات الطوارئ أن المصعد ظل مفتوحاً في الطابق الأرضي طوال الوقت. استخدمت نور الدرج، وقال هادي إن المصعد احتجزه بين الطوابق، واستخدمت مريم ضوء هاتفها في الردهة. أي رواية مستحيلة؟"
     },
     "answer": {
       "en": "Hadi's account: the elevator log places it open on the ground floor throughout the blackout, not stalled between floors.",
@@ -337,7 +337,7 @@
     },
     "question": {
       "en": "A sultan sets an odd race: the rider whose camel reaches the finish LAST wins. Both riders dawdle for hours, until a wise man whispers two words to them. Then both race at full speed. What did he say?",
-      "ar": "سلطان سوّى سباق غريب: اللي توصل ناقته آخر وحدة هو الفايز. المتسابقين ظلّوا يتمشون بالساعات، لين همس لهم رجل حكيم بكلمتين. بعدها الاثنين انطلقوا بأقصى سرعة. شو قال لهم؟"
+      "ar": "أقام سلطان سباقًا غريبًا: الفائز هو الذي تصل ناقته إلى خط النهاية أخيرًا. ظل المتسابقان يتباطآن ساعات، حتى همس لهما رجل حكيم بكلمتين، فانطلق الاثنان بأقصى سرعة. ماذا قال لهما؟"
     },
     "answer": {
       "en": "'Swap camels.' Each now rides his rival's camel, and getting it home first leaves his own camel last.",
@@ -367,11 +367,11 @@
     },
     "question": {
       "en": "A detective announces only that a sealed envelope has gone missing. A caller says, 'I never touched the blue envelope.' Why does the detective suddenly suspect him?",
-      "ar": "محقق أعلن بس إن ظرف مختوم ضاع. واحد اتصل وقال: «أنا ما لمست الظرف الأزرق». ليش المحقق صار يشك فيه؟"
+      "ar": "أعلن محقق فقط أن ظرفًا مختومًا قد فُقد. فاتصل رجل وقال: «لم ألمس الظرف الأزرق». لماذا بدأ المحقق يشك فيه فجأة؟"
     },
     "answer": {
       "en": "The envelope's colour was never made public, so how did the caller know it was blue?",
-      "ar": "لون الظرف ما انذكر لأحد، فمن وين عرف إنه أزرق؟"
+      "ar": "لم يُعلَن لون الظرف لأحد، فكيف عرف المتصل أنه أزرق؟"
     },
     "review": {
       "status": "pending"
@@ -387,7 +387,7 @@
     },
     "question": {
       "en": "A man who lives on the 10th floor takes the lift down every morning. Coming home, he rides only to the 7th floor and walks up the rest, except on rainy days, when he rides all the way up. Why?",
-      "ar": "رجل ساكن بالطابق العاشر، كل صبح ينزل بالمصعد للأرضي. ولما يرجع يطلع بالمصعد للطابق السابع بس ويكمّل على الدرج، إلا بالأيام الممطرة يطلع بالمصعد لين العاشر. ليش؟"
+      "ar": "رجل يسكن في الطابق العاشر، ينزل بالمصعد كل صباح. وعند عودته يصعد بالمصعد إلى الطابق السابع فقط ثم يكمل على الدرج، إلا في الأيام الممطرة فيصعد بالمصعد حتى العاشر. لماذا؟"
     },
     "answer": {
       "en": "He is too short to reach the button for floor 10. On rainy days he presses it with his umbrella.",
@@ -415,7 +415,7 @@
     },
     "question": {
       "en": "In a dim hotel room, a guest sees a motionless figure beside the door. When he waves, it does not wave back. He calls reception; the manager switches on the light, and they both laugh. Before the manager arrived, the guest had been alone in the room. What was the figure?",
-      "ar": "نزيل بغرفة فندق ضوءها خافت شاف هيئة واقفة ساكتة جنب الباب. لوّح لها وما ردّت. اتصل بالاستقبال، فجا المدير وشغّل الضوء وضحكوا الاثنين. النزيل كان لحاله بالغرفة قبل ما يجي المدير. شو هالهيئة؟"
+      "ar": "في غرفة فندق خافتة الإضاءة، رأى نزيل هيئة ساكنة بجانب الباب. لوّح لها فلم تردّ التلويح. اتصل بالاستقبال، فأضاء المدير النور وضحك الاثنان. كان النزيل وحده في الغرفة قبل وصول المدير. ما تلك الهيئة؟"
     },
     "answer": {
       "en": "A coat and hat left on a tall coat stand. In the dim light, their outline looked like a person.",
@@ -435,7 +435,7 @@
     },
     "question": {
       "en": "A man dies every night and comes back to life every morning. He has a perfectly normal job. What does he do?",
-      "ar": "رجل يموت كل ليلة ويرجع للحياة كل صبح. وعنده شغلة عادية تمامًا. شو يشتغل؟"
+      "ar": "يموت رجل كل ليلة ويعود للحياة كل صباح. له وظيفة طبيعية تمامًا. ماذا يعمل؟"
     },
     "answer": {
       "en": "He is an actor in a nightly play in which his character dies; he is back for the next show.",
@@ -455,7 +455,7 @@
     },
     "question": {
       "en": "A researcher deletes an item labelled “All experiment data” from the computer desktop. Every experiment file remains available, no recovery is needed, and free disk space barely changes. What did she delete?",
-      "ar": "باحثة حذفت عنصر اسمه «كل بيانات التجارب» من سطح المكتب بالكمبيوتر. ملفات التجارب ظلت موجودة من غير استرجاع، والمساحة الفاضية تقريبًا ما تغيّرت. شو حذفت؟"
+      "ar": "حذفت باحثة عنصرًا اسمه «كل بيانات التجارب» من سطح المكتب في حاسوبها. بقيت ملفات التجارب كلها متاحة من دون حاجة إلى استرجاع، ولم تكد المساحة الفارغة على القرص تتغير. ماذا حذفت؟"
     },
     "answer": {
       "en": "A shortcut linking to the data folder, not the folder or its contents.",
@@ -475,7 +475,7 @@
     },
     "question": {
       "en": "A lorry gets stuck under a low bridge, just 2 cm too tall to pass. While the crew discusses cutting into the bridge, a child suggests something simple. What?",
-      "ar": "شاحنة علقت تحت جسر واطي، أطول منه بـ2 سم بس. والعمّال يتناقشون يقصّون من الجسر، طفل اقترح حل بسيط. شو هو؟"
+      "ar": "علقت شاحنة تحت جسر منخفض، إذ تزيد على ارتفاعه بسنتيمترين فقط. وبينما كان العمال يتناقشون في قص جزء من الجسر، اقترح طفل حلًا بسيطًا. ما هو؟"
     },
     "answer": {
       "en": "Let some air out of the tyres so the lorry sits lower.",
@@ -503,7 +503,7 @@
     },
     "question": {
       "en": "A stranger opens an empty bank vault without triggering its alarm. He takes nothing, hands the manager a written report, and receives an agreed fee. Why does the manager thank him instead of treating him as a burglar?",
-      "ar": "واحد غريب فتح خزنة بنك فاضية من غير ما يطلق جرس الإنذار. ما أخذ شي، وسلّم المدير تقرير مكتوب وأخذ أجر متفق عليه. ليش المدير شكره بدل ما يعامله كحرامي؟"
+      "ar": "فتح رجل غريب خزنة بنك فارغة من دون أن يُطلق جهاز الإنذار. لم يأخذ شيئًا، وسلّم المدير تقريرًا مكتوبًا، وتقاضى أجرًا متفقًا عليه. لماذا شكره المدير بدل أن يعامله معاملة اللص؟"
     },
     "answer": {
       "en": "He was an authorized security tester. The bank had commissioned a controlled test, and his report identified the alarm's failure to detect the opening.",
@@ -523,7 +523,7 @@
     },
     "question": {
       "en": "During a class, a patient suddenly stops breathing. The instructor calmly says, 'Good. Now what do you do?' and nobody calls an ambulance. Why?",
-      "ar": "وقت حصة، مريض فجأة وقّف يتنفس. المدرّب قال بكل هدوء: «زين، شو تسوون الحين؟» وما أحد اتصل بالإسعاف. ليش؟"
+      "ar": "أثناء درس، توقف مريض فجأة عن التنفس. فقال المدرّب بهدوء: «جيد. والآن ماذا تفعلون؟» ولم يتصل أحد بالإسعاف. لماذا؟"
     },
     "answer": {
       "en": "The 'patient' was a training mannequin programmed to simulate the emergency.",
@@ -571,7 +571,7 @@
     },
     "question": {
       "en": "At a concert, a pianist sits at the piano for 4 minutes and 33 seconds without playing a single note. Nothing is broken and nobody is protesting, yet the audience listens closely to the room and applauds at the end. Why?",
-      "ar": "بحفلة موسيقية، عازف قعد قدام البيانو 4 دقايق و33 ثانية من غير ما يعزف ولا نوتة. ما في شي خربان ولا أحد يحتج، والجمهور يسمع أصوات القاعة باهتمام ويصفّق بالنهاية. ليش؟"
+      "ar": "في حفل موسيقي، جلس عازف أمام البيانو 4 دقائق و33 ثانية من دون أن يعزف نغمة واحدة. لا شيء معطّل ولا أحد يحتج، ومع ذلك أصغى الجمهور باهتمام إلى أصوات القاعة وصفّق في النهاية. لماذا؟"
     },
     "answer": {
       "en": "The piece itself asks for silence: John Cage's 4′33″ makes the room's own sounds the music.",
@@ -591,7 +591,7 @@
     },
     "question": {
       "en": "A man walks into a shop and asks for a glass of water. The shopkeeper suddenly shouts 'BOO!' The man thanks him and leaves without drinking. Why?",
-      "ar": "رجل دخل محل وطلب كاسة مي. صاحب المحل فجأة صرخ بوجهه: «بخ!». الرجل شكره وطلع من غير ما يشرب. ليش؟"
+      "ar": "دخل رجل متجرًا وطلب كأس ماء. فصرخ صاحب المتجر فجأة في وجهه: «بخ!». شكره الرجل وخرج من دون أن يشرب. لماذا؟"
     },
     "answer": {
       "en": "He had hiccups. The fright stopped them, so he no longer needed the water.",
@@ -619,7 +619,7 @@
     },
     "question": {
       "en": "A woman gives a bank cashier one hundred genuine banknotes and receives only two genuine banknotes back. There is no purchase, fee, gift, or loss of value. What transaction took place?",
-      "ar": "امرأة عطت صرّاف البنك مية ورقة نقدية حقيقية، وأخذت ورقتين حقيقيات بس. ما في شراء ولا رسوم ولا هدية ولا نقص بالقيمة. شو المعاملة اللي صارت؟"
+      "ar": "أعطت امرأة صرّاف البنك مئة ورقة نقدية حقيقية، ولم تتسلم سوى ورقتين نقديتين حقيقيتين. لم يكن هناك شراء ولا رسوم ولا هدية ولا نقص في القيمة. ما المعاملة التي جرت؟"
     },
     "answer": {
       "en": "She exchanged smaller denominations for larger ones—for example, one hundred 1-unit notes for two 50-unit notes of the same currency.",
@@ -639,7 +639,7 @@
     },
     "question": {
       "en": "An engineer watches a bridge break under a test load and says the experiment succeeded. An identical-looking bridge still carries normal traffic safely, and no traveler was near the broken one. What was being tested?",
-      "ar": "مهندس شاف جسر ينكسر تحت حمل اختبار، وقال إن التجربة نجحت. جسر شبهه ظل يحمل المرور العادي بأمان، وما كان في ولا مسافر قريب من الجسر المكسور. شو اللي كان ينختبر؟"
+      "ar": "شاهد مهندس جسرًا ينكسر تحت حمل اختبار، فقال إن التجربة نجحت. وجسر يشبهه تمامًا ما زال يحمل حركة المرور العادية بأمان، ولم يكن أي مسافر قرب الجسر المكسور. ما الذي كان يُختبر؟"
     },
     "answer": {
       "en": "A scale model in a laboratory. It was deliberately loaded to failure to study behavior, not used as a public crossing.",
@@ -659,7 +659,7 @@
     },
     "question": {
       "en": "A rowboat is firmly tied to a small wooden landing. After its two occupants put down their oars, the boat slowly drifts away from the shore. The rope and knot remain intact, and the landing is undamaged. Why does the rope fail to keep the boat near the shore?",
-      "ar": "قارب تجديف كان مربوط زين بمنصة خشب صغيرة للرسو. بعد ما حط الراكبين المجاديف على جنب، صار القارب يبعد شوي شوي عن الشط. الحبل والعقدة سليمين، والمنصة ما تضررت. ليش الحبل ما خلّى القارب قريب من الشط؟"
+      "ar": "كان قارب تجديف مربوطًا بإحكام إلى منصة رسو خشبية صغيرة. بعد أن وضع راكباه المجدافين جانبًا، أخذ القارب يبتعد ببطء عن الشاطئ. الحبل والعقدة سليمان، والمنصة لم تتضرر. لماذا لم يُبقِ الحبل القارب قريبًا من الشاطئ؟"
     },
     "answer": {
       "en": "The landing is a floating pontoon that was not secured to the shore or anchored. It drifts with the boat; tying the two together does not fix either one in place.",
@@ -679,7 +679,7 @@
     },
     "question": {
       "en": "A bakery owner puts up a sign saying “This shop is permanently closed” and celebrates her business's growth. Every employee keeps their job, and customers can still buy her bread the next morning. What has changed?",
-      "ar": "صاحبة مخبز علّقت لافتة «هذا المحل مسكّر نهائيًا» واحتفلت بنمو مشروعها. كل الموظفين ظلّوا بشغلهم، والزباين قدروا يشترون خبزها الصبح اللي بعده. شو اللي تغيّر؟"
+      "ar": "علّقت صاحبة مخبز لافتة تقول «هذا المحل مغلق نهائيًا» واحتفلت بنمو تجارتها. احتفظ جميع الموظفين بوظائفهم، وما زال الزبائن قادرين على شراء خبزها صباح اليوم التالي. ما الذي تغيّر؟"
     },
     "answer": {
       "en": "The business moved to larger premises. The old shop closed permanently, not the bakery business.",
@@ -699,7 +699,7 @@
     },
     "question": {
       "en": "A town announces that its municipal savings doubled overnight, without earning, borrowing, receiving a gift, or changing currency. The population in the same report also doubled. What administrative change explains both figures?",
-      "ar": "بلدة أعلنت إن مدّخرات البلدية تضاعفت بليلة، من غير ربح ولا قرض ولا هبة ولا تغيير بالعملة. وبنفس التقرير عدد السكان كمان تضاعف. شو التغيير الإداري اللي يفسّر الرقمين؟"
+      "ar": "أعلنت بلدة أن مدخرات البلدية تضاعفت بين ليلة وضحاها، من دون ربح أو اقتراض أو هبة أو تغيير في العملة. وفي التقرير نفسه تضاعف عدد السكان أيضًا. ما التغيير الإداري الذي يفسر الرقمين؟"
     },
     "answer": {
       "en": "It merged with a neighboring town having the same savings and population. The combined totals doubled, but savings per resident did not.",
@@ -719,11 +719,11 @@
     },
     "question": {
       "en": "A river city closes its only bridge forever and throws a party. There's no new bridge and no ferry, yet cars now cross the river faster than before. How?",
-      "ar": "مدينة على نهر سكّرت جسرها الوحيد للأبد وسوّت حفلة. ما في جسر جديد ولا عبّارة، ومع هذا السيارات صارت تقطع النهر أسرع من قبل. كيف؟"
+      "ar": "أغلقت مدينة نهرية جسرها الوحيد إلى الأبد وأقامت احتفالًا. لا يوجد جسر جديد ولا عبّارة، ومع ذلك أصبحت السيارات تعبر النهر أسرع من قبل. كيف؟"
     },
     "answer": {
       "en": "A new road tunnel under the river opened.",
-      "ar": "انفتح نفق طريق تحت النهر."
+      "ar": "افتُتح نفق للسيارات تحت النهر."
     },
     "review": {
       "status": "pending"
@@ -739,11 +739,11 @@
     },
     "question": {
       "en": "A prisoner in a tower has a rope only half as long as he needs to reach the ground. He cuts it in half, ties the two pieces together, and climbs down safely. How?",
-      "ar": "سجين ببرج عنده حبل طوله نص اللي يحتاجه عشان يوصل الأرض. قصّه نصين، وربطهم ببعض، ونزل بأمان. كيف؟"
+      "ar": "لدى سجين في برج حبل طوله نصف ما يحتاج إليه ليصل إلى الأرض. قطعه نصفين، وربط القطعتين معًا، ونزل بأمان. كيف؟"
     },
     "answer": {
       "en": "He split the rope lengthwise into two thinner strands, then tied them end to end, doubling its length.",
-      "ar": "قسم الحبل بالطول لخيطين أرفع، وربطهم طرف بطرف، فصار طوله الضعف."
+      "ar": "شقّ الحبل طوليًا إلى خيطين أرفع، ثم ربطهما طرفًا بطرف، فتضاعف طوله."
     },
     "acceptedAnswers": {
       "en": [
@@ -769,7 +769,7 @@
     },
     "question": {
       "en": "A night watchman tells his boss, 'During my shift, between one and two, I dreamed the storeroom would be robbed.' The boss isn't worried about the robbery. What worries him?",
-      "ar": "حارس ليلي قال لمديره: «خلال نوبتي، بين الوحدة والثنتين، حلمت إن المخزن بينسرق». المدير ما قلق من السرقة. شو اللي قلّقه؟"
+      "ar": "قال حارس ليلي لمديره: «في أثناء نوبتي، بين الواحدة والثانية، حلمت أن المخزن سيُسرق». لم يقلق المدير من السرقة. فما الذي أقلقه؟"
     },
     "answer": {
       "en": "To dream, the guard must have been asleep on duty.",
@@ -789,11 +789,11 @@
     },
     "question": {
       "en": "A writer who cannot speak gives a full speech to a packed hall, and nobody reads it out for him. How?",
-      "ar": "كاتب ما يقدر يتكلم ألقى خطاب كامل قدام قاعة مليانة، وما أحد قراه عنه. كيف؟"
+      "ar": "ألقى كاتب لا يستطيع الكلام خطابًا كاملًا أمام قاعة ممتلئة، ولم يقرأه عنه أحد. كيف؟"
     },
     "answer": {
       "en": "He typed it into a text-to-speech device that spoke his words aloud.",
-      "ar": "كتبه بجهاز يحوّل الكتابة لصوت، والجهاز نطق كلامه."
+      "ar": "كتبه في جهاز يحوّل النص إلى كلام، فنطق الجهاز كلماته."
     },
     "review": {
       "status": "pending"
@@ -809,11 +809,11 @@
     },
     "question": {
       "en": "A woman in her hotel room hears a knock. She opens the door to a stranger, who says, 'Sorry, I thought this was my room,' and walks off. She calls security at once. Why?",
-      "ar": "امرأة بغرفتها بالفندق سمعت طق على الباب. فتحت ولقت واحد غريب قال: «آسف، حسبتها غرفتي»، وراح. اتصلت بالأمن على طول. ليش؟"
+      "ar": "سمعت امرأة في غرفتها بالفندق طرقًا على الباب. فتحت فوجدت رجلًا غريبًا قال: «آسف، ظننتها غرفتي»، ثم انصرف. فاتصلت بالأمن فورًا. لماذا؟"
     },
     "answer": {
       "en": "Nobody knocks on the door of their own room. He was checking whether anyone was inside.",
-      "ar": "ما أحد يطق باب غرفته. كان يتأكد إذا في أحد جوّا."
+      "ar": "لا أحد يطرق باب غرفته. كان يتحقق مما إذا كان في الغرفة أحد."
     },
     "review": {
       "status": "pending"
@@ -829,7 +829,7 @@
     },
     "question": {
       "en": "A city engineer insists that the heavy covers over holes in the street must be round, never square. It isn't about cost or looks. Why?",
-      "ar": "مهندس بلدية يصرّ إن الأغطية الثقيلة اللي على فتحات الشوارع لازم تكون دائرية، ومستحيل تكون مربعة. والسبب مش التكلفة ولا الشكل. ليش؟"
+      "ar": "يصرّ مهندس في البلدية على أن الأغطية الثقيلة لفتحات الشوارع يجب أن تكون دائرية، لا مربعة أبدًا. والسبب ليس التكلفة ولا الشكل. لماذا؟"
     },
     "answer": {
       "en": "A round cover can't fall through its own hole, but a square one can slip through along its diagonal.",
@@ -857,7 +857,7 @@
     },
     "question": {
       "en": "Huda turned 12 in 2020, yet that was only the third time she could celebrate on her actual birthday. How?",
-      "ar": "هدى كمّلت 12 سنة في 2020، ومع هذا كانت هذي ثالث مرة بس تحتفل بيوم ميلادها الحقيقي. كيف؟"
+      "ar": "أتمّت هدى 12 عامًا في 2020، ومع ذلك كانت تلك ثالث مرة فقط تحتفل فيها بيوم ميلادها الحقيقي. كيف؟"
     },
     "answer": {
       "en": "She was born on 29 February 2008, a date that only comes in leap years: 2012, 2016 and 2020.",
@@ -997,7 +997,7 @@
     },
     "question": {
       "en": "A witness says he recognised a suspect by his long shadow stretching across the street at midday in Riyadh on 21 June. The detective knows at once that the witness is wrong. Why?",
-      "ar": "شاهد قال إنه عرف المتهم من ظله الطويل اللي كان ممتد على عرض الشارع وقت الظهر بالرياض يوم 21 يونيو. المحقق عرف على طول إن الشاهد غلطان. ليش؟"
+      "ar": "قال شاهد إنه تعرّف على المتهم من ظله الطويل الذي امتد عبر عرض الشارع وقت الظهر في الرياض يوم 21 يونيو. أدرك المحقق فورًا أن الشاهد مخطئ. لماذا؟"
     },
     "answer": {
       "en": "At midday near the June solstice the sun is almost directly overhead in Riyadh, so shadows are tiny.",
@@ -1025,7 +1025,7 @@
     },
     "question": {
       "en": "A man in a rowing boat on a small pond throws a heavy stone overboard. People on the bank notice the pond's water level drop slightly. Why does it drop instead of rise?",
-      "ar": "رجل بقارب تجديف ببركة صغيرة رمى حجر ثقيل بالمي. الناس على الضفة لاحظوا إن مستوى مي البركة نزل شوي. ليش نزل بدل ما يرتفع؟"
+      "ar": "ألقى رجل في قارب تجديف على بركة صغيرة حجرًا ثقيلًا في الماء. لاحظ الناس على الضفة أن مستوى ماء البركة انخفض قليلًا. لماذا انخفض بدل أن يرتفع؟"
     },
     "answer": {
       "en": "In the boat, the stone pushed aside its own weight in water; on the bottom it displaces only its own volume, which is less because stone is denser than water.",
@@ -1081,7 +1081,7 @@
     },
     "question": {
       "en": "A man in a hotel can't sleep. He picks up the phone, calls a room number, says nothing, hangs up, and falls asleep straight away. Why?",
-      "ar": "رجل بفندق ما قدر ينام. رفع التلفون، اتصل برقم غرفة، وما قال ولا كلمة، وسكّر الخط، ونام على طول. ليش؟"
+      "ar": "لم يستطع رجل في فندق أن ينام. فرفع الهاتف، واتصل برقم غرفة، ولم يقل كلمة واحدة، ثم أغلق الخط ونام فورًا. لماذا؟"
     },
     "answer": {
       "en": "The man in the next room was snoring. The call woke him, and the man fell asleep before the snoring started again.",
@@ -1137,7 +1137,7 @@
     },
     "question": {
       "en": "In a folk tale, a cook demands that a poor man pay for the smell of his food, which the man enjoyed with his bread. The judge lets the poor man 'pay' fairly without losing a single coin. How?",
-      "ar": "بحكاية شعبية، طبّاخ طالب رجل فقير يدفع ثمن ريحة أكله اللي تمتّع فيها مع خبزه. القاضي خلّى الفقير «يدفع» بالعدل من غير ما يخسر ولا قرش. كيف؟"
+      "ar": "في حكاية شعبية، طالب طباخ رجلًا فقيرًا بأن يدفع ثمن رائحة طعامه التي استمتع بها مع خبزه. فجعل القاضي الفقير «يدفع» بالعدل من دون أن يخسر قرشًا واحدًا. كيف؟"
     },
     "answer": {
       "en": "He jingled coins by the cook's ear: the sound of money pays for the smell of food. (It's one of the Nasreddin Hodja tales.)",

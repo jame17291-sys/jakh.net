@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "Which Paris fortress-prison was stormed on 14 July, the date France now celebrates as its national day?",
-      "ar": "شو الحصن والسجن الباريسي اللي اقتحموه يوم 14 يوليو، اللي صار اليوم العيد الوطني لفرنسا؟"
+      "ar": "ما الحصن والسجن الباريسي الذي اقتُحم في 14 يوليو، وهو التاريخ الذي تحتفل به فرنسا اليوم عيدًا وطنيًا؟"
     },
     "answer": {
       "en": "The Bastille",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "Which British monarch reigned the longest before Elizabeth II overtook the record?",
-      "ar": "مين أطول ملك أو ملكة حكم بريطانيا قبل ما تكسر إليزابيث الثانية الرقم؟"
+      "ar": "مَن أطول ملوك بريطانيا حكمًا قبل أن تحطّم إليزابيث الثانية هذا الرقم؟"
     },
     "answer": {
       "en": "Queen Victoria",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "What was the name of Japan's policy of strictly limiting foreign contact under the Tokugawa shoguns, for more than 200 years?",
-      "ar": "شو اسم سياسة اليابان اللي قيّدت التواصل مع الأجانب بشكل شديد أيام شوغونات توكوغاوا، لأكثر من 200 سنة؟"
+      "ar": "ما اسم السياسة اليابانية التي قيّدت التواصل مع الأجانب تقييدًا صارمًا في عهد شوغونات توكوغاوا، لأكثر من 200 عام؟"
     },
     "answer": {
       "en": "Sakoku",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "In which city was the famous wall that fell in 1989?",
-      "ar": "بأي مدينة كان الجدار المشهور اللي سقط سنة 1989؟"
+      "ar": "في أي مدينة كان الجدار الشهير الذي سقط عام 1989؟"
     },
     "answer": {
       "en": "Berlin",
@@ -84,7 +84,7 @@
     },
     "question": {
       "en": "In what year did the Titanic sink?",
-      "ar": "بأي سنة غرقت تيتانيك؟"
+      "ar": "في أي عام غرق تيتانيك؟"
     },
     "answer": {
       "en": "1912",
@@ -103,7 +103,7 @@
     },
     "question": {
       "en": "In which present-day country did the Renaissance begin?",
-      "ar": "في أراضي أي دولة اليوم بدأ عصر النهضة؟"
+      "ar": "في أراضي أي دولة حالية بدأ عصر النهضة؟"
     },
     "answer": {
       "en": "Italy, which was then divided into several states.",
@@ -122,7 +122,7 @@
     },
     "question": {
       "en": "From which region of Europe did the Vikings originate?",
-      "ar": "من أي منطقة أوروبية إجوا الفايكنغ؟"
+      "ar": "من أي منطقة أوروبية جاء الفايكنغ؟"
     },
     "answer": {
       "en": "Scandinavia",
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "Who led India's nonviolent independence movement against British rule?",
-      "ar": "مين قاد حركة استقلال الهند السلمية ضد الحكم البريطاني؟"
+      "ar": "من قاد حركة استقلال الهند اللاعنفية ضد الحكم البريطاني؟"
     },
     "answer": {
       "en": "Mahatma Gandhi",
@@ -160,7 +160,7 @@
     },
     "question": {
       "en": "Which Moroccan traveller journeyed across Africa and Asia in the 14th century and wrote the famous Rihla?",
-      "ar": "مين الرحّالة المغربي اللي جال بإفريقيا وآسيا بالقرن الرابع عشر وكتب «الرحلة» المشهورة؟"
+      "ar": "مَن الرحالة المغربي الذي جاب إفريقيا وآسيا في القرن الرابع عشر وكتب «الرحلة» الشهيرة؟"
     },
     "answer": {
       "en": "Ibn Battuta",
@@ -179,7 +179,7 @@
     },
     "question": {
       "en": "Who was the first person to walk on the Moon, in 1969?",
-      "ar": "مين أول إنسان مشى على القمر، سنة 1969؟"
+      "ar": "مَن أول إنسان مشى على سطح القمر، عام 1969؟"
     },
     "answer": {
       "en": "Neil Armstrong",
@@ -198,7 +198,7 @@
     },
     "question": {
       "en": "In which year did King John seal the first Magna Carta?",
-      "ar": "بأي سنة ختم الملك جون أول نسخة من «الماغنا كارتا»؟"
+      "ar": "في أي عام ختم الملك جون النسخة الأولى من الماغنا كارتا؟"
     },
     "answer": {
       "en": "1215.",
@@ -217,7 +217,7 @@
     },
     "question": {
       "en": "What percentage of Europe's population is estimated to have died during the Black Death?",
-      "ar": "تقريبًا كم نسبة سكان أوروبا اللي ماتوا بسبب الطاعون الأسود؟"
+      "ar": "ما النسبة المقدرة لوفيات سكان أوروبا جراء الطاعون الأسود؟"
     },
     "answer": {
       "en": "30% to 60%",
@@ -236,7 +236,7 @@
     },
     "question": {
       "en": "What were the two primary superpowers during the Cold War?",
-      "ar": "شو القوتين العظميين الأساسيتين وقت الحرب الباردة؟"
+      "ar": "ما القوتان العظميان الرئيسيتان خلال الحرب الباردة؟"
     },
     "answer": {
       "en": "USA and USSR",
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "Who wrote the Ninety-five Theses associated with the start of the Protestant Reformation in 1517?",
-      "ar": "مين كتب «الأطروحات الخمس والتسعين» المرتبطة ببداية الإصلاح البروتستانتي سنة 1517؟"
+      "ar": "من كتب الأطروحات الخمس والتسعين المرتبطة ببداية الإصلاح البروتستانتي عام 1517؟"
     },
     "answer": {
       "en": "Martin Luther.",
@@ -293,7 +293,7 @@
     },
     "question": {
       "en": "In which country did the Industrial Revolution begin?",
-      "ar": "بأي دولة بدأت الثورة الصناعية؟"
+      "ar": "في أي دولة بدأت الثورة الصناعية؟"
     },
     "answer": {
       "en": "Great Britain",
@@ -312,7 +312,7 @@
     },
     "question": {
       "en": "Which British archaeologist uncovered the tomb of Tutankhamun in 1922?",
-      "ar": "أي عالم آثار بريطاني اكتشف قبر توت عنخ آمون سنة 1922؟"
+      "ar": "أي عالم آثار بريطاني اكتشف مقبرة توت عنخ آمون عام 1922؟"
     },
     "answer": {
       "en": "Howard Carter",
@@ -350,7 +350,7 @@
     },
     "question": {
       "en": "During which war did Joan of Arc fight?",
-      "ar": "بأي حرب قاتلت جان دارك؟"
+      "ar": "في أي حرب قاتلت جان دارك؟"
     },
     "answer": {
       "en": "The Hundred Years' War",
@@ -369,7 +369,7 @@
     },
     "question": {
       "en": "In which country were the Samurai a warrior class?",
-      "ar": "بأي دولة كان الساموراي طبقة محاربين؟"
+      "ar": "في أي دولة كان الساموراي طبقةً من المحاربين؟"
     },
     "answer": {
       "en": "Japan",
@@ -388,7 +388,7 @@
     },
     "question": {
       "en": "What major European conflict did the Peace of Westphalia end in 1648?",
-      "ar": "أي صراع أوروبي كبير خلّصته معاهدة وستفاليا سنة 1648؟"
+      "ar": "أي صراع أوروبي كبير أنهته معاهدة وستفاليا عام 1648؟"
     },
     "answer": {
       "en": "The Thirty Years' War",
@@ -407,7 +407,7 @@
     },
     "question": {
       "en": "The Meiji Restoration of 1868 restored imperial rule in which country?",
-      "ar": "بأي دولة رجّعت «استعادة ميجي» الحكم الإمبراطوري سنة 1868؟"
+      "ar": "في أي دولة أعادت استعادة ميجي عام 1868 الحكم الإمبراطوري؟"
     },
     "answer": {
       "en": "Japan.",
@@ -426,7 +426,7 @@
     },
     "question": {
       "en": "Which two houses fought for the English throne in the War of the Roses?",
-      "ar": "أي عائلتين تنافسوا على عرش إنجلترا في «حروب الوردتين»؟"
+      "ar": "أي أسرتين تنافستا على عرش إنجلترا في حروب الوردتين؟"
     },
     "answer": {
       "en": "York and Lancaster",
@@ -445,7 +445,7 @@
     },
     "question": {
       "en": "Mansa Musa, famous for his lavish pilgrimage to Mecca in 1324, ruled which West African empire?",
-      "ar": "منسا موسى، المشهور برحلة حجّه الفخمة سنة 1324، كان يحكم أي إمبراطورية بغرب إفريقيا؟"
+      "ar": "منسا موسى، المشهور برحلة حجّه الفخمة إلى مكة عام 1324، حكم أي إمبراطورية في غرب إفريقيا؟"
     },
     "answer": {
       "en": "The Mali Empire",
@@ -464,7 +464,7 @@
     },
     "question": {
       "en": "Which 1494 treaty attempted to divide newly claimed lands outside Europe between Spain and Portugal?",
-      "ar": "أي معاهدة سنة 1494 حاولت تقسم الأراضي المكتشفة حديثًا برّا أوروبا بين إسبانيا والبرتغال؟"
+      "ar": "أي معاهدة عام 1494 حاولت تقسيم الأراضي المكتشفة حديثاً خارج أوروبا بين إسبانيا والبرتغال؟"
     },
     "answer": {
       "en": "The Treaty of Tordesillas",
@@ -483,7 +483,7 @@
     },
     "question": {
       "en": "The assassination of which Archduke triggered the start of World War I?",
-      "ar": "اغتيال أي أرشيدوق كان الشرارة للحرب العالمية الأولى؟"
+      "ar": "اغتيال أي أرشيدوق أشعل فتيل الحرب العالمية الأولى؟"
     },
     "answer": {
       "en": "Franz Ferdinand",
@@ -502,7 +502,7 @@
     },
     "question": {
       "en": "What was the secret goal of the Manhattan Project?",
-      "ar": "شو كان الهدف السري لـ«مشروع مانهاتن»؟"
+      "ar": "ما الهدف السري لمشروع مانهاتن؟"
     },
     "answer": {
       "en": "To develop the first atomic bomb",
@@ -521,7 +521,7 @@
     },
     "question": {
       "en": "Who founded the Mughal Empire in India after winning the First Battle of Panipat in 1526?",
-      "ar": "مين أسّس إمبراطورية المغول بالهند بعد ما انتصر بمعركة بانيبات الأولى سنة 1526؟"
+      "ar": "مَن أسّس إمبراطورية المغول في الهند بعد انتصاره في معركة بانيبات الأولى عام 1526؟"
     },
     "answer": {
       "en": "Babur",
@@ -559,7 +559,7 @@
     },
     "question": {
       "en": "In what year did Nelson Mandela become the first Black president of South Africa?",
-      "ar": "بأي سنة صار نيلسون مانديلا أول رئيس أسود لجنوب إفريقيا؟"
+      "ar": "في أي عام أصبح نيلسون مانديلا أول رئيس أسود لجنوب أفريقيا؟"
     },
     "answer": {
       "en": "1994",
@@ -578,7 +578,7 @@
     },
     "question": {
       "en": "Which Muslim commander led the army that crossed from North Africa into Spain in 711 CE?",
-      "ar": "مين القائد المسلم اللي عبر بالجيش من شمال إفريقيا للأندلس سنة 711 م؟"
+      "ar": "مَن القائد المسلم الذي قاد الجيش الذي عبر من شمال إفريقيا إلى الأندلس عام 711 م؟"
     },
     "answer": {
       "en": "Tariq ibn Ziyad",
@@ -597,7 +597,7 @@
     },
     "question": {
       "en": "In which year did World War I begin?",
-      "ar": "بأي سنة بدأت الحرب العالمية الأولى؟"
+      "ar": "في أي عام بدأت الحرب العالمية الأولى؟"
     },
     "answer": {
       "en": "1914",
@@ -616,7 +616,7 @@
     },
     "question": {
       "en": "In which year did World War II end?",
-      "ar": "بأي سنة خلصت الحرب العالمية الثانية؟"
+      "ar": "في أي عام انتهت الحرب العالمية الثانية؟"
     },
     "answer": {
       "en": "1945",
@@ -635,7 +635,7 @@
     },
     "question": {
       "en": "Who was the first Emperor of Rome?",
-      "ar": "مين أول إمبراطور لروما؟"
+      "ar": "من كان أول إمبراطور لروما؟"
     },
     "answer": {
       "en": "Augustus (Octavian)",
@@ -654,7 +654,7 @@
     },
     "question": {
       "en": "In which year did the French Revolution begin?",
-      "ar": "بأي سنة قامت الثورة الفرنسية؟"
+      "ar": "في أي عام اندلعت الثورة الفرنسية؟"
     },
     "answer": {
       "en": "1789",
@@ -673,7 +673,7 @@
     },
     "question": {
       "en": "Who was the first President of the United States?",
-      "ar": "مين أول رئيس لأمريكا؟"
+      "ar": "من كان أول رئيس للولايات المتحدة الأمريكية؟"
     },
     "answer": {
       "en": "George Washington",
@@ -692,7 +692,7 @@
     },
     "question": {
       "en": "Which Frankish ruler was crowned emperor by Pope Leo III in the year 800?",
-      "ar": "أي حاكم من الفرنجة توّجه البابا ليو الثالث إمبراطور سنة 800؟"
+      "ar": "أي حاكم فرنجي توّجه البابا ليو الثالث إمبراطوراً عام 800؟"
     },
     "answer": {
       "en": "Charlemagne",
@@ -711,7 +711,7 @@
     },
     "question": {
       "en": "Which Genoese mariner led the Spanish-sponsored voyage that reached the Caribbean in 1492 and encountered the Taíno people already living there?",
-      "ar": "أي بحّار من جنوة قاد الرحلة اللي موّلتها إسبانيا ووصلت للكاريبي سنة 1492، والتقى هناك بشعب التاينو اللي كانوا عايشين فيها؟"
+      "ar": "أي بحّار جنوي قاد الرحلة التي موّلتها إسبانيا ووصلت إلى الكاريبي عام 1492، حيث التقى بشعب التاينو الذين كانوا يعيشون هناك؟"
     },
     "answer": {
       "en": "Christopher Columbus",
@@ -739,7 +739,7 @@
     },
     "question": {
       "en": "On which date was the D-Day Normandy landing?",
-      "ar": "بأي تاريخ صار إنزال النورماندي (يوم D)؟"
+      "ar": "في أي تاريخ جرى إنزال النورماندي في يوم D؟"
     },
     "answer": {
       "en": "6 June 1944",
@@ -758,7 +758,7 @@
     },
     "question": {
       "en": "Which political party did Adolf Hitler lead?",
-      "ar": "شو الحزب السياسي اللي قاده أدولف هتلر؟"
+      "ar": "ما الحزب السياسي الذي قاده أدولف هتلر؟"
     },
     "answer": {
       "en": "The Nazi Party, formally the National Socialist German Workers' Party (NSDAP).",
@@ -777,7 +777,7 @@
     },
     "question": {
       "en": "In which year did Russia experience the February and October revolutions?",
-      "ar": "بأي سنة صارت ثورتين فبراير وأكتوبر في روسيا؟"
+      "ar": "في أي عام شهدت روسيا ثورتي فبراير وأكتوبر؟"
     },
     "answer": {
       "en": "1917.",
@@ -815,7 +815,7 @@
     },
     "question": {
       "en": "Which country dropped atomic bombs on Hiroshima and Nagasaki?",
-      "ar": "أي دولة رمت قنابل ذرية على هيروشيما وناغازاكي؟"
+      "ar": "أي دولة ألقت قنابل ذرية على هيروشيما وناغازاكي؟"
     },
     "answer": {
       "en": "The United States",
@@ -834,7 +834,7 @@
     },
     "question": {
       "en": "Who was the first female Prime Minister of the United Kingdom?",
-      "ar": "مين أول امرأة صارت رئيسة وزراء لبريطانيا؟"
+      "ar": "من كانت أول رئيسة وزراء للمملكة المتحدة؟"
     },
     "answer": {
       "en": "Margaret Thatcher",
@@ -872,7 +872,7 @@
     },
     "question": {
       "en": "What was the purpose of the Berlin Airlift of 1948–1949?",
-      "ar": "شو كان الهدف من «جسر برلين الجوي» بين 1948 و1949؟"
+      "ar": "ما الهدف من جسر برلين الجوي بين عامي 1948 و1949؟"
     },
     "answer": {
       "en": "To supply West Berlin by air during the Soviet blockade",
@@ -891,7 +891,7 @@
     },
     "question": {
       "en": "Which Ottoman sultan reigned from 1520 to 1566 and became known in English as 'the Magnificent'?",
-      "ar": "أي سلطان عثماني حكم من 1520 لـ1566 واشتهر بالعربي بلقب «القانوني»؟"
+      "ar": "أي سلطان عثماني حكم بين 1520 و1566 واشتهر في العربية بلقب «القانوني»؟"
     },
     "answer": {
       "en": "Suleiman I.",
@@ -910,7 +910,7 @@
     },
     "question": {
       "en": "Who led the Cuban Revolution of 1959?",
-      "ar": "مين قاد الثورة الكوبية سنة 1959؟"
+      "ar": "من قاد الثورة الكوبية عام 1959؟"
     },
     "answer": {
       "en": "Fidel Castro",
@@ -929,7 +929,7 @@
     },
     "question": {
       "en": "Who was the leader of the Soviet Union during World War II?",
-      "ar": "مين كان زعيم الاتحاد السوفيتي وقت الحرب العالمية الثانية؟"
+      "ar": "من كان زعيم الاتحاد السوفيتي خلال الحرب العالمية الثانية؟"
     },
     "answer": {
       "en": "Joseph Stalin",
@@ -967,7 +967,7 @@
     },
     "question": {
       "en": "Which territory did Britain hand back to China in 1997?",
-      "ar": "أي إقليم رجّعته بريطانيا للصين سنة 1997؟"
+      "ar": "أي إقليم أعادته بريطانيا إلى الصين عام 1997؟"
     },
     "answer": {
       "en": "Hong Kong",
@@ -986,7 +986,7 @@
     },
     "question": {
       "en": "Who founded the Mongol Empire?",
-      "ar": "مين أسّس الإمبراطورية المغولية؟"
+      "ar": "من أسّس الإمبراطورية المغولية؟"
     },
     "answer": {
       "en": "Genghis Khan",
@@ -1005,7 +1005,7 @@
     },
     "question": {
       "en": "Who led the surviving ship and crew home to Spain in 1522, completing the first circumnavigation begun by Magellan's expedition?",
-      "ar": "مين رجّع السفينة الناجية وطاقمها لإسبانيا سنة 1522، وكمّل أول دورة حوالين العالم اللي بدأتها بعثة ماجلان؟"
+      "ar": "من قاد السفينة الناجية وطاقمها إلى إسبانيا عام 1522، مكملاً أول دوران حول العالم بدأته بعثة ماجلان؟"
     },
     "answer": {
       "en": "Juan Sebastián Elcano, aboard the Victoria.",
@@ -1062,7 +1062,7 @@
     },
     "question": {
       "en": "Which year saw a wave of revolutions across Europe, later called the 'Springtime of Nations'?",
-      "ar": "بأي سنة اجتاحت أوروبا موجة ثورات، صار اسمها بعدين «ربيع الشعوب»؟"
+      "ar": "في أي عام اجتاحت أوروبا موجة من الثورات سُمّيت لاحقًا «ربيع الشعوب»؟"
     },
     "answer": {
       "en": "1848",
@@ -1081,7 +1081,7 @@
     },
     "question": {
       "en": "What was the name of the trade route connecting China to Europe?",
-      "ar": "شو اسم طريق التجارة اللي كان يربط الصين بأوروبا؟"
+      "ar": "ما اسم طريق التجارة الذي كان يربط الصين بأوروبا؟"
     },
     "answer": {
       "en": "The Silk Road",
@@ -1100,7 +1100,7 @@
     },
     "question": {
       "en": "In which year did the Soviet Union dissolve?",
-      "ar": "بأي سنة انهار الاتحاد السوفيتي؟"
+      "ar": "في أي عام انهار الاتحاد السوفيتي؟"
     },
     "answer": {
       "en": "1991",
@@ -1119,7 +1119,7 @@
     },
     "question": {
       "en": "Which 1982 war did Britain and Argentina fight over islands in the South Atlantic?",
-      "ar": "شو الحرب اللي صارت سنة 1982 بين بريطانيا والأرجنتين على جزر بجنوب المحيط الأطلسي؟"
+      "ar": "ما الحرب التي خاضتها بريطانيا والأرجنتين عام 1982 على جزر في جنوب المحيط الأطلسي؟"
     },
     "answer": {
       "en": "The Falklands War (Malvinas War)",
@@ -1138,7 +1138,7 @@
     },
     "question": {
       "en": "Who was the last Tsar of Russia?",
-      "ar": "مين آخر قيصر لروسيا؟"
+      "ar": "من كان آخر قياصرة روسيا؟"
     },
     "answer": {
       "en": "Nicholas II",
@@ -1195,7 +1195,7 @@
     },
     "question": {
       "en": "Who was the first woman to win a Nobel Prize?",
-      "ar": "مين أول امرأة فازت بجائزة نوبل؟"
+      "ar": "من كانت أول امرأة تفوز بجائزة نوبل؟"
     },
     "answer": {
       "en": "Marie Curie (1903, Physics)",
@@ -1214,7 +1214,7 @@
     },
     "question": {
       "en": "What was the codename for the Nazi invasion of the Soviet Union in 1941?",
-      "ar": "شو الاسم الرمزي للغزو النازي للاتحاد السوفيتي سنة 1941؟"
+      "ar": "ما الاسم الرمزي للغزو النازي للاتحاد السوفيتي عام 1941؟"
     },
     "answer": {
       "en": "Operation Barbarossa",
@@ -1233,7 +1233,7 @@
     },
     "question": {
       "en": "Which French queen was executed on 16 October 1793 during the Reign of Terror?",
-      "ar": "أي ملكة فرنسية انعدمت في 16 أكتوبر 1793 خلال «عهد الإرهاب»؟"
+      "ar": "أي ملكة فرنسية أُعدمت في 16 أكتوبر 1793 خلال عهد الإرهاب؟"
     },
     "answer": {
       "en": "Marie Antoinette.",
@@ -1252,7 +1252,7 @@
     },
     "question": {
       "en": "Which 1955 conference in Indonesia brought together newly independent Asian and African states?",
-      "ar": "أي مؤتمر سنة 1955 في إندونيسيا جمع دول آسيوية وإفريقية مستقلة حديثًا؟"
+      "ar": "أي مؤتمر عُقد في إندونيسيا عام 1955 وجمع دولًا آسيوية وإفريقية حديثة الاستقلال؟"
     },
     "answer": {
       "en": "The Bandung Conference",
@@ -1271,11 +1271,11 @@
     },
     "question": {
       "en": "What was the name of the US policy to contain Soviet expansion after WWII?",
-      "ar": "شو اسم السياسة الأمريكية اللي هدفها توقّف توسّع الاتحاد السوفيتي بعد الحرب العالمية الثانية؟"
+      "ar": "ما اسم السياسة الأمريكية للحدّ من التوسع السوفيتي بعد الحرب العالمية الثانية؟"
     },
     "answer": {
       "en": "Containment, set out in the Truman Doctrine (1947)",
-      "ar": "سياسة الاحتواء، اللي أعلنها مبدأ ترومان (1947)"
+      "ar": "سياسة الاحتواء، التي أعلنها مبدأ ترومان (1947)"
     },
     "review": {
       "status": "pending"
@@ -1290,7 +1290,7 @@
     },
     "question": {
       "en": "Which dynasty ruled China the longest?",
-      "ar": "أي سلالة حكمت الصين أطول فترة؟"
+      "ar": "أي سلالة حكمت الصين لأطول فترة؟"
     },
     "answer": {
       "en": "The Zhou Dynasty (~800 years)",
@@ -1309,7 +1309,7 @@
     },
     "question": {
       "en": "What was the name of the battle that ended Napoleon's rule?",
-      "ar": "شو اسم المعركة اللي خلّصت حكم نابليون؟"
+      "ar": "ما اسم المعركة التي أنهت حكم نابليون؟"
     },
     "answer": {
       "en": "The Battle of Waterloo (1815)",
@@ -1328,7 +1328,7 @@
     },
     "question": {
       "en": "In which year did Vasco da Gama reach India by sea?",
-      "ar": "بأي سنة وصل فاسكو دا غاما للهند عن طريق البحر؟"
+      "ar": "في أي عام وصل فاسكو دا غاما إلى الهند عن طريق البحر؟"
     },
     "answer": {
       "en": "1498",
@@ -1347,7 +1347,7 @@
     },
     "question": {
       "en": "What was the name of the Aztec capital city?",
-      "ar": "شو اسم عاصمة إمبراطورية الأزتك؟"
+      "ar": "ما اسم عاصمة الإمبراطورية الأزتيكية؟"
     },
     "answer": {
       "en": "Tenochtitlan",
@@ -1404,7 +1404,7 @@
     },
     "question": {
       "en": "What was the name of South Africa's official policy of racial segregation?",
-      "ar": "شو الاسم الأفريكاني لسياسة التفرقة العنصرية الرسمية اللي طبّقتها جنوب إفريقيا؟"
+      "ar": "ما الاسم الأفريكاني لسياسة الفصل العنصري الرسمية التي طبّقتها جنوب إفريقيا؟"
     },
     "answer": {
       "en": "Apartheid",
@@ -1423,7 +1423,7 @@
     },
     "question": {
       "en": "Which empire was the largest in history by land area?",
-      "ar": "أي إمبراطورية كانت الأكبر بالتاريخ من ناحية المساحة البرية؟"
+      "ar": "أي إمبراطورية كانت الأكبر في التاريخ من حيث المساحة البرية؟"
     },
     "answer": {
       "en": "The British Empire",
@@ -1442,7 +1442,7 @@
     },
     "question": {
       "en": "What was the name of the Athenian general who defeated the Persians at Marathon in 490 BC?",
-      "ar": "شو اسم القائد الأثيني اللي هزم الفرس بمعركة ماراثون سنة 490 ق.م؟"
+      "ar": "ما اسم الجنرال الأثيني الذي هزم الفرس في معركة ماراثون عام 490 ق.م؟"
     },
     "answer": {
       "en": "Miltiades",
@@ -1461,7 +1461,7 @@
     },
     "question": {
       "en": "What was the capital of the Byzantine Empire?",
-      "ar": "شو عاصمة الإمبراطورية البيزنطية؟"
+      "ar": "ما عاصمة الإمبراطورية البيزنطية؟"
     },
     "answer": {
       "en": "Constantinople (modern Istanbul)",
@@ -1499,7 +1499,7 @@
     },
     "question": {
       "en": "Which Chinese leader launched the Cultural Revolution in 1966?",
-      "ar": "أي زعيم صيني أطلق «الثورة الثقافية» سنة 1966؟"
+      "ar": "أي زعيم صيني أطلق الثورة الثقافية عام 1966؟"
     },
     "answer": {
       "en": "Mao Zedong",
@@ -1518,7 +1518,7 @@
     },
     "question": {
       "en": "Which physician published an experimental account of systemic blood circulation in 1628?",
-      "ar": "أي طبيب نشر سنة 1628 وصف تجريبي للدورة الدموية الكبرى؟"
+      "ar": "أي طبيب نشر وصفاً تجريبياً للدورة الدموية الكبرى عام 1628؟"
     },
     "answer": {
       "en": "William Harvey. Earlier scholars had described other aspects, including pulmonary circulation.",
@@ -1537,7 +1537,7 @@
     },
     "question": {
       "en": "What was the name of the failed US-backed invasion of Cuba in 1961?",
-      "ar": "شو اسم الغزو اللي دعمته أمريكا وفشل في كوبا سنة 1961؟"
+      "ar": "ما اسم الغزو الذي دعمته الولايات المتحدة وفشل في كوبا عام 1961؟"
     },
     "answer": {
       "en": "The Bay of Pigs Invasion",
@@ -1556,7 +1556,7 @@
     },
     "question": {
       "en": "In which year was Rome traditionally founded?",
-      "ar": "حسب الرواية التقليدية، بأي سنة تأسست روما؟"
+      "ar": "في أي عام تأسست روما تقليدياً؟"
     },
     "answer": {
       "en": "753 BC",
@@ -1594,7 +1594,7 @@
     },
     "question": {
       "en": "What was the name of the 1962 standoff between the US and Soviet Union?",
-      "ar": "شو اسم المواجهة بين أمريكا والاتحاد السوفيتي سنة 1962؟"
+      "ar": "ما اسم المواجهة بين الولايات المتحدة والاتحاد السوفيتي عام 1962؟"
     },
     "answer": {
       "en": "The Cuban Missile Crisis",
@@ -1613,7 +1613,7 @@
     },
     "question": {
       "en": "Who was the first Prime Minister of independent India?",
-      "ar": "مين أول رئيس وزراء للهند بعد الاستقلال؟"
+      "ar": "من كان أول رئيس وزراء للهند المستقلة؟"
     },
     "answer": {
       "en": "Jawaharlal Nehru",
@@ -1632,7 +1632,7 @@
     },
     "question": {
       "en": "Which 1919 treaty established peace terms between Germany and the Allied and Associated Powers after World War I?",
-      "ar": "أي معاهدة سنة 1919 حطّت شروط السلام بين ألمانيا والحلفاء والقوى المرتبطة فيهم بعد الحرب العالمية الأولى؟"
+      "ar": "أي معاهدة عام 1919 وضعت شروط السلام بين ألمانيا ودول الحلفاء والقوى المرتبطة بها بعد الحرب العالمية الأولى؟"
     },
     "answer": {
       "en": "The Treaty of Versailles.",
@@ -1651,7 +1651,7 @@
     },
     "question": {
       "en": "Who led Ghana to independence from Britain in 1957 and became its first leader?",
-      "ar": "مين قاد غانا للاستقلال عن بريطانيا سنة 1957 وصار أول زعيم لها؟"
+      "ar": "مَن قاد غانا إلى الاستقلال عن بريطانيا عام 1957 وأصبح أول زعيم لها؟"
     },
     "answer": {
       "en": "Kwame Nkrumah",
@@ -1670,7 +1670,7 @@
     },
     "question": {
       "en": "In which year was the People's Republic of China proclaimed?",
-      "ar": "بأي سنة انعلنت جمهورية الصين الشعبية؟"
+      "ar": "في أي عام أُعلن قيام جمهورية الصين الشعبية؟"
     },
     "answer": {
       "en": "1949",
@@ -1689,7 +1689,7 @@
     },
     "question": {
       "en": "What was the name of the last dynasty to rule China?",
-      "ar": "شو اسم آخر سلالة حكمت الصين؟"
+      "ar": "ما اسم آخر سلالة حكمت الصين؟"
     },
     "answer": {
       "en": "The Qing Dynasty (1644–1912)",
@@ -1727,7 +1727,7 @@
     },
     "question": {
       "en": "Which battle in 1805 saw Napoleon defeat the combined Austrian and Russian forces?",
-      "ar": "بأي معركة سنة 1805 هزم نابليون الجيوش النمساوية والروسية مع بعض؟"
+      "ar": "أي معركة عام 1805 هزم فيها نابليون القوات النمساوية والروسية المشتركة؟"
     },
     "answer": {
       "en": "The Battle of Austerlitz",
@@ -1746,7 +1746,7 @@
     },
     "question": {
       "en": "Which 1947 event split British India into two independent states?",
-      "ar": "شو الحدث اللي صار سنة 1947 وقسم الهند البريطانية لدولتين مستقلتين؟"
+      "ar": "ما الحدث الذي وقع عام 1947 وقسّم الهند البريطانية إلى دولتين مستقلتين؟"
     },
     "answer": {
       "en": "The Partition of India (into India and Pakistan)",
@@ -1765,7 +1765,7 @@
     },
     "question": {
       "en": "In which year did Galileo first use a telescope to observe the heavens?",
-      "ar": "بأي سنة استخدم غاليليو التلسكوب أول مرة عشان يرصد السما؟"
+      "ar": "في أي عام استخدم غاليليو التلسكوب لأول مرة لرصد السماء؟"
     },
     "answer": {
       "en": "1609",
@@ -1784,7 +1784,7 @@
     },
     "question": {
       "en": "What was the name of the US programme to reconstruct Europe after WWII?",
-      "ar": "شو اسم البرنامج الأمريكي لإعادة بناء أوروبا بعد الحرب العالمية الثانية؟"
+      "ar": "ما اسم البرنامج الأمريكي لإعادة بناء أوروبا بعد الحرب العالمية الثانية؟"
     },
     "answer": {
       "en": "The Marshall Plan",
@@ -1803,7 +1803,7 @@
     },
     "question": {
       "en": "Which two Roman emperors reached the agreement associated with the Edict of Milan in 313 CE?",
-      "ar": "أي إمبراطورين رومانيين وصلوا للاتفاق المرتبط بـ«مرسوم ميلانو» سنة 313 م؟"
+      "ar": "أي إمبراطورين رومانيين توصلا إلى الاتفاق المرتبط بمرسوم ميلانو عام 313 م؟"
     },
     "answer": {
       "en": "Constantine I and Licinius.",
@@ -1822,7 +1822,7 @@
     },
     "question": {
       "en": "What agreement halted major fighting in the Korean War in July 1953 without creating a final peace treaty?",
-      "ar": "شو الاتفاق اللي وقّف القتال الأساسي بالحرب الكورية في يوليو 1953 من غير ما يكون معاهدة سلام نهائية؟"
+      "ar": "ما الاتفاق الذي أوقف القتال الرئيسي في الحرب الكورية في يوليو 1953 دون أن يشكّل معاهدة سلام نهائية؟"
     },
     "answer": {
       "en": "The Korean Armistice Agreement. Korea's division predated it.",
@@ -1841,7 +1841,7 @@
     },
     "question": {
       "en": "Which Austrian statesman was a leading architect of the post-Napoleonic order at the Congress of Vienna?",
-      "ar": "أي سياسي نمساوي كان من أهم مهندسي النظام اللي إجا بعد نابليون في «مؤتمر فيينا»؟"
+      "ar": "أي رجل دولة نمساوي كان من أبرز مهندسي النظام الذي أعقب نابليون في مؤتمر فيينا؟"
     },
     "answer": {
       "en": "Klemens von Metternich",
@@ -1879,7 +1879,7 @@
     },
     "question": {
       "en": "Which 1776 document declared American independence from Britain?",
-      "ar": "أي وثيقة طلعت سنة 1776 وأعلنت استقلال أمريكا عن بريطانيا؟"
+      "ar": "أي وثيقة صدرت عام 1776 أعلنت استقلال أمريكا عن بريطانيا؟"
     },
     "answer": {
       "en": "The Declaration of Independence",
@@ -1898,7 +1898,7 @@
     },
     "question": {
       "en": "Which city was the capital of the Umayyads in al-Andalus?",
-      "ar": "شو كانت عاصمة الأمويين بالأندلس؟"
+      "ar": "ما المدينة التي كانت عاصمة الأمويين في الأندلس؟"
     },
     "answer": {
       "en": "Córdoba",

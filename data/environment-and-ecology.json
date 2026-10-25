@@ -27,7 +27,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which layer of the atmosphere protects Earth from harmful UV radiation?",
-      "ar": "أي طبقة بالغلاف الجوي تحمي الأرض من الأشعة فوق البنفسجية الضارة؟"
+      "ar": "أي طبقة من الغلاف الجوي تحمي الأرض من الأشعة فوق البنفسجية الضارة؟"
     },
     "answer": {
       "en": "Ozone Layer",
@@ -46,7 +46,7 @@
     "difficulty": "easy",
     "question": {
       "en": "True or false: when conventional plastic breaks into tiny fragments, that necessarily means it has fully biodegraded.",
-      "ar": "صح ولا غلط: لما البلاستيك العادي يتفتت لقطع صغيرة، يعني أكيد إنه تحلّل حيويًا بالكامل."
+      "ar": "صح أم خطأ: تفتت البلاستيك التقليدي إلى قطع صغيرة يعني بالضرورة أنه تحلل حيوياً بالكامل."
     },
     "answer": {
       "en": "False. Fragmentation can produce persistent microplastics without complete biodegradation.",
@@ -65,7 +65,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What is the primary source of energy for the Earth's ecosystems?",
-      "ar": "شو المصدر الرئيسي للطاقة في الأنظمة البيئية على الأرض؟"
+      "ar": "ما هو المصدر الرئيسي للطاقة في الأنظمة البيئية للأرض؟"
     },
     "answer": {
       "en": "The Sun",
@@ -84,7 +84,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What do we call the process of converting waste materials into new products?",
-      "ar": "شو نسمّي تحويل المخلّفات لمنتجات جديدة؟"
+      "ar": "ماذا نسمي عملية تحويل المواد العادمة إلى منتجات جديدة؟"
     },
     "answer": {
       "en": "Recycling",
@@ -103,7 +103,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which greenhouse gas is produced when organic waste decomposes without oxygen in landfills?",
-      "ar": "أي غاز دفيئة يطلع لما تتحلل النفايات العضوية من غير أكسجين في المكبّات؟"
+      "ar": "أي غاز دفيئة ينتج عند تحلل النفايات العضوية من دون أكسجين في مكبات النفايات؟"
     },
     "answer": {
       "en": "Methane (CH₄).",
@@ -122,7 +122,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What is the term for a place where an organism lives?",
-      "ar": "شو نسمّي المكان اللي يعيش فيه الكائن الحي؟"
+      "ar": "ما هو المصطلح الذي يطلق على المكان الذي يعيش فيه الكائن الحي؟"
     },
     "answer": {
       "en": "Habitat",
@@ -141,7 +141,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which major human activity increases atmospheric CO₂ by burning coal, oil, and natural gas?",
-      "ar": "شو النشاط البشري الأساسي اللي يزيد ثاني أكسيد الكربون بالجو لما نحرق الفحم والنفط والغاز؟"
+      "ar": "ما النشاط البشري الرئيسي الذي يزيد CO₂ في الجو بحرق الفحم والنفط والغاز الطبيعي؟"
     },
     "answer": {
       "en": "Fossil-fuel combustion, which strengthens the natural greenhouse effect.",
@@ -160,7 +160,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which waste-management option means using an item again without processing it into a new material?",
-      "ar": "أي طريقة لإدارة النفايات تعني إنك تستخدم الشي مرة ثانية من غير ما تعالجه وتحوّله لمادة جديدة؟"
+      "ar": "ما خيار إدارة النفايات الذي يعني استعمال الشيء مجدداً دون معالجته وتحويله إلى مادة جديدة؟"
     },
     "answer": {
       "en": "Reuse.",
@@ -179,7 +179,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which animal is often used as a symbol for endangered species conservation?",
-      "ar": "أي حيوان كثير ما يكون رمز لحماية الأنواع المهددة بالانقراض؟"
+      "ar": "ما هو الحيوان الذي غالباً ما يستخدم كرمز للحفاظ على الأنواع المهددة بالانقراض؟"
     },
     "answer": {
       "en": "Giant Panda",
@@ -198,7 +198,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What is the term for the variety of life in a particular habitat or ecosystem?",
-      "ar": "شو نسمّي تنوّع الحياة في موطن أو نظام بيئي معيّن؟"
+      "ar": "ما هو المصطلح الذي يعبر عن تنوع الحياة في موطن أو نظام بيئي معين؟"
     },
     "answer": {
       "en": "Biodiversity",
@@ -217,7 +217,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which process occurs when excess nutrients cause algae to grow rapidly in water bodies?",
-      "ar": "شو اسم اللي يصير لما المغذّيات الزايدة تخلّي الطحالب تكبر بسرعة في المي؟"
+      "ar": "ما هي العملية التي تحدث عندما تسبب العناصر الغذائية الزائدة نمواً سريعاً للطحالب في المسطحات المائية؟"
     },
     "answer": {
       "en": "Eutrophication: nutrient enrichment that can promote excessive algal growth and oxygen depletion.",
@@ -236,7 +236,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What phenomenon describes the warming of the ocean surface in the central and eastern Pacific?",
-      "ar": "شو اسم الظاهرة اللي ترتفع فيها حرارة سطح المحيط في وسط وشرق المحيط الهادئ؟"
+      "ar": "ما هي الظاهرة التي تصف ارتفاع حرارة سطح المحيط في وسط وشرق المحيط الهادئ؟"
     },
     "answer": {
       "en": "El Niño",
@@ -255,7 +255,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What warming limit did the 2015 Paris Agreement set as its central goal?",
-      "ar": "شو حدّ الاحترار اللي حطّته اتفاقية باريس سنة 2015 كهدف رئيسي؟"
+      "ar": "ما حدّ الاحترار الذي وضعته اتفاقية باريس عام 2015 هدفًا رئيسيًا لها؟"
     },
     "answer": {
       "en": "Keeping warming well below 2 °C above pre-industrial levels, while aiming for 1.5 °C.",
@@ -274,7 +274,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What is the term for species that have a disproportionately large effect on their environment?",
-      "ar": "شو نسمّي الأنواع اللي تأثيرها على بيئتها أكبر بكثير من حجمها؟"
+      "ar": "ما هو المصطلح الذي يطلق على الأنواع التي لها تأثير كبير بشكل غير متناسب على بيئتها؟"
     },
     "answer": {
       "en": "Keystone Species",
@@ -293,7 +293,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What is the measure of the amount of land needed to support a person's lifestyle?",
-      "ar": "شو اسم المقياس اللي يحسب كم أرض نحتاج عشان ندعم أسلوب حياة شخص؟"
+      "ar": "ما هو قياس كمية الأرض اللازمة لدعم نمط حياة شخص ما؟"
     },
     "answer": {
       "en": "Ecological Footprint",
@@ -312,7 +312,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which treaty, signed in 1987, was designed to protect the ozone layer?",
-      "ar": "شو المعاهدة اللي انوقعت سنة 1987 عشان تحمي طبقة الأوزون؟"
+      "ar": "ما هي المعاهدة التي وقعت في عام 1987 وتهدف لحماية طبقة الأوزون؟"
     },
     "answer": {
       "en": "Montreal Protocol",
@@ -331,7 +331,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What percentage of the Earth's water is fresh water?",
-      "ar": "كم نسبة المي العذبة من كل المي اللي على الأرض؟"
+      "ar": "ما هي نسبة المياه العذبة من إجمالي المياه على الأرض؟"
     },
     "answer": {
       "en": "About 2.5% to 3%",
@@ -350,7 +350,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What term means the largest population of a species that an environment can sustain over time under given conditions?",
-      "ar": "شو نسمّي أكبر عدد من أفراد نوع معيّن تقدر البيئة تعيله مع الوقت بظروف محددة؟"
+      "ar": "ما المصطلح الذي يعني أكبر عدد من أفراد نوع تستطيع البيئة إعالته مع الزمن تحت ظروف محددة؟"
     },
     "answer": {
       "en": "Carrying Capacity",
@@ -369,7 +369,7 @@
     "difficulty": "medium",
     "question": {
       "en": "How do trees in a tropical rainforest return water vapor from their leaves to the atmosphere?",
-      "ar": "بأي عملية ترجّع أشجار الغابات الاستوائية بخار المي من أوراقها للجو؟"
+      "ar": "بأي عملية تعيد أشجار الغابات الاستوائية المطيرة بخار الماء من أوراقها إلى الجو؟"
     },
     "answer": {
       "en": "Transpiration.",
@@ -388,7 +388,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What is the name of the process by which nitrogen gas is converted into a form plants can use?",
-      "ar": "شو اسم العملية اللي تحوّل غاز النيتروجين لشكل تقدر النباتات تستفيد منه؟"
+      "ar": "ما هو اسم العملية التي يتم من خلالها تحويل غاز النيتروجين إلى شكل يمكن للنباتات استخدامه؟"
     },
     "answer": {
       "en": "Nitrogen Fixation",
@@ -407,7 +407,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Why does melting Arctic sea ice speed up warming?",
-      "ar": "ليش ذوبان جليد بحر القطب الشمالي يسرّع الاحترار؟"
+      "ar": "لماذا يُسرّع ذوبان الجليد البحري في القطب الشمالي الاحترار؟"
     },
     "answer": {
       "en": "Bright ice reflects sunlight; the darker ocean beneath absorbs more heat and melts more ice (the ice–albedo feedback).",
@@ -426,7 +426,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which international agreement aimed to reduce greenhouse gas emissions, coming into force in 2005?",
-      "ar": "أي اتفاقية دولية هدفها تقلّل انبعاثات الغازات الدفيئة، وبدأ تطبيقها سنة 2005؟"
+      "ar": "أي اتفاقية دولية هدفت لتقليل انبعاثات الغازات الدفيئة ودخلت حيز التنفيذ في 2005؟"
     },
     "answer": {
       "en": "Kyoto Protocol",
@@ -445,7 +445,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What is the name for the long-term decrease in seawater pH caused mainly by uptake of atmospheric CO₂?",
-      "ar": "شو اسم انخفاض قيمة pH في مي البحر على المدى الطويل، اللي يصير بالأساس لأن البحر يمتص ثاني أكسيد الكربون من الجو؟"
+      "ar": "ما اسم الانخفاض طويل الأمد في pH مياه البحر، الناتج أساساً عن امتصاص CO₂ الجوي؟"
     },
     "answer": {
       "en": "Ocean acidification",
@@ -464,7 +464,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What distinguishes a carbon sink from a store that merely contains carbon?",
-      "ar": "شو الفرق بين «مصرف الكربون» وبين مكان فيه كربون وبس؟"
+      "ar": "ما الذي يميز مصرف الكربون عن مخزون يحتوي على الكربون فحسب؟"
     },
     "answer": {
       "en": "A sink absorbs more carbon than it releases over a specified period. A carbon store need not have net uptake.",
@@ -483,7 +483,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Socotra's dragon's blood tree grows naturally nowhere else on Earth. What do ecologists call a species found only in one place?",
-      "ar": "شجرة دم الأخوين في سقطرى ما تنبت طبيعياً بأي مكان ثاني بالعالم. شو يسمّي علماء البيئة النوع اللي يعيش بمكان واحد بس؟"
+      "ar": "شجرة دم الأخوين في سقطرى لا تنمو طبيعيًا في أي مكان آخر على الأرض. ماذا يسمّي علماء البيئة النوع الذي لا يوجد إلا في مكان واحد؟"
     },
     "answer": {
       "en": "Endemic (the phenomenon is called endemism).",
@@ -502,7 +502,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which heavy metal is primarily responsible for the Minamata disease?",
-      "ar": "أي معدن ثقيل هو السبب الرئيسي لمرض ميناماتا؟"
+      "ar": "ما هو المعدن الثقيل المسؤول بشكل رئيسي عن مرض ميناماتا؟"
     },
     "answer": {
       "en": "Mercury",
@@ -521,7 +521,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What is the term for the gradual change in the species composition of a community over time?",
-      "ar": "شو نسمّي التغيّر التدريجي في أنواع الكائنات اللي تكوّن مجتمع معيّن مع الوقت؟"
+      "ar": "ما هو المصطلح الذي يصف التغير التدريجي في تكوين أنواع مجتمع ما بمرور الوقت؟"
     },
     "answer": {
       "en": "Ecological Succession",
@@ -540,7 +540,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which atmospheric layer contains the vast majority of the Earth's weather systems?",
-      "ar": "أي طبقة بالجو فيها أغلب الطقس اللي نعيشه على الأرض؟"
+      "ar": "أي طبقة جوية تحتوي على الغالبية العظمى من أنظمة الطقس في الأرض؟"
     },
     "answer": {
       "en": "Troposphere",
@@ -559,7 +559,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What is the term for the loss of color in corals due to stress from rising water temperatures?",
-      "ar": "شو نسمّي لما المرجان يفقد لونه بسبب الإجهاد من سخونة المي؟"
+      "ar": "ما هو المصطلح الذي يصف فقدان المرجان للونه بسبب الإجهاد الناتج عن ارتفاع حرارة الماء؟"
     },
     "answer": {
       "en": "Coral Bleaching",
@@ -578,7 +578,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is the 'Great Oxygenation Event' (GOE) in Earth's history?",
-      "ar": "شو هو «حدث الأكسجة الكبير» في تاريخ الأرض؟"
+      "ar": "ما هو «حدث الأكسجة الكبير» في تاريخ الأرض؟"
     },
     "answer": {
       "en": "The biological induction of free oxygen into the atmosphere by cyanobacteria (~2.4 billion years ago)",
@@ -597,7 +597,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is the 'Hadley Cell' in atmospheric circulation?",
-      "ar": "شو هي «خلية هادلي» في حركة الهوا بالغلاف الجوي؟"
+      "ar": "ما هي «خلية هادلي» في دوران الغلاف الجوي؟"
     },
     "answer": {
       "en": "A tropical circulation cell with rising air near the equator, poleward flow aloft, sinking in the subtropics, and an equatorward return near the surface.",
@@ -616,7 +616,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Which complex feedback loop involves permafrost melting releasing methane, which then increases warming?",
-      "ar": "شو الحلقة اللي يذوب فيها الجليد الدائم بالتربة ويطلع الميثان، فيزيد الاحترار أكثر؟"
+      "ar": "أي حلقة تغذية راجعة معقدة تتضمن ذوبان التربة الصقيعية وإطلاق الميثان، مما يزيد من الاحترار؟"
     },
     "answer": {
       "en": "Permafrost Carbon Feedback",
@@ -635,7 +635,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What does the 'Milankovitch Theory' explain?",
-      "ar": "شو اللي تشرحه «نظرية ميلانكوفيتش»؟"
+      "ar": "ماذا تشرح «نظرية ميلانكوفيتش»؟"
     },
     "answer": {
       "en": "How orbital variations affect long-term climate and ice ages",
@@ -654,7 +654,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is 'Biomagnification'?",
-      "ar": "شو هو «التضخّم البيولوجي» (Biomagnification)؟"
+      "ar": "ما هو «التضخم البيولوجي» (Biomagnification)؟"
     },
     "answer": {
       "en": "The increasing concentration of a substance (like toxins) in the tissues of organisms at higher trophic levels",
@@ -673,7 +673,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is the 'Thermohaline Circulation'?",
-      "ar": "شو هو «الدوران الحراري الملحي»؟"
+      "ar": "ما هو «الدوران الحراري الملحي»؟"
     },
     "answer": {
       "en": "Deep-ocean currents driven by differences in density due to temperature and salinity",
@@ -692,7 +692,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is the 'Redfield Ratio' in oceanography?",
-      "ar": "في علم المحيطات، شو هي «نسبة ريدفيلد»؟"
+      "ar": "ما هي «نسبة ريدفيلد» في علم المحيطات؟"
     },
     "answer": {
       "en": "The atomic ratio of Carbon, Nitrogen, and Phosphorus (106:16:1) in phytoplankton",
@@ -711,7 +711,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is the 'Tipping Point' concept in climate science?",
-      "ar": "في علوم المناخ، شو يعني مفهوم «نقطة التحوّل» (Tipping Point)؟"
+      "ar": "ما هو مفهوم «نقطة التحول» (Tipping Point) في علوم المناخ؟"
     },
     "answer": {
       "en": "A threshold beyond which a small additional change can trigger a large shift in a climate system. Reversal can be difficult or impossible on relevant human timescales.",
@@ -730,7 +730,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Which 1971 convention protects wetlands of international importance?",
-      "ar": "شو الاتفاقية اللي انوقعت سنة 1971 وتحمي الأراضي الرطبة المهمة دوليًا؟"
+      "ar": "ما هي اتفاقية عام 1971 التي تحمي الأراضي الرطبة ذات الأهمية الدولية؟"
     },
     "answer": {
       "en": "Ramsar Convention",
@@ -749,7 +749,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is 'Primary Productivity' in an ecosystem?",
-      "ar": "في النظام البيئي، شو هي «الإنتاجية الأولية»؟"
+      "ar": "ما هي «الإنتاجية الأولية» في النظام البيئي؟"
     },
     "answer": {
       "en": "The rate at which energy is converted by autotrophs to organic substances",
@@ -768,7 +768,7 @@
     },
     "question": {
       "en": "What is the most abundant gas in Earth's atmosphere?",
-      "ar": "شو أكثر غاز موجود بالغلاف الجوي للأرض؟"
+      "ar": "ما الغاز الأكثر وفرة في الغلاف الجوي للأرض؟"
     },
     "answer": {
       "en": "Nitrogen (about 78%).",
@@ -787,7 +787,7 @@
     },
     "question": {
       "en": "What is the greenhouse effect and how does it cause climate change?",
-      "ar": "شو هو «الاحتباس الحراري»، وكيف يسبب تغيّر المناخ؟"
+      "ar": "ما تأثير الاحتباس الحراري وكيف يتسبب في تغير المناخ؟"
     },
     "answer": {
       "en": "Greenhouse gases trap heat that Earth radiates; extra emissions trap more and warm the planet.",
@@ -844,7 +844,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What Arabic-derived name do meteorologists use for a towering wall of dust pushed ahead of a thunderstorm?",
-      "ar": "شو الاسم المأخوذ من العربي اللي يستخدمه علماء الأرصاد لجدار غبار ضخم تدفعه رياح العاصفة الرعدية قدّامها؟"
+      "ar": "ما الاسم المأخوذ من العربية الذي يستخدمه علماء الأرصاد لجدار غبار ضخم تدفعه رياح العاصفة الرعدية أمامها؟"
     },
     "answer": {
       "en": "A haboob.",
@@ -863,7 +863,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which African-led project aims to restore a belt of land across the Sahel, from Senegal to Djibouti, to hold back desertification?",
-      "ar": "أي مشروع تقوده دول أفريقية يهدف لإحياء حزام من الأراضي عبر منطقة الساحل، من السنغال لجيبوتي، عشان يوقف التصحّر؟"
+      "ar": "أي مشروع تقوده دول إفريقية يهدف إلى إحياء حزام من الأراضي عبر منطقة الساحل، من السنغال إلى جيبوتي، لوقف التصحر؟"
     },
     "answer": {
       "en": "The Great Green Wall.",
@@ -882,7 +882,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Each summer monsoon, winds off Oman's southern coast draw cold, nutrient-rich water up from the deep, feeding rich fisheries. What is this process called?",
-      "ar": "كل صيف مع الرياح الموسمية، الرياح قبالة ساحل عُمان الجنوبي تسحب مي باردة غنية بالمغذّيات من الأعماق للسطح، فتنتعش مصايد السمك. شو اسم هالعملية؟"
+      "ar": "كل صيف مع الرياح الموسمية، تسحب الرياح قبالة ساحل عُمان الجنوبي مياهًا باردة غنية بالمغذيات من الأعماق إلى السطح، فتنتعش مصايد الأسماك. ما اسم هذه العملية؟"
     },
     "answer": {
       "en": "Upwelling.",
@@ -901,7 +901,7 @@
     "difficulty": "hard",
     "question": {
       "en": "On air-quality apps, what does 'PM2.5' measure?",
-      "ar": "بتطبيقات جودة الهوا، شو اللي يقيسه مؤشر PM2.5؟"
+      "ar": "في تطبيقات جودة الهواء، ماذا يقيس مؤشر PM2.5؟"
     },
     "answer": {
       "en": "Fine particles 2.5 micrometres or smaller across, small enough to reach deep into the lungs.",
@@ -920,7 +920,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is the famous graph of rising atmospheric CO₂, measured at Hawaii's Mauna Loa since 1958, called?",
-      "ar": "شو اسم الرسم البياني المشهور لارتفاع ثاني أكسيد الكربون بالجو، اللي ينقاس بمرصد ماونا لوا في هاواي من سنة 1958؟"
+      "ar": "ما اسم الرسم البياني الشهير لارتفاع ثاني أكسيد الكربون في الجو، الذي يُقاس في مرصد ماونا لوا في هاواي منذ عام 1958؟"
     },
     "answer": {
       "en": "The Keeling Curve.",
@@ -939,7 +939,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Mangroves, seagrass meadows and salt marshes lock away large amounts of carbon in their soils. What is this coastal carbon called?",
-      "ar": "أشجار القرم ومروج الأعشاب البحرية والمستنقعات المالحة تخزّن كميات كبيرة من الكربون بتربتها. شو اسم هالكربون الساحلي؟"
+      "ar": "تخزّن أشجار القرم ومروج الأعشاب البحرية والمستنقعات المالحة كميات كبيرة من الكربون في تربتها. ما اسم هذا الكربون الساحلي؟"
     },
     "answer": {
       "en": "Blue carbon.",

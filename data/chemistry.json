@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "What is the chemical formula for water?",
-      "ar": "شو الصيغة الكيميائية للمي؟"
+      "ar": "ما الصيغة الكيميائية للماء؟"
     },
     "answer": {
       "en": "H₂O",
@@ -49,7 +49,7 @@
     },
     "question": {
       "en": "What is the name of the chart that organizes all known chemical elements?",
-      "ar": "شو اسم الجدول اللي يرتّب كل العناصر الكيميائية المعروفة؟"
+      "ar": "ما اسم الجدول الذي ينظم جميع العناصر الكيميائية المعروفة؟"
     },
     "answer": {
       "en": "The Periodic Table",
@@ -90,7 +90,7 @@
     },
     "question": {
       "en": "What two elements make up common table salt (NaCl)?",
-      "ar": "شو العنصرين اللي يكوّنون ملح الطعام (NaCl)؟"
+      "ar": "ما العنصران اللذان يُكوِّنان ملح الطعام الشائع (NaCl)؟"
     },
     "answer": {
       "en": "Sodium and Chlorine",
@@ -131,7 +131,7 @@
     },
     "question": {
       "en": "What is the center of an atom called?",
-      "ar": "شو اسم مركز الذرة؟"
+      "ar": "ما اسم مركز الذرة؟"
     },
     "answer": {
       "en": "The Nucleus",
@@ -172,7 +172,7 @@
     },
     "question": {
       "en": "What are the three primary states of matter?",
-      "ar": "شو الحالات الثلاث الأساسية للمادة؟"
+      "ar": "ما الحالات الثلاث الأساسية للمادة؟"
     },
     "answer": {
       "en": "Solid, Liquid, Gas",
@@ -191,7 +191,7 @@
     },
     "question": {
       "en": "What is the chemical symbol for Gold?",
-      "ar": "شو الرمز الكيميائي للذهب؟"
+      "ar": "ما الرمز الكيميائي للذهب؟"
     },
     "answer": {
       "en": "Au",
@@ -232,7 +232,7 @@
     },
     "question": {
       "en": "What is the electrical charge of a proton?",
-      "ar": "شو الشحنة الكهربائية للبروتون؟"
+      "ar": "ما الشحنة الكهربائية للبروتون؟"
     },
     "answer": {
       "en": "Positive",
@@ -273,7 +273,7 @@
     },
     "question": {
       "en": "On the pH scale, is a value of 2 considered acidic or basic?",
-      "ar": "على مقياس pH، القيمة 2 حمضية ولا قاعدية؟"
+      "ar": "على مقياس pH، هل قيمة 2 تعتبر حمضية أم قاعدية؟"
     },
     "answer": {
       "en": "Acidic",
@@ -292,7 +292,7 @@
     },
     "question": {
       "en": "What flame-test color is typically produced by copper compounds?",
-      "ar": "شو لون اللهب اللي تطلّعه مركبات النحاس عادةً باختبار اللهب؟"
+      "ar": "ما لون اختبار اللهب الذي تنتجه مركبات النحاس عادةً؟"
     },
     "answer": {
       "en": "Blue-green.",
@@ -311,7 +311,7 @@
     },
     "question": {
       "en": "What does the atomic number of an element represent?",
-      "ar": "شو اللي يمثّله العدد الذري للعنصر؟"
+      "ar": "ماذا يمثل العدد الذري للعنصر؟"
     },
     "answer": {
       "en": "The number of protons",
@@ -352,7 +352,7 @@
     },
     "question": {
       "en": "Which group 18 elements are generally much less reactive than neighboring groups?",
-      "ar": "شو اسم عناصر المجموعة 18، اللي تكون عمومًا أقل تفاعل بكثير من المجموعات اللي جنبها؟"
+      "ar": "ما اسم عناصر المجموعة 18 التي تكون عموماً أقل تفاعلاً بكثير من المجموعات المجاورة؟"
     },
     "answer": {
       "en": "The noble gases. Some, such as xenon, can form compounds.",
@@ -371,7 +371,7 @@
     },
     "question": {
       "en": "What are the electrons in the outermost shell of an atom called?",
-      "ar": "شو اسم الإلكترونات اللي بالغلاف الخارجي للذرة؟"
+      "ar": "ما اسم الإلكترونات الموجودة في الغلاف الخارجي للذرة؟"
     },
     "answer": {
       "en": "Valence electrons",
@@ -412,7 +412,7 @@
     },
     "question": {
       "en": "Atoms of the same element with different numbers of neutrons are called what?",
-      "ar": "شو نسمّي ذرات نفس العنصر اللي فيها أعداد نيوترونات مختلفة؟"
+      "ar": "كيف تُسمى ذرات نفس العنصر ذات أعداد مختلفة من النيوترونات؟"
     },
     "answer": {
       "en": "Isotopes",
@@ -453,7 +453,7 @@
     },
     "question": {
       "en": "Mix baking soda with vinegar and the fizzing mixture turns colder, because the reaction draws heat from its surroundings. What type of reaction is this?",
-      "ar": "لما تخلط بيكربونات الصودا مع الخل، الخليط يفور ويبرد لأن التفاعل يسحب حرارة من اللي حواليه. شو نوع هالتفاعل؟"
+      "ar": "عندما تخلط بيكربونات الصودا بالخل، يفور الخليط ويبرد لأن التفاعل يسحب الحرارة من محيطه. ما نوع هذا التفاعل؟"
     },
     "answer": {
       "en": "Endothermic",
@@ -494,7 +494,7 @@
     },
     "question": {
       "en": "What type of bond involves the sharing of electron pairs between atoms?",
-      "ar": "شو نوع الرابطة اللي تتشارك فيها الذرات بأزواج إلكترونات؟"
+      "ar": "ما نوع الرابطة التي تتضمن مشاركة أزواج الإلكترونات بين الذرات؟"
     },
     "answer": {
       "en": "Covalent Bond",
@@ -535,7 +535,7 @@
     },
     "question": {
       "en": "What is the process of a solid turning directly into a gas?",
-      "ar": "شو اسم تحوّل المادة الصلبة لغاز على طول؟"
+      "ar": "ما اسم عملية تحول الصلب مباشرةً إلى غاز؟"
     },
     "answer": {
       "en": "Sublimation",
@@ -576,7 +576,7 @@
     },
     "question": {
       "en": "What is the familiar reddish-brown corrosion product that forms on iron exposed to moisture and oxygen?",
-      "ar": "شو الصدا البنّي المحمّر اللي يتكوّن على الحديد لما يتعرض للرطوبة والأكسجين؟"
+      "ar": "ما ناتج التآكل المألوف البني المحمر الذي يتكون على الحديد عند تعرضه للرطوبة والأكسجين؟"
     },
     "answer": {
       "en": "Rust, a mixture containing hydrated iron oxides and iron oxyhydroxides.",
@@ -595,7 +595,7 @@
     },
     "question": {
       "en": "What do you call a substance that increases reaction rate without being consumed?",
-      "ar": "شو اسم المادة اللي تسرّع التفاعل من غير ما تنستهلك؟"
+      "ar": "ما اسم المادة التي تزيد من معدل التفاعل دون أن تُستهلك؟"
     },
     "answer": {
       "en": "A catalyst",
@@ -636,7 +636,7 @@
     },
     "question": {
       "en": "What equation relates the standard Gibbs free-energy change ΔG° to an equilibrium constant K?",
-      "ar": "شو المعادلة اللي تربط تغيّر طاقة غيبس الحرة القياسية ΔG° بثابت الاتزان K؟"
+      "ar": "ما المعادلة التي تربط تغير طاقة غيبس الحرة القياسية ΔG° بثابت الاتزان K؟"
     },
     "answer": {
       "en": "ΔG° = −RT ln K.",
@@ -655,7 +655,7 @@
     },
     "question": {
       "en": "What term describes a molecule whose mirror image cannot be superimposed on it?",
-      "ar": "شو نسمّي الجزيء اللي ما ينطبق على صورته بالمراية؟"
+      "ar": "ما المصطلح الذي يصف جزيئاً لا تنطبق عليه صورته المرآوية؟"
     },
     "answer": {
       "en": "Chiral",
@@ -674,7 +674,7 @@
     },
     "question": {
       "en": "If a substance has a half-life of 10 years, how much remains after 20 years?",
-      "ar": "إذا نصف عمر مادة 10 سنين، كم يبقى منها بعد 20 سنة؟"
+      "ar": "إذا كان نصف عمر مادة ما 10 سنوات، كم يتبقى منها بعد 20 سنة؟"
     },
     "answer": {
       "en": "25% (one quarter)",
@@ -693,7 +693,7 @@
     },
     "question": {
       "en": "How many electrons can a complete p subshell, consisting of three p orbitals, hold?",
-      "ar": "كم إلكترون يتسع له المستوى الفرعي p لما يكون كامل، وهو ثلاث مدارات p؟"
+      "ar": "كم إلكتروناً يستوعب المستوى الفرعي p كاملاً، وهو يتكون من ثلاثة مدارات p؟"
     },
     "answer": {
       "en": "6 electrons: 2 in each of the three orbitals.",
@@ -712,7 +712,7 @@
     },
     "question": {
       "en": "Which element has the highest electronegativity on the Pauling scale?",
-      "ar": "أي عنصر عنده أعلى كهروسلبية على مقياس باولنغ؟"
+      "ar": "أي عنصر يمتلك أعلى كهروسالبية على مقياس بولينغ؟"
     },
     "answer": {
       "en": "Fluorine",
@@ -731,7 +731,7 @@
     },
     "question": {
       "en": "A solution contains acetic acid and sodium acetate. What function does this weak-acid/conjugate-base pair provide?",
-      "ar": "محلول فيه حمض الخليك وخلات الصوديوم. شو الوظيفة اللي يعطيها زوج الحمض الضعيف وقاعدته المرافقة؟"
+      "ar": "يحتوي محلول على حمض الخليك وخلات الصوديوم. ما الوظيفة التي يوفرها زوج الحمض الضعيف وقاعدته المرافقة؟"
     },
     "answer": {
       "en": "It acts as a buffer, resisting large pH changes when small amounts of acid or base are added.",
@@ -750,7 +750,7 @@
     },
     "question": {
       "en": "What is the formula for the Ideal Gas Law?",
-      "ar": "شو صيغة قانون الغاز المثالي؟"
+      "ar": "ما صيغة قانون الغاز المثالي؟"
     },
     "answer": {
       "en": "PV = nRT",
@@ -769,7 +769,7 @@
     },
     "question": {
       "en": "Which thermodynamic state function is defined by H=U+pV?",
-      "ar": "شو دالة الحالة الحرارية اللي تتعرّف بالعلاقة H=U+pV؟"
+      "ar": "ما دالة الحالة الديناميكية الحرارية التي تُعرّف بالعلاقة H=U+pV؟"
     },
     "answer": {
       "en": "Enthalpy. U is internal energy, p pressure, and V volume.",
@@ -788,7 +788,7 @@
     },
     "question": {
       "en": "Whose principle states that a system at equilibrium shifts to counteract a change?",
-      "ar": "مبدأ مين يقول إن النظام المتوازن يتحوّل عشان يعاكس أي تغيير يصير عليه؟"
+      "ar": "مبدأ من ينص على أن نظاماً في حالة توازن سيتحول لمعاكسة أي تغيير يطرأ عليه؟"
     },
     "answer": {
       "en": "Le Chatelier's Principle",
@@ -807,7 +807,7 @@
     },
     "question": {
       "en": "What is the general formula for an alkane?",
-      "ar": "شو الصيغة العامة للألكانات؟"
+      "ar": "ما الصيغة العامة للألكانات؟"
     },
     "answer": {
       "en": "CₙH₂ₙ₊₂",
@@ -826,7 +826,7 @@
     },
     "question": {
       "en": "What is the chemical symbol for iron?",
-      "ar": "شو الرمز الكيميائي للحديد؟"
+      "ar": "ما الرمز الكيميائي للحديد؟"
     },
     "answer": {
       "en": "Fe",
@@ -867,7 +867,7 @@
     },
     "question": {
       "en": "Argentina takes its name from argentum, the Latin word for silver. What is silver's chemical symbol?",
-      "ar": "اسم الأرجنتين جاي من argentum، الكلمة اللاتينية للفضة. شو الرمز الكيميائي للفضة؟"
+      "ar": "اسم الأرجنتين مأخوذ من argentum، الكلمة اللاتينية للفضة. ما الرمز الكيميائي للفضة؟"
     },
     "answer": {
       "en": "Ag",
@@ -908,7 +908,7 @@
     },
     "question": {
       "en": "What products form when aqueous hydrochloric acid neutralizes sodium hydroxide?",
-      "ar": "شو اللي يطلع لما نعادل حمض الهيدروكلوريك المائي مع هيدروكسيد الصوديوم؟"
+      "ar": "ما النواتج عند تعادل حمض الهيدروكلوريك المائي مع هيدروكسيد الصوديوم؟"
     },
     "answer": {
       "en": "Sodium chloride and water: HCl+NaOH→NaCl+H₂O.",
@@ -927,7 +927,7 @@
     },
     "question": {
       "en": "What is the lightest element on the periodic table?",
-      "ar": "شو أخف عنصر بالجدول الدوري؟"
+      "ar": "ما أخفّ عنصر في الجدول الدوري؟"
     },
     "answer": {
       "en": "Hydrogen",
@@ -968,7 +968,7 @@
     },
     "question": {
       "en": "At what temperature does water boil at sea level?",
-      "ar": "على أي درجة حرارة تغلي المي عند مستوى سطح البحر؟"
+      "ar": "عند أي درجة حرارة يغلي الماء على مستوى سطح البحر؟"
     },
     "answer": {
       "en": "100°C (212°F)",
@@ -987,7 +987,7 @@
     },
     "question": {
       "en": "What noble gas is used in balloons?",
-      "ar": "أي غاز نبيل نستخدمه بالبالونات؟"
+      "ar": "أي غاز نبيل يُستخدم في البالونات؟"
     },
     "answer": {
       "en": "Helium",
@@ -1006,7 +1006,7 @@
     },
     "question": {
       "en": "What is combustion?",
-      "ar": "شو هو «الاحتراق»؟"
+      "ar": "ما الاحتراق؟"
     },
     "answer": {
       "en": "A chemical reaction where a substance reacts rapidly with oxygen to produce heat and light",
@@ -1025,7 +1025,7 @@
     },
     "question": {
       "en": "Which is the only metal that is liquid at ordinary room temperature?",
-      "ar": "أي معدن هو الوحيد اللي يكون سائل بحرارة الغرفة العادية؟"
+      "ar": "ما المعدن الوحيد الذي يكون سائلًا في درجة حرارة الغرفة العادية؟"
     },
     "answer": {
       "en": "Mercury (Hg).",
@@ -1044,7 +1044,7 @@
     },
     "question": {
       "en": "Which element is essential for life and makes up 21% of Earth's atmosphere?",
-      "ar": "أي عنصر أساسي للحياة ويشكّل 21% من الغلاف الجوي؟"
+      "ar": "أي عنصر ضروري للحياة ويشكّل 21% من الغلاف الجوي للأرض؟"
     },
     "answer": {
       "en": "Oxygen",
@@ -1063,7 +1063,7 @@
     },
     "question": {
       "en": "What is oxidation?",
-      "ar": "شو هي «الأكسدة»؟"
+      "ar": "ما الأكسدة؟"
     },
     "answer": {
       "en": "A reaction in which a substance loses electrons",
@@ -1082,7 +1082,7 @@
     },
     "question": {
       "en": "What element do diamonds consist of?",
-      "ar": "من أي عنصر يتكوّن الألماس؟"
+      "ar": "من أي عنصر تتكوّن الألماس؟"
     },
     "answer": {
       "en": "Carbon",
@@ -1123,7 +1123,7 @@
     },
     "question": {
       "en": "Why do cities spread salt on icy roads in winter?",
-      "ar": "ليش بعض المدن ترشّ ملح على الطرق المتجمّدة بالشتا؟"
+      "ar": "لماذا ترش المدن الملح على الطرق المتجمدة في الشتاء؟"
     },
     "answer": {
       "en": "Dissolved salt lowers water's freezing point, so the ice melts and new ice forms less easily.",
@@ -1142,7 +1142,7 @@
     },
     "question": {
       "en": "Which process recovers dissolved salt as a solid by allowing the water in saltwater to escape as vapor?",
-      "ar": "شو العملية اللي ترجّع الملح الذايب صلب، لما نخلّي مي المحلول الملحي تطلع على شكل بخار؟"
+      "ar": "ما العملية التي تستعيد الملح المذاب صلباً بالسماح للماء في المحلول الملحي بالمغادرة كبخار؟"
     },
     "answer": {
       "en": "Evaporation",
@@ -1161,7 +1161,7 @@
     },
     "question": {
       "en": "What is the chemical formula for carbon dioxide?",
-      "ar": "شو الصيغة الكيميائية لثاني أكسيد الكربون؟"
+      "ar": "ما الصيغة الكيميائية لثاني أكسيد الكربون؟"
     },
     "answer": {
       "en": "CO₂",
@@ -1180,7 +1180,7 @@
     },
     "question": {
       "en": "What type of bond holds the sodium and chloride ions together in table salt?",
-      "ar": "شو نوع الرابطة اللي تمسك أيونات الصوديوم والكلوريد ببعض في ملح الطعام؟"
+      "ar": "ما نوع الرابطة التي تربط أيونات الصوديوم والكلوريد بعضها ببعض في ملح الطعام؟"
     },
     "answer": {
       "en": "Ionic bond",
@@ -1221,7 +1221,7 @@
     },
     "question": {
       "en": "Why do main-group elements in the same periodic-table group often have similar chemical behavior?",
-      "ar": "ليش عناصر المجموعات الرئيسية اللي بنفس المجموعة بالجدول الدوري غالبًا خواصها الكيميائية متشابهة؟"
+      "ar": "لماذا تتشابه غالباً الخواص الكيميائية لعناصر المجموعات الرئيسية الواقعة في المجموعة نفسها من الجدول الدوري؟"
     },
     "answer": {
       "en": "They have similar outer-shell electron configurations, which strongly influence bonding and reactivity.",
@@ -1240,7 +1240,7 @@
     },
     "question": {
       "en": "At 25 °C, what does pH 7 mean for an aqueous solution, and is pH strictly limited to 0–14?",
-      "ar": "عند 25 درجة مئوية، شو يعني إن قيمة pH لمحلول مائي تساوي 7، وهل قيمة pH لازم تكون بين 0 و14 بس؟"
+      "ar": "عند 25 درجة مئوية، ماذا تعني قيمة pH تساوي 7 لمحلول مائي، وهل يقتصر pH حتمًا على المدى 0–14؟"
     },
     "answer": {
       "en": "pH 7 is neutral at 25 °C. The familiar 0–14 range is not a strict limit; concentrated solutions can lie outside it.",
@@ -1259,7 +1259,7 @@
     },
     "question": {
       "en": "Unlike most substances, water is less dense as a solid, so ice floats. Which attractions between water molecules hold ice in its open, roomy structure?",
-      "ar": "على عكس أغلب المواد، المي وهي صلبة كثافتها أقل منها وهي سائلة، عشان كذا الثلج يطفو. شو التجاذبات بين جزيئات المي اللي تمسك الثلج ببنيته المفتوحة الواسعة؟"
+      "ar": "على خلاف معظم المواد، تكون كثافة الماء في حالته الصلبة أقل منها في حالته السائلة، ولهذا يطفو الجليد. ما التجاذبات بين جزيئات الماء التي تُبقي الجليد في بنيته المفتوحة الواسعة؟"
     },
     "answer": {
       "en": "Hydrogen bonds.",
@@ -1278,7 +1278,7 @@
     },
     "question": {
       "en": "In which numbered periods of the periodic table do the d-block rows occur?",
-      "ar": "بأي دورات مرقّمة بالجدول الدوري موجودة صفوف «الفئة d»؟"
+      "ar": "في أي دورات مرقمة من الجدول الدوري توجد صفوف الفئة d؟"
     },
     "answer": {
       "en": "Periods 4,5,6, and 7.",
@@ -1319,7 +1319,7 @@
     },
     "question": {
       "en": "What is chromatography used for?",
-      "ar": "ليش نستخدم «الكروماتوغرافيا»؟"
+      "ar": "لماذا تُستخدم الكروماتوغرافيا؟"
     },
     "answer": {
       "en": "Separating mixtures based on different rates at which components move through a medium",
@@ -1338,7 +1338,7 @@
     },
     "question": {
       "en": "What is the molecular geometry of methane, CH₄?",
-      "ar": "شو الشكل الهندسي لجزيء الميثان CH₄؟"
+      "ar": "ما الشكل الهندسي لجزيء الميثان CH₄؟"
     },
     "answer": {
       "en": "Tetrahedral — four bonds pointing towards the corners of a tetrahedron at 109.5°",
@@ -1357,7 +1357,7 @@
     },
     "question": {
       "en": "Who published the influential 1869 periodic table that left gaps for undiscovered elements?",
-      "ar": "مين نشر الجدول الدوري المؤثر سنة 1869 وترك فيه فراغات لعناصر ما كانت انكشفت؟"
+      "ar": "من نشر الجدول الدوري المؤثر عام 1869 وترك فيه فراغات لعناصر لم تكن مكتشفة؟"
     },
     "answer": {
       "en": "Dmitri Mendeleev.",
@@ -1398,7 +1398,7 @@
     },
     "question": {
       "en": "What does Hess's Law state?",
-      "ar": "شو يقول «قانون هس»؟"
+      "ar": "ماذا ينص قانون هيس؟"
     },
     "answer": {
       "en": "The enthalpy change for a reaction is the same regardless of the path taken",
@@ -1417,7 +1417,7 @@
     },
     "question": {
       "en": "In the usual ionic addition of HX to an unsymmetrical alkene, what does Markovnikov's rule predict?",
-      "ar": "في الإضافة الأيونية المعتادة لـHX على ألكين غير متماثل، شو تتوقع «قاعدة ماركوفنيكوف»؟"
+      "ar": "في الإضافة الأيونية المعتادة لـHX إلى ألكين غير متماثل، ماذا تتوقع قاعدة ماركوفنيكوف؟"
     },
     "answer": {
       "en": "Hydrogen attaches to the double-bond carbon already bearing more hydrogens; X attaches to the more substituted carbon.",
@@ -1436,7 +1436,7 @@
     },
     "question": {
       "en": "What is the difference between structural and geometric isomers?",
-      "ar": "شو الفرق بين المتشكّلات البنيوية والمتشكّلات الهندسية؟"
+      "ar": "ما الفرق بين المتماكبات البنيوية والهندسية؟"
     },
     "answer": {
       "en": "Structural isomers differ in connectivity; geometric isomers (cis/trans) differ in arrangement around a double bond",
@@ -1455,7 +1455,7 @@
     },
     "question": {
       "en": "At a fixed temperature, how does comparing reaction quotient Q with equilibrium constant K predict reaction direction?",
-      "ar": "عند حرارة ثابتة، كيف مقارنة حاصل التفاعل Q مع ثابت الاتزان K تتنبأ باتجاه التفاعل؟"
+      "ar": "عند حرارة ثابتة، كيف تتنبأ مقارنة حاصل التفاعل Q بثابت الاتزان K باتجاه التفاعل؟"
     },
     "answer": {
       "en": "Q<K favors net forward reaction; Q>K favors net reverse reaction; Q=K indicates equilibrium.",
@@ -1474,7 +1474,7 @@
     },
     "question": {
       "en": "What is the mechanism of electrophilic aromatic substitution (EAS)?",
-      "ar": "شو آلية «الاستبدال الإلكتروفيلي العطري» (EAS)؟"
+      "ar": "ما آلية الاستبدال الإلكتروفيلي العطري (EAS)؟"
     },
     "answer": {
       "en": "An electrophile attacks the aromatic ring, forming a carbocation intermediate, then a proton is lost to restore aromaticity",
@@ -1493,7 +1493,7 @@
     },
     "question": {
       "en": "What is the Arrhenius equation used for?",
-      "ar": "ليش نستخدم معادلة أرينيوس؟"
+      "ar": "لماذا تُستخدم معادلة أرينيوس؟"
     },
     "answer": {
       "en": "To calculate the effect of temperature on reaction rate constants",
@@ -1512,7 +1512,7 @@
     },
     "question": {
       "en": "What representative temperature, pressure, and catalyst are commonly taught for the Haber process?",
-      "ar": "شو درجة الحرارة والضغط والمحفّز التقريبية الشائعة لما نشرح عملية هابر بالدراسة؟"
+      "ar": "ما درجة الحرارة والضغط والمحفز التقريبية الشائعة في الشرح الدراسي لعملية هابر؟"
     },
     "answer": {
       "en": "About 450°C and 200 atmospheres with an iron-based catalyst. Actual industrial operating conditions vary.",
@@ -1531,7 +1531,7 @@
     },
     "question": {
       "en": "What products form when a triglyceride fat undergoes saponification with sodium hydroxide?",
-      "ar": "شو اللي يطلع لما نصبّن دهن ثلاثي الغليسريد بهيدروكسيد الصوديوم؟"
+      "ar": "ما النواتج عند تصبّن دهن من ثلاثي الغليسريد بهيدروكسيد الصوديوم؟"
     },
     "answer": {
       "en": "Glycerol and sodium salts of fatty acids, which are soaps.",
@@ -1550,7 +1550,7 @@
     },
     "question": {
       "en": "What does a negative ΔG mean for a reaction under the stated conditions?",
-      "ar": "شو يعني إن ΔG لتفاعل معيّن تطلع سالبة تحت الظروف المحددة؟"
+      "ar": "ماذا تعني القيمة السالبة لـ ΔG لتفاعل ما تحت الظروف المحددة؟"
     },
     "answer": {
       "en": "The forward reaction is thermodynamically favorable (spontaneous) under those conditions.",
@@ -1569,7 +1569,7 @@
     },
     "question": {
       "en": "What is a retrosynthetic analysis?",
-      "ar": "شو هو «التحليل التراجعي» (ريتروسينثيسيس)؟"
+      "ar": "ما التحليل التراجعي (ريتروسينثيسيس)؟"
     },
     "answer": {
       "en": "Planning a synthesis backward from a target molecule to simpler precursor molecules.",
@@ -1588,7 +1588,7 @@
     },
     "question": {
       "en": "What equation relates an electrode or cell potential to its standard potential and reaction quotient?",
-      "ar": "شو المعادلة اللي تربط جهد القطب أو الخلية بجهده القياسي وحاصل التفاعل؟"
+      "ar": "ما المعادلة التي تربط جهد قطب أو خلية بجهده القياسي وحاصل التفاعل؟"
     },
     "answer": {
       "en": "The Nernst equation: E=E°−(RT/nF)lnQ, using activities in Q.",
@@ -1607,7 +1607,7 @@
     },
     "question": {
       "en": "What is the third law of thermodynamics?",
-      "ar": "شو هو القانون الثالث للديناميكا الحرارية؟"
+      "ar": "ما القانون الثالث للديناميكا الحرارية؟"
     },
     "answer": {
       "en": "The entropy of a perfect crystal at absolute zero (0 K) is zero",
@@ -1645,7 +1645,7 @@
     },
     "question": {
       "en": "What is collision theory in chemical kinetics?",
-      "ar": "في حركية التفاعلات، شو هي «نظرية التصادم»؟"
+      "ar": "ما نظرية التصادم في حركية التفاعلات الكيميائية؟"
     },
     "answer": {
       "en": "Reactions occur when reactant molecules collide with sufficient energy (≥ activation energy) and correct orientation",
@@ -1683,7 +1683,7 @@
     },
     "question": {
       "en": "What is a Maxwell-Boltzmann distribution?",
-      "ar": "شو هو «توزيع ماكسويل-بولتزمان»؟"
+      "ar": "ما توزيع ماكسويل-بولتزمان؟"
     },
     "answer": {
       "en": "A statistical distribution describing the range of speeds of molecules in a gas at a given temperature",
@@ -1702,7 +1702,7 @@
     },
     "question": {
       "en": "What is the Diels-Alder reaction?",
-      "ar": "شو هو «تفاعل ديلز-ألدر»؟"
+      "ar": "ما تفاعل ديلز-ألدر؟"
     },
     "answer": {
       "en": "A [4+2] cycloaddition of a conjugated diene and a dienophile to form a six-membered ring.",
@@ -1740,7 +1740,7 @@
     },
     "question": {
       "en": "Which 8th-century scholar, known in medieval Europe as Geber, is often called the father of Arab chemistry?",
-      "ar": "مين العالِم اللي عاش بالقرن الثامن الميلادي، وعرفته أوروبا باسم «جيبر»، ويلقّبونه «أبو الكيمياء» عند العرب؟"
+      "ar": "مَن العالم الذي عاش في القرن الثامن الميلادي، وعرفته أوروبا في العصور الوسطى باسم «جيبر»، ويُلقَّب غالبًا بـ«أبي الكيمياء» عند العرب؟"
     },
     "answer": {
       "en": "Jabir ibn Hayyan.",
@@ -1759,7 +1759,7 @@
     },
     "question": {
       "en": "What is the distinction between kinetic and thermodynamic control in reactions?",
-      "ar": "في التفاعلات، شو الفرق بين «التحكم الحركي» و«التحكم الثيرموديناميكي»؟"
+      "ar": "ما الفرق بين التحكّم الحركي والتحكّم الثيرموديناميكي في التفاعلات؟"
     },
     "answer": {
       "en": "Kinetic control favours the fastest-forming product; thermodynamic control favours the most stable product",
@@ -1778,7 +1778,7 @@
     },
     "question": {
       "en": "What is resonance in organic chemistry?",
-      "ar": "في الكيمياء العضوية، شو هو «الرنين»؟"
+      "ar": "ما الرنين في الكيمياء العضوية؟"
     },
     "answer": {
       "en": "A way of representing molecules that cannot be accurately described by a single Lewis structure — the actual structure is a hybrid of resonance contributors",
@@ -1797,7 +1797,7 @@
     },
     "question": {
       "en": "The chemistry word 'alkali' comes from the Arabic al-qily. What was al-qily originally?",
-      "ar": "كلمة alkali (القلوي) بالكيمياء أصلها من «القِلي» بالعربي. شو كان القِلي بالأصل؟"
+      "ar": "كلمة alkali (القلوي) في الكيمياء مأخوذة من الكلمة العربية «القِلي». ما القِلي في الأصل؟"
     },
     "answer": {
       "en": "Plant ash, especially from saltwort, which was used to make soap.",
@@ -1816,7 +1816,7 @@
     },
     "question": {
       "en": "For liquid–vapor equilibrium, what relationship does the Clausius–Clapeyron equation describe?",
-      "ar": "في اتزان السائل والبخار، شو العلاقة اللي توصفها «معادلة كلاوزيوس–كلابيرون»؟"
+      "ar": "في اتزان السائل والبخار، ما العلاقة التي تصفها معادلة كلاوزيوس–كلابيرون؟"
     },
     "answer": {
       "en": "How equilibrium vapor pressure changes with temperature, in terms of the enthalpy of vaporization under the equation's approximations.",
@@ -1835,7 +1835,7 @@
     },
     "question": {
       "en": "What is the difference between physisorption and chemisorption?",
-      "ar": "شو الفرق بين الامتزاز الفيزيائي والامتزاز الكيميائي؟"
+      "ar": "ما الفرق بين الامتزاز الفيزيائي والكيميائي؟"
     },
     "answer": {
       "en": "Physisorption is weak van der Waals attraction; chemisorption involves the formation of chemical bonds between adsorbate and surface",
@@ -1873,7 +1873,7 @@
     },
     "question": {
       "en": "What is a London dispersion force?",
-      "ar": "شو هي «قوى تشتت لندن»؟"
+      "ar": "ما قوة التشتت لندن؟"
     },
     "answer": {
       "en": "A temporary attractive force arising from instantaneous dipoles induced in adjacent atoms or molecules",
@@ -1892,7 +1892,7 @@
     },
     "question": {
       "en": "What is Avogadro's number and what does it represent?",
-      "ar": "شو هو عدد أفوغادرو، وشو يمثّل؟"
+      "ar": "ما عدد أفوجادرو وماذا يمثل؟"
     },
     "answer": {
       "en": "6.022 × 10²³; it is the number of atoms, molecules, or ions in one mole of a substance.",
@@ -1911,7 +1911,7 @@
     },
     "question": {
       "en": "What is the difference between a strong acid and a weak acid?",
-      "ar": "شو الفرق بين الحمض القوي والحمض الضعيف؟"
+      "ar": "ما الفرق بين الحمض القوي والحمض الضعيف؟"
     },
     "answer": {
       "en": "In water, a strong acid such as HCl ionizes essentially completely. A weak acid such as acetic acid ionizes only partly and reaches an equilibrium with its conjugate base.",
@@ -1930,7 +1930,7 @@
     },
     "question": {
       "en": "Why can two enantiomers of a chiral molecule have different biological effects?",
-      "ar": "ليش ممكن نسختين مرآويتين لجزيء «كيرالي» يكون لهم تأثير حيوي مختلف؟"
+      "ar": "لماذا قد يكون لمتماكبين مرآويين لجزيء كيرالي تأثيران حيويان مختلفان؟"
     },
     "answer": {
       "en": "Enantiomers are non-superimposable mirror images. Biological targets such as enzymes are also chiral, so the two forms may bind or react differently.",
@@ -1949,7 +1949,7 @@
     },
     "question": {
       "en": "What is the Born–Haber cycle used to calculate?",
-      "ar": "شو اللي نحسبه بـ«دورة بورن–هابر»؟"
+      "ar": "ما الذي تُستخدم دورة بورن–هابر لحسابه؟"
     },
     "answer": {
       "en": "The lattice energy of an ionic compound, using Hess's law.",
@@ -1968,7 +1968,7 @@
     },
     "question": {
       "en": "What is the difference between SN1 and SN2 reactions?",
-      "ar": "شو الفرق بين تفاعلات SN1 وSN2؟"
+      "ar": "ما الفرق بين تفاعلات SN1 وSN2؟"
     },
     "answer": {
       "en": "SN1 is unimolecular (two steps, via a carbocation); SN2 is bimolecular (one step, with inversion).",
@@ -1987,7 +1987,7 @@
     },
     "question": {
       "en": "What is the shape of a water molecule (H₂O)?",
-      "ar": "شو الشكل الهندسي لجزيء المي (H₂O)؟"
+      "ar": "ما الشكل الهندسي لجزيء الماء (H₂O)؟"
     },
     "answer": {
       "en": "Bent (V-shaped), with a bond angle of about 104.5°.",
@@ -2006,7 +2006,7 @@
     },
     "question": {
       "en": "The Statue of Liberty was a shiny reddish-brown when it was built. What turned it green?",
-      "ar": "تمثال الحرية كان لونه بنّي محمرّ لامع لما انبنى. شو اللي خلّاه أخضر؟"
+      "ar": "كان تمثال الحرية بنيًا محمرًا لامعًا حين شُيّد. فما الذي جعله أخضر؟"
     },
     "answer": {
       "en": "Its copper skin reacted with air and moisture, forming a green coating called patina.",
@@ -2025,7 +2025,7 @@
     },
     "question": {
       "en": "Rose water, used in many Arab sweets and perfumes, is traditionally made from rose petals by which separation process?",
-      "ar": "ماء الورد، اللي يدخل بحلويات وعطور عربية كثيرة، يتسوّى تقليدياً من بتلات الورد بأي طريقة فصل؟"
+      "ar": "يُستخرج ماء الورد، الذي يدخل في كثير من الحلويات والعطور العربية، تقليديًا من بتلات الورد بأي طريقة فصل؟"
     },
     "answer": {
       "en": "Distillation: steam carries off the rose oils, then cools and condenses into rose water.",
@@ -2044,7 +2044,7 @@
     },
     "question": {
       "en": "In 1940, to hide two Nobel Prize gold medals from the Nazis, chemist George de Hevesy dissolved them in which liquid?",
-      "ar": "سنة 1940، عشان يخبّي ميداليتين ذهب من ميداليات جائزة نوبل عن النازيين، الكيميائي جورج دي هيفيشي ذوّبهم بأي سائل؟"
+      "ar": "في عام 1940، أذاب الكيميائي جورج دي هيفيشي ميداليتين ذهبيتين من ميداليات جائزة نوبل ليخفيهما عن النازيين. بأي سائل أذابهما؟"
     },
     "answer": {
       "en": "Aqua regia, a mixture of nitric and hydrochloric acids.",
@@ -2063,7 +2063,7 @@
     },
     "question": {
       "en": "Most metals look silvery, but gold is yellow. Which famous physics theory is needed to explain its colour?",
-      "ar": "أغلب المعادن لونها فضّي، بس الذهب أصفر. أي نظرية فيزيائية مشهورة نحتاجها عشان نفسّر لونه؟"
+      "ar": "معظم المعادن فضية اللون، لكن الذهب أصفر. أي نظرية فيزيائية شهيرة نحتاج إليها لتفسير لونه؟"
     },
     "answer": {
       "en": "Einstein's relativity: relativistic effects on gold's fast-moving electrons make it absorb blue light.",
@@ -2101,7 +2101,7 @@
     },
     "question": {
       "en": "The word 'ammonia' goes back to an ancient Egyptian god, because ammonium salt was collected near his temple in the Libyan desert. Which god?",
-      "ar": "كلمة «أمونيا» ترجع لاسم إله مصري قديم، لأن ملح النشادر كان ينجمع قرب معبده بالصحراء الليبية. مين هو؟"
+      "ar": "تعود كلمة «أمونيا» إلى اسم إله مصري قديم، لأن ملح النشادر كان يُجمع قرب معبده في الصحراء الليبية. مَن هو؟"
     },
     "answer": {
       "en": "Amun (Ammon).",
@@ -2120,7 +2120,7 @@
     },
     "question": {
       "en": "Which orange-red molecule in henna leaves stains skin and hair by binding to their keratin?",
-      "ar": "شو اسم الجزيء البرتقالي المحمرّ اللي بورق الحنّا، ويصبغ الجلد والشعر لما يرتبط بالكيراتين؟"
+      "ar": "ما اسم الجزيء البرتقالي المحمر الموجود في أوراق الحناء، الذي يصبغ الجلد والشعر حين يرتبط بالكيراتين؟"
     },
     "answer": {
       "en": "Lawsone.",
@@ -2139,7 +2139,7 @@
     },
     "question": {
       "en": "Amman-born chemist Omar Yaghi shared the 2025 Nobel Prize in Chemistry for building porous crystals that can even pull drinking water from desert air. What are these materials called?",
-      "ar": "الكيميائي عمر ياغي، ابن عمّان، تقاسم جائزة نوبل للكيمياء 2025 لأنه بنى بلّورات مسامية تقدر حتى تستخرج مي شرب من هوا الصحراء. شو اسم هالمواد؟"
+      "ar": "تقاسم الكيميائي عمر ياغي، ابن عمّان، جائزة نوبل للكيمياء 2025 لأنه بنى بلورات مسامية يمكنها حتى استخراج ماء الشرب من هواء الصحراء. ما اسم هذه المواد؟"
     },
     "answer": {
       "en": "Metal–organic frameworks (MOFs).",

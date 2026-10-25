@@ -3,7 +3,7 @@
     "id": "superheroes-1",
     "question": {
       "en": "What is Superman's real name on his home planet Krypton?",
-      "ar": "شو اسم سوبرمان الحقيقي على كوكبه الأصلي كريبتون؟"
+      "ar": "ما هو اسم سوبرمان الحقيقي على كوكبه الأم كريبتون؟"
     },
     "answer": {
       "en": "Kal-El",
@@ -22,7 +22,7 @@
     "id": "superheroes-2",
     "question": {
       "en": "Who is Bruce Wayne's crime-fighting alter ego?",
-      "ar": "شو الشخصية اللي يتحول لها بروس واين عشان يحارب الجريمة؟"
+      "ar": "من هي الشخصية البديلة لبروس واين التي تحارب الجريمة؟"
     },
     "answer": {
       "en": "Batman",
@@ -41,7 +41,7 @@
     "id": "superheroes-3",
     "question": {
       "en": "Which superhero gains his powers from a bite by a radioactive spider?",
-      "ar": "أي بطل خارق أخذ قواه من لدغة عنكبوت مشع؟"
+      "ar": "أي بطل خارق يكتسب قواه من لدغة عنكبوت مشع؟"
     },
     "answer": {
       "en": "Spider-Man",
@@ -60,7 +60,7 @@
     "id": "superheroes-4",
     "question": {
       "en": "What is the name of Wonder Woman's homeland?",
-      "ar": "شو اسم موطن «وندر وومان»؟"
+      "ar": "ما هو اسم موطن وندر وومان؟"
     },
     "answer": {
       "en": "Themyscira",
@@ -79,7 +79,7 @@
     "id": "superheroes-5",
     "question": {
       "en": "Which Marvel superhero uses a shield made of vibranium?",
-      "ar": "أي بطل من مارفل يستخدم درع مصنوع من الفيبرانيوم؟"
+      "ar": "أي بطل خارق من مارفل يستخدم درعًا مصنوعًا من الفيبرانيوم؟"
     },
     "answer": {
       "en": "Captain America",
@@ -98,7 +98,7 @@
     "id": "superheroes-6",
     "question": {
       "en": "What is the real name of the superhero Iron Man?",
-      "ar": "شو الاسم الحقيقي لـ«أيرون مان»؟"
+      "ar": "ما هو الاسم الحقيقي للبطل الخارق أيرون مان؟"
     },
     "answer": {
       "en": "Tony Stark",
@@ -117,7 +117,7 @@
     "id": "superheroes-7",
     "question": {
       "en": "Which superhero team includes Thor, Hulk, and Black Widow?",
-      "ar": "أي فريق أبطال فيه ثور وهالك والأرملة السوداء؟"
+      "ar": "أي فريق أبطال خارقين يضم ثور، هالك، والأرملة السوداء؟"
     },
     "answer": {
       "en": "The Avengers",
@@ -136,7 +136,7 @@
     "id": "superheroes-8",
     "question": {
       "en": "What is the primary weakness of Superman?",
-      "ar": "شو نقطة ضعف سوبرمان الأساسية؟"
+      "ar": "ما هي نقطة الضعف الأساسية لسوبرمان؟"
     },
     "answer": {
       "en": "Kryptonite",
@@ -155,7 +155,7 @@
     "id": "superheroes-9",
     "question": {
       "en": "Who is Batman's archenemy, known for his clown-like appearance?",
-      "ar": "مين عدو باتمان اللدود اللي شكله مثل المهرج؟"
+      "ar": "من هو العدو اللدود لباتمان، والمعروف بمظهره الذي يشبه المهرج؟"
     },
     "answer": {
       "en": "The Joker",
@@ -174,7 +174,7 @@
     "id": "superheroes-10",
     "question": {
       "en": "Which X-Men character has metal claws and the ability to heal rapidly?",
-      "ar": "أي شخصية من «إكس-مين» عندها مخالب معدنية وتتعافى بسرعة؟"
+      "ar": "أي شخصية من إكس-من لديها مخالب معدنية وقدرة على الشفاء السريع؟"
     },
     "answer": {
       "en": "Wolverine",
@@ -193,7 +193,7 @@
     "id": "superheroes-11",
     "question": {
       "en": "What superhero name is used by Superman's cousin Kara Zor-El?",
-      "ar": "شو اسم البطلة اللي تستخدمه كارا زور-إل، قريبة سوبرمان؟"
+      "ar": "ما الاسم البطولي الذي تستخدمه قريبة سوبرمان كارا زور-إل؟"
     },
     "answer": {
       "en": "Supergirl",
@@ -212,7 +212,7 @@
     "id": "superheroes-12",
     "question": {
       "en": "Who founded the X-Men in the original Marvel comics?",
-      "ar": "مين أسّس فريق «إكس-مين» في قصص مارفل الأصلية؟"
+      "ar": "من أسس فريق إكس من في قصص مارفل المصورة الأصلية؟"
     },
     "answer": {
       "en": "Professor Charles Xavier",
@@ -231,7 +231,7 @@
     "id": "superheroes-13",
     "question": {
       "en": "Which superhero is known as the 'Scarlet Speedster'?",
-      "ar": "أي بطل خارق لقبه «العدّاء القرمزي»؟"
+      "ar": "أي بطل خارق يُعرف بـ «العداء القرمزي»؟"
     },
     "answer": {
       "en": "The Flash",
@@ -250,7 +250,7 @@
     "id": "superheroes-14",
     "question": {
       "en": "What is the name of the Wakandan king portrayed by Chadwick Boseman as Black Panther?",
-      "ar": "شو اسم ملك واكاندا اللي لعب دوره تشادويك بوزمان بشخصية «النمر الأسود»؟"
+      "ar": "ما اسم ملك واكاندا الذي جسده تشادويك بوزمان بشخصية النمر الأسود؟"
     },
     "answer": {
       "en": "T'Challa",
@@ -269,7 +269,7 @@
     "id": "superheroes-15",
     "question": {
       "en": "Which DC character wields a power ring powered by willpower?",
-      "ar": "أي شخصية من دي سي تستخدم خاتم قوة يشتغل بقوة الإرادة؟"
+      "ar": "أي شخصية من دي سي تستخدم خاتم قوة مدعومًا بقوة الإرادة؟"
     },
     "answer": {
       "en": "Green Lantern",
@@ -288,7 +288,7 @@
     "id": "superheroes-16",
     "question": {
       "en": "Which Batman villain leaves puzzles and question-mark clues at his crimes?",
-      "ar": "أي شرير من أعداء باتمان يترك ألغاز وعلامات استفهام بأماكن جرائمه؟"
+      "ar": "أي شرير من أعداء باتمان يترك الألغاز وعلامات الاستفهام في أماكن جرائمه؟"
     },
     "answer": {
       "en": "The Riddler",
@@ -307,7 +307,7 @@
     "id": "superheroes-17",
     "question": {
       "en": "Which Guardians of the Galaxy hero is a walking tree who can only say three words?",
-      "ar": "مين بطل «حراس المجرة» اللي هو شجرة تمشي وما يقول غير ثلاث كلمات؟"
+      "ar": "مَن بطل «حراس المجرة» الذي هو شجرة تمشي ولا يقول سوى ثلاث كلمات؟"
     },
     "answer": {
       "en": "Groot",
@@ -326,7 +326,7 @@
     "id": "superheroes-18",
     "question": {
       "en": "Which villain snapped his fingers and wiped out half of all life in the Marvel Cinematic Universe?",
-      "ar": "أي شرير طقطق بأصابعه ومسح نص الكائنات الحية في عالم مارفل السينمائي؟"
+      "ar": "أي شرير طقطق بأصابعه ومحا نصف الحياة في عالم مارفل السينمائي؟"
     },
     "answer": {
       "en": "Thanos",
@@ -345,7 +345,7 @@
     "id": "superheroes-19",
     "question": {
       "en": "What is the name of the spy agency led by Nick Fury in Marvel stories?",
-      "ar": "شو اسم وكالة التجسس اللي يقودها نيك فيوري بقصص مارفل؟"
+      "ar": "ما اسم وكالة التجسس التي يقودها نيك فيوري في قصص مارفل؟"
     },
     "answer": {
       "en": "S.H.I.E.L.D.",
@@ -364,7 +364,7 @@
     "id": "superheroes-20",
     "question": {
       "en": "Who killed Bruce Wayne's parents in the mainstream Batman comics origin?",
-      "ar": "في قصة بداية باتمان بالقصص المصورة الأساسية، مين قتل أهل بروس واين؟"
+      "ar": "من قتل والدي بروس واين في قصة منشأ باتمان في الاستمرارية الرئيسية للقصص المصورة؟"
     },
     "answer": {
       "en": "Joe Chill",
@@ -383,7 +383,7 @@
     "id": "superheroes-21",
     "question": {
       "en": "What was the title of Timely Comics' first comic book, published in 1939 and featuring the Human Torch and Namor?",
-      "ar": "شو عنوان أول عدد طلّعته «تايملي كوميكس» سنة 1939، وكان فيه الشعلة البشرية ونامور؟"
+      "ar": "ما عنوان أول عدد أصدرته تايملي كوميكس عام 1939، وضم الشعلة البشرية ونامور؟"
     },
     "answer": {
       "en": "Marvel Comics #1",
@@ -421,7 +421,7 @@
     "id": "superheroes-23",
     "question": {
       "en": "What is the name of the metal bonded to Wolverine's skeleton?",
-      "ar": "شو اسم المعدن اللي مغلّف هيكل وولفرين العظمي؟"
+      "ar": "ما اسم المعدن المرتبط بهيكل وولفرين العظمي؟"
     },
     "answer": {
       "en": "Adamantium",
@@ -440,7 +440,7 @@
     "id": "superheroes-24",
     "question": {
       "en": "Who was the original Robin before he became Nightwing?",
-      "ar": "مين كان «روبن» الأصلي قبل ما يصير «نايتوينغ»؟"
+      "ar": "من كان روبن الأصلي قبل أن يصبح نايتوينج؟"
     },
     "answer": {
       "en": "Dick Grayson",
@@ -459,7 +459,7 @@
     "id": "superheroes-25",
     "question": {
       "en": "What cosmic entity in the Marvel Universe is known as the 'Devourer of Worlds'?",
-      "ar": "شو الكيان الكوني في عالم مارفل اللي لقبه «ملتهم العوالم»؟"
+      "ar": "ما هو الكيان الكوني في عالم مارفل المعروف بـ «ملتهم العوالم»؟"
     },
     "answer": {
       "en": "Galactus",
@@ -478,7 +478,7 @@
     "id": "superheroes-26",
     "question": {
       "en": "Which superhero's real name is Wade Wilson?",
-      "ar": "أي بطل خارق اسمه الحقيقي ويد ويلسون؟"
+      "ar": "أي بطل خارق اسمه الحقيقي هو ويد ويلسون؟"
     },
     "answer": {
       "en": "Deadpool",
@@ -497,7 +497,7 @@
     "id": "superheroes-27",
     "question": {
       "en": "What is the name of the daily newspaper where Clark Kent and Lois Lane work?",
-      "ar": "شو اسم الجريدة اليومية اللي يشتغل فيها كلارك كينت ولويس لين؟"
+      "ar": "ما اسم الصحيفة اليومية التي يعمل فيها كلارك كينت ولويس لين؟"
     },
     "answer": {
       "en": "The Daily Planet",
@@ -516,7 +516,7 @@
     "id": "superheroes-28",
     "question": {
       "en": "Which Marvel superhero team operates out of the Baxter Building?",
-      "ar": "أي فريق أبطال من مارفل مقرّه مبنى باكستر؟"
+      "ar": "أي فريق أبطال خارقين من مارفل يتخذ من مبنى باكستر مقراً له؟"
     },
     "answer": {
       "en": "The Fantastic Four",
@@ -535,7 +535,7 @@
     "id": "superheroes-29",
     "question": {
       "en": "In classic Silver Age Superman stories, which colour of kryptonite causes temporary, unpredictable transformations?",
-      "ar": "في قصص سوبرمان الكلاسيكية من العصر الفضي، أي لون كريبتونيت يسبب تحولات مؤقتة وغريبة؟"
+      "ar": "أي لون من الكريبتونيت يسبب تحولات مؤقتة وغير متوقعة في قصص سوبرمان الكلاسيكية من العصر الفضي؟"
     },
     "answer": {
       "en": "Red kryptonite",
@@ -554,7 +554,7 @@
     "id": "superheroes-30",
     "question": {
       "en": "Who is the founding member of the Justice League that originates from Mars?",
-      "ar": "مين العضو المؤسس في «رابطة العدالة» اللي أصله من المريخ؟"
+      "ar": "مَن العضو المؤسس في «رابطة العدالة» الذي ينحدر من المريخ؟"
     },
     "answer": {
       "en": "Martian Manhunter",
@@ -573,7 +573,7 @@
     "id": "superheroes-31",
     "question": {
       "en": "In DC Comics, what is the 'Anti-Life Equation'?",
-      "ar": "في دي سي كوميكس، شو هي «معادلة معاداة الحياة»؟"
+      "ar": "في دي سي كوميكس، ما هي «معادلة معاداة الحياة»؟"
     },
     "answer": {
       "en": "A formula that gives complete control over the minds of all sentient beings",
@@ -611,7 +611,7 @@
     "id": "superheroes-33",
     "question": {
       "en": "Which Green Lantern was an architect and a former US Marine?",
-      "ar": "أي «فانوس أخضر» كان مهندس معماري وجندي سابق بمشاة البحرية الأمريكية؟"
+      "ar": "أي فانوس أخضر كان مهندسًا معماريًا وجندي مشاة بحرية أمريكي سابق؟"
     },
     "answer": {
       "en": "John Stewart",
@@ -630,7 +630,7 @@
     "id": "superheroes-34",
     "question": {
       "en": "What is the name of the magical dimension ruled by Dormammu?",
-      "ar": "شو اسم البُعد السحري اللي يحكمه دورمامو؟"
+      "ar": "ما اسم البعد السحري الذي يحكمه دورمامو؟"
     },
     "answer": {
       "en": "The Dark Dimension",
@@ -649,7 +649,7 @@
     "id": "superheroes-35",
     "question": {
       "en": "Which DC heroine uses the Lasso of Truth?",
-      "ar": "أي بطلة من دي سي تستخدم «حبل الحقيقة»؟"
+      "ar": "أي بطلة من دي سي تستخدم حبل الحقيقة؟"
     },
     "answer": {
       "en": "Wonder Woman",
@@ -668,7 +668,7 @@
     "id": "superheroes-36",
     "question": {
       "en": "Which element is used in Tony Stark's early arc-reactor core in the Iron Man films?",
-      "ar": "في أفلام «أيرون مان»، شو العنصر اللي كان بقلب أول مفاعل قوسي عند توني ستارك؟"
+      "ar": "ما العنصر المستخدم في نواة مفاعل القوس المبكر لتوني ستارك في أفلام أيرون مان؟"
     },
     "answer": {
       "en": "Palladium",
@@ -687,7 +687,7 @@
     "id": "superheroes-37",
     "question": {
       "en": "In the Flashpoint storyline, who takes on the mantle of Batman after Bruce Wayne is killed?",
-      "ar": "في قصة «فلاش بوينت»، مين يلبس عباءة باتمان بعد ما ينقتل بروس واين؟"
+      "ar": "في قصة فلاش بوينت، من يتولى عباءة باتمان بعد مقتل بروس واين؟"
     },
     "answer": {
       "en": "Thomas Wayne (Bruce's father)",
@@ -725,7 +725,7 @@
     "id": "superheroes-39",
     "question": {
       "en": "What is the name of the alien symbiote that bonded with Eddie Brock?",
-      "ar": "شو اسم الكائن الفضائي المتكافل اللي اندمج مع إيدي بروك؟"
+      "ar": "ما اسم الكائن الفضائي المتكافل الذي اندمج مع إيدي بروك؟"
     },
     "answer": {
       "en": "Venom",
@@ -744,7 +744,7 @@
     "id": "superheroes-40",
     "question": {
       "en": "Which 1985–86 DC event merged multiple parallel Earths into a new shared continuity?",
-      "ar": "شو حدث دي سي اللي نزل بين 1985 و1986 ودمج عوالم موازية كثيرة في قصة وحدة جديدة؟"
+      "ar": "ما حدث دي سي الذي صدر بين 1985 و1986 ودمج عدة أراضٍ متوازية في استمرارية مشتركة جديدة؟"
     },
     "answer": {
       "en": "Crisis on Infinite Earths",
@@ -763,7 +763,7 @@
     "id": "superheroes-41",
     "question": {
       "en": "Complete the famous lesson Spider-Man learns: 'With great power comes great...'?",
-      "ar": "كمّل الجملة المشهورة اللي تعلّمها سبايدر مان: «مع القوة العظيمة تأتي...»؟"
+      "ar": "أكمل العبارة الشهيرة التي تعلّمها سبايدر مان: «مع القوة العظيمة تأتي...»؟"
     },
     "answer": {
       "en": "Responsibility",
@@ -782,7 +782,7 @@
     "id": "superheroes-42",
     "question": {
       "en": "What is the name of Bruce Wayne's loyal butler?",
-      "ar": "شو اسم كبير الخدم الوفي عند بروس واين؟"
+      "ar": "ما اسم كبير الخدم الوفي لدى بروس واين؟"
     },
     "answer": {
       "en": "Alfred (Alfred Pennyworth)",
@@ -801,7 +801,7 @@
     "id": "superheroes-43",
     "question": {
       "en": "What magic word does young Billy Batson shout to turn into an adult superhero?",
-      "ar": "شو الكلمة السحرية اللي يصرخ فيها الولد بيلي باتسون عشان يتحوّل لبطل خارق كبير؟"
+      "ar": "ما الكلمة السحرية التي يصرخ بها الفتى بيلي باتسون ليتحول إلى بطل خارق بالغ؟"
     },
     "answer": {
       "en": "Shazam!",
@@ -820,7 +820,7 @@
     "id": "superheroes-44",
     "question": {
       "en": "What name does Captain America's best friend Bucky Barnes go by after he is brainwashed into an assassin?",
-      "ar": "شو الاسم اللي صار ينعرف فيه باكي بارنز، صاحب كابتن أمريكا، بعد ما غسلوا دماغه وصار قاتل مأجور؟"
+      "ar": "ما الاسم الذي عُرف به باكي بارنز، صديق كابتن أمريكا، بعد أن غُسل دماغه وصار قاتلًا مأجورًا؟"
     },
     "answer": {
       "en": "The Winter Soldier",
@@ -839,7 +839,7 @@
     "id": "superheroes-45",
     "question": {
       "en": "What does 'DC' stand for in the name DC Comics?",
-      "ar": "شو معنى «DC» في اسم شركة DC Comics؟"
+      "ar": "ماذا يعني «DC» في اسم شركة DC Comics؟"
     },
     "answer": {
       "en": "Detective Comics",
@@ -858,7 +858,7 @@
     "id": "superheroes-46",
     "question": {
       "en": "Which Pakistani-American teenager from Jersey City became Ms. Marvel in 2014?",
-      "ar": "مين المراهقة الأمريكية من أصل باكستاني، من مدينة جيرسي سيتي، اللي صارت «مس مارفل» سنة 2014؟"
+      "ar": "مَن المراهقة الأمريكية من أصل باكستاني، من مدينة جيرسي سيتي، التي أصبحت «مس مارفل» عام 2014؟"
     },
     "answer": {
       "en": "Kamala Khan",
@@ -877,7 +877,7 @@
     "id": "superheroes-47",
     "question": {
       "en": "In Marvel's 'Moon Knight' (2022), Layla El-Faouly becomes which hero, billed as the MCU's first Egyptian superhero?",
-      "ar": "في مسلسل مارفل «مون نايت» (2022)، ليلى الفاولي تتحوّل لأي بطلة، اللي انقال عنها أول بطلة خارقة مصرية بعالم مارفل السينمائي؟"
+      "ar": "في مسلسل مارفل «مون نايت» (2022)، تتحول ليلى الفاولي إلى أي بطلة قيل إنها أول بطلة خارقة مصرية في عالم مارفل السينمائي؟"
     },
     "answer": {
       "en": "The Scarlet Scarab",
@@ -896,7 +896,7 @@
     "id": "superheroes-48",
     "question": {
       "en": "Which artist co-created Spider-Man with Stan Lee in 1962?",
-      "ar": "مين الرسّام اللي ابتكر سبايدر مان مع ستان لي سنة 1962؟"
+      "ar": "مَن الرسام الذي ابتكر سبايدر مان مع ستان لي عام 1962؟"
     },
     "answer": {
       "en": "Steve Ditko",
@@ -915,7 +915,7 @@
     "id": "superheroes-49",
     "question": {
       "en": "Which Lebanese-American hero from Dearborn, Michigan, became a Green Lantern in 2012?",
-      "ar": "مين البطل الأمريكي من أصل لبناني، من مدينة ديربورن، اللي صار «فانوس أخضر» سنة 2012؟"
+      "ar": "مَن البطل الأمريكي من أصل لبناني، من مدينة ديربورن، الذي أصبح «فانوسًا أخضر» عام 2012؟"
     },
     "answer": {
       "en": "Simon Baz",
@@ -934,7 +934,7 @@
     "id": "superheroes-50",
     "question": {
       "en": "Which Egyptian filmmaker directed most episodes of Marvel's 'Moon Knight' (2022)?",
-      "ar": "مين المخرج المصري اللي أخرج أغلب حلقات مسلسل مارفل «مون نايت» (2022)؟"
+      "ar": "مَن المخرج المصري الذي أخرج معظم حلقات مسلسل مارفل «مون نايت» (2022)؟"
     },
     "answer": {
       "en": "Mohamed Diab",
@@ -953,7 +953,7 @@
     "id": "superheroes-51",
     "question": {
       "en": "What is the name of Black Adam's fictional Middle Eastern homeland in DC Comics?",
-      "ar": "شو اسم الوطن الخيالي لـ«بلاك آدم» في الشرق الأوسط بقصص دي سي؟"
+      "ar": "ما اسم الوطن الخيالي لـ«بلاك آدم» في الشرق الأوسط في قصص دي سي؟"
     },
     "answer": {
       "en": "Kahndaq",
@@ -972,7 +972,7 @@
     "id": "superheroes-52",
     "question": {
       "en": "Which Kuwaiti psychologist created 'The 99', a 2006 comic series about a team of 99 young heroes from around the world?",
-      "ar": "مين الطبيب النفسي الكويتي اللي ابتكر سلسلة القصص المصورة «الـ99» سنة 2006، عن فريق من 99 بطل شاب من كل العالم؟"
+      "ar": "مَن الطبيب النفسي الكويتي الذي ابتكر سلسلة القصص المصورة «الـ99» عام 2006، عن فريق من 99 بطلًا شابًا من أنحاء العالم؟"
     },
     "answer": {
       "en": "Naif Al-Mutawa",
@@ -991,7 +991,7 @@
     "id": "superheroes-53",
     "question": {
       "en": "In the Marvel films, which amulet worn by Doctor Strange holds the Time Stone?",
-      "ar": "في أفلام مارفل، شو اسم القلادة اللي يلبسها دكتور سترينج وفيها «حجر الزمن»؟"
+      "ar": "في أفلام مارفل، ما اسم القلادة التي يرتديها دكتور سترينج وفيها «حجر الزمن»؟"
     },
     "answer": {
       "en": "The Eye of Agamotto",
@@ -1029,7 +1029,7 @@
     "id": "superheroes-55",
     "question": {
       "en": "In his first comic in 1962, what colour was the Hulk before he became green?",
-      "ar": "بأول قصة مصورة له سنة 1962، شو كان لون هالك قبل ما يصير أخضر؟"
+      "ar": "في أول قصة مصورة له عام 1962، ما لون هالك قبل أن يصبح أخضر؟"
     },
     "answer": {
       "en": "Grey",

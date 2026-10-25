@@ -147,7 +147,8 @@ export function createTvTrivia(api) {
     if (changed === round) return;
     round = changed; clearInterval(timer); timer = null; persist();
     const id = round.questions[round.index].id;
-    api.saveJson(KEYS.seen, [...new Set([...readArray(KEYS.seen), id])].slice(-1000));
+    // Most recent last: the round planner avoids the latest rounds' questions.
+    api.saveJson(KEYS.seen, [...readArray(KEYS.seen).filter(seenId => seenId !== id), id].slice(-1000));
     const a = round.answers[round.index];
     track('answer', { show: round.show, timed: round.timed, correct: a.correct, question_number: round.index + 1 });
     // Reuse existing guest/account progress without introducing a second sync API.

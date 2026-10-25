@@ -1,14 +1,15 @@
 # Content evidence and review closure
 
-This directory is the editorial workbench for the 4,076-card corpus. It is intentionally separate from the public card JSON. Adding candidate evidence does not change a card from `pending` to `reviewed`, and the generator never promotes a status.
+This directory is the editorial workbench for the 3,982-card corpus. It is intentionally separate from the public card JSON. Adding candidate evidence does not change a card from `pending` to `reviewed`, and the generator never promotes a status.
 
 ## Files
 
 - `evidence.json` is the human-maintained evidence and approval record. It starts empty because the existing three legacy reviews do not yet have claim-level evidence, precise locators, rostered approvals, and the other proof required by the closure gate. It must contain only `schemaVersion`, `reviewers`, and `cards`; workflow instructions belong in documentation.
 - [`templates/evidence-candidate.json`](templates/evidence-candidate.json) is a separate, candidate-only scaffold for a reviewer and one card. Follow the [scaffold guide](templates/README.md) to replace placeholders and merge individual records into `evidence.json`; never replace the human-maintained store with the template. The template records no accepted sources, qualifications, or approval signatures and is not read by production review tools.
-- `work-queue.json` is generated. It divides the corpus into exactly 380 category/subcategory discovery packets and shows each card's current blockers.
+- `work-queue.json` is generated. It divides the corpus into exactly 366 category/subcategory discovery packets and shows each card's current blockers.
 - `learning-audit-ledger.json` is generated. It provides a durable per-card programme record (content fingerprint, classification, intended-audience/prerequisite/objective/defect states, evidence, review language and format state, uncertainty, disposition, and publication state). Its `currentRuntimeProjection` field is descriptive; only `programmeEligibility: eligible` may support a new learning placement.
-- `production-quarantine.json` is the generated, exact production-publication hold. It currently names 278 card IDs in five complete safety-sensitive categories. The static build validates this file against the editorial sources and emits a 51-category/3,798-card public projection; it does not delete or rewrite the 4,076-card editorial corpus.
+- `production-quarantine.json` is the generated, exact production-publication hold. It currently names 278 card IDs in five complete safety-sensitive categories. The static build validates this file against the editorial sources and emits a 48-category/3,704-card public projection; it does not delete or rewrite the 3,982-card editorial corpus.
+- `topic-merge-2026-10-25.json` records the 2026-10-25 structural changes from the question audit: physical-and-life-sciences merged away, coding-and-design merged into software-and-computing, civil-engineering merged into infrastructure-systems (retitled Civil Engineering & Infrastructure), the remaining audit topic moves, and The Wire dropped from the TV game. Card ids never change. Each moved card lists its source and target topic, original position and subtopic before and after; each removed card and retired topic is recorded in full. [`scripts/topic-merge-ledger.mjs`](../../scripts/topic-merge-ledger.mjs) restores the pre-merge topic files so the older ledgers keep verifying, and generates the API's `worker/src/card-moves.json`, which lets saved progress, favourites and Content Studio edits follow a moved card. Retired topic URLs redirect to their successor topic and keep `?card=`.
 - `proof/` is the declared root for reproducible proof artifacts referenced by accepted `proof` evidence. Store the repository-relative artifact path, SHA-256 digest, and reproduction method in `evidence.json`. The validator rejects traversal, symbolic links, directories, missing/unreadable artifacts, and digests that do not match the file's actual bytes.
 - [`ARABIC-STYLE-GUIDE.md`](ARABIC-STYLE-GUIDE.md) defines the natural Modern Standard Arabic voice, terminology, read-aloud check, and bilingual approval checklist used by Content Studio reviewers.
 - [`featured-policy.json`](featured-policy.json) and `npm run check:featured` keep curated Riddle Arabia selections structurally safe without promoting factual review. See the [18 September reconciliation](FEATURED-EDITORIAL-PASS-2026-09-18.md) for its bounded scope and remaining uncertainty.
@@ -56,7 +57,7 @@ The routine structural check remains usable while editorial work is in progress:
 node scripts/content-review-report.mjs --check
 ```
 
-The closure gate is deliberately strict and currently fails. It succeeds only with exactly 4,076/4,076 reviewed and evidence-complete cards, including 278/278 high-stakes cards, with zero pending, invalid, stale, or overdue records:
+The closure gate is deliberately strict and currently fails. It succeeds only with exactly 3,982/3,982 reviewed and evidence-complete cards, including 278/278 high-stakes cards, with zero pending, invalid, stale, or overdue records:
 
 ```sh
 node scripts/content-review-report.mjs --complete

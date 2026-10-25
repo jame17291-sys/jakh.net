@@ -31,7 +31,7 @@ test('dates, times, standalone decimals and symbolic division retain their actua
 });
 
 test('the actual Arabic C++ question uses the language name rather than two arithmetic operators', () => {
-  assert.equal(speech.prepareSpeechText(question('coding-and-design', 'coding-and-design-025'), 'ar'),
+  assert.equal(speech.prepareSpeechText(question('software-and-computing', 'coding-and-design-025'), 'ar'),
     'في بناء سي بلس بلس العادي بالترجمة المسبقة، هل الكود ينترجم قبل ما يشتغل الملف التنفيذي؟');
   assert.equal(speech.prepareSpeechText('هل تستخدم C# أم C++؟', 'ar'), 'هل تستخدم سي شارب أم سي بلس بلس؟');
   assert.equal(speech.prepareSpeechText('ما حاصل 2+3=5 و7−3=4؟', 'ar'),

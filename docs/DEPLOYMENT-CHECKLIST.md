@@ -39,9 +39,9 @@ At the source baseline used to write this checklist:
 - The static production gate currently requires final API schema **10**.
 - Registration, account recovery, account deletion, content studio, and admin MFA
   must all be ready for the final API/static release.
-- The source corpus contains **4,076 cards**, including **278 quarantined cards**.
-- The public question projection contains **3,798 cards**.
-- Editorial progress is **3/4,076 reviewed**, **0/4,076 evidence-complete**, and
+- The source corpus contains **3,982 cards** in **53 topics**, including **278 quarantined cards**.
+- The public question projection contains **3,704 cards** in **48 topics**.
+- Editorial progress is **3/3,982 reviewed**, **0/3,982 evidence-complete**, and
   **0/278 high-stakes reviewed**, with no evidence-validation errors.
 
 These numbers describe this commit, not permanent targets.

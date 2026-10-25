@@ -7,7 +7,16 @@ export const SEEN_LIMIT = 300;
 const CARD_LEVELS = new Set(LEVELS.filter(level => level !== 'mixed'));
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/u;
 
+// Card levels a topic never plays at, whatever its cards say. Kids Riddles is
+// for children, so it stays out of Very advanced rounds (and its cards never
+// stand in for that level in Mixed rounds).
+export const EXCLUDED_TOPIC_LEVELS = Object.freeze({ 'kids-riddles': Object.freeze(['very-advanced']) });
+
 export function normalizeLevel(value) { return LEVELS.includes(value) ? value : 'mixed'; }
+
+export function topicAllowsLevel(slug, difficulty) {
+  return CARD_LEVELS.has(difficulty) && !(EXCLUDED_TOPIC_LEVELS[slug] || []).includes(difficulty);
+}
 
 export function shuffle(items, random = Math.random) {
   const copy = [...items];
@@ -20,12 +29,14 @@ export function shuffle(items, random = Math.random) {
 
 // `index` is the public card index ({ id: [topicSlug, difficulty] }), already
 // projected to publishable cards. `topics` is the allowed set of topic slugs.
+// A topic gets a pool only when it has at least one card it may play at the
+// chosen level, so a round never draws a topic at a level it cannot fill.
 export function poolsByTopic(index, level, topics) {
   const allowed = new Set(topics), wanted = normalizeLevel(level), pools = new Map();
   for (const [id, entry] of Object.entries(index || {})) {
     if (!Array.isArray(entry)) continue;
     const [slug, difficulty] = entry;
-    if (!allowed.has(slug) || !CARD_LEVELS.has(difficulty)) continue;
+    if (!allowed.has(slug) || !topicAllowsLevel(slug, difficulty)) continue;
     if (wanted !== 'mixed' && difficulty !== wanted) continue;
     if (!pools.has(slug)) pools.set(slug, []);
     pools.get(slug).push(id);
@@ -47,10 +58,11 @@ export function planRound({ index, topics, level, seen = [], size = ROUND_SIZE, 
 
 // Pick another card from the same topic when the planned one is no longer
 // available (for example withdrawn after a Content Studio review).
-export function replacementId(cards, { level, exclude = [], random = Math.random }) {
+export function replacementId(cards, { level, exclude = [], random = Math.random, slug = '' }) {
   const wanted = normalizeLevel(level), skip = new Set(exclude);
   const options = (Array.isArray(cards) ? cards : []).filter(card => card && typeof card.id === 'string'
-    && !skip.has(card.id) && (wanted === 'mixed' || card.difficulty === wanted));
+    && !skip.has(card.id) && (wanted === 'mixed' || card.difficulty === wanted)
+    && (!slug || topicAllowsLevel(slug, card.difficulty)));
   return options.length ? options[Math.floor(random() * options.length)].id : null;
 }
 
@@ -78,6 +90,13 @@ export function answerCard(round, result) {
 export function replaceCurrent(round, id) {
   if (isFinished(round) || typeof id !== 'string') return round;
   return { ...round, items: round.items.map((item, i) => i === round.position ? { ...item, id } : item) };
+}
+
+// Card ids are stable across topic moves; follow a planned card to the topic
+// that holds it now.
+export function retopicCurrent(round, slug) {
+  if (isFinished(round) || typeof slug !== 'string' || !SLUG.test(slug)) return round;
+  return { ...round, items: round.items.map((item, i) => i === round.position ? { ...item, slug } : item) };
 }
 
 export function isFinished(round) { return !round || round.position >= round.items.length; }

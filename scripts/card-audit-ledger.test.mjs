@@ -4,7 +4,8 @@ import fs from 'node:fs';
 import test from 'node:test';
 import { CARD_AUDIT_LEDGER, beforeCardAudit, idsBeforeAudit } from './card-audit-ledger.mjs';
 import { CARD_POLISH_LEDGER } from './card-polish-ledger.mjs';
-import { isPrepared } from '../tv-trivia-engine.js';
+import { bankBeforeMerge, readTopicMergeLedger } from './topic-merge-ledger.mjs';
+import { contentKey, isPrepared } from '../tv-trivia-engine.js';
 
 const read = filename => JSON.parse(fs.readFileSync(new URL(`../${filename}`, import.meta.url), 'utf8'));
 const hash = card => crypto.createHash('sha256').update(JSON.stringify(card)).digest('hex');
@@ -15,11 +16,18 @@ const held = new Set(quarantine.categories.map(category => category.slug));
 const get = (object, dotted) => dotted.split('.').reduce((value, key) => value?.[key], object);
 const EDITABLE = /^(?:question\.(?:en|ar)|answer\.(?:en|ar)|difficulty|subcategory|acceptedAnswers|quickFire\.(?:answer|distractors|explanation)\.(?:en|ar)|tvQuiz\.(?:distractors\.(?:en|ar)|explanation\.(?:en|ar)|spoilerSeason|kind|contentKey))$/u;
 const LEVELS = new Set(['easy', 'medium', 'hard', 'very-advanced']);
+// The 2026-10-25 topic merges moved or removed some of these cards later; the
+// merge ledger restores each topic file exactly as this audit left it.
+const merge = readTopicMergeLedger();
+const retiredByMerge = new Set(merge.removed.map(entry => entry.id));
 const banks = new Map();
 const bank = category => {
-  if (!banks.has(category)) banks.set(category, read(`data/${category}.json`));
+  if (!banks.has(category)) banks.set(category, bankBeforeMerge(merge, category));
   return banks.get(category);
 };
+// A card of a show later dropped from the TV game keeps a content key sealed
+// to its recorded text; it no longer needs to be playable.
+const quizSealed = card => (retiredByMerge.has(card.id) ? card.tvQuiz?.contentKey === contentKey(card) : isPrepared(card));
 
 test('the 2026-10-25 card audit is recorded, pending review, and touches only public topics', () => {
   assert.equal(ledger.schemaVersion, 1);
@@ -62,7 +70,7 @@ test('every audit edit is exact and fully reversible from its recorded previous 
         `${change.id}: moves only to an existing subtopic of the same topic`,
       );
     }
-    if (card.tvQuiz) assert.ok(isPrepared(card), `${change.id}: TV quiz content key matches the new text`);
+    if (card.tvQuiz) assert.ok(quizSealed(card), `${change.id}: TV quiz content key matches the new text`);
     const earlier = polish.changes.find(entry => entry.id === change.id);
     if (earlier) assert.equal(change.beforeHash, earlier.afterHash, `${change.id}: continues the 2026-10-24 polish history`);
     const arabic = [card.question.ar, card.answer.ar, card.tvQuiz?.explanation?.ar, card.quickFire?.explanation?.ar,
@@ -96,7 +104,7 @@ test('removed cards are recorded in full, at their original positions, and gone 
   for (const entry of ledger.removed) assert.ok(!Object.hasOwn(index, entry.id), `${entry.id}: absent from the card index`);
 });
 
-test('TV cards marked for removal are replaced on the same id, keeping 80 questions per show', () => {
+test('TV cards marked for removal were replaced on the same id, keeping each show bank whole at the time', () => {
   const tv = bank('tv-shows-trivia');
   assert.ok(!ledger.removed.some(entry => entry.category === 'tv-shows-trivia'));
   const replaced = ledger.changes.filter(change => change.category === 'tv-shows-trivia' && change.audit.groupAction === 'remove');
@@ -106,7 +114,7 @@ test('TV cards marked for removal are replaced on the same id, keeping 80 questi
     for (const field of ['question.en', 'question.ar', 'answer.en', 'answer.ar', 'tvQuiz.distractors.en', 'tvQuiz.explanation.en']) {
       assert.ok(Object.hasOwn(change.previous, field), `${change.id}: ${field} replaced`);
     }
-    assert.ok(isPrepared(card), `${change.id}: replacement is a prepared quiz card`);
+    assert.ok(quizSealed(card), `${change.id}: replacement is a prepared quiz card`);
   }
 });
 

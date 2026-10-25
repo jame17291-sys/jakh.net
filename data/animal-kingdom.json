@@ -758,5 +758,62 @@
     "review": {
       "status": "pending"
     }
+  },
+  {
+    "id": "biology-033",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Mammals",
+      "ar": "الثدييات"
+    },
+    "question": {
+      "en": "What is the largest land animal?",
+      "ar": "شو أكبر حيوان بري؟"
+    },
+    "answer": {
+      "en": "The African elephant",
+      "ar": "الفيل الأفريقي"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "biology-037",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Mammals",
+      "ar": "الثدييات"
+    },
+    "question": {
+      "en": "What is the fastest land animal?",
+      "ar": "شو أسرع حيوان بري؟"
+    },
+    "answer": {
+      "en": "The cheetah",
+      "ar": "الفهد السريع"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "biology-043",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Marine Life",
+      "ar": "الحياة البحرية"
+    },
+    "question": {
+      "en": "What is the largest animal on Earth?",
+      "ar": "شو أكبر حيوان على وجه الأرض؟"
+    },
+    "answer": {
+      "en": "The blue whale",
+      "ar": "الحوت الأزرق"
+    },
+    "review": {
+      "status": "pending"
+    }
   }
 ]

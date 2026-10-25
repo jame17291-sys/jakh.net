@@ -94,6 +94,7 @@ jobs:
           scripts/arabic-everyday-ledger.test.mjs
           scripts/card-polish-ledger.test.mjs
           scripts/card-audit-ledger.test.mjs
+          scripts/topic-merge-ledger.test.mjs
           scripts/free-first-gameplay.test.mjs
           scripts/performance-budget.test.mjs
           scripts/synthetic-account-monitor.test.mjs

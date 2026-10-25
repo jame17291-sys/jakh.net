@@ -8,7 +8,7 @@
       "en": "A mobile-first bilingual riddle and quiz website with curated categories, clear levels, and premium-ready challenge pages.",
       "ar": "منصة ألغاز واختبارات ثنائية اللغة مصممة للهاتف أولاً، مع تصنيفات منسقة ومستويات واضحة وصفحات جاهزة للتجربة المميزة."
     },
-    "totalQuestions": 4076
+    "totalQuestions": 3982
   },
   "sections": [
     {
@@ -51,7 +51,6 @@
       "members": [
         "math",
         "science",
-        "physical-and-life-sciences",
         "biology",
         "chemistry",
         "geology",
@@ -78,11 +77,9 @@
       "accent": "#256aa9",
       "members": [
         "software-and-computing",
-        "coding-and-design",
         "tech-retro",
         "future-tech-and-energy",
         "automotive",
-        "civil-engineering",
         "electrical-engineering",
         "mechanical-engineering",
         "infrastructure-systems",
@@ -311,9 +308,9 @@
       },
       "related": [
         "software-and-computing",
-        "coding-and-design",
         "future-tech-and-energy",
-        "inventions-and-minds"
+        "inventions-and-minds",
+        "automotive"
       ],
       "difficultyCounts": {
         "easy": 13,
@@ -384,9 +381,9 @@
       },
       "related": [
         "mechanical-engineering",
-        "civil-engineering",
         "electrical-engineering",
-        "future-tech-and-energy"
+        "future-tech-and-energy",
+        "infrastructure-systems"
       ],
       "difficultyCounts": {
         "easy": 12,
@@ -459,7 +456,7 @@
         "biology",
         "environment-and-ecology",
         "animal-kingdom",
-        "physical-and-life-sciences"
+        "medical-questions"
       ],
       "difficultyCounts": {
         "easy": 10,
@@ -950,7 +947,7 @@
       },
       "description": {
         "en": "Biology for adult learners, spanning cells, genetics, physiology, ecology, evolution, immunity, and modern molecular tools.",
-        "ar": "يضم موضوع «علم الأحياء» 99 سؤالًا بالعربية والإنجليزية، ويتناول الخلايا والأيض، الوراثة والأحياء الجزيئية، وتشريح ووظائف جسم الإنسان. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «علم الأحياء» 113 سؤالًا بالعربية والإنجليزية، ويتناول الخلايا والأيض، الوراثة والأحياء الجزيئية، وتشريح ووظائف جسم الإنسان. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Science, Nature & Health",
@@ -959,12 +956,12 @@
       "cluster_key": "science",
       "emoji": "🧬",
       "mode": "quiz",
-      "count": 99,
+      "count": 113,
       "difficultyCounts": {
-        "easy": 25,
-        "medium": 27,
-        "hard": 25,
-        "very-advanced": 22
+        "easy": 26,
+        "medium": 32,
+        "hard": 30,
+        "very-advanced": 25
       },
       "href": "/biology",
       "image": "assets/biology.svg",
@@ -972,17 +969,32 @@
         {
           "en": "Cells & Metabolism",
           "ar": "الخلايا والأيض",
-          "count": 22
+          "count": 28
         },
         {
           "en": "Genetics & Molecular Biology",
           "ar": "الوراثة والأحياء الجزيئية",
-          "count": 19
+          "count": 21
         },
         {
           "en": "Human Anatomy & Physiology",
           "ar": "تشريح ووظائف جسم الإنسان",
-          "count": 18
+          "count": 20
+        },
+        {
+          "en": "Evolution",
+          "ar": "التطور",
+          "count": 11
+        },
+        {
+          "en": "Microbiology & Immunity",
+          "ar": "الأحياء الدقيقة والمناعة",
+          "count": 10
+        },
+        {
+          "en": "Plant Biology",
+          "ar": "علم النبات",
+          "count": 10
         },
         {
           "en": "Ecology",
@@ -990,24 +1002,9 @@
           "count": 9
         },
         {
-          "en": "Evolution",
-          "ar": "التطور",
-          "count": 9
-        },
-        {
-          "en": "Plant Biology",
-          "ar": "علم النبات",
-          "count": 9
-        },
-        {
           "en": "Animals & Classification",
           "ar": "الحيوانات والتصنيف",
-          "count": 7
-        },
-        {
-          "en": "Microbiology & Immunity",
-          "ar": "الأحياء الدقيقة والمناعة",
-          "count": 6
+          "count": 4
         }
       ],
       "related": [
@@ -1016,7 +1013,7 @@
         "space-and-astrology",
         "environment-and-ecology"
       ],
-      "scorableQuestionCount": 64,
+      "scorableQuestionCount": 68,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -1152,7 +1149,7 @@
       },
       "description": {
         "en": "Chemistry vocabulary and lab ideas from easy recognition to very advanced recall.",
-        "ar": "يضم موضوع «الكيمياء» 98 سؤالًا بالعربية والإنجليزية، ويتناول الذرات والعناصر والجدول الدوري، الديناميكا الحرارية والكيمياء الفيزيائية، والكيمياء العضوية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «الكيمياء» 111 سؤالًا بالعربية والإنجليزية، ويتناول الذرات والعناصر والجدول الدوري، الديناميكا الحرارية والكيمياء الفيزيائية، والكيمياء العضوية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Science, Nature & Health",
@@ -1161,12 +1158,12 @@
       "cluster_key": "science",
       "emoji": "⚗️",
       "mode": "quiz",
-      "count": 98,
+      "count": 111,
       "difficultyCounts": {
         "easy": 25,
-        "medium": 24,
-        "hard": 25,
-        "very-advanced": 24
+        "medium": 29,
+        "hard": 29,
+        "very-advanced": 28
       },
       "href": "/chemistry",
       "image": "assets/chemistry.svg",
@@ -1174,21 +1171,26 @@
         {
           "en": "Atoms, Elements & Periodicity",
           "ar": "الذرات والعناصر والجدول الدوري",
-          "count": 25
+          "count": 26
         },
         {
           "en": "Thermodynamics & Physical Chemistry",
           "ar": "الديناميكا الحرارية والكيمياء الفيزيائية",
-          "count": 18
+          "count": 19
         },
         {
           "en": "Organic Chemistry",
           "ar": "الكيمياء العضوية",
-          "count": 15
+          "count": 18
         },
         {
           "en": "Bonding & Molecular Structure",
           "ar": "الروابط والبنية الجزيئية",
+          "count": 15
+        },
+        {
+          "en": "Reactions & Stoichiometry",
+          "ar": "التفاعلات والحسابات الكيميائية",
           "count": 13
         },
         {
@@ -1197,14 +1199,9 @@
           "count": 11
         },
         {
-          "en": "Reactions & Stoichiometry",
-          "ar": "التفاعلات والحسابات الكيميائية",
-          "count": 9
-        },
-        {
           "en": "Acids, Bases & Equilibrium",
           "ar": "الأحماض والقواعد والاتزان",
-          "count": 7
+          "count": 9
         }
       ],
       "related": [
@@ -1213,77 +1210,9 @@
         "environment-and-ecology",
         "animal-kingdom"
       ],
-      "scorableQuestionCount": 64,
+      "scorableQuestionCount": 71,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 20
-    },
-    {
-      "slug": "civil-engineering",
-      "title": {
-        "en": "Civil Engineering",
-        "ar": "الهندسة المدنية"
-      },
-      "description": {
-        "en": "Structures, materials, loads, and site systems for civil-engineering practice.",
-        "ar": "يضم موضوع «الهندسة المدنية» 30 سؤالًا بالعربية والإنجليزية، ويتناول المنشآت والجسور، المواد والخرسانة، والمياه والهيدروليكا. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
-      },
-      "cluster": {
-        "en": "Technology & Engineering",
-        "ar": "التقنية والهندسة"
-      },
-      "cluster_key": "tech",
-      "emoji": "🏗️",
-      "mode": "quiz",
-      "count": 30,
-      "difficultyCounts": {
-        "easy": 10,
-        "medium": 10,
-        "hard": 9,
-        "very-advanced": 1
-      },
-      "href": "/civil-engineering",
-      "image": "assets/civil-engineering.svg",
-      "topics": [
-        {
-          "en": "Structures & Bridges",
-          "ar": "المنشآت والجسور",
-          "count": 10
-        },
-        {
-          "en": "Materials & Concrete",
-          "ar": "المواد والخرسانة",
-          "count": 5
-        },
-        {
-          "en": "Water & Hydraulics",
-          "ar": "المياه والهيدروليكا",
-          "count": 5
-        },
-        {
-          "en": "Geotechnical & Foundations",
-          "ar": "الهندسة الجيوتقنية والأساسات",
-          "count": 4
-        },
-        {
-          "en": "Surveying & Design",
-          "ar": "المساحة والتصميم",
-          "count": 3
-        },
-        {
-          "en": "Transport & Tunnels",
-          "ar": "النقل والأنفاق",
-          "count": 3
-        }
-      ],
-      "related": [
-        "electrical-engineering",
-        "mechanical-engineering",
-        "infrastructure-systems",
-        "architecture-and-landmarks"
-      ],
-      "scorableQuestionCount": 25,
-      "reviewedQuestionCount": 0,
-      "quickFireQuestionCount": 0
     },
     {
       "slug": "classic-riddles",
@@ -1410,73 +1339,6 @@
       "scorableQuestionCount": 28,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 10
-    },
-    {
-      "slug": "coding-and-design",
-      "title": {
-        "en": "Coding & Design",
-        "ar": "البرمجة والتصميم"
-      },
-      "description": {
-        "en": "A mixed page for programming, software concepts, interface structure, and practical design language.",
-        "ar": "يضم موضوع «البرمجة والتصميم» 30 سؤالًا بالعربية والإنجليزية، ويتناول أساسيات البرمجة، تطوير الويب، وواجهات وتجربة المستخدم والتصميم البصري. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
-      },
-      "cluster": {
-        "en": "Technology & Engineering",
-        "ar": "التقنية والهندسة"
-      },
-      "cluster_key": "tech",
-      "emoji": "💻",
-      "mode": "quiz",
-      "count": 30,
-      "difficultyCounts": {
-        "easy": 10,
-        "medium": 10,
-        "hard": 10
-      },
-      "href": "/coding-and-design",
-      "image": "assets/coding-and-design.svg",
-      "topics": [
-        {
-          "en": "Programming Fundamentals",
-          "ar": "أساسيات البرمجة",
-          "count": 8
-        },
-        {
-          "en": "Web Development",
-          "ar": "تطوير الويب",
-          "count": 7
-        },
-        {
-          "en": "UI/UX & Visual Design",
-          "ar": "واجهات وتجربة المستخدم والتصميم البصري",
-          "count": 5
-        },
-        {
-          "en": "Data, APIs & Tools",
-          "ar": "البيانات والواجهات والأدوات",
-          "count": 4
-        },
-        {
-          "en": "Algorithms & Data Structures",
-          "ar": "الخوارزميات وهياكل البيانات",
-          "count": 3
-        },
-        {
-          "en": "Computer Systems & Theory",
-          "ar": "أنظمة الحاسوب والنظرية",
-          "count": 3
-        }
-      ],
-      "related": [
-        "tech-retro",
-        "future-tech-and-energy",
-        "automotive",
-        "civil-engineering"
-      ],
-      "scorableQuestionCount": 28,
-      "reviewedQuestionCount": 0,
-      "quickFireQuestionCount": 0
     },
     {
       "slug": "electrical-engineering",
@@ -1917,12 +1779,12 @@
     {
       "slug": "infrastructure-systems",
       "title": {
-        "en": "Infrastructure Systems",
-        "ar": "أنظمة البنية التحتية"
+        "en": "Civil Engineering & Infrastructure",
+        "ar": "الهندسة المدنية والبنية التحتية"
       },
       "description": {
-        "en": "Utilities, transport, networks, and city-scale systems in a quiz-driven page.",
-        "ar": "يضم موضوع «أنظمة البنية التحتية» 50 سؤالًا بالعربية والإنجليزية، ويتناول الجسور والهندسة الإنشائية، أنظمة الطاقة والكهرباء، وأنظمة المياه والصرف الصحي. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "en": "Bridges, concrete, foundations, water, transport, and power: how civil engineers design and build the systems cities run on.",
+        "ar": "يضم موضوع «الهندسة المدنية والبنية التحتية» 80 سؤالًا بالعربية والإنجليزية، ويتناول الجسور والهندسة الإنشائية، أنظمة المياه والصرف الصحي، والطرق وتخطيط النقل. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Technology & Engineering",
@@ -1931,12 +1793,12 @@
       "cluster_key": "tech",
       "emoji": "🚦",
       "mode": "quiz",
-      "count": 50,
+      "count": 80,
       "difficultyCounts": {
-        "easy": 13,
-        "medium": 7,
-        "hard": 20,
-        "very-advanced": 10
+        "easy": 23,
+        "medium": 17,
+        "hard": 29,
+        "very-advanced": 11
       },
       "href": "/infrastructure-systems",
       "image": "assets/infrastructure-systems.svg",
@@ -1944,7 +1806,17 @@
         {
           "en": "Bridges & Structural Engineering",
           "ar": "الجسور والهندسة الإنشائية",
-          "count": 9
+          "count": 19
+        },
+        {
+          "en": "Water & Wastewater Systems",
+          "ar": "أنظمة المياه والصرف الصحي",
+          "count": 14
+        },
+        {
+          "en": "Roads & Transport Planning",
+          "ar": "الطرق وتخطيط النقل",
+          "count": 10
         },
         {
           "en": "Power & Energy Systems",
@@ -1952,14 +1824,9 @@
           "count": 9
         },
         {
-          "en": "Water & Wastewater Systems",
-          "ar": "أنظمة المياه والصرف الصحي",
-          "count": 9
-        },
-        {
-          "en": "Roads & Transport Planning",
-          "ar": "الطرق وتخطيط النقل",
-          "count": 8
+          "en": "Railways & Tunnels",
+          "ar": "السكك الحديدية والأنفاق",
+          "count": 7
         },
         {
           "en": "Ports, Canals & Airports",
@@ -1967,13 +1834,23 @@
           "count": 6
         },
         {
-          "en": "Railways & Tunnels",
-          "ar": "السكك الحديدية والأنفاق",
-          "count": 6
+          "en": "Materials & Concrete",
+          "ar": "المواد والخرسانة",
+          "count": 5
+        },
+        {
+          "en": "Geotechnical & Foundations",
+          "ar": "الهندسة الجيوتقنية والأساسات",
+          "count": 4
         },
         {
           "en": "Digital & Urban Infrastructure",
           "ar": "البنية التحتية الرقمية والحضرية",
+          "count": 3
+        },
+        {
+          "en": "Surveying & Design",
+          "ar": "المساحة والتصميم",
           "count": 3
         }
       ],
@@ -1981,9 +1858,9 @@
         "architecture-and-landmarks",
         "inventions-and-minds",
         "software-and-computing",
-        "coding-and-design"
+        "tech-retro"
       ],
-      "scorableQuestionCount": 14,
+      "scorableQuestionCount": 39,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2197,9 +2074,9 @@
       ],
       "related": [
         "science",
-        "physical-and-life-sciences",
         "biology",
-        "chemistry"
+        "chemistry",
+        "geology"
       ],
       "scorableQuestionCount": 110,
       "reviewedQuestionCount": 0,
@@ -2344,7 +2221,7 @@
         "pharmacy",
         "math",
         "science",
-        "physical-and-life-sciences"
+        "biology"
       ],
       "scorableQuestionCount": 50,
       "reviewedQuestionCount": 0,
@@ -2474,8 +2351,8 @@
       "related": [
         "math",
         "science",
-        "physical-and-life-sciences",
-        "biology"
+        "biology",
+        "chemistry"
       ],
       "scorableQuestionCount": 24,
       "reviewedQuestionCount": 0,
@@ -2550,79 +2427,6 @@
       "quickFireQuestionCount": 0
     },
     {
-      "slug": "physical-and-life-sciences",
-      "title": {
-        "en": "Physical & Life Sciences",
-        "ar": "العلوم الفيزيائية والحياتية"
-      },
-      "description": {
-        "en": "A broad science page covering biology, chemistry, and earth science in one place.",
-        "ar": "يضم موضوع «العلوم الفيزيائية والحياتية» 39 سؤالًا بالعربية والإنجليزية، ويتناول الخلية والوراثة والأحياء الدقيقة، الكيمياء العامة، والميكانيكا والطاقة والنسبية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
-      },
-      "cluster": {
-        "en": "Science, Nature & Health",
-        "ar": "العلوم والطبيعة والصحة"
-      },
-      "cluster_key": "science",
-      "emoji": "🔬",
-      "mode": "quiz",
-      "count": 39,
-      "difficultyCounts": {
-        "easy": 10,
-        "medium": 8,
-        "hard": 10,
-        "very-advanced": 11
-      },
-      "href": "/physical-and-life-sciences",
-      "image": "assets/physical-and-life-sciences.svg",
-      "topics": [
-        {
-          "en": "Cell, Genetics & Microbiology",
-          "ar": "الخلية والوراثة والأحياء الدقيقة",
-          "count": 12
-        },
-        {
-          "en": "Quantum & Particle Physics",
-          "ar": "فيزياء الكم والجسيمات",
-          "count": 7
-        },
-        {
-          "en": "General Chemistry",
-          "ar": "الكيمياء العامة",
-          "count": 6
-        },
-        {
-          "en": "Mechanics, Energy & Relativity",
-          "ar": "الميكانيكا والطاقة والنسبية",
-          "count": 5
-        },
-        {
-          "en": "Earth, Plant & Human Sciences",
-          "ar": "علوم الأرض والنبات والإنسان",
-          "count": 4
-        },
-        {
-          "en": "Organic & Biological Chemistry",
-          "ar": "الكيمياء العضوية والحيوية",
-          "count": 3
-        },
-        {
-          "en": "Waves & Optics",
-          "ar": "الموجات والبصريات",
-          "count": 2
-        }
-      ],
-      "related": [
-        "biology",
-        "chemistry",
-        "geology",
-        "space-and-astrology"
-      ],
-      "scorableQuestionCount": 12,
-      "reviewedQuestionCount": 0,
-      "quickFireQuestionCount": 0
-    },
-    {
       "slug": "psychology",
       "title": {
         "en": "Psychology",
@@ -2630,7 +2434,7 @@
       },
       "description": {
         "en": "Psychology cards about behavior, memory, emotion, and human patterns.",
-        "ar": "يضم موضوع «علم النفس» 100 سؤالًا بالعربية والإنجليزية، ويتناول الإدراك والذاكرة والإحساس، الأسس والتعلم والدافعية، وعلم النفس الاجتماعي. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «علم النفس» 101 سؤال بالعربية والإنجليزية، ويتناول الإدراك والذاكرة والإحساس، الأسس والتعلم والدافعية، وعلم النفس الاجتماعي. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Mind & Puzzles",
@@ -2639,10 +2443,10 @@
       "cluster_key": "mind",
       "emoji": "🫶",
       "mode": "quiz",
-      "count": 100,
+      "count": 101,
       "difficultyCounts": {
         "easy": 23,
-        "medium": 37,
+        "medium": 38,
         "hard": 21,
         "very-advanced": 19
       },
@@ -2682,7 +2486,7 @@
         {
           "en": "Personality & Emotion",
           "ar": "الشخصية والانفعال",
-          "count": 8
+          "count": 9
         },
         {
           "en": "Research Methods",
@@ -2770,7 +2574,7 @@
       },
       "description": {
         "en": "Core science concepts from living systems to physics and space, all in card form.",
-        "ar": "يضم موضوع «العلوم» 90 سؤالًا بالعربية والإنجليزية، ويتناول الكيمياء والمواد، الأحياء وعلوم الحياة، والكم والنسبية وعلم الكون. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «العلوم» 83 سؤالًا بالعربية والإنجليزية، ويتناول الكم والنسبية وعلم الكون، الميكانيكا والفيزياء الكلاسيكية، والكيمياء والمواد. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Science, Nature & Health",
@@ -2779,54 +2583,54 @@
       "cluster_key": "science",
       "emoji": "🔬",
       "mode": "quiz",
-      "count": 90,
+      "count": 83,
       "difficultyCounts": {
-        "easy": 24,
-        "medium": 28,
-        "hard": 23,
-        "very-advanced": 15
+        "easy": 27,
+        "medium": 23,
+        "hard": 20,
+        "very-advanced": 13
       },
       "href": "/science",
       "image": "assets/science.svg",
       "topics": [
         {
-          "en": "Chemistry & Materials",
-          "ar": "الكيمياء والمواد",
-          "count": 23
-        },
-        {
-          "en": "Biology & Life Sciences",
-          "ar": "الأحياء وعلوم الحياة",
-          "count": 19
-        },
-        {
           "en": "Quantum, Relativity & Cosmology",
           "ar": "الكم والنسبية وعلم الكون",
-          "count": 18
+          "count": 24
         },
         {
           "en": "Mechanics & Classical Physics",
           "ar": "الميكانيكا والفيزياء الكلاسيكية",
-          "count": 15
+          "count": 16
+        },
+        {
+          "en": "Chemistry & Materials",
+          "ar": "الكيمياء والمواد",
+          "count": 13
+        },
+        {
+          "en": "Biology & Life Sciences",
+          "ar": "الأحياء وعلوم الحياة",
+          "count": 11
         },
         {
           "en": "Waves, Light & Sound",
           "ar": "الموجات والضوء والصوت",
-          "count": 8
+          "count": 11
         },
         {
           "en": "Heat & Energy",
           "ar": "الحرارة والطاقة",
-          "count": 7
+          "count": 8
         }
       ],
       "related": [
-        "physical-and-life-sciences",
         "biology",
         "chemistry",
-        "geology"
+        "geology",
+        "space-and-astrology"
       ],
-      "scorableQuestionCount": 64,
+      "scorableQuestionCount": 58,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2838,7 +2642,7 @@
       },
       "description": {
         "en": "A broader social-science page built from psychology, interpersonal behavior, and cultural etiquette concepts.",
-        "ar": "يضم موضوع «العلوم الاجتماعية» 50 سؤالًا بالعربية والإنجليزية، ويتناول علم الاجتماع، الاقتصاد، والعلوم السياسية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «العلوم الاجتماعية» 53 سؤالًا بالعربية والإنجليزية، ويتناول علم الاجتماع، الأنثروبولوجيا، والاقتصاد. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "World, History & Society",
@@ -2847,12 +2651,12 @@
       "cluster_key": "world",
       "emoji": "👥",
       "mode": "quiz",
-      "count": 50,
+      "count": 53,
       "difficultyCounts": {
         "easy": 13,
-        "medium": 14,
+        "medium": 15,
         "hard": 13,
-        "very-advanced": 10
+        "very-advanced": 12
       },
       "href": "/social-sciences",
       "image": "assets/social-sciences.svg",
@@ -2860,7 +2664,12 @@
         {
           "en": "Sociology",
           "ar": "علم الاجتماع",
-          "count": 16
+          "count": 17
+        },
+        {
+          "en": "Anthropology",
+          "ar": "الأنثروبولوجيا",
+          "count": 12
         },
         {
           "en": "Economics",
@@ -2871,11 +2680,6 @@
           "en": "Political Science",
           "ar": "العلوم السياسية",
           "count": 12
-        },
-        {
-          "en": "Anthropology",
-          "ar": "الأنثروبولوجيا",
-          "count": 10
         }
       ],
       "related": [
@@ -2884,7 +2688,7 @@
         "flag-questions",
         "currencies"
       ],
-      "scorableQuestionCount": 20,
+      "scorableQuestionCount": 21,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2895,8 +2699,8 @@
         "ar": "البرمجيات والحوسبة"
       },
       "description": {
-        "en": "Core computing terms, systems, and development ideas for playful study.",
-        "ar": "يضم موضوع «البرمجيات والحوسبة» 50 سؤالًا بالعربية والإنجليزية، ويتناول علوم الحاسب، الأنظمة والشبكات، وهندسة البرمجيات. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "en": "Computing, programming, the web, and interface design, from your first bug to P vs NP.",
+        "ar": "يضم موضوع «البرمجيات والحوسبة» 80 سؤالًا بالعربية والإنجليزية، ويتناول علوم الحاسب، هندسة البرمجيات، والخوارزميات وهياكل البيانات. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Technology & Engineering",
@@ -2905,11 +2709,11 @@
       "cluster_key": "tech",
       "emoji": "💻",
       "mode": "quiz",
-      "count": 50,
+      "count": 80,
       "difficultyCounts": {
-        "easy": 14,
-        "medium": 8,
-        "hard": 15,
+        "easy": 24,
+        "medium": 18,
+        "hard": 25,
         "very-advanced": 13
       },
       "href": "/software-and-computing",
@@ -2918,6 +2722,16 @@
         {
           "en": "Computer Science",
           "ar": "علوم الحاسب",
+          "count": 17
+        },
+        {
+          "en": "Software Engineering",
+          "ar": "هندسة البرمجيات",
+          "count": 16
+        },
+        {
+          "en": "Algorithms & Data Structures",
+          "ar": "الخوارزميات وهياكل البيانات",
           "count": 14
         },
         {
@@ -2926,23 +2740,28 @@
           "count": 13
         },
         {
-          "en": "Software Engineering",
-          "ar": "هندسة البرمجيات",
-          "count": 12
+          "en": "Programming Fundamentals",
+          "ar": "أساسيات البرمجة",
+          "count": 8
         },
         {
-          "en": "Algorithms & Data Structures",
-          "ar": "الخوارزميات وهياكل البيانات",
-          "count": 11
+          "en": "Web Development",
+          "ar": "تطوير الويب",
+          "count": 7
+        },
+        {
+          "en": "UI/UX & Visual Design",
+          "ar": "واجهات وتجربة المستخدم والتصميم البصري",
+          "count": 5
         }
       ],
       "related": [
-        "coding-and-design",
         "tech-retro",
         "future-tech-and-energy",
-        "automotive"
+        "automotive",
+        "electrical-engineering"
       ],
-      "scorableQuestionCount": 21,
+      "scorableQuestionCount": 49,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2953,7 +2772,7 @@
         "ar": "الفضاء وعلم الفلك"
       },
       "description": {
-        "en": "Planets, constellations, lunar events, and zodiac-themed prompts for curious players.",
+        "en": "Planets, stars, galaxies, eclipses, and space missions for curious stargazers.",
         "ar": "يضم موضوع «الفضاء وعلم الفلك» 100 سؤالًا بالعربية والإنجليزية، ويتناول النظام الشمسي والكواكب، المجرات وعلم الكون، والنجوم وتطورها. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
@@ -3103,8 +2922,8 @@
         "ar": "المسلسلات"
       },
       "description": {
-        "en": "800 bilingual TV trivia questions across 10 shows, with 80 questions per show. Play ten-question rounds with explanations and optional story questions.",
-        "ar": "800 سؤال عن 10 مسلسلات بالعربية والإنجليزية، بواقع 80 سؤالًا لكل مسلسل. العب جولات من عشرة أسئلة مع شروح وخيار إضافة أسئلة عن أحداث القصة."
+        "en": "Bilingual TV trivia across 9 shows. Play ten-question rounds with explanations and optional story questions.",
+        "ar": "أسئلة عن 9 مسلسلات بالعربية والإنجليزية. العب جولات من عشرة أسئلة مع شروح وخيار إضافة أسئلة عن أحداث القصة."
       },
       "cluster": {
         "en": "Arts, Culture & Entertainment",
@@ -3113,11 +2932,11 @@
       "cluster_key": "culture",
       "emoji": "📺",
       "mode": "quiz",
-      "count": 800,
+      "count": 720,
       "difficultyCounts": {
-        "easy": 182,
-        "medium": 465,
-        "hard": 149,
+        "easy": 166,
+        "medium": 417,
+        "hard": 133,
         "very-advanced": 4
       },
       "href": "/tv-shows-trivia",
@@ -3167,11 +2986,6 @@
           "en": "Tash Ma Tash",
           "ar": "طاش ما طاش",
           "count": 80
-        },
-        {
-          "en": "The Wire",
-          "ar": "ذا واير",
-          "count": 80
         }
       ],
       "related": [
@@ -3180,7 +2994,7 @@
         "anime",
         "ayam-tayebeen"
       ],
-      "scorableQuestionCount": 800,
+      "scorableQuestionCount": 720,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3192,7 +3006,7 @@
       },
       "description": {
         "en": "Customs, greetings, hospitality, and social habits from around the world.",
-        "ar": "يضم موضوع «عادات البلدان والإتيكيت» 50 سؤالًا بالعربية والإنجليزية، ويتناول العادات الاجتماعية، آداب المائدة، والديني والاحتفالي. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «عادات البلدان والإتيكيت» 46 سؤالًا بالعربية والإنجليزية، ويتناول العادات الاجتماعية، آداب المائدة، والديني والاحتفالي. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "World, History & Society",
@@ -3201,12 +3015,12 @@
       "cluster_key": "world",
       "emoji": "🌍",
       "mode": "quiz",
-      "count": 50,
+      "count": 46,
       "difficultyCounts": {
         "easy": 13,
-        "medium": 24,
+        "medium": 22,
         "hard": 5,
-        "very-advanced": 8
+        "very-advanced": 6
       },
       "href": "/world-habits-and-etiquette",
       "image": "assets/world-habits-and-etiquette.svg",
@@ -3214,12 +3028,12 @@
         {
           "en": "Social Customs",
           "ar": "العادات الاجتماعية",
-          "count": 19
+          "count": 17
         },
         {
           "en": "Dining Etiquette",
           "ar": "آداب المائدة",
-          "count": 12
+          "count": 11
         },
         {
           "en": "Religious & Ceremonial",
@@ -3229,7 +3043,7 @@
         {
           "en": "Greetings & Gestures",
           "ar": "التحيات والإيماءات",
-          "count": 9
+          "count": 8
         }
       ],
       "related": [
@@ -3238,7 +3052,7 @@
         "economics-and-finance",
         "social-sciences"
       ],
-      "scorableQuestionCount": 31,
+      "scorableQuestionCount": 30,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3250,7 +3064,7 @@
       },
       "description": {
         "en": "Explore ecosystems, conservation, and the science of our planet.",
-        "ar": "يضم موضوع «البيئة وعلم البيئة» 40 سؤالًا بالعربية والإنجليزية، ويتناول النظم البيئية والتنوع الحيوي، التلوث والنفايات، وتغير المناخ. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «البيئة وعلم البيئة» 42 سؤالًا بالعربية والإنجليزية، ويتناول النظم البيئية والتنوع الحيوي، تغير المناخ، والتلوث والنفايات. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "🌿",
       "cluster": {
@@ -3259,11 +3073,11 @@
       },
       "cluster_key": "science",
       "mode": "quiz",
-      "count": 40,
+      "count": 42,
       "difficultyCounts": {
-        "easy": 10,
+        "easy": 11,
         "medium": 10,
-        "hard": 10,
+        "hard": 11,
         "very-advanced": 10
       },
       "href": "/environment-and-ecology",
@@ -3275,14 +3089,19 @@
           "count": 10
         },
         {
+          "en": "Climate Change",
+          "ar": "تغير المناخ",
+          "count": 7
+        },
+        {
           "en": "Pollution & Waste",
           "ar": "التلوث والنفايات",
           "count": 7
         },
         {
-          "en": "Climate Change",
-          "ar": "تغير المناخ",
-          "count": 6
+          "en": "Atmosphere & Weather",
+          "ar": "الغلاف الجوي والطقس",
+          "count": 5
         },
         {
           "en": "Conservation & Policy",
@@ -3293,11 +3112,6 @@
           "en": "Oceans & Water",
           "ar": "المحيطات والمياه",
           "count": 5
-        },
-        {
-          "en": "Atmosphere & Weather",
-          "ar": "الغلاف الجوي والطقس",
-          "count": 4
         },
         {
           "en": "Biogeochemical Cycles",
@@ -3311,7 +3125,7 @@
         "medical-questions",
         "pharmacy"
       ],
-      "scorableQuestionCount": 35,
+      "scorableQuestionCount": 36,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3453,9 +3267,9 @@
       ],
       "related": [
         "software-and-computing",
-        "coding-and-design",
         "tech-retro",
-        "future-tech-and-energy"
+        "future-tech-and-energy",
+        "automotive"
       ],
       "scorableQuestionCount": 37,
       "reviewedQuestionCount": 0,
@@ -3469,7 +3283,7 @@
       },
       "description": {
         "en": "Amazing facts about the diverse creatures sharing our planet.",
-        "ar": "يضم موضوع «عالم الحيوان» 40 سؤالًا بالعربية والإنجليزية، ويتناول الطيور والطيران، السلوك والبيئة والتكيف، والحشرات ومفصليات الأرجل. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «عالم الحيوان» 43 سؤالًا بالعربية والإنجليزية، ويتناول الطيور والطيران، السلوك والبيئة والتكيف، والحشرات ومفصليات الأرجل. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "🐾",
       "cluster": {
@@ -3478,9 +3292,9 @@
       },
       "cluster_key": "science",
       "mode": "quiz",
-      "count": 40,
+      "count": 43,
       "difficultyCounts": {
-        "easy": 10,
+        "easy": 13,
         "medium": 13,
         "hard": 10,
         "very-advanced": 7
@@ -3504,18 +3318,18 @@
           "count": 6
         },
         {
+          "en": "Mammals",
+          "ar": "الثدييات",
+          "count": 6
+        },
+        {
           "en": "Marine Life",
           "ar": "الحياة البحرية",
-          "count": 5
+          "count": 6
         },
         {
           "en": "Animal Anatomy & Physiology",
           "ar": "تشريح الحيوان ووظائف الأعضاء",
-          "count": 4
-        },
-        {
-          "en": "Mammals",
-          "ar": "الثدييات",
           "count": 4
         },
         {
@@ -3535,7 +3349,7 @@
         "pharmacy",
         "math"
       ],
-      "scorableQuestionCount": 37,
+      "scorableQuestionCount": 40,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3683,8 +3497,8 @@
       "related": [
         "inventions-and-minds",
         "software-and-computing",
-        "coding-and-design",
-        "tech-retro"
+        "tech-retro",
+        "future-tech-and-energy"
       ],
       "scorableQuestionCount": 38,
       "reviewedQuestionCount": 0,
@@ -3984,9 +3798,9 @@
       ],
       "related": [
         "automotive",
-        "civil-engineering",
         "electrical-engineering",
-        "mechanical-engineering"
+        "mechanical-engineering",
+        "infrastructure-systems"
       ],
       "scorableQuestionCount": 26,
       "reviewedQuestionCount": 0,

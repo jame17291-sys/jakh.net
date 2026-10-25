@@ -136,6 +136,66 @@ test("retired SEO entry points and pagination redirect once to their retained Ri
   assert.equal(retiredSeoRedirectTarget(siteManifest, "/science/page/0/"), null);
 });
 
+test("topics retired by the 2026-10-25 merges redirect once to their successor and keep shared card links", async () => {
+  const cases = [
+    [`${PRIMARY_ORIGIN}/physical-and-life-sciences?card=physical-and-life-sciences-002`, `${PRIMARY_ORIGIN}/biology?card=physical-and-life-sciences-002`],
+    [`${PRIMARY_ORIGIN}/physical-and-life-sciences?card=physical-and-life-sciences-003`, `${PRIMARY_ORIGIN}/science?card=physical-and-life-sciences-003`],
+    [`${PRIMARY_ORIGIN}/science?card=science-048&utm_source=share`, `${PRIMARY_ORIGIN}/chemistry?card=science-048&utm_source=share`],
+    [`${PRIMARY_ORIGIN}/science.html?card=science-048`, `${PRIMARY_ORIGIN}/chemistry?card=science-048`],
+    [`${PRIMARY_ORIGIN}/ar/topics/biology/?card=biology-033`, `${PRIMARY_ORIGIN}/ar/topics/animal-kingdom/?card=biology-033`],
+    [`${PRIMARY_ORIGIN}/ar/topics/world-habits-and-etiquette?card=world-habits-and-etiquette-047`, `${PRIMARY_ORIGIN}/ar/topics/psychology/?card=world-habits-and-etiquette-047`],
+    [`${PRIMARY_ORIGIN}/physical-and-life-sciences.html?card=x`, `${PRIMARY_ORIGIN}/science?card=x`],
+    [`${PRIMARY_ORIGIN}/physical-and-life-sciences/page/2/`, `${PRIMARY_ORIGIN}/science`],
+    [`${PRIMARY_ORIGIN}/ar/topics/physical-and-life-sciences/?card=physical-and-life-sciences-001`, `${PRIMARY_ORIGIN}/ar/topics/science/?card=physical-and-life-sciences-001`],
+    [`${PRIMARY_ORIGIN}/ar/topics/physical-and-life-sciences/index.html`, `${PRIMARY_ORIGIN}/ar/topics/science/`],
+    [`${PRIMARY_ORIGIN}/ar/topics/physical-and-life-sciences.html`, `${PRIMARY_ORIGIN}/ar/topics/science/`],
+    [`${PRIMARY_ORIGIN}/coding-and-design?card=coding-and-design-025&lang=ar`, `${PRIMARY_ORIGIN}/software-and-computing?card=coding-and-design-025&lang=ar`],
+    [`${PRIMARY_ORIGIN}/ar/topics/coding-and-design/`, `${PRIMARY_ORIGIN}/ar/topics/software-and-computing/`],
+    [`${PRIMARY_ORIGIN}/civil-engineering/`, `${PRIMARY_ORIGIN}/infrastructure-systems`],
+    [`https://www.riddlearabia.com/ar/topics/civil-engineering/page/3/?card=civil-engineering-010`, `${PRIMARY_ORIGIN}/ar/topics/infrastructure-systems/?card=civil-engineering-010`],
+  ];
+  for (const [source, destination] of cases) {
+    const response = await handler.fetch(new Request(source), environment());
+    assert.equal(response.status, 301, source);
+    assert.equal(response.headers.get("location"), destination, source);
+    assert.equal(response.headers.get("cache-control"), "public, max-age=86400", source);
+    assertSecurityHeaders(response);
+    const next = await handler.fetch(new Request(destination), environment());
+    assert.equal(next.status, 200, `${destination} serves the successor in one hop`);
+  }
+  for (const slug of ["physical-and-life-sciences", "coding-and-design", "civil-engineering"]) {
+    assert.equal(siteManifest.routes[`/${slug}`], undefined);
+    assert.equal(siteManifest.routes[`/ar/topics/${slug}/`], undefined);
+    assert.equal(siteManifest.files[`/data/${slug}.json`], undefined);
+  }
+  // Cards that never moved, or a topic the card never left, are served as they are.
+  for (const kept of [`${PRIMARY_ORIGIN}/science?card=science-001`, `${PRIMARY_ORIGIN}/biology?card=science-048`,
+    `${PRIMARY_ORIGIN}/chemistry?card=science-048`, `${PRIMARY_ORIGIN}/ar/topics/science/?card=unknown-card`]) {
+    assert.equal(canonicalRedirect(siteManifest, new URL(kept)), null, kept);
+  }
+  assert.equal(retiredSeoRedirectTarget(siteManifest, "/science"), null);
+  assert.equal(retiredSeoRedirectTarget(siteManifest, "/coding-and-design-001"), null);
+  assert.equal(retiredSeoRedirectTarget(siteManifest, "/ar/topics/software-and-computing/"), null);
+});
+
+test("a deep link to a TV show dropped from the game redirects to the TV topic page", async () => {
+  const cases = [
+    [`${PRIMARY_ORIGIN}/tv-shows-trivia?sub=The+Wire&season=3`, `${PRIMARY_ORIGIN}/tv-shows-trivia`],
+    [`${PRIMARY_ORIGIN}/tv-shows-trivia?sub=the-wire&utm_source=share`, `${PRIMARY_ORIGIN}/tv-shows-trivia?utm_source=share`],
+    [`${PRIMARY_ORIGIN}/tv-shows-trivia.html?sub=THE%20WIRE`, `${PRIMARY_ORIGIN}/tv-shows-trivia`],
+    [`${PRIMARY_ORIGIN}/ar/topics/tv-shows-trivia/?sub=The%20Wire`, `${PRIMARY_ORIGIN}/ar/topics/tv-shows-trivia/`],
+    [`${PRIMARY_ORIGIN}/ar/topics/tv-shows-trivia?sub=the-wire`, `${PRIMARY_ORIGIN}/ar/topics/tv-shows-trivia/`],
+  ];
+  for (const [source, destination] of cases) {
+    const response = await handler.fetch(new Request(source), environment());
+    assert.equal(response.status, 301, source);
+    assert.equal(new URL(response.headers.get("location")).href, new URL(destination).href, source);
+  }
+  for (const kept of [`${PRIMARY_ORIGIN}/tv-shows-trivia?sub=Friends`, `${PRIMARY_ORIGIN}/ar/topics/tv-shows-trivia/?sub=maraya`, `${PRIMARY_ORIGIN}/science?sub=The+Wire`]) {
+    assert.equal(canonicalRedirect(siteManifest, new URL(kept)), null, kept);
+  }
+});
+
 test("every renamed game address redirects once to its new English or Arabic page, keeping the query", async () => {
   assert.deepEqual(RENAMED_GAME_ROUTES.map(({ from, to }) => [from.en, to.en]), [
     ["/catan", "/island-traders"],
@@ -415,6 +475,21 @@ test("handler rejects a retired SEO redirect whose curated destination is absent
   assert.throws(
     () => createSiteHandler({ siteManifest: missingDestination, mtaStsPolicy }),
     /Retired SEO redirect target is absent from release routes: \/en\/riddles-with-answers -> \/riddles/u,
+  );
+});
+
+test("handler rejects a retired topic redirect whose successor is absent or whose route is still deployed", () => {
+  const missingSuccessor = structuredClone(siteManifest);
+  delete missingSuccessor.routes["/ar/topics/science/"];
+  assert.throws(
+    () => createSiteHandler({ siteManifest: missingSuccessor, mtaStsPolicy }),
+    /Retired topic redirect target is absent from release routes: \/ar\/topics\/physical-and-life-sciences\/ -> \/ar\/topics\/science\//u,
+  );
+  const stillDeployed = structuredClone(siteManifest);
+  stillDeployed.routes["/coding-and-design"] = "/coding-and-design.html";
+  assert.throws(
+    () => createSiteHandler({ siteManifest: stillDeployed, mtaStsPolicy }),
+    /Retired topic route is still in the release graph: \/coding-and-design/u,
   );
 });
 

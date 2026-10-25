@@ -754,11 +754,13 @@ export async function saveAdminContent(
     content?: unknown;
     workflowStatus?: unknown;
   }>(request, 32_768);
-  const categorySlug = typeof body.categorySlug === "string" ? body.categorySlug.trim() : "";
-  if (!CONTENT_CATEGORY_PATTERN.test(categorySlug)) {
+  const requestedCategory = typeof body.categorySlug === "string" ? body.categorySlug.trim() : "";
+  if (!CONTENT_CATEGORY_PATTERN.test(requestedCategory)) {
     throw new ApiError(400, "Invalid content category", undefined, "CONTENT_CATEGORY_INVALID");
   }
-  await validateCard(env, questionId, categorySlug);
+  // Drafts are always saved under the card's current topic, even when the
+  // editor still lists it under a topic a recorded merge moved it out of.
+  const { categoryId: categorySlug } = await validateCard(env, questionId, requestedCategory);
   const workflowStatus = String(body.workflowStatus || "DRAFT").toUpperCase();
   if (workflowStatus !== "DRAFT" && workflowStatus !== "IN_REVIEW") {
     throw new ApiError(400, "Drafts may only be saved or submitted for review", undefined, "CONTENT_STATUS_INVALID");

@@ -266,7 +266,7 @@ test("the no-script topic directory gives public topics exclusive artwork and di
   const source = read("mind-lab.html");
   const directory = source.match(/<!-- SEO:DIRECTORY:START -->([\s\S]*?)<!-- SEO:DIRECTORY:END -->/u)?.[1] || "";
   assert.ok(directory, "the generated directory fallback must be present");
-  assert.equal(new Set(Object.values(TOPIC_ILLUSTRATIONS)).size, 51, 'each public topic owns a different illustration');
+  assert.equal(new Set(Object.values(TOPIC_ILLUSTRATIONS)).size, 48, 'each public topic owns a different illustration');
   assert.equal((directory.match(/class="ra-art ra-art-section"/gu) || []).length, catalog.sections.length, "one illustration per subject section");
   const cards = [...directory.matchAll(/<a class="category-card compact-topic-card" href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gu)];
   // Every public topic has a directory card again, Kids Riddles included (re-listed
@@ -291,7 +291,7 @@ test("the no-script topic directory gives public topics exclusive artwork and di
 });
 
 test("generic topic routes remain functional noindex application shells without static SEO pagination", () => {
-  assert.equal(catalog.categories.length, 56, "source categories stay available to the app");
+  assert.equal(catalog.categories.length, 53, "source categories stay available to the app");
   for (const category of catalog.categories.filter(c => c.slug !== "kids-riddles")) {
     for (const [lang, relative, canonical, alternate] of [
       ["en", `${category.slug}.html`, `${siteOrigin}/${category.slug}`, `${siteOrigin}/ar/topics/${category.slug}/`],

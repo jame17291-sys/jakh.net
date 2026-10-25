@@ -4,8 +4,8 @@ import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 import {
-  ROUND_SIZE, normalizeLevel, planRound, replacementId, restoreRound, reveal, answerCard,
-  replaceCurrent, isFinished, roundScore, rememberSeen, updateBest,
+  ROUND_SIZE, EXCLUDED_TOPIC_LEVELS, normalizeLevel, planRound, poolsByTopic, replacementId, restoreRound, reveal, answerCard,
+  replaceCurrent, retopicCurrent, isFinished, roundScore, rememberSeen, topicAllowsLevel, updateBest,
 } from '../shuffle-challenge-engine.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -19,8 +19,8 @@ function seeded(seed = 7) {
   return () => { value = (value * 1103515245 + 12345) % 2147483648; return value / 2147483648; };
 }
 
-test('the shuffle draws from all 51 public topics and never from held ones', () => {
-  assert.equal(publicTopics.length, 51);
+test('the shuffle draws from all 48 public topics and never from held ones', () => {
+  assert.equal(publicTopics.length, 48);
   const visited = new Set();
   for (let seed = 1; seed <= 80; seed++) {
     const round = planRound({ index, topics: publicTopics, level: 'mixed', random: seeded(seed) });
@@ -30,7 +30,74 @@ test('the shuffle draws from all 51 public topics and never from held ones', () 
       visited.add(item.slug);
     }
   }
-  assert.equal(visited.size, 51);
+  assert.equal(visited.size, 48);
+});
+
+test('kids riddles never appear at the very-advanced level, in any round', () => {
+  assert.deepEqual(EXCLUDED_TOPIC_LEVELS, { 'kids-riddles': ['very-advanced'] });
+  assert.equal(topicAllowsLevel('kids-riddles', 'very-advanced'), false);
+  for (const level of ['easy', 'medium', 'hard']) assert.equal(topicAllowsLevel('kids-riddles', level), true);
+  assert.equal(topicAllowsLevel('science', 'very-advanced'), true);
+  // Even a very-advanced kids card in the index is never dealt.
+  const withAdvancedKidsCard = { ...index, 'kids-riddles-va': ['kids-riddles', 'very-advanced'] };
+  assert.equal(poolsByTopic(withAdvancedKidsCard, 'very-advanced', publicTopics).has('kids-riddles'), false);
+  assert.ok(!poolsByTopic(withAdvancedKidsCard, 'mixed', publicTopics).get('kids-riddles').includes('kids-riddles-va'));
+  assert.ok(poolsByTopic(index, 'hard', publicTopics).has('kids-riddles'));
+  for (let seed = 1; seed <= 200; seed++) {
+    for (const level of ['very-advanced', 'mixed']) {
+      const round = planRound({ index: withAdvancedKidsCard, topics: publicTopics, level, random: seeded(seed) });
+      for (const item of round.items) {
+        assert.ok(item.id !== 'kids-riddles-va', `${level}/${seed}: dealt a very-advanced kids card`);
+        if (level === 'very-advanced') assert.notEqual(item.slug, 'kids-riddles', `seed ${seed}`);
+      }
+    }
+  }
+  const kidsCards = [{ id: 'k-1', difficulty: 'very-advanced' }, { id: 'k-2', difficulty: 'hard' }];
+  assert.equal(replacementId(kidsCards, { level: 'very-advanced', slug: 'kids-riddles' }), null);
+  assert.equal(replacementId(kidsCards, { level: 'mixed', slug: 'kids-riddles', random: () => 0 }), 'k-2');
+});
+
+test('a round never draws a topic at a level where it has no cards', () => {
+  const realIndex = index;
+  const tiny = {
+    'a-1': ['alpha', 'easy'], 'a-2': ['alpha', 'hard'],
+    'b-1': ['beta', 'easy'],
+    'g-1': ['gamma', 'very-advanced'],
+  };
+  const topics = ['alpha', 'beta', 'gamma', 'delta'];
+  const dealt = level => new Set(Array.from({ length: 30 }, (_, seed) => (
+    planRound({ index: tiny, topics, level, random: seeded(seed + 1) }).items.map(item => item.slug)
+  )).flat());
+  assert.deepEqual([...dealt('easy')].sort(), ['alpha', 'beta']);
+  assert.deepEqual([...dealt('hard')], ['alpha']);
+  assert.deepEqual([...dealt('medium')], []);
+  assert.deepEqual([...dealt('very-advanced')], ['gamma']);
+  assert.deepEqual([...dealt('mixed')].sort(), ['alpha', 'beta', 'gamma']);
+  // Every public topic dealt at a level really has a card at that level.
+  for (const level of ['easy', 'medium', 'hard', 'very-advanced']) {
+    for (const [slug, ids] of poolsByTopic(tiny, level, topics)) {
+      assert.ok(ids.length > 0 && ids.every(id => tiny[id][0] === slug && tiny[id][1] === level));
+    }
+    for (let seed = 1; seed <= 20; seed++) {
+      const round = planRound({ index: realIndex, topics: publicTopics, level, random: seeded(seed) });
+      for (const item of round.items) {
+        assert.equal(realIndex[item.id][0], item.slug);
+        assert.equal(realIndex[item.id][1], level, `${item.id} dealt at ${level}`);
+        assert.ok(topicAllowsLevel(item.slug, level), `${item.slug} dealt at ${level}`);
+      }
+    }
+  }
+});
+
+test('a saved round follows a card that a topic merge moved to another topic', () => {
+  let round = { v: 1, level: 'easy', items: [
+    { slug: 'coding-and-design', id: 'coding-and-design-001', result: null },
+    { slug: 'history', id: 'history-001', result: null },
+  ], position: 0, revealed: false };
+  round = retopicCurrent(round, 'software-and-computing');
+  assert.deepEqual(round.items.map(item => item.slug), ['software-and-computing', 'history']);
+  assert.equal(retopicCurrent(round, '../etc'), round);
+  assert.equal(index['coding-and-design-001'][0], 'software-and-computing');
 });
 
 test('every level deals ten cards from ten different topics at that level', () => {

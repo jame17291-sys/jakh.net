@@ -3,6 +3,7 @@ import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { validatePartyData } from "../party-games-engine.js";
+import { cardMoveHistory, readTopicMergeLedger } from "./topic-merge-ledger.mjs";
 import {
   conciseScorableAnswer,
   hasScorableAnswer,
@@ -409,6 +410,24 @@ if (!workerCardIndex) {
   fail("worker/src/card-index.json: missing generated card index");
 } else if (stableObjectJson(workerCardIndex) !== stableObjectJson(expectedCardIndex)) {
   fail("worker/src/card-index.json: generated card index is stale; run node scripts/generate-card-index.mjs");
+}
+
+const cardMovesPath = path.join(root, "worker", "src", "card-moves.json");
+const expectedCardMoves = cardMoveHistory(readTopicMergeLedger());
+if (!fs.existsSync(cardMovesPath)) {
+  fail("worker/src/card-moves.json: missing generated card move history");
+} else if (fs.readFileSync(cardMovesPath, "utf8") !== `${JSON.stringify(expectedCardMoves, null, 2)}\n`) {
+  fail("worker/src/card-moves.json: generated card move history is stale; run node scripts/generate-card-index.mjs");
+}
+for (const [cardId, formerCategories] of Object.entries(expectedCardMoves.formerCategories)) {
+  if (!expectedCardIndex[cardId]) fail(`worker/src/card-moves.json: moved card ${cardId} is not in the catalog`);
+  else if (formerCategories.includes(expectedCardIndex[cardId][0])) fail(`worker/src/card-moves.json: ${cardId} lists its current topic as former`);
+  else if (expectedCardMoves.currentCategories[cardId] !== expectedCardIndex[cardId][0]) fail(`worker/src/card-moves.json: ${cardId} is not in its recorded topic`);
+}
+for (const [retired, successor] of Object.entries(expectedCardMoves.retiredCategories)) {
+  if (catalogSlugs.has(retired)) fail(`catalog: retired topic ${retired} is still listed`);
+  if (!catalogSlugs.has(successor)) fail(`catalog: successor topic ${successor} of ${retired} is missing`);
+  if (fs.existsSync(path.join(root, "data", `${retired}.json`))) fail(`data/${retired}.json: retired topic data is still present`);
 }
 
 for (const file of ["app.js", "sw.js"]) {

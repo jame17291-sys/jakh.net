@@ -371,7 +371,7 @@ export async function runSpeechRegressions({ browser, createContext, runTest, tr
     await installSpeech(context);
     const page = await context.newPage(), noErrors = trackPageErrors(page);
     const cases = [
-      ['coding-and-design', 'coding-and-design-025', 'في بناء سي بلس بلس العادي بالترجمة المسبقة، هل الكود ينترجم قبل ما يشتغل الملف التنفيذي؟'],
+      ['software-and-computing', 'coding-and-design-025', 'في بناء سي بلس بلس العادي بالترجمة المسبقة، هل الكود ينترجم قبل ما يشتغل الملف التنفيذي؟'],
       ['math', 'math-062', 'خزان مليان لـ3 على 5 من سعته. بعد ما زدنا 24 لتر صار مليان لـ9 على 10. كم سعة الخزان؟'],
       ['biology', 'biology-003', 'شو معنى اختصار دي إن إيه؟'],
       ['chemistry', 'chemistry-049', 'عند 25 درجة مئوية، شو يعني إن قيمة بي إتش لمحلول مائي تساوي 7، وهل قيمة بي إتش لازم تكون بين 0 و14 بس؟'],

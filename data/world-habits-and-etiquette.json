@@ -859,25 +859,6 @@
     }
   },
   {
-    "id": "world-habits-and-etiquette-042",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Dining Etiquette",
-      "ar": "آداب المائدة"
-    },
-    "question": {
-      "en": "In studying food taboos, how does a materialist explanation differ from a symbolic explanation?",
-      "ar": "لما ندرس محرّمات الأكل، كيف يختلف التفسير المادي عن التفسير الرمزي؟"
-    },
-    "answer": {
-      "en": "A materialist account emphasizes ecological or economic conditions; a symbolic account emphasizes meanings and cultural classifications. Both are interpretive approaches, not universal explanations.",
-      "ar": "يركّز التفسير المادي على الظروف البيئية أو الاقتصادية؛ ويركّز الرمزي على المعاني والتصنيفات الثقافية. وكلاهما منهج تفسيري، لا شرح شامل لكل الحالات."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "world-habits-and-etiquette-043",
     "difficulty": "very-advanced",
     "subcategory": {
@@ -922,63 +903,6 @@
         "يجمع السلاماتان الجيران للطعام والصلاة وطلب الحماية.",
         "يحيي الولادات والزيجات والوفيات بالصلاة الجماعية."
       ]
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "world-habits-and-etiquette-045",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Social Customs",
-      "ar": "العادات الاجتماعية"
-    },
-    "question": {
-      "en": "In Hofstede's framework, what does the individualism–collectivism dimension compare?",
-      "ar": "في إطار هوفستيد، شو اللي يقارنه بُعد «الفردية مقابل الجماعية»؟"
-    },
-    "answer": {
-      "en": "The relative emphasis on individual autonomy and group obligations. National averages do not determine an individual person's preferences or manners.",
-      "ar": "التركيز النسبي على الاستقلال الفردي والالتزامات تجاه الجماعة. ولا تحدد المتوسطات الوطنية تفضيلات الفرد أو آدابه."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "world-habits-and-etiquette-046",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Greetings & Gestures",
-      "ar": "التحيات والإيماءات"
-    },
-    "question": {
-      "en": "What does kinesics study in communication?",
-      "ar": "في التواصل، شو اللي يدرسه «علم حركات الجسم»؟"
-    },
-    "answer": {
-      "en": "Body movements, gestures and facial expressions as forms of communication, interpreted in context.",
-      "ar": "حركات الجسم والإيماءات وتعابير الوجه بوصفها وسائل للتواصل تُفسَّر ضمن سياقها."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "world-habits-and-etiquette-047",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Social Customs",
-      "ar": "العادات الاجتماعية"
-    },
-    "question": {
-      "en": "What are emotional display rules?",
-      "ar": "شو هي «قواعد إظهار المشاعر»؟"
-    },
-    "answer": {
-      "en": "Social expectations about when, where and how emotions are expressed. They can differ between settings within the same society.",
-      "ar": "توقعات اجتماعية تحدد متى وأين وكيف تُظهر المشاعر. وقد تختلف بين المواقف داخل المجتمع نفسه."
     },
     "review": {
       "status": "pending"

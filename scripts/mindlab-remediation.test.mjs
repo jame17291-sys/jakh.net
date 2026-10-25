@@ -8,6 +8,7 @@ import {spawnSync} from 'node:child_process';
 import { beforeArabicRewrite } from './arabic-everyday-ledger.mjs';
 import { CARD_POLISH_LEDGER, beforeCardPolish } from './card-polish-ledger.mjs';
 import { CARD_AUDIT_LEDGER, beforeCardAudit, idsBeforeAudit } from './card-audit-ledger.mjs';
+import { bankBeforeMerge, readTopicMergeLedger } from './topic-merge-ledger.mjs';
 const read = filename => JSON.parse(fs.readFileSync(new URL(`../${filename}`,import.meta.url),'utf8'));
 const plan = read('docs/content-review/mindlab-remediation-2026-09-23.json');
 const tvAmendment = read('docs/content-review/tv-trivia-2026-09-30.json');
@@ -18,10 +19,14 @@ const arabicRewrite = read('docs/content-review/arabic-everyday-2026-10-21.json'
 const cardPolish = read(CARD_POLISH_LEDGER);
 const cardAudit = read(CARD_AUDIT_LEDGER);
 const auditRemoved = new Map(cardAudit.removed.map(entry => [entry.id, entry]));
-const cards = new Map(plan.scope.flatMap(topic => read(`data/${topic.slug}.json`)).map(card=>[card.id,card]));
+// Every topic file as it stood before the 2026-10-25 topic merges, which moved,
+// removed or retired cards and topics recorded in their own ledger.
+const topicMerge = readTopicMergeLedger();
+const bank = slug => bankBeforeMerge(topicMerge, slug);
+const cards = new Map(plan.scope.flatMap(topic => bank(topic.slug)).map(card=>[card.id,card]));
 const hash = card => crypto.createHash('sha256').update(JSON.stringify(card)).digest('hex');
 
-test('all 1,241 audit findings are repaired without deleting or renumbering the 3,275 public questions (later removals are recorded in the 2026-10-25 card audit)',()=>{
+test('all 1,241 audit findings are repaired without deleting or renumbering the 3,275 public questions (later removals and topic moves are recorded in the 2026-10-25 card-audit and topic-merge ledgers)',()=>{
   assert.equal(plan.scope.length,51);
   assert.equal(plan.counts.publicQuestions,3275);
   assert.equal(cards.size,3798);
@@ -30,7 +35,7 @@ test('all 1,241 audit findings are repaired without deleting or renumbering the 
   assert.equal(plan.changes.filter(c=>c.finding).length,1241);
   assert.equal(new Set(plan.changes.map(c=>c.id)).size,plan.changes.length);
   for (const topic of plan.scope) {
-    const actual = read(`data/${topic.slug}.json`);
+    const actual = bank(topic.slug);
     const added = topic.slug === 'tv-shows-trivia' ? tvExpansion.additions.map(c => c.id) : [];
     // Cards removed by the 2026-10-25 audit are put back at their recorded positions.
     const ids = idsBeforeAudit(cardAudit, topic.slug, actual.map(c=>c.id));
@@ -150,7 +155,7 @@ test('newly authored questions introduce no exact duplicate prompts within a top
   const changed = new Set(plan.changes.filter(c=>c.patch.question).map(c=>c.id));
   for (const topic of plan.scope) for (const lang of ['en','ar']) {
     const seen = new Map();
-    for (const card of read(`data/${topic.slug}.json`)) {
+    for (const card of bank(topic.slug)) {
       const key = card.question[lang].normalize('NFKC').toLowerCase().replace(/[\p{P}\p{S}\s]/gu,'');
       if (seen.has(key)) assert.ok(!changed.has(card.id) && !changed.has(seen.get(key)),`${topic.slug}/${lang}: ${card.id} duplicates ${seen.get(key)}`);
       seen.set(key,card.id);

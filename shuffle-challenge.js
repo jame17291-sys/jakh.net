@@ -1,5 +1,5 @@
 import {
-  ROUND_SIZE, LEVELS, normalizeLevel, planRound, replacementId, restoreRound, reveal, answerCard,
+  ROUND_SIZE, LEVELS, normalizeLevel, planRound, replacementId, restoreRound, reveal, answerCard, retopicCurrent,
   replaceCurrent, isFinished, roundScore, rememberSeen, updateBest,
 } from './shuffle-challenge-engine.js';
 import { AR_COUNT, arabicCount } from './arabic-count.js';
@@ -199,9 +199,30 @@ export function createShuffleChallenge(api) {
   // A card that fails to load can be retried or skipped; a failed start can only be retried.
   const messageMarkup = (text, retry) => `<div class="shuffle-card shuffle-message" role="status"><p>${e(text)}</p><footer class="shuffle-actions"><button type="button" class="primary-btn" data-shuffle="${retry}">${e(copy.retry)}</button>${retry === 'retry' ? `<button type="button" class="ghost-btn" data-shuffle="skip">${e(copy.skip)}</button>` : ''}</footer></div>`;
 
+  // The topic that holds a card now, from the public card index. Topic merges
+  // move cards but keep their ids, so a saved round can still find them.
+  async function currentTopicOf(id) {
+    try {
+      const slug = (await api.loadCardIndex())?.[id]?.[0];
+      return typeof slug === 'string' && topicMeta(slug) ? slug : null;
+    } catch (_) { return null; }
+  }
+
+  function followMovedCard(slug) {
+    round = slug ? retopicCurrent(round, slug) : answerCard(round, 'skipped');
+    finishIfDone();
+    saveRound();
+    render();
+  }
+
   async function renderPlay(token) {
     const item = round.items[round.position];
     root.innerHTML = stageMarkup(`<div class="shuffle-card shuffle-message" aria-busy="true"><p>${e(copy.loading)}</p></div>`);
+    if (topics().length && !topicMeta(item.slug)) {
+      const slug = await currentTopicOf(item.id);
+      if (token === renderToken) followMovedCard(slug);
+      return;
+    }
     let cards;
     try { cards = await loadCards(item.slug); } catch (_) {
       if (token === renderToken) { root.innerHTML = stageMarkup(messageMarkup(copy.loadError, 'retry')); applyFocus(); }
@@ -209,8 +230,13 @@ export function createShuffleChallenge(api) {
     }
     if (token !== renderToken) return;
     const card = cards.find(entry => entry.id === item.id);
+    if (!card) {
+      const slug = await currentTopicOf(item.id);
+      if (token !== renderToken) return;
+      if (slug && slug !== item.slug) { followMovedCard(slug); return; }
+    }
     if (!card?.question?.[lang] || !card?.answer?.[lang]) {
-      const id = replacementId(cards, { level: round.level, exclude: round.items.map(entry => entry.id) });
+      const id = replacementId(cards, { level: round.level, exclude: round.items.map(entry => entry.id), slug: item.slug });
       round = id ? replaceCurrent(round, id) : answerCard(round, 'skipped');
       finishIfDone();
       saveRound();

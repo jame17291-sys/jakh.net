@@ -2300,5 +2300,252 @@
     "review": {
       "status": "pending"
     }
+  },
+  {
+    "id": "physical-and-life-sciences-015",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Reactions & Stoichiometry",
+      "ar": "التفاعلات والحسابات الكيميائية"
+    },
+    "question": {
+      "en": "What is Avogadro's number and what does it represent?",
+      "ar": "شو هو عدد أفوغادرو، وشو يمثّل؟"
+    },
+    "answer": {
+      "en": "6.022 × 10²³; it is the number of atoms, molecules, or ions in one mole of a substance.",
+      "ar": "6.022 × 10²³؛ وهو عدد الذرات أو الجزيئات أو الأيونات في مول واحد من المادة."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-034",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Acids, Bases & Equilibrium",
+      "ar": "الأحماض والقواعد والاتزان"
+    },
+    "question": {
+      "en": "What is the difference between a strong acid and a weak acid?",
+      "ar": "شو الفرق بين الحمض القوي والحمض الضعيف؟"
+    },
+    "answer": {
+      "en": "In water, a strong acid such as HCl ionizes essentially completely. A weak acid such as acetic acid ionizes only partly and reaches an equilibrium with its conjugate base.",
+      "ar": "في الماء يتأين الحمض القوي مثل HCl بصورة شبه كاملة. أما الحمض الضعيف مثل حمض الخليك فيتأين جزئياً ويصل إلى اتزان مع قاعدته المرافقة."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-043",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Organic Chemistry",
+      "ar": "الكيمياء العضوية"
+    },
+    "question": {
+      "en": "Why can two enantiomers of a chiral molecule have different biological effects?",
+      "ar": "ليش ممكن نسختين مرآويتين لجزيء «كيرالي» يكون لهم تأثير حيوي مختلف؟"
+    },
+    "answer": {
+      "en": "Enantiomers are non-superimposable mirror images. Biological targets such as enzymes are also chiral, so the two forms may bind or react differently.",
+      "ar": "المتماكبان المرآويان صورتان مرآويتان غير قابلتين للتطابق. والأهداف الحيوية كالإنزيمات كيرالية أيضاً، لذلك قد يرتبط الشكلان بها أو يتفاعلان معها بشكل مختلف."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-048",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Reactions & Stoichiometry",
+      "ar": "التفاعلات والحسابات الكيميائية"
+    },
+    "question": {
+      "en": "How is the molarity of a solution defined?",
+      "ar": "كيف نعرّف التركيز المولاري للمحلول؟"
+    },
+    "answer": {
+      "en": "Moles of solute per litre of solution.",
+      "ar": "عدد مولات المذاب في كل لتر من المحلول."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-054",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Reactions & Stoichiometry",
+      "ar": "التفاعلات والحسابات الكيميائية"
+    },
+    "question": {
+      "en": "What is the usual oxidation number of oxygen in compounds?",
+      "ar": "كم عدد التأكسد المعتاد للأكسجين بالمركّبات؟"
+    },
+    "answer": {
+      "en": "−2. Important exceptions include peroxides, superoxides, and compounds bonded to fluorine.",
+      "ar": "−2. ومن الاستثناءات المهمة فوق الأكاسيد والأكاسيد الفائقة ومركبات الأكسجين مع الفلور."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-057",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Reactions & Stoichiometry",
+      "ar": "التفاعلات والحسابات الكيميائية"
+    },
+    "question": {
+      "en": "What does an empirical formula show?",
+      "ar": "شو اللي تبيّنه «الصيغة الأولية» للمركّب؟"
+    },
+    "answer": {
+      "en": "The simplest whole-number ratio of atoms of each element in a compound.",
+      "ar": "أبسط نسبة عددية صحيحة بين ذرات كل عنصر في المركب."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-063",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Bonding & Molecular Structure",
+      "ar": "الروابط والبنية الجزيئية"
+    },
+    "question": {
+      "en": "What is the hybridization of each carbon atom in ethene, C₂H₄?",
+      "ar": "في الإيثين C₂H₄، شو نوع تهجين كل ذرة كربون؟"
+    },
+    "answer": {
+      "en": "sp². Each carbon forms three sigma bonds and contributes one unhybridized p orbital to the pi bond.",
+      "ar": "sp². تكوّن كل ذرة كربون ثلاث روابط سيغما، ويسهم مدار p غير مهجّن في رابطة باي."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-066",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Atoms, Elements & Periodicity",
+      "ar": "الذرات والعناصر والجدول الدوري"
+    },
+    "question": {
+      "en": "What is the Aufbau principle?",
+      "ar": "شو هو «مبدأ أوفباو»؟"
+    },
+    "answer": {
+      "en": "Electrons fill orbitals in order of increasing energy levels",
+      "ar": "تملأ الإلكترونات المدارات بترتيب تصاعدي لمستويات الطاقة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-075",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Acids, Bases & Equilibrium",
+      "ar": "الأحماض والقواعد والاتزان"
+    },
+    "question": {
+      "en": "What is the common-ion effect?",
+      "ar": "شو هو «تأثير الأيون المشترك»؟"
+    },
+    "answer": {
+      "en": "Adding an ion already present in an equilibrium suppresses the ionization of a weak electrolyte or reduces the solubility of a sparingly soluble salt.",
+      "ar": "إضافة أيون موجود أصلاً في الاتزان تقلل تأين إلكتروليت ضعيف أو تقلل ذوبانية ملح قليل الذوبان."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-081",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Thermodynamics & Physical Chemistry",
+      "ar": "الديناميكا الحرارية والكيمياء الفيزيائية"
+    },
+    "question": {
+      "en": "What is the Born–Haber cycle used to calculate?",
+      "ar": "شو اللي تساعد «دورة بورن–هابر» نحسبه؟"
+    },
+    "answer": {
+      "en": "To calculate lattice energy of ionic compounds using Hess's Law",
+      "ar": "لحساب طاقة الشبكة البلورية للمركبات الأيونية باستخدام قانون هيس"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-087",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Organic Chemistry",
+      "ar": "الكيمياء العضوية"
+    },
+    "question": {
+      "en": "What is the difference between S_N1 and S_N2 reactions?",
+      "ar": "شو الفرق بين تفاعلات SN1 وSN2؟"
+    },
+    "answer": {
+      "en": "SN1 is unimolecular (two steps, carbocation intermediate); SN2 is bimolecular (one step, inversion)",
+      "ar": "SN1 أحادية الجزيء (خطوتان، وسيط الكربوكاتيون)؛ SN2 ثنائية الجزيء (خطوة واحدة، انعكاس)"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-090",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Organic Chemistry",
+      "ar": "الكيمياء العضوية"
+    },
+    "question": {
+      "en": "What is a zwitterion?",
+      "ar": "شو هو «الأيون ثنائي القطب» (زويتريون)؟"
+    },
+    "answer": {
+      "en": "A molecule with both positive and negative charges in different regions, with no net charge overall",
+      "ar": "جزيء يحمل شحنات موجبة وسالبة في مناطق مختلفة مع عدم وجود شحنة كلية"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-093",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Bonding & Molecular Structure",
+      "ar": "الروابط والبنية الجزيئية"
+    },
+    "question": {
+      "en": "What is the molecular geometry of water (H₂O)?",
+      "ar": "شو الشكل الهندسي لجزيء المي (H₂O)؟"
+    },
+    "answer": {
+      "en": "Bent (angular), with a bond angle of approximately 104.5°",
+      "ar": "منحنٍ (زاوي)، بزاوية رابطة تبلغ نحو 104.5°"
+    },
+    "review": {
+      "status": "pending"
+    }
   }
 ]

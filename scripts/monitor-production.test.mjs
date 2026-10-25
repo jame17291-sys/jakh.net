@@ -29,6 +29,7 @@ import {
   PRE_GAME_RENAME_SITEMAP_PATHS,
   renamedGameRedirectProbeDefinitions,
   retiredSeoRedirectProbeDefinitions,
+  retiredTopicRedirectProbeDefinitions,
   runProductionMonitor,
   UNAUTHENTICATED_API_GET_ROUTES,
 } from "./monitor-production.mjs";
@@ -80,7 +81,12 @@ function apiHeaders(origin, cacheControl = "no-store") {
   return headers;
 }
 
-function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false, preNavigation = false, builtHtml = false, publicQuestions = 3_798 }) {
+// Public inventories: the current release serves 48 topics with 3,704 cards;
+// the releases before the 2026-10-25 topic merges served 51 topics.
+const CURRENT_PUBLIC_QUESTIONS = 3_704;
+const fixtureCategories = (publicQuestions) => (publicQuestions === CURRENT_PUBLIC_QUESTIONS ? 48 : 51);
+
+function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false, preNavigation = false, builtHtml = false, publicQuestions = CURRENT_PUBLIC_QUESTIONS, publicCategories = fixtureCategories(publicQuestions) }) {
   if (legacySite && ["/riddles", "/ar/alghaz/", "/brain-games"].includes(pathname)) return null;
   const route = (legacySite || preNavigation ? PRE_NAVIGATION_HTML_ROUTES : HTML_ROUTES)
     .find((candidate) => candidate.path === pathname);
@@ -105,7 +111,7 @@ function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false, preNa
       site: {
         totalQuestions: publicQuestions,
       },
-      categories: Array.from({ length: 51 }, (_, index) => ({ slug: `category-${index}` })),
+      categories: Array.from({ length: publicCategories }, (_, index) => ({ slug: `category-${index}` })),
     });
   }
   if (pathname === "/data/card-index.json") {
@@ -119,7 +125,7 @@ function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false, preNa
       version: 2,
       language,
       total: publicQuestions,
-      categories: Array.from({ length: 51 }, (_, index) => `category-${index}`),
+      categories: Array.from({ length: publicCategories }, (_, index) => `category-${index}`),
       cards: Array.from({ length: publicQuestions }, (_, index) => [0, `public-card-${index}`, `q-${index}`, `a-${index}`]),
     });
   }
@@ -158,7 +164,7 @@ function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false, preNa
   return null;
 }
 
-async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "10", pagesMode = false, legacySite = false, preNavigation = false, productionSite = false, builtHtml = false, publicQuestions = 3_798 } = {}) {
+async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "10", pagesMode = false, legacySite = false, preNavigation = false, productionSite = false, builtHtml = false, publicQuestions = CURRENT_PUBLIC_QUESTIONS, publicCategories = fixtureCategories(publicQuestions) } = {}) {
   const server = http.createServer(async (request, response) => {
     const url = new URL(request.url, "http://fixture.test");
     const requestOrigin = request.headers.origin;
@@ -284,6 +290,7 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "
       preNavigation,
       builtHtml,
       publicQuestions,
+      publicCategories,
     });
     if (body !== null) {
       const contentType = url.pathname.endsWith(".css")
@@ -344,6 +351,7 @@ async function withFixture(options, run) {
 function productionFixtureOptions(fixtureOrigin, overrides = {}) {
   const redirects = new Map([
     ...retiredSeoRedirectProbeDefinitions(PRIMARY_SITE_ORIGIN),
+    ...retiredTopicRedirectProbeDefinitions(PRIMARY_SITE_ORIGIN),
     ...renamedGameRedirectProbeDefinitions(PRIMARY_SITE_ORIGIN),
   ].map((definition) => [definition.url, definition.location]));
   return {
@@ -397,8 +405,8 @@ const PUBLIC_DISCOVERY_PROBES = [
   ["/data/search-index.ar.json", "Site: ar public search index"],
 ];
 
-test("only the exact-version production release baseline accepts the coherent 3825-card predecessor", async () => {
-  for (const publicQuestions of [3_825, 3_798]) {
+test("only the exact-version production release baseline accepts a coherent pre-merge predecessor", async () => {
+  for (const publicQuestions of [3_825, 3_798, CURRENT_PUBLIC_QUESTIONS]) {
     await withFixture({ productionSite: true, publicQuestions }, async (fixtureOrigin) => {
       const options = productionFixtureOptions(fixtureOrigin);
       const baseline = await runProductionMonitor(options);
@@ -409,7 +417,7 @@ test("only the exact-version production release baseline accepts the coherent 38
         assert.equal(result?.workerVersionId, FIXTURE_WORKER_VERSION);
       }
       const current = await runProductionMonitor({ ...options, siteContract: "current" });
-      if (publicQuestions === 3_798) assert.deepEqual(current.failures, []);
+      if (publicQuestions === CURRENT_PUBLIC_QUESTIONS) assert.deepEqual(current.failures, []);
       else for (const [, name] of PUBLIC_DISCOVERY_PROBES) {
         assert.ok(current.failures.some((failure) => failure.name === name), `${name} must reject the old count outside a release baseline`);
       }
@@ -418,10 +426,11 @@ test("only the exact-version production release baseline accepts the coherent 38
 });
 
 test("the release baseline rejects mixed discovery inventories in either direction", async () => {
-  for (const publicQuestions of [3_825, 3_798]) {
+  const inventories = [3_825, 3_798, CURRENT_PUBLIC_QUESTIONS];
+  for (const [position, publicQuestions] of inventories.entries()) {
     await withFixture({ productionSite: true, publicQuestions }, async (fixtureOrigin) => {
       const options = productionFixtureOptions(fixtureOrigin);
-      const otherCount = publicQuestions === 3_825 ? 3_798 : 3_825;
+      const otherCount = inventories[(position + 1) % inventories.length];
       for (const [changedPath, name] of PUBLIC_DISCOVERY_PROBES) {
         const summary = await runProductionMonitor({ ...options, fetchImpl: async (input, init) => {
           const response = await options.fetchImpl(input, init);
@@ -440,7 +449,7 @@ test("the release baseline rejects mixed discovery inventories in either directi
 });
 
 test("a coherent but unknown card count is never a recognized release baseline", async () => {
-  for (const publicQuestions of [3_797, 3_799, 3_824, 3_826]) {
+  for (const publicQuestions of [3_703, 3_705, 3_797, 3_799, 3_824, 3_826]) {
     await withFixture({ productionSite: true, publicQuestions }, async (fixtureOrigin) => {
       const summary = await runProductionMonitor(productionFixtureOptions(fixtureOrigin));
       for (const [, name] of PUBLIC_DISCOVERY_PROBES) {
@@ -448,6 +457,38 @@ test("a coherent but unknown card count is never a recognized release baseline",
       }
     });
   }
+});
+
+test("a known card total served with the wrong number of topics is never a recognized release baseline", async () => {
+  for (const [publicQuestions, publicCategories] of [[3_798, 48], [3_825, 48], [CURRENT_PUBLIC_QUESTIONS, 51], [CURRENT_PUBLIC_QUESTIONS, 47]]) {
+    await withFixture({ productionSite: true, publicQuestions, publicCategories }, async (fixtureOrigin) => {
+      const summary = await runProductionMonitor(productionFixtureOptions(fixtureOrigin));
+      assert.match(summary.failures.find((failure) => failure.name === "Site: catalog data")?.message || "", /categories and/u,
+        `${publicCategories}/${publicQuestions} is not a known inventory`);
+    });
+  }
+});
+
+test("retired topic redirects are probed on the current release only, never on the predecessor baseline", async () => {
+  await withFixture({ productionSite: true }, async (fixtureOrigin) => {
+    const options = productionFixtureOptions(fixtureOrigin);
+    const baseline = await runProductionMonitor(options);
+    assert.equal(baseline.results.some(({ name }) => name.startsWith("Site: retired topic ")), false);
+    const current = await runProductionMonitor({ ...options, siteContract: "current" });
+    assert.deepEqual(current.failures, []);
+    assert.deepEqual(
+      current.results.filter(({ name }) => name.startsWith("Site: retired topic ")).map(({ name }) => name).sort(),
+      retiredTopicRedirectProbeDefinitions(PRIMARY_SITE_ORIGIN).map(({ name }) => name).sort(),
+    );
+    const broken = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: async (input, init) => {
+      const url = new URL(input);
+      if (url.pathname === "/coding-and-design") {
+        return new Response(null, { status: 404, headers: { "x-jakh-worker-version": FIXTURE_WORKER_VERSION } });
+      }
+      return options.fetchImpl(input, init);
+    } });
+    assert.ok(broken.failures.some(({ name }) => name === "Site: retired topic /coding-and-design redirect"));
+  });
 });
 
 test("predecessor inventory acceptance still requires the expected Worker on every discovery response", async () => {
@@ -1081,6 +1122,19 @@ test("independent production defaults pass when retired jakh domains cannot reso
 
 test("production monitor reserves route-migration probes for the production Riddle Arabia host", () => {
   assert.deepEqual(retiredSeoRedirectProbeDefinitions("http://127.0.0.1:8787"), []);
+  assert.deepEqual(retiredTopicRedirectProbeDefinitions("http://127.0.0.1:8787"), []);
+  const topics = retiredTopicRedirectProbeDefinitions(PRIMARY_SITE_ORIGIN);
+  assert.equal(topics.length, 6);
+  assert.deepEqual(topics[0], {
+    name: "Site: retired topic /physical-and-life-sciences redirect",
+    url: "https://riddlearabia.com/physical-and-life-sciences?card=physical-and-life-sciences-001&retired_seo_redirect_probe=riddlearabia",
+    location: "https://riddlearabia.com/science?card=physical-and-life-sciences-001&retired_seo_redirect_probe=riddlearabia",
+  });
+  assert.deepEqual(topics.at(-1), {
+    name: "Site: retired topic /ar/topics/civil-engineering/ redirect",
+    url: "https://riddlearabia.com/ar/topics/civil-engineering/?card=civil-engineering-001&retired_seo_redirect_probe=riddlearabia",
+    location: "https://riddlearabia.com/ar/topics/infrastructure-systems/?card=civil-engineering-001&retired_seo_redirect_probe=riddlearabia",
+  });
   const definitions = retiredSeoRedirectProbeDefinitions(PRIMARY_SITE_ORIGIN);
   assert.equal(definitions.length, 12);
   assert.deepEqual(definitions[0], {

@@ -276,7 +276,7 @@ function assertPair({ enRelative, arRelative, enPath, arPath, label, indexable =
 const catalogPath = path.join(root, "data/catalog.json");
 const catalog = fs.existsSync(catalogPath) ? JSON.parse(fs.readFileSync(catalogPath, "utf8")) : { categories: [] };
 const categories = Array.isArray(catalog.categories) ? catalog.categories : [];
-if (categories.length !== 56) fail("data/catalog.json", `expected 56 source categories, found ${categories.length}`);
+if (categories.length !== 53) fail("data/catalog.json", `expected 53 source categories, found ${categories.length}`);
 
 for (const category of categories) {
   const slug = category.slug;

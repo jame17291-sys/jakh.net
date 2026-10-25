@@ -11,8 +11,12 @@ const categoryIds = {
   'logic-puzzles': [1, 2, 3, 6, 8, 13, 16, 17, 20, 27],
 };
 const cards = new Map();
+// Card ids are opaque: a topic file may hold cards whose id names another topic
+// after a topic merge, so membership comes from the file, never the id prefix.
+const topicCards = new Map();
 for (const category of [...Object.keys(categoryIds), 'story-mysteries']) {
   const source = JSON.parse(readFileSync(new URL(`../data/${category}.json`, import.meta.url)));
+  topicCards.set(category, source);
   for (const card of source) cards.set(card.id, card);
 }
 const cardId = (category, number) => `${category}-${String(number).padStart(3, '0')}`;
@@ -43,7 +47,7 @@ test('sixty seeded cards have complete aligned bilingual authored choices, not r
   let total = 0;
   for (const [category, ids] of Object.entries(categoryIds)) {
     assert.equal(ids.length, category === 'math' || category === 'chemistry' ? 20 : 10);
-    const authored = [...cards.values()].filter(card => card.id.startsWith(`${category}-`) && card.quickFire);
+    const authored = topicCards.get(category).filter(card => card.quickFire);
     assert.deepEqual(authored.map(card => card.id).sort(), ids.map(id => cardId(category, id)).sort());
     for (const number of ids) {
       const card = cards.get(cardId(category, number));

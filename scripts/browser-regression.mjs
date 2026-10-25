@@ -418,10 +418,10 @@ async function main() {
           const prefix = language === 'ar' ? '/ar' : '';
           await page.goto(`${baseUrl}${prefix}/mind-lab${prefix ? '/' : ''}`, { waitUntil: NAVIGATION_READY_EVENT });
           await page.waitForLoadState('networkidle');
-          await page.waitForFunction(() => document.querySelector('#directoryResultsLabel')?.textContent.includes('51'));
+          await page.waitForFunction(() => document.querySelector('#directoryResultsLabel')?.textContent.includes('48'));
           const topics = await decodeImages('#categoryDirectoryGrid .ra-art-directory');
-          assert.equal(topics.length, 51, `${language}: every listed topic retains its picture`);
-          assert.equal(new Set(topics.map(image => image.id)).size, 51);
+          assert.equal(topics.length, 48, `${language}: every listed topic retains its picture`);
+          assert.equal(new Set(topics.map(image => image.id)).size, 48);
           assert.ok(topics.every(image => image.width > 0 && image.alt === ''));
           await page.locator('#categorySearchInput').fill('football');
           await page.waitForFunction(() => document.querySelectorAll('#categoryDirectoryGrid .category-card').length === 1);
@@ -441,7 +441,7 @@ async function main() {
           await page.locator('#puzzle-mount .ra-art-game').first().waitFor();
           const bonus = await decodeImages('#puzzle-mount .ra-art-game');
           assert.equal(bonus.length, 3);
-          assert.equal(new Set([...topics, ...games, ...bonus].map(image => image.id)).size, 67);
+          assert.equal(new Set([...topics, ...games, ...bonus].map(image => image.id)).size, 64);
           assert.ok(bonus.every(image => image.width > 0 && image.alt === ''));
           await page.locator('#puzzle-mount .puzzle-card').nth(1).click();
           await page.locator('[data-puzzle-editorial] [data-illustration="game-word-clue"]').waitFor();
@@ -756,14 +756,14 @@ async function main() {
       const page = await context.newPage();
       const assertNoPageErrors = trackPageErrors(page);
       try {
-        await page.goto(`${baseUrl}/science?utm_source=browser&q=atom&difficulty=hard`, {
+        await page.goto(`${baseUrl}/science?utm_source=browser&q=quantum&difficulty=hard`, {
           waitUntil: NAVIGATION_READY_EVENT,
         });
         await page.locator("#playModeQuickFireBtn").waitFor({ state: 'attached' });
         await page.waitForFunction(() => document.querySelectorAll("#cardGrid .riddle-card").length > 0);
         await page.locator("#resetPageBtn").click();
         await page.waitForFunction(() => document.querySelectorAll("#cardGrid .riddle-card").length === 20);
-        assert.match(await page.locator("#resultsLabel").innerText(), /20 of 90/u);
+        assert.match(await page.locator("#resultsLabel").innerText(), /20 of 83/u);
         await page.locator("#loadMoreBtn").waitFor();
         const resetUrl = new URL(page.url());
         assert.equal(resetUrl.searchParams.get("utm_source"), "browser");

@@ -424,7 +424,15 @@ async function main() {
   const executablePath = BROWSER_ENGINE === "chromium"
     ? configuredExecutable || (existsSync(macChrome) ? macChrome : undefined)
     : undefined;
-  const browser = await BROWSER_ENGINES[BROWSER_ENGINE].launch({ headless: true, executablePath });
+  let browser;
+  try {
+    browser = await BROWSER_ENGINES[BROWSER_ENGINE].launch({ headless: true, executablePath });
+  } catch (error) {
+    // The listening site server would otherwise keep a failed run alive
+    // until the job timeout instead of reporting the launch failure.
+    await server.close();
+    throw error;
+  }
 
   try {
     await runTest("topic and game directories retain exclusive artwork after interactive rendering", async () => {

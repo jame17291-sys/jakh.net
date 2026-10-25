@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { validatePartyData } from "../party-games-engine.js";
 import { cardMoveHistory, readTopicMergeLedger } from "./topic-merge-ledger.mjs";
 import { removedByPhase2 } from "./content-phase2-ledger.mjs";
+import { orderTopics, pinnedTopicErrors, subtopicLimit } from "./catalog-topics.mjs";
 import {
   conciseScorableAnswer,
   hasScorableAnswer,
@@ -367,8 +368,12 @@ for (const file of dataFiles) {
     }
   }
 
-  if (topicCounts.size > 10) {
-    fail(`data/${file}: taxonomy has ${topicCounts.size} subcategories; maximum is 10`);
+  const maximumSubtopics = subtopicLimit(slug);
+  if (topicCounts.size > maximumSubtopics) {
+    fail(`data/${file}: taxonomy has ${topicCounts.size} subcategories; maximum is ${maximumSubtopics}`);
+  }
+  for (const error of pinnedTopicErrors(metadata?.pinnedTopics, [...topicCounts.keys()])) {
+    fail(`data/${file}: ${error}`);
   }
   for (const topic of topicCounts.values()) {
     if (topic.count < 2) {
@@ -390,9 +395,7 @@ for (const file of dataFiles) {
   if (metadata?.reviewedQuestionCount !== reviewedQuestionCount) {
     fail(`data/${file}: catalog reviewed question count is stale`);
   }
-  const expectedTopics = [...topicCounts.values()].sort((left, right) => (
-    right.count - left.count || left.en.localeCompare(right.en)
-  ));
+  const expectedTopics = orderTopics([...topicCounts.values()], metadata?.pinnedTopics);
   if (JSON.stringify(metadata?.topics || []) !== JSON.stringify(expectedTopics)) {
     fail(`data/${file}: catalog topics are stale`);
   }

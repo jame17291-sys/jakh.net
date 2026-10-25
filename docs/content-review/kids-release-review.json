@@ -8,7 +8,7 @@
     "printablePacks": 24,
     "weeklyPlans": 16,
     "parentGuides": 8,
-    "preservedRiddles": 30
+    "preservedRiddles": 40
   },
   "checks": [
     "correctness and explained answers",
@@ -26,7 +26,7 @@
     "data/kids/activities-logic-science-expansion.json": "bf6573c3875fe1e9bc60f05f174bad6763ed1dd2e6f622818ea8102f66732ff6",
     "data/kids/activities-creativity-life-expansion.json": "1fe51da9ad19a26950c55ec66499142905354c8bada73194aaec8c64f3126168",
     "scripts/kids-resources.mjs": "e0d079cc3b1af714fce205cfa96fc7c62ebd6c898e12b3dad5b812eea7f94c3a",
-    "scripts/kids-legacy.mjs": "bb72e8c940e85d7debe19f44f79642c3d31585915204ac508944db12fc0201ac"
+    "scripts/kids-legacy.mjs": "e5667296e5f9956b3fbb358085c40167db6353b274f043a22375f60c14455733"
   },
   "notes": [
     "docs/content-review/kids-young-review.md",
@@ -35,6 +35,20 @@
     "docs/content-review/kids-language-maths-expansion.md",
     "docs/content-review/kids-logic-science-expansion.md",
     "docs/content-review/kids-creativity-life-expansion.md",
-    "docs/content-review/kids-expansion-independent-review.md"
+    "docs/content-review/kids-expansion-independent-review.md",
+    "docs/content-review/kids-riddles-additions-2026-10-25.md"
+  ],
+  "revisions": [
+    {
+      "reviewedOn": "2026-10-25",
+      "scope": "Kids riddles: 10 new riddles (kids-riddles-031 to 040), new puzzles for kids-riddles-019 and 021, kids-riddles-015 moved to easy, and their explanations in scripts/kids-legacy.mjs.",
+      "requestedBy": "owner, who requested and approved the content",
+      "reviewMethod": "AI review by Claude for accuracy, age fit and Modern Standard Arabic; not a human editorial review",
+      "files": [
+        "scripts/kids-legacy.mjs",
+        "data/kids-riddles.json"
+      ],
+      "note": "docs/content-review/kids-riddles-additions-2026-10-25.md"
+    }
   ]
 }

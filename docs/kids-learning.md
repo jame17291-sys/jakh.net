@@ -14,9 +14,11 @@ The kids hub is a dedicated static learning experience at `/kids-riddles` and
 - `scripts/generate-kids-pages.mjs` is the sole owner of the kids HTML and the
   lightweight browser catalog. `generate-seo-pages.mjs` calls it before the
   general SEO generator. General topic-shell generation skips kids.
-- `scripts/kids-legacy.mjs` preserves the 30 original questions and IDs, adds
-  age guidance and explanations, and makes them available in a separate
-  original-riddles collection. It does not promote original review statuses.
+- `scripts/kids-legacy.mjs` gives every card in `data/kids-riddles.json` (40
+  since 25 Oct 2026: the original 30 IDs plus ten added riddles) an age band and
+  an explanation, and makes them available in a separate riddles collection. It
+  needs one note per card, in data order, and does not promote review statuses.
+  Any edit to it needs a new entry in `kids-release-review.json`.
 
 Run `npm run generate:kids` after authoring, then
 `node scripts/generate-seo-pages.mjs` and

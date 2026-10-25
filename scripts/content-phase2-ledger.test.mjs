@@ -3,8 +3,9 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import test from 'node:test';
 import {
-  CONTENT_PHASE2_LEDGER, bankBeforePhase2, beforePhase2Change, cardBeforePhase2, readContentPhase2Ledger, readCurrentTopicFile,
+  CONTENT_PHASE2_LEDGER, bankBeforePhase2, beforePhase2Change, cardBeforePhase2, readContentPhase2Ledger, readTopicFileAfterPhase2,
 } from './content-phase2-ledger.mjs';
+import { descriptionBeforeAdditions } from './content-additions-ledger.mjs';
 import { readTopicMergeLedger } from './topic-merge-ledger.mjs';
 import { SHOWS, contentKey, isPrepared } from '../tv-trivia-engine.js';
 
@@ -19,7 +20,9 @@ const slugs = catalog.categories.map(category => category.slug);
 const get = (object, dotted) => dotted.split('.').reduce((value, key) => value?.[key], object);
 const EDITABLE = /^(?:question\.(?:en|ar)|answer\.(?:en|ar)|difficulty|subcategory(?:\.(?:en|ar))?|acceptedAnswers|quickFire(?:\.(?:answer|distractors|explanation)\.(?:en|ar))?|tvQuiz\.(?:distractors\.(?:en|ar)|explanation\.(?:en|ar)|spoilerSeason|kind|contentKey))$/u;
 const LEVELS = ['easy', 'medium', 'hard', 'very-advanced'];
-const banks = new Map(slugs.map(slug => [slug, readCurrentTopicFile(slug)]));
+// Topic files as this pass left them: the later 2026-10-25 Spacetoon and
+// kids-riddles additions are reversed from their own ledger.
+const banks = new Map(slugs.map(slug => [slug, readTopicFileAfterPhase2(slug)]));
 const before = new Map(slugs.map(slug => [slug, bankBeforePhase2(ledger, slug)]));
 const counts = cards => ({
   total: cards.length,
@@ -198,11 +201,14 @@ test('every TV show keeps 30 to 40 prepared cards with at least 20 spoiler-free 
 test('catalog descriptions follow the new counts and drop stale subtopic names', () => {
   for (const change of ledger.descriptionChanges) {
     const category = catalog.categories.find(entry => entry.slug === change.slug);
-    assert.deepEqual(category.description, change.description, `${change.slug}: recorded description is live`);
+    // The later 2026-10-25 additions rewrote some descriptions again; compare
+    // with the description and size this pass left.
+    const description = descriptionBeforeAdditions(change.slug, category.description);
+    assert.deepEqual(description, change.description, `${change.slug}: recorded description is live or was replaced by a later ledger`);
     assert.notDeepEqual(change.previous, change.description, `${change.slug}: a real change`);
     for (const lang of ['en', 'ar']) {
       const stated = change.description[lang].match(/^(\d+) /u)?.[1] || change.description[lang].match(/» (\d+) /u)?.[1];
-      if (stated) assert.equal(Number(stated), category.count, `${change.slug}/${lang}: stated count`);
+      if (stated) assert.equal(Number(stated), banks.get(change.slug).length, `${change.slug}/${lang}: stated count`);
     }
   }
   const trueCrime = catalog.categories.find(entry => entry.slug === 'true-crime');

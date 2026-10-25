@@ -17,7 +17,7 @@ function executor({ failures = new Set(), branch = "main", remoteSha = SHA, chan
     let stdout = "";
     if (file === "gh") stdout = JSON.stringify(args[1].endsWith("/protection") ? protection() : { name: "main", protected: true, commit: { sha: remoteSha } });
     else if (file === "git") stdout = args[0] === "rev-parse" ? SHA : args[0] === "branch" ? branch : changes;
-    else if (args.length === 1 && args[0] === "scripts/content-review-report.mjs") stdout = JSON.stringify({ errors: [], evidenceCoverage: { summary: { total: 3564, evidenceComplete: 0 } } });
+    else if (args.length === 1 && args[0] === "scripts/content-review-report.mjs") stdout = JSON.stringify({ errors: [], evidenceCoverage: { summary: { total: 3638, evidenceComplete: 0 } } });
     return { stdout };
   } };
 }

@@ -10,9 +10,9 @@ export const CONTENT_REVIEW_SCHEMA_VERSION = 1;
 export const CONTENT_EVIDENCE_SCHEMA_VERSION = 1;
 export const CONTENT_WORK_QUEUE_SCHEMA_VERSION = 1;
 export const REVIEW_STALE_AFTER_DAYS = 365;
-export const CONTENT_REVIEW_COMPLETE_TOTAL = 3_564;
+export const CONTENT_REVIEW_COMPLETE_TOTAL = 3_638;
 export const CONTENT_REVIEW_COMPLETE_HIGH_STAKES_TOTAL = 278;
-export const CONTENT_WORK_PACKET_TOTAL = 366;
+export const CONTENT_WORK_PACKET_TOTAL = 371;
 export const CONTENT_REVIEW_PROOF_ROOT = fileURLToPath(
   new URL("../docs/content-review/proof/", import.meta.url),
 );

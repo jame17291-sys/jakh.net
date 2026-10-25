@@ -22,7 +22,7 @@ const EXPECTED_CONTENT_PUBLICATION = Object.freeze({
   state: "safety-quarantine-active",
   quarantinedCategories: [...QUARANTINED_CATEGORY_IDS],
   quarantinedQuestions: 278,
-  publicQuestions: 3_286,
+  publicQuestions: 3_360,
   manifestSha256: PRODUCTION_QUARANTINE_MANIFEST_SHA256,
 });
 

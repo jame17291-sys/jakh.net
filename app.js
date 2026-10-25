@@ -3017,8 +3017,12 @@ function renderSubcategoryFilters(focusSubcategory = '') {
       counts[sc.en].count++;
     }
   }
+  // The catalog's pinnedTopics come first (scripts/catalog-topics.mjs).
+  const pins = state.categoryData.pinnedTopics || [];
+  const pin = (name) => (pins.includes(name) ? pins.indexOf(name) : 99);
   const subcats = Object.values(counts).sort((a, b) => (
-    b.count - a.count
+    pin(a.en) - pin(b.en)
+    || b.count - a.count
     || a.en.localeCompare(b.en)
   ));
   if (!subcats.length) {

@@ -1,0 +1,2612 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-25",
+  "baseCommit": "28010da4",
+  "scope": "Owner decisions of 25 Oct 2026: Spacetoon Classics (ayam-tayebeen) gains Detective Conan and three more top series, shown first in the topic, with the topic's series limit raised from 10 to 14; Kids Riddles gains 10 riddles (30 to 40) and the three phase-2 kids updates. Card ids are kept; new cards take the next free id of their topic. Held categories are untouched.",
+  "ownerDecision": {
+    "date": "2026-10-25",
+    "spacetoon": "Add Detective Conan plus three other top series to Spacetoon Classics and show these four first. The owner approved 14 series for this topic.",
+    "kidsRiddles": "Add 10 kids riddles: 30 (12 easy / 8 medium / 10 hard) to 40 (about 14 / 13 / 13), with no very-advanced level."
+  },
+  "reviewStatus": "pending editorial review; a passing validator or AI review is not factual or bilingual approval",
+  "reviewNote": "Claude (an AI) wrote or converted every card, opened the sources listed for each card, and checked the Arabic against docs/content-review/ARABIC-STYLE-GUIDE.md (clear Modern Standard Arabic, no dialect). No human editor has reviewed these cards; every card keeps review status pending. Dub names come from Arabic encyclopaedia pages about the dubs (areq.net, 3rabica.org, marefa.org); where those pages and the original disagree, the card gives the dub name first, as the topic already does for Captain Majid. Facts that could not be confirmed on an opened page are listed under unverified. The Detective Conan cards were written in phase 2 (change set g3-nostalgia-anime-fandom, held by the 10-series limit) and converted to Modern Standard Arabic here; the kids-riddles operations come from phase-2 change set g5-puzzles-math (held because the kids content review is bound to the legacy riddle source) and were converted to Modern Standard Arabic here.",
+  "counts": {
+    "addedCards": 74,
+    "changedCards": 3,
+    "publicCards": {
+      "before": 3286,
+      "after": 3360
+    },
+    "sourceCards": {
+      "before": 3564,
+      "after": 3638
+    }
+  },
+  "topics": [
+    {
+      "slug": "ayam-tayebeen",
+      "before": {
+        "total": 164,
+        "levels": {
+          "easy": 45,
+          "medium": 47,
+          "hard": 44,
+          "very-advanced": 28
+        }
+      },
+      "after": {
+        "total": 228,
+        "levels": {
+          "easy": 60,
+          "medium": 62,
+          "hard": 60,
+          "very-advanced": 46
+        }
+      },
+      "seriesBefore": 10,
+      "seriesAfter": 14
+    },
+    {
+      "slug": "kids-riddles",
+      "before": {
+        "total": 30,
+        "levels": {
+          "easy": 12,
+          "medium": 8,
+          "hard": 10,
+          "very-advanced": 0
+        }
+      },
+      "after": {
+        "total": 40,
+        "levels": {
+          "easy": 14,
+          "medium": 13,
+          "hard": 13,
+          "very-advanced": 0
+        }
+      }
+    }
+  ],
+  "newSubtopics": [
+    {
+      "category": "ayam-tayebeen",
+      "subcategory": {
+        "en": "Detective Conan",
+        "ar": "المحقق كونان"
+      }
+    },
+    {
+      "category": "ayam-tayebeen",
+      "subcategory": {
+        "en": "Hunter × Hunter",
+        "ar": "القناص"
+      }
+    },
+    {
+      "category": "ayam-tayebeen",
+      "subcategory": {
+        "en": "Digimon Adventure",
+        "ar": "أبطال الديجيتال"
+      }
+    },
+    {
+      "category": "ayam-tayebeen",
+      "subcategory": {
+        "en": "Sindbad",
+        "ar": "مغامرات سندباد"
+      }
+    },
+    {
+      "category": "kids-riddles",
+      "subcategory": {
+        "en": "Animals & Nature",
+        "ar": "الحيوانات والطبيعة"
+      }
+    }
+  ],
+  "pinnedTopics": {
+    "ayam-tayebeen": [
+      "Detective Conan",
+      "Hunter × Hunter",
+      "Digimon Adventure",
+      "Sindbad"
+    ]
+  },
+  "subtopicLimit": {
+    "default": 10,
+    "topics": {
+      "ayam-tayebeen": {
+        "previous": 10,
+        "now": 14,
+        "approvedBy": "owner, 25 Oct 2026"
+      }
+    }
+  },
+  "swaps": [
+    {
+      "requested": {
+        "en": "Heidi",
+        "ar": "هايدي"
+      },
+      "replacement": {
+        "en": "Sindbad",
+        "ar": "مغامرات سندباد"
+      },
+      "reason": "Heidi has a well-known Arabic dub, but no source found that Spacetoon aired it: it is missing from Wikipedia's list of Spacetoon programmes (which lists all ten existing series of this topic, Detective Conan, Hunter × Hunter, Digimon Adventure and Sindbad), and the Arabic encyclopaedia pages say only that it aired on \"several Arab stations\". The topic is Spacetoon Classics, so the swap the owner allowed was used: Sindbad (Arabian Nights: Sinbad's Adventures), aired by Spacetoon from 2000 and dubbed with Arabic names (Yasmina, Haytham).",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_programs_broadcast_by_Spacetoon",
+        "https://areq.net/m/هايدي_(أنمي).html",
+        "https://www.3rabica.org/%D9%82%D8%B5%D8%A9_%D9%87%D8%A7%D9%8A%D8%AF%D9%8A",
+        "https://areq.net/m/مغامرات_سندباد.html",
+        "https://en.wikipedia.org/wiki/Arabian_Nights:_Sinbad%27s_Adventures"
+      ]
+    }
+  ],
+  "descriptionChanges": [
+    {
+      "slug": "ayam-tayebeen",
+      "previous": {
+        "en": "Relive the golden era of Spacetoon with 164 bilingual questions across 10 beloved classic series — Adnan and Lina, Captain Majed, Grendizer, and more.",
+        "ar": "يضم موضوع «أيام الطيبين - سبيستون» 164 سؤالًا بالعربية والإنجليزية، ويتناول سالي، جزيرة الكنز، وعدنان ولينا. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+      },
+      "description": {
+        "en": "Relive the golden era of Spacetoon with 228 bilingual questions across 14 beloved classic series — Detective Conan, Hunter × Hunter, Digimon Adventure, Sindbad, Adnan and Lina, Captain Majid and more.",
+        "ar": "يضم موضوع «أيام الطيبين - سبيستون» 228 سؤالًا بالعربية والإنجليزية عن 14 مسلسلًا كلاسيكيًا، منها «المحقق كونان» و«القناص» و«أبطال الديجيتال» و«مغامرات سندباد». اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+      }
+    },
+    {
+      "slug": "kids-riddles",
+      "previous": {
+        "en": "30 bilingual starter riddles about familiar objects, nature and simple patterns. A mix for independent readers and adult-led play; some questions need basic number or shape knowledge.",
+        "ar": "30 لغزًا تمهيديًا بالعربية والإنجليزية عن الأشياء المألوفة والطبيعة والأنماط البسيطة، للقراءة المستقلة أو اللعب بمساعدة الكبار. تحتاج بعض الأسئلة إلى معرفة أولية بالأعداد أو الأشكال."
+      },
+      "description": {
+        "en": "40 bilingual starter riddles about familiar objects, animals and nature, and simple patterns. A mix for independent readers and adult-led play; some questions need basic number or shape knowledge.",
+        "ar": "40 لغزًا تمهيديًا بالعربية والإنجليزية عن الأشياء المألوفة والحيوانات والطبيعة والأنماط البسيطة، للقراءة المستقلة أو اللعب بمساعدة الكبار. تحتاج بعض الأسئلة إلى معرفة أولية بالأعداد أو الأشكال."
+      }
+    }
+  ],
+  "kidsReview": {
+    "record": "docs/content-review/kids-release-review.json",
+    "note": "docs/content-review/kids-riddles-additions-2026-10-25.md"
+  },
+  "changes": [
+    {
+      "id": "kids-riddles-015",
+      "category": "kids-riddles",
+      "beforeHash": "c350583362c81d12aa6b49a39f8bb4e6248126604b130c1907473cea513102c6",
+      "afterHash": "7a06fa2139b3a97f2e698499d216310bcdbf189d73cfbbc2919b161372c936d0",
+      "reason": "Phase-2 g5 level fix: counting two days back from Friday is easy for the age band.",
+      "sources": [],
+      "previous": {
+        "difficulty": "medium"
+      }
+    },
+    {
+      "id": "kids-riddles-019",
+      "category": "kids-riddles",
+      "beforeHash": "460e985074126d15edddb10620930658e7b0ddd9ac9b26c239b5f55ece682654",
+      "afterHash": "808f6b8dd64abc14c34f98fcd2d5c7389bf81ebe59e0276b9d41efa0211f6c84",
+      "reason": "Phase-2 g5 replacement: the old three-digit code repeated the template of logic-puzzles-017 (first digit twice the last). Replaced with a classic rate puzzle for children; the answer is shortened so it stays a concise scorable answer, and the full working is in the kids explanation.",
+      "sources": [],
+      "previous": {
+        "question.en": "A three-digit code has a middle digit of 3. Its first digit is twice its last, and all three digits add to 9. What is the code?",
+        "question.ar": "رمز من ثلاثة أرقام، رقمه الأوسط 3. الرقم الأول يساوي ضعف الأخير، ومجموع الأرقام الثلاثة 9. ما الرمز؟",
+        "answer.en": "432",
+        "answer.ar": "432"
+      }
+    },
+    {
+      "id": "kids-riddles-021",
+      "category": "kids-riddles",
+      "beforeHash": "ab41fa5e6db64d629ea278ca8e93f16ce1bf9d5c0f75fb128407839b3cc50c45",
+      "afterHash": "ad098a47ef3c3c76ba278e746b5215e0fabe176c0d46c70fc0acd08ec5394a4a",
+      "reason": "Phase-2 g5 replacement: the old digit-sum and reversal puzzle repeated the template of logic-puzzles-016. Replaced with a simple number riddle; medium for children.",
+      "sources": [],
+      "previous": {
+        "question.en": "My two digits add to 9. I am 27 greater than the number made by reversing my digits. What number am I?",
+        "question.ar": "مجموع رقميّ يساوي 9، وأنا أكبر بـ27 من العدد الناتج عن عكس ترتيبهما. ما العدد؟",
+        "answer.en": "63",
+        "answer.ar": "63",
+        "difficulty": "hard"
+      }
+    }
+  ],
+  "added": [
+    {
+      "id": "ayt-201",
+      "category": "ayam-tayebeen",
+      "series": "Detective Conan",
+      "reason": "Owner decision (25 Oct 2026): add Detective Conan to Spacetoon Classics and show it first. Card written in phase 2 (g3 change set, held by the 10-series limit), converted to Modern Standard Arabic. Arabic spelling as in the Arabic dub.",
+      "sources": [
+        "https://areq.net/m/دبلجة_المحقق_كونان.html",
+        "https://areq.net/m/قائمة_شخصيات_المحقق_كونان.html"
+      ],
+      "position": 0,
+      "afterHash": "55f9feda71991b814dc0ef374b513cac823ba0064b1c31850cab156f163bc6fe",
+      "card": {
+        "id": "ayt-201",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Detective Conan",
+          "ar": "المحقق كونان"
+        },
+        "question": {
+          "en": "In Detective Conan, what is the real name of the teenage detective whose body is shrunk into a little boy's?",
+          "ar": "في «المحقق كونان»، ما الاسم الحقيقي للمحقق المراهق الذي تقلّص جسمه فصار طفلًا صغيرًا؟"
+        },
+        "answer": {
+          "en": "Shinichi Kudo",
+          "ar": "سينشي كودو"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-202",
+      "category": "ayam-tayebeen",
+      "series": "Detective Conan",
+      "reason": "Owner decision (25 Oct 2026): add Detective Conan to Spacetoon Classics and show it first. Card written in phase 2 (g3 change set, held by the 10-series limit), converted to Modern Standard Arabic. Dub-name check: the Arabic dub calls him توغو, not كوغورو (areq lists the change), so the answer now gives the dub name first, as the topic does for Captain Majid.",
+      "sources": [
+        "https://areq.net/m/دبلجة_المحقق_كونان.html",
+        "https://areq.net/m/قائمة_شخصيات_المحقق_كونان.html"
+      ],
+      "position": 1,
+      "afterHash": "31d323deee60b34deef1477e7c7f56487a3e58c7c5635689461781914009ba5a",
+      "card": {
+        "id": "ayt-202",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Detective Conan",
+          "ar": "المحقق كونان"
+        },
+        "question": {
+          "en": "In Detective Conan, what is the name of Ran's father, the clumsy private detective Conan lives with?",
+          "ar": "في «المحقق كونان»، ما اسم والد ران، المحقق الخاص المتعثّر الذي يعيش كونان في بيته؟"
+        },
+        "answer": {
+          "en": "Togo Mori (Kogoro Mori in the original)",
+          "ar": "توغو موري"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-203",
+      "category": "ayam-tayebeen",
+      "series": "Detective Conan",
+      "reason": "Owner decision (25 Oct 2026): add Detective Conan to Spacetoon Classics and show it first. Card written in phase 2 (g3 change set, held by the 10-series limit), converted to Modern Standard Arabic. The question avoids the group's name, which contains the answer.",
+      "sources": [
+        "https://areq.net/m/قائمة_شخصيات_المحقق_كونان.html",
+        "https://en.wikipedia.org/wiki/Case_Closed_Episode_One"
+      ],
+      "position": 2,
+      "afterHash": "f7a086f308094e0b1d8fefa6faf1f4e613c8f0f4a462f27db7bc19fa4465e989",
+      "card": {
+        "id": "ayt-203",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Detective Conan",
+          "ar": "المحقق كونان"
+        },
+        "question": {
+          "en": "In Detective Conan, what colour do the members of the gang that shrank Shinichi always wear?",
+          "ar": "في «المحقق كونان»، ما لون الملابس التي يرتديها دائمًا أفراد العصابة التي صغّرت سينشي؟"
+        },
+        "answer": {
+          "en": "Black",
+          "ar": "الأسود"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-204",
+      "category": "ayam-tayebeen",
+      "series": "Detective Conan",
+      "reason": "Owner decision (25 Oct 2026): add Detective Conan to Spacetoon Classics and show it first. Card written in phase 2 (g3 change set, held by the 10-series limit), converted to Modern Standard Arabic.",
+      "sources": [
+        "https://arabicpost.net/%d9%81%d9%86-%d9%88%d9%85%d8%b4%d8%a7%d9%87%db%8c%d8%b1/2021/01/13/%d8%a7%d9%84%d9%85%d8%ad%d9%82%d9%82-%d9%83%d9%88%d9%86%d8%a7%d9%86/"
+      ],
+      "position": 3,
+      "afterHash": "f6d7ea36f996bf2ee789ca316557f6674643e213141234e98f855a89c8e66531",
+      "card": {
+        "id": "ayt-204",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Detective Conan",
+          "ar": "المحقق كونان"
+        },
+        "question": {
+          "en": "When Shinichi has to invent a name on the spot, which famous author's name gives him 'Conan'?",
+          "ar": "عندما اضطر سينشي إلى اختراع اسم على عجل، من اسم أيّ كاتب شهير أخذ «كونان»؟"
+        },
+        "answer": {
+          "en": "Arthur Conan Doyle",
+          "ar": "آرثر كونان دويل"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-205",
+      "category": "ayam-tayebeen",
+      "series": "Detective Conan",
+      "reason": "Owner decision (25 Oct 2026): add Detective Conan to Spacetoon Classics and show it first. Card written in phase 2 (g3 change set, held by the 10-series limit), converted to Modern Standard Arabic.",
+      "sources": [
+        "https://areq.net/m/قائمة_شخصيات_المحقق_كونان.html",
+        "https://arabicpost.net/%d9%81%d9%86-%d9%88%d9%85%d8%b4%d8%a7%d9%87%db%8c%d8%b1/2021/01/13/%d8%a7%d9%84%d9%85%d8%ad%d9%82%d9%82-%d9%83%d9%88%d9%86%d8%a7%d9%86/"
+      ],
+      "position": 4,
+      "afterHash": "c9bdf58743ba3f478360795e09a85f948001477ef1df17443a51500261acbc73",
+      "card": {
+        "id": "ayt-205",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Detective Conan",
+          "ar": "المحقق كونان"
+        },
+        "question": {
+          "en": "In Detective Conan, which gadget lets Conan speak in other people's voices?",
+          "ar": "في «المحقق كونان»، ما الأداة التي تمكّن كونان من التحدث بأصوات الآخرين؟"
+        },
+        "answer": {
+          "en": "A voice-changing bow tie",
+          "ar": "ربطة عنق مغيّرة للصوت"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-206",
+      "category": "ayam-tayebeen",
+      "series": "Detective Conan",
+      "reason": "Owner decision (25 Oct 2026): add Detective Conan to Spacetoon Classics and show it first. Card written in phase 2 (g3 change set, held by the 10-series limit), converted to Modern Standard Arabic. Level set to medium (phase 2 had hard): Heiji is one of the best-known characters.",
+      "sources": [
+        "https://areq.net/m/قائمة_شخصيات_المحقق_كونان.html",
+        "https://en.wikipedia.org/wiki/List_of_Case_Closed_characters"
+      ],
+      "position": 5,
+      "afterHash": "f9d7b782a4bd204c8a567ca596291fe3c9489e6c38da9788013cbc3e94c00c88",
+      "card": {
+        "id": "ayt-206",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Detective Conan",
+          "ar": "المحقق كونان"
+        },
+        "question": {
+          "en": "In Detective Conan, which high-school detective from Osaka is Shinichi's rival and close friend?",
+          "ar": "في «المحقق كونان»، مَن محقق المدرسة الثانوية القادم من أوساكا، منافس سينشي وصديقه المقرّب؟"
+        },
+        "answer": {
+          "en": "Heiji Hattori",
+          "ar": "هيجي هاتوري"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-207",
+      "category": "ayam-tayebeen",
+      "series": "Detective Conan",
+      "reason": "Owner decision (25 Oct 2026): add Detective Conan to Spacetoon Classics and show it first. Card written in phase 2 (g3 change set, held by the 10-series limit), converted to Modern Standard Arabic.",
+      "sources": [
+        "https://areq.net/m/قائمة_شخصيات_المحقق_كونان.html"
+      ],
+      "position": 6,
+      "afterHash": "5e31d12eddeb4c41135d071246d34fe03e545e03b9796d93ccaba4b3b2ec6ed9",
+      "card": {
+        "id": "ayt-207",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Detective Conan",
+          "ar": "المحقق كونان"
+        },
+        "question": {
+          "en": "In Detective Conan, what is the code name of the experimental poison that shrank Shinichi?",
+          "ar": "في «المحقق كونان»، ما الاسم الرمزي للسمّ التجريبي الذي صغّر سينشي؟"
+        },
+        "answer": {
+          "en": "APTX 4869",
+          "ar": "APTX 4869"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-208",
+      "category": "ayam-tayebeen",
+      "series": "Detective Conan",
+      "reason": "Owner decision (25 Oct 2026): add Detective Conan to Spacetoon Classics and show it first. Card written in phase 2 (g3 change set, held by the 10-series limit), converted to Modern Standard Arabic. Dub-name check: the Arabic dub says هيبارا (areq lists the change from هايبرا), so the Arabic answer gives the dub form first.",
+      "sources": [
+        "https://areq.net/m/قائمة_شخصيات_المحقق_كونان.html",
+        "https://areq.net/m/دبلجة_المحقق_كونان.html",
+        "https://en.wikipedia.org/wiki/List_of_Case_Closed_characters"
+      ],
+      "position": 7,
+      "afterHash": "00a0a15a8cf3b4c5bc7455c933b84412df99a06c9fd216a3ce3a0fb72866be1c",
+      "card": {
+        "id": "ayt-208",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Detective Conan",
+          "ar": "المحقق كونان"
+        },
+        "question": {
+          "en": "Which girl in Conan's class invented the shrinking poison herself, then shrank after swallowing it?",
+          "ar": "مَن الفتاة التي تدرس في صف كونان، وقد اخترعت السمّ بنفسها ثم تقلّص جسمها عندما ابتلعته؟"
+        },
+        "answer": {
+          "en": "Ai Haibara",
+          "ar": "هيبارا (آي هايبرا)"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-209",
+      "category": "ayam-tayebeen",
+      "series": "Detective Conan",
+      "reason": "Owner decision (25 Oct 2026): add Detective Conan to Spacetoon Classics and show it first. Card written in phase 2 (g3 change set, held by the 10-series limit), converted to Modern Standard Arabic. Arabic-dub fact, confirmed on areq's dub page: «لُقِّبت ران بأنها خطيبة سينشي».",
+      "sources": [
+        "https://areq.net/m/دبلجة_المحقق_كونان.html",
+        "https://areq.net/m/قائمة_شخصيات_المحقق_كونان.html"
+      ],
+      "position": 8,
+      "afterHash": "f5578510f74d516a29d4ce95a9fad50e1e7085073834ea0e27b7aebddb3541da",
+      "card": {
+        "id": "ayt-209",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Detective Conan",
+          "ar": "المحقق كونان"
+        },
+        "question": {
+          "en": "In the Arabic dub of Detective Conan, what is Ran to Shinichi, although in the Japanese original she is his childhood friend?",
+          "ar": "في الدبلجة العربية من «المحقق كونان»، ما صلة ران بسينشي، مع أنها في الأصل الياباني صديقة طفولته؟"
+        },
+        "answer": {
+          "en": "His fiancée",
+          "ar": "خطيبته"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-210",
+      "category": "ayam-tayebeen",
+      "series": "Detective Conan",
+      "reason": "Owner decision (25 Oct 2026): add Detective Conan to Spacetoon Classics and show it first. Card written in phase 2 (g3 change set, held by the 10-series limit), converted to Modern Standard Arabic. Reworded from 'riddle-like notices' and 'monocle' to what the opened sources state: he announces each theft in advance. The dub also called him كايد and الفتى الطائر in later parts; the answer keeps the first dub name.",
+      "sources": [
+        "https://areq.net/m/دبلجة_المحقق_كونان.html",
+        "https://en.wikipedia.org/wiki/Kaito_Kid"
+      ],
+      "position": 9,
+      "afterHash": "985cdf1ebabc3434c599d8016c25bf2da1ba0250fe33d536148f8653d44384f4",
+      "card": {
+        "id": "ayt-210",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Detective Conan",
+          "ar": "المحقق كونان"
+        },
+        "question": {
+          "en": "In Detective Conan, which gentleman thief, dressed all in white, sends a note announcing each theft in advance?",
+          "ar": "في «المحقق كونان»، مَن اللص الأنيق ذو الثياب البيضاء الذي يرسل رسالة يعلن فيها عن كل سرقة قبل وقوعها؟"
+        },
+        "answer": {
+          "en": "Kaito Kid (the Phantom Thief Kid)",
+          "ar": "كايتو كيد (اللص الطائر كيد)"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-211",
+      "category": "ayam-tayebeen",
+      "series": "Detective Conan",
+      "reason": "Owner decision (25 Oct 2026): add Detective Conan to Spacetoon Classics and show it first. Card written in phase 2 (g3 change set, held by the 10-series limit), converted to Modern Standard Arabic. The question avoids the surname itself.",
+      "sources": [
+        "https://arabicpost.net/%d9%81%d9%86-%d9%88%d9%85%d8%b4%d8%a7%d9%87%db%8c%d8%b1/2021/01/13/%d8%a7%d9%84%d9%85%d8%ad%d9%82%d9%82-%d9%83%d9%88%d9%86%d8%a7%d9%86/"
+      ],
+      "position": 10,
+      "afterHash": "68c994e8e8d7e0e6459217a3b4afd706ff287c83de993174e79702c371370596",
+      "card": {
+        "id": "ayt-211",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Detective Conan",
+          "ar": "المحقق كونان"
+        },
+        "question": {
+          "en": "Which Japanese mystery writer, often called the father of Japanese detective fiction, gave Conan his surname?",
+          "ar": "أيّ كاتب ياباني للروايات البوليسية، يُلقَّب غالبًا بأبي الرواية البوليسية اليابانية، أخذ منه كونان اسم عائلته؟"
+        },
+        "answer": {
+          "en": "Edogawa Ranpo",
+          "ar": "إدوغاوا رانبو"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-212",
+      "category": "ayam-tayebeen",
+      "series": "Detective Conan",
+      "reason": "Owner decision (25 Oct 2026): add Detective Conan to Spacetoon Classics and show it first. Card written in phase 2 (g3 change set, held by the 10-series limit), converted to Modern Standard Arabic. One creator card, as for the other shows in the topic.",
+      "sources": [
+        "https://arabicpost.net/%d9%81%d9%86-%d9%88%d9%85%d8%b4%d8%a7%d9%87%db%8c%d8%b1/2021/01/13/%d8%a7%d9%84%d9%85%d8%ad%d9%82%d9%82-%d9%83%d9%88%d9%86%d8%a7%d9%86/",
+        "https://en.wikipedia.org/wiki/Case_Closed"
+      ],
+      "position": 11,
+      "afterHash": "6be75b16c01fa71f5ed3fda3f8b8793e39961d46666607824ea1cdc6c029ccc6",
+      "card": {
+        "id": "ayt-212",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Detective Conan",
+          "ar": "المحقق كونان"
+        },
+        "question": {
+          "en": "Who created the Detective Conan manga, first published in 1994?",
+          "ar": "مَن مؤلف مانغا «المحقق كونان» التي بدأ نشرها عام 1994؟"
+        },
+        "answer": {
+          "en": "Gosho Aoyama",
+          "ar": "غوشو أوياما"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-213",
+      "category": "ayam-tayebeen",
+      "series": "Detective Conan",
+      "reason": "Owner decision (25 Oct 2026): add Detective Conan to Spacetoon Classics and show it first. Card written in phase 2 (g3 change set, held by the 10-series limit), converted to Modern Standard Arabic.",
+      "sources": [
+        "https://areq.net/m/قائمة_شخصيات_المحقق_كونان.html"
+      ],
+      "position": 12,
+      "afterHash": "541511ad97ee0c164b3d8e60294e2b74bee6b66a5df8d356ab7e18d59f2c17d0",
+      "card": {
+        "id": "ayt-213",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Detective Conan",
+          "ar": "المحقق كونان"
+        },
+        "question": {
+          "en": "What is the job of Shinichi's father, Yusaku Kudo?",
+          "ar": "ما مهنة يوساكو كودو، والد سينشي؟"
+        },
+        "answer": {
+          "en": "Mystery novelist",
+          "ar": "كاتب روايات بوليسية"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-214",
+      "category": "ayam-tayebeen",
+      "series": "Detective Conan",
+      "reason": "Owner decision (25 Oct 2026): add Detective Conan to Spacetoon Classics and show it first. Card written in phase 2 (g3 change set, held by the 10-series limit), converted to Modern Standard Arabic.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Case_Closed_Episode_One"
+      ],
+      "position": 13,
+      "afterHash": "d0ca5f2c16d16cde9e5e435fc0a24d1e5c3cd99f11d22ea03f9dd89209e44fc3",
+      "card": {
+        "id": "ayt-214",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Detective Conan",
+          "ar": "المحقق كونان"
+        },
+        "question": {
+          "en": "Where is Shinichi when the gang's men force him to swallow the poison?",
+          "ar": "أين كان سينشي حين أجبره رجال العصابة على ابتلاع السم؟"
+        },
+        "answer": {
+          "en": "At an amusement park (Tropical Land)",
+          "ar": "في مدينة ملاهٍ (تروبيكال لاند)"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-215",
+      "category": "ayam-tayebeen",
+      "series": "Detective Conan",
+      "reason": "Owner decision (25 Oct 2026): add Detective Conan to Spacetoon Classics. Replaces the phase-2 card 'Which school does Conan attend as a first-grader?' (Teitan Elementary): areq's dub page says the Arabic dub renamed Teitan «مدرسة السعادة», a dub fact Arab viewers remember, so the card asks about the dub name instead of the plain school name.",
+      "sources": [
+        "https://areq.net/m/دبلجة_المحقق_كونان.html"
+      ],
+      "position": 14,
+      "afterHash": "f56b6f429a93839447360782306b1f58f83533aa6c72abde6f9d65e1aae3a160",
+      "card": {
+        "id": "ayt-215",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Detective Conan",
+          "ar": "المحقق كونان"
+        },
+        "question": {
+          "en": "The Arabic dub of Detective Conan renamed Teitan school. What did it call it?",
+          "ar": "في الدبلجة العربية من «المحقق كونان» تغيّر اسم مدرسة تيتان. ما الاسم الذي حملته؟"
+        },
+        "answer": {
+          "en": "Al-Saada School (the School of Happiness)",
+          "ar": "مدرسة السعادة"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-216",
+      "category": "ayam-tayebeen",
+      "series": "Detective Conan",
+      "reason": "Owner decision (25 Oct 2026): add Detective Conan to Spacetoon Classics and show it first. Card written in phase 2 (g3 change set, held by the 10-series limit), converted to Modern Standard Arabic. Reworded: the source says Shinichi plays the violin now and then, as Holmes did; it does not say he plays to concentrate.",
+      "sources": [
+        "https://arabicpost.net/%d9%81%d9%86-%d9%88%d9%85%d8%b4%d8%a7%d9%87%db%8c%d8%b1/2021/01/13/%d8%a7%d9%84%d9%85%d8%ad%d9%82%d9%82-%d9%83%d9%88%d9%86%d8%a7%d9%86/"
+      ],
+      "position": 15,
+      "afterHash": "2d6789a8bfbd696f4ac4068be073580ba3e9303d14f6f42559a2db697e67449b",
+      "card": {
+        "id": "ayt-216",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Detective Conan",
+          "ar": "المحقق كونان"
+        },
+        "question": {
+          "en": "Like his hero Sherlock Holmes, which instrument does Shinichi play?",
+          "ar": "على غرار بطله شيرلوك هولمز، على أيّ آلة موسيقية يعزف سينشي؟"
+        },
+        "answer": {
+          "en": "The violin",
+          "ar": "الكمان"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-217",
+      "category": "ayam-tayebeen",
+      "series": "Hunter × Hunter",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026). Spacetoon aired the Venus Centre dub of the 1999 series.",
+      "sources": [
+        "https://areq.net/m/القناص_(مانغا).html",
+        "https://en.wikipedia.org/wiki/List_of_Hunter_%C3%97_Hunter_characters"
+      ],
+      "position": 16,
+      "afterHash": "5fd86345eff7c0026a1a370ae2418b975ecd5e7e5933edf63d1f1095477888a3",
+      "card": {
+        "id": "ayt-217",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Hunter × Hunter",
+          "ar": "القناص"
+        },
+        "question": {
+          "en": "In Hunter × Hunter, what is the name of the boy hero who leaves his island to become a Hunter?",
+          "ar": "في «القناص»، ما اسم الفتى بطل القصة الذي يغادر جزيرته ليصبح قنّاصًا؟"
+        },
+        "answer": {
+          "en": "Gon Freecss",
+          "ar": "غون فريكس"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-218",
+      "category": "ayam-tayebeen",
+      "series": "Hunter × Hunter",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026). The story's starting point.",
+      "sources": [
+        "https://areq.net/m/القناص_(مانغا).html",
+        "https://en.wikipedia.org/wiki/List_of_Hunter_%C3%97_Hunter_characters"
+      ],
+      "position": 17,
+      "afterHash": "b31bc63bccb6b09f1a0de4b643641405dd24915114b399de72c1c94faff5b7e9",
+      "card": {
+        "id": "ayt-218",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Hunter × Hunter",
+          "ar": "القناص"
+        },
+        "question": {
+          "en": "In Hunter × Hunter, why does Gon want to become a Hunter?",
+          "ar": "في «القناص»، لماذا يريد غون أن يصبح قنّاصًا؟"
+        },
+        "answer": {
+          "en": "To find his father, Ging, who is a Hunter too",
+          "ar": "ليعثر على والده جين، وهو قنّاص أيضًا"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-219",
+      "category": "ayam-tayebeen",
+      "series": "Hunter × Hunter",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026).",
+      "sources": [
+        "https://www.marefa.org/%D8%A7%D9%84%D9%82%D9%86%D8%A7%D8%B5",
+        "https://hunterxhunter.fandom.com/wiki/Killua_Zoldyck"
+      ],
+      "position": 18,
+      "afterHash": "1c74790442c0680154943db2fc83fe8a9f75d701b59f839bbecb179fef75d333",
+      "card": {
+        "id": "ayt-219",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Hunter × Hunter",
+          "ar": "القناص"
+        },
+        "question": {
+          "en": "In Hunter × Hunter, which white-haired boy becomes Gon's best friend during the Hunter Exam?",
+          "ar": "في «القناص»، مَن الفتى ذو الشعر الأبيض الذي يصبح أعزّ أصدقاء غون خلال امتحان القنّاصين؟"
+        },
+        "answer": {
+          "en": "Killua",
+          "ar": "كيلوا"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-220",
+      "category": "ayam-tayebeen",
+      "series": "Hunter × Hunter",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026).",
+      "sources": [
+        "https://hunterxhunter.fandom.com/wiki/Gon_Freecss"
+      ],
+      "position": 19,
+      "afterHash": "61cdaf308b3fac3e25fdc9a53f18c8bb64db10f1bdf2cc9395041510b60e3dcf",
+      "card": {
+        "id": "ayt-220",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Hunter × Hunter",
+          "ar": "القناص"
+        },
+        "question": {
+          "en": "In Hunter × Hunter, what everyday tool does Gon carry and use as his weapon?",
+          "ar": "في «القناص»، ما الأداة البسيطة التي يحملها غون ويستعملها سلاحًا؟"
+        },
+        "answer": {
+          "en": "A fishing rod",
+          "ar": "صنّارة صيد"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-221",
+      "category": "ayam-tayebeen",
+      "series": "Hunter × Hunter",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026).",
+      "sources": [
+        "https://www.marefa.org/%D8%A7%D9%84%D9%82%D9%86%D8%A7%D8%B5",
+        "https://en.wikipedia.org/wiki/List_of_Hunter_%C3%97_Hunter_characters"
+      ],
+      "position": 20,
+      "afterHash": "41639e454026b8cc5d4e8d9f0a803c3812c3d4888c213476377b68d56dc50f47",
+      "card": {
+        "id": "ayt-221",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Hunter × Hunter",
+          "ar": "القناص"
+        },
+        "question": {
+          "en": "In Hunter × Hunter, which of Gon's friends dreams of becoming a doctor?",
+          "ar": "في «القناص»، أيّ أصدقاء غون يحلم بأن يصبح طبيبًا؟"
+        },
+        "answer": {
+          "en": "Leorio",
+          "ar": "ليوريو"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-222",
+      "category": "ayam-tayebeen",
+      "series": "Hunter × Hunter",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026).",
+      "sources": [
+        "https://www.marefa.org/%D8%A7%D9%84%D9%82%D9%86%D8%A7%D8%B5",
+        "https://en.wikipedia.org/wiki/List_of_Hunter_%C3%97_Hunter_characters",
+        "https://hunterxhunter.fandom.com/wiki/Gon_Freecss"
+      ],
+      "position": 21,
+      "afterHash": "56a5fdda2d7c1fec64a9c82cd8acd0463f00cefec7e7363e50bbee451ec6287f",
+      "card": {
+        "id": "ayt-222",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Hunter × Hunter",
+          "ar": "القناص"
+        },
+        "question": {
+          "en": "In Hunter × Hunter, what is the name of the woman who raised Gon on his island?",
+          "ar": "في «القناص»، ما اسم المرأة التي ربّت غون في جزيرته؟"
+        },
+        "answer": {
+          "en": "Mito (Aunt Mito)",
+          "ar": "ميتو"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-223",
+      "category": "ayam-tayebeen",
+      "series": "Hunter × Hunter",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026). Kept light: the card leaves out why the clan's eyes were hunted.",
+      "sources": [
+        "https://www.marefa.org/%D8%A7%D9%84%D9%82%D9%86%D8%A7%D8%B5",
+        "https://en.wikipedia.org/wiki/List_of_Hunter_%C3%97_Hunter_characters"
+      ],
+      "position": 22,
+      "afterHash": "2683d3c9492ef11eadcc88b5dce604a8a0492f70be14f8e4606747ea8994209b",
+      "card": {
+        "id": "ayt-223",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Hunter × Hunter",
+          "ar": "القناص"
+        },
+        "question": {
+          "en": "In Hunter × Hunter, what colour do Kurapika's eyes turn when he is angry?",
+          "ar": "في «القناص»، إلى أيّ لون تتحوّل عينا كورابيكا حين يغضب؟"
+        },
+        "answer": {
+          "en": "Scarlet (bright red)",
+          "ar": "القرمزي (الأحمر)"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-224",
+      "category": "ayam-tayebeen",
+      "series": "Hunter × Hunter",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026). A fun detail fans remember.",
+      "sources": [
+        "https://hunterxhunter.fandom.com/wiki/Killua_Zoldyck"
+      ],
+      "position": 23,
+      "afterHash": "ac87c3f430a5a3c653d4bcb06912956d5a29d16a03c136deb6b322d2df3e62f1",
+      "card": {
+        "id": "ayt-224",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Hunter × Hunter",
+          "ar": "القناص"
+        },
+        "question": {
+          "en": "In Hunter × Hunter, what is Killua's favourite snack?",
+          "ar": "في «القناص»، ما الحلوى المفضلة لدى كيلوا؟"
+        },
+        "answer": {
+          "en": "Chocolate",
+          "ar": "الشوكولاتة"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-225",
+      "category": "ayam-tayebeen",
+      "series": "Hunter × Hunter",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026). The fish is so big that five grown fishermen could not land it.",
+      "sources": [
+        "https://hunterxhunter.fandom.com/wiki/Gon_Freecss",
+        "https://www.marefa.org/%D8%A7%D9%84%D9%82%D9%86%D8%A7%D8%B5"
+      ],
+      "position": 24,
+      "afterHash": "7f79def930b9226f3eeac8cf279c77a1c9f478398c8b713b5cbd74fa60f01bbe",
+      "card": {
+        "id": "ayt-225",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Hunter × Hunter",
+          "ar": "القناص"
+        },
+        "question": {
+          "en": "In Hunter × Hunter, what does Gon have to catch to win Aunt Mito's permission to take the Hunter Exam?",
+          "ar": "في «القناص»، ماذا كان على غون أن يصطاد ليحصل على موافقة ميتو على دخول امتحان القنّاصين؟"
+        },
+        "answer": {
+          "en": "A giant fish",
+          "ar": "سمكة عملاقة"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-226",
+      "category": "ayam-tayebeen",
+      "series": "Hunter × Hunter",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026).",
+      "sources": [
+        "https://en.wikipedia.org/wiki/List_of_Hunter_%C3%97_Hunter_characters",
+        "https://www.marefa.org/%D8%A7%D9%84%D9%82%D9%86%D8%A7%D8%B5"
+      ],
+      "position": 25,
+      "afterHash": "e72d5fee235082611f65b80d6e87136a5ae127def94b7bdc8a3ed4e0c40f9020",
+      "card": {
+        "id": "ayt-226",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Hunter × Hunter",
+          "ar": "القناص"
+        },
+        "question": {
+          "en": "In Hunter × Hunter, which weapon hangs from Kurapika's fingers?",
+          "ar": "في «القناص»، ما السلاح الذي يتدلّى من أصابع كورابيكا؟"
+        },
+        "answer": {
+          "en": "Chains",
+          "ar": "السلاسل"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-227",
+      "category": "ayam-tayebeen",
+      "series": "Hunter × Hunter",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026).",
+      "sources": [
+        "https://areq.net/m/القناص_(مانغا).html",
+        "https://en.wikipedia.org/wiki/List_of_Hunter_%C3%97_Hunter_characters"
+      ],
+      "position": 26,
+      "afterHash": "541e9b3936b37a5ce8aae19073ab1d469f33617daf0ccc4d12df6a1b6cf8a9cf",
+      "card": {
+        "id": "ayt-227",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Hunter × Hunter",
+          "ar": "القناص"
+        },
+        "question": {
+          "en": "In Hunter × Hunter, what is the name of the life energy that Hunters train to control?",
+          "ar": "في «القناص»، ما اسم طاقة الحياة التي يتدرّب القنّاصون على التحكم بها؟"
+        },
+        "answer": {
+          "en": "Nen",
+          "ar": "النين"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-228",
+      "category": "ayam-tayebeen",
+      "series": "Hunter × Hunter",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026).",
+      "sources": [
+        "https://hunterxhunter.fandom.com/wiki/Killua_Zoldyck"
+      ],
+      "position": 27,
+      "afterHash": "55780940e465577a29c93e9fd6095dea9abc4cbbc9353cbf9b2829849169c004",
+      "card": {
+        "id": "ayt-228",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Hunter × Hunter",
+          "ar": "القناص"
+        },
+        "question": {
+          "en": "In Hunter × Hunter, which toy does Killua turn into a weapon?",
+          "ar": "في «القناص»، أيّ لعبة يحوّلها كيلوا إلى سلاح؟"
+        },
+        "answer": {
+          "en": "Yo-yos",
+          "ar": "اليويو"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-229",
+      "category": "ayam-tayebeen",
+      "series": "Hunter × Hunter",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026). Kurapika is 404 and Leorio 403, which fans remember.",
+      "sources": [
+        "https://hunterxhunter.fandom.com/wiki/287th_Hunter_Exam"
+      ],
+      "position": 28,
+      "afterHash": "9e3c791af3bd0f8ca41582b8b415219a1e3ae0dc6051130718135d7d3487d88c",
+      "card": {
+        "id": "ayt-229",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Hunter × Hunter",
+          "ar": "القناص"
+        },
+        "question": {
+          "en": "In Hunter × Hunter, what number is on Gon's badge in the Hunter Exam?",
+          "ar": "في «القناص»، ما الرقم المكتوب على شارة غون في امتحان القنّاصين؟"
+        },
+        "answer": {
+          "en": "405",
+          "ar": "405"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-230",
+      "category": "ayam-tayebeen",
+      "series": "Hunter × Hunter",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026).",
+      "sources": [
+        "https://hunterxhunter.fandom.com/wiki/Gon_Freecss",
+        "https://www.marefa.org/%D8%A7%D9%84%D9%82%D9%86%D8%A7%D8%B5"
+      ],
+      "position": 29,
+      "afterHash": "99c3259eb1ee5e522cb2e4ffd493df62d42ef6ea61dbbc0906cab8146f5d444a",
+      "card": {
+        "id": "ayt-230",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Hunter × Hunter",
+          "ar": "القناص"
+        },
+        "question": {
+          "en": "In Hunter × Hunter, which Hunter saved young Gon from an angry fox-bear and told him about his father?",
+          "ar": "في «القناص»، مَن القنّاص الذي أنقذ غون في صغره من دبّ ثعلبي غاضب، وأخبره عن والده؟"
+        },
+        "answer": {
+          "en": "Kite",
+          "ar": "كايت"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-231",
+      "category": "ayam-tayebeen",
+      "series": "Hunter × Hunter",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026). The owner asked for dub-studio facts; this is the series' one studio card.",
+      "sources": [
+        "https://areq.net/m/القناص_(مانغا).html",
+        "https://www.marefa.org/%D8%A7%D9%84%D9%82%D9%86%D8%A7%D8%B5"
+      ],
+      "position": 30,
+      "afterHash": "7e4181841effd1f90e1e5a11fefa9e71fb90defcd1c7325d0dd9b28457c20c48",
+      "card": {
+        "id": "ayt-231",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Hunter × Hunter",
+          "ar": "القناص"
+        },
+        "question": {
+          "en": "Which studio dubbed Hunter × Hunter into Arabic as Al-Qannas?",
+          "ar": "ما الاستوديو الذي دبلج «القناص» إلى العربية؟"
+        },
+        "answer": {
+          "en": "Venus Centre (Markaz al-Zahra)",
+          "ar": "مركز الزهرة"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-232",
+      "category": "ayam-tayebeen",
+      "series": "Hunter × Hunter",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026).",
+      "sources": [
+        "https://hunterxhunter.fandom.com/wiki/Gon_Freecss"
+      ],
+      "position": 31,
+      "afterHash": "209455e76d3d0f502c41d9b09279891e9a5b965326a618c7e71be1beeb8f7c9b",
+      "card": {
+        "id": "ayt-232",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Hunter × Hunter",
+          "ar": "القناص"
+        },
+        "question": {
+          "en": "In Hunter × Hunter, what is the name of Gon's home island?",
+          "ar": "في «القناص»، ما اسم الجزيرة التي نشأ فيها غون؟"
+        },
+        "answer": {
+          "en": "Whale Island",
+          "ar": "جزيرة الحوت"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-233",
+      "category": "ayam-tayebeen",
+      "series": "Digimon Adventure",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026). The Venus Centre dub gave every child and Digimon an Arabic name; Spacetoon aired it first.",
+      "sources": [
+        "https://areq.net/m/أبطال_الديجيتال.html",
+        "https://3rabica.org/دبلجة_أبطال_الديجيتال_(الجزء_الأول)",
+        "https://en.wikipedia.org/wiki/List_of_Digimon_Adventure_characters"
+      ],
+      "position": 32,
+      "afterHash": "758c7938c7b6956db071911914fb4f20d874f57c65cd09e8e82c6253ea3ce19a",
+      "card": {
+        "id": "ayt-233",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Digimon Adventure",
+          "ar": "أبطال الديجيتال"
+        },
+        "question": {
+          "en": "In the Arabic dub of Digimon Adventure, what is the name of the goggle-wearing leader of the children?",
+          "ar": "في «أبطال الديجيتال»، ما اسم قائد الأطفال الذي يضع نظارة واقية على رأسه؟"
+        },
+        "answer": {
+          "en": "Amjad (Taichi, or Tai, in the original)",
+          "ar": "أمجد"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-234",
+      "category": "ayam-tayebeen",
+      "series": "Digimon Adventure",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026).",
+      "sources": [
+        "https://areq.net/m/أبطال_الديجيتال.html",
+        "https://3rabica.org/دبلجة_أبطال_الديجيتال_(الجزء_الأول)",
+        "https://en.wikipedia.org/wiki/List_of_Digimon_Adventure_characters"
+      ],
+      "position": 33,
+      "afterHash": "8e4a40cd8b138d330d23d571df96608cf09ade6d81f415befdc8d8163b84a3d6",
+      "card": {
+        "id": "ayt-234",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Digimon Adventure",
+          "ar": "أبطال الديجيتال"
+        },
+        "question": {
+          "en": "In the Arabic dub of Digimon Adventure, what is the name of Amjad's orange dinosaur partner?",
+          "ar": "في «أبطال الديجيتال»، ما اسم رفيق أمجد، الديناصور البرتقالي؟"
+        },
+        "answer": {
+          "en": "Ra'd (Agumon in the original)",
+          "ar": "رعد"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-235",
+      "category": "ayam-tayebeen",
+      "series": "Digimon Adventure",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026). An eighth child joins later.",
+      "sources": [
+        "https://areq.net/m/أبطال_الديجيتال.html"
+      ],
+      "position": 34,
+      "afterHash": "bee3c0668d47ac92b4df3792b35bf33ad899138d1299ed4f38203c46a4a172e4",
+      "card": {
+        "id": "ayt-235",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Digimon Adventure",
+          "ar": "أبطال الديجيتال"
+        },
+        "question": {
+          "en": "In Digimon Adventure, how many children are swept into the world of the Digimon at the start?",
+          "ar": "في «أبطال الديجيتال»، كم طفلًا انتقل إلى عالم الديجيمون في بداية القصة؟"
+        },
+        "answer": {
+          "en": "Seven",
+          "ar": "سبعة"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-236",
+      "category": "ayam-tayebeen",
+      "series": "Digimon Adventure",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026).",
+      "sources": [
+        "https://areq.net/m/أبطال_الديجيتال.html",
+        "https://3rabica.org/دبلجة_أبطال_الديجيتال_(الجزء_الأول)",
+        "https://en.wikipedia.org/wiki/List_of_Digimon_Adventure_characters"
+      ],
+      "position": 35,
+      "afterHash": "c92f22d5d0fdc0e806e81deabc204e2444358a52dc642c3430fba72811714f77",
+      "card": {
+        "id": "ayt-236",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Digimon Adventure",
+          "ar": "أبطال الديجيتال"
+        },
+        "question": {
+          "en": "In the Arabic dub of Digimon Adventure, which child always carries his laptop?",
+          "ar": "في «أبطال الديجيتال»، أيّ الأطفال يحمل حاسوبه المحمول دائمًا؟"
+        },
+        "answer": {
+          "en": "Shadi (Koushiro, or Izzy, in the original)",
+          "ar": "شادي"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-237",
+      "category": "ayam-tayebeen",
+      "series": "Digimon Adventure",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026).",
+      "sources": [
+        "https://areq.net/m/أبطال_الديجيتال.html",
+        "https://3rabica.org/دبلجة_أبطال_الديجيتال_(الجزء_الأول)",
+        "https://en.wikipedia.org/wiki/List_of_Digimon_Adventure_characters"
+      ],
+      "position": 36,
+      "afterHash": "e3f28a78c98e7add0dcd57a1c47a11440cb0e329905e648ef4c7b8249428d31c",
+      "card": {
+        "id": "ayt-237",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Digimon Adventure",
+          "ar": "أبطال الديجيتال"
+        },
+        "question": {
+          "en": "In the Arabic dub of Digimon Adventure, what is the name of Yamen's partner, the Digimon who wears a wolf pelt?",
+          "ar": "في «أبطال الديجيتال»، ما اسم رفيق يامن، الديجيمون الذي يرتدي فروة ذئب؟"
+        },
+        "answer": {
+          "en": "Kasir (Gabumon in the original)",
+          "ar": "كاسر"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-238",
+      "category": "ayam-tayebeen",
+      "series": "Digimon Adventure",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026). The question avoids the word flower, which is the Arabic answer.",
+      "sources": [
+        "https://areq.net/m/أبطال_الديجيتال.html",
+        "https://3rabica.org/دبلجة_أبطال_الديجيتال_(الجزء_الأول)",
+        "https://en.wikipedia.org/wiki/List_of_Digimon_Adventure_characters"
+      ],
+      "position": 37,
+      "afterHash": "d3eeb43494576bd0ddf197ca5db6f867174101c1f5aee7d0f317c7e701f1fb96",
+      "card": {
+        "id": "ayt-238",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Digimon Adventure",
+          "ar": "أبطال الديجيتال"
+        },
+        "question": {
+          "en": "In the Arabic dub of Digimon Adventure, what is the name of Mai's plant-like partner?",
+          "ar": "في «أبطال الديجيتال»، ما اسم رفيقة مي، الديجيمون التي تشبه النبتة؟"
+        },
+        "answer": {
+          "en": "Zahra (Palmon in the original)",
+          "ar": "زهرة"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-239",
+      "category": "ayam-tayebeen",
+      "series": "Digimon Adventure",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026).",
+      "sources": [
+        "https://areq.net/m/أبطال_الديجيتال.html",
+        "https://en.wikipedia.org/wiki/List_of_Digimon_Adventure_characters"
+      ],
+      "position": 38,
+      "afterHash": "bbf83bc5238ad9f413d9b603af0b8e191aa92d55d5d165c450be573f2f847fed",
+      "card": {
+        "id": "ayt-239",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Digimon Adventure",
+          "ar": "أبطال الديجيتال"
+        },
+        "question": {
+          "en": "In Digimon Adventure, which quality does Amjad's crest stand for?",
+          "ar": "في «أبطال الديجيتال»، ما الصفة التي ترمز إليها قلادة أمجد؟"
+        },
+        "answer": {
+          "en": "Courage",
+          "ar": "الشجاعة"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-240",
+      "category": "ayam-tayebeen",
+      "series": "Digimon Adventure",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026).",
+      "sources": [
+        "https://areq.net/m/أبطال_الديجيتال.html",
+        "https://en.wikipedia.org/wiki/List_of_Digimon_Adventure_characters"
+      ],
+      "position": 39,
+      "afterHash": "34d580e43a76388a55f8b1ab7f76d8ef0000e0e3a3811f533f42156eb48749df",
+      "card": {
+        "id": "ayt-240",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Digimon Adventure",
+          "ar": "أبطال الديجيتال"
+        },
+        "question": {
+          "en": "In the Arabic dub of Digimon Adventure, who is the eighth child, who joins the team later?",
+          "ar": "في «أبطال الديجيتال»، مَن الطفلة الثامنة التي انضمت إلى الفريق لاحقًا؟"
+        },
+        "answer": {
+          "en": "Hind, Amjad's little sister (Hikari, or Kari, in the original)",
+          "ar": "هند، أخت أمجد الصغرى"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-241",
+      "category": "ayam-tayebeen",
+      "series": "Digimon Adventure",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026). Arabic-dub fact: «إلغاء فكرة التطوّر نهائياً واستبدال ذلك بالأخ الرقميّ».",
+      "sources": [
+        "https://3rabica.org/دبلجة_أبطال_الديجيتال_(الجزء_الأول)"
+      ],
+      "position": 40,
+      "afterHash": "fd90a571cdf3e969a85ce0e960e3f1bb7380c10d37989680fd78cd01ff3dfe9f",
+      "card": {
+        "id": "ayt-241",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Digimon Adventure",
+          "ar": "أبطال الديجيتال"
+        },
+        "question": {
+          "en": "The Arabic dub of Digimon Adventure dropped the idea of 'evolution'. What did it call a partner's bigger, stronger form instead?",
+          "ar": "حذفت الدبلجة العربية من «أبطال الديجيتال» فكرة التطوّر. فماذا سمّت الشكل الأكبر والأقوى لكل رفيق بدلًا منها؟"
+        },
+        "answer": {
+          "en": "Its 'digital brother'",
+          "ar": "الأخ الرقمي"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-242",
+      "category": "ayam-tayebeen",
+      "series": "Digimon Adventure",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026).",
+      "sources": [
+        "https://areq.net/m/أبطال_الديجيتال.html",
+        "https://3rabica.org/دبلجة_أبطال_الديجيتال_(الجزء_الأول)"
+      ],
+      "position": 41,
+      "afterHash": "57f3994cabbaf122d20b6112723365d9209222f99dce0c368bb9b0afd63e53f2",
+      "card": {
+        "id": "ayt-242",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Digimon Adventure",
+          "ar": "أبطال الديجيتال"
+        },
+        "question": {
+          "en": "In the Arabic dub of Digimon Adventure, what is the name of the giant horned dinosaur that fights in Ra'd's place (Greymon in the original)?",
+          "ar": "في «أبطال الديجيتال»، ما اسم الديناصور العملاق ذي القرون الذي يقاتل بدلًا من رعد في المعارك؟"
+        },
+        "answer": {
+          "en": "Sindeed",
+          "ar": "صنديد"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-243",
+      "category": "ayam-tayebeen",
+      "series": "Digimon Adventure",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026).",
+      "sources": [
+        "https://areq.net/m/أبطال_الديجيتال.html",
+        "https://3rabica.org/دبلجة_أبطال_الديجيتال_(الجزء_الأول)",
+        "https://en.wikipedia.org/wiki/List_of_Digimon_Adventure_characters"
+      ],
+      "position": 42,
+      "afterHash": "09d3122c1061478ccfc3e143acf39d8001bd7474210b63f553170637cba8025b",
+      "card": {
+        "id": "ayt-243",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Digimon Adventure",
+          "ar": "أبطال الديجيتال"
+        },
+        "question": {
+          "en": "In Digimon Adventure's Arabic dub, a small pink bird is always at Samar's side. What is the bird called?",
+          "ar": "في «أبطال الديجيتال»، يرافق سمرَ دائمًا طائر وردي صغير. ما اسمه في الدبلجة العربية؟"
+        },
+        "answer": {
+          "en": "Hadeel (Biyomon in the original)",
+          "ar": "هديل"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-244",
+      "category": "ayam-tayebeen",
+      "series": "Digimon Adventure",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026). True in the dub too, which made them brothers through their mother only.",
+      "sources": [
+        "https://areq.net/m/أبطال_الديجيتال.html",
+        "https://3rabica.org/دبلجة_أبطال_الديجيتال_(الجزء_الأول)",
+        "https://en.wikipedia.org/wiki/List_of_Digimon_Adventure_characters"
+      ],
+      "position": 43,
+      "afterHash": "803e716e261a3bef2bcb390427ba648d8250f1e1be00f1c10f4e6830659e7cf7",
+      "card": {
+        "id": "ayt-244",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Digimon Adventure",
+          "ar": "أبطال الديجيتال"
+        },
+        "question": {
+          "en": "In Digimon Adventure, Wassim (T.K. in the original) is the younger brother of which child?",
+          "ar": "في «أبطال الديجيتال»، وسيم هو الأخ الأصغر لأيّ طفل من الأطفال؟"
+        },
+        "answer": {
+          "en": "Yamen (Yamato, or Matt, in the original)",
+          "ar": "يامن"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-245",
+      "category": "ayam-tayebeen",
+      "series": "Digimon Adventure",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026).",
+      "sources": [
+        "https://areq.net/m/أبطال_الديجيتال.html",
+        "https://3rabica.org/دبلجة_أبطال_الديجيتال_(الجزء_الأول)",
+        "https://en.wikipedia.org/wiki/List_of_Digimon_Adventure_characters"
+      ],
+      "position": 44,
+      "afterHash": "01dc7fc7ab6d09f70b938c3b1287455f045676fa67f1d4eb38afd38455fb46c2",
+      "card": {
+        "id": "ayt-245",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Digimon Adventure",
+          "ar": "أبطال الديجيتال"
+        },
+        "question": {
+          "en": "Which Arabic name did the dub of Digimon Adventure give Gatomon, Hind's cat?",
+          "ar": "أيّ اسم عربي أطلقته الدبلجة على قطة هند في «أبطال الديجيتال»؟"
+        },
+        "answer": {
+          "en": "Kharmoush",
+          "ar": "خرموش"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-246",
+      "category": "ayam-tayebeen",
+      "series": "Digimon Adventure",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026). The owner asked for theme-song facts; areq names her for parts 1 and 2.",
+      "sources": [
+        "https://areq.net/m/أبطال_الديجيتال.html"
+      ],
+      "position": 45,
+      "afterHash": "ad5d6a0f5fdd2e960b1be19c3026af7e977cf9bd6bf70e693682f84d3451313e",
+      "card": {
+        "id": "ayt-246",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Digimon Adventure",
+          "ar": "أبطال الديجيتال"
+        },
+        "question": {
+          "en": "Which Syrian singer sang the Arabic theme song of Digimon Adventure?",
+          "ar": "مَن المطربة السورية التي غنّت شارة «أبطال الديجيتال» بالعربية؟"
+        },
+        "answer": {
+          "en": "Sonia Bitar",
+          "ar": "سونيا بيطار"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-247",
+      "category": "ayam-tayebeen",
+      "series": "Digimon Adventure",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026). Arabic-dub fact.",
+      "sources": [
+        "https://3rabica.org/دبلجة_أبطال_الديجيتال_(الجزء_الأول)"
+      ],
+      "position": 46,
+      "afterHash": "cbbadf72bc77dc5328807cafa8abd44db1819b6814f7f1c48d75e7ce54381e91",
+      "card": {
+        "id": "ayt-247",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Digimon Adventure",
+          "ar": "أبطال الديجيتال"
+        },
+        "question": {
+          "en": "The Arabic dub of Digimon Adventure renamed Odaiba, the children's home district. What did it call it?",
+          "ar": "غيّرت الدبلجة العربية من «أبطال الديجيتال» اسم أودايبا، الحيّ الذي يسكنه الأطفال. ما الاسم الذي أطلقته عليه؟"
+        },
+        "answer": {
+          "en": "The New City",
+          "ar": "المدينة الجديدة"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-248",
+      "category": "ayam-tayebeen",
+      "series": "Digimon Adventure",
+      "reason": "New series for Spacetoon Classics (owner decision, 25 Oct 2026). Arabic-dub fact.",
+      "sources": [
+        "https://3rabica.org/دبلجة_أبطال_الديجيتال_(الجزء_الأول)"
+      ],
+      "position": 47,
+      "afterHash": "9f39612a371139c1b4522d547c2ee30c783849af02a95c367fcfa0185da92b9d",
+      "card": {
+        "id": "ayt-248",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Digimon Adventure",
+          "ar": "أبطال الديجيتال"
+        },
+        "question": {
+          "en": "In the Arabic dub of Digimon Adventure, what was the Server continent renamed?",
+          "ar": "في «أبطال الديجيتال»، ما الاسم الذي أطلقته الدبلجة العربية على قارة سيرفر؟"
+        },
+        "answer": {
+          "en": "The Land of Sapphire (Ard al-Yaqut)",
+          "ar": "أرض الياقوت"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-249",
+      "category": "ayam-tayebeen",
+      "series": "Sindbad",
+      "reason": "Fourth new series for Spacetoon Classics, in place of Heidi (see the swap note). Spacetoon aired the series from 2000.",
+      "sources": [
+        "https://areq.net/m/مغامرات_سندباد.html",
+        "https://en.wikipedia.org/wiki/Arabian_Nights:_Sinbad%27s_Adventures"
+      ],
+      "position": 48,
+      "afterHash": "491016afeee9ec2db0cf731863798de156a81f14a6652690f44a7d7c25531fb3",
+      "card": {
+        "id": "ayt-249",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Sindbad",
+          "ar": "مغامرات سندباد"
+        },
+        "question": {
+          "en": "In Sindbad's Adventures, from which city does Sindbad set out on his journeys?",
+          "ar": "في «مغامرات سندباد»، من أيّ مدينة ينطلق سندباد في رحلاته؟"
+        },
+        "answer": {
+          "en": "Baghdad",
+          "ar": "بغداد"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-250",
+      "category": "ayam-tayebeen",
+      "series": "Sindbad",
+      "reason": "Fourth new series for Spacetoon Classics, in place of Heidi. Yasmina is the Arabic dub name.",
+      "sources": [
+        "https://areq.net/m/مغامرات_سندباد.html",
+        "https://3rabica.org/مغامرات_سندباد",
+        "https://en.wikipedia.org/wiki/Arabian_Nights:_Sinbad%27s_Adventures"
+      ],
+      "position": 49,
+      "afterHash": "bc5f9fbd73a70a5f1d0f8944d10ce2b83ccea6bf375612869cee32cd6dde6171",
+      "card": {
+        "id": "ayt-250",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Sindbad",
+          "ar": "مغامرات سندباد"
+        },
+        "question": {
+          "en": "In Sindbad's Adventures, what kind of creature is Yasmina, Sindbad's companion on his travels?",
+          "ar": "في «مغامرات سندباد»، أيّ مخلوق هي ياسمينة التي ترافق سندباد في رحلاته؟"
+        },
+        "answer": {
+          "en": "A talking bird",
+          "ar": "طائر يتكلم"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-251",
+      "category": "ayam-tayebeen",
+      "series": "Sindbad",
+      "reason": "Fourth new series for Spacetoon Classics, in place of Heidi.",
+      "sources": [
+        "https://areq.net/m/مغامرات_سندباد.html",
+        "https://en.wikipedia.org/wiki/Arabian_Nights:_Sinbad%27s_Adventures"
+      ],
+      "position": 50,
+      "afterHash": "a9e31437e65a682bdd42fd858047553270219fd953a9cc6f117b276c3fedb990",
+      "card": {
+        "id": "ayt-251",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Sindbad",
+          "ar": "مغامرات سندباد"
+        },
+        "question": {
+          "en": "In Sindbad's Adventures, which young former thief turns against the robbers and becomes Sindbad's friend?",
+          "ar": "في «مغامرات سندباد»، مَن الشاب الذي كان لصًّا ثم انقلب على اللصوص وصار صديقًا لسندباد؟"
+        },
+        "answer": {
+          "en": "Ali Baba",
+          "ar": "علي بابا"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-252",
+      "category": "ayam-tayebeen",
+      "series": "Sindbad",
+      "reason": "Fourth new series for Spacetoon Classics, in place of Heidi.",
+      "sources": [
+        "https://areq.net/m/مغامرات_سندباد.html",
+        "https://3rabica.org/مغامرات_سندباد"
+      ],
+      "position": 51,
+      "afterHash": "e771fff418e7df2725f86059f6d9f93ec6751384480b6b9cfbffd716f2fb598f",
+      "card": {
+        "id": "ayt-252",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Sindbad",
+          "ar": "مغامرات سندباد"
+        },
+        "question": {
+          "en": "In Sindbad's Adventures, which animal does Sindbad ride on his journeys over land?",
+          "ar": "في «مغامرات سندباد»، أيّ حيوان يركبه سندباد في رحلاته البرية؟"
+        },
+        "answer": {
+          "en": "A camel",
+          "ar": "الجمل"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-253",
+      "category": "ayam-tayebeen",
+      "series": "Sindbad",
+      "reason": "Fourth new series for Spacetoon Classics, in place of Heidi.",
+      "sources": [
+        "https://areq.net/m/مغامرات_سندباد.html",
+        "https://3rabica.org/مغامرات_سندباد",
+        "https://en.wikipedia.org/wiki/Arabian_Nights:_Sinbad%27s_Adventures"
+      ],
+      "position": 52,
+      "afterHash": "511aafc6567aff4815aff0eed66c0bd7a337613a6200d0c4f52f0a9fc54f260f",
+      "card": {
+        "id": "ayt-253",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Sindbad",
+          "ar": "مغامرات سندباد"
+        },
+        "question": {
+          "en": "In Sindbad's Adventures, who was Yasmina really, before a spell changed her?",
+          "ar": "في «مغامرات سندباد»، مَن كانت ياسمينة في الحقيقة قبل أن يصيبها السحر؟"
+        },
+        "answer": {
+          "en": "A princess",
+          "ar": "أميرة"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-254",
+      "category": "ayam-tayebeen",
+      "series": "Sindbad",
+      "reason": "Fourth new series for Spacetoon Classics, in place of Heidi. Fun twist: the series makes Aladdin an old man.",
+      "sources": [
+        "https://areq.net/m/مغامرات_سندباد.html",
+        "https://en.wikipedia.org/wiki/Arabian_Nights:_Sinbad%27s_Adventures"
+      ],
+      "position": 53,
+      "afterHash": "88cf4c4d91c0b1478a1635196b8e1c10ab8e7d1667bd1d6695aec21cee2ac6d3",
+      "card": {
+        "id": "ayt-254",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Sindbad",
+          "ar": "مغامرات سندباد"
+        },
+        "question": {
+          "en": "In Sindbad's Adventures, which famous Arabian Nights name belongs to the old man who joins Sindbad's travels?",
+          "ar": "في «مغامرات سندباد»، ما اسم الشيخ العجوز المحب للمغامرة الذي ينضم إلى رحلات سندباد؟"
+        },
+        "answer": {
+          "en": "Aladdin",
+          "ar": "علاء الدين"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-255",
+      "category": "ayam-tayebeen",
+      "series": "Sindbad",
+      "reason": "Fourth new series for Spacetoon Classics, in place of Heidi.",
+      "sources": [
+        "https://3rabica.org/مغامرات_سندباد",
+        "https://en.wikipedia.org/wiki/Arabian_Nights:_Sinbad%27s_Adventures"
+      ],
+      "position": 54,
+      "afterHash": "832101f9f322224e8f187dd14f032429efa19ad78fb79ee3ab8adfd3868e9133",
+      "card": {
+        "id": "ayt-255",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Sindbad",
+          "ar": "مغامرات سندباد"
+        },
+        "question": {
+          "en": "In Sindbad's Adventures, which relative's tales of faraway lands inspire young Sindbad to go adventuring?",
+          "ar": "في «مغامرات سندباد»، أيّ أقارب سندباد ألهمته حكاياته عن البلاد البعيدة حبَّ المغامرة؟"
+        },
+        "answer": {
+          "en": "His uncle",
+          "ar": "عمّه"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-256",
+      "category": "ayam-tayebeen",
+      "series": "Sindbad",
+      "reason": "Fourth new series for Spacetoon Classics, in place of Heidi.",
+      "sources": [
+        "https://areq.net/m/مغامرات_سندباد.html",
+        "https://en.wikipedia.org/wiki/Arabian_Nights:_Sinbad%27s_Adventures"
+      ],
+      "position": 55,
+      "afterHash": "85834180c4a3f5aef305a0d883642261cb260be303ce2e9fe39db32cd1541e11",
+      "card": {
+        "id": "ayt-256",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Sindbad",
+          "ar": "مغامرات سندباد"
+        },
+        "question": {
+          "en": "In Sindbad's Adventures, what is the job of Sindbad's father?",
+          "ar": "في «مغامرات سندباد»، ما مهنة والد سندباد؟"
+        },
+        "answer": {
+          "en": "A merchant",
+          "ar": "تاجر"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-257",
+      "category": "ayam-tayebeen",
+      "series": "Sindbad",
+      "reason": "Fourth new series for Spacetoon Classics, in place of Heidi.",
+      "sources": [
+        "https://areq.net/m/مغامرات_سندباد.html",
+        "https://en.wikipedia.org/wiki/Arabian_Nights:_Sinbad%27s_Adventures"
+      ],
+      "position": 56,
+      "afterHash": "875819ca2992e648e70ec813c5f066e11548c75487c59766348718dba8b2694c",
+      "card": {
+        "id": "ayt-257",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Sindbad",
+          "ar": "مغامرات سندباد"
+        },
+        "question": {
+          "en": "In Sindbad's Adventures, which flying object is said to be woven from the hair of a thousand sorcerers?",
+          "ar": "في «مغامرات سندباد»، ما الشيء الطائر الذي يُقال إنه مصنوع من شعر ألف ساحر؟"
+        },
+        "answer": {
+          "en": "A flying carpet",
+          "ar": "بساط الريح"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-258",
+      "category": "ayam-tayebeen",
+      "series": "Sindbad",
+      "reason": "Fourth new series for Spacetoon Classics, in place of Heidi. Arabic dub name.",
+      "sources": [
+        "https://areq.net/m/مغامرات_سندباد.html",
+        "https://3rabica.org/مغامرات_سندباد"
+      ],
+      "position": 57,
+      "afterHash": "1ab0df41d612655ed3c74925607f54cbed2dc16237568136ca4f07f6936236ff",
+      "card": {
+        "id": "ayt-258",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Sindbad",
+          "ar": "مغامرات سندباد"
+        },
+        "question": {
+          "en": "In Sindbad's Adventures, who is the main villain whose defeat finally breaks all the spells?",
+          "ar": "في «مغامرات سندباد»، مَن الشرير الأكبر الذي تزول كل التعاويذ بهزيمته؟"
+        },
+        "answer": {
+          "en": "The Blue Chief (the Blue Ifrit)",
+          "ar": "الزعيم الأزرق (العفريت الأزرق)"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-259",
+      "category": "ayam-tayebeen",
+      "series": "Sindbad",
+      "reason": "Fourth new series for Spacetoon Classics, in place of Heidi.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Arabian_Nights:_Sinbad%27s_Adventures"
+      ],
+      "position": 58,
+      "afterHash": "93a8c698e8a9ab51f9e5fcf2d50696ce5ca193fdb051430e96e6be40fb30b3af",
+      "card": {
+        "id": "ayt-259",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Sindbad",
+          "ar": "مغامرات سندباد"
+        },
+        "question": {
+          "en": "In Sindbad's Adventures, what did Aladdin once own, before losing it many years ago?",
+          "ar": "في «مغامرات سندباد»، ماذا كان يملك علاء الدين قبل أن يفقده منذ سنوات طويلة؟"
+        },
+        "answer": {
+          "en": "A magic lamp with a genie",
+          "ar": "مصباح سحري فيه جنّي"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-260",
+      "category": "ayam-tayebeen",
+      "series": "Sindbad",
+      "reason": "Fourth new series for Spacetoon Classics, in place of Heidi.",
+      "sources": [
+        "https://areq.net/m/مغامرات_سندباد.html",
+        "https://3rabica.org/مغامرات_سندباد",
+        "https://en.wikipedia.org/wiki/Arabian_Nights:_Sinbad%27s_Adventures"
+      ],
+      "position": 59,
+      "afterHash": "37f2b94ea12f3707c0b476dad450b859970f5162e7f8237257f669ceb1201bc7",
+      "card": {
+        "id": "ayt-260",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Sindbad",
+          "ar": "مغامرات سندباد"
+        },
+        "question": {
+          "en": "In Sindbad's Adventures, what is the name of the leader of the robbers?",
+          "ar": "في «مغامرات سندباد»، ما اسم زعيم اللصوص؟"
+        },
+        "answer": {
+          "en": "Bulba (Balba in the original)",
+          "ar": "بولبا"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-261",
+      "category": "ayam-tayebeen",
+      "series": "Sindbad",
+      "reason": "Fourth new series for Spacetoon Classics, in place of Heidi. Arabic-dub name.",
+      "sources": [
+        "https://areq.net/m/مغامرات_سندباد.html",
+        "https://3rabica.org/مغامرات_سندباد"
+      ],
+      "position": 60,
+      "afterHash": "6775aa2876adf0c43efdcc6f91e6dfd7b7cf3ae627bc3bc16546e43d94689e15",
+      "card": {
+        "id": "ayt-261",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Sindbad",
+          "ar": "مغامرات سندباد"
+        },
+        "question": {
+          "en": "In Sindbad's Adventures, what is Sindbad's father called in the Arabic dub?",
+          "ar": "في «مغامرات سندباد»، ما اسم والد سندباد في النسخة العربية؟"
+        },
+        "answer": {
+          "en": "Haytham",
+          "ar": "هيثم"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-262",
+      "category": "ayam-tayebeen",
+      "series": "Sindbad",
+      "reason": "Fourth new series for Spacetoon Classics, in place of Heidi.",
+      "sources": [
+        "https://areq.net/m/مغامرات_سندباد.html",
+        "https://3rabica.org/مغامرات_سندباد"
+      ],
+      "position": 61,
+      "afterHash": "19ed39a0b6aa68792e63babcb9054c33d78a7493352400e416fa5c8772dd97f7",
+      "card": {
+        "id": "ayt-262",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Sindbad",
+          "ar": "مغامرات سندباد"
+        },
+        "question": {
+          "en": "In Sindbad's Adventures, what did the sorcerers turn Yasmina's parents into?",
+          "ar": "في «مغامرات سندباد»، إلى ماذا حوّل المشعوذون والدَي ياسمينة؟"
+        },
+        "answer": {
+          "en": "Two white eagles",
+          "ar": "نسرين أبيضين"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-263",
+      "category": "ayam-tayebeen",
+      "series": "Sindbad",
+      "reason": "Fourth new series for Spacetoon Classics, in place of Heidi. A memorable villain detail.",
+      "sources": [
+        "https://areq.net/m/مغامرات_سندباد.html",
+        "https://3rabica.org/مغامرات_سندباد"
+      ],
+      "position": 62,
+      "afterHash": "398ca2428985fb2e84a9f39716a41068bb5f463c5486beec00d460c9a9d3a177",
+      "card": {
+        "id": "ayt-263",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Sindbad",
+          "ar": "مغامرات سندباد"
+        },
+        "question": {
+          "en": "In Sindbad's Adventures, what is strange about the shadow of the sorceress Zughl?",
+          "ar": "في «مغامرات سندباد»، ما الغريب في ظلّ الساحرة زغل؟"
+        },
+        "answer": {
+          "en": "It is the shadow of a cow",
+          "ar": "إنه ظلّ بقرة"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "ayt-264",
+      "category": "ayam-tayebeen",
+      "series": "Sindbad",
+      "reason": "Fourth new series for Spacetoon Classics, in place of Heidi. A funny weakness fans remember.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Arabian_Nights:_Sinbad%27s_Adventures"
+      ],
+      "position": 63,
+      "afterHash": "40176508de66a7759d260163514333fb9b2922f1ed855a8eecd014d3996ef270",
+      "card": {
+        "id": "ayt-264",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Sindbad",
+          "ar": "مغامرات سندباد"
+        },
+        "question": {
+          "en": "In Sindbad's Adventures, what is the old witch most afraid of?",
+          "ar": "في «مغامرات سندباد»، ممّ تخاف الساحرة العجوز أكثر من أيّ شيء؟"
+        },
+        "answer": {
+          "en": "Mice",
+          "ar": "الفئران"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "kids-riddles-031",
+      "category": "kids-riddles",
+      "reason": "New easy regional riddle; opens the small Animals & Nature subtopic, which the kids riddles lacked.",
+      "sources": [],
+      "position": 30,
+      "afterHash": "6210387a004bd8ba11e391e958fe1e68cac76a216f8bc337e56e769efe74b2bd",
+      "card": {
+        "id": "kids-riddles-031",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Animals & Nature",
+          "ar": "الحيوانات والطبيعة"
+        },
+        "question": {
+          "en": "I grow tall in hot deserts, wear a crown of long leaves, and give you sweet brown fruit. What am I?",
+          "ar": "أنمو عاليةً في الصحراء الحارة، وأضع تاجًا من الأوراق الطويلة، وأقدّم لك ثمرًا حلوًا بنّيّ اللون. ما أنا؟"
+        },
+        "answer": {
+          "en": "A date palm.",
+          "ar": "النخلة."
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "kids-riddles-032",
+      "category": "kids-riddles",
+      "reason": "New medium riddle that teaches a real fact. Wording changed from \"sleep\" to \"rest\": NOAA says most fish have no eyelids and rest rather than sleep as mammals do.",
+      "sources": [
+        "https://oceanservice.noaa.gov/facts/fish-sleep.html"
+      ],
+      "position": 31,
+      "afterHash": "a25eb8d6bf1fce0ee5bef2fdafbd91505fff0dccfccda6636127fd9fe5b8c1fb",
+      "card": {
+        "id": "kids-riddles-032",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Animals & Nature",
+          "ar": "الحيوانات والطبيعة"
+        },
+        "question": {
+          "en": "I have no eyelids, so I rest with my eyes open, and I breathe through gills. What am I?",
+          "ar": "ليس لي جفون، فأستريح وعيناي مفتوحتان، وأتنفّس بالخياشيم. ما أنا؟"
+        },
+        "answer": {
+          "en": "A fish.",
+          "ar": "السمكة."
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "kids-riddles-033",
+      "category": "kids-riddles",
+      "reason": "New medium traditional Arabic riddle (it carries heavy loads but cannot carry a nail) that also teaches floating and sinking.",
+      "sources": [],
+      "position": 32,
+      "afterHash": "0b18a92fb89106c957b3a731f2d4f865eecbf3f9847dbe9a3025ee77452c34ab",
+      "card": {
+        "id": "kids-riddles-033",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Animals & Nature",
+          "ar": "الحيوانات والطبيعة"
+        },
+        "question": {
+          "en": "I can carry a giant ship on my back, but I can't hold up a tiny nail. What am I?",
+          "ar": "أحمل على ظهري سفينة ضخمة، لكنني لا أستطيع أن أحمل مسمارًا صغيرًا. ما أنا؟"
+        },
+        "answer": {
+          "en": "The sea: ships float on it, but a nail sinks.",
+          "ar": "البحر: تطفو عليه السفينة، ويغرق فيه المسمار."
+        },
+        "acceptedAnswers": {
+          "en": [
+            "The sea",
+            "Water"
+          ],
+          "ar": [
+            "البحر",
+            "الماء"
+          ]
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "kids-riddles-034",
+      "category": "kids-riddles",
+      "reason": "New medium trick question that teaches why the Moon has phases. Answer shortened so it stays concise.",
+      "sources": [
+        "https://science.nasa.gov/moon/moon-phases/"
+      ],
+      "position": 33,
+      "afterHash": "aeddf90ee784a2befda805abb1f9ab0371ddfdf0328aa9b6b01caeb150051da0",
+      "card": {
+        "id": "kids-riddles-034",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Time, Space & Directions",
+          "ar": "الوقت والفضاء والاتجاهات"
+        },
+        "question": {
+          "en": "Which is heavier: the full moon or a thin crescent moon?",
+          "ar": "أيّهما أثقل: القمر حين يكون بدرًا، أم حين يكون هلالًا رفيعًا؟"
+        },
+        "answer": {
+          "en": "Neither: it is the same Moon, lit differently by the Sun.",
+          "ar": "لا أحد منهما: إنه القمر نفسه، لكن الشمس تضيء منه جزءًا مختلفًا."
+        },
+        "acceptedAnswers": {
+          "en": [
+            "Neither",
+            "They weigh the same"
+          ],
+          "ar": [
+            "لا أحد منهما",
+            "وزنهما واحد"
+          ]
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "kids-riddles-035",
+      "category": "kids-riddles",
+      "reason": "New medium regional riddle. The phase-2 clue \"the fastest animal when I dive\" was dropped because animal-kingdom (ani-43) already asks which bird of prey is the fastest animal; the clue now uses the falconer's gloved arm instead.",
+      "sources": [
+        "https://ich.unesco.org/en/RL/falconry-a-living-human-heritage-01708"
+      ],
+      "position": 34,
+      "afterHash": "7120b97dbd4ebe4179fb217be4323021d44ed7ae5375924d8f9cc17df6b9925b",
+      "card": {
+        "id": "kids-riddles-035",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Animals & Nature",
+          "ar": "الحيوانات والطبيعة"
+        },
+        "question": {
+          "en": "I have a hooked beak and very sharp eyes. In the Gulf, people carry me on a gloved arm and train me to hunt. What am I?",
+          "ar": "لي منقار معقوف وعينان حادّتان جدًا. في الخليج يحملني الناس على ذراع تلبس قفازًا، ويدرّبونني على الصيد. ما أنا؟"
+        },
+        "answer": {
+          "en": "A falcon.",
+          "ar": "الصقر."
+        },
+        "acceptedAnswers": {
+          "en": [
+            "Falcon",
+            "Peregrine falcon"
+          ],
+          "ar": [
+            "الصقر",
+            "الشاهين"
+          ]
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "kids-riddles-036",
+      "category": "kids-riddles",
+      "reason": "New medium trick riddle for children. Reworded so the farmer heaps all the hay together, which makes the single-pile answer fair.",
+      "sources": [],
+      "position": 35,
+      "afterHash": "a2fb3119846a1c0d88370dfac626e28546fdf3ce596adcdf04daec05323bbb29",
+      "card": {
+        "id": "kids-riddles-036",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Numbers & Counting",
+          "ar": "الأعداد والعد"
+        },
+        "question": {
+          "en": "A farmer has 5 haystacks in one field and 4 in another. He heaps all the hay together in one field. How many haystacks does he have now?",
+          "ar": "لدى مزارع 5 أكوام من القش في حقل، و4 أكوام في حقل آخر. جمع القش كله معًا في حقل واحد. كم كومة لديه الآن؟"
+        },
+        "answer": {
+          "en": "One big haystack.",
+          "ar": "كومة واحدة كبيرة."
+        },
+        "acceptedAnswers": {
+          "en": [
+            "One",
+            "1"
+          ],
+          "ar": [
+            "واحدة",
+            "1"
+          ]
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "kids-riddles-037",
+      "category": "kids-riddles",
+      "reason": "New hard classic trick riddle for children.",
+      "sources": [],
+      "position": 36,
+      "afterHash": "548aa92560edf2a7e6078eb657d8ad25ac9f27c6a46d593fce3ab396f7fd2f8c",
+      "card": {
+        "id": "kids-riddles-037",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Wordplay & Classic Riddles",
+          "ar": "التلاعب بالكلمات والألغاز الكلاسيكية"
+        },
+        "question": {
+          "en": "A basket holds 5 apples. Five children each take one apple, yet one apple is still in the basket. How?",
+          "ar": "في سلّة 5 تفاحات. أخذ كل طفل من خمسة أطفال تفاحة واحدة، ومع ذلك بقيت تفاحة في السلّة. كيف؟"
+        },
+        "answer": {
+          "en": "The last child took the basket with the apple still inside.",
+          "ar": "أخذ الطفل الأخير السلّة وتفاحته ما زالت فيها."
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "kids-riddles-038",
+      "category": "kids-riddles",
+      "reason": "New hard counting puzzle for children (5 girls and 1 shared brother).",
+      "sources": [],
+      "position": 37,
+      "afterHash": "6a96036fa8432c47903092ba063372d4d2d2a0dafe64adc7709883a3f4a75f68",
+      "card": {
+        "id": "kids-riddles-038",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Numbers & Counting",
+          "ar": "الأعداد والعد"
+        },
+        "question": {
+          "en": "Sara has 4 sisters, and each of her sisters has 1 brother. How many children are in the family?",
+          "ar": "لسارة 4 أخوات، ولكل واحدة من أخواتها أخ واحد. كم طفلًا في العائلة؟"
+        },
+        "answer": {
+          "en": "6: five girls and one boy, who is brother to them all.",
+          "ar": "6: خمس بنات وولد واحد هو أخو الجميع."
+        },
+        "acceptedAnswers": {
+          "en": [
+            "6"
+          ],
+          "ar": [
+            "6"
+          ]
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "kids-riddles-039",
+      "category": "kids-riddles",
+      "reason": "New hard spatial puzzle for children (2 × 2 × 2 = 8; most children first say 2 or 4).",
+      "sources": [],
+      "position": 38,
+      "afterHash": "77205264504b578addab0bbea82e82af81e5dc80733eaa6e4a25ccc4d8b9154e",
+      "card": {
+        "id": "kids-riddles-039",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Logic, Codes & Patterns",
+          "ar": "المنطق والشفرات والأنماط"
+        },
+        "question": {
+          "en": "How many small 1 cm cubes do you need to build one bigger cube with 2 cm sides?",
+          "ar": "كم مكعبًا صغيرًا طول ضلعه 1 سم تحتاج لتبني مكعبًا أكبر طول ضلعه 2 سم؟"
+        },
+        "answer": {
+          "en": "8: two layers of four cubes.",
+          "ar": "8: طبقتان، في كل منهما 4 مكعبات."
+        },
+        "acceptedAnswers": {
+          "en": [
+            "8"
+          ],
+          "ar": [
+            "8"
+          ]
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "kids-riddles-040",
+      "category": "kids-riddles",
+      "reason": "New hard pattern puzzle for children.",
+      "sources": [],
+      "position": 39,
+      "afterHash": "dfe9f0889e46439ec60eb8f55978cf7a77f8a891bcfa12b062d0dada6cf5ddfc",
+      "card": {
+        "id": "kids-riddles-040",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Time, Space & Directions",
+          "ar": "الوقت والفضاء والاتجاهات"
+        },
+        "question": {
+          "en": "What comes next: Monday, Wednesday, Friday, …?",
+          "ar": "ما اليوم التالي في هذا التسلسل: الاثنين، الأربعاء، الجمعة، …؟"
+        },
+        "answer": {
+          "en": "Sunday: the pattern skips one day each time.",
+          "ar": "الأحد: نتخطّى يومًا واحدًا في كل مرة."
+        },
+        "acceptedAnswers": {
+          "en": [
+            "Sunday"
+          ],
+          "ar": [
+            "الأحد"
+          ]
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    }
+  ],
+  "unverified": [
+    {
+      "ids": [
+        "ayt-210"
+      ],
+      "note": "Kaito Kid's all-white outfit is his well-known look, but none of the opened pages states it; they confirm the dub names and that he announces each theft in advance."
+    },
+    {
+      "ids": [
+        "ayt-217",
+        "ayt-219",
+        "ayt-221",
+        "ayt-222",
+        "ayt-223",
+        "ayt-225",
+        "ayt-229",
+        "ayt-232"
+      ],
+      "note": "Hunter × Hunter questions call the exam «امتحان القنّاصين», after the dub's title «القناص»; the Arabic encyclopaedia pages write «امتحان الصيادين». The exact dub wording was not confirmed. It affects question wording only, not answers."
+    },
+    {
+      "ids": [
+        "ayt-224",
+        "ayt-228",
+        "ayt-225"
+      ],
+      "note": "Killua's chocolate, his yo-yos and Gon's giant fish are confirmed on the Hunter × Hunter wiki for the story in general; no opened page confirms that each scene appears in the 1999 series the Arabic dub used (62 episodes plus 8 OVA episodes)."
+    },
+    {
+      "ids": [
+        "ayt-230",
+        "ayt-232"
+      ],
+      "note": "The Arabic spellings كايت (Kite) and جزيرة الحوت (Whale Island) are translations; no opened page gives the dub's own forms."
+    },
+    {
+      "ids": [
+        "ayt-246"
+      ],
+      "note": "Sonia Bitar as the singer of the Arabic theme rests on one source (areq.net)."
+    },
+    {
+      "ids": [
+        "ayt-259",
+        "ayt-264"
+      ],
+      "note": "Aladdin's lost magic lamp and the old witch's fear of mice come from the English Wikipedia description of the original series (the witch is Tabasa there; the Arabic pages name an old witch ميساء). No opened page confirms that the Arabic dub keeps both details."
+    },
+    {
+      "ids": [
+        "ayt-262"
+      ],
+      "note": "The Arabic pages say «نسرين أبيضين»; نسر can mean eagle or vulture, and the English answer says eagles."
+    },
+    {
+      "ids": [
+        "ayt-249",
+        "ayt-250",
+        "ayt-251",
+        "ayt-252",
+        "ayt-253",
+        "ayt-254",
+        "ayt-255",
+        "ayt-256",
+        "ayt-257",
+        "ayt-258",
+        "ayt-259",
+        "ayt-260",
+        "ayt-261",
+        "ayt-262",
+        "ayt-263",
+        "ayt-264"
+      ],
+      "note": "Spacetoon's broadcast of Sindbad (2000–2014) rests on Wikipedia's list of Spacetoon programmes; the Arabic pages say only that several Arab stations aired the dub."
+    }
+  ]
+}

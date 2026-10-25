@@ -481,7 +481,7 @@ for (const category of catalog.categories || []) {
     }
   }
 }
-if (cardCount !== 3_564) fail(`question bank: expected 3,564 cards, found ${cardCount}`);
+if (cardCount !== 3_638) fail(`question bank: expected 3,638 cards, found ${cardCount}`);
 
 if (failures.length) {
   console.error(`Bilingual validation failed with ${failures.length} issue(s):`);

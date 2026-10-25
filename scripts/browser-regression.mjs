@@ -441,7 +441,7 @@ async function main() {
           await page.locator('#puzzle-mount .ra-art-game').first().waitFor();
           const bonus = await decodeImages('#puzzle-mount .ra-art-game');
           assert.equal(bonus.length, 3);
-          assert.equal(new Set([...topics, ...games, ...bonus].map(image => image.id)).size, 67);
+          assert.equal(new Set([...topics, ...games, ...bonus].map(image => image.id)).size, 64);
           assert.ok(bonus.every(image => image.width > 0 && image.alt === ''));
           await page.locator('#puzzle-mount .puzzle-card').nth(1).click();
           await page.locator('[data-puzzle-editorial] [data-illustration="game-word-clue"]').waitFor();

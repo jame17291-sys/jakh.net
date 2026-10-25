@@ -30,7 +30,7 @@ function primaryLinks(html) {
 }
 
 test('Arabic directory has localized status before the application hydrates', () => {
-  assert.match(read('ar/mind-lab/index.html'), /id="directoryResultsLabel"[^>]*>51 موضوعًا في 5 أقسام\.<\/p>/u);
+  assert.match(read('ar/mind-lab/index.html'), /id="directoryResultsLabel"[^>]*>48 موضوعًا في 5 أقسام\.<\/p>/u);
 });
 
 test('lazy-rendered cards reserve block height without an oversized intrinsic width', () => {
@@ -257,7 +257,7 @@ test('topic pages prioritize practice and collapse optional filters without dupl
       assert.doesNotMatch(html, /id="categoryImage"|id="categoryBanner"/u, file);
       if (slug === 'tv-shows-trivia') {
         assert.match(html, /data-tv="mixed"/u, `${file}: immediate quiz entry`);
-        assert.equal((html.match(/data-tv="play-show"/gu) || []).length, 10, `${file}: all shows visible`);
+        assert.equal((html.match(/data-tv="play-show"/gu) || []).length, 9, `${file}: all shows visible`);
         assert.ok(html.indexOf('data-tv="mixed"') < html.indexOf('data-tv="practice"'), `${file}: solo precedes practice`);
         assert.doesNotMatch(html, /class="question-filters"/u, `${file}: detailed filters belong in practice`);
         continue;

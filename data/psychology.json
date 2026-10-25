@@ -1898,5 +1898,24 @@
     "review": {
       "status": "pending"
     }
+  },
+  {
+    "id": "world-habits-and-etiquette-047",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Personality & Emotion",
+      "ar": "الشخصية والانفعال"
+    },
+    "question": {
+      "en": "What are emotional display rules?",
+      "ar": "شو هي «قواعد إظهار المشاعر»؟"
+    },
+    "answer": {
+      "en": "Social expectations about when, where and how emotions are expressed. They can differ between settings within the same society.",
+      "ar": "توقعات اجتماعية تحدد متى وأين وكيف تُظهر المشاعر. وقد تختلف بين المواقف داخل المجتمع نفسه."
+    },
+    "review": {
+      "status": "pending"
+    }
   }
 ]

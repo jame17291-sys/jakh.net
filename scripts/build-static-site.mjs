@@ -829,13 +829,18 @@ export function assertPublicProjection(artifactBytes, { publication, quarantine 
         !/\b56\s+(?:(?:clear|quiz)\s+)?(?:topics|categories)\b|\b56-topic\b|56\s+(?:موضوع(?:اً|ًا)?|فئة)(?![\p{L}\p{M}\p{N}])/iu.test(source),
         `retired public category count 56 leaked into ${relativePath}`,
       );
+      // 51 public topics before the 2026-10-25 topic merges.
+      invariant(
+        !/\b51\s+(?:(?:clear|quiz|public)\s+)?(?:topics|categories)\b|\b51-topic\b|(?<![\p{N}])51\s+(?:موضوع(?:اً|ًا)?|فئة)(?![\p{L}\p{M}\p{N}])/iu.test(source),
+        `retired public category count 51 leaked into ${relativePath}`,
+      );
     }
     if (relativePath.endsWith("privacy.html") || relativePath.endsWith("privacy/index.html")) {
       invariant(!/GitHub Pages serves the public website|تعرض GitHub Pages الموقع العام/iu.test(source), `retired hosting claim leaked into ${relativePath}`);
     }
   }
-  invariant(publication.publicCategories === 51, `public category contract changed from 51 to ${publication.publicCategories}`);
-  invariant(publication.publicQuestions === 3_798, `public question contract changed from 3798 to ${publication.publicQuestions}`);
+  invariant(publication.publicCategories === 48, `public category contract changed from 48 to ${publication.publicCategories}`);
+  invariant(publication.publicQuestions === 3_704, `public question contract changed from 3704 to ${publication.publicQuestions}`);
   invariant(quarantine.manifest.totalCards === 278, "production quarantine contract changed from 278 cards");
 }
 

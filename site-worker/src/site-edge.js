@@ -3,6 +3,15 @@ import {
   normalizeRetiredSeoRoute,
   RETIRED_SEO_ROUTE_REDIRECTS,
 } from "./seo-route-migrations.js";
+import {
+  arabicTopicPath,
+  englishTopicPath,
+  movedCardRouteTarget,
+  movedCardTopics,
+  retiredTopicRedirectPairs,
+  retiredTopicRouteTarget,
+  retiredTvShowTarget,
+} from "./topic-route-migrations.js";
 import { legacyPuzzleTarget, isPuzzleStateURL } from "../../puzzle-routes.js";
 
 const APEX_HOST = "riddlearabia.com";
@@ -472,7 +481,9 @@ function retiredSeoPaginationTarget(siteManifest, pathname) {
 
 export function retiredSeoRedirectTarget(siteManifest, pathname) {
   const normalized = normalizeRetiredSeoRoute(pathname);
-  return directRetiredSeoRouteTarget(normalized) || retiredSeoPaginationTarget(siteManifest, normalized);
+  return directRetiredSeoRouteTarget(normalized)
+    || retiredTopicRouteTarget(normalized)
+    || retiredSeoPaginationTarget(siteManifest, normalized);
 }
 
 export function canonicalRedirect(siteManifest, requestUrl) {
@@ -489,7 +500,8 @@ export function canonicalRedirect(siteManifest, requestUrl) {
     target.port = "";
     changed = true;
   }
-  const retiredSeoTarget = retiredSeoRedirectTarget(siteManifest, target.pathname);
+  const movedCardTarget = movedCardRouteTarget(normalizeRetiredSeoRoute(target.pathname), target.searchParams.get("card"));
+  const retiredSeoTarget = movedCardTarget || retiredSeoRedirectTarget(siteManifest, target.pathname);
   if (retiredSeoTarget) {
     target.pathname = retiredSeoTarget;
     changed = true;
@@ -499,6 +511,8 @@ export function canonicalRedirect(siteManifest, requestUrl) {
     target.pathname = aliasTarget;
     changed = true;
   }
+  const retiredShowTarget = retiredTvShowTarget(target);
+  if (retiredShowTarget) return retiredShowTarget;
   const puzzleTarget = legacyPuzzleTarget(target);
   if (puzzleTarget && siteManifest.routes[puzzleTarget.pathname]) return puzzleTarget;
   return changed ? target : null;
@@ -556,10 +570,10 @@ function validateManifest(siteManifest) {
   );
   invariant(siteManifest.publication?.state === "safety-quarantine-active", "Production publication quarantine is not active");
   invariant(/^[a-f0-9]{64}$/u.test(siteManifest.publication.policySha256 || ""), "Invalid publication policy digest");
-  invariant(siteManifest.publication.fullQuestions === 4_076, "Invalid full publication corpus total");
-  invariant(siteManifest.publication.publicQuestions === 3_798, "Invalid public publication corpus total");
+  invariant(siteManifest.publication.fullQuestions === 3_982, "Invalid full publication corpus total");
+  invariant(siteManifest.publication.publicQuestions === 3_704, "Invalid public publication corpus total");
   invariant(siteManifest.publication.quarantinedQuestions === 278, "Invalid quarantined publication total");
-  invariant(siteManifest.publication.publicCategories === 51, "Invalid public category total");
+  invariant(siteManifest.publication.publicCategories === 48, "Invalid public category total");
   invariant(
     Array.isArray(siteManifest.publication.quarantinedCategories)
       && siteManifest.publication.quarantinedCategories.length === 5
@@ -577,6 +591,21 @@ function validateManifest(siteManifest) {
       Boolean(siteManifest.routes[to]),
       `Retired SEO redirect target is absent from release routes: ${from} -> ${to}`,
     );
+  }
+  for (const { from, to } of retiredTopicRedirectPairs()) {
+    invariant(
+      Boolean(siteManifest.routes[to]),
+      `Retired topic redirect target is absent from release routes: ${from} -> ${to}`,
+    );
+    invariant(
+      !siteManifest.routes[from] && !siteManifest.aliases[from],
+      `Retired topic route is still in the release graph: ${from}`,
+    );
+  }
+  for (const slug of movedCardTopics()) {
+    for (const route of [englishTopicPath(slug), arabicTopicPath(slug)]) {
+      invariant(Boolean(siteManifest.routes[route]), `Moved card topic is absent from release routes: ${route}`);
+    }
   }
   for (const path of Object.keys(siteManifest.files)) {
     invariant(!isQuarantinedPath(siteManifest, path), `Quarantined path is present in site files: ${path}`);

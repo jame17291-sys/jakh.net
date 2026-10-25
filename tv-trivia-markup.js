@@ -1,6 +1,10 @@
 import { SHOWS } from './tv-trivia-engine.js';
 import { COPY } from './tv-trivia-copy.js';
 import { AR_COUNT, arabicCount } from './arabic-count.js';
+const AR_SHOWS = Object.freeze({ one: 'مسلسل واحد', two: 'مسلسلان', few: 'مسلسلات', many: 'مسلسلًا', other: 'مسلسل' });
+// The landing page counts the shows the game actually offers.
+export const showCountLabel = (lang = 'en') => COPY[lang].showCount.replace('{shows}',
+  lang === 'ar' ? arabicCount(SHOWS.length, AR_SHOWS) : `${SHOWS.length} ${SHOWS.length === 1 ? 'show' : 'shows'}`);
 export const escape = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 
 export function landingMarkup(lang = 'en', ready = false, counts = {}) {
@@ -15,7 +19,7 @@ export function landingMarkup(lang = 'en', ready = false, counts = {}) {
     </section>
     <div id="tvMessage" role="status" aria-live="polite">${ready ? '' : t.loading}</div>
     <section id="tvShows" class="tv-show-section" aria-labelledby="tvShowsTitle" tabindex="-1">
-      <div class="tv-section-heading"><div><h2 id="tvShowsTitle">${t.shows}</h2><p>${t.showsIntro}</p></div><span class="tv-small">${t.showCount}</span></div>
+      <div class="tv-section-heading"><div><h2 id="tvShowsTitle">${t.shows}</h2><p>${t.showsIntro}</p></div><span class="tv-small">${showCountLabel(lang)}</span></div>
       <div class="tv-show-grid">${SHOWS.map((s, i) => `<article class="tv-show-card">
         <button class="tv-show-play" data-tv="play-show" data-show="${s.id}" ${disabled} aria-label="${escape(`${t.play}: ${s[lang]}`)}">
           <img src="/assets/tv/${s.id}-600.webp" srcset="/assets/tv/${s.id}-360.webp 360w, /assets/tv/${s.id}-600.webp 600w" sizes="(max-width: 700px) calc(50vw - 28px), (max-width: 1000px) 30vw, 280px" width="600" height="400" alt="" loading="${i < 4 ? 'eager' : 'lazy'}" decoding="async" />

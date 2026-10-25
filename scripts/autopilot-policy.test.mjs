@@ -6,7 +6,7 @@ const change = (overrides = {}) => ({ path: 'ar/topics/science/index.html', chan
 
 test('the explicit reviewed allowlist covers generated outputs without directory wildcards', () => {
   assert.equal(new Set(GENERATED_OUTPUTS).size, GENERATED_OUTPUTS.length);
-  assert.equal(CATEGORY_SLUGS.length, 56);
+  assert.equal(CATEGORY_SLUGS.length, 53);
   for (const name of ['admin.html', 'admin.js', 'index.html', 'play.html', 'worker/src/index.ts', '.github/workflows/daily.yml', 'scripts/autopilot-policy.mjs', 'data/science.json', 'ar/admin/index.html', 'ar/topics/science/extra.html']) {
     assert.throws(() => assertAllowedChanges([change({ path: name })]), /Not an approved/);
   }

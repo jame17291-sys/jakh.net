@@ -6,7 +6,7 @@ import {
   reservePasswordRecheckSlot,
   sessionUser,
 } from "./db.js";
-import { canonicalStatus, getCardIndex, isPublicCard, validateCard } from "./catalog.js";
+import { canonicalStatus, getCardIndex, publicCardCategory, validateCard } from "./catalog.js";
 import {
   PRODUCTION_QUARANTINE_MANIFEST_SHA256,
   QUARANTINED_CATEGORY_IDS,
@@ -610,12 +610,14 @@ export async function profile(request: Request, env: Env): Promise<Response> {
   ]);
   // Preserve held rows in D1 for account export/deletion, but do not return
   // them to the interactive public profile while their content is quarantined.
-  const progress = progressResult.results.filter(
-    (item) => isPublicCard(item.cardId, item.categoryId),
-  );
-  const favorites = favoritesResult.results.filter(
-    (item) => isPublicCard(item.cardId, item.categoryId),
-  );
+  // A card moved by a recorded topic merge keeps its id and is reported under
+  // its current topic, so saved progress and favourites follow it.
+  const currentTopic = (items: Record<string, unknown>[]): Record<string, unknown>[] => items.flatMap((item) => {
+    const categoryId = publicCardCategory(item.cardId, item.categoryId);
+    return categoryId ? [{ ...item, categoryId }] : [];
+  });
+  const progress = currentTopic(progressResult.results);
+  const favorites = currentTopic(favoritesResult.results);
   return json({
     id: user.id,
     username: user.username,
@@ -813,7 +815,7 @@ export async function saveProgress(request: Request, env: Env): Promise<Response
       status = excluded.status,
       first_correct_at = COALESCE(progress.first_correct_at, excluded.first_correct_at),
       updated_at = excluded.updated_at`,
-  ).bind(user.id, cardId, categoryId, status, correctAt, timestamp, timestamp).run();
+  ).bind(user.id, cardId, card.categoryId, status, correctAt, timestamp, timestamp).run();
   return json({ success: true });
 }
 
@@ -846,12 +848,12 @@ export async function favorite(request: Request, env: Env): Promise<Response> {
 
   if (action === "add") {
     const categoryId = normalizeCategory(body.categoryId);
-    await validateCard(env, cardId, categoryId);
+    const card = await validateCard(env, cardId, categoryId);
     await env.DB.prepare(
       `INSERT INTO favorites (user_id, card_id, category_id, created_at)
        VALUES (?, ?, ?, ?)
        ON CONFLICT(user_id, card_id) DO UPDATE SET category_id = excluded.category_id`,
-    ).bind(user.id, cardId, categoryId, now()).run();
+    ).bind(user.id, cardId, card.categoryId, now()).run();
   } else {
     await env.DB.prepare("DELETE FROM favorites WHERE user_id = ? AND card_id = ?").bind(user.id, cardId).run();
   }
@@ -903,7 +905,7 @@ export async function syncUserData(request: Request, env: Env): Promise<Response
     const card = await validateCard(env, cardId, categoryId);
     progress.set(cardId, {
       cardId,
-      categoryId,
+      categoryId: card.categoryId,
       status: canonicalStatus(raw.status, card.difficulty),
     });
   }
@@ -913,8 +915,8 @@ export async function syncUserData(request: Request, env: Env): Promise<Response
     if (!raw || typeof raw !== "object") throw new ApiError(400, "Invalid favorite item");
     const cardId = normalizeCardId(raw.cardId);
     const categoryId = normalizeCategory(raw.categoryId);
-    await validateCard(env, cardId, categoryId);
-    favorites.set(cardId, { cardId, categoryId });
+    const card = await validateCard(env, cardId, categoryId);
+    favorites.set(cardId, { cardId, categoryId: card.categoryId });
   }
 
   const statements: D1PreparedStatement[] = [];

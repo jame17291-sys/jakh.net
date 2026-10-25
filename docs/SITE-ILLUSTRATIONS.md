@@ -2,7 +2,7 @@
 
 Riddle Arabia uses a coordinated warm wood, brass, ivory, and amber illustration
 collection. The 22 original illustrations are joined by 68 new designs: one for
-each of the 51 public topics and 17 additional game entries. Four existing game
+each of the 48 public topics and 17 additional game entries. Four existing game
 illustrations remain assigned exclusively to Akshifha, chess, Backgammon, and
 Quick Fire. All 72 topic/game assignments use different images.
 
@@ -61,7 +61,7 @@ instructions, evidence, or answers. Logical CSS properties follow RTL.
 Canonical category SVGs and their existing validation remain intact. The image
 validator checks every public topic assignment, game assignment, duplicate file
 hashes, responsive files, and bilingual source markup. Directory tests also
-check that interactive rendering retains all 51 distinct pictures. Static
+check that interactive rendering retains all 48 distinct pictures. Static
 builds use tracked files, so new image files must be staged before a local build.
 
 ## Validation and release

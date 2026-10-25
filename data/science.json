@@ -874,25 +874,6 @@
     }
   },
   {
-    "id": "science-048",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Chemistry & Materials",
-      "ar": "الكيمياء والمواد"
-    },
-    "question": {
-      "en": "How is the molarity of a solution defined?",
-      "ar": "كيف نعرّف التركيز المولاري للمحلول؟"
-    },
-    "answer": {
-      "en": "Moles of solute per litre of solution.",
-      "ar": "عدد مولات المذاب في كل لتر من المحلول."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "science-049",
     "difficulty": "medium",
     "subcategory": {
@@ -906,25 +887,6 @@
     "answer": {
       "en": "About 400–700 nanometres; the limits of human vision vary and are not sharp cutoffs.",
       "ar": "نحو 400–700 نانومتر؛ حدود الرؤية البشرية متغيرة وليست فواصل حادة."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-050",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Biology & Life Sciences",
-      "ar": "الأحياء وعلوم الحياة"
-    },
-    "question": {
-      "en": "During which stage of mitosis do chromosomes line up at the cell's equator?",
-      "ar": "بأي مرحلة من الانقسام المتساوي تصطف الكروموسومات على خط استواء الخلية؟"
-    },
-    "answer": {
-      "en": "Metaphase.",
-      "ar": "الطور الاستوائي."
     },
     "review": {
       "status": "pending"
@@ -988,25 +950,6 @@
     }
   },
   {
-    "id": "science-054",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Chemistry & Materials",
-      "ar": "الكيمياء والمواد"
-    },
-    "question": {
-      "en": "What is the usual oxidation number of oxygen in compounds?",
-      "ar": "كم عدد التأكسد المعتاد للأكسجين بالمركّبات؟"
-    },
-    "answer": {
-      "en": "−2. Important exceptions include peroxides, superoxides, and compounds bonded to fluorine.",
-      "ar": "−2. ومن الاستثناءات المهمة فوق الأكاسيد والأكاسيد الفائقة ومركبات الأكسجين مع الفلور."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "science-055",
     "difficulty": "medium",
     "subcategory": {
@@ -1045,25 +988,6 @@
     }
   },
   {
-    "id": "science-057",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Chemistry & Materials",
-      "ar": "الكيمياء والمواد"
-    },
-    "question": {
-      "en": "What does an empirical formula show?",
-      "ar": "شو اللي تبيّنه «الصيغة الأولية» للمركّب؟"
-    },
-    "answer": {
-      "en": "The simplest whole-number ratio of atoms of each element in a compound.",
-      "ar": "أبسط نسبة عددية صحيحة بين ذرات كل عنصر في المركب."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "science-058",
     "difficulty": "medium",
     "subcategory": {
@@ -1077,25 +1001,6 @@
     "answer": {
       "en": "Rayleigh scattering: molecules in the atmosphere scatter shorter visible wavelengths more strongly than longer ones.",
       "ar": "بسبب تشتت رايلي؛ فجزيئات الغلاف الجوي تشتت الأطوال الموجية المرئية القصيرة أكثر من الطويلة."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-059",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Biology & Life Sciences",
-      "ar": "الأحياء وعلوم الحياة"
-    },
-    "question": {
-      "en": "What is the role of a chromosome's centromere during cell division?",
-      "ar": "خلال انقسام الخلية، شو دور «السنترومير» بالكروموسوم؟"
-    },
-    "answer": {
-      "en": "It holds sister chromatids together and forms the region where the kinetochore assembles for spindle attachment.",
-      "ar": "يبقي الكروماتيدين الشقيقين متصلين، ويكوّن منطقة تجمّع الكينيتوكور لارتباط خيوط المغزل."
     },
     "review": {
       "status": "pending"
@@ -1140,44 +1045,6 @@
     }
   },
   {
-    "id": "science-062",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Biology & Life Sciences",
-      "ar": "الأحياء وعلوم الحياة"
-    },
-    "question": {
-      "en": "What is the Hardy-Weinberg equilibrium used for?",
-      "ar": "ليش نستخدم «توازن هاردي-واينبرغ»؟"
-    },
-    "answer": {
-      "en": "It provides a non-evolving reference model: allele frequencies remain constant, and expected genotype frequencies can be calculated from them under the model's assumptions.",
-      "ar": "يوفر نموذجاً مرجعياً لجماعة لا تتطور: تبقى تكرارات الأليلات ثابتة، ويمكن حساب تكرارات الأنماط الجينية المتوقعة منها وفق افتراضات النموذج."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-063",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Chemistry & Materials",
-      "ar": "الكيمياء والمواد"
-    },
-    "question": {
-      "en": "What is the hybridization of each carbon atom in ethene, C₂H₄?",
-      "ar": "في الإيثين C₂H₄، شو نوع تهجين كل ذرة كربون؟"
-    },
-    "answer": {
-      "en": "sp². Each carbon forms three sigma bonds and contributes one unhybridized p orbital to the pi bond.",
-      "ar": "sp². تكوّن كل ذرة كربون ثلاث روابط سيغما، ويسهم مدار p غير مهجّن في رابطة باي."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "science-064",
     "difficulty": "hard",
     "subcategory": {
@@ -1197,44 +1064,6 @@
     }
   },
   {
-    "id": "science-065",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Biology & Life Sciences",
-      "ar": "الأحياء وعلوم الحياة"
-    },
-    "question": {
-      "en": "Which enzyme separates the two DNA strands at the replication fork?",
-      "ar": "أي إنزيم يفصل شريطَي DNA عند شوكة التضاعف؟"
-    },
-    "answer": {
-      "en": "Helicase",
-      "ar": "الهيليكاز"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-066",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Chemistry & Materials",
-      "ar": "الكيمياء والمواد"
-    },
-    "question": {
-      "en": "What is the Aufbau principle?",
-      "ar": "شو هو «مبدأ أوفباو»؟"
-    },
-    "answer": {
-      "en": "Electrons fill orbitals in order of increasing energy levels",
-      "ar": "تملأ الإلكترونات المدارات بترتيب تصاعدي لمستويات الطاقة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "science-067",
     "difficulty": "hard",
     "subcategory": {
@@ -1248,25 +1077,6 @@
     "answer": {
       "en": "Photon",
       "ar": "الفوتون"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-068",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Biology & Life Sciences",
-      "ar": "الأحياء وعلوم الحياة"
-    },
-    "question": {
-      "en": "What is the function of the hypothalamus in the brain?",
-      "ar": "شو وظيفة «تحت المهاد» (الهايبوثالاموس) بالدماغ؟"
-    },
-    "answer": {
-      "en": "Regulates body temperature, hunger, thirst, and hormone release",
-      "ar": "ينظّم درجة حرارة الجسم والجوع والعطش وإفراز الهرمونات"
     },
     "review": {
       "status": "pending"
@@ -1368,25 +1178,6 @@
     }
   },
   {
-    "id": "science-075",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Chemistry & Materials",
-      "ar": "الكيمياء والمواد"
-    },
-    "question": {
-      "en": "What is the common-ion effect?",
-      "ar": "شو هو «تأثير الأيون المشترك»؟"
-    },
-    "answer": {
-      "en": "Adding an ion already present in an equilibrium suppresses the ionization of a weak electrolyte or reduces the solubility of a sparingly soluble salt.",
-      "ar": "إضافة أيون موجود أصلاً في الاتزان تقلل تأين إلكتروليت ضعيف أو تقلل ذوبانية ملح قليل الذوبان."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "science-076",
     "difficulty": "very-advanced",
     "subcategory": {
@@ -1463,25 +1254,6 @@
     }
   },
   {
-    "id": "science-081",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Chemistry & Materials",
-      "ar": "الكيمياء والمواد"
-    },
-    "question": {
-      "en": "What is the Born–Haber cycle used to calculate?",
-      "ar": "شو اللي تساعد «دورة بورن–هابر» نحسبه؟"
-    },
-    "answer": {
-      "en": "To calculate lattice energy of ionic compounds using Hess's Law",
-      "ar": "لحساب طاقة الشبكة البلورية للمركبات الأيونية باستخدام قانون هيس"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "science-082",
     "difficulty": "medium",
     "subcategory": {
@@ -1520,63 +1292,6 @@
     }
   },
   {
-    "id": "science-087",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Chemistry & Materials",
-      "ar": "الكيمياء والمواد"
-    },
-    "question": {
-      "en": "What is the difference between S_N1 and S_N2 reactions?",
-      "ar": "شو الفرق بين تفاعلات SN1 وSN2؟"
-    },
-    "answer": {
-      "en": "SN1 is unimolecular (two steps, carbocation intermediate); SN2 is bimolecular (one step, inversion)",
-      "ar": "SN1 أحادية الجزيء (خطوتان، وسيط الكربوكاتيون)؛ SN2 ثنائية الجزيء (خطوة واحدة، انعكاس)"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-089",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Biology & Life Sciences",
-      "ar": "الأحياء وعلوم الحياة"
-    },
-    "question": {
-      "en": "What information is stored in the spacer sequences of a bacterial CRISPR array?",
-      "ar": "شو المعلومات المحفوظة بـ«تسلسلات الفواصل» داخل مصفوفة CRISPR بالبكتيريا؟"
-    },
-    "answer": {
-      "en": "Fragments of genetic material from past invaders, such as bacteriophages, which guide sequence-specific immune defense.",
-      "ar": "قطع من المادة الوراثية لغزاة سابقين مثل العاثيات، وتوجّه دفاعاً مناعياً نوعياً للتسلسل."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-090",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Chemistry & Materials",
-      "ar": "الكيمياء والمواد"
-    },
-    "question": {
-      "en": "What is a zwitterion?",
-      "ar": "شو هو «الأيون ثنائي القطب» (زويتريون)؟"
-    },
-    "answer": {
-      "en": "A molecule with both positive and negative charges in different regions, with no net charge overall",
-      "ar": "جزيء يحمل شحنات موجبة وسالبة في مناطق مختلفة مع عدم وجود شحنة كلية"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "science-091",
     "difficulty": "very-advanced",
     "subcategory": {
@@ -1590,63 +1305,6 @@
     "answer": {
       "en": "No two fermions in the same quantum system can have the same quantum state simultaneously",
       "ar": "لا يمكن لفيرميونَين في نفس النظام الكمي أن يمتلكا نفس الحالة الكمية في آنٍ واحد"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-092",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Biology & Life Sciences",
-      "ar": "الأحياء وعلوم الحياة"
-    },
-    "question": {
-      "en": "What is the complement system in immunology?",
-      "ar": "في علم المناعة، شو هو «نظام المتمّم»؟"
-    },
-    "answer": {
-      "en": "A network of innate immune proteins that can mark pathogens, promote inflammation, and damage microbial membranes. Some activation pathways involve antibodies; others do not.",
-      "ar": "شبكة بروتينات من المناعة الفطرية تميّز الممرضات وتعزز الالتهاب وقد تتلف أغشيتها. تعتمد بعض مسارات تنشيطها على الأجسام المضادة، ولا تعتمد أخرى عليها."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-093",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Chemistry & Materials",
-      "ar": "الكيمياء والمواد"
-    },
-    "question": {
-      "en": "What is the molecular geometry of water (H₂O)?",
-      "ar": "شو الشكل الهندسي لجزيء المي (H₂O)؟"
-    },
-    "answer": {
-      "en": "Bent (angular), with a bond angle of approximately 104.5°",
-      "ar": "منحنٍ (زاوي)، بزاوية رابطة تبلغ نحو 104.5°"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-095",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Biology & Life Sciences",
-      "ar": "الأحياء وعلوم الحياة"
-    },
-    "question": {
-      "en": "What was the historical purpose of Koch's postulates in microbiology?",
-      "ar": "تاريخيًا، شو كان الهدف من «مسلّمات كوخ» بعلم الأحياء الدقيقة؟"
-    },
-    "answer": {
-      "en": "To establish evidence that a particular microorganism causes a particular disease. They are influential criteria, but not universally applicable to every pathogen.",
-      "ar": "تقديم أدلة على أن كائناً دقيقاً معيناً يسبب مرضاً معيناً. وهي معايير مهمة تاريخياً، لكنها لا تنطبق على كل ممرض بلا استثناء."
     },
     "review": {
       "status": "pending"
@@ -1704,6 +1362,215 @@
     "answer": {
       "en": "The expected light-speed difference caused by Earth's motion through a stationary luminiferous ether—the proposed ether wind.",
       "ar": "الفرق المتوقع في سرعة الضوء بسبب حركة الأرض عبر أثير ضوئي ساكن، أي رياح الأثير المفترضة."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-001",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Waves, Light & Sound",
+      "ar": "الموجات والضوء والصوت"
+    },
+    "question": {
+      "en": "What is the speed of light in a vacuum?",
+      "ar": "كم سرعة الضوء في الفراغ؟"
+    },
+    "answer": {
+      "en": "Approximately 300,000 km/s (299,792,458 m/s).",
+      "ar": "حوالي 300,000 كيلومتر في الثانية (299,792,458 م/ث)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-005",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Waves, Light & Sound",
+      "ar": "الموجات والضوء والصوت"
+    },
+    "question": {
+      "en": "How are the frequency f and period T of a repeating wave related?",
+      "ar": "شو العلاقة بين تردد الموجة الدورية f وزمنها الدوري T؟"
+    },
+    "answer": {
+      "en": "They are reciprocals: f = 1/T. A longer period therefore means a lower frequency.",
+      "ar": "كل منهما مقلوب الآخر: f = 1/T. لذلك يعني الزمن الدوري الأطول تردداً أقل."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-008",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Waves, Light & Sound",
+      "ar": "الموجات والضوء والصوت"
+    },
+    "question": {
+      "en": "Which type of lens brings parallel light rays to a focus?",
+      "ar": "أي نوع عدسات يجمع أشعة الضوء المتوازية في بؤرة؟"
+    },
+    "answer": {
+      "en": "A convex, or converging, lens.",
+      "ar": "العدسة المحدبة، وتسمى أيضاً العدسة المجمِّعة."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-024",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Mechanics & Classical Physics",
+      "ar": "الميكانيكا والفيزياء الكلاسيكية"
+    },
+    "question": {
+      "en": "An object of mass 2 kg accelerates at 3 m/s². What net force acts on it?",
+      "ar": "جسم كتلته 2 كغ يتسارع بـ3 م/ث². كم القوة المحصّلة عليه؟"
+    },
+    "answer": {
+      "en": "6 N, using F=ma=2×3.",
+      "ar": "6 نيوتن، وفق F=ma=2×3."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-028",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Heat & Energy",
+      "ar": "الحرارة والطاقة"
+    },
+    "question": {
+      "en": "What is the difference between nuclear fission and nuclear fusion?",
+      "ar": "شو الفرق بين الانشطار النووي والاندماج النووي؟"
+    },
+    "answer": {
+      "en": "Fission splits a heavy nucleus into smaller ones (used in nuclear reactors); fusion merges light nuclei into heavier ones (powers the Sun). Both release enormous energy.",
+      "ar": "الانشطار يُقسّم نواة ثقيلة إلى أنوية أصغر (كما في المفاعلات النووية)؛ والاندماج يدمج أنوية خفيفة في نواة أثقل (مصدر طاقة الشمس). كلاهما يُطلق طاقة هائلة."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-033",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Quantum, Relativity & Cosmology",
+      "ar": "الكم والنسبية وعلم الكون"
+    },
+    "question": {
+      "en": "What is wave-particle duality?",
+      "ar": "شو هي «ازدواجية الموجة والجسيم»؟"
+    },
+    "answer": {
+      "en": "Quantum objects (electrons, photons) exhibit both wave-like and particle-like behaviour depending on how they are observed. The double-slit experiment demonstrates this duality.",
+      "ar": "الأجسام الكمية (الإلكترونات، الفوتونات) تُظهر سلوك الموجة وسلوك الجسيم معاً بحسب طريقة رصدها. تجربة الشقين المزدوجين تُوضّح هذا الازدواج."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-037",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Quantum, Relativity & Cosmology",
+      "ar": "الكم والنسبية وعلم الكون"
+    },
+    "question": {
+      "en": "Why was the photoelectric effect important to the development of quantum theory?",
+      "ar": "ليش كان التأثير الكهروضوئي مهم بتطور نظرية الكم؟"
+    },
+    "answer": {
+      "en": "Electron emission depends on a threshold light frequency. Einstein explained it using light quanta with energy E=hf, where classical wave theory alone could not explain the observations.",
+      "ar": "يعتمد انبعاث الإلكترونات على تجاوز تردد الضوء قيمة عتبة. فسره أينشتاين بكمّات ضوئية طاقتها E=hf، بعدما عجزت النظرية الموجية الكلاسيكية وحدها عن تفسير المشاهدات."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-039",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Quantum, Relativity & Cosmology",
+      "ar": "الكم والنسبية وعلم الكون"
+    },
+    "question": {
+      "en": "Can measurements of entangled particles be used to send a controllable message faster than light?",
+      "ar": "هل نقدر نستخدم قياسات جسيمات متشابكة عشان نبعت رسالة نتحكم فيها أسرع من الضوء؟"
+    },
+    "answer": {
+      "en": "No. Entanglement produces nonclassical correlations, but comparing outcomes still requires ordinary communication subject to the light-speed limit.",
+      "ar": "لا. يولد التشابك ارتباطات غير كلاسيكية، لكن مقارنة النتائج تتطلب اتصالاً عادياً يخضع لحد سرعة الضوء."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-042",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Quantum, Relativity & Cosmology",
+      "ar": "الكم والنسبية وعلم الكون"
+    },
+    "question": {
+      "en": "Which bosons mediate the electromagnetic, weak, and strong interactions in the Standard Model?",
+      "ar": "في النموذج المعياري، شو البوزونات اللي تنقل التفاعلات الكهرومغناطيسية والضعيفة والقوية؟"
+    },
+    "answer": {
+      "en": "The photon mediates electromagnetism, W and Z bosons the weak interaction, and gluons the strong interaction. The Higgs boson is a separate scalar particle.",
+      "ar": "الفوتون للتآثر الكهرومغناطيسي، وبوزونات W وZ للتآثر الضعيف، والغلوونات للتآثر القوي. أما بوزون هيغز فجسيم قياسي منفصل عنها."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-045",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Quantum, Relativity & Cosmology",
+      "ar": "الكم والنسبية وعلم الكون"
+    },
+    "question": {
+      "en": "What is the key difference between special and general relativity in their treatment of spacetime and gravity?",
+      "ar": "شو الفرق الأساسي بين النسبية الخاصة والنسبية العامة في وصف الزمكان والجاذبية؟"
+    },
+    "answer": {
+      "en": "Special relativity describes physics in flat spacetime, including accelerated motion. General relativity describes gravity through curved spacetime shaped by mass-energy.",
+      "ar": "تصف النسبية الخاصة الفيزياء في زمكان مسطح، ويمكنها وصف الحركة المتسارعة أيضاً. وتصف النسبية العامة الجاذبية بانحناء الزمكان المرتبط بالكتلة والطاقة."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-048",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Quantum, Relativity & Cosmology",
+      "ar": "الكم والنسبية وعلم الكون"
+    },
+    "question": {
+      "en": "What characterizes a Bose–Einstein condensate in a dilute gas cooled to extremely low temperature?",
+      "ar": "شو الخاصية المميزة لـ«مكثّف بوز–أينشتاين» في غاز مخفّف انبرد لدرجة حرارة منخفضة جدًا؟"
+    },
+    "answer": {
+      "en": "A macroscopic fraction of the bosons occupies the same lowest-energy quantum state. Bosons have integer spin.",
+      "ar": "تشغل نسبة عيانية من البوزونات الحالة الكمية نفسها ذات أقل طاقة. والبوزونات جسيمات ذات لف مغزلي عدد صحيح."
     },
     "review": {
       "status": "pending"

@@ -6,7 +6,7 @@ import { auditProductionHygiene } from "./validate-production-hygiene.mjs";
 test("production remains free-tier compatible, clean, and media-consistent", () => {
   const report = auditProductionHygiene();
   assert.deepEqual(report.failures, []);
-  assert.equal(report.summary.categoryIllustrations, 56);
+  assert.equal(report.summary.categoryIllustrations, 53);
   assert.ok(report.summary.deployableFiles < 20_000);
   assert.ok(report.summary.workerCronTriggers <= 5);
   assert.equal(report.summary.wranglerVersion, "4.131.0");

@@ -960,6 +960,7 @@ test("published answer replacements score the new answer but never stale short a
       }));
       const rows = cards.map((card, index) => ({
         questionId: card.id,
+        categorySlug: "currencies",
         snapshotJson: JSON.stringify({
           question: card.question,
           answer: { en: `New term ${index}`, ar: `مصطلح جديد ${index}` },
@@ -986,6 +987,7 @@ test("a newly published long answer cannot stay scoreable through its old short 
   }));
   const rows = cards.map((card) => ({
     questionId: card.id,
+    categorySlug: "currencies",
     snapshotJson: JSON.stringify({
       question: card.question,
       answer: { en: "New explanatory answer ".repeat(10), ar: "إجابة تفسيرية جديدة ".repeat(10) },
@@ -1450,6 +1452,26 @@ test("global leaderboard filters legacy held scores and held category queries fa
       categoryId,
     );
   }
+});
+
+test("leaderboard scores from a topic retired by a merge show under the topic that absorbed it", async () => {
+  const database = new FakeDatabase();
+  database.leaderboardRows = [
+    { username: "coder", avatar: "💻", score: 10_000, categoryId: "coding-and-design", correctCount: 10, questionCount: 10 },
+    { username: "builder", avatar: "🏗️", score: 9_000, categoryId: "civil-engineering", correctCount: 9, questionCount: 10 },
+    { username: "scientist", avatar: "🔬", score: 8_000, categoryId: "physical-and-life-sciences", correctCount: 8, questionCount: 10 },
+    { username: "chemist", avatar: "⚗️", score: 7_000, categoryId: "chemistry", correctCount: 7, questionCount: 10 },
+  ];
+  const payload = await (await verifiedLeaderboard(
+    new Request("https://api.jakh.net/api/scores/verified/leaderboard"),
+    scoringEnv(database),
+  )).json();
+  assert.deepEqual(payload.leaderboard.map(({ categoryId }) => categoryId),
+    ["software-and-computing", "infrastructure-systems", "science", "chemistry"]);
+  await assert.rejects(
+    verifiedLeaderboard(new Request("https://api.jakh.net/api/scores/verified/leaderboard?category=coding-and-design"), scoringEnv(new FakeDatabase())),
+    (error) => error?.status === 400 && error?.code === "INVALID_CATEGORY",
+  );
 });
 
 function installEdgeCache(t, { failMatch = false, failPut = false } = {}) {

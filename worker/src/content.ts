@@ -1,3 +1,4 @@
+import { formerCategoriesOf, getCardIndex, wasCardCategory } from "./catalog.js";
 import { isQuarantinedCategory } from "./content-safety.js";
 import { ApiError, json } from "./http.js";
 import type { Env } from "./types.js";
@@ -6,9 +7,31 @@ const CATEGORY_PATTERN = /^[a-z0-9-]{2,64}$/u;
 
 interface PublishedContentRow {
   questionId: string;
+  categorySlug?: string;
   publishedVersion: number;
   snapshotJson: string;
   publishedAt: string;
+}
+
+// Published Content Studio rows keep the topic they were saved under. A card
+// moved by a recorded topic merge keeps its id, so its published edit follows
+// it to its current topic and no longer applies to the topic it left.
+async function publishedRows(env: Env, category: string): Promise<PublishedContentRow[]> {
+  const categories = [category, ...formerCategoriesOf(category)];
+  const rows = await env.DB.prepare(
+    `SELECT question_id AS questionId, category_slug AS categorySlug, published_version AS publishedVersion,
+            published_snapshot_json AS snapshotJson, published_at AS publishedAt
+       FROM content_question_edits
+      WHERE category_slug IN (${categories.map(() => "?").join(", ")}) AND published_snapshot_json IS NOT NULL
+      ORDER BY question_id ASC`,
+  ).bind(...categories).all<PublishedContentRow>();
+  const index = getCardIndex(env);
+  return rows.results.filter((row) => {
+    const current = index[row.questionId]?.[0];
+    if (!current) return row.categorySlug === category;
+    return current === category
+      && (row.categorySlug === category || wasCardCategory(row.questionId, row.categorySlug));
+  });
 }
 
 function sameBilingualText(left: unknown, right: unknown): boolean {
@@ -39,13 +62,8 @@ export async function applyPublishedContentOverrides<T extends {
   acceptedAnswers?: unknown;
 }>(env: Env, category: string, cards: T[]): Promise<T[]> {
   if (!await contentStudioIsReady(env)) return cards;
-  const rows = await env.DB.prepare(
-    `SELECT question_id AS questionId, published_version AS publishedVersion,
-            published_snapshot_json AS snapshotJson, published_at AS publishedAt
-       FROM content_question_edits
-      WHERE category_slug = ? AND published_snapshot_json IS NOT NULL`,
-  ).bind(category).all<PublishedContentRow>();
-  const overrides = new Map(rows.results.flatMap((row) => {
+  const rows = await publishedRows(env, category);
+  const overrides = new Map(rows.flatMap((row) => {
     try {
       return [[row.questionId, JSON.parse(row.snapshotJson) as Record<string, unknown>] as const];
     } catch {
@@ -91,17 +109,11 @@ export async function publishedContent(request: Request, env: Env): Promise<Resp
   if (!await contentStudioIsReady(env)) {
     return json({ category, overrides: [], schemaReady: false });
   }
-  const rows = await env.DB.prepare(
-    `SELECT question_id AS questionId, published_version AS publishedVersion,
-            published_snapshot_json AS snapshotJson, published_at AS publishedAt
-       FROM content_question_edits
-      WHERE category_slug = ? AND published_snapshot_json IS NOT NULL
-      ORDER BY question_id ASC`,
-  ).bind(category).all<PublishedContentRow>();
+  const rows = await publishedRows(env, category);
   return json({
     category,
     schemaReady: true,
-    overrides: rows.results.flatMap((row) => {
+    overrides: rows.flatMap((row) => {
       try {
         const snapshot = JSON.parse(row.snapshotJson) as Record<string, unknown>;
         return [{

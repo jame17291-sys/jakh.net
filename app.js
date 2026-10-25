@@ -103,9 +103,7 @@ const CATEGORY_COLORS = {
   'books-and-quotes': '#D4A455',
   'business-and-management': '#60A5FA',
   'chemistry': '#C084FC',
-  'civil-engineering': '#94A3B8',
   'classic-riddles': '#A78BFA',
-  'coding-and-design': '#38BDF8',
   'electrical-engineering': '#FBBF24',
   'flag-questions': '#F87171',
   'football': '#4ADE80',
@@ -118,7 +116,6 @@ const CATEGORY_COLORS = {
   'mechanical-engineering': '#94A3B8',
   'middle-east-history': '#F9A825',
   'philosophy': '#C084FC',
-  'physical-and-life-sciences': '#22D3EE',
   'psychology': '#A78BFA',
   'relationship-questions': '#FB7185',
   'science': '#22D3EE',
@@ -223,7 +220,7 @@ const UI = {
     dailyIntro: "Ten cards, ten different topics, all picked at random. Choose your level, guess each answer, then reveal it.",
     dailyTitle: "Shuffle Challenge",
     dailyLoading: "Shuffling the deck…",
-    directoryInitialSummary: "51 topics in 5 sections.",
+    directoryInitialSummary: "48 topics in 5 sections.",
     dailyNoScript: 'Turn on JavaScript to play, or <a href="/riddles">try the short riddles collection</a>.',
     playJoin: "Join with a room code",
     playBattle: "Choose a topic for Battle Room",
@@ -234,7 +231,7 @@ const UI = {
     homeFeatureText: "Two stages. One host. Eleven small mysteries to explore—connect two clues and see what follows.",
     homeFeatureTitle: "Featured: Akshifha",
     homeDailyCta: "Play Shuffle Challenge",
-    homeDailyText: "Ten random cards from all 51 topics. Pick your level, guess, then reveal each answer.",
+    homeDailyText: "Ten random cards from all 48 topics. Pick your level, guess, then reveal each answer.",
     homeDailyTitle: "Shuffle the whole library",
     homeCollectionTriviaTitle: "Arabic trivia & general knowledge",
     homeCollectionTriviaMeta: "Try eight questions in Arabic or English",
@@ -246,7 +243,7 @@ const UI = {
     homeKidsDescription: "480 activities for ages 3–12, in Arabic and English. Find ideas by age, time and materials, print an activity pack, or plan a playful week.",
     homeKidsCta: "Explore Kids Learning & Play",
     homeQuizCta: "Browse topics",
-    homeQuizText: "Browse trivia in Arabic and English across 51 topics, from science and history to culture and logic.",
+    homeQuizText: "Browse trivia in Arabic and English across 48 topics, from science and history to culture and logic.",
     homeQuizTitle: "Explore trivia & quizzes",
     homeSolveCta: "Start solving",
     homeSolveText: "Start with easy clues and work up to harder ones. Reveal each answer when you’re ready.",
@@ -348,7 +345,7 @@ const UI = {
     portalMindTag: 'Riddle Library',
     portalMindTitle: 'The Riddle Library',
     portalMindDesc: 'Explore questions made for a pause, a smile, and a little friendly debate. Reveal an answer, track your score, and keep discovering.',
-    portalMindStat: '51 topics',
+    portalMindStat: '48 topics',
     portalBilingualStat: 'English & Arabic',
     portalMindCta: 'Open the library →',
     portalGamesTag: 'Featured game',
@@ -642,7 +639,7 @@ const UI = {
     dailyIntro: "عشر بطاقات من عشرة مواضيع مختلفة، كلها مختارة عشوائيًا. اختر مستواك، وخمّن كل إجابة، ثم اكشفها.",
     dailyTitle: "تحدي الخلطة",
     dailyLoading: "جارٍ خلط البطاقات…",
-    directoryInitialSummary: "51 موضوعًا في 5 أقسام.",
+    directoryInitialSummary: "48 موضوعًا في 5 أقسام.",
     dailyNoScript: 'فعّل JavaScript لتلعب، أو <a href="/ar/alghaz/">جرّب مجموعة الألغاز القصيرة</a>.',
     playJoin: "انضم برمز الغرفة",
     playBattle: "اختر موضوعًا لغرفة المعركة",
@@ -653,7 +650,7 @@ const UI = {
     homeFeatureText: "فقرتان ومقدّمة واحدة. استكشف إحدى عشرة قضية قصيرة، واربط دليلين لتصل إلى النتيجة.",
     homeFeatureTitle: "اللعبة المميّزة: اكشفها",
     homeDailyCta: "العب تحدي الخلطة",
-    homeDailyText: "عشر بطاقات عشوائية من بين 51 موضوعًا. اختر مستواك، وخمّن، ثم اكشف كل إجابة.",
+    homeDailyText: "عشر بطاقات عشوائية من بين 48 موضوعًا. اختر مستواك، وخمّن، ثم اكشف كل إجابة.",
     homeDailyTitle: "اخلط المكتبة كلها",
     homeCollectionTriviaTitle: "أسئلة معلومات عامة مع الإجابات",
     homeCollectionTriviaMeta: "جرّب ثمانية أسئلة بالعربية أو الإنجليزية",
@@ -665,7 +662,7 @@ const UI = {
     homeKidsDescription: "480 نشاطًا للأعمار 3–12 بالعربية والإنجليزية. ابحث عن أفكار حسب العمر والوقت والمواد، أو اطبع حزمة أنشطة، أو خطّط لأسبوع مرح.",
     homeKidsCta: "استكشف عالم الأطفال: تعلّم والعب",
     homeQuizCta: "تصفّح المواضيع",
-    homeQuizText: "تصفّح أسئلة معلومات عامة بالعربية والإنجليزية في 51 موضوعاً، من العلوم والتاريخ إلى الثقافة والمنطق.",
+    homeQuizText: "تصفّح أسئلة معلومات عامة بالعربية والإنجليزية في 48 موضوعاً، من العلوم والتاريخ إلى الثقافة والمنطق.",
     homeQuizTitle: "استكشف الأسئلة الثقافية",
     homeSolveCta: "ابدأ الحل",
     homeSolveText: "ابدأ بألغاز سهلة ثم انتقل إلى الأصعب، واعرض الإجابة عندما تكون مستعدًا.",
@@ -767,7 +764,7 @@ const UI = {
     portalMindTag: 'مكتبة الألغاز',
     portalMindTitle: 'مكتبة الألغاز',
     portalMindDesc: 'استكشف أسئلة صُممت للتأمل والابتسام والنقاش الودّي. شاهد الإجابة وتابع نتيجتك واستمر في الاكتشاف.',
-    portalMindStat: '51 موضوعًا',
+    portalMindStat: '48 موضوعًا',
     portalBilingualStat: 'العربية والإنجليزية',
     portalMindCta: 'افتح المكتبة ←',
     portalGamesTag: 'اللعبة المميّزة',
@@ -2008,8 +2005,8 @@ function updateDocumentTitle() {
         ? 'ألغاز وأسئلة معلومات عامة وثقافية | ريدل أرابيا'
         : 'Riddles, Trivia & Quizzes in Arabic & English | Riddle Arabia';
       description = state.lang === 'ar'
-        ? 'تصفّح ألغازاً وأسئلة معلومات عامة بالعربية والإنجليزية في 51 موضوعاً، من العلوم والتاريخ إلى الثقافة والمنطق. اختر سؤالك وخمّن ثم اعرض الإجابة.'
-        : 'Explore riddles and trivia in Arabic and English across 51 topics. Choose science, history, culture or logic, guess the answer, and play at your own pace.';
+        ? 'تصفّح ألغازاً وأسئلة معلومات عامة بالعربية والإنجليزية في 48 موضوعاً، من العلوم والتاريخ إلى الثقافة والمنطق. اختر سؤالك وخمّن ثم اعرض الإجابة.'
+        : 'Explore riddles and trivia in Arabic and English across 48 topics. Choose science, history, culture or logic, guess the answer, and play at your own pace.';
     } else {
       title = state.lang === 'ar'
         ? 'ألغاز عربية وأسئلة معلومات عامة وألعاب | ريدل أرابيا'

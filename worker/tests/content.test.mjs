@@ -28,6 +28,7 @@ function contentEnv(schema, rows = []) {
 
 const publishedRow = {
   questionId: "science-003",
+  categorySlug: "science",
   publishedVersion: 2,
   snapshotJson: JSON.stringify({
     question: { en: "What change turns a gas into a liquid?", ar: "ما اسم تحوّل الغاز إلى سائل؟" },
@@ -163,4 +164,38 @@ test("public content overrides reject invalid and quarantined categories", async
     () => publishedContent(new Request(`https://api.jakh.net/api/content/questions?category=${held}`), contentEnv("9")),
     (error) => error?.status === 410 && error?.code === "CATEGORY_UNAVAILABLE",
   );
+});
+
+test("a published edit saved under a moved card's former topic follows the card to its current topic", async () => {
+  const snapshot = JSON.parse(publishedRow.snapshotJson);
+  const rows = [
+    { ...publishedRow, questionId: "science-048", categorySlug: "science" },
+    { ...publishedRow, questionId: "chemistry-001", categorySlug: "chemistry" },
+    { ...publishedRow, questionId: "science-001", categorySlug: "chemistry" },
+  ];
+  const queries = [];
+  const env = {
+    DB: {
+      prepare(sql) {
+        if (sql.includes("schema_meta")) return { async first() { return { value: "9" }; } };
+        return {
+          bind(...categories) {
+            queries.push(categories);
+            return { async all() { return { results: rows.filter((row) => categories.includes(row.categorySlug)) }; } };
+          },
+        };
+      },
+    },
+  };
+  const chemistry = [{ id: "science-048", question: { en: "Q", ar: "س" }, answer: { en: "A", ar: "ج" } },
+    { id: "chemistry-001", question: { en: "Q", ar: "س" }, answer: { en: "A", ar: "ج" } }];
+  const applied = await applyPublishedContentOverrides(env, "chemistry", chemistry);
+  assert.deepEqual(queries.at(-1), ["chemistry", "physical-and-life-sciences", "science"]);
+  assert.deepEqual(applied.map((card) => card.answer.en), [snapshot.answer.en, snapshot.answer.en]);
+
+  const response = await publishedContent(new Request("https://api.jakh.net/api/content/questions?category=science"), env);
+  const payload = await response.json();
+  // science-048 now lives in chemistry; a row naming a topic a card never had is ignored.
+  assert.deepEqual(payload.overrides.map((override) => override.id), []);
+  assert.deepEqual(queries.at(-1), ["science", "physical-and-life-sciences"]);
 });

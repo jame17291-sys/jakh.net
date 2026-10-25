@@ -22,7 +22,7 @@ All successful states exit 0. A generator error, dirty checkout, prohibited edit
 
 ## Reviewed repair scope
 
-The policy enumerates exact outputs for the current 56 categories, eight bilingual SEO experience pairs, shared Arabic routes, category illustrations, sitemap, search shards and catalog projection. There are no directory-wide wildcards. New categories or output types require a human-reviewed policy update.
+The policy enumerates exact outputs for the current 53 categories, eight bilingual SEO experience pairs, shared Arabic routes, category illustrations, sitemap, search shards and catalog projection. There are no directory-wide wildcards. New categories or output types require a human-reviewed policy update.
 
 Generators run in this order:
 

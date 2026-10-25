@@ -210,8 +210,8 @@ test("Arabic hubs keep shared, game, and topic navigation on clean Arabic paths"
   }
   const topicLinks = [...mindLab.matchAll(/class="category-card[^>]*href="(\/ar\/topics\/[^"/]+\/)"/gu)];
   // Source pages list every public topic, Kids Riddles included (re-listed 24 Oct 2026).
-  assert.equal(topicLinks.length, 56);
-  assert.equal(new Set(topicLinks.map((match) => match[1])).size, 56);
+  assert.equal(topicLinks.length, 53);
+  assert.equal(new Set(topicLinks.map((match) => match[1])).size, 53);
   assert.ok(topicLinks.some((match) => match[1] === "/ar/topics/kids-riddles/"));
   assert.doesNotMatch(mindLab, /class="category-card[^>]*href="\/(?!ar\/topics\/)/u);
 });

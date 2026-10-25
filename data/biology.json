@@ -608,25 +608,6 @@
     }
   },
   {
-    "id": "biology-033",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Animals & Classification",
-      "ar": "الحيوانات والتصنيف"
-    },
-    "question": {
-      "en": "What is the largest land animal?",
-      "ar": "شو أكبر حيوان بري؟"
-    },
-    "answer": {
-      "en": "The African elephant",
-      "ar": "الفيل الأفريقي"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "biology-034",
     "difficulty": "easy",
     "subcategory": {
@@ -678,25 +659,6 @@
     "answer": {
       "en": "DNA and RNA",
       "ar": "الحمض النووي DNA والحمض النووي الريبوزي RNA"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "biology-037",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Animals & Classification",
-      "ar": "الحيوانات والتصنيف"
-    },
-    "question": {
-      "en": "What is the fastest land animal?",
-      "ar": "شو أسرع حيوان بري؟"
-    },
-    "answer": {
-      "en": "The cheetah",
-      "ar": "الفهد السريع"
     },
     "review": {
       "status": "pending"
@@ -792,25 +754,6 @@
     "answer": {
       "en": "Vitamin D",
       "ar": "فيتامين D"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "biology-043",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Animals & Classification",
-      "ar": "الحيوانات والتصنيف"
-    },
-    "question": {
-      "en": "What is the largest animal on Earth?",
-      "ar": "شو أكبر حيوان على وجه الأرض؟"
-    },
-    "answer": {
-      "en": "The blue whale",
-      "ar": "الحوت الأزرق"
     },
     "review": {
       "status": "pending"
@@ -1875,6 +1818,329 @@
     "answer": {
       "en": "At low population density, individual fitness can increase as density increases. A strong Allee effect additionally creates a threshold below which population growth becomes negative.",
       "ar": "عند كثافة جماعة منخفضة قد ترتفع لياقة الفرد مع زيادة الكثافة. ويضيف تأثير أللي القوي عتبة يصبح نمو الجماعة دونها سالباً."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-002",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Microbiology & Immunity",
+      "ar": "الأحياء الدقيقة والمناعة"
+    },
+    "question": {
+      "en": "What region of a bacterial cell contains its chromosome?",
+      "ar": "وين موجود الكروموسوم في الخلية البكتيرية؟"
+    },
+    "answer": {
+      "en": "The nucleoid. Unlike a eukaryotic nucleus, it is not enclosed by a membrane.",
+      "ar": "منطقة النوكليويد (المنطقة النووية). وهي، بخلاف نواة الخلايا حقيقية النوى، غير محاطة بغشاء."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-004",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
+    },
+    "question": {
+      "en": "Which blood components form the initial plug that helps stop bleeding?",
+      "ar": "شو مكوّنات الدم اللي تعمل السدادة الأولى عشان توقف النزيف؟"
+    },
+    "answer": {
+      "en": "Platelets. They adhere to damaged blood vessels and aggregate to form a platelet plug.",
+      "ar": "الصفائح الدموية. تلتصق بموضع تلف الوعاء الدموي وتتجمع لتكوّن سدادة صفائحية."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-010",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Plant Biology",
+      "ar": "علم النبات"
+    },
+    "question": {
+      "en": "How do root hairs help a plant absorb water and minerals?",
+      "ar": "كيف الشعيرات الجذرية تساعد النبات يمتص المي والمعادن؟"
+    },
+    "answer": {
+      "en": "They greatly increase the root's surface area in contact with the soil.",
+      "ar": "تزيد بدرجة كبيرة مساحة سطح الجذر الملامسة للتربة."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-013",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
+    },
+    "question": {
+      "en": "Which molecule serves as the immediate energy currency of cells?",
+      "ar": "أي جزيء يعتبر «عملة الطاقة» الفورية في الخلايا؟"
+    },
+    "answer": {
+      "en": "ATP (adenosine triphosphate). Cells release usable energy when ATP is hydrolyzed.",
+      "ar": "ATP (أدينوسين ثلاثي الفوسفات). تحرر الخلايا طاقة قابلة للاستخدام عند تحلله مائياً."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-016",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
+    },
+    "question": {
+      "en": "Starting with one diploid cell, how do the usual chromosome numbers of mitosis and meiosis products differ?",
+      "ar": "إذا بدأنا بخلية ثنائية الصبغيات، كيف يختلف عدد الصبغيات المعتاد بين نواتج الانقسام المتساوي والانقسام الاختزالي؟"
+    },
+    "answer": {
+      "en": "Mitosis preserves diploidy; meiosis halves the chromosome number to produce haploid products. Not all meiotic products necessarily become functional gametes.",
+      "ar": "يحافظ الانقسام المتساوي على الصيغة الثنائية، بينما يخفض الانقسام الاختزالي عدد الكروموسومات إلى النصف لينتج خلايا أحادية الصيغة. ولا تتحول جميع نواتجه بالضرورة إلى أمشاج وظيفية."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-019",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Evolution",
+      "ar": "التطور"
+    },
+    "question": {
+      "en": "What is natural selection?",
+      "ar": "شو هو «الانتقاء الطبيعي»؟"
+    },
+    "answer": {
+      "en": "The process by which organisms with traits better suited to their environment survive and reproduce more successfully, driving evolution over generations.",
+      "ar": "العملية التي تجعل الكائنات ذات الصفات الأفضل ملاءمةً لبيئتها تنجح في البقاء والتكاثر أكثر من غيرها، مما يدفع التطور عبر الأجيال."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-023",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
+    },
+    "question": {
+      "en": "What is the role of ribosomes in the cell?",
+      "ar": "شو دور الريبوسومات في الخلية؟"
+    },
+    "answer": {
+      "en": "Ribosomes synthesize proteins by translating messenger RNA (mRNA) into amino acid chains.",
+      "ar": "الريبوسومات تصنع البروتينات عن طريق ترجمة الحمض النووي الريبوزي المرسال (mRNA) إلى سلاسل أحماض أمينية."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-032",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
+    },
+    "question": {
+      "en": "What is allosteric regulation of an enzyme?",
+      "ar": "شو هو «التنظيم الألوستيري» للإنزيم؟"
+    },
+    "answer": {
+      "en": "A regulator binds at a site other than the active site and changes the enzyme's activity by altering its shape.",
+      "ar": "ارتباط جزيء منظِّم بموقع غير الموقع النشط، فيغيّر شكل الإنزيم ونشاطه."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-035",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
+    },
+    "question": {
+      "en": "How does the CRISPR-Cas9 system work?",
+      "ar": "كيف يشتغل نظام CRISPR-Cas9؟"
+    },
+    "answer": {
+      "en": "A guide RNA (gRNA) directs the Cas9 protein to a specific DNA sequence, where Cas9 makes a double-strand cut. The cell's repair mechanisms can then delete, correct, or insert genes.",
+      "ar": "RNA دليل (gRNA) يوجّه بروتين Cas9 إلى تسلسل DNA محدد، حيث يُحدث Cas9 قطعاً مزدوجاً في الخيط. تستطيع آليات إصلاح الخلية حينئذٍ حذف جينات أو تصحيحها أو إدخال جينات جديدة."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-050",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
+    },
+    "question": {
+      "en": "During which stage of mitosis do chromosomes line up at the cell's equator?",
+      "ar": "بأي مرحلة من الانقسام المتساوي تصطف الكروموسومات على خط استواء الخلية؟"
+    },
+    "answer": {
+      "en": "Metaphase.",
+      "ar": "الطور الاستوائي."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-059",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
+    },
+    "question": {
+      "en": "What is the role of a chromosome's centromere during cell division?",
+      "ar": "خلال انقسام الخلية، شو دور «السنترومير» بالكروموسوم؟"
+    },
+    "answer": {
+      "en": "It holds sister chromatids together and forms the region where the kinetochore assembles for spindle attachment.",
+      "ar": "يبقي الكروماتيدين الشقيقين متصلين، ويكوّن منطقة تجمّع الكينيتوكور لارتباط خيوط المغزل."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-062",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Evolution",
+      "ar": "التطور"
+    },
+    "question": {
+      "en": "What is the Hardy-Weinberg equilibrium used for?",
+      "ar": "ليش نستخدم «توازن هاردي-واينبرغ»؟"
+    },
+    "answer": {
+      "en": "It provides a non-evolving reference model: allele frequencies remain constant, and expected genotype frequencies can be calculated from them under the model's assumptions.",
+      "ar": "يوفر نموذجاً مرجعياً لجماعة لا تتطور: تبقى تكرارات الأليلات ثابتة، ويمكن حساب تكرارات الأنماط الجينية المتوقعة منها وفق افتراضات النموذج."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-065",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
+    },
+    "question": {
+      "en": "Which enzyme separates the two DNA strands at the replication fork?",
+      "ar": "أي إنزيم يفصل شريطَي DNA عند شوكة التضاعف؟"
+    },
+    "answer": {
+      "en": "Helicase",
+      "ar": "الهيليكاز"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-068",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
+    },
+    "question": {
+      "en": "What is the function of the hypothalamus in the brain?",
+      "ar": "شو وظيفة «تحت المهاد» (الهايبوثالاموس) بالدماغ؟"
+    },
+    "answer": {
+      "en": "Regulates body temperature, hunger, thirst, and hormone release",
+      "ar": "ينظّم درجة حرارة الجسم والجوع والعطش وإفراز الهرمونات"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-089",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Microbiology & Immunity",
+      "ar": "الأحياء الدقيقة والمناعة"
+    },
+    "question": {
+      "en": "What information is stored in the spacer sequences of a bacterial CRISPR array?",
+      "ar": "شو المعلومات المحفوظة بـ«تسلسلات الفواصل» داخل مصفوفة CRISPR بالبكتيريا؟"
+    },
+    "answer": {
+      "en": "Fragments of genetic material from past invaders, such as bacteriophages, which guide sequence-specific immune defense.",
+      "ar": "قطع من المادة الوراثية لغزاة سابقين مثل العاثيات، وتوجّه دفاعاً مناعياً نوعياً للتسلسل."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-092",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Microbiology & Immunity",
+      "ar": "الأحياء الدقيقة والمناعة"
+    },
+    "question": {
+      "en": "What is the complement system in immunology?",
+      "ar": "في علم المناعة، شو هو «نظام المتمّم»؟"
+    },
+    "answer": {
+      "en": "A network of innate immune proteins that can mark pathogens, promote inflammation, and damage microbial membranes. Some activation pathways involve antibodies; others do not.",
+      "ar": "شبكة بروتينات من المناعة الفطرية تميّز الممرضات وتعزز الالتهاب وقد تتلف أغشيتها. تعتمد بعض مسارات تنشيطها على الأجسام المضادة، ولا تعتمد أخرى عليها."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-095",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Microbiology & Immunity",
+      "ar": "الأحياء الدقيقة والمناعة"
+    },
+    "question": {
+      "en": "What was the historical purpose of Koch's postulates in microbiology?",
+      "ar": "تاريخيًا، شو كان الهدف من «مسلّمات كوخ» بعلم الأحياء الدقيقة؟"
+    },
+    "answer": {
+      "en": "To establish evidence that a particular microorganism causes a particular disease. They are influential criteria, but not universally applicable to every pathogen.",
+      "ar": "تقديم أدلة على أن كائناً دقيقاً معيناً يسبب مرضاً معيناً. وهي معايير مهمة تاريخياً، لكنها لا تنطبق على كل ممرض بلا استثناء."
     },
     "review": {
       "status": "pending"

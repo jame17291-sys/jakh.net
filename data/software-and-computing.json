@@ -1132,5 +1132,575 @@
     "review": {
       "status": "pending"
     }
+  },
+  {
+    "id": "coding-and-design-001",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Web Development",
+      "ar": "تطوير الويب"
+    },
+    "question": {
+      "en": "What does HTML stand for?",
+      "ar": "شو معنى HTML؟"
+    },
+    "answer": {
+      "en": "HyperText Markup Language",
+      "ar": "لغة توصيف النص التشعبي"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-002",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Programming Fundamentals",
+      "ar": "أساسيات البرمجة"
+    },
+    "question": {
+      "en": "What is the term for an error or flaw in a computer program?",
+      "ar": "شو نسمّي الغلط أو العيب في برنامج الكمبيوتر؟"
+    },
+    "answer": {
+      "en": "A software bug.",
+      "ar": "خطأ برمجي."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-003",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Computer Science",
+      "ar": "علوم الحاسب"
+    },
+    "question": {
+      "en": "How many values (digits) are used in binary code?",
+      "ar": "كم قيمة يستخدمها النظام الثنائي؟"
+    },
+    "answer": {
+      "en": "Two: 0 and 1",
+      "ar": "اثنتان: 0 و 1"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-004",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Programming Fundamentals",
+      "ar": "أساسيات البرمجة"
+    },
+    "question": {
+      "en": "What programming construct repeats a block of code until a condition is met?",
+      "ar": "شو اسم البنية البرمجية اللي تكرر جزء من الكود لحد ما يتحقق شرط معيّن؟"
+    },
+    "answer": {
+      "en": "A loop",
+      "ar": "الحلقة التكرارية (Loop)"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-005",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Web Development",
+      "ar": "تطوير الويب"
+    },
+    "question": {
+      "en": "Which language is used to style and layout web pages?",
+      "ar": "أي لغة نستخدمها لتنسيق صفحات الويب وترتيبها؟"
+    },
+    "answer": {
+      "en": "CSS",
+      "ar": "CSS"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-006",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Programming Fundamentals",
+      "ar": "أساسيات البرمجة"
+    },
+    "question": {
+      "en": "What is a named storage location in a program called?",
+      "ar": "شو نسمّي مكان التخزين اللي له اسم داخل البرنامج؟"
+    },
+    "answer": {
+      "en": "A variable",
+      "ar": "المتغير"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-007",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "UI/UX & Visual Design",
+      "ar": "واجهات وتجربة المستخدم والتصميم البصري"
+    },
+    "question": {
+      "en": "What does 'UI' stand for in design?",
+      "ar": "شو معنى UI في التصميم؟"
+    },
+    "answer": {
+      "en": "User Interface",
+      "ar": "واجهة المستخدم"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-008",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Programming Fundamentals",
+      "ar": "أساسيات البرمجة"
+    },
+    "question": {
+      "en": "What are explanatory annotations in source code that the language does not execute called?",
+      "ar": "شو اسم الملاحظات التوضيحية في الكود اللي اللغة ما تنفذها؟"
+    },
+    "answer": {
+      "en": "A comment",
+      "ar": "التعليق"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-009",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Web Development",
+      "ar": "تطوير الويب"
+    },
+    "question": {
+      "en": "Which part of a website can a user see and interact with?",
+      "ar": "أي جزء من الموقع يقدر المستخدم يشوفه ويتفاعل معه؟"
+    },
+    "answer": {
+      "en": "The Frontend",
+      "ar": "الواجهة الأمامية (Frontend)"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-010",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Software Engineering",
+      "ar": "هندسة البرمجيات"
+    },
+    "question": {
+      "en": "What is the flashing line that shows where you are typing?",
+      "ar": "شو اسم الخط اللي يومض ويبيّن وين بتكتب؟"
+    },
+    "answer": {
+      "en": "The cursor",
+      "ar": "المؤشر"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-011",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "UI/UX & Visual Design",
+      "ar": "واجهات وتجربة المستخدم والتصميم البصري"
+    },
+    "question": {
+      "en": "What is the difference between UI and UX?",
+      "ar": "شو الفرق بين UI وUX؟"
+    },
+    "answer": {
+      "en": "UI is the interface through which users interact, including controls and presentation. UX is the broader experience of using a product, including usability, accessibility, and whether it meets users' needs.",
+      "ar": "UI هي الواجهة التي يتفاعل المستخدم عبرها، بما فيها عناصر التحكم والعرض. أما UX فهي تجربة استخدام المنتج الأوسع، وتشمل سهولة الاستخدام وإمكانية الوصول ومدى تلبية الاحتياجات."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-012",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Programming Fundamentals",
+      "ar": "أساسيات البرمجة"
+    },
+    "question": {
+      "en": "What are the two possible values of a Boolean data type?",
+      "ar": "شو القيمتين الممكنتين للنوع المنطقي Boolean؟"
+    },
+    "answer": {
+      "en": "True and False",
+      "ar": "صحيح (True) وخطأ (False)"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-013",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Software Engineering",
+      "ar": "هندسة البرمجيات"
+    },
+    "question": {
+      "en": "What does 'API' stand for?",
+      "ar": "شو معنى API؟"
+    },
+    "answer": {
+      "en": "Application Programming Interface",
+      "ar": "واجهة برمجة التطبيقات"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-014",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Web Development",
+      "ar": "تطوير الويب"
+    },
+    "question": {
+      "en": "What is the term for a website that adjusts its layout for different screen sizes?",
+      "ar": "شو نسمّي الموقع اللي تصميمه يتغير حسب حجم الشاشة؟"
+    },
+    "answer": {
+      "en": "Responsive Design",
+      "ar": "التصميم المتجاوب"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-015",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Software Engineering",
+      "ar": "هندسة البرمجيات"
+    },
+    "question": {
+      "en": "Which widely used distributed version-control system was created by Linus Torvalds in 2005?",
+      "ar": "شو نظام إدارة الإصدارات الموزّع المنتشر اللي عمله لينوس تورفالدس سنة 2005؟"
+    },
+    "answer": {
+      "en": "Git",
+      "ar": "Git"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-016",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Programming Fundamentals",
+      "ar": "أساسيات البرمجة"
+    },
+    "question": {
+      "en": "In programming, what do you call a sequence of characters?",
+      "ar": "في البرمجة، شو اسم سلسلة الحروف؟"
+    },
+    "answer": {
+      "en": "A String",
+      "ar": "السلسلة النصية (String)"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-017",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Web Development",
+      "ar": "تطوير الويب"
+    },
+    "question": {
+      "en": "In web design, what is #000000 the color code for?",
+      "ar": "في تصميم الويب، أي لون يمثّله الكود ‎#000000؟"
+    },
+    "answer": {
+      "en": "Black",
+      "ar": "الأسود"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-018",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Web Development",
+      "ar": "تطوير الويب"
+    },
+    "question": {
+      "en": "Which language is commonly used for back-end development: HTML or Python?",
+      "ar": "أي لغة تنستخدم عادةً في تطوير الواجهة الخلفية: HTML ولا Python؟"
+    },
+    "answer": {
+      "en": "Python",
+      "ar": "Python"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-019",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "UI/UX & Visual Design",
+      "ar": "واجهات وتجربة المستخدم والتصميم البصري"
+    },
+    "question": {
+      "en": "What is the term for the style and appearance of printed text (fonts)?",
+      "ar": "شو نسمّي شكل وأسلوب النص المطبوع، يعني الخطوط؟"
+    },
+    "answer": {
+      "en": "Typography",
+      "ar": "الطباعة الفنية (Typography)"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-020",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Algorithms & Data Structures",
+      "ar": "الخوارزميات وهياكل البيانات"
+    },
+    "question": {
+      "en": "Which mathematician of Baghdad's House of Wisdom gave his name to the word 'algorithm', and his book title to the word 'algebra'?",
+      "ar": "مين عالم الرياضيات في بيت الحكمة ببغداد اللي صار اسمه أصل كلمة «Algorithm»، وعنوان كتابه أصل كلمة «Algebra»؟"
+    },
+    "answer": {
+      "en": "Muhammad ibn Musa al-Khwarizmi (9th century)",
+      "ar": "محمد بن موسى الخوارزمي (القرن التاسع الميلادي)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-021",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Algorithms & Data Structures",
+      "ar": "الخوارزميات وهياكل البيانات"
+    },
+    "question": {
+      "en": "What is Big O notation used to measure?",
+      "ar": "ليش نستخدم «Big O Notation»؟"
+    },
+    "answer": {
+      "en": "The efficiency/complexity of an algorithm",
+      "ar": "كفاءة وتعقيد الخوارزمية"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-022",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Programming Fundamentals",
+      "ar": "أساسيات البرمجة"
+    },
+    "question": {
+      "en": "Which web programming language did Brendan Eich create in about ten days at Netscape in 1995?",
+      "ar": "أي لغة برمجة للويب صمّمها برندن آيك بحوالي عشرة أيام في شركة نتسكيب سنة 1995؟"
+    },
+    "answer": {
+      "en": "JavaScript (despite the name, unrelated to Java)",
+      "ar": "JavaScript (ولا علاقة لها بلغة Java رغم الاسم)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-023",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Algorithms & Data Structures",
+      "ar": "الخوارزميات وهياكل البيانات"
+    },
+    "question": {
+      "en": "Which data structure follows the 'Last In, First Out' (LIFO) principle?",
+      "ar": "أي هيكل بيانات يمشي على مبدأ «آخر واحد يدخل أول واحد يطلع»؟"
+    },
+    "answer": {
+      "en": "A Stack",
+      "ar": "المكدس (Stack)"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-024",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Computer Science",
+      "ar": "علوم الحاسب"
+    },
+    "question": {
+      "en": "Which open problem asks whether every decision problem whose proposed solutions can be verified in polynomial time can also be solved in polynomial time?",
+      "ar": "شو المسألة المفتوحة اللي تسأل: هل كل مسألة نقدر نتحقق من حلّها بسرعة (بزمن كثير حدود)، نقدر كمان نحلّها بنفس السرعة؟"
+    },
+    "answer": {
+      "en": "P vs NP",
+      "ar": "P مقابل NP"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-025",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Programming Fundamentals",
+      "ar": "أساسيات البرمجة"
+    },
+    "question": {
+      "en": "In a typical ahead-of-time C++ build, is source code compiled before the resulting executable runs?",
+      "ar": "في بناء C++ العادي بالترجمة المسبقة، هل الكود ينترجم قبل ما يشتغل الملف التنفيذي؟"
+    },
+    "answer": {
+      "en": "Yes. C++ is typically compiled, although interpreters and other implementation strategies also exist.",
+      "ar": "نعم. تُترجم C++ عادةً مسبقاً، مع وجود مفسرات واستراتيجيات تنفيذ أخرى أيضاً."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-026",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "UI/UX & Visual Design",
+      "ar": "واجهات وتجربة المستخدم والتصميم البصري"
+    },
+    "question": {
+      "en": "In typography, what term means adjusting the spacing between a specific pair of characters?",
+      "ar": "في تنسيق الخطوط، شو اسم ضبط المسافة بين زوج معيّن من الحروف؟"
+    },
+    "answer": {
+      "en": "Kerning",
+      "ar": "ضبط التباعد بين الأحرف (Kerning)"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-027",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Software Engineering",
+      "ar": "هندسة البرمجيات"
+    },
+    "question": {
+      "en": "What is the primary language used for managing data in a relational database?",
+      "ar": "شو اللغة الأساسية لإدارة البيانات في قواعد البيانات العلائقية؟"
+    },
+    "answer": {
+      "en": "SQL",
+      "ar": "SQL"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-028",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Web Development",
+      "ar": "تطوير الويب"
+    },
+    "question": {
+      "en": "Is React a programming language or a JavaScript library?",
+      "ar": "React لغة برمجة ولا مكتبة JavaScript؟"
+    },
+    "answer": {
+      "en": "A JavaScript library",
+      "ar": "مكتبة JavaScript"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-029",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Computer Science",
+      "ar": "علوم الحاسب"
+    },
+    "question": {
+      "en": "What translates assembly language into machine code?",
+      "ar": "شو اللي يحوّل لغة التجميع لكود الآلة؟"
+    },
+    "answer": {
+      "en": "An assembler",
+      "ar": "المجمِّع (Assembler)"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "coding-and-design-030",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "UI/UX & Visual Design",
+      "ar": "واجهات وتجربة المستخدم والتصميم البصري"
+    },
+    "question": {
+      "en": "Who is famous for creating the '10 Usability Heuristics for User Interface Design'?",
+      "ar": "مين اشتهر بـ«10 قواعد لسهولة الاستخدام» في تصميم الواجهات؟"
+    },
+    "answer": {
+      "en": "Jakob Nielsen",
+      "ar": "جاكوب نيلسن"
+    },
+    "review": {
+      "status": "pending"
+    }
   }
 ]

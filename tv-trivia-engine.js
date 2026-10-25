@@ -1,5 +1,10 @@
 export const ROUND_SIZE = 10;
 export const QUESTION_SECONDS = 20;
+// Each show keeps a flexible bank of 30 to 80 prepared questions. A bank of n
+// questions plays floor(n / 10) rounds of ten before any question repeats.
+export const MIN_SHOW_BANK = 30;
+export const MAX_SHOW_BANK = 80;
+export const roundsFor = count => Math.floor(Math.max(0, Number(count) || 0) / ROUND_SIZE);
 export const SHOWS = [
   { id: 'friends', key: 'Friends', en: 'Friends', ar: 'فريندز', seasons: 10, genre: { en: 'Comedy', ar: 'كوميديا' } },
   { id: 'bab-al-hara', key: 'Bab Al-Hara', en: 'Bab Al-Hara', ar: 'باب الحارة', seasons: 13, genre: { en: 'Syrian drama', ar: 'دراما سورية' } },
@@ -9,7 +14,6 @@ export const SHOWS = [
   { id: 'tash-ma-tash', key: 'Tash Ma Tash', en: 'Tash Ma Tash', ar: 'طاش ما طاش', seasons: 0, genre: { en: 'Saudi comedy', ar: 'كوميديا سعودية' } },
   { id: 'game-of-thrones', key: 'Game of Thrones', en: 'Game of Thrones', ar: 'صراع العروش', seasons: 8, genre: { en: 'Fantasy', ar: 'فانتازيا' } },
   { id: 'ertugrul', key: 'Diriliş: Ertuğrul', en: 'Diriliş: Ertuğrul', ar: 'قيامة أرطغرل', seasons: 5, genre: { en: 'Historical adventure', ar: 'مغامرات تاريخية' } },
-  { id: 'the-wire', key: 'The Wire', en: 'The Wire', ar: 'ذا واير', seasons: 5, genre: { en: 'Crime drama', ar: 'دراما وجريمة' } },
   { id: 'al-hashasheen', key: 'Al-Hashasheen', en: 'Al-Hashasheen', ar: 'الحشاشين', seasons: 1, genre: { en: 'Historical drama', ar: 'دراما تاريخية' } },
 ];
 
@@ -57,9 +61,21 @@ export function createRound(cards, settings = {}, seen = [], rng = Math.random, 
   const season = show === 'all' ? 0 : Math.max(0, Math.min(Number(settings.season) || 0, SHOWS.find(s => s.id === show).seasons));
   const pool = [...new Map(eligibleCards(cards, show, season).map(c => [c.id, c])).values()];
   if (pool.length < ROUND_SIZE) throw new Error('not-enough-questions');
-  const seenIds = new Set(seen);
-  const fresh = shuffle(pool.filter(c => !seenIds.has(c.id)), rng);
-  const repeats = shuffle(pool.filter(c => seenIds.has(c.id)), rng);
+  // `seen` lists answered question ids, oldest first. Keep each id's latest
+  // position so recency is exact even if an id was recorded more than once.
+  const inPool = new Set(pool.map(c => c.id));
+  const recency = new Map();
+  (Array.isArray(seen) ? seen : []).forEach((id, index) => { if (inPool.has(id)) recency.set(id, index); });
+  const history = [...recency.keys()].sort((a, b) => recency.get(a) - recency.get(b));
+  // A show round never reuses a question from the previous floor(n/10) - 1
+  // rounds, so no question repeats within floor(n/10) consecutive rounds.
+  const blockedCount = show === 'all' ? 0 : (roundsFor(pool.length) - 1) * ROUND_SIZE;
+  const blocked = new Set(blockedCount > 0 ? history.slice(-blockedCount) : []);
+  const fresh = shuffle(pool.filter(c => !recency.has(c.id)), rng);
+  const repeats = show === 'all'
+    // Mixed rounds reuse the least recently seen question of each show first.
+    ? pool.filter(c => recency.has(c.id)).sort((a, b) => recency.get(a.id) - recency.get(b.id))
+    : shuffle(pool.filter(c => recency.has(c.id) && !blocked.has(c.id)), rng);
   // Mixed rounds rotate through shows before using a second question from one show.
   const candidates = [...fresh, ...repeats];
   let selected = [];

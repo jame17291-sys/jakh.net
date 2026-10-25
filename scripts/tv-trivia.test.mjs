@@ -3,18 +3,43 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import { landingMarkup } from '../tv-trivia-markup.js';
-import { SHOWS, isPrepared, eligibleCards, createRound, answerRound, nextQuestion, restoreRound, remainingSeconds, roundScore, bestKey } from '../tv-trivia-engine.js';
+import { AR_COUNT, arabicCount } from '../arabic-count.js';
+import { SHOWS, ROUND_SIZE, MIN_SHOW_BANK, MAX_SHOW_BANK, roundsFor, isPrepared, eligibleCards, createRound, answerRound, nextQuestion, restoreRound, remainingSeconds, roundScore, bestKey } from '../tv-trivia-engine.js';
+import { bankBeforeMerge, readTopicMergeLedger } from './topic-merge-ledger.mjs';
 const cards = JSON.parse(fs.readFileSync(new URL('../data/tv-shows-trivia.json', import.meta.url)));
+const catalog = JSON.parse(fs.readFileSync(new URL('../data/catalog.json', import.meta.url)));
 const now = Date.now();
 const ids = round => round.questions.map(q => q.id);
+const bankOf = show => cards.filter(c => c.subcategory.en === show.key);
 
-test('every show can run ten unique, bilingual, premise-only questions', () => {
-  assert.equal(cards.length, 800);
-  assert.equal(new Set(cards.map(c => c.id)).size, 800);
+// Plays `count` complete show rounds, recording answers the way the page does
+// (most recent last), and returns each round's question ids.
+function playRounds(pool, show, count, rng = Math.random) {
+  const seen = [], rounds = [];
+  for (let i = 0; i < count; i++) {
+    let r = createRound(pool, { show: show.id, season: show.seasons }, seen, rng);
+    for (let j = 0; j < ROUND_SIZE; j++) {
+      r = answerRound(r, 0);
+      const id = r.questions[r.index].id;
+      seen.splice(0, seen.length, ...seen.filter(seenId => seenId !== id), id);
+      r = nextQuestion(r);
+    }
+    assert.equal(r.finished, true);
+    rounds.push(ids(r));
+  }
+  return rounds;
+}
+
+test('every show keeps a flexible bank of 30 to 80 unique, bilingual, playable questions', () => {
+  assert.equal(new Set(cards.map(c => c.id)).size, cards.length);
+  assert.equal(cards.length, SHOWS.reduce((total, show) => total + bankOf(show).length, 0), 'every card belongs to an offered show');
   for (const show of SHOWS) {
+    const bank = bankOf(show).length;
+    assert.ok(bank >= MIN_SHOW_BANK && bank <= MAX_SHOW_BANK, `${show.id}: ${bank} questions`);
+    assert.ok(roundsFor(bank) >= 3, `${show.id}: at least three rounds`);
     const pool = eligibleCards(cards, show.id);
-    assert.ok(pool.length >= 20, show.id);
-    assert.equal(eligibleCards(cards, show.id, show.seasons).length, 80, show.id);
+    assert.ok(pool.length >= ROUND_SIZE, show.id);
+    assert.equal(eligibleCards(cards, show.id, show.seasons).length, bank, show.id);
     for (let seed = 1; seed <= 10; seed++) {
       const round = createRound(cards, { show: show.id }, [], () => seed / 11);
       assert.equal(new Set(ids(round)).size, 10);
@@ -25,8 +50,8 @@ test('every show can run ten unique, bilingual, premise-only questions', () => {
   }
 });
 test('authored content is complete and never fabricates formal editorial signoff', () => {
-  assert.equal(cards.filter(isPrepared).length, 800);
-  assert.equal(eligibleCards(cards).length, 486);
+  assert.equal(cards.filter(isPrepared).length, cards.length);
+  assert.equal(eligibleCards(cards).length, 452);
   for (const c of cards.filter(isPrepared)) {
     assert.equal(c.review.status, 'pending');
     assert.ok(c.tvQuiz.explanation.en.length > 20);
@@ -36,24 +61,46 @@ test('authored content is complete and never fabricates formal editorial signoff
   }
 });
 
-test('each show supports eight complete rounds without repeating any of its 80 questions', () => {
+test('each show plays floor(n/10) complete rounds without repeating any of its n questions', () => {
   for (const show of SHOWS) {
+    const bank = bankOf(show).length;
     const seen = [];
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < roundsFor(bank); i++) {
       let r = createRound(cards, { show: show.id, season: show.seasons }, seen);
       assert.ok(ids(r).every(id => !seen.includes(id)), `${show.id} round ${i + 1}`);
-      for (let j = 0; j < 10; j++) {
+      for (let j = 0; j < ROUND_SIZE; j++) {
         r = answerRound(r, 0);
         assert.deepEqual(restoreRound(JSON.parse(JSON.stringify(r)), cards), r);
         r = nextQuestion(r);
       }
       assert.equal(r.finished, true);
-      assert.equal(roundScore(r), 10);
+      assert.equal(roundScore(r), ROUND_SIZE);
       seen.push(...ids(r));
     }
-    assert.equal(new Set(seen).size, 80, show.id);
-    assert.equal(createRound(cards, { show: show.id, season: show.seasons }, seen).questions.length, 10);
+    assert.equal(new Set(seen).size, roundsFor(bank) * ROUND_SIZE, show.id);
+    assert.equal(createRound(cards, { show: show.id, season: show.seasons }, seen).questions.length, ROUND_SIZE);
   }
+});
+
+test('any bank of 30 to 80 questions never repeats a question within floor(n/10) consecutive rounds', () => {
+  const show = SHOWS.find(s => s.id === 'maraya');
+  const full = bankOf(show);
+  for (const size of [30, 34, 35, 40, 41, 55, 59, 79, 80]) {
+    const bank = full.slice(0, size);
+    const window = roundsFor(size);
+    assert.equal(window, Math.floor(size / 10));
+    for (const seed of [1, 7, 13]) {
+      let value = seed;
+      const rng = () => { value = (value * 1103515245 + 12345) % 2147483648; return value / 2147483648; };
+      const rounds = playRounds(bank, show, window * 4 + 1, rng);
+      for (let start = 0; start + window <= rounds.length; start++) {
+        const span = rounds.slice(start, start + window).flat();
+        assert.equal(new Set(span).size, span.length, `${size} questions, seed ${seed}: rounds ${start + 1}-${start + window} repeat a question`);
+      }
+      assert.equal(new Set(rounds.slice(0, window).flat()).size, window * ROUND_SIZE, `${size}: the first ${window} rounds use unseen questions only`);
+    }
+  }
+  assert.throws(() => createRound(full.slice(0, ROUND_SIZE - 1), { show: show.id }), /not-enough-questions/u);
 });
 
 test('show rounds mix themes, increase difficulty, and retain unseen-question priority', () => {
@@ -94,28 +141,54 @@ test('the expansion preserves original identifiers and records every new or chan
     if (audited) assert.equal(audited.beforeHash, polish?.afterHash || rewrite?.afterHash || settled, `${entry.id}: card audit preserves earlier history`);
     return audited?.afterHash || polish?.afterHash || rewrite?.afterHash || settled;
   };
-  assert.deepEqual(cards.slice(0,250).map(c => c.id), Array.from({length:250}, (_,i) => `tv-shows-trivia-${String(i+1).padStart(3,'0')}`));
+  // The 2026-10-25 topic merges dropped The Wire; its cards are restored from
+  // that ledger so this history stays verifiable card by card.
+  const history = bankBeforeMerge(readTopicMergeLedger(), 'tv-shows-trivia');
+  assert.deepEqual(history.slice(0,250).map(c => c.id), Array.from({length:250}, (_,i) => `tv-shows-trivia-${String(i+1).padStart(3,'0')}`));
   assert.equal(expansion.additions.length, 550);
   for (const change of expansion.changes) {
     const predecessor = previous.changes.find(c => c.id === change.id) || original.changes.find(c => c.id === change.id);
     if (predecessor) assert.equal(change.beforeHash, predecessor.afterHash);
     else assert.match(change.beforeHash, /^[a-f0-9]{64}$/u);
-    assert.equal(latestHash(change), digest(cards.find(c => c.id === change.id)));
+    assert.equal(latestHash(change), digest(history.find(c => c.id === change.id)));
   }
-  for (const added of expansion.additions) assert.equal(latestHash(added), digest(cards.find(c => c.id === added.id)));
+  for (const added of expansion.additions) assert.equal(latestHash(added), digest(history.find(c => c.id === added.id)));
   for (const change of followup.changes) assert.ok([...expansion.changes, ...expansion.additions].some(c => c.id === change.id));
   for (const show of SHOWS) for (const lang of ['en','ar']) {
-    const prompts = cards.filter(c => c.subcategory.en === show.key).map(c => c.question[lang].normalize('NFKC').toLowerCase().replace(/[\p{P}\p{S}\s]/gu, ''));
-    assert.equal(new Set(prompts).size, 80, `${show.id}/${lang}`);
+    const prompts = bankOf(show).map(c => c.question[lang].normalize('NFKC').toLowerCase().replace(/[\p{P}\p{S}\s]/gu, ''));
+    assert.equal(new Set(prompts).size, prompts.length, `${show.id}/${lang}`);
   }
 });
 
 test('English and Arabic show cards display the actual total bank size', () => {
   const counts = Object.fromEntries(SHOWS.map(s => [s.key, eligibleCards(cards, s.id, s.seasons).length]));
+  const tv = catalog.categories.find(category => category.slug === 'tv-shows-trivia');
+  // The generated pages take their counts from the catalog's subtopics.
+  assert.deepEqual(Object.fromEntries(tv.topics.map(topic => [topic.en, topic.count])), counts);
+  const label = (lang, count) => lang === 'ar' ? `${arabicCount(count, AR_COUNT.question)} إجمالًا` : `${count} questions in total`;
   for (const lang of ['en','ar']) {
-    const markup = landingMarkup(lang, true, counts);
-    assert.equal((markup.match(/tv-bank-count\">80 /g) || []).length, 10);
+    const pages = [landingMarkup(lang, true, counts), fs.readFileSync(new URL(lang === 'ar' ? '../ar/topics/tv-shows-trivia/index.html' : '../tv-shows-trivia.html', import.meta.url), 'utf8')];
+    for (const markup of pages) {
+      const shown = [...markup.matchAll(/data-tv="play-show" data-show="([^"]+)"[^>]*>[\s\S]*?tv-bank-count">([^<]+)</gu)].map(([, id, text]) => [id, text]);
+      assert.deepEqual(shown, SHOWS.map(s => [s.id, label(lang, counts[s.key])]), lang);
+      assert.match(markup, new RegExp(lang === 'ar' ? `${SHOWS.length} مسلسلات · لغتان` : `${SHOWS.length} shows · 2 languages`, 'u'));
+    }
   }
+});
+
+test('The Wire is dropped from the TV game, its cards and its pages', () => {
+  assert.equal(SHOWS.length, 9);
+  assert.ok(!SHOWS.some(show => show.id === 'the-wire' || show.key === 'The Wire'));
+  assert.ok(!cards.some(card => card.subcategory.en === 'The Wire' || card.subcategory.ar === 'ذا واير'));
+  const ledger = readTopicMergeLedger();
+  const retired = ledger.removed.filter(entry => entry.category === 'tv-shows-trivia');
+  assert.equal(retired.length, 80);
+  assert.ok(retired.every(entry => entry.card.subcategory.en === 'The Wire'));
+  for (const file of ['../tv-shows-trivia.html', '../ar/topics/tv-shows-trivia/index.html']) {
+    const html = fs.readFileSync(new URL(file, import.meta.url), 'utf8');
+    assert.doesNotMatch(html, /the-wire|The Wire|ذا واير/u, file);
+  }
+  for (const size of [360, 600]) assert.equal(fs.existsSync(new URL(`../assets/tv/the-wire-${size}.webp`, import.meta.url)), false);
 });
 test('unknown spoiler metadata and modified published content fail closed in quiz and practice pools', () => {
   const c = structuredClone(cards.find(isPrepared));
@@ -139,9 +212,9 @@ test('season limits cover entire cards and mixed rounds remain spoiler-safe', ()
   assert.ok(!eligibleCards(cards, 'breaking-bad', 4).includes(seasonFive));
   assert.ok(eligibleCards(cards, 'breaking-bad', 5).includes(seasonFive));
 });
-test('mixed rounds include all ten shows and replay prefers unseen questions', () => {
+test('mixed rounds include every offered show and replay prefers unseen questions', () => {
   const first = createRound(cards);
-  assert.equal(new Set(first.questions.map(q => cards.find(c => c.id === q.id).subcategory.en)).size, 10);
+  assert.equal(new Set(first.questions.map(q => cards.find(c => c.id === q.id).subcategory.en)).size, SHOWS.length);
   const second = createRound(cards, {}, ids(first));
   assert.equal(ids(second).filter(id => ids(first).includes(id)).length, 0);
 });

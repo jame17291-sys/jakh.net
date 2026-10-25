@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { cardMoveHistory, readTopicMergeLedger } from "./topic-merge-ledger.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dataDir = path.join(root, "data");
@@ -29,4 +30,17 @@ const targets = [
   path.join(root, "worker", "src", "card-index.json"),
 ];
 for (const target of targets) fs.writeFileSync(target, serialized);
-console.log(`Generated card indexes with ${Object.keys(index).length} cards.`);
+// Cards keep their ids when a topic is merged or a card moves topic; the API
+// recognises progress and edits saved under a card's former topic.
+const moves = cardMoveHistory(readTopicMergeLedger());
+for (const [cardId, formerCategories] of Object.entries(moves.formerCategories)) {
+  if (!index[cardId]) throw new Error(`Moved card is missing from the card index: ${cardId}`);
+  if (formerCategories.includes(index[cardId][0])) throw new Error(`Moved card still lists its current topic as former: ${cardId}`);
+  if (moves.currentCategories[cardId] !== index[cardId][0]) throw new Error(`Moved card is not in its recorded topic: ${cardId}`);
+}
+for (const [retired, successor] of Object.entries(moves.retiredCategories)) {
+  if (catalog.categories.some((category) => category.slug === retired)) throw new Error(`Retired topic is still in the catalog: ${retired}`);
+  if (!catalog.categories.some((category) => category.slug === successor)) throw new Error(`Retired topic successor is missing: ${successor}`);
+}
+fs.writeFileSync(path.join(root, "worker", "src", "card-moves.json"), `${JSON.stringify(moves, null, 2)}\n`);
+console.log(`Generated card indexes with ${Object.keys(index).length} cards and ${Object.keys(moves.formerCategories).length} recorded card moves.`);

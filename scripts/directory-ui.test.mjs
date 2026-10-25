@@ -96,15 +96,15 @@ function withTabs(run) {
 test('All topics displays every public topic without a hidden featured subset', () => {
   const { ui, els, calls } = fixture();
   ui.renderDirectory();
-  assert.equal(calls.cards.length, 51);
-  assert.equal(new Set(calls.cards).size, 51);
+  assert.equal(calls.cards.length, 48);
+  assert.equal(new Set(calls.cards).size, 48);
   assert.equal(calls.cards.includes('kids-riddles'), true, 'Kids Riddles has a directory card (re-listed 24 Oct 2026)');
   const images = [...els.categoryDirectoryGrid.innerHTML.matchAll(/class="ra-art ra-art-directory" data-illustration="([^"]+)"/gu)];
-  assert.equal(images.length, 51, 'interactive cards retain every topic picture');
-  assert.equal(new Set(images.map(([, id]) => id)).size, 51, 'interactive cards never duplicate a picture');
+  assert.equal(images.length, 48, 'interactive cards retain every topic picture');
+  assert.equal(new Set(images.map(([, id]) => id)).size, 48, 'interactive cards never duplicate a picture');
   assert.deepEqual(new Set(calls.cards), new Set(listedSlugs));
   for (const slug of quarantine.categorySlugs) assert.equal(calls.cards.includes(slug), false);
-  assert.equal(els.directoryResultsLabel.textContent, '51 topics in 5 sections.');
+  assert.equal(els.directoryResultsLabel.textContent, '48 topics in 5 sections.');
   assert.equal(els.categoryDirectoryGrid.attributes['aria-labelledby'], 'directory-tab-all');
 });
 
@@ -126,7 +126,7 @@ test('search finds either language and reports localized results and empty state
       const { ui, els, calls } = fixture({ lang, directorySearch });
       ui.renderDirectory();
       assert.ok(calls.cards.includes('football'), `${lang}: ${directorySearch}`);
-      assert.ok(calls.cards.length < 51);
+      assert.ok(calls.cards.length < 48);
       assert.match(els.directoryResultsLabel.textContent, lang === 'ar' ? /^عُثر على (?:موضوع واحد مطابق|موضوعين مطابقين|\d+ موضوعات مطابقة|\d+ موضوعًا مطابقًا|\d+ موضوع مطابق)\.$/u : /^\d+ matching topics? found\.$/u);
     }
     const { ui, els, calls } = fixture({ lang, directorySearch: 'not-a-real-topic-92811' });
@@ -139,8 +139,8 @@ test('search finds either language and reports localized results and empty state
 test('Arabic section, tab and results counts agree with their numbers', () => withTabs((tabBar) => {
   const { ui, els } = fixture({ lang: 'ar' });
   ui.renderDirectory();
-  assert.equal(els.directoryResultsLabel.textContent, `${arabicCount(51, AR_COUNT.topic)} في ${arabicCount(5, AR_COUNT.section)}.`);
-  assert.equal(els.directoryResultsLabel.textContent, '51 موضوعًا في 5 أقسام.');
+  assert.equal(els.directoryResultsLabel.textContent, `${arabicCount(48, AR_COUNT.topic)} في ${arabicCount(5, AR_COUNT.section)}.`);
+  assert.equal(els.directoryResultsLabel.textContent, '48 موضوعًا في 5 أقسام.');
   for (const section of sections) {
     const members = listedMembers(section);
     const questions = members.reduce((sum, slug) => sum + categories.get(slug).count, 0);
@@ -153,7 +153,7 @@ test('Arabic section, tab and results counts agree with their numbers', () => wi
   single.ui.renderDirectory();
   assert.match(single.els.directoryResultsLabel.textContent, / في قسم واحد\.$/u);
   ui.renderTabs();
-  assert.match(tabBar.tabs[0].innerHTML, />51 موضوعًا</u);
+  assert.match(tabBar.tabs[0].innerHTML, />48 موضوعًا</u);
 }));
 
 test('tabs expose truthful counts, one keyboard stop, and a labeled panel', () => withTabs((tabBar) => {
@@ -161,11 +161,11 @@ test('tabs expose truthful counts, one keyboard stop, and a labeled panel', () =
   ui.renderTabs();
   assert.equal(tabBar.tabs.length, 6);
   assert.equal(tabBar.tabs.filter((tab) => tab.attributes.tabindex === '0').length, 1);
-  assert.match(tabBar.tabs[0].innerHTML, /51 topics/);
+  assert.match(tabBar.tabs[0].innerHTML, /48 topics/);
   for (const tab of tabBar.tabs) {
     assert.equal(tab.attributes.id, `directory-tab-${tab.dataset.cluster}`);
     assert.equal(tab.attributes['aria-controls'], 'categoryDirectoryGrid');
-    const count = tab.dataset.cluster === 'all' ? 51 : listedMembers(sections.find((section) => section.key === tab.dataset.cluster)).length;
+    const count = tab.dataset.cluster === 'all' ? 48 : listedMembers(sections.find((section) => section.key === tab.dataset.cluster)).length;
     assert.ok(tab.innerHTML.includes(`${count} topics`));
   }
 }));
@@ -201,9 +201,9 @@ test('reset restores all public topics and binding is idempotent', () => withTab
   assert.equal(state.cluster, 'all');
   assert.equal(state.directorySearch, '');
   assert.equal(els.categorySearchInput.value, '');
-  assert.equal(calls.cards.length, 51);
+  assert.equal(calls.cards.length, 48);
   assert.deepEqual(calls.toasts, ['directoryResetDone']);
-  assert.match(els.directoryResultsLabel.textContent, /51 موضوعًا/);
+  assert.match(els.directoryResultsLabel.textContent, /48 موضوعًا/);
 }));
 
 test('directory document puts search first and exposes collections without an extra promotion', () => {

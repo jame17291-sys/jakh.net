@@ -11,6 +11,7 @@ import {
   RIDDLE_ARABIA_SEO_PAGES,
 } from "./riddlearabia-seo.mjs";
 import { RETIRED_SEO_ROUTE_REDIRECTS } from "../site-worker/src/seo-route-migrations.js";
+import { RETIRED_TOPIC_REDIRECTS, arabicTopicPath, englishTopicPath } from "../site-worker/src/topic-route-migrations.js";
 import { kidsRoutePairs } from "./generate-kids-pages.mjs";
 
 export const PRIMARY_SITE_ORIGIN = "https://riddlearabia.com";
@@ -28,9 +29,15 @@ const DEFAULT_MAX_CHECK_ATTEMPTS = 2;
 const DEFAULT_RETRY_DELAY_MS = 0;
 const WORKER_VERSION_ID = /^[0-9A-Za-z][0-9A-Za-z._-]{5,127}$/u;
 const RETIRED_SEO_REDIRECT_QUERY = "retired_seo_redirect_probe=riddlearabia";
-// The live release before the 2026-10-25 card audit served 3,825 public cards.
-// Only the exact-version release baseline may still serve that inventory.
-const PREDECESSOR_PUBLIC_QUESTIONS = 3_825;
+// Public inventories of the live releases before the 2026-10-25 topic merges:
+// 51 topics with 3,825 cards before the card audit (PR #175), then 3,798 cards
+// after it. Only the exact-version release baseline may still serve one of
+// these inventories, and only as a coherent pair.
+const PREDECESSOR_INVENTORIES = Object.freeze([
+  Object.freeze({ publicQuestions: 3_825, publicCategories: 51 }),
+  Object.freeze({ publicQuestions: 3_798, publicCategories: 51 }),
+]);
+export const PUBLIC_CATEGORY_TOTAL = 48;
 const FRIENDSHIP_ARCADE_SLUGS = new Set(["secret-word-impostor", "panic-mode", "friendship-court"]);
 const PARTY_GAME_SLUGS = new Set(["most-likely-to", "how-well-do-you-know-me", ...FRIENDSHIP_ARCADE_SLUGS]);
 // The expanded bilingual sitemap includes alternate-language links for every
@@ -43,7 +50,7 @@ export const CONTENT_PUBLICATION_CONTRACT = Object.freeze({
   state: "safety-quarantine-active",
   quarantinedCategories: Object.freeze([...checkedPublicationQuarantine.categorySlugs]),
   quarantinedQuestions: checkedPublicationQuarantine.manifest.totalCards,
-  publicQuestions: 3_798,
+  publicQuestions: 3_704,
   manifestSha256: checkedPublicationQuarantine.policySha256,
 });
 
@@ -268,6 +275,24 @@ export function retiredSeoRedirectProbeDefinitions(siteOrigin) {
     url: new URL(`${from}?${RETIRED_SEO_REDIRECT_QUERY}`, siteOrigin).href,
     location: new URL(`${to}?${RETIRED_SEO_REDIRECT_QUERY}`, siteOrigin).href,
   }));
+}
+
+// Topics retired by the 2026-10-25 merges redirect to their successor and keep
+// a shared card link. Only the current release serves these redirects, so the
+// exact-version predecessor baseline is not probed for them.
+export function retiredTopicRedirectProbeDefinitions(siteOrigin) {
+  if (siteOrigin !== PRIMARY_SITE_ORIGIN) return [];
+  return RETIRED_TOPIC_REDIRECTS.flatMap(({ slug, successor }) => {
+    const query = `card=${slug}-001&${RETIRED_SEO_REDIRECT_QUERY}`;
+    return [
+      { from: englishTopicPath(slug), to: englishTopicPath(successor) },
+      { from: arabicTopicPath(slug), to: arabicTopicPath(successor) },
+    ].map(({ from, to }) => ({
+      name: `Site: retired topic ${from} redirect`,
+      url: new URL(`${from}?${query}`, siteOrigin).href,
+      location: new URL(`${to}?${query}`, siteOrigin).href,
+    }));
+  });
 }
 
 function positiveInteger(value, fallback, label) {
@@ -526,6 +551,7 @@ export async function runProductionMonitor(options = {}) {
   let privacyScriptFingerprint = null;
   let privacyScriptPath = null;
   let sitePublicQuestions = CONTENT_PUBLICATION_CONTRACT.publicQuestions;
+  let sitePublicCategories = PUBLIC_CATEGORY_TOTAL;
   const sourceFetchImpl = options.fetchImpl || globalThis.fetch;
   // Check the serving Worker before parsing its content contract. During
   // propagation a predecessor can legitimately have a different sitemap or
@@ -818,6 +844,29 @@ export async function runProductionMonitor(options = {}) {
     }),
   ));
 
+  const retiredTopicProbes = config.siteContract === "current" ? retiredTopicRedirectProbeDefinitions(config.siteOrigin) : [];
+  await Promise.all(retiredTopicProbes.map((definition) =>
+    check(definition.name, async () => {
+      const resource = await fetchResource(
+        fetchImpl,
+        definition.url,
+        config.timeoutMs,
+        { redirect: "manual" },
+      );
+      expectStatus(resource.response, 301);
+      expect(
+        resource.response.headers.get("location") === definition.location,
+        `retired topic redirect target is ${resource.response.headers.get("location") || "missing"}, expected ${definition.location}`,
+      );
+      expect(
+        /max-age=86400/iu.test(resource.response.headers.get("cache-control") || ""),
+        "retired topic redirect must be cacheable as a permanent redirect",
+      );
+      assertBudget(resource, config.siteMaxMs, 10_000);
+      return resource;
+    }),
+  ));
+
   await check("Site: catalog data", async () => {
     const resource = await fetchResource(
       fetchImpl,
@@ -828,7 +877,6 @@ export async function runProductionMonitor(options = {}) {
     expectContentType(resource.response, /application\/json/iu);
     const catalog = parseJson(resource);
     expect(Array.isArray(catalog.categories), "catalog categories is not an array");
-    expect(catalog.categories.length === 51, `catalog contains ${catalog.categories.length} categories instead of 51`);
     expect(
       catalog.categories.every((category) => typeof category?.slug === "string" && category.slug),
       "catalog contains a category without a slug",
@@ -838,13 +886,24 @@ export async function runProductionMonitor(options = {}) {
       QUARANTINED_CATEGORY_SLUGS.every((slug) => !categorySlugs.has(slug)),
       "catalog exposes a quarantined category",
     );
-    // The exact-version production baseline may still serve the pre-audit corpus.
-    // Establish its one accepted total here; all other discovery indexes must
-    // agree. Current, Pages and legacy-cutover contracts remain unchanged.
+    // The exact-version production baseline may still serve a pre-merge corpus.
+    // Establish its one accepted inventory here; all other discovery indexes
+    // must agree. Current, Pages and legacy-cutover contracts remain unchanged.
     const publicQuestions = catalog.site?.totalQuestions;
-    expect(publicQuestions === CONTENT_PUBLICATION_CONTRACT.publicQuestions
-      || (config.siteContract === "release-baseline" && publicQuestions === PREDECESSOR_PUBLIC_QUESTIONS),
-    `catalog public question total is not ${CONTENT_PUBLICATION_CONTRACT.publicQuestions}${config.siteContract === "release-baseline" ? ` or the known predecessor ${PREDECESSOR_PUBLIC_QUESTIONS}` : ""}`);
+    const publicCategories = catalog.categories.length;
+    const isCurrentInventory = publicQuestions === CONTENT_PUBLICATION_CONTRACT.publicQuestions
+      && publicCategories === PUBLIC_CATEGORY_TOTAL;
+    const isPredecessorInventory = config.siteContract === "release-baseline"
+      && PREDECESSOR_INVENTORIES.some((inventory) => (
+        inventory.publicQuestions === publicQuestions && inventory.publicCategories === publicCategories
+      ));
+    const predecessorNote = config.siteContract === "release-baseline"
+      ? ` or a known predecessor (${PREDECESSOR_INVENTORIES.map((inventory) => `${inventory.publicCategories}/${inventory.publicQuestions}`).join(", ")})`
+      : "";
+    expect(
+      isCurrentInventory || isPredecessorInventory,
+      `catalog serves ${publicCategories} categories and ${publicQuestions} public questions, not ${PUBLIC_CATEGORY_TOTAL}/${CONTENT_PUBLICATION_CONTRACT.publicQuestions}${predecessorNote}`,
+    );
     expect(
       catalog.site?.publication === undefined,
       "catalog exposes internal publication governance metadata",
@@ -855,6 +914,7 @@ export async function runProductionMonitor(options = {}) {
     );
     assertBudget(resource, config.siteMaxMs, 150_000);
     sitePublicQuestions = publicQuestions;
+    sitePublicCategories = publicCategories;
     resource.publicQuestions = publicQuestions;
     return resource;
   });
@@ -943,7 +1003,7 @@ export async function runProductionMonitor(options = {}) {
       const shard = parseJson(resource);
       expect(shard.language === language, `${language} search language marker is invalid`);
       expect(shard.total === sitePublicQuestions, `${language} search total is not ${sitePublicQuestions}`);
-      expect(Array.isArray(shard.categories) && shard.categories.length === 51, `${language} search categories are not 51`);
+      expect(Array.isArray(shard.categories) && shard.categories.length === sitePublicCategories, `${language} search categories are not ${sitePublicCategories}`);
       expect(Array.isArray(shard.cards) && shard.cards.length === sitePublicQuestions, `${language} search cards are not ${sitePublicQuestions}`);
       expect(
         shard.cards.every((row) => Array.isArray(row) && !checkedPublicationQuarantine.cardIds.has(row[1])),

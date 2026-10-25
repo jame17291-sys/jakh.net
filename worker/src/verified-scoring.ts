@@ -4,7 +4,7 @@ import {
   requireUser,
   runBoundedRetentionCleanup,
 } from "./db.js";
-import { getCardIndex, isPublicCard } from "./catalog.js";
+import { getCardIndex, isPublicCard, successorCategory } from "./catalog.js";
 import {
   QUARANTINED_CATEGORY_IDS,
   isQuarantinedCategory,
@@ -861,7 +861,9 @@ export async function verifiedLeaderboard(request: Request, env: Env): Promise<R
       username: row.username,
       avatar: row.avatar,
       score: row.score,
-      categoryId: row.categoryId,
+      // A score earned in a topic retired by a merge is shown under the topic
+      // that absorbed it, so the leaderboard never names a missing topic.
+      categoryId: successorCategory(row.categoryId),
       correctCount: row.correctCount,
       questionCount: row.questionCount,
     })),

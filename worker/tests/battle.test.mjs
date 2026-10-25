@@ -260,7 +260,7 @@ test("Battle does not use choices invalidated by a published question edit", asy
         bind() { return this; },
         async first() { return sql.includes("schema_meta") ? { value: "9" } : { count: 1 }; },
         async all() {
-          return { results: [{ questionId: prepared[0].id, snapshotJson: JSON.stringify({
+          return { results: [{ questionId: prepared[0].id, categorySlug: "science", snapshotJson: JSON.stringify({
             question: { ...prepared[0].question, ar: "سؤال مختلف" },
             answer: prepared[0].answer,
           }) }] };

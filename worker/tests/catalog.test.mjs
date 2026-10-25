@@ -4,9 +4,13 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 import {
   canonicalStatus,
+  formerCategoriesOf,
   getCardIndex,
   isPublicCard,
+  publicCardCategory,
+  successorCategory,
   validateCard,
+  wasCardCategory,
 } from "../dist/catalog.js";
 import {
   isQuarantinedCategory,
@@ -24,7 +28,7 @@ const EXPECTED_QUARANTINED_COUNTS = Object.freeze({
 
 test("generated card index contains the complete validated catalog", async () => {
   const index = await getCardIndex({});
-  assert.equal(Object.keys(index).length, 4_076);
+  assert.equal(Object.keys(index).length, 3_982);
   assert.deepEqual(index["currencies-1"], ["currencies", "easy"]);
 });
 
@@ -42,6 +46,47 @@ test("card validation binds ids, categories, and scoring difficulty", async () =
     validateCard({}, "currencies-1", "science"),
     (error) => error?.status === 400,
   );
+});
+
+test("cards moved by the 2026-10-25 topic merges keep their ids and follow saved rows to their new topic", async () => {
+  const merge = JSON.parse(await readFile(new URL("../../docs/content-review/topic-merge-2026-10-25.json", import.meta.url), "utf8"));
+  const index = await getCardIndex({});
+  for (const move of merge.moved) {
+    assert.deepEqual(index[move.id]?.[0], move.to, move.id);
+    assert.equal(wasCardCategory(move.id, move.from), true, move.id);
+    assert.equal(wasCardCategory(move.id, move.to), false, move.id);
+    // Old clients and saved rows may still name the former topic: accepted,
+    // and always reported or stored under the current topic.
+    assert.deepEqual(await validateCard({}, move.id, move.from), { categoryId: move.to, difficulty: index[move.id][1] });
+    assert.deepEqual(await validateCard({}, move.id, move.to), { categoryId: move.to, difficulty: index[move.id][1] });
+    assert.equal(publicCardCategory(move.id, move.from), move.to);
+    assert.equal(publicCardCategory(move.id, move.to), move.to);
+    // Battles and server-checked scoring still bind cards to their current topic only.
+    assert.equal(isPublicCard(move.id, move.from), false, move.id);
+    assert.equal(isPublicCard(move.id, move.to), true, move.id);
+  }
+  await assert.rejects(validateCard({}, "science-048", "biology"), (error) => error?.status === 400);
+  assert.equal(publicCardCategory("science-048", "biology"), null);
+  assert.equal(publicCardCategory("science-001", "science"), "science");
+  assert.equal(publicCardCategory("currencies-1", "science"), null);
+  assert.equal(publicCardCategory("survival-1", "survival"), null);
+  assert.equal(publicCardCategory("missing-card", "science"), null);
+  assert.equal(publicCardCategory(undefined, "science"), null);
+  for (const removed of merge.removed) {
+    assert.equal(index[removed.id], undefined, removed.id);
+    await assert.rejects(validateCard({}, removed.id, removed.category), (error) => error?.status === 400);
+    assert.equal(publicCardCategory(removed.id, removed.category), null);
+  }
+  for (const topic of merge.retiredTopics) {
+    assert.equal(successorCategory(topic.slug), topic.successor);
+    assert.ok(!Object.values(index).some(([categoryId]) => categoryId === topic.slug), topic.slug);
+  }
+  assert.equal(successorCategory("science"), "science");
+  assert.deepEqual(formerCategoriesOf("science"), ["physical-and-life-sciences"]);
+  assert.deepEqual(formerCategoriesOf("chemistry"), ["physical-and-life-sciences", "science"]);
+  assert.deepEqual(formerCategoriesOf("software-and-computing"), ["coding-and-design"]);
+  assert.deepEqual(formerCategoriesOf("currencies"), []);
+  assert.equal(wasCardCategory("toString", "science"), false);
 });
 
 test("the immutable production quarantine covers every one of the 278 held cards", async () => {

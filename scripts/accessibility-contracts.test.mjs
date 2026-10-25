@@ -99,7 +99,7 @@ test('directory contextual tools have visible labels and use the existing access
   assert.match(directory, /id="categorySearchInput"[^>]*aria-controls="categoryDirectoryGrid"[^>]*aria-describedby="directoryResultsLabel"/u);
   assert.match(directory, /id="directoryResultsLabel"[^>]*role="status"[^>]*aria-atomic="true"/u);
   assert.doesNotMatch(directory, /id="categoryDirectoryGrid"[^>]*aria-live/u,
-    'search should announce the concise result count, not all 51 topic cards');
+    'search should announce the concise result count, not all 48 topic cards');
   assert.doesNotMatch(navigation, /setAttribute\(['"]role['"],\s*['"]button['"]\)/u,
     'ordinary navigation links retain their native link semantics');
 });

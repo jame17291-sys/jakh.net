@@ -22,7 +22,7 @@ const EXPECTED_CONTENT_PUBLICATION = Object.freeze({
   state: "safety-quarantine-active",
   quarantinedCategories: [...QUARANTINED_CATEGORY_IDS],
   quarantinedQuestions: 278,
-  publicQuestions: 3_798,
+  publicQuestions: 3_704,
   manifestSha256: PRODUCTION_QUARANTINE_MANIFEST_SHA256,
 });
 
@@ -232,6 +232,67 @@ test("profile filters held and category-mismatched pre-deployment rows", async (
   assert.deepEqual(payload.favorites.map(({ cardId }) => cardId), ["currencies-2"]);
   assert.deepEqual(payload.stats, { solvedCount: 1, favoritesCount: 1 });
   assert.doesNotMatch(JSON.stringify(payload), /medical-questions|pharm-001/u);
+});
+
+test("profile reports cards moved by a topic merge under their current topic", async () => {
+  const { env } = syncEnv({
+    progressRows: [
+      { cardId: "coding-and-design-001", categoryId: "coding-and-design", status: "easy", createdAt: "retired topic" },
+      { cardId: "science-048", categoryId: "science", status: "medium", createdAt: "moved card" },
+      { cardId: "science-048", categoryId: "biology", status: "medium", createdAt: "never its topic" },
+      { cardId: "physical-and-life-sciences-003", categoryId: "physical-and-life-sciences", status: "easy", createdAt: "removed" },
+    ],
+    favoriteRows: [
+      { cardId: "civil-engineering-001", categoryId: "civil-engineering", createdAt: "retired topic" },
+      { cardId: "tv-shows-trivia-076", categoryId: "tv-shows-trivia", createdAt: "retired show" },
+    ],
+  });
+  const payload = await (await profile(userRequest("/api/user/profile", undefined, "GET"), env)).json();
+  assert.deepEqual(payload.progress.map(({ cardId, categoryId }) => [cardId, categoryId]), [
+    ["coding-and-design-001", "software-and-computing"],
+    ["science-048", "chemistry"],
+  ]);
+  assert.deepEqual(payload.favorites.map(({ cardId, categoryId }) => [cardId, categoryId]), [
+    ["civil-engineering-001", "infrastructure-systems"],
+  ]);
+  assert.deepEqual(payload.stats, { solvedCount: 2, favoritesCount: 1 });
+});
+
+test("writes that still name a moved card's former topic are stored under its current topic", async () => {
+  {
+    const { env, captured } = syncEnv();
+    const response = await saveProgress(userRequest("/api/user/progress", {
+      cardId: "coding-and-design-001", categoryId: "coding-and-design", status: "correct",
+    }), env);
+    assert.equal(response.status, 200);
+    const insert = captured.statements.find(({ sql }) => sql.includes("INSERT INTO progress"));
+    assert.deepEqual(insert.values.slice(1, 4), ["coding-and-design-001", "software-and-computing", "easy"]);
+  }
+  {
+    const { env, captured } = syncEnv();
+    await favorite(userRequest("/api/user/favorites", {
+      cardId: "science-048", categoryId: "science", action: "add",
+    }), env);
+    const insert = captured.statements.find(({ sql }) => sql.includes("INSERT INTO favorites"));
+    assert.deepEqual(insert.values.slice(1, 3), ["science-048", "chemistry"]);
+  }
+  {
+    const { env, captured } = syncEnv();
+    await syncUserData(syncRequest({
+      progress: [{ cardId: "biology-033", categoryId: "biology", status: "correct" }],
+      favorites: [{ cardId: "world-habits-and-etiquette-047", categoryId: "world-habits-and-etiquette" }],
+    }), env);
+    assert.deepEqual(captured.batch[0].values.slice(1, 4), ["biology-033", "animal-kingdom", "easy"]);
+    assert.deepEqual(captured.batch[1].values.slice(1, 3), ["world-habits-and-etiquette-047", "psychology"]);
+  }
+  {
+    const { env, captured } = syncEnv();
+    await assert.rejects(
+      saveProgress(userRequest("/api/user/progress", { cardId: "science-048", categoryId: "biology", status: "correct" }), env),
+      (error) => error?.status === 400,
+    );
+    assert.equal(captured.statements.some(({ sql }) => sql.includes("INSERT INTO progress")), false);
+  }
 });
 
 test("progress, favorites, bulk sync, and analytics deny held content before content writes", async () => {

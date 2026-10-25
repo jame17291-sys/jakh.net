@@ -758,5 +758,43 @@
     "review": {
       "status": "pending"
     }
+  },
+  {
+    "id": "physical-and-life-sciences-006",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Atmosphere & Weather",
+      "ar": "الغلاف الجوي والطقس"
+    },
+    "question": {
+      "en": "What is the most abundant gas in Earth's atmosphere?",
+      "ar": "شو أكثر غاز موجود بالغلاف الجوي للأرض؟"
+    },
+    "answer": {
+      "en": "Nitrogen (about 78%).",
+      "ar": "النيتروجين (حوالي 78%)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "physical-and-life-sciences-036",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Climate Change",
+      "ar": "تغير المناخ"
+    },
+    "question": {
+      "en": "What is the greenhouse effect and how does it cause climate change?",
+      "ar": "شو هو «الاحتباس الحراري»، وكيف يسبب تغيّر المناخ؟"
+    },
+    "answer": {
+      "en": "Greenhouse gases (CO₂, CH₄, N₂O) trap infrared radiation re-emitted by Earth's surface. Increased anthropogenic emissions enhance this effect, raising global average temperatures and disrupting climate systems.",
+      "ar": "غازات الاحتباس الحراري (CO₂، CH₄، N₂O) تحبس الأشعة تحت الحمراء المنبعثة من سطح الأرض. زيادة الانبعاثات البشرية تعزز هذا التأثير، فترتفع درجات الحرارة العالمية المتوسطة وتتعطل أنظمة المناخ."
+    },
+    "review": {
+      "status": "pending"
+    }
   }
 ]

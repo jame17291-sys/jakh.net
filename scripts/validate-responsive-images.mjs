@@ -16,7 +16,7 @@ const quarantine = loadProductionQuarantine(root);
 const publicTopics = catalog.categories.filter(({slug}) => !quarantine.categorySlugs.has(slug));
 const assigned = [...Object.values(TOPIC_ILLUSTRATIONS), ...Object.values(GAME_ILLUSTRATIONS)];
 if (new Set(assigned).size !== assigned.length) failures.push('Distinct topics and games must never share an illustration');
-if (publicTopics.length !== 51 || publicTopics.some(({slug}) => !TOPIC_ILLUSTRATIONS[slug])) failures.push('All 51 public topics need exclusive artwork');
+if (publicTopics.length !== 48 || publicTopics.some(({slug}) => !TOPIC_ILLUSTRATIONS[slug])) failures.push('All 48 public topics need exclusive artwork');
 if (Object.keys(TOPIC_ILLUSTRATIONS).length !== publicTopics.length) failures.push('Artwork topic inventory must match the public catalog');
 for (const game of [...PUZZLES, ...BONUS]) {
   if (!gameIllustrationId(game.id, game.variant)) failures.push(`${game.id}/${game.variant || 'standard'}: missing game artwork`);

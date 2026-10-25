@@ -12,11 +12,14 @@ import {
   fingerprintCompatibilitySource,
   isQuarantinedPath,
   negotiateHtmlEncoding,
+  renamedGameRedirectTarget,
   retiredSeoRedirectTarget,
   validateMtaStsPolicy,
   visitorAcceptEncoding,
   withWorkerVersion,
 } from "../src/site-edge.js";
+
+import { RENAMED_GAME_ROUTES } from "../src/seo-route-migrations.js";
 
 const repositoryRoot = resolve(import.meta.dirname, "../..");
 const siteManifest = JSON.parse(await readFile(resolve(repositoryRoot, "site-worker/generated/site-manifest.json"), "utf8"));
@@ -191,6 +194,74 @@ test("a deep link to a TV show dropped from the game redirects to the TV topic p
   for (const kept of [`${PRIMARY_ORIGIN}/tv-shows-trivia?sub=Friends`, `${PRIMARY_ORIGIN}/ar/topics/tv-shows-trivia/?sub=maraya`, `${PRIMARY_ORIGIN}/science?sub=The+Wire`]) {
     assert.equal(canonicalRedirect(siteManifest, new URL(kept)), null, kept);
   }
+});
+
+test("every renamed game address redirects once to its new English or Arabic page, keeping the query", async () => {
+  assert.deepEqual(RENAMED_GAME_ROUTES.map(({ from, to }) => [from.en, to.en]), [
+    ["/catan", "/island-traders"],
+    ["/codenames", "/spy-words"],
+    ["/hanabi", "/fireworks"],
+    ["/set", "/triple-match"],
+    ["/mastermind", "/code-breaker"],
+    ["/diplomacy", "/alliances"],
+    ["/connections", "/four-groups"],
+  ]);
+  for (const { from, to } of RENAMED_GAME_ROUTES) {
+    const arabicBare = from.ar.replace(/\/$/u, "");
+    const cases = [
+      [`${PRIMARY_ORIGIN}${from.en}?ref=search`, `${PRIMARY_ORIGIN}${to.en}?ref=search`],
+      [`${PRIMARY_ORIGIN}${from.en}/?x=1`, `${PRIMARY_ORIGIN}${to.en}?x=1`],
+      [`${PRIMARY_ORIGIN}${from.en}.html?x=1`, `${PRIMARY_ORIGIN}${to.en}?x=1`],
+      [`http://www.riddlearabia.com${from.en}?x=1`, `${PRIMARY_ORIGIN}${to.en}?x=1`],
+      [`${PRIMARY_ORIGIN}${from.ar}?ref=search`, `${PRIMARY_ORIGIN}${to.ar}?ref=search`],
+      [`${PRIMARY_ORIGIN}${arabicBare}?x=1`, `${PRIMARY_ORIGIN}${to.ar}?x=1`],
+      [`${PRIMARY_ORIGIN}${from.ar}index.html?x=1`, `${PRIMARY_ORIGIN}${to.ar}?x=1`],
+      [`${PRIMARY_ORIGIN}${arabicBare}.html?x=1`, `${PRIMARY_ORIGIN}${to.ar}?x=1`],
+      [`https://www.riddlearabia.com${from.ar}`, `${PRIMARY_ORIGIN}${to.ar}`],
+    ];
+    for (const [source, destination] of cases) {
+      const response = await handler.fetch(new Request(source), environment());
+      assert.equal(response.status, 301, source);
+      assert.equal(response.headers.get("location"), destination, source);
+      assert.equal(response.headers.get("cache-control"), "public, max-age=86400", source);
+      assertSecurityHeaders(response);
+      const final = await handler.fetch(new Request(destination), environment());
+      assert.equal(final.status, 200, destination);
+      assert.equal(final.headers.get("location"), null, destination);
+    }
+    for (const current of [to.en, to.ar]) {
+      assert.equal(canonicalRedirect(siteManifest, new URL(`${PRIMARY_ORIGIN}${current}`)), null, current);
+      assert.equal(renamedGameRedirectTarget(siteManifest, current), null, current);
+    }
+  }
+  // Puzzle state on the former address survives the single hop.
+  const shared = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/connections?date=2026-09-30&variant=mini`), environment());
+  assert.equal(shared.headers.get("location"), `${PRIMARY_ORIGIN}/four-groups?date=2026-09-30&variant=mini`);
+  // Similar but unrelated paths are not captured by the renamed-game map.
+  for (const path of ["/settings", "/catan-lite", "/ar/games/set-x/", "/Catan"]) {
+    assert.equal(renamedGameRedirectTarget(siteManifest, path), null, path);
+  }
+});
+
+test("handler refuses a release that still deploys a renamed game's old address or lacks its new page", () => {
+  const stillDeployed = structuredClone(siteManifest);
+  stillDeployed.routes["/catan"] = stillDeployed.routes["/island-traders"];
+  assert.throws(
+    () => createSiteHandler({ siteManifest: stillDeployed, mtaStsPolicy }),
+    /Renamed game address is still deployed: \/catan/u,
+  );
+  const oldArabicAlias = structuredClone(siteManifest);
+  oldArabicAlias.aliases["/ar/games/connections.html"] = "/ar/games/four-groups/";
+  assert.throws(
+    () => createSiteHandler({ siteManifest: oldArabicAlias, mtaStsPolicy }),
+    /Renamed game address is still deployed: \/ar\/games\/connections\.html/u,
+  );
+  const missingDestination = structuredClone(siteManifest);
+  delete missingDestination.routes["/ar/games/fireworks/"];
+  assert.throws(
+    () => createSiteHandler({ siteManifest: missingDestination, mtaStsPolicy }),
+    /Renamed game redirect target is absent from release routes: \/ar\/games\/hanabi\/ -> \/ar\/games\/fireworks\//u,
+  );
 });
 
 test("quarantined paths return policy-complete 410 responses before asset access", async () => {

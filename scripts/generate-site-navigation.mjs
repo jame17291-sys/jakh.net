@@ -4,7 +4,7 @@ import {fileURLToPath} from 'node:url';
 import {siteHeader, navigationScript} from './site-navigation-markup.mjs';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const check = process.argv.includes('--check');
-const games = ['akshifha','chess','backgammon','mastermind','go','reversi','codenames','catan','set','hanabi','diplomacy'];
+const games = ['akshifha','chess','backgammon','code-breaker','go','reversi','spy-words','island-traders','triple-match','fireworks','alliances'];
 const pages = [['index','/ar/','home'],['mind-lab','/ar/mind-lab/','library'],['play','/ar/play/','games'],['daily','/ar/daily/','daily'],['privacy','/ar/privacy/',''],...games.map(slug=>[slug,`/ar/games/${slug}/`,'games'])];
 const stale = [];
 for (const [slug,alternate,active] of pages) {

@@ -10,7 +10,11 @@ import {
   RIDDLE_ARABIA_PUZZLE_CATALOG,
   RIDDLE_ARABIA_SEO_PAGES,
 } from "./riddlearabia-seo.mjs";
-import { RETIRED_SEO_ROUTE_REDIRECTS } from "../site-worker/src/seo-route-migrations.js";
+import {
+  RENAMED_GAME_ROUTE_REDIRECTS,
+  RENAMED_GAME_ROUTES,
+  RETIRED_SEO_ROUTE_REDIRECTS,
+} from "../site-worker/src/seo-route-migrations.js";
 import { RETIRED_TOPIC_REDIRECTS, arabicTopicPath, englishTopicPath } from "../site-worker/src/topic-route-migrations.js";
 import { kidsRoutePairs } from "./generate-kids-pages.mjs";
 
@@ -29,6 +33,7 @@ const DEFAULT_MAX_CHECK_ATTEMPTS = 2;
 const DEFAULT_RETRY_DELAY_MS = 0;
 const WORKER_VERSION_ID = /^[0-9A-Za-z][0-9A-Za-z._-]{5,127}$/u;
 const RETIRED_SEO_REDIRECT_QUERY = "retired_seo_redirect_probe=riddlearabia";
+const RENAMED_GAME_REDIRECT_QUERY = "renamed_game_redirect_probe=riddlearabia";
 // Public inventories of the live releases before the 2026-10-25 topic merges:
 // 51 topics with 3,825 cards before the card audit (PR #175), then 3,798 cards
 // after it. Only the exact-version release baseline may still serve one of
@@ -90,15 +95,15 @@ export const PRE_NAVIGATION_HTML_ROUTES = [
   { name: "Game Hub", path: "/play", marker: "<title>Akshifha &amp; Free Browser Games", bilingualMarker: 'id="langSelect"' },
   { name: "Science category", path: "/science", marker: "<title>Science | Riddle Arabia", bilingualMarker: 'id="langSelect"' },
   { name: "Chess", path: "/chess", marker: "<title>Chess — Free Browser Game", bilingualMarker: "game-i18n.js" },
-  { name: "Mastermind", path: "/mastermind", marker: "<title>Mastermind Online", bilingualMarker: "game-i18n.js" },
+  { name: "Code Breaker", path: "/code-breaker", marker: "<title>Code Breaker Online", baselineMarker: "<title>Mastermind Online", bilingualMarker: "game-i18n.js" },
   { name: "Go", path: "/go", marker: "<title>Go Online", bilingualMarker: "game-i18n.js" },
   { name: "Reversi", path: "/reversi", marker: "<title>Reversi Online", bilingualMarker: "game-i18n.js" },
-  { name: "Codenames", path: "/codenames", marker: "<title>Codenames Online", bilingualMarker: "game-i18n.js" },
-  { name: "Catan", path: "/catan", marker: "<title>Catan Lite Online", bilingualMarker: "game-i18n.js" },
+  { name: "Spy Words", path: "/spy-words", marker: "<title>Spy Words Online", baselineMarker: "<title>Codenames Online", bilingualMarker: "game-i18n.js" },
+  { name: "Island Traders", path: "/island-traders", marker: "<title>Island Traders Online", baselineMarker: "<title>Catan Lite Online", bilingualMarker: "game-i18n.js" },
   { name: "Backgammon", path: "/backgammon", marker: "<title>Backgammon — Free Browser Game", bilingualMarker: "game-i18n.js" },
-  { name: "SET", path: "/set", marker: "<title>SET Online", bilingualMarker: "game-i18n.js" },
-  { name: "Hanabi", path: "/hanabi", marker: "<title>Hanabi Online", bilingualMarker: "game-i18n.js" },
-  { name: "Diplomacy", path: "/diplomacy", marker: "<title>Diplomacy Lite Online", bilingualMarker: "game-i18n.js" },
+  { name: "Triple Match", path: "/triple-match", marker: "<title>Triple Match Online", baselineMarker: "<title>SET Online", bilingualMarker: "game-i18n.js" },
+  { name: "Fireworks", path: "/fireworks", marker: "<title>Fireworks Online", baselineMarker: "<title>Hanabi Online", bilingualMarker: "game-i18n.js" },
+  { name: "Alliances", path: "/alliances", marker: "<title>Alliances Online", baselineMarker: "<title>Diplomacy Lite Online", bilingualMarker: "game-i18n.js" },
 ];
 
 const NAVIGATION_ROUTE_UPDATES = {
@@ -194,6 +199,20 @@ export const INDEXABLE_SITEMAP_PATHS = Object.freeze([
 export const PRE_NAVIGATION_SITEMAP_PATHS = Object.freeze(
   PRE_PUZZLE_SITEMAP_PATHS.filter((path) => !["/daily", "/ar/daily/"].includes(path)),
 );
+
+// Until 2026-10-25 every release served the renamed games at their former
+// addresses. Only an exact-version release baseline may still do so; the
+// candidate and routine checks require the new addresses and their redirects.
+const PRE_RENAME_GAME_PATHS = new Map(RENAMED_GAME_ROUTES.flatMap(({ from, to }) => [
+  [to.en, from.en],
+  [to.ar, from.ar],
+]));
+
+export function preRenameGamePath(pathname) {
+  return PRE_RENAME_GAME_PATHS.get(pathname) || pathname;
+}
+
+export const PRE_GAME_RENAME_SITEMAP_PATHS = Object.freeze(INDEXABLE_SITEMAP_PATHS.map(preRenameGamePath));
 
 // An exact-version release baseline may still serve the label from before
 // Shuffle Challenge replaced the daily question; candidates need the new one.
@@ -293,6 +312,15 @@ export function retiredTopicRedirectProbeDefinitions(siteOrigin) {
       location: new URL(`${to}?${query}`, siteOrigin).href,
     }));
   });
+}
+
+export function renamedGameRedirectProbeDefinitions(siteOrigin) {
+  if (siteOrigin !== PRIMARY_SITE_ORIGIN) return [];
+  return RENAMED_GAME_ROUTE_REDIRECTS.map(({ from, to }) => ({
+    name: `Site: renamed game ${from} direct redirect`,
+    url: new URL(`${from}?${RENAMED_GAME_REDIRECT_QUERY}`, siteOrigin).href,
+    location: new URL(`${to}?${RENAMED_GAME_REDIRECT_QUERY}`, siteOrigin).href,
+  }));
 }
 
 function positiveInteger(value, fallback, label) {
@@ -548,6 +576,7 @@ export async function runProductionMonitor(options = {}) {
   let navigationLayout = legacyBaseline ? "legacy-cutover" : "current";
   let includeKidsNavigation = true;
   let partyGameInventory = "current";
+  let gameRouteInventory = "current";
   let privacyScriptFingerprint = null;
   let privacyScriptPath = null;
   let sitePublicQuestions = CONTENT_PUBLICATION_CONTRACT.publicQuestions;
@@ -675,21 +704,30 @@ export async function runProductionMonitor(options = {}) {
     expectStatus(resource.response, 200);
     expectContentType(resource.response, /(?:application|text)\/xml/iu);
     const urls = [...resource.text.matchAll(/<loc>([^<]+)<\/loc>/gu)].map((match) => match[1]);
+    // A predecessor from before the 2026-10-25 game renames lists every former
+    // game address and none of the new ones. Only the exact-version baseline
+    // (or the superseded legacy cutover) may be such a predecessor; its known
+    // inventories are then compared in their former spelling. A mix of old and
+    // new addresses matches no inventory and fails.
+    const preRenameGameInventory = (config.siteContract === "release-baseline" || legacyBaseline)
+      && [...PRE_RENAME_GAME_PATHS.values()].every((pathname) => urls.includes(new URL(pathname, config.siteOrigin).href))
+      && [...PRE_RENAME_GAME_PATHS.keys()].every((pathname) => !urls.includes(new URL(pathname, config.siteOrigin).href));
+    const inventoryPaths = (paths) => (preRenameGameInventory ? paths.map(preRenameGamePath) : paths);
     // Only the exact-version predecessor gate may use a complete earlier
     // inventory. Candidate/routine checks require all game and kids URLs;
     // partial rollouts and different same-size sitemaps are never valid baselines.
     // check() also verifies this response's Worker identity before it can pass.
-    const predecessorUrls = PRE_PUZZLE_SITEMAP_PATHS.map((pathname) => new URL(pathname, config.siteOrigin).href);
+    const predecessorUrls = inventoryPaths(PRE_PUZZLE_SITEMAP_PATHS).map((pathname) => new URL(pathname, config.siteOrigin).href);
     const isPuzzlePredecessor = config.siteContract === "release-baseline"
       && navigationLayout === "current"
       && urls.length === predecessorUrls.length
       && predecessorUrls.every((url) => urls.includes(url));
-    const prePartyUrls = PRE_PARTY_SITEMAP_PATHS.map((pathname) => new URL(pathname, config.siteOrigin).href);
+    const prePartyUrls = inventoryPaths(PRE_PARTY_SITEMAP_PATHS).map((pathname) => new URL(pathname, config.siteOrigin).href);
     const isPartyPredecessor = config.siteContract === "release-baseline"
       && navigationLayout === "current" && includeKidsNavigation
       && urls.length === prePartyUrls.length
       && prePartyUrls.every((url) => urls.includes(url));
-    const preFriendshipArcadeUrls = PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS.map((pathname) => new URL(pathname, config.siteOrigin).href);
+    const preFriendshipArcadeUrls = inventoryPaths(PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS).map((pathname) => new URL(pathname, config.siteOrigin).href);
     const isFriendshipArcadePredecessor = config.siteContract === "release-baseline"
       && navigationLayout === "current" && includeKidsNavigation
       && urls.length === preFriendshipArcadeUrls.length
@@ -699,7 +737,7 @@ export async function runProductionMonitor(options = {}) {
         : isPartyPredecessor ? PRE_PARTY_SITEMAP_PATHS
           : isFriendshipArcadePredecessor ? PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS
             : !includeKidsNavigation ? PRE_KIDS_SITEMAP_PATHS : INDEXABLE_SITEMAP_PATHS;
-    const expectedUrls = expectedPaths.map((pathname) => new URL(pathname, config.siteOrigin).href);
+    const expectedUrls = inventoryPaths(expectedPaths).map((pathname) => new URL(pathname, config.siteOrigin).href);
     if (legacyBaseline) {
       expect(urls.length > 0, "baseline sitemap is empty");
       expect(urls.includes(`${config.siteOrigin}/`), "baseline sitemap is missing the homepage");
@@ -735,15 +773,17 @@ export async function runProductionMonitor(options = {}) {
     // the report and every response remains bound to the requested Worker.
     partyGameInventory = legacyBaseline || expectedPaths === PRE_PARTY_SITEMAP_PATHS ? "none"
       : expectedPaths === PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS ? "pre-friendship-arcade" : "current";
+    gameRouteInventory = preRenameGameInventory ? "pre-rename" : "current";
     assertBudget(resource, config.siteMaxMs, SITEMAP_MAX_BYTES);
     return resource;
   });
 
-  const htmlRoutes = legacyBaseline ? LEGACY_BASELINE_HTML_ROUTES
+  const htmlRoutes = (legacyBaseline ? LEGACY_BASELINE_HTML_ROUTES
     : navigationLayout === "pre-navigation" ? PRE_NAVIGATION_HTML_ROUTES
       : HTML_ROUTES.filter((route) => !route.partyGame
         || partyGameInventory === "current"
-        || (partyGameInventory === "pre-friendship-arcade" && !route.friendshipArcade));
+        || (partyGameInventory === "pre-friendship-arcade" && !route.friendshipArcade)))
+    .map((route) => (gameRouteInventory === "pre-rename" ? { ...route, path: preRenameGamePath(route.path) } : route));
   await Promise.all(htmlRoutes.map((route) =>
     check(`Site: ${route.name}`, async () => {
       const resource = await fetchResource(
@@ -844,6 +884,35 @@ export async function runProductionMonitor(options = {}) {
     }),
   ));
 
+  // A pre-rename baseline still serves the former game pages, so only a
+  // release with the new addresses can prove the one-hop redirects.
+  const renamedGameRedirectProbes = gameRouteInventory === "current"
+    ? renamedGameRedirectProbeDefinitions(config.siteOrigin)
+    : [];
+  await Promise.all(renamedGameRedirectProbes.map((definition) =>
+    check(definition.name, async () => {
+      const resource = await fetchResource(
+        fetchImpl,
+        definition.url,
+        config.timeoutMs,
+        { redirect: "manual" },
+      );
+      expectStatus(resource.response, 301);
+      expect(
+        resource.response.headers.get("location") === definition.location,
+        `renamed game redirect target is ${resource.response.headers.get("location") || "missing"}, expected ${definition.location}`,
+      );
+      expect(
+        /max-age=86400/iu.test(resource.response.headers.get("cache-control") || ""),
+        "renamed game redirect must be cacheable as a permanent redirect",
+      );
+      assertBudget(resource, config.siteMaxMs, 10_000);
+      return resource;
+    }),
+  ));
+
+  // Topics retired by the 2026-10-25 merges: only the current release serves
+  // their redirects, so the predecessor baseline is not probed for them.
   const retiredTopicProbes = config.siteContract === "current" ? retiredTopicRedirectProbeDefinitions(config.siteOrigin) : [];
   await Promise.all(retiredTopicProbes.map((definition) =>
     check(definition.name, async () => {
@@ -1413,7 +1482,7 @@ export async function runProductionMonitor(options = {}) {
     }
   }
 
-  const summary = { config, navigationLayout, results, failures };
+  const summary = { config, navigationLayout, gameRouteInventory, results, failures };
   if (failures.length && options.throwOnFailure !== false) {
     throw new Error(`Production monitor failed: ${failures.length} of ${results.length + failures.length} checks failed`);
   }

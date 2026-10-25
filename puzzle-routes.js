@@ -4,7 +4,7 @@ export const PUZZLE_ROUTES = Object.freeze([
   ['bonus', 'bonus-puzzles'], ['duel', 'word-duel'],
   ['crossword', 'crossword'], ['midi', 'midi-crossword'], ['mini', 'mini-crossword'],
   ['hive', 'word-hive'], ['word', 'five-letters'], ['domino', 'logic-dominoes'],
-  ['trails', 'word-trails'], ['links', 'connections'], ['mosaic', 'mosaic'],
+  ['trails', 'word-trails'], ['links', 'four-groups'], ['mosaic', 'mosaic'],
   ['letter-square', 'letter-square'], ['sudoku', 'sudoku'],
 ].map(([id, slug]) => Object.freeze({id, slug, paths: Object.freeze({en: `/${slug}`, ar: `/ar/games/${slug}/`})})));
 

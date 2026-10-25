@@ -396,7 +396,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   },
   {
     key: "brain-games",
-    lastModified: "2026-10-06",
+    // Game names changed on 2026-10-25 (see site-worker/src/seo-route-migrations.js).
+    lastModified: "2026-10-25",
     paths: { en: "/brain-games", ar: "/ar/alab-al-dimagh/" },
     kind: "games",
     titles: {
@@ -410,8 +411,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
     eyebrow: { en: "Games", ar: "الألعاب" },
     headings: { en: "Brain games in Arabic and English", ar: "ألعاب ذكاء بالعربية والإنجليزية" },
     introductions: {
-      en: "Choose a free game for a short break or a longer challenge, in Arabic or English. Start with a Mini Crossword, solve Sudoku, connect words by theme, or invite a friend to Word Duel. You can also connect clues in Akshifha or settle in with chess and backgammon.",
-      ar: "اختر لعبة مجانية لاستراحة قصيرة أو تحدٍّ أطول، بالعربية أو الإنجليزية. ابدأ بمتقاطعة مصغّرة، أو حلّ سودوكو، أو اربط الكلمات حسب موضوعها، أو ادعُ صديقاً إلى مبارزة الكلمات. ويمكنك أيضاً ربط الأدلة في اكشفها أو الاستمتاع بالشطرنج وطاولة الزهر.",
+      en: "Choose a free game for a short break or a longer challenge, in Arabic or English. Start with a Quick Crossword, solve Sudoku, connect words by theme, or invite a friend to Word Duel. You can also connect clues in Akshifha or settle in with chess and backgammon.",
+      ar: "اختر لعبة مجانية لاستراحة قصيرة أو تحدٍّ أطول، بالعربية أو الإنجليزية. ابدأ بكلمات متقاطعة سريعة، أو حلّ سودوكو، أو اربط الكلمات حسب موضوعها، أو ادعُ صديقاً إلى مبارزة الكلمات. ويمكنك أيضاً ربط الأدلة في اكشفها أو الاستمتاع بالشطرنج وطاولة الزهر.",
     },
     guidance: {
       en: "Daily puzzle selections rotate through finite collections or use generated boards; they are not newly published puzzles every day. Solo puzzle progress stays on this device. Word Duel uses an online room for two players. Akshifha rotates through eleven existing cases, separately from Shuffle Challenge.",
@@ -504,7 +505,7 @@ export const RIDDLE_ARABIA_GAME_CATALOG = Object.freeze([
 // Preserve known, indexable URLs during the portfolio transition. Removing a
 // game from discovery must not silently delete it or redirect its visitors.
 export const PRESERVED_GAME_SLUGS = Object.freeze([
-  "mastermind", "go", "reversi", "codenames", "catan", "set", "hanabi", "diplomacy",
+  "code-breaker", "go", "reversi", "spy-words", "island-traders", "triple-match", "fireworks", "alliances",
 ]);
 
 export const RETIRED_LEGACY_SEO_DIRECTORIES = Object.freeze([

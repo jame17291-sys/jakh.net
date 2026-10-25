@@ -146,7 +146,7 @@
     { en: '/daily', ar: '/ar/daily/' },
     { en: '/about', ar: '/ar/about/' },
     { en: '/privacy', ar: '/ar/privacy/' },
-    ...['chess', 'mastermind', 'go', 'reversi', 'codenames', 'catan', 'backgammon', 'set', 'hanabi', 'diplomacy']
+    ...['chess', 'code-breaker', 'go', 'reversi', 'spy-words', 'island-traders', 'backgammon', 'triple-match', 'fireworks', 'alliances']
       .map((slug) => ({ en: `/${slug}`, ar: `/ar/games/${slug}/` })),
   ]);
 

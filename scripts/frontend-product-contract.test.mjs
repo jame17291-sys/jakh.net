@@ -17,7 +17,7 @@ const mindLabHtml = fs.readFileSync(path.join(root, 'mind-lab.html'), 'utf8');
 const battleMode = fs.readFileSync(path.join(root, 'battle-mode.js'), 'utf8');
 const seoGenerator = fs.readFileSync(path.join(root, 'scripts/generate-seo-pages.mjs'), 'utf8');
 const arabicRouteGenerator = fs.readFileSync(path.join(root, 'scripts/generate-arabic-routes.mjs'), 'utf8');
-const gameCopy = ['codenames.html', 'go.html', 'hanabi.html']
+const gameCopy = ['spy-words.html', 'go.html', 'fireworks.html']
   .map(file => fs.readFileSync(path.join(root, file), 'utf8'))
   .join('\n');
 
@@ -601,7 +601,7 @@ test('public Arabic actions use concise human wording and reject known literal t
   ]) assert.doesNotMatch(publicActions, roboticOrIncorrect);
 
   for (const naturalAction of [
-    'العب دبلوماسية',
+    'العب تحالفات',
     'العب مرة أخرى',
     'عرض الإجابة',
     'عرض السؤال',

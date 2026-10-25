@@ -12,15 +12,15 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const GAME_SLUGS = [
   "akshifha",
   "chess",
-  "mastermind",
+  "code-breaker",
   "go",
   "reversi",
-  "codenames",
-  "catan",
+  "spy-words",
+  "island-traders",
   "backgammon",
-  "set",
-  "hanabi",
-  "diplomacy",
+  "triple-match",
+  "fireworks",
+  "alliances",
 ];
 const routes = [
   ["ar/index.html", "/", "/ar/"],

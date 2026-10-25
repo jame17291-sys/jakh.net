@@ -49,7 +49,7 @@ test('each language has thirty stable, distinct puzzles in both group banks with
   }
 });
 
-test('new Connections sets introduce new groups rather than recombining the original groups', () => {
+test('new Four Groups sets introduce new groups rather than recombining the original groups', () => {
   for (const lang of languages) {
     const seen = new Set(LINK_SETS[lang].slice(0, 6).flatMap(p => p.map(groupKey)));
     for (const p of LINK_SETS[lang].slice(6)) {
@@ -60,7 +60,7 @@ test('new Connections sets introduce new groups rather than recombining the orig
   }
 });
 
-test('Connections has distinct normalized tokens, exact valid groups and rejected cross-group guesses in both variants', () => {
+test('Four Groups has distinct normalized tokens, exact valid groups and rejected cross-group guesses in both variants', () => {
   for (const lang of languages) for (const puzzle of LINK_SETS[lang]) {
     assert.equal(puzzle.length, 4);
     assert.equal(new Set(puzzle.map(g => g.title)).size, 4);
@@ -126,7 +126,7 @@ test('all Trails paths cover the board exactly, span opposite edges and earn a h
   }
 });
 
-test('expansion preserves the original six Connections and two Trails in their existing order', () => {
+test('expansion preserves the original six Four Groups sets and two Trails in their existing order', () => {
   // Content snapshots protect existing daily IDs and saved games during expansion.
   const expected = {
     en: { links: '18cc90f979a74f197959cd23e00ca7488554d279ab457d70d4ab919b2488dcfe', trails: 'bf39b6fc82c442b1070c21806d171962f59323cd8ac306a4847eaaf0f1b17010' },

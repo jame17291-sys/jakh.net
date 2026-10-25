@@ -6,17 +6,19 @@ import { RIDDLE_ARABIA_PUZZLE_CATALOG, RIDDLE_ARABIA_SEO_PAGES } from "./riddlea
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const failures = [];
+// Public page slug and stable translation registration ID. Renamed games keep
+// their original registration ID and data-game value.
 const games = [
-  "chess",
-  "mastermind",
-  "go",
-  "reversi",
-  "codenames",
-  "catan",
-  "backgammon",
-  "set",
-  "hanabi",
-  "diplomacy",
+  { slug: "chess", id: "chess" },
+  { slug: "code-breaker", id: "mastermind" },
+  { slug: "go", id: "go" },
+  { slug: "reversi", id: "reversi" },
+  { slug: "spy-words", id: "codenames" },
+  { slug: "island-traders", id: "catan" },
+  { slug: "backgammon", id: "backgammon" },
+  { slug: "triple-match", id: "set" },
+  { slug: "fireworks", id: "hanabi" },
+  { slug: "alliances", id: "diplomacy" },
 ];
 const sitePages = {
   "404.html": "notFound",
@@ -367,15 +369,15 @@ const gameRuntime = read("game-i18n.js");
 const gameCommon = extractObject(gameRuntime, "var COMMON =", "game-i18n.js COMMON");
 const gameCommonKeys = assertParity("game-i18n.js COMMON", gameCommon);
 
-for (const game of games) {
-  for (const file of [`${game}.html`, `ar/games/${game}/index.html`]) {
+for (const { slug, id: game } of games) {
+  for (const file of [`${slug}.html`, `ar/games/${slug}/index.html`]) {
     const source = read(file);
     const translations = registeredGameTranslations(source, game, `${file} translations`);
     const pageKeys = assertParity(`${file} translations`, translations);
     const available = new Set([...gameCommonKeys, ...pageKeys]);
     if (!source.includes(`data-game="${game}"`)) fail(`${file}: missing data-game="${game}"`);
     const lang = file.startsWith("ar/") ? "ar" : "en";
-    assertLanguageRoute(file, source, lang, lang === "ar" ? `/${game}` : `/ar/games/${game}/`);
+    assertLanguageRoute(file, source, lang, lang === "ar" ? `/${slug}` : `/ar/games/${slug}/`);
     if (hasRuntime(source, "app.js")) fail(`${file}: unrelated question application runtime is loaded`);
     if (!/<script[^>]+src=["'][^"']*game-i18n\.js(?:\?[^"']*)?["']/iu.test(source)) fail(`${file}: missing game-i18n.js`);
     if (!/\b[A-Za-z_$][\w$]*\.onChange\(/u.test(source)) {
@@ -388,10 +390,10 @@ for (const game of games) {
       fail(`${file}: Go board is not keyboard operable`);
     }
     if (game === "catan" && (!/cell\.tabIndex\s*=/u.test(source) || !/cell\.addEventListener\(["']keydown["']/u.test(source))) {
-      fail(`${file}: Catan hexes are not keyboard operable`);
+      fail(`${file}: Island Traders hexes are not keyboard operable`);
     }
     if (game === "set" && !/<div[^>]+class=["'][^"']*\bset-grid\b[^"']*["'][^>]+dir=["']ltr["']/iu.test(source)) {
-      fail(`${file}: SET physical card grid must remain left-to-right`);
+      fail(`${file}: Triple Match physical card grid must remain left-to-right`);
     }
     assertKnownKeys(file, new Set([...attributeKeys(source), ...literalRuntimeKeys(source)]), available);
   }
@@ -446,7 +448,7 @@ const footerPages = new Set([
   ...appPages,
   ...sharedPagePairs.flatMap((pair) => [pair.en, pair.ar]),
   ...Object.keys(sitePages),
-  ...games.flatMap((game) => [`${game}.html`, `ar/games/${game}/index.html`]),
+  ...games.flatMap(({ slug }) => [`${slug}.html`, `ar/games/${slug}/index.html`]),
   ...localizedPages.en,
   ...localizedPages.ar,
   "ar/privacy/index.html",

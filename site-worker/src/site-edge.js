@@ -1,6 +1,8 @@
 import {
   directRetiredSeoRouteTarget,
   normalizeRetiredSeoRoute,
+  renamedGameRouteTarget,
+  RENAMED_GAME_ROUTE_REDIRECTS,
   RETIRED_SEO_ROUTE_REDIRECTS,
 } from "./seo-route-migrations.js";
 import {
@@ -486,6 +488,13 @@ export function retiredSeoRedirectTarget(siteManifest, pathname) {
     || retiredSeoPaginationTarget(siteManifest, normalized);
 }
 
+// A renamed game's former English or Arabic address. The destination must be a
+// deployed route, so a missing page can never be advertised by a redirect.
+export function renamedGameRedirectTarget(siteManifest, pathname) {
+  const target = renamedGameRouteTarget(pathname);
+  return target && siteManifest.routes[target] ? target : null;
+}
+
 export function canonicalRedirect(siteManifest, requestUrl) {
   if (!isPrimaryHost(requestUrl.hostname)) return null;
   const target = new URL(requestUrl.href);
@@ -504,6 +513,11 @@ export function canonicalRedirect(siteManifest, requestUrl) {
   const retiredSeoTarget = movedCardTarget || retiredSeoRedirectTarget(siteManifest, target.pathname);
   if (retiredSeoTarget) {
     target.pathname = retiredSeoTarget;
+    changed = true;
+  }
+  const renamedGameTarget = renamedGameRedirectTarget(siteManifest, target.pathname);
+  if (renamedGameTarget) {
+    target.pathname = renamedGameTarget;
     changed = true;
   }
   const aliasTarget = siteManifest.aliases[target.pathname];
@@ -605,6 +619,19 @@ function validateManifest(siteManifest) {
   for (const slug of movedCardTopics()) {
     for (const route of [englishTopicPath(slug), arabicTopicPath(slug)]) {
       invariant(Boolean(siteManifest.routes[route]), `Moved card topic is absent from release routes: ${route}`);
+    }
+  }
+  for (const { from, to } of RENAMED_GAME_ROUTE_REDIRECTS) {
+    invariant(
+      Boolean(siteManifest.routes[to]),
+      `Renamed game redirect target is absent from release routes: ${from} -> ${to}`,
+    );
+    const bare = from.replace(/\/$/u, "");
+    for (const source of new Set([from, bare, `${bare}.html`, `${bare}/index.html`])) {
+      invariant(
+        !siteManifest.routes[source] && !siteManifest.aliases[source] && !siteManifest.files[source],
+        `Renamed game address is still deployed: ${source}`,
+      );
     }
   }
   for (const path of Object.keys(siteManifest.files)) {

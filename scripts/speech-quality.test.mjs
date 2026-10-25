@@ -70,6 +70,73 @@ test('the free reader excludes browser-provided cloud voices and prioritizes an 
   assert.equal(h.getBestVoice([localArabic, naturalArabic], 'ar'), localArabic);
 });
 
+// Voice lists shaped like the ones Safari and Chrome report on Apple devices:
+// novelty voices come first alphabetically, no English voice is the default on
+// an Arabic phone, and eloquence voices name their language in brackets.
+const apple = (name, lang, uri, extra = {}) => ({ name, lang, voiceURI: uri, localService: true, default: false, ...extra });
+const NOVELTY_ENGLISH = ['Albert', 'Bad News', 'Bahh', 'Bells', 'Boing', 'Bubbles', 'Cellos', 'Good News', 'Jester', 'Organ', 'Superstar', 'Trinoids', 'Whisper', 'Wobble', 'Zarvox']
+  .map(name => apple(name, 'en-US', `com.apple.speech.synthesis.voice.${name.replace(' ', '')}`));
+const ROBOTIC_ENGLISH = [
+  ...['Fred', 'Junior', 'Kathy', 'Ralph'].map(name => apple(name, 'en-US', `com.apple.speech.synthesis.voice.${name}`)),
+  ...['Eddy', 'Flo', 'Grandma', 'Grandpa', 'Reed', 'Rocko', 'Sandy', 'Shelley'].map(name => apple(`${name} (English (US))`, 'en-US', `com.apple.eloquence.en-US.${name}`)),
+];
+const samantha = apple('Samantha', 'en-US', 'com.apple.voice.compact.en-US.Samantha');
+const daniel = apple('Daniel', 'en-GB', 'com.apple.voice.compact.en-GB.Daniel');
+const karen = apple('Karen', 'en-AU', 'com.apple.voice.compact.en-AU.Karen');
+const moira = apple('Moira', 'en-IE', 'com.apple.voice.compact.en-IE.Moira');
+const majed = apple('Majed', 'ar-001', 'com.apple.voice.compact.ar-001.Maged');
+const iosArabicPhone = [...NOVELTY_ENGLISH, ...ROBOTIC_ENGLISH, daniel, karen, { ...majed, default: true }, moira, samantha]
+  .sort((left, right) => left.name.localeCompare(right.name));
+const isNovelty = voice => NOVELTY_ENGLISH.some(novelty => novelty.name === voice?.name);
+
+test('an Arabic iPhone reads English with a natural voice, never a novelty or robotic one', () => {
+  const h = engine();
+  assert.equal(h.getBestVoice(iosArabicPhone, 'en'), samantha);
+  assert.equal(h.getBestVoice(iosArabicPhone, 'ar').name, 'Majed');
+  // Without Samantha a British natural voice still beats every novelty voice.
+  const withoutSamantha = iosArabicPhone.filter(voice => voice !== samantha);
+  assert.equal(h.getBestVoice(withoutSamantha, 'en'), daniel);
+  for (let shift = 0; shift < iosArabicPhone.length; shift++) {
+    const rotated = [...iosArabicPhone.slice(shift), ...iosArabicPhone.slice(0, shift)];
+    assert.equal(h.getBestVoice(rotated, 'en'), samantha, `list order ${shift} does not change the choice`);
+  }
+});
+
+test('an English iPhone and a Mac prefer enhanced or premium natural voices and skip cloud voices', () => {
+  const h = engine();
+  const enhanced = apple('Samantha (Enhanced)', 'en-US', 'com.apple.voice.enhanced.en-US.Samantha');
+  const iosEnglishPhone = [...NOVELTY_ENGLISH, ...ROBOTIC_ENGLISH, { ...samantha, default: true }, daniel, enhanced, majed];
+  assert.equal(h.getBestVoice(iosEnglishPhone, 'en'), enhanced);
+  const premiumAva = apple('Ava (Premium)', 'en-US', 'com.apple.voice.premium.en-US.Ava');
+  const mac = [
+    ...NOVELTY_ENGLISH, ...ROBOTIC_ENGLISH, daniel, karen, moira, samantha,
+    apple('Tarik', 'ar-SA', 'com.apple.speech.synthesis.voice.tarik'), apple('Majed', 'ar-001', 'com.apple.voice.compact.ar-001.Maged'),
+    { name: 'Google US English', lang: 'en-US', voiceURI: 'Google US English', localService: false, default: false },
+    { name: 'Google العربية', lang: 'ar', voiceURI: 'Google العربية', localService: false, default: false },
+  ];
+  assert.equal(h.getBestVoice(mac, 'en'), samantha);
+  assert.equal(h.getBestVoice([...mac, premiumAva], 'en'), premiumAva);
+  assert.ok(['Tarik', 'Majed'].includes(h.getBestVoice(mac, 'ar').name));
+  assert.equal(h.getBestVoice([naturalArabic, apple('Laila', 'ar-SA', 'com.apple.speech.synthesis.voice.laila')], 'ar').name, 'Laila');
+});
+
+test('novelty voices are never chosen and robotic ones only when nothing natural is installed', () => {
+  const h = engine();
+  assert.equal(h.getBestVoice(NOVELTY_ENGLISH, 'en'), null);
+  const robotic = h.getBestVoice([...NOVELTY_ENGLISH, ...ROBOTIC_ENGLISH], 'en');
+  assert.ok(ROBOTIC_ENGLISH.includes(robotic) && !isNovelty(robotic));
+  const plain = apple('English device', 'en-US', 'english-device');
+  assert.equal(h.getBestVoice([...NOVELTY_ENGLISH, ...ROBOTIC_ENGLISH, plain], 'en'), plain, 'an ordinary device voice beats a robotic one');
+  const espeak = { name: 'eSpeak English', lang: 'en-US', voiceURI: 'espeak-en', localService: true };
+  assert.equal(h.getBestVoice([espeak, plain], 'en'), plain);
+  const windows = { name: 'Microsoft Jenny (Natural) - English (United States)', lang: 'en-US', voiceURI: 'jenny', localService: true };
+  assert.equal(h.getBestVoice([{ name: 'Microsoft David - English (United States)', lang: 'en-US', voiceURI: 'david', localService: true }, windows], 'en'), windows);
+  const h2 = engine({ voices: iosArabicPhone });
+  h2.speakNaturally({ text: 'What goes up and down but never moves?', lang: 'en' });
+  assert.equal(h2.spoken[0].voice, samantha);
+  assert.equal(h2.spoken[0].lang, 'en-US');
+});
+
 test('an installed underscore locale is normalized for the actual native utterance', () => {
   const voice = { name: 'Arabic device', voiceURI: 'device', lang: 'AR_AE', localService: true };
   const h = engine({ voices: [voice] });

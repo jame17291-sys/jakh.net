@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "What is the hard surface material made from bitumen and gravel commonly used to pave roads?",
-      "ar": "شو مادة السطح الصلبة المصنوعة من القار والحصى اللي نرصف فيها الطرق عادةً؟"
+      "ar": "ما مادة السطح الصلبة المصنوعة من القار والحصى والمستخدمة عادةً لرصف الطرق؟"
     },
     "answer": {
       "en": "Asphalt.",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "Which London bridge has two towers and a road deck that lifts to let tall ships pass?",
-      "ar": "أي جسر في لندن له برجين وطريق ينرفع عشان تمر السفن العالية؟"
+      "ar": "أي جسر في لندن له برجان وطريق يرتفع لتمر السفن العالية؟"
     },
     "answer": {
       "en": "Tower Bridge",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "What large structure stores water and regulates its flow for drinking supply and flood control?",
-      "ar": "شو المنشأة الكبيرة اللي تخزّن المي وتنظّم جريانها للشرب ولمنع الفيضانات؟"
+      "ar": "ما المنشأة الكبيرة التي تخزّن المياه وتنظّم تدفقها لأغراض الشرب ومكافحة الفيضانات؟"
     },
     "answer": {
       "en": "A dam and reservoir.",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "What is the network of power lines, substations, and transformers that delivers electricity to homes called?",
-      "ar": "شو اسم شبكة خطوط الكهربا ومحطات التحويل والمحوّلات اللي توصّل الكهربا للبيوت؟"
+      "ar": "ما اسم شبكة خطوط الطاقة ومحطات التحويل والمحوّلات التي توصّل الكهرباء إلى المنازل؟"
     },
     "answer": {
       "en": "The electrical grid (power grid).",
@@ -84,7 +84,7 @@
     },
     "question": {
       "en": "What is the underground system of pipes that carries waste water away from buildings?",
-      "ar": "شو اسم شبكة الأنابيب تحت الأرض اللي تنقل مي الصرف من المباني؟"
+      "ar": "ما اسم شبكة الأنابيب تحت الأرض التي تنقل مياه الصرف من المباني؟"
     },
     "answer": {
       "en": "The sewer system.",
@@ -103,7 +103,7 @@
     },
     "question": {
       "en": "In railway engineering, what is the portal of a tunnel?",
-      "ar": "في هندسة السكك الحديدية، شو هي «بوابة النفق»؟"
+      "ar": "في هندسة السكك الحديدية، ما بوابة النفق؟"
     },
     "answer": {
       "en": "The entrance or exit opening and its surrounding structure.",
@@ -122,7 +122,7 @@
     },
     "question": {
       "en": "What is the name for a high-speed rail system that uses magnetic levitation instead of wheels on rails?",
-      "ar": "شو اسم نظام القطارات السريعة اللي يستخدم الرفع المغناطيسي بدل العجلات؟"
+      "ar": "ما اسم نظام السكك الحديدية عالي السرعة الذي يستخدم الرفع المغناطيسي بدلًا من العجلات؟"
     },
     "answer": {
       "en": "Maglev (magnetic levitation) train.",
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "What physical cables carry the majority of international internet data across oceans?",
-      "ar": "شو الكابلات اللي تحمل أغلب بيانات الإنترنت الدولية عبر المحيطات؟"
+      "ar": "ما الكابلات المادية التي تحمل معظم بيانات الإنترنت الدولية عبر المحيطات؟"
     },
     "answer": {
       "en": "Submarine (undersea) fiber-optic cables.",
@@ -160,7 +160,7 @@
     },
     "question": {
       "en": "In container-port statistics, what does TEU stand for?",
-      "ar": "في إحصائيات موانئ الحاويات، شو معنى اختصار TEU؟"
+      "ar": "في إحصاءات موانئ الحاويات، إلى ماذا يشير الاختصار TEU؟"
     },
     "answer": {
       "en": "Twenty-foot equivalent unit, a standard measure of container capacity.",
@@ -179,7 +179,7 @@
     },
     "question": {
       "en": "What is the name for the large-scale network of high-speed motorways in Germany?",
-      "ar": "شو اسم شبكة الطرق السريعة الكبيرة في ألمانيا؟"
+      "ar": "ما اسم شبكة الطرق السريعة واسعة النطاق في ألمانيا؟"
     },
     "answer": {
       "en": "The Autobahn.",
@@ -198,7 +198,7 @@
     },
     "question": {
       "en": "What process removes salt from seawater to produce drinking water?",
-      "ar": "شو العملية اللي تشيل الملح من مي البحر عشان تصير صالحة للشرب؟"
+      "ar": "ما العملية التي تزيل الملح من مياه البحر لإنتاج مياه الشرب؟"
     },
     "answer": {
       "en": "Desalination.",
@@ -217,7 +217,7 @@
     },
     "question": {
       "en": "What type of power station uses the flow or fall of water to generate electricity?",
-      "ar": "أي نوع محطة طاقة يستخدم جريان المي أو نزولها عشان يولّد كهربا؟"
+      "ar": "ما نوع محطة الطاقة التي تستخدم تدفق الماء أو سقوطه لتوليد الكهرباء؟"
     },
     "answer": {
       "en": "A hydroelectric power station.",
@@ -236,7 +236,7 @@
     },
     "question": {
       "en": "What is the name for the paved strip where aircraft take off and land at an airport?",
-      "ar": "شو اسم الشريط الممهّد اللي تقلع منه الطيارات وتنزل عليه بالمطار؟"
+      "ar": "ما اسم الشريط الممهّد الذي تُقلع منه الطائرات وتهبط عليه في المطار؟"
     },
     "answer": {
       "en": "A runway.",
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "What type of bridge uses diagonal cables running from towers directly to the deck, without a main horizontal cable?",
-      "ar": "أي نوع جسر يستخدم كابلات مايلة نازلة من الأبراج للسطح مباشرة، من غير كابل أفقي رئيسي؟"
+      "ar": "ما نوع الجسر الذي يستخدم كابلات قطرية تمتد من الأبراج مباشرةً إلى السطح دون كابل أفقي رئيسي؟"
     },
     "answer": {
       "en": "A cable-stayed bridge. Its stays run directly from towers to the deck, rather than from deck hangers to a separate main cable.",
@@ -274,7 +274,7 @@
     },
     "question": {
       "en": "What is the purpose of a water treatment plant?",
-      "ar": "شو الهدف من محطة معالجة المي؟"
+      "ar": "ما الغرض من محطة معالجة المياه؟"
     },
     "answer": {
       "en": "To remove contaminants and pathogens from raw water sources to make it safe for drinking and domestic use.",
@@ -293,7 +293,7 @@
     },
     "question": {
       "en": "What does load shedding mean in an electrical power grid?",
-      "ar": "في شبكة الكهربا، شو يعني «تخفيف الأحمال»؟"
+      "ar": "ماذا يعني فصل الأحمال في شبكة القدرة الكهربائية؟"
     },
     "answer": {
       "en": "Temporarily reducing or disconnecting demand to keep supply and demand balanced and prevent grid collapse.",
@@ -312,7 +312,7 @@
     },
     "question": {
       "en": "What is a canal lock?",
-      "ar": "في القناة الملاحية، شو هو «الهويس»؟"
+      "ar": "ما الهويس في القناة الملاحية؟"
     },
     "answer": {
       "en": "A section of canal enclosed by gates that allows boats to be raised or lowered between water levels of different elevations.",
@@ -331,7 +331,7 @@
     },
     "question": {
       "en": "Which 50-km rail tunnel under the sea, opened in 1994, links England and France?",
-      "ar": "أي نفق قطارات تحت البحر طوله 50 كم، افتُتح سنة 1994، يربط إنجلترا بفرنسا؟"
+      "ar": "أي نفق للقطارات تحت البحر طوله 50 كم، افتُتح عام 1994، يربط إنجلترا بفرنسا؟"
     },
     "answer": {
       "en": "The Channel Tunnel.",
@@ -350,7 +350,7 @@
     },
     "question": {
       "en": "What does 'grade separation' mean in road engineering?",
-      "ar": "في هندسة الطرق، شو معنى «الفصل بالمستويات»؟"
+      "ar": "ما معنى «الفصل في المستويات» في هندسة الطرق؟"
     },
     "answer": {
       "en": "Using bridges, overpasses, or underpasses to allow two roads to cross at different levels without intersecting, eliminating traffic conflicts.",
@@ -369,7 +369,7 @@
     },
     "question": {
       "en": "What is standard gauge in railway track, and what is its measurement?",
-      "ar": "شو المقاس القياسي للسكة الحديد، وكم قياسه؟"
+      "ar": "ما المقاس القياسي في سكة الحديد وما قياسه؟"
     },
     "answer": {
       "en": "Standard gauge is 1435 mm (4 ft 8½ in) — the distance between the inner faces of the two rails. It is used by most of the world's railways.",
@@ -388,7 +388,7 @@
     },
     "question": {
       "en": "Which self-excited aerodynamic instability was central to the 1940 Tacoma Narrows Bridge collapse?",
-      "ar": "شو عدم الاستقرار الهوائي اللي يثير نفسه بنفسه، واللي كان سبب أساسي بانهيار جسر تاكوما ناروز سنة 1940؟"
+      "ar": "ما عدم الاستقرار الديناميكي الهوائي ذاتي الإثارة الذي كان محورياً في انهيار جسر تاكوما ناروز عام 1940؟"
     },
     "answer": {
       "en": "Torsional aeroelastic flutter. The bridge's motion altered aerodynamic forces that fed further motion; this is not ordinary resonance driven by a fixed external forcing frequency.",
@@ -407,7 +407,7 @@
     },
     "question": {
       "en": "What is the difference between potable water and grey water?",
-      "ar": "شو الفرق بين المي الصالحة للشرب والمي الرمادية؟"
+      "ar": "ما الفرق بين المياه الصالحة للشرب والمياه الرمادية؟"
     },
     "answer": {
       "en": "Potable water is treated, clean water safe for consumption. Grey water is lightly used wastewater from sinks, showers, and laundry — reusable for irrigation but not safe to drink without further treatment.",
@@ -426,7 +426,7 @@
     },
     "question": {
       "en": "Why is electricity transmitted at very high voltages over long distances?",
-      "ar": "ليش الكهربا تنتقل بجهد عالي كثير للمسافات الطويلة؟"
+      "ar": "لماذا تُنقل الكهرباء بجهود عالية جدًا عبر مسافات طويلة؟"
     },
     "answer": {
       "en": "For the same transmitted power, higher voltage permits lower current. Resistive heating loss is I²R, so reducing current reduces those losses.",
@@ -445,7 +445,7 @@
     },
     "question": {
       "en": "Why must survey teams coordinate alignment when tunnel excavation advances from opposite ends?",
-      "ar": "لما ينحفر نفق من طرفين متقابلين، ليش لازم فرق المساحة تنسّق الاتجاه؟"
+      "ar": "لماذا يجب أن تنسق فرق المساحة المحاذاة عندما يتقدم حفر نفق من طرفين متقابلين؟"
     },
     "answer": {
       "en": "To make the two headings meet at the required horizontal position and elevation rather than miss each other.",
@@ -464,7 +464,7 @@
     },
     "question": {
       "en": "What is a pile foundation and when is it used?",
-      "ar": "شو هو «أساس الخوازيق»، ومتى نستخدمه؟"
+      "ar": "ما أساس الخازوق ومتى يُستخدم؟"
     },
     "answer": {
       "en": "A deep foundation using slender elements installed by driving, boring, or other methods. Loads transfer through shaft resistance, end bearing, or both when shallow foundations are unsuitable.",
@@ -483,7 +483,7 @@
     },
     "question": {
       "en": "What is the purpose of a camber in road design?",
-      "ar": "في تصميم الطرق، شو الهدف من الميلان العرضي (الكامبر)؟"
+      "ar": "ما الغرض من الانحناء العرضي (الكامبر) في تصميم الطرق؟"
     },
     "answer": {
       "en": "A slight convex curvature across the road surface that drains rainwater to the sides, improving safety and surface longevity.",
@@ -502,7 +502,7 @@
     },
     "question": {
       "en": "What is a combined sewer overflow, and why can it pollute receiving waters?",
-      "ar": "شو هو «فيضان الصرف المشترك»، وليش ممكن يلوّث المي اللي يصب فيها؟"
+      "ar": "ما تصريف الفائض من شبكة الصرف المشتركة، ولماذا قد يلوث المياه المستقبلة؟"
     },
     "answer": {
       "en": "During heavy rain, a combined sewage-and-stormwater system may discharge excess flow before full treatment, releasing sewage and other pollutants into receiving waters.",
@@ -521,7 +521,7 @@
     },
     "question": {
       "en": "What is the difference between a simply supported beam bridge and a continuous beam bridge?",
-      "ar": "شو الفرق بين جسر كمرة بسيطة الإسناد وجسر كمرة مستمرة؟"
+      "ar": "ما الفرق بين جسر الكمرة المدعومة ببساطة وجسر الكمرة المستمرة؟"
     },
     "answer": {
       "en": "A simply supported span rests independently between two supports. A continuous beam extends across more than two supports, so neighboring spans share bending effects; actual reactions depend on loading and geometry.",
@@ -540,7 +540,7 @@
     },
     "question": {
       "en": "What is the water hammer effect in pipelines?",
-      "ar": "في خطوط الأنابيب، شو هو تأثير «المطرقة المائية»؟"
+      "ar": "ما تأثير المطرقة المائية في خطوط الأنابيب؟"
     },
     "answer": {
       "en": "A transient pressure surge caused by a rapid change in flow, such as sudden valve closure. Surge-control vessels and controlled valve operation can help limit it.",
@@ -559,7 +559,7 @@
     },
     "question": {
       "en": "What is the difference between AC and DC in power transmission?",
-      "ar": "في نقل الكهربا، شو الفرق بين التيار المتردد والتيار المستمر؟"
+      "ar": "ما الفرق بين التيار المتردد والتيار المستمر في نقل الطاقة؟"
     },
     "answer": {
       "en": "AC reverses direction periodically and is easily transformed to different voltages, ideal for grid transmission. DC flows constantly in one direction and is more efficient for very long distance (HVDC) or submarine cable transmission.",
@@ -578,7 +578,7 @@
     },
     "question": {
       "en": "What is a breakwater in harbor engineering?",
-      "ar": "في هندسة الموانئ، شو هو «حاجز الأمواج»؟"
+      "ar": "ما حاجز الأمواج في هندسة الموانئ؟"
     },
     "answer": {
       "en": "A structure built in open water to absorb or deflect wave energy, protecting harbor facilities, vessels, and coastlines from wave action and erosion.",
@@ -597,7 +597,7 @@
     },
     "question": {
       "en": "What is the purpose of expansion joints in concrete bridges and roads?",
-      "ar": "شو فايدة «فواصل التمدد» بالجسور والطرق الخرسانية؟"
+      "ar": "ما الغرض من وصلات التمدد في الجسور والطرق الخرسانية؟"
     },
     "answer": {
       "en": "Intentional gaps that allow concrete to expand in heat and contract in cold without cracking or buckling due to thermal stress.",
@@ -616,7 +616,7 @@
     },
     "question": {
       "en": "What is the function of a cell tower base station in mobile networks?",
-      "ar": "في شبكات الجوال، شو شغلة برج المحطة الأساسية؟"
+      "ar": "ما وظيفة برج الاتصال المحطة الأساسية في شبكات الهاتف المحمول؟"
     },
     "answer": {
       "en": "It receives and transmits radio signals between mobile devices and the core network. Each tower covers a geographic cell; as users move, connections hand off to the next tower seamlessly.",
@@ -635,7 +635,7 @@
     },
     "question": {
       "en": "What is a bascule (drawbridge) and how does it work?",
-      "ar": "شو هو «جسر الباسكول» (جسر الرفع)، وكيف يشتغل؟"
+      "ar": "ما جسر الباسكيول (جسر الرفع) وكيف يعمل؟"
     },
     "answer": {
       "en": "A movable bridge section that pivots upward like a seesaw to let tall ships pass. A counterweight on one end reduces the force needed to raise the movable span.",
@@ -654,7 +654,7 @@
     },
     "question": {
       "en": "In a horizontal venturi meter under steady incompressible flow with small losses, why is pressure lower at the narrow throat?",
-      "ar": "في مقياس فنتوري أفقي، بجريان مستقر غير قابل للانضغاط وفواقد قليلة، ليش يكون الضغط أقل عند العنق الضيق؟"
+      "ar": "في مقياس فنتوري أفقي ذي جريان مستقر غير قابل للانضغاط وفواقد صغيرة، لماذا يكون الضغط أقل عند العنق الضيق؟"
     },
     "answer": {
       "en": "Continuity requires higher speed at the throat; Bernoulli's energy balance then gives lower static pressure there.",
@@ -673,7 +673,7 @@
     },
     "question": {
       "en": "What is the difference between a metro (subway) and a light rail system?",
-      "ar": "شو الفرق بين المترو ونظام القطار الخفيف؟"
+      "ar": "ما الفرق بين المترو (الأنفاق) ونظام القطار الخفيف؟"
     },
     "answer": {
       "en": "A metro runs on fully grade-separated, dedicated track — usually underground or elevated — with high frequency and capacity. Light rail may share road space, runs at surface level, carries fewer passengers, but costs less to build.",
@@ -692,7 +692,7 @@
     },
     "question": {
       "en": "What is a smart grid?",
-      "ar": "شو هي «الشبكة الذكية»؟"
+      "ar": "ما الشبكة الذكية؟"
     },
     "answer": {
       "en": "An electrical network incorporating digital communication for two-way utility-consumer interaction, real-time power flow monitoring, renewable energy integration, and automatic fault detection.",
@@ -711,7 +711,7 @@
     },
     "question": {
       "en": "What guidance does an Instrument Landing System (ILS) provide to an approaching aircraft?",
-      "ar": "شو التوجيه اللي يعطيه نظام الهبوط بالأجهزة (ILS) للطيارة وهي تقرّب من المدرج؟"
+      "ar": "ما التوجيه الذي يوفره نظام الهبوط بالأجهزة ILS لطائرة تقترب من المدرج؟"
     },
     "answer": {
       "en": "Radio-based lateral guidance from the localizer and vertical guidance from the glideslope. ILS guidance alone does not mean the aircraft lands automatically.",
@@ -730,7 +730,7 @@
     },
     "question": {
       "en": "What is the California Bearing Ratio (CBR) test used for in road construction?",
-      "ar": "شو هو اختبار «نسبة تحمّل كاليفورنيا» (CBR) المستخدم بإنشاء الطرق؟"
+      "ar": "ما اختبار نسبة تحمّل كاليفورنيا (CBR) المستخدم في إنشاء الطرق؟"
     },
     "answer": {
       "en": "It measures a soil's load-bearing capacity by comparing the pressure to penetrate a soil sample versus a standard crushed rock, determining whether ground can support pavement layers.",
@@ -749,7 +749,7 @@
     },
     "question": {
       "en": "What is structural redundancy and why is it important in infrastructure?",
-      "ar": "شو هو «التكرار الاحتياطي» في الهياكل، وليش مهم بالبنية التحتية؟"
+      "ar": "ما التكرار الهيكلي (الازدواجية) ولماذا هو مهم في البنية التحتية؟"
     },
     "answer": {
       "en": "Providing alternative load paths or components so a local failure need not cause total system failure. Whether a particular failure is tolerated depends on the design and remaining capacity.",
@@ -768,7 +768,7 @@
     },
     "question": {
       "en": "What is a cascading failure in an electrical grid?",
-      "ar": "شو هو «الانهيار المتسلسل» في شبكة الكهربا؟"
+      "ar": "ما الفشل المتسلسل في الشبكة الكهربائية؟"
     },
     "answer": {
       "en": "An initial outage changes power flows and can overload or trip other elements, whose loss triggers further outages.",
@@ -787,7 +787,7 @@
     },
     "question": {
       "en": "What is induced demand in transportation planning?",
-      "ar": "في تخطيط النقل، شو هو «الطلب المُستحدَث»؟"
+      "ar": "ما الطلب المُحدَث في تخطيط النقل؟"
     },
     "answer": {
       "en": "Additional travel stimulated by increased road capacity or reduced travel cost. It can consume part or much of the initial congestion relief; the size of the effect depends on context.",
@@ -806,7 +806,7 @@
     },
     "question": {
       "en": "What is non-revenue water (NRW) and why does it matter for utilities?",
-      "ar": "شو هي «المي غير المدرّة للإيراد» (NRW)، وليش تهم شركات المرافق؟"
+      "ar": "ما المياه غير المدرّة للإيراد (NRW) ولماذا تهم شركات المرافق؟"
     },
     "answer": {
       "en": "The difference between water put into a distribution system and water billed to customers — including leaks, pipe bursts, meter errors, and theft. In many cities NRW exceeds 30% of production, representing significant revenue loss and resource waste.",
@@ -825,7 +825,7 @@
     },
     "question": {
       "en": "What is structural health monitoring (SHM) and how is it applied to bridges?",
-      "ar": "شو هي «مراقبة صحة الهياكل» (SHM)، وكيف تنطبّق على الجسور؟"
+      "ar": "ما مراقبة الصحة الهيكلية (SHM) وكيف تُطبَّق على الجسور؟"
     },
     "answer": {
       "en": "Measuring structural behavior and condition using sensors such as strain gauges, accelerometers, and corrosion sensors, to help detect changes that warrant engineering assessment.",
@@ -844,7 +844,7 @@
     },
     "question": {
       "en": "What are pumped-storage hydropower plants and why are they valuable to power grids?",
-      "ar": "شو هي محطات «التخزين بالضخ» الكهرومائية، وليش مهمة لشبكات الكهربا؟"
+      "ar": "ما محطات الطاقة الكهرومائية بالضخ التخزيني ولماذا هي قيّمة لشبكات الطاقة؟"
     },
     "answer": {
       "en": "They pump water uphill during excess electricity periods, then release it through turbines during peak demand — acting as large-scale rechargeable batteries, the most mature form of grid-scale energy storage.",
@@ -863,7 +863,7 @@
     },
     "question": {
       "en": "What is the aim of perpetual asphalt pavement design?",
-      "ar": "شو الهدف من تصميم الرصف الأسفلتي طويل العمر اللي نسمّيه «الرصف الدائم»؟"
+      "ar": "ما الهدف من تصميم الرصف الأسفلتي طويل العمر المعروف بالرصف الدائم؟"
     },
     "answer": {
       "en": "To preserve long-life structural layers while periodically renewing the surface. It limits damaging strains in deeper layers; it does not promise an infinite maintenance-free lifespan.",
@@ -882,7 +882,7 @@
     },
     "question": {
       "en": "What is the difference between a dry bulk terminal and a liquid bulk terminal in port design?",
-      "ar": "شو الفرق بين محطة البضائع السائبة الجافة ومحطة البضائع السائبة السائلة؟"
+      "ar": "ما الفرق بين محطة البضائع السائبة الجافة ومحطة البضائع السائبة السائلة؟"
     },
     "answer": {
       "en": "Dry bulk handles loose solids (coal, grain) using conveyors and grab cranes. Liquid bulk handles petroleum, chemicals, or LNG using pipelines, pumps, and tanker berths with spill containment. Each requires completely different handling infrastructure.",
@@ -901,7 +901,7 @@
     },
     "question": {
       "en": "What is the 'water-energy nexus' in infrastructure planning?",
-      "ar": "في تخطيط البنية التحتية، شو هو «الترابط بين المي والطاقة»؟"
+      "ar": "ما «ترابط الماء والطاقة» في تخطيط البنية التحتية؟"
     },
     "answer": {
       "en": "Water systems need energy for pumping, treatment, and distribution; energy systems may need water for cooling, hydropower, and fuel production. Planning one therefore affects the other.",
@@ -920,7 +920,7 @@
     },
     "question": {
       "en": "What does explicit service-life design add to a purely prescriptive materials specification?",
-      "ar": "شو اللي يضيفه التصميم الصريح لعمر الخدمة على مواصفة مواد وصفية وبس؟"
+      "ar": "ما الذي يضيفه التصميم الصريح للعمر الخدمي إلى مواصفة مواد وصفية بحتة؟"
     },
     "answer": {
       "en": "It evaluates deterioration, exposure, maintenance, and performance against a stated service-life target. Prescriptive codes can also include assumed design lives, but may not explicitly model each project's deterioration.",
@@ -939,7 +939,7 @@
     },
     "question": {
       "en": "What is critical infrastructure interdependency and why does it complicate resilience planning?",
-      "ar": "شو هو «ترابط البنية التحتية الحيوية»، وليش يعقّد التخطيط للصمود؟"
+      "ar": "ما ترابط البنية التحتية الحيوية ولماذا يُعقّد تخطيط الصمود؟"
     },
     "answer": {
       "en": "Power, water, transport, and telecoms systems are deeply interdependent — power outages disable water pumps; telecom failures disrupt emergency response; transport breakdowns prevent maintenance. Restoring one system often requires another to already work, creating cascading failure risks that require holistic resilience modelling.",
@@ -958,7 +958,7 @@
     },
     "question": {
       "en": "What type of bridge is the Golden Gate Bridge?",
-      "ar": "شو نوع جسر البوابة الذهبية؟"
+      "ar": "ما نوع جسر البوابة الذهبية؟"
     },
     "answer": {
       "en": "Suspension Bridge",
@@ -977,7 +977,7 @@
     },
     "question": {
       "en": "What are the three basic ingredients in concrete?",
-      "ar": "شو المكوّنات الأساسية الثلاثة للخرسانة؟"
+      "ar": "ما المكونات الثلاثة الأساسية للخرسانة؟"
     },
     "answer": {
       "en": "Water, aggregate, and cement",
@@ -996,7 +996,7 @@
     },
     "question": {
       "en": "In reinforced concrete, what metal are the reinforcing bars (rebar) that carry tension usually made of?",
-      "ar": "في الخرسانة المسلحة، من أي مادة تكون عادةً قضبان التسليح اللي تتحمّل الشدّ؟"
+      "ar": "في الخرسانة المسلحة، من أي معدن تُصنع عادةً قضبان التسليح التي تتحمّل الشد؟"
     },
     "answer": {
       "en": "Steel.",
@@ -1015,7 +1015,7 @@
     },
     "question": {
       "en": "What does the acronym 'CAD' stand for?",
-      "ar": "شو معنى اختصار CAD؟"
+      "ar": "ماذا تعني اختصار CAD؟"
     },
     "answer": {
       "en": "Computer-Aided Design",
@@ -1034,7 +1034,7 @@
     },
     "question": {
       "en": "What is the main purpose of a dam?",
-      "ar": "شو الهدف الأساسي من بناء السد؟"
+      "ar": "ما الغرض الرئيسي من بناء السد؟"
     },
     "answer": {
       "en": "Water storage or hydroelectric power",
@@ -1053,7 +1053,7 @@
     },
     "question": {
       "en": "What is the lowest part of a building that transfers its weight to the ground?",
-      "ar": "شو الجزء اللي تحت المبنى وينقل وزنه للأرض؟"
+      "ar": "ما الجزء الأدنى من المبنى الذي ينقل وزنه إلى الأرض؟"
     },
     "answer": {
       "en": "Foundation",
@@ -1072,7 +1072,7 @@
     },
     "question": {
       "en": "What instrument do surveyors use to measure angles in horizontal and vertical planes?",
-      "ar": "شو الأداة اللي يستخدمها المسّاحين عشان يقيسون الزوايا الأفقية والعمودية؟"
+      "ar": "ما الأداة التي يستخدمها المساحون لقياس الزوايا في المستويين الأفقي والعمودي؟"
     },
     "answer": {
       "en": "Theodolite",
@@ -1091,7 +1091,7 @@
     },
     "question": {
       "en": "Why is an arch a strong shape for a bridge?",
-      "ar": "ليش القوس شكل قوي للجسور؟"
+      "ar": "لماذا يعدّ القوس شكلاً قوياً للجسور؟"
     },
     "answer": {
       "en": "A suitable arch transfers loads mainly through compression toward its supports or abutments, which must resist the outward thrust.",
@@ -1110,7 +1110,7 @@
     },
     "question": {
       "en": "What is the structure that channels water beneath a road called?",
-      "ar": "شو اسم المنشأة اللي تمرّر المي من تحت الطريق؟"
+      "ar": "ماذا تُسمّى المنشأة التي تمرّر المياه من تحت الطريق؟"
     },
     "answer": {
       "en": "A culvert",
@@ -1129,7 +1129,7 @@
     },
     "question": {
       "en": "What do you call a machine used to excavate tunnels through soil and rock?",
-      "ar": "شو اسم الآلة اللي تحفر الأنفاق في التربة والصخر؟"
+      "ar": "ما اسم الآلة المستخدمة لحفر الأنفاق عبر التربة والصخر؟"
     },
     "answer": {
       "en": "TBM - Tunnel Boring Machine",
@@ -1148,7 +1148,7 @@
     },
     "question": {
       "en": "What does Young's Modulus measure in a material?",
-      "ar": "شو اللي يقيسه «معامل يونغ» في المادة؟"
+      "ar": "ماذا يقيس معامل يونغ في المادة؟"
     },
     "answer": {
       "en": "Its stiffness: how strongly it resists being stretched or squashed (stress divided by strain in the elastic range).",
@@ -1167,7 +1167,7 @@
     },
     "question": {
       "en": "What is 'Rebar' short for?",
-      "ar": "كلمة «Rebar» اختصار لشو؟"
+      "ar": "ما الاختصار الذي يُشير إليه مصطلح Rebar؟"
     },
     "answer": {
       "en": "Reinforcing bar",
@@ -1186,7 +1186,7 @@
     },
     "question": {
       "en": "What is the term for when soil loses strength and behaves like a liquid during an earthquake?",
-      "ar": "شو نسمّي لما التربة تفقد صلابتها وتتصرف مثل السائل وقت الزلزال؟"
+      "ar": "ما مصطلح فقدان التربة لمتانتها وتصرفها كسائل أثناء الزلزال؟"
     },
     "answer": {
       "en": "Liquefaction",
@@ -1205,7 +1205,7 @@
     },
     "question": {
       "en": "What is the pressure of water at rest called?",
-      "ar": "شو اسم ضغط المي لما تكون ساكنة؟"
+      "ar": "ما اسم ضغط الماء في حالة السكون؟"
     },
     "answer": {
       "en": "Hydrostatic pressure",
@@ -1224,7 +1224,7 @@
     },
     "question": {
       "en": "What do you call a beam supported at only one end?",
-      "ar": "شو نسمّي الكمرة اللي مسنودة من طرف واحد بس؟"
+      "ar": "ماذا تُسمّى الكمرة المدعومة من طرف واحد فقط؟"
     },
     "answer": {
       "en": "Cantilever",
@@ -1243,7 +1243,7 @@
     },
     "question": {
       "en": "In a structure in equilibrium, what must the sum of all forces equal?",
-      "ar": "في هيكل متوازن، مجموع كل القوى لازم يساوي كم؟"
+      "ar": "في هيكل متوازن، إلى ماذا يجب أن يساوي مجموع جميع القوى؟"
     },
     "answer": {
       "en": "Zero",
@@ -1262,7 +1262,7 @@
     },
     "question": {
       "en": "What geometric shape is the fundamental building block of a truss?",
-      "ar": "شو الشكل الهندسي الأساسي اللي ينبني منه الجمالون؟"
+      "ar": "ما الشكل الهندسي الأساسي لبناء الجمالون (الترس)؟"
     },
     "answer": {
       "en": "Triangle",
@@ -1281,7 +1281,7 @@
     },
     "question": {
       "en": "What is the difference between 'Dead Load' and 'Live Load'?",
-      "ar": "شو الفرق بين الحمل الميت والحمل الحي؟"
+      "ar": "ما الفرق بين الحمل الميت والحمل الحي؟"
     },
     "answer": {
       "en": "Dead load is the structure's own weight; live load is people/objects",
@@ -1300,7 +1300,7 @@
     },
     "question": {
       "en": "What is the term for a fixed point of known elevation used as a reference?",
-      "ar": "شو نسمّي النقطة الثابتة اللي ارتفاعها معروف ونرجع لها كمرجع؟"
+      "ar": "ما مصطلح النقطة الثابتة ذات الارتفاع المعروف المستخدمة كمرجع؟"
     },
     "answer": {
       "en": "Benchmark",
@@ -1319,7 +1319,7 @@
     },
     "question": {
       "en": "What does 'LOS' stand for in traffic engineering?",
-      "ar": "في هندسة المرور، شو معنى اختصار LOS؟"
+      "ar": "ماذا يعني اختصار LOS في هندسة المرور؟"
     },
     "answer": {
       "en": "Level of Service",
@@ -1338,7 +1338,7 @@
     },
     "question": {
       "en": "What geometric cross-section property I appears in the flexural rigidity EI of a beam?",
-      "ar": "شو الخاصية الهندسية للمقطع، اللي رمزها I، وتظهر في جساءة الانحناء EI للكمرة؟"
+      "ar": "ما الخاصية الهندسية للمقطع، التي يرمز إليها بالحرف I، وتظهر في جساءة الانحناء EI للكمرة؟"
     },
     "answer": {
       "en": "The second moment of area about the bending axis. It describes how the cross-section's area is distributed around that axis.",
@@ -1357,7 +1357,7 @@
     },
     "question": {
       "en": "What is the purpose of 'pre-tensioning' concrete?",
-      "ar": "شو الفايدة من الشدّ المسبق في الخرسانة؟"
+      "ar": "ما الغرض من الشد المسبق في الخرسانة؟"
     },
     "answer": {
       "en": "To introduce compressive stress to counteract tensile stress from loads",
@@ -1376,7 +1376,7 @@
     },
     "question": {
       "en": "In steady incompressible inviscid flow along a streamline at constant elevation with no pump, how does pressure change when speed increases?",
-      "ar": "في جريان مستقر وغير قابل للانضغاط ومن غير لزوجة، على خط انسياب بنفس الارتفاع ومن غير مضخة، شو يصير للضغط لما تزيد السرعة؟"
+      "ar": "في جريان مستقر غير قابل للانضغاط وغير لزج على خط انسياب بارتفاع ثابت ودون مضخة، كيف يتغير الضغط عند ازدياد السرعة؟"
     },
     "answer": {
       "en": "Pressure decreases, according to Bernoulli's equation.",
@@ -1395,7 +1395,7 @@
     },
     "question": {
       "en": "What is the typical range for Poisson's Ratio for common construction materials?",
-      "ar": "كم المدى المعتاد لنسبة بواسون في مواد البناء الشائعة؟"
+      "ar": "ما النطاق المعتاد لنسبة بواسون في مواد البناء الشائعة؟"
     },
     "answer": {
       "en": "0.1 to 0.5",
@@ -1414,7 +1414,7 @@
     },
     "question": {
       "en": "In a smooth region of a beam's bending-moment diagram, what shear force corresponds to a stationary bending moment?",
-      "ar": "في جزء أملس من مخطط عزم الانحناء للكمرة، كم قوة القص عند نقطة يكون فيها العزم ثابت محليًا (قيمة قصوى أو دنيا)؟"
+      "ar": "في جزء أملس من مخطط عزم انحناء كمرة، ما قيمة قوة القص عند نقطة يكون فيها العزم ساكناً محلياً؟"
     },
     "answer": {
       "en": "Zero shear, because V=dM/dx. The stationary moment may be a local maximum or minimum depending on the loading.",
@@ -1433,7 +1433,7 @@
     },
     "question": {
       "en": "Under a stationary annual flood model, what does a 100-year return period mean?",
-      "ar": "لو افترضنا خصائص الفيضانات ثابتة كل سنة، شو معنى «فترة عودة 100 سنة»؟"
+      "ar": "وفق نموذج سنوي ثابت الخصائص للفيضانات، ماذا تعني فترة عودة 100 سنة؟"
     },
     "answer": {
       "en": "A 1% chance of exceeding that flood magnitude in any given year. It does not mean floods occur exactly 100 years apart.",
@@ -1452,7 +1452,7 @@
     },
     "question": {
       "en": "What is the 'Stiffness Method' also known as?",
-      "ar": "بأي اسم ثاني تنعرف «طريقة الصلابة»؟"
+      "ar": "بماذا يُعرف «طريقة الصلابة» أيضاً؟"
     },
     "answer": {
       "en": "The Displacement Method",
@@ -1471,7 +1471,7 @@
     },
     "question": {
       "en": "What are 'Atterberg Limits' used to classify?",
-      "ar": "حدود أتربرج نستخدمها عشان نصنّف شو؟"
+      "ar": "لتصنيف ماذا تُستخدم حدود أتربرج؟"
     },
     "answer": {
       "en": "Fine-grained soils",
@@ -1490,7 +1490,7 @@
     },
     "question": {
       "en": "For saturated soil under the conventional Terzaghi formulation, how is effective normal stress related to total stress and pore-water pressure?",
-      "ar": "في التربة المشبعة حسب صياغة ترزاغي، كيف يرتبط الإجهاد الفعّال بالإجهاد الكلي وضغط مي المسام؟"
+      "ar": "في تربة مشبعة وفق صياغة ترزاغي المعتادة، كيف يرتبط الإجهاد العمودي الفعّال بالإجهاد الكلي وضغط ماء المسام؟"
     },
     "answer": {
       "en": "σ' = σ - u (total stress minus pore water pressure)",
@@ -1509,7 +1509,7 @@
     },
     "question": {
       "en": "What is the purpose of a 'roundabout' from a traffic engineering perspective?",
-      "ar": "من ناحية هندسة المرور، شو الهدف من الدوّار؟"
+      "ar": "ما الغرض من الدوار من منظور هندسة المرور؟"
     },
     "answer": {
       "en": "Reduce conflict points and improve traffic flow at intersections",

@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "What does the abbreviation CEO stand for?",
-      "ar": "شو معنى اختصار CEO؟"
+      "ar": "ماذا يعني اختصار CEO؟"
     },
     "answer": {
       "en": "Chief Executive Officer.",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "What do we call the percentage of all sales in a market that one company makes?",
-      "ar": "شو نسمّي النسبة اللي تاخذها شركة وحدة من مجموع المبيعات بالسوق؟"
+      "ar": "ماذا نسمّي النسبة التي تحققها شركة واحدة من مجموع المبيعات في السوق؟"
     },
     "answer": {
       "en": "Its market share",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "In accounting, what does 'the bottom line' refer to?",
-      "ar": "في المحاسبة، شو المقصود بـ«السطر الأخير»؟"
+      "ar": "في المحاسبة، إلى ماذا يشير مصطلح «السطر الأخير»؟"
     },
     "answer": {
       "en": "Net income or profit",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "What market structure has a single supplier of a product with no close substitutes?",
-      "ar": "شو نوع السوق اللي فيه مورّد واحد بس لمنتج ما له بديل قريب؟"
+      "ar": "ما هيكل السوق الذي يوجد فيه مورّد واحد لمنتج ليس له بديل قريب؟"
     },
     "answer": {
       "en": "A monopoly.",
@@ -84,7 +84,7 @@
     },
     "question": {
       "en": "What do you call a recognizable sign or emblem used to identify a company?",
-      "ar": "شو اسم الرمز المميز اللي تتعرّف فيه الشركة؟"
+      "ar": "ما الاسم الذي يُطلق على الرمز المميز المستخدم للتعريف بالشركة؟"
     },
     "answer": {
       "en": "A logo",
@@ -103,7 +103,7 @@
     },
     "question": {
       "en": "What term describes the perceptions and associations customers hold about a brand?",
-      "ar": "شو نسمّي الصورة والانطباع اللي عند الزباين عن علامة تجارية؟"
+      "ar": "ما المصطلح الذي يصف تصورات العملاء وانطباعاتهم المرتبطة بعلامة تجارية؟"
     },
     "answer": {
       "en": "Brand image.",
@@ -122,7 +122,7 @@
     },
     "question": {
       "en": "Is 'cash on hand' considered an asset or a liability?",
-      "ar": "«النقد اللي في اليد» يعتبر أصل ولا التزام؟"
+      "ar": "هل «النقد في متناول اليد» يُعدّ أصلاً أم التزاماً؟"
     },
     "answer": {
       "en": "Asset",
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "What is the common term for a newly emerged business venture?",
-      "ar": "شو الاسم الشائع لمشروع تجاري لسّا بادي جديد؟"
+      "ar": "ما المصطلح الشائع لمشروع تجاري ناشئ حديثاً؟"
     },
     "answer": {
       "en": "A startup",
@@ -160,7 +160,7 @@
     },
     "question": {
       "en": "Which department is responsible for hiring, training, and employee well-being?",
-      "ar": "أي قسم مسؤول عن التوظيف والتدريب والاهتمام بالموظفين؟"
+      "ar": "أي قسم مسؤول عن التوظيف والتدريب ورعاية الموظفين؟"
     },
     "answer": {
       "en": "Human Resources (HR)",
@@ -179,7 +179,7 @@
     },
     "question": {
       "en": "What is the term for the latest time or date by which something must be completed?",
-      "ar": "شو نسمّي آخر موعد لازم يخلص فيه شغل معيّن؟"
+      "ar": "ما المصطلح الذي يعني آخر موعد لإنجاز شيء ما؟"
     },
     "answer": {
       "en": "Deadline",
@@ -198,7 +198,7 @@
     },
     "question": {
       "en": "In a SWOT analysis, what do the four letters stand for?",
-      "ar": "في تحليل SWOT، شو معنى الحروف الأربعة؟"
+      "ar": "في تحليل SWOT، ماذا تعني الحروف الأربعة؟"
     },
     "answer": {
       "en": "Strengths, Weaknesses, Opportunities, Threats",
@@ -217,7 +217,7 @@
     },
     "question": {
       "en": "What is the formula for Return on Investment (ROI)?",
-      "ar": "كيف نحسب العائد على الاستثمار (ROI)؟"
+      "ar": "ما صيغة حساب العائد على الاستثمار (ROI)؟"
     },
     "answer": {
       "en": "Net Profit / Cost of Investment × 100",
@@ -236,7 +236,7 @@
     },
     "question": {
       "en": "In marketing, what are the '4 Ps'?",
-      "ar": "في التسويق، شو هي العناصر الأربعة (4P)؟"
+      "ar": "في التسويق، ما هي العناصر الأربعة (4P)؟"
     },
     "answer": {
       "en": "Product, Price, Place, Promotion",
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "What does the business model 'B2B' stand for?",
-      "ar": "شو معنى نموذج الأعمال B2B؟"
+      "ar": "ماذا يعني نموذج الأعمال B2B؟"
     },
     "answer": {
       "en": "Business-to-Business",
@@ -274,7 +274,7 @@
     },
     "question": {
       "en": "Which of these is a fixed cost: Raw materials or Monthly Rent?",
-      "ar": "أيهم تكلفة ثابتة: المواد الخام ولا إيجار الشهر؟"
+      "ar": "أيهما تكلفة ثابتة: المواد الخام أم الإيجار الشهري؟"
     },
     "answer": {
       "en": "Monthly Rent",
@@ -293,7 +293,7 @@
     },
     "question": {
       "en": "In the stock market, what does a 'Bull Market' signify?",
-      "ar": "في سوق الأسهم، شو يعني «سوق الثيران»؟"
+      "ar": "في سوق الأسهم، ماذا يعني «سوق الثيران»؟"
     },
     "answer": {
       "en": "Rising prices and investor optimism",
@@ -312,7 +312,7 @@
     },
     "question": {
       "en": "What is the practice of hiring an outside party to perform services?",
-      "ar": "شو اسم إنك تعطي جهة خارجية تقوم بخدمات بدل شركتك؟"
+      "ar": "ما الممارسة التي تعني الاستعانة بطرف خارجي لأداء الخدمات؟"
     },
     "answer": {
       "en": "Outsourcing.",
@@ -331,7 +331,7 @@
     },
     "question": {
       "en": "What do you call private equity capital provided to high-potential startups?",
-      "ar": "شو نسمّي الفلوس الخاصة اللي تنستثمر بالشركات الناشئة اللي عندها فرصة نمو كبيرة؟"
+      "ar": "كيف يُسمى رأس المال الخاص المقدَّم للشركات الناشئة ذات الإمكانات العالية؟"
     },
     "answer": {
       "en": "Venture Capital",
@@ -350,7 +350,7 @@
     },
     "question": {
       "en": "What is the ability of a business to handle a growing amount of work?",
-      "ar": "شو نسمّي قدرة البزنس إنه يتحمّل شغل يكبر ويزيد؟"
+      "ar": "ما القدرة على استيعاب حجم عمل متنامٍ في الأعمال التجارية؟"
     },
     "answer": {
       "en": "Scalability",
@@ -369,7 +369,7 @@
     },
     "question": {
       "en": "What is the term for a small, specialized area of the market for a particular product?",
-      "ar": "شو نسمّي جزء صغير ومتخصص من السوق؟"
+      "ar": "ما المصطلح الذي يشير إلى قطاع صغير متخصص من السوق؟"
     },
     "answer": {
       "en": "A niche market",
@@ -388,7 +388,7 @@
     },
     "question": {
       "en": "Who developed the 'Five Forces' framework for analysing competition within an industry?",
-      "ar": "مين طوّر إطار «القوى الخمس» لتحليل المنافسة داخل الصناعة؟"
+      "ar": "مَن طوّر إطار «القوى الخمس» لتحليل المنافسة داخل الصناعة؟"
     },
     "answer": {
       "en": "Michael Porter.",
@@ -407,7 +407,7 @@
     },
     "question": {
       "en": "What principle states that people in a hierarchy rise to their 'level of incompetence'?",
-      "ar": "شو المبدأ اللي يقول إن الناس بالسلّم الوظيفي يترقّون لحد ما يوصلون لمستوى يعجزون فيه؟"
+      "ar": "ما المبدأ الذي ينص على أن الناس في التسلسل الهرمي يرتقون حتى مستوى عجزهم؟"
     },
     "answer": {
       "en": "The Peter Principle",
@@ -426,7 +426,7 @@
     },
     "question": {
       "en": "A manager finds that a small share of products accounts for most sales. Which common business heuristic does this illustrate?",
-      "ar": "مدير لاحظ إن نسبة صغيرة من المنتجات تجيب أغلب المبيعات. أي قاعدة معروفة بالبزنس توضّح هالشي؟"
+      "ar": "وجد مدير أن نسبة صغيرة من المنتجات تحقق معظم المبيعات. أي قاعدة إرشادية شائعة في الأعمال يوضّحها ذلك؟"
     },
     "answer": {
       "en": "The Pareto principle, or 80/20 rule; the exact proportions need not be 80 and 20.",
@@ -445,7 +445,7 @@
     },
     "question": {
       "en": "Which Japanese carmaker developed a production system associated with Kiichiro Toyoda, Taiichi Ohno and Just-in-Time manufacturing?",
-      "ar": "أي شركة سيارات يابانية طوّرت نظام الإنتاج المرتبط بكيتشيرو تويودا وتاييتشي أونو والتصنيع في الوقت المناسب؟"
+      "ar": "أي شركة سيارات يابانية طوّرت نظام الإنتاج المرتبط بكيتشيرو تويودا وتاييتشي أونو وبالتصنيع في الوقت المناسب؟"
     },
     "answer": {
       "en": "Toyota.",
@@ -464,7 +464,7 @@
     },
     "question": {
       "en": "What is the Japanese business philosophy of 'continuous improvement'?",
-      "ar": "شو اسم فلسفة الأعمال اليابانية اللي تقوم على «التحسين المستمر»؟"
+      "ar": "ما فلسفة الأعمال اليابانية القائمة على «التحسين المستمر»؟"
     },
     "answer": {
       "en": "Kaizen",
@@ -483,7 +483,7 @@
     },
     "question": {
       "en": "What is a 'Blue Ocean' in business strategy?",
-      "ar": "شو المقصود بـ«المحيط الأزرق» في استراتيجية الأعمال؟"
+      "ar": "ما المقصود بـ«المحيط الأزرق» في استراتيجية الأعمال؟"
     },
     "answer": {
       "en": "An uncontested market space where competition is irrelevant",
@@ -502,7 +502,7 @@
     },
     "question": {
       "en": "What is it called when a company acquires another at the same level of the value chain?",
-      "ar": "شو نسمّي لما شركة تستحوذ على شركة ثانية شغّالة بنفس مستوى سلسلة القيمة؟"
+      "ar": "كيف يُسمى استحواذ شركة على أخرى تعمل في نفس مستوى سلسلة القيمة؟"
     },
     "answer": {
       "en": "Horizontal Integration",
@@ -521,7 +521,7 @@
     },
     "question": {
       "en": "Which ratio measures a company's ability to pay off short-term liabilities with current assets?",
-      "ar": "أي نسبة تقيس قدرة الشركة تسدّ التزاماتها القصيرة بأصولها المتداولة؟"
+      "ar": "أي نسبة تقيس قدرة الشركة على سداد التزاماتها قصيرة الأجل بالأصول المتداولة؟"
     },
     "answer": {
       "en": "Current Ratio",
@@ -540,7 +540,7 @@
     },
     "question": {
       "en": "Which market structure features many sellers offering differentiated products and relatively low barriers to entry?",
-      "ar": "أي نوع سوق فيه بايعين كثير بمنتجات مختلفة عن بعض، والدخول له سهل نسبيًا؟"
+      "ar": "أي هيكل سوقي يضم بائعين كثيرين يقدمون منتجات متمايزة مع حواجز دخول منخفضة نسبيًا؟"
     },
     "answer": {
       "en": "Monopolistic competition",
@@ -559,7 +559,7 @@
     },
     "question": {
       "en": "What is the value of the next best alternative forgone when a choice is made?",
-      "ar": "شو قيمة أفضل خيار تتنازل عنه لما تاخذ قرار؟"
+      "ar": "ما قيمة أفضل بديل يُضحّى به عند اتخاذ قرار؟"
     },
     "answer": {
       "en": "Opportunity Cost",

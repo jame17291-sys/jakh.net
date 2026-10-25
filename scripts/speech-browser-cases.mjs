@@ -345,7 +345,7 @@ export async function runSpeechRegressions({ browser, createContext, runTest, tr
         assert.ok(records.every(record => record.lang === 'ar-SA' && record.voice === 'Arabic device'));
         results.push({ voice: records[0].voice, lang: records[0].lang, rate: records[0].rate, pitch: records[0].pitch });
         if (kind === 'card') {
-          assert.equal(records.map(record => record.text).join(' '), 'مين اشتهر بقانون الجاذبية الكونية بعد ما شاف تفاحة تطيح؟');
+          assert.equal(records.map(record => record.text).join(' '), 'من يُشتهر بقانون الجاذبية الكونية بعد مشاهدة سقوط تفاحة؟');
           assert.equal(await h.control.getAttribute('aria-label'), 'إيقاف');
         } else {
           const spoken = records.map(record => record.text).join(' ');
@@ -371,10 +371,10 @@ export async function runSpeechRegressions({ browser, createContext, runTest, tr
     await installSpeech(context);
     const page = await context.newPage(), noErrors = trackPageErrors(page);
     const cases = [
-      ['software-and-computing', 'coding-and-design-025', 'في بناء سي بلس بلس العادي بالترجمة المسبقة، هل الكود ينترجم قبل ما يشتغل الملف التنفيذي؟'],
-      ['math', 'math-062', 'خزان مليان لـ3 على 5 من سعته. بعد ما زدنا 24 لتر صار مليان لـ9 على 10. كم سعة الخزان؟'],
-      ['biology', 'biology-003', 'شو معنى اختصار دي إن إيه؟'],
-      ['chemistry', 'chemistry-049', 'عند 25 درجة مئوية، شو يعني إن قيمة بي إتش لمحلول مائي تساوي 7، وهل قيمة بي إتش لازم تكون بين 0 و14 بس؟'],
+      ['software-and-computing', 'coding-and-design-025', 'في بناء سي بلس بلس المعتاد بالترجمة المسبقة، هل يُترجم المصدر قبل تشغيل الملف التنفيذي الناتج؟'],
+      ['math', 'math-062', 'خزان ممتلئ إلى 3 على 5 من سعته. بعد إضافة 24 لتراً أصبح ممتلئاً إلى 9 على 10. ما سعة الخزان؟'],
+      ['biology', 'biology-003', 'ماذا يعني اختصار دي إن إيه؟'],
+      ['chemistry', 'chemistry-049', 'عند 25 درجة مئوية، ماذا تعني قيمة بي إتش تساوي 7 لمحلول مائي، وهل يقتصر بي إتش حتمًا على المدى 0–14؟'],
       ['logic-puzzles', 'logic-puzzles-036', null],
     ];
     try {
@@ -393,7 +393,7 @@ export async function runSpeechRegressions({ browser, createContext, runTest, tr
         assert.ok(records.every(record => record.text.length <= 220));
         if (id === 'logic-puzzles-036') {
           assert.ok(records.length > 1);
-          assert.ok(records.at(-1).text.endsWith('أيهم يفوز أكثر: إنك دايمًا تبدّل ولا دايمًا تبقى؟'));
+          assert.ok(records.at(-1).text.endsWith('أيهما يفوز أكثر: التبديل دائمًا أم البقاء دائمًا؟'));
         }
         await control.click();
         await assertStopped(control, 'card', 'اقرأ بصوت عالٍ');

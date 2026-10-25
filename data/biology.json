@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "What cell organelle is famously known as the 'powerhouse of the cell'?",
-      "ar": "أي عضيّة بالخلية لقبها «محطة طاقة الخلية»؟"
+      "ar": "أي عضية خلوية تُعرف بـ«محطة طاقة الخلية»؟"
     },
     "answer": {
       "en": "Mitochondria",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "How many bones are in the average adult human body?",
-      "ar": "كم عظمة في جسم الإنسان البالغ؟"
+      "ar": "كم عدد عظام جسم الإنسان البالغ؟"
     },
     "answer": {
       "en": "206",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "What does the abbreviation DNA stand for?",
-      "ar": "شو معنى اختصار DNA؟"
+      "ar": "ماذا يعني اختصار DNA؟"
     },
     "answer": {
       "en": "Deoxyribonucleic acid.",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "What process allows plants to convert light energy into chemical energy stored in sugars?",
-      "ar": "شو العملية اللي تخلّي النباتات تحوّل طاقة الضوء لطاقة كيميائية مخزّنة بالسكريات؟"
+      "ar": "ما العملية التي تمكّن النباتات من تحويل الطاقة الضوئية إلى طاقة كيميائية مخزنة في السكريات؟"
     },
     "answer": {
       "en": "Photosynthesis",
@@ -84,7 +84,7 @@
     },
     "question": {
       "en": "Which human organ is responsible for pumping blood throughout the body?",
-      "ar": "أي عضو بجسم الإنسان يضخ الدم للجسم؟"
+      "ar": "أي عضو بشري مسؤول عن ضخ الدم في الجسم؟"
     },
     "answer": {
       "en": "The heart",
@@ -103,7 +103,7 @@
     },
     "question": {
       "en": "What protein makes human blood red?",
-      "ar": "شو البروتين اللي يعطي الدم لونه الأحمر؟"
+      "ar": "ما البروتين الذي يُعطي الدم البشري لونه الأحمر؟"
     },
     "answer": {
       "en": "Hemoglobin",
@@ -122,7 +122,7 @@
     },
     "question": {
       "en": "Which organ produces bile to help digest fats?",
-      "ar": "أي عضو يطلّع العصارة الصفراوية عشان يساعد بهضم الدهون؟"
+      "ar": "أي عضو ينتج الصفراء لمساعدة هضم الدهون؟"
     },
     "answer": {
       "en": "The liver",
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "Are mushrooms classified as plants, animals, or fungi?",
-      "ar": "الفطر (عيش الغراب) نبات ولا حيوان ولا من الفطريات؟"
+      "ar": "هل يُصنف عيش الغراب ضمن النباتات أم الحيوانات أم الفطريات؟"
     },
     "answer": {
       "en": "Fungi",
@@ -160,7 +160,7 @@
     },
     "question": {
       "en": "Which waste gas produced by cellular respiration is removed from the blood through the lungs?",
-      "ar": "شو الغاز اللي يطلع كفضلات من التنفس الخلوي، والرئتين تطلّعه من الدم؟"
+      "ar": "ما الغاز الناتج بوصفه فضلة من التنفس الخلوي، والذي تزيله الرئتان من الدم؟"
     },
     "answer": {
       "en": "Carbon dioxide",
@@ -179,7 +179,7 @@
     },
     "question": {
       "en": "What is the largest organ of the human body?",
-      "ar": "شو أكبر عضو بجسم الإنسان؟"
+      "ar": "ما أكبر أعضاء جسم الإنسان؟"
     },
     "answer": {
       "en": "The skin",
@@ -198,7 +198,7 @@
     },
     "question": {
       "en": "What is the process of cell division that results in two identical daughter cells?",
-      "ar": "شو اسم انقسام الخلية اللي يطلّع خليتين متطابقتين؟"
+      "ar": "ما اسم عملية انقسام الخلية التي تنتج عنها خليتان متطابقتان؟"
     },
     "answer": {
       "en": "Mitosis, usually followed by cytokinesis to produce two daughter cells.",
@@ -217,7 +217,7 @@
     },
     "question": {
       "en": "Which 19th-century monk is considered the father of modern genetics?",
-      "ar": "أي راهب من القرن التاسع عشر يعتبرونه أبو علم الوراثة الحديث؟"
+      "ar": "أي راهب من القرن التاسع عشر يُعتبر أبا علم الوراثة الحديث؟"
     },
     "answer": {
       "en": "Gregor Mendel",
@@ -236,7 +236,7 @@
     },
     "question": {
       "en": "In the ABO blood-group system, which antigens are present on type AB red blood cells?",
-      "ar": "في نظام فصائل الدم ABO، شو المستضدات الموجودة على كريات الدم الحمرا بفصيلة AB؟"
+      "ar": "في نظام فصائل الدم ABO، ما المستضدات الموجودة على خلايا الدم الحمراء من الفصيلة AB؟"
     },
     "answer": {
       "en": "Both A and B antigens.",
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "In DNA, adenine (A) always pairs with which other nitrogenous base?",
-      "ar": "في DNA، الأدينين دايمًا يرتبط مع أي قاعدة؟"
+      "ar": "في الحمض النووي DNA، مع أي قاعدة نيتروجينية يرتبط الأدينين دائماً؟"
     },
     "answer": {
       "en": "Thymine (T)",
@@ -274,7 +274,7 @@
     },
     "question": {
       "en": "What is the biological classification that comes directly below 'Kingdom'?",
-      "ar": "شو مستوى التصنيف اللي يجي على طول تحت «المملكة»؟"
+      "ar": "ما التصنيف البيولوجي الذي يأتي مباشرة أسفل «المملكة»؟"
     },
     "answer": {
       "en": "Phylum",
@@ -293,7 +293,7 @@
     },
     "question": {
       "en": "Which blood-cell group includes lymphocytes and neutrophils?",
-      "ar": "أي مجموعة من خلايا الدم فيها الخلايا اللمفاوية والعدلات؟"
+      "ar": "ما مجموعة خلايا الدم التي تضم الخلايا اللمفاوية والعدلات؟"
     },
     "answer": {
       "en": "White blood cells, or leukocytes.",
@@ -312,7 +312,7 @@
     },
     "question": {
       "en": "What part of the brain controls balance and muscle coordination?",
-      "ar": "أي جزء من الدماغ يتحكم بالتوازن وتنسيق العضلات؟"
+      "ar": "أي جزء من الدماغ يتحكم في التوازن وتنسيق العضلات؟"
     },
     "answer": {
       "en": "The cerebellum",
@@ -331,7 +331,7 @@
     },
     "question": {
       "en": "What type of symbiotic relationship exists when both organisms benefit?",
-      "ar": "شو نوع العلاقة بين كائنين اللي يستفيد فيها الطرفين؟"
+      "ar": "ما نوع العلاقة بين كائنين حيين التي يستفيد فيها الطرفان؟"
     },
     "answer": {
       "en": "Mutualism",
@@ -350,7 +350,7 @@
     },
     "question": {
       "en": "How many pairs of chromosomes does a typical human have?",
-      "ar": "كم زوج كروموسومات عند الإنسان العادي؟"
+      "ar": "كم عدد أزواج الكروموسومات لدى الإنسان العادي؟"
     },
     "answer": {
       "en": "23 pairs",
@@ -369,7 +369,7 @@
     },
     "question": {
       "en": "What enzyme in human saliva begins the breakdown of starches?",
-      "ar": "شو الإنزيم اللي في اللعاب ويبدأ يكسّر النشويات؟"
+      "ar": "ما الإنزيم في اللعاب البشري الذي يبدأ تحليل النشويات؟"
     },
     "answer": {
       "en": "Amylase",
@@ -388,7 +388,7 @@
     },
     "question": {
       "en": "Which mRNA codon most commonly initiates protein translation?",
-      "ar": "شو أكثر كودون RNA رسول شائع لبدء ترجمة البروتين؟"
+      "ar": "ما كودون RNA الرسول الأكثر شيوعاً لبدء ترجمة البروتين؟"
     },
     "answer": {
       "en": "AUG. Alternative initiation codons occur in some organisms and contexts.",
@@ -407,7 +407,7 @@
     },
     "question": {
       "en": "In aerobic respiration, which cycle receives acetyl-CoA formed by pyruvate oxidation after glycolysis?",
-      "ar": "في التنفس الهوائي، أي دورة تستقبل «أسيتيل مرافق الإنزيم A» اللي يطلع من أكسدة البيروفات بعد التحلل السكري؟"
+      "ar": "في التنفس الهوائي، أي دورة تستقبل أسيتيل مرافق الإنزيم A الناتج من أكسدة البيروفات بعد التحلل السكري؟"
     },
     "answer": {
       "en": "The Krebs Cycle / Citric Acid Cycle",
@@ -426,7 +426,7 @@
     },
     "question": {
       "en": "What biological concept describes the limit on how many times a normal human cell will divide?",
-      "ar": "شو المفهوم اللي يوصف أقصى عدد مرات تقدر الخلية البشرية تنقسم فيها؟"
+      "ar": "ما المفهوم البيولوجي الذي يصف الحد الأقصى لعدد مرات انقسام الخلية البشرية؟"
     },
     "answer": {
       "en": "The Hayflick Limit",
@@ -445,7 +445,7 @@
     },
     "question": {
       "en": "What are the protective caps at the ends of chromosomes that shorten as we age?",
-      "ar": "شو الأجزاء الواقية بأطراف الكروموسومات اللي تقصر مع العمر؟"
+      "ar": "ما الأجزاء الواقية في أطراف الكروموسومات التي تقصر مع التقدم في العمر؟"
     },
     "answer": {
       "en": "Telomeres",
@@ -464,7 +464,7 @@
     },
     "question": {
       "en": "What is the principal inhibitory neurotransmitter in the adult mammalian brain?",
-      "ar": "شو الناقل العصبي المثبّط الرئيسي في دماغ الثدييات البالغة؟"
+      "ar": "ما الناقل العصبي المثبط الرئيسي في دماغ الثدييات البالغ؟"
     },
     "answer": {
       "en": "GABA",
@@ -483,7 +483,7 @@
     },
     "question": {
       "en": "What is the U-shaped tube in a kidney nephron that recovers water and sodium chloride?",
-      "ar": "شو الأنبوب اللي شكله U بالكلية ويسترجع المي وكلوريد الصوديوم؟"
+      "ar": "ما الأنبوب على شكل U في الكلية الذي يستعيد الماء وكلوريد الصوديوم؟"
     },
     "answer": {
       "en": "The Loop of Henle",
@@ -502,7 +502,7 @@
     },
     "question": {
       "en": "What do we call the process in which a cell, such as a white blood cell, engulfs a solid particle like a bacterium?",
-      "ar": "شو اسم العملية اللي تبلع فيها الخلية، مثل كرية الدم البيضا، جسيم صلب مثل البكتيريا؟"
+      "ar": "ماذا نسمّي العملية التي تبتلع فيها الخلية، مثل خلية الدم البيضاء، جسيمًا صلبًا كالبكتيريا؟"
     },
     "answer": {
       "en": "Phagocytosis",
@@ -521,7 +521,7 @@
     },
     "question": {
       "en": "What is the scientific term for programmed cell death?",
-      "ar": "شو الاسم العلمي لموت الخلية المبرمج؟"
+      "ar": "ما المصطلح العلمي لموت الخلية المبرمج؟"
     },
     "answer": {
       "en": "Apoptosis",
@@ -540,7 +540,7 @@
     },
     "question": {
       "en": "What type of infectious agent consists entirely of protein and causes diseases like Mad Cow?",
-      "ar": "شو نوع العامل المعدي اللي كله بروتين ويسبب أمراض مثل جنون البقر؟"
+      "ar": "ما نوع العامل المعدي الذي يتكون كلياً من بروتين ويسبب أمراضاً كالجنون البقري؟"
     },
     "answer": {
       "en": "A prion",
@@ -559,7 +559,7 @@
     },
     "question": {
       "en": "What is the name of the light-independent reactions in photosynthesis?",
-      "ar": "شو اسم تفاعلات البناء الضوئي اللي ما تحتاج ضوء مباشر؟"
+      "ar": "ما اسم التفاعلات غير الضوئية في التمثيل الضوئي؟"
     },
     "answer": {
       "en": "The Calvin Cycle",
@@ -578,7 +578,7 @@
     },
     "question": {
       "en": "What is the basic unit of life?",
-      "ar": "شو الوحدة الأساسية للحياة؟"
+      "ar": "ما الوحدة الأساسية للحياة؟"
     },
     "answer": {
       "en": "The cell",
@@ -597,7 +597,7 @@
     },
     "question": {
       "en": "What green pigment allows plants to absorb sunlight?",
-      "ar": "شو الصبغة الخضرا اللي تخلّي النباتات تمتص ضوء الشمس؟"
+      "ar": "ما الصبغة الخضراء التي تتيح للنباتات امتصاص ضوء الشمس؟"
     },
     "answer": {
       "en": "Chlorophyll",
@@ -616,7 +616,7 @@
     },
     "question": {
       "en": "How many chambers does the human heart have?",
-      "ar": "كم حجرة في قلب الإنسان؟"
+      "ar": "كم حجرة يمتلك قلب الإنسان؟"
     },
     "answer": {
       "en": "Four",
@@ -635,7 +635,7 @@
     },
     "question": {
       "en": "Who published On the Origin of Species in 1859?",
-      "ar": "مين نشر كتاب «أصل الأنواع» سنة 1859؟"
+      "ar": "من نشر كتاب أصل الأنواع عام 1859؟"
     },
     "answer": {
       "en": "Charles Darwin",
@@ -654,7 +654,7 @@
     },
     "question": {
       "en": "What are the two types of nucleic acids in cells?",
-      "ar": "شو النوعين من الأحماض النووية في الخلايا؟"
+      "ar": "ما نوعا الأحماض النووية في الخلايا؟"
     },
     "answer": {
       "en": "DNA and RNA",
@@ -673,7 +673,7 @@
     },
     "question": {
       "en": "What is the function of the lungs?",
-      "ar": "شو شغلة الرئتين؟"
+      "ar": "ما وظيفة الرئتين؟"
     },
     "answer": {
       "en": "Gas exchange — breathing in oxygen and expelling carbon dioxide",
@@ -692,7 +692,7 @@
     },
     "question": {
       "en": "What do plants release during photosynthesis?",
-      "ar": "شو الغاز اللي تطلّعه النباتات وقت البناء الضوئي؟"
+      "ar": "ما الغاز الذي تطلقه النباتات أثناء التمثيل الضوئي؟"
     },
     "answer": {
       "en": "Oxygen",
@@ -711,7 +711,7 @@
     },
     "question": {
       "en": "Which organelle contains most of the DNA in a typical human body cell?",
-      "ar": "في خلية بشرية جسمية عادية، أي عضيّة فيها أغلب DNA الخلية؟"
+      "ar": "أي عضية تحتوي على معظم DNA في خلية بشرية جسمية نموذجية؟"
     },
     "answer": {
       "en": "The nucleus",
@@ -730,7 +730,7 @@
     },
     "question": {
       "en": "What English collective noun is traditionally used for a group of lions?",
-      "ar": "شو الاسم الجماعي الإنجليزي التقليدي لمجموعة أسود؟"
+      "ar": "ما الاسم الجمعي الإنجليزي المستخدم تقليدياً لمجموعة من الأسود؟"
     },
     "answer": {
       "en": "A pride.",
@@ -749,7 +749,7 @@
     },
     "question": {
       "en": "Which vitamin is produced when skin is exposed to sunlight?",
-      "ar": "أي فيتامين يتكوّن لما الجلد يتعرض للشمس؟"
+      "ar": "أي فيتامين يُنتج عند تعرّض الجلد لأشعة الشمس؟"
     },
     "answer": {
       "en": "Vitamin D",
@@ -768,7 +768,7 @@
     },
     "question": {
       "en": "What is the male reproductive part of a flower called?",
-      "ar": "شو اسم الجزء التكاثري المذكّر بالزهرة؟"
+      "ar": "ما اسم الجزء التكاثري المذكّر في الزهرة؟"
     },
     "answer": {
       "en": "Stamen",
@@ -787,7 +787,7 @@
     },
     "question": {
       "en": "What do we call organisms made of a single cell?",
-      "ar": "شو نسمّي الكائنات اللي جسمها خلية وحدة؟"
+      "ar": "كيف نسمّي الكائنات المكوّنة من خلية واحدة؟"
     },
     "answer": {
       "en": "Unicellular organisms",
@@ -806,7 +806,7 @@
     },
     "question": {
       "en": "How many copies of a recessive allele must a person inherit for a recessive trait to show?",
-      "ar": "كم نسخة من الأليل المتنحّي لازم يورثها الشخص عشان تبين الصفة المتنحية؟"
+      "ar": "كم نسخة من الأليل المتنحّي يجب أن يرثها الشخص لتظهر الصفة المتنحية؟"
     },
     "answer": {
       "en": "Two, one from each parent (for a typical gene on a non-sex chromosome).",
@@ -825,7 +825,7 @@
     },
     "question": {
       "en": "Which structures distinguish a typical photosynthetic plant cell from a typical animal cell?",
-      "ar": "شو التراكيب اللي تميّز خلية نباتية عادية تسوي بناء ضوئي عن خلية حيوانية عادية؟"
+      "ar": "ما التراكيب التي تميز خلية نباتية نموذجية تقوم بالتمثيل الضوئي عن خلية حيوانية نموذجية؟"
     },
     "answer": {
       "en": "A cellulose cell wall, chloroplasts, and usually a large central vacuole. Not every plant cell contains chloroplasts.",
@@ -844,7 +844,7 @@
     },
     "question": {
       "en": "What is the role of white blood cells?",
-      "ar": "شو دور كريات الدم البيضا؟"
+      "ar": "ما دور خلايا الدم البيضاء؟"
     },
     "answer": {
       "en": "Fighting infection and disease as part of the immune system",
@@ -863,7 +863,7 @@
     },
     "question": {
       "en": "What is the founder effect in population genetics?",
-      "ar": "في وراثة الجماعات، شو هو «تأثير المؤسّس»؟"
+      "ar": "ما تأثير المؤسس في علم وراثة الجماعات؟"
     },
     "answer": {
       "en": "A new population founded by a small number of individuals carries only a sample of the original population's genetic variation, so allele frequencies can differ by chance.",
@@ -882,7 +882,7 @@
     },
     "question": {
       "en": "What is a food chain?",
-      "ar": "شو هي «السلسلة الغذائية»؟"
+      "ar": "ما السلسلة الغذائية؟"
     },
     "answer": {
       "en": "A sequence showing the transfer of energy from one organism to another through feeding",
@@ -901,7 +901,7 @@
     },
     "question": {
       "en": "What is pleiotropy in genetics?",
-      "ar": "في الوراثة، شو يعني «تعدد التأثيرات»؟"
+      "ar": "ما تعدد التأثيرات في علم الوراثة؟"
     },
     "answer": {
       "en": "It occurs when one gene influences two or more distinct traits.",
@@ -920,7 +920,7 @@
     },
     "question": {
       "en": "Which organelle breaks down very-long-chain fatty acids and detoxifies hydrogen peroxide?",
-      "ar": "أي عضيّة تكسّر الأحماض الدهنية الطويلة كثير وتشيل سُمّية فوق أكسيد الهيدروجين؟"
+      "ar": "أي عضية تفكك الأحماض الدهنية شديدة الطول وتزيل سُمّية فوق أكسيد الهيدروجين؟"
     },
     "answer": {
       "en": "The peroxisome",
@@ -939,7 +939,7 @@
     },
     "question": {
       "en": "What is the function of the kidneys?",
-      "ar": "شو شغلة الكليتين؟"
+      "ar": "ما وظيفة الكليتين؟"
     },
     "answer": {
       "en": "To filter waste products from the blood and produce urine",
@@ -958,7 +958,7 @@
     },
     "question": {
       "en": "How do endotherms and ectotherms differ in their main source of body heat?",
-      "ar": "من وين تجي حرارة الجسم بشكل أساسي عند الحيوانات داخلية الحرارة مقارنة بخارجية الحرارة؟"
+      "ar": "كيف تختلف الحيوانات داخلية الحرارة وخارجية الحرارة في المصدر الرئيسي لحرارة أجسامها؟"
     },
     "answer": {
       "en": "Endotherms rely mainly on metabolic heat; ectotherms rely more on external heat sources. Both can regulate temperature through behavior.",
@@ -977,7 +977,7 @@
     },
     "question": {
       "en": "What is symbiosis?",
-      "ar": "شو هو «التكافل»؟"
+      "ar": "ما التكافل؟"
     },
     "answer": {
       "en": "A close interaction between two different organisms living together",
@@ -996,7 +996,7 @@
     },
     "question": {
       "en": "What is the role of insulin in the body?",
-      "ar": "شو دور الإنسولين بالجسم؟"
+      "ar": "ما دور الإنسولين في الجسم؟"
     },
     "answer": {
       "en": "Regulating blood glucose levels — allowing cells to take up glucose",
@@ -1015,7 +1015,7 @@
     },
     "question": {
       "en": "What is the function of the cell membrane?",
-      "ar": "شو وظيفة غشاء الخلية؟"
+      "ar": "ما وظيفة غشاء الخلية؟"
     },
     "answer": {
       "en": "To control what enters and exits the cell",
@@ -1034,7 +1034,7 @@
     },
     "question": {
       "en": "What is a mutation?",
-      "ar": "شو هي «الطفرة»؟"
+      "ar": "ما الطفرة؟"
     },
     "answer": {
       "en": "A change in the DNA sequence of an organism",
@@ -1053,7 +1053,7 @@
     },
     "question": {
       "en": "What is convergent evolution?",
-      "ar": "شو هو «التطور التقاربي»؟"
+      "ar": "ما التطور التقاربي؟"
     },
     "answer": {
       "en": "The independent evolution of similar traits in distantly related lineages facing similar selective pressures.",
@@ -1072,7 +1072,7 @@
     },
     "question": {
       "en": "In a eukaryotic cell, what role does mRNA play between nuclear DNA and ribosomes?",
-      "ar": "في الخلية حقيقية النواة، شو دور RNA الرسول بين DNA اللي بالنواة والريبوسومات؟"
+      "ar": "في الخلية حقيقية النواة، ما دور RNA الرسول بين DNA النووي والريبوسومات؟"
     },
     "answer": {
       "en": "It carries the genetic code from DNA in the nucleus to the ribosome for translation",
@@ -1091,7 +1091,7 @@
     },
     "question": {
       "en": "What is the main function of tight junctions between epithelial cells?",
-      "ar": "شو الوظيفة الأساسية لـ«الوصلات المحكمة» بين الخلايا الطلائية؟"
+      "ar": "ما الوظيفة الرئيسية للوصلات المحكمة بين الخلايا الظهارية؟"
     },
     "answer": {
       "en": "They seal the space between neighboring cells, limiting paracellular movement and helping maintain distinct membrane domains.",
@@ -1110,7 +1110,7 @@
     },
     "question": {
       "en": "What is the difference between an ecosystem and a biome?",
-      "ar": "شو الفرق بين النظام البيئي والبيوم؟"
+      "ar": "ما الفرق بين النظام البيئي والبيوم؟"
     },
     "answer": {
       "en": "An ecosystem includes organisms, their nonliving environment, and their interactions. A biome is a broad ecological region characterized by climate and typical vegetation or communities.",
@@ -1129,7 +1129,7 @@
     },
     "question": {
       "en": "What is the endosymbiotic theory?",
-      "ar": "شو هي نظرية «التعايش الداخلي»؟"
+      "ar": "ما نظرية الاستيعاب التكافلي الداخلي؟"
     },
     "answer": {
       "en": "Mitochondria and chloroplasts originated as free-living prokaryotes that were engulfed by ancestral eukaryotic cells",
@@ -1148,7 +1148,7 @@
     },
     "question": {
       "en": "What is epigenetic inheritance?",
-      "ar": "شو هي «الوراثة فوق الجينية» (الإبيجينية)؟"
+      "ar": "ما الوراثة التخلّقية (الإبيجينية)؟"
     },
     "answer": {
       "en": "Heritable changes in gene expression caused by mechanisms other than changes in DNA sequence",
@@ -1167,7 +1167,7 @@
     },
     "question": {
       "en": "What is the action potential in neurons?",
-      "ar": "في الخلايا العصبية، شو هو «جهد الفعل»؟"
+      "ar": "ما جهد الفعل في الخلايا العصبية؟"
     },
     "answer": {
       "en": "A rapid electrical signal generated when a neuron is sufficiently stimulated, causing a change in membrane potential",
@@ -1186,7 +1186,7 @@
     },
     "question": {
       "en": "What is punctuated equilibrium?",
-      "ar": "شو هو «التوازن المتقطّع»؟"
+      "ar": "ما التوازن المتقطّع؟"
     },
     "answer": {
       "en": "The theory that evolutionary change occurs in rapid bursts interspersed with long periods of stability",
@@ -1205,7 +1205,7 @@
     },
     "question": {
       "en": "What three-carbon sugar phosphate is the net carbohydrate product exported from the Calvin cycle?",
-      "ar": "شو السكّر الفوسفاتي ثلاثي الكربون اللي يكون الناتج الصافي من الكربوهيدرات اللي يطلع من دورة كالفن؟"
+      "ar": "ما السكر الفوسفاتي ثلاثي الكربون الذي يمثل الناتج الكربوهيدراتي الصافي الخارج من دورة كالفن؟"
     },
     "answer": {
       "en": "Glyceraldehyde 3-phosphate (G3P), which can be used to build glucose and other carbohydrates.",
@@ -1224,7 +1224,7 @@
     },
     "question": {
       "en": "In the classical morphological comparison, how do apoptosis and necrosis differ?",
-      "ar": "في المقارنة الشكلية التقليدية، كيف يختلف «الموت المبرمج» (الاستماتة) عن «النخر»؟"
+      "ar": "في المقارنة الشكلية التقليدية، كيف تختلف الاستماتة عن النخر؟"
     },
     "answer": {
       "en": "Apoptosis involves controlled cell dismantling with membrane-bound fragments. Necrosis typically involves swelling and membrane rupture. Some necrotic pathways are also regulated.",
@@ -1243,7 +1243,7 @@
     },
     "question": {
       "en": "What is the nitrogen cycle?",
-      "ar": "شو هي «دورة النيتروجين»؟"
+      "ar": "ما دورة النيتروجين؟"
     },
     "answer": {
       "en": "The biogeochemical cycle by which nitrogen is converted between its various chemical forms in ecosystems",
@@ -1262,7 +1262,7 @@
     },
     "question": {
       "en": "What is a plasmid?",
-      "ar": "شو هو «البلازميد»؟"
+      "ar": "ما البلازميد؟"
     },
     "answer": {
       "en": "A DNA molecule that replicates separately from a cell's main chromosome. Plasmids are often small and circular, particularly in bacteria, but exceptions exist.",
@@ -1281,7 +1281,7 @@
     },
     "question": {
       "en": "What are stem cells?",
-      "ar": "شو هي «الخلايا الجذعية»؟"
+      "ar": "ما الخلايا الجذعية؟"
     },
     "answer": {
       "en": "Cells capable of self-renewal and differentiation into one or more specialized cell types. Their range of possible fates depends on their potency.",
@@ -1300,7 +1300,7 @@
     },
     "question": {
       "en": "What is allopatric speciation?",
-      "ar": "شو هو «الانتواع بالتباعد الجغرافي»؟"
+      "ar": "ما الانتواع بالتباعد الجغرافي؟"
     },
     "answer": {
       "en": "The evolution of reproductive isolation between populations separated by a geographic barrier that restricts gene flow.",
@@ -1319,7 +1319,7 @@
     },
     "question": {
       "en": "What is the role of auxins in plants?",
-      "ar": "شو دور «الأوكسين» في النباتات؟"
+      "ar": "ما دور الأوكسين في النباتات؟"
     },
     "answer": {
       "en": "Auxins regulate growth, including cell elongation, and help coordinate phototropism and gravitropism through unequal growth.",
@@ -1338,7 +1338,7 @@
     },
     "question": {
       "en": "What is the function of lysosomes?",
-      "ar": "شو وظيفة «الليزوسومات»؟"
+      "ar": "ما وظيفة الجسيمات الحالّة (الليزوسومات)؟"
     },
     "answer": {
       "en": "They break down cellular material and foreign particles using hydrolytic enzymes in an acidic interior.",
@@ -1357,7 +1357,7 @@
     },
     "question": {
       "en": "What is alternative splicing and why is it significant?",
-      "ar": "شو هو «التضفير البديل»، وليش مهم؟"
+      "ar": "ما الربط البديل ولماذا يُعدّ ذا أهمية؟"
     },
     "answer": {
       "en": "Different exons are combined from a single pre-mRNA, allowing one gene to code for multiple proteins",
@@ -1376,7 +1376,7 @@
     },
     "question": {
       "en": "What is the unfolded protein response (UPR)?",
-      "ar": "شو هي «استجابة البروتين غير المطوي» (UPR)؟"
+      "ar": "ما استجابة البروتين غير المطوي (UPR)؟"
     },
     "answer": {
       "en": "A cellular stress response to the accumulation of unfolded proteins in the endoplasmic reticulum",
@@ -1395,7 +1395,7 @@
     },
     "question": {
       "en": "What is horizontal gene transfer?",
-      "ar": "شو هو «النقل الجيني الأفقي»؟"
+      "ar": "ما النقل الجيني الأفقي؟"
     },
     "answer": {
       "en": "The transfer of genetic material between organisms other than by parent-to-offspring inheritance",
@@ -1414,7 +1414,7 @@
     },
     "question": {
       "en": "What is the difference between MHC class I and class II molecules?",
-      "ar": "شو الفرق بين جزيئات MHC من الفئة الأولى والفئة الثانية؟"
+      "ar": "ما الفرق بين جزيئات MHC من الفئة الأولى والثانية؟"
     },
     "answer": {
       "en": "Class I is on all nucleated cells and activates cytotoxic T cells; Class II is on antigen-presenting cells and activates helper T cells",
@@ -1433,7 +1433,7 @@
     },
     "question": {
       "en": "What is the competitive exclusion principle?",
-      "ar": "شو هو «مبدأ الإقصاء التنافسي»؟"
+      "ar": "ما مبدأ الإقصاء التنافسي؟"
     },
     "answer": {
       "en": "Under stable conditions, species with identical ecological niches competing for the same limiting resources cannot coexist indefinitely; one eventually excludes the other.",
@@ -1452,7 +1452,7 @@
     },
     "question": {
       "en": "What is RNA interference (RNAi)?",
-      "ar": "شو هو «تداخل RNA» (RNAi)؟"
+      "ar": "ما تداخل الحمض الريبوزي (RNAi)؟"
     },
     "answer": {
       "en": "A biological process where RNA molecules inhibit gene expression by degrading target mRNA",
@@ -1471,7 +1471,7 @@
     },
     "question": {
       "en": "What is autophagy?",
-      "ar": "شو هو «الالتهام الذاتي» (الأوتوفاجي)؟"
+      "ar": "ما الالتهام الذاتي (الأوتوفاجي)؟"
     },
     "answer": {
       "en": "A cellular process that degrades and recycles damaged organelles and proteins",
@@ -1490,7 +1490,7 @@
     },
     "question": {
       "en": "What are Toll-like receptors (TLRs)?",
-      "ar": "شو هي «مستقبلات Toll» (TLRs)؟"
+      "ar": "ما مستقبلات Toll (TLRs)؟"
     },
     "answer": {
       "en": "Pattern recognition receptors of the innate immune system that detect pathogen-associated molecular patterns",
@@ -1509,7 +1509,7 @@
     },
     "question": {
       "en": "What is kin selection in evolutionary biology?",
-      "ar": "في علم الأحياء التطوري، شو هو «انتقاء الأقارب»؟"
+      "ar": "ما الانتقاء القرابي في علم الأحياء التطوري؟"
     },
     "answer": {
       "en": "Natural selection that favours altruistic behaviour towards genetic relatives, increasing inclusive fitness",
@@ -1528,7 +1528,7 @@
     },
     "question": {
       "en": "What is the role of the apical meristem?",
-      "ar": "شو دور «المرستيم القمّي»؟"
+      "ar": "ما دور المرستيم القمّي؟"
     },
     "answer": {
       "en": "It produces primary growth through actively dividing cells at the tips of shoots and roots.",
@@ -1547,7 +1547,7 @@
     },
     "question": {
       "en": "What is a SNP (Single Nucleotide Polymorphism)?",
-      "ar": "شو هو «تعدد أشكال النيوكليوتيد المفرد» (SNP)؟"
+      "ar": "ما تعدد أشكال النيوكليوتيد المفرد (SNP)؟"
     },
     "answer": {
       "en": "A variation in a single nucleotide at a specific position in the genome occurring in a significant portion of a population",
@@ -1566,7 +1566,7 @@
     },
     "question": {
       "en": "What is the role of the Golgi apparatus?",
-      "ar": "شو دور «جهاز غولجي»؟"
+      "ar": "ما دور جهاز غولجي؟"
     },
     "answer": {
       "en": "Processes and packages proteins and lipids for secretion or transport to other organelles",
@@ -1585,7 +1585,7 @@
     },
     "question": {
       "en": "What is a trophic cascade?",
-      "ar": "شو هو «الشلال الغذائي» أو التأثير المتسلسل عبر مستويات الغذاء؟"
+      "ar": "ما التأثير المتسلسل عبر المستويات الغذائية، أو الشلال الغذائي؟"
     },
     "answer": {
       "en": "An indirect effect across multiple trophic levels; for example, fewer predators can increase herbivores, which then reduce vegetation.",
@@ -1604,7 +1604,7 @@
     },
     "question": {
       "en": "What is the mechanism of action of β-lactam antibiotics?",
-      "ar": "كيف تشتغل مضادات «بيتا-لاكتام» الحيوية؟"
+      "ar": "ما آلية عمل المضادات الحيوية بيتا-لاكتام؟"
     },
     "answer": {
       "en": "They inhibit bacterial cell wall synthesis by binding to penicillin-binding proteins (PBPs)",
@@ -1623,7 +1623,7 @@
     },
     "question": {
       "en": "What is the difference between oncogenes and tumour suppressor genes?",
-      "ar": "شو الفرق بين «الجينات الورمية» و«الجينات الكابحة للأورام»؟"
+      "ar": "ما الفرق بين الجينات الورمية والجينات المثبطة للأورام؟"
     },
     "answer": {
       "en": "Activated oncogenes can drive excessive cell proliferation. Tumor-suppressor genes normally restrain growth or protect genome integrity; loss of their function can remove those safeguards.",
@@ -1642,7 +1642,7 @@
     },
     "question": {
       "en": "What is the neutral theory of molecular evolution?",
-      "ar": "في التطور الجزيئي، شو هي «النظرية المحايدة»؟"
+      "ar": "ما نظرية الحياد في التطور الجزيئي؟"
     },
     "answer": {
       "en": "Most genetic variation at the molecular level is neutral — neither harmful nor beneficial — and evolves by genetic drift",
@@ -1661,7 +1661,7 @@
     },
     "question": {
       "en": "During aerobic respiration in mitochondria, how does the electron transport chain help produce ATP?",
-      "ar": "خلال التنفس الهوائي بالميتوكوندريا، كيف «سلسلة نقل الإلكترون» تساعد بإنتاج ATP؟"
+      "ar": "أثناء التنفس الهوائي في الميتوكوندريا، كيف تساعد سلسلة نقل الإلكترون على إنتاج ATP؟"
     },
     "answer": {
       "en": "Electron transfer powers proton pumping across the inner membrane. ATP synthase uses the resulting electrochemical gradient to synthesize ATP.",
@@ -1680,7 +1680,7 @@
     },
     "question": {
       "en": "What is the difference between C3, C4, and CAM photosynthesis?",
-      "ar": "شو الفرق بين البناء الضوئي C3 وC4 وCAM؟"
+      "ar": "ما الفرق بين التمثيل الضوئي C3 وC4 وCAM؟"
     },
     "answer": {
       "en": "C3: most common, fixes CO₂ directly; C4: concentrates CO₂ to reduce photorespiration (e.g. maize); CAM: stores CO₂ at night for arid plants",
@@ -1699,7 +1699,7 @@
     },
     "question": {
       "en": "What is neuroplasticity?",
-      "ar": "شو هي «مرونة الدماغ العصبية»؟"
+      "ar": "ما مرونة الدماغ العصبية؟"
     },
     "answer": {
       "en": "The brain's ability to reorganise itself by forming new neural connections throughout life",
@@ -1718,7 +1718,7 @@
     },
     "question": {
       "en": "What is island biogeography?",
-      "ar": "شو هي «الجغرافيا الحيوية للجزر»؟"
+      "ar": "ما الجغرافيا الأحيائية للجزر؟"
     },
     "answer": {
       "en": "A theory (MacArthur & Wilson) describing how species richness on islands is determined by immigration and extinction rates relative to island size and isolation",
@@ -1737,7 +1737,7 @@
     },
     "question": {
       "en": "What is the significance of the lac operon model in genetics?",
-      "ar": "شو أهمية نموذج «لاك أوبرون» في علم الوراثة؟"
+      "ar": "ما أهمية نموذج لاك أوبيرون في علم الوراثة؟"
     },
     "answer": {
       "en": "It was the first model of gene regulation showing how gene expression is controlled by environmental signals (lactose availability)",
@@ -1756,7 +1756,7 @@
     },
     "question": {
       "en": "What is anoikis?",
-      "ar": "شو هو «الأنويكيس»؟"
+      "ar": "ما الأنويكيس؟"
     },
     "answer": {
       "en": "A form of apoptosis triggered when cells detach from the extracellular matrix — a barrier against tumour metastasis",
@@ -1775,7 +1775,7 @@
     },
     "question": {
       "en": "What is the Red Queen hypothesis?",
-      "ar": "شو هي «فرضية الملكة الحمرا»؟"
+      "ar": "ما فرضية الملكة الحمراء؟"
     },
     "answer": {
       "en": "Species must constantly evolve not to gain advantage but merely to keep up with co-evolving competitors and pathogens",
@@ -1794,7 +1794,7 @@
     },
     "question": {
       "en": "What are long non-coding RNAs (lncRNAs)?",
-      "ar": "شو هو «RNA الطويل غير المرمّز» (lncRNA)؟"
+      "ar": "ما الحمض الريبوزي غير المُرمِّز الطويل (lncRNA)؟"
     },
     "answer": {
       "en": "RNA transcripts longer than about 200 nucleotides that do not encode proteins. Many have regulatory roles, but not every identified lncRNA has a known function.",
@@ -1813,7 +1813,7 @@
     },
     "question": {
       "en": "What is the Allee effect?",
-      "ar": "شو هو «تأثير أللي»؟"
+      "ar": "ما «تأثير أللي»؟"
     },
     "answer": {
       "en": "At low population density, individual fitness can increase as density increases. A strong Allee effect additionally creates a threshold below which population growth becomes negative.",
@@ -1832,7 +1832,7 @@
     },
     "question": {
       "en": "What region of a bacterial cell contains its chromosome?",
-      "ar": "وين موجود الكروموسوم في الخلية البكتيرية؟"
+      "ar": "أي منطقة في الخلية البكتيرية تحتوي على كروموسومها؟"
     },
     "answer": {
       "en": "The nucleoid. Unlike a eukaryotic nucleus, it is not enclosed by a membrane.",
@@ -1851,7 +1851,7 @@
     },
     "question": {
       "en": "Which blood components form the initial plug that helps stop bleeding?",
-      "ar": "شو مكوّنات الدم اللي تعمل السدادة الأولى عشان توقف النزيف؟"
+      "ar": "ما مكوّنات الدم التي تكوّن السدادة الأولية للمساعدة على وقف النزيف؟"
     },
     "answer": {
       "en": "Platelets. They adhere to damaged blood vessels and aggregate to form a platelet plug.",
@@ -1870,7 +1870,7 @@
     },
     "question": {
       "en": "How do root hairs help a plant absorb water and minerals?",
-      "ar": "كيف الشعيرات الجذرية تساعد النبات يمتص المي والمعادن؟"
+      "ar": "كيف تساعد الشعيرات الجذرية النبات على امتصاص الماء والمعادن؟"
     },
     "answer": {
       "en": "They greatly increase the root's surface area in contact with the soil.",
@@ -1889,7 +1889,7 @@
     },
     "question": {
       "en": "Which molecule serves as the immediate energy currency of cells?",
-      "ar": "أي جزيء يعتبر «عملة الطاقة» الفورية في الخلايا؟"
+      "ar": "أي جزيء يُعد عملة الطاقة الفورية في الخلايا؟"
     },
     "answer": {
       "en": "ATP (adenosine triphosphate). Cells release usable energy when ATP is hydrolyzed.",
@@ -1908,7 +1908,7 @@
     },
     "question": {
       "en": "Starting with one diploid cell, how do the usual chromosome numbers of mitosis and meiosis products differ?",
-      "ar": "إذا بدأنا بخلية ثنائية الصبغيات، كيف يختلف عدد الصبغيات المعتاد بين نواتج الانقسام المتساوي والانقسام الاختزالي؟"
+      "ar": "بدءاً بخلية ثنائية الصيغة الصبغية، كيف تختلف الصيغة الصبغية المعتادة لنواتج الانقسام المتساوي والاختزالي؟"
     },
     "answer": {
       "en": "Mitosis preserves diploidy; meiosis halves the chromosome number to produce haploid products. Not all meiotic products necessarily become functional gametes.",
@@ -1927,7 +1927,7 @@
     },
     "question": {
       "en": "What is natural selection?",
-      "ar": "شو هو «الانتقاء الطبيعي»؟"
+      "ar": "ما الانتقاء الطبيعي؟"
     },
     "answer": {
       "en": "The process by which organisms with traits better suited to their environment survive and reproduce more successfully, driving evolution over generations.",
@@ -1946,7 +1946,7 @@
     },
     "question": {
       "en": "What is the role of ribosomes in the cell?",
-      "ar": "شو دور الريبوسومات في الخلية؟"
+      "ar": "ما دور الريبوسومات في الخلية؟"
     },
     "answer": {
       "en": "Ribosomes synthesize proteins by translating messenger RNA (mRNA) into amino acid chains.",
@@ -1965,7 +1965,7 @@
     },
     "question": {
       "en": "What is allosteric regulation of an enzyme?",
-      "ar": "شو هو «التنظيم الألوستيري» للإنزيم؟"
+      "ar": "ما التنظيم الألوستيري للإنزيم؟"
     },
     "answer": {
       "en": "A regulator binds at a site other than the active site and changes the enzyme's activity by altering its shape.",
@@ -1984,7 +1984,7 @@
     },
     "question": {
       "en": "How does the CRISPR-Cas9 system work?",
-      "ar": "كيف يشتغل نظام CRISPR-Cas9؟"
+      "ar": "كيف يعمل نظام CRISPR-Cas9؟"
     },
     "answer": {
       "en": "A guide RNA (gRNA) directs the Cas9 protein to a specific DNA sequence, where Cas9 makes a double-strand cut. The cell's repair mechanisms can then delete, correct, or insert genes.",
@@ -2003,7 +2003,7 @@
     },
     "question": {
       "en": "During which stage of mitosis do chromosomes line up at the cell's equator?",
-      "ar": "بأي مرحلة من الانقسام المتساوي تصطف الكروموسومات على خط استواء الخلية؟"
+      "ar": "في أي طور من الانقسام المتساوي تصطف الكروموسومات عند خط استواء الخلية؟"
     },
     "answer": {
       "en": "Metaphase.",
@@ -2022,7 +2022,7 @@
     },
     "question": {
       "en": "What is the role of a chromosome's centromere during cell division?",
-      "ar": "خلال انقسام الخلية، شو دور «السنترومير» بالكروموسوم؟"
+      "ar": "ما دور السنترومير في الكروموسوم أثناء انقسام الخلية؟"
     },
     "answer": {
       "en": "It holds sister chromatids together and forms the region where the kinetochore assembles for spindle attachment.",
@@ -2041,7 +2041,7 @@
     },
     "question": {
       "en": "What is the Hardy-Weinberg equilibrium used for?",
-      "ar": "ليش نستخدم «توازن هاردي-واينبرغ»؟"
+      "ar": "لماذا يُستخدم توازن هاردي-واينبرغ؟"
     },
     "answer": {
       "en": "It provides a non-evolving reference model: allele frequencies remain constant, and expected genotype frequencies can be calculated from them under the model's assumptions.",
@@ -2060,7 +2060,7 @@
     },
     "question": {
       "en": "Which enzyme separates the two DNA strands at the replication fork?",
-      "ar": "أي إنزيم يفصل شريطَي DNA عند شوكة التضاعف؟"
+      "ar": "أي إنزيم يفصل شريطي DNA عند شوكة التضاعف؟"
     },
     "answer": {
       "en": "Helicase",
@@ -2079,7 +2079,7 @@
     },
     "question": {
       "en": "What is the function of the hypothalamus in the brain?",
-      "ar": "شو وظيفة «تحت المهاد» (الهايبوثالاموس) بالدماغ؟"
+      "ar": "ما وظيفة منطقة ما تحت المهاد في الدماغ؟"
     },
     "answer": {
       "en": "Regulates body temperature, hunger, thirst, and hormone release",
@@ -2098,7 +2098,7 @@
     },
     "question": {
       "en": "What information is stored in the spacer sequences of a bacterial CRISPR array?",
-      "ar": "شو المعلومات المحفوظة بـ«تسلسلات الفواصل» داخل مصفوفة CRISPR بالبكتيريا؟"
+      "ar": "ما المعلومات المخزنة في تسلسلات الفواصل ضمن مصفوفة CRISPR البكتيرية؟"
     },
     "answer": {
       "en": "Fragments of genetic material from past invaders, such as bacteriophages, which guide sequence-specific immune defense.",
@@ -2117,7 +2117,7 @@
     },
     "question": {
       "en": "What is the complement system in immunology?",
-      "ar": "في علم المناعة، شو هو «نظام المتمّم»؟"
+      "ar": "ما نظام المتمّم في علم المناعة؟"
     },
     "answer": {
       "en": "A network of innate immune proteins that can mark pathogens, promote inflammation, and damage microbial membranes. Some activation pathways involve antibodies; others do not.",
@@ -2136,7 +2136,7 @@
     },
     "question": {
       "en": "What was the historical purpose of Koch's postulates in microbiology?",
-      "ar": "تاريخيًا، شو كان الهدف من «مسلّمات كوخ» بعلم الأحياء الدقيقة؟"
+      "ar": "ما الغرض التاريخي من مسلمات كوخ في علم الأحياء الدقيقة؟"
     },
     "answer": {
       "en": "To establish evidence that a particular microorganism causes a particular disease. They are influential criteria, but not universally applicable to every pathogen.",

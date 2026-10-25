@@ -7,7 +7,7 @@
     },
     "question": {
       "en": "What does the 'V' in V8 engine stand for?",
-      "ar": "شو يعني حرف «V» في محرك V8؟"
+      "ar": "ماذا يعني حرف «V» في محرك V8؟"
     },
     "answer": {
       "en": "The cylinder arrangement (V-shape)",
@@ -26,7 +26,7 @@
     },
     "question": {
       "en": "Which car brand uses a logo with four interlocking rings?",
-      "ar": "أي ماركة سيارات شعارها أربع حلقات متشابكة؟"
+      "ar": "أي علامة تجارية للسيارات تستخدم شعاراً مكوناً من أربع حلقات متشابكة؟"
     },
     "answer": {
       "en": "Audi",
@@ -45,7 +45,7 @@
     },
     "question": {
       "en": "What does fully pressing the clutch pedal do in a conventional manual-transmission car?",
-      "ar": "في السيارة العادية اللي جيرها يدوي، شو يصير لما تدوس دواسة الكلتش للآخر؟"
+      "ar": "ماذا يفعل الضغط الكامل على دواسة القابض في سيارة تقليدية ذات ناقل حركة يدوي؟"
     },
     "answer": {
       "en": "It disengages the clutch, interrupting drive from the engine to the transmission.",
@@ -64,7 +64,7 @@
     },
     "question": {
       "en": "What country is the car manufacturer Toyota from?",
-      "ar": "من أي دولة شركة تويوتا؟"
+      "ar": "من أي بلد تأتي شركة تصنيع السيارات تويوتا؟"
     },
     "answer": {
       "en": "Japan",
@@ -83,7 +83,7 @@
     },
     "question": {
       "en": "What fluid keeps the engine from overheating?",
-      "ar": "شو السائل اللي يمنع المحرك من إنه يسخن زيادة؟"
+      "ar": "ما هو السائل الذي يمنع ارتفاع درجة حرارة المحرك؟"
     },
     "answer": {
       "en": "Coolant / Antifreeze",
@@ -102,7 +102,7 @@
     },
     "question": {
       "en": "Which Tesla electric sedan was introduced in 2012?",
-      "ar": "شو سيارة السيدان الكهربائية اللي طلّعتها تسلا سنة 2012؟"
+      "ar": "ما سيارة السيدان الكهربائية التي قدّمتها تسلا عام 2012؟"
     },
     "answer": {
       "en": "Model S.",
@@ -121,7 +121,7 @@
     },
     "question": {
       "en": "Which American company built the Mustang?",
-      "ar": "أي شركة أمريكية تصنع الموستانج؟"
+      "ar": "أي شركة أمريكية صنعت الموستانج؟"
     },
     "answer": {
       "en": "Ford",
@@ -140,7 +140,7 @@
     },
     "question": {
       "en": "What does 'RPM' stand for on a car’s dashboard?",
-      "ar": "شو معنى «RPM» على طبلون السيارة؟"
+      "ar": "ماذا يعني اختصار «RPM» على لوحة القيادة في السيارة؟"
     },
     "answer": {
       "en": "Revolutions Per Minute",
@@ -159,7 +159,7 @@
     },
     "question": {
       "en": "In a conventional combustion-engine car, which belt-driven component charges the battery while the engine runs?",
-      "ar": "في سيارة البنزين العادية، شو القطعة اللي يدوّرها السير وتشحن البطارية والمحرك شغّال؟"
+      "ar": "في سيارة تقليدية بمحرك احتراق، ما المكوّن الذي يديره سير ويشحن البطارية أثناء عمل المحرك؟"
     },
     "answer": {
       "en": "The alternator.",
@@ -178,7 +178,7 @@
     },
     "question": {
       "en": "Which German brand manufactures the 911 sports car?",
-      "ar": "أي ماركة ألمانية تصنع السيارة الرياضية 911؟"
+      "ar": "أي علامة تجارية ألمانية تصنع سيارة 911 الرياضية؟"
     },
     "answer": {
       "en": "Porsche",
@@ -197,7 +197,7 @@
     },
     "question": {
       "en": "Which Ford model became famous for large-scale production using a moving assembly line?",
-      "ar": "أي موديل من فورد اشتهر لأنه انصنع بكميات كبيرة على خط تجميع متحرك؟"
+      "ar": "أي طراز من فورد اشتهر بإنتاجه على نطاق واسع باستخدام خط تجميع متحرك؟"
     },
     "answer": {
       "en": "The Model T.",
@@ -216,7 +216,7 @@
     },
     "question": {
       "en": "What Italian car manufacturer has a raging bull as its logo?",
-      "ar": "أي شركة سيارات إيطالية شعارها ثور هائج؟"
+      "ar": "ما هي شركة تصنيع السيارات الإيطالية التي يتخذ شعارها شكل ثور هائج؟"
     },
     "answer": {
       "en": "Lamborghini",
@@ -235,7 +235,7 @@
     },
     "question": {
       "en": "What does ABS stand for in vehicle safety systems?",
-      "ar": "شو معنى ABS في أنظمة أمان السيارات؟"
+      "ar": "ماذا يعني ABS في أنظمة سلامة المركبات؟"
     },
     "answer": {
       "en": "Anti-lock Braking System",
@@ -254,7 +254,7 @@
     },
     "question": {
       "en": "Which component connects the engine to the transmission?",
-      "ar": "شو القطعة اللي توصل المحرك بالجير؟"
+      "ar": "أي مكون يربط المحرك بناقل الحركة؟"
     },
     "answer": {
       "en": "The clutch or torque converter",
@@ -273,7 +273,7 @@
     },
     "question": {
       "en": "What type of engine does a Mazda RX-7 have?",
-      "ar": "شو نوع المحرك في مازدا RX-7؟"
+      "ar": "ما نوع المحرك الذي تمتلكه مازدا RX-7؟"
     },
     "answer": {
       "en": "Rotary engine (Wankel)",
@@ -292,7 +292,7 @@
     },
     "question": {
       "en": "Which car manufacturer produces the Corolla?",
-      "ar": "أي شركة سيارات تصنع الكورولا؟"
+      "ar": "ما اسم شركة السيارات التي تصنّع طراز كورولا؟"
     },
     "answer": {
       "en": "Toyota.",
@@ -311,7 +311,7 @@
     },
     "question": {
       "en": "Which FIA world championship uses single-seat cars and awards a World Drivers' Championship and a World Constructors' Championship?",
-      "ar": "شو بطولة العالم التابعة للاتحاد الدولي للسيارات، اللي سياراتها بمقعد واحد وتعطي لقبين: واحد للسائقين وواحد للصانعين؟"
+      "ar": "ما بطولة العالم التابعة للاتحاد الدولي للسيارات التي تستخدم سيارات بمقعد واحد وتمنح لقبين عالميين للسائقين والصانعين؟"
     },
     "answer": {
       "en": "Formula One.",
@@ -330,7 +330,7 @@
     },
     "question": {
       "en": "What does 'GT' typically stand for in car models?",
-      "ar": "شو يعني «GT» عادةً في أسماء موديلات السيارات؟"
+      "ar": "ماذا يعني «GT» عادة في طرازات السيارات؟"
     },
     "answer": {
       "en": "Grand Touring (Gran Turismo)",
@@ -349,7 +349,7 @@
     },
     "question": {
       "en": "Which car brand is known for its symmetrical all-wheel drive and boxer engines?",
-      "ar": "أي ماركة سيارات معروفة بالدفع الرباعي المتماثل ومحركات البوكسر المسطّحة؟"
+      "ar": "أي علامة تجارية للسيارات تُعرف بنظام الدفع الرباعي المتماثل والمحركات المسطحة (البوكسر)؟"
     },
     "answer": {
       "en": "Subaru",
@@ -368,7 +368,7 @@
     },
     "question": {
       "en": "What does the 'EV' in EV cars stand for?",
-      "ar": "شو يعني «EV» لما نقول سيارة EV؟"
+      "ar": "ماذا يعني «EV» في سيارات EV؟"
     },
     "answer": {
       "en": "Electric Vehicle",
@@ -387,7 +387,7 @@
     },
     "question": {
       "en": "Which German driver won seven Formula One World Drivers' Championships, including five consecutive titles from 2000 to 2004?",
-      "ar": "أي سائق ألماني أخذ سبع بطولات عالم في الفورمولا 1، منها خمسة ورا بعض بين 2000 و2004؟"
+      "ar": "أي سائق ألماني أحرز سبع بطولات عالم للسائقين في الفورمولا 1، منها خمسة ألقاب متتالية بين 2000 و2004؟"
     },
     "answer": {
       "en": "Michael Schumacher.",
@@ -406,7 +406,7 @@
     },
     "question": {
       "en": "What is the name of the legendary endurance race held in France over 24 hours?",
-      "ar": "شو اسم سباق التحمّل الأسطوري في فرنسا اللي يستمر 24 ساعة؟"
+      "ar": "ما هو اسم سباق التحمل الأسطوري الذي يقام في فرنسا على مدار 24 ساعة؟"
     },
     "answer": {
       "en": "24 Hours of Le Mans",
@@ -425,7 +425,7 @@
     },
     "question": {
       "en": "What is the term for a vehicle's resistance to motion caused by air flowing around it?",
-      "ar": "شو نسمّي مقاومة الهوا لحركة السيارة؟"
+      "ar": "ما المصطلح الذي يصف مقاومة حركة المركبة الناتجة عن تدفق الهواء حولها؟"
     },
     "answer": {
       "en": "Aerodynamic drag.",
@@ -444,7 +444,7 @@
     },
     "question": {
       "en": "In an internal combustion engine, what are the four strokes of a typical cycle?",
-      "ar": "في محرك الاحتراق الداخلي، شو هي الأشواط الأربعة بالدورة العادية؟"
+      "ar": "في محرك الاحتراق الداخلي، ما هي الأشواط الأربعة للدورة النموذجية؟"
     },
     "answer": {
       "en": "Intake, compression, power (expansion), and exhaust.",
@@ -463,7 +463,7 @@
     },
     "question": {
       "en": "What car is affectionately known as the 'Godzilla' in the JDM community?",
-      "ar": "أي سيارة يسمّيها عشاق السيارات اليابانية «غودزيلا»؟"
+      "ar": "أي سيارة تُعرف بمودة باسم «جودزيلا» في مجتمع السيارات اليابانية؟"
     },
     "answer": {
       "en": "Nissan Skyline GT-R",
@@ -482,7 +482,7 @@
     },
     "question": {
       "en": "What is the purpose of a turbocharger's wastegate?",
-      "ar": "شو شغلة صمام تصريف العادم (wastegate) في التيربو؟"
+      "ar": "ما هو الغرض من صمام تصريف العادم (wastegate) في الشاحن التوربيني؟"
     },
     "answer": {
       "en": "To regulate maximum boost pressure",
@@ -501,7 +501,7 @@
     },
     "question": {
       "en": "Which British luxury car brand produces the Continental GT?",
-      "ar": "أي ماركة سيارات فخمة بريطانية تصنع «كونتيننتال جي تي»؟"
+      "ar": "أي علامة بريطانية للسيارات الفاخرة تنتج كونتيننتال جي تي؟"
     },
     "answer": {
       "en": "Bentley.",
@@ -520,7 +520,7 @@
     },
     "question": {
       "en": "Which Japanese manufacturer built the Model A passenger car in 1917?",
-      "ar": "أي شركة يابانية صنعت سيارة الركاب «موديل A» سنة 1917؟"
+      "ar": "أي شركة يابانية صنعت سيارة الركاب موديل إيه عام 1917؟"
     },
     "answer": {
       "en": "Mitsubishi.",
@@ -539,7 +539,7 @@
     },
     "question": {
       "en": "What does 'LSD' stand for in automotive drivetrain terminology?",
-      "ar": "شو يعني «LSD» في نظام دفع السيارات؟"
+      "ar": "ماذا يعني «LSD» في مصطلحات نظام الدفع في السيارات؟"
     },
     "answer": {
       "en": "Limited Slip Differential",
@@ -558,7 +558,7 @@
     },
     "question": {
       "en": "Which classic movie featured a heavily modified DeLorean DMC-12?",
-      "ar": "أي فيلم كلاسيكي فيه سيارة ديلوريان DMC-12 معدّلة بشكل كبير؟"
+      "ar": "أي فيلم كلاسيكي تضمن سيارة ديلوريان DMC-12 معدلة بشكل كبير؟"
     },
     "answer": {
       "en": "Back to the Future",
@@ -577,7 +577,7 @@
     },
     "question": {
       "en": "Which aerodynamic designer played a leading technical role at both Williams and Red Bull Racing?",
-      "ar": "مين المصمم المتخصص بالديناميكا الهوائية اللي كان له دور تقني قيادي في ويليامز وريد بول ريسينغ؟"
+      "ar": "أي مصمم متخصص في الديناميكا الهوائية شغل دوراً تقنياً قيادياً لدى ويليامز وريد بول ريسينغ؟"
     },
     "answer": {
       "en": "Adrian Newey.",
@@ -596,7 +596,7 @@
     },
     "question": {
       "en": "Which suspension layout uses upper and lower wishbone-shaped control arms to locate each wheel?",
-      "ar": "شو تصميم التعليق اللي يستخدم ذراعين، فوق وتحت، على شكل حرف A لتثبيت مكان كل عجلة؟"
+      "ar": "ما تصميم التعليق الذي يستخدم ذراعَي تحكم، علوياً وسفلياً، على شكل حرف A لتحديد موضع كل عجلة؟"
     },
     "answer": {
       "en": "Double-wishbone suspension.",
@@ -615,7 +615,7 @@
     },
     "question": {
       "en": "What is the 'Ackermann steering geometry' designed to solve?",
-      "ar": "شو المشكلة اللي انعملت «هندسة توجيه أكرمان» عشان تحلّها؟"
+      "ar": "ما الذي صُممت «هندسة التوجيه أكرمان» لحله؟"
     },
     "answer": {
       "en": "The problem of wheels on the inside and outside of a turn needing to trace out circles of different radii",
@@ -634,7 +634,7 @@
     },
     "question": {
       "en": "Which Swedish carmaker introduced the modern three-point seat belt as standard equipment in 1959?",
-      "ar": "أي شركة سيارات سويدية خلّت حزام الأمان الحديث بثلاث نقاط أساسي في سياراتها سنة 1959؟"
+      "ar": "أي شركة سيارات سويدية قدّمت حزام الأمان الحديث ثلاثي النقاط كتجهيز قياسي عام 1959؟"
     },
     "answer": {
       "en": "Volvo.",
@@ -653,7 +653,7 @@
     },
     "question": {
       "en": "For conventional ethanol-free gasoline, what is the approximate stoichiometric air-to-fuel mass ratio?",
-      "ar": "كم تقريبًا النسبة المثالية بين كتلة الهوا وكتلة الوقود للبنزين العادي اللي ما فيه إيثانول؟"
+      "ar": "ما النسبة التقريبية المتكافئة بين كتلة الهواء وكتلة الوقود للبنزين التقليدي الخالي من الإيثانول؟"
     },
     "answer": {
       "en": "About 14.7:1 by mass; the value changes with fuel composition.",
@@ -672,7 +672,7 @@
     },
     "question": {
       "en": "How does a desmodromic valve system close its valves rather than relying solely on return springs?",
-      "ar": "كيف نظام الصمامات «الديسمودروميك» يسكّر صماماته، بدل ما يعتمد بس على النوابض؟"
+      "ar": "كيف يُغلق نظام الصمامات الديسمودروميكي صماماته بدلاً من الاعتماد وحده على نوابض الإرجاع؟"
     },
     "answer": {
       "en": "A cam-driven mechanism positively closes them; some designs retain helper springs.",
@@ -691,7 +691,7 @@
     },
     "question": {
       "en": "Which McLaren road car introduced in the 1990s used a carbon-fibre monocoque and placed the driver centrally between two passengers?",
-      "ar": "أي سيارة طرق من ماكلارين بالتسعينيات كان هيكلها قطعة وحدة من ألياف الكربون، والسائق قاعد بالنص بين راكبين؟"
+      "ar": "أي سيارة طرق من ماكلارين ظهرت في التسعينيات استخدمت هيكلاً أحادياً من ألياف الكربون وجلست بالسائق في الوسط بين راكبين؟"
     },
     "answer": {
       "en": "The McLaren F1.",
@@ -710,7 +710,7 @@
     },
     "question": {
       "en": "What engine layout has two cylinder banks at 180 degrees, with each opposing pair of connecting rods sharing a crankpin?",
-      "ar": "شو تصميم المحرك اللي فيه صفّين أسطوانات متقابلين بزاوية 180 درجة، وكل زوج متقابل يشترك ذراعيه بمسمار مرفق واحد؟"
+      "ar": "ما تصميم المحرك الذي تتقابل فيه مجموعتا الأسطوانات بزاوية 180 درجة، ويشترك فيه ذراعا التوصيل لكل زوج متقابل في مسمار مرفق واحد؟"
     },
     "answer": {
       "en": "A 180-degree V engine, unlike a boxer engine with separate crankpins.",
@@ -729,7 +729,7 @@
     },
     "question": {
       "en": "What is the aerodynamic phenomenon that ground-effect Formula 1 cars use to suck themselves to the track?",
-      "ar": "شو الظاهرة الهوائية اللي تستخدمها سيارات الفورمولا 1 بتأثير الأرض عشان تنشفط على المضمار؟"
+      "ar": "ما هي الظاهرة الديناميكية الهوائية التي تستخدمها سيارات الفورمولا 1 ذات التأثير الأرضي لشفط نفسها إلى المضمار؟"
     },
     "answer": {
       "en": "Venturi effect",
@@ -748,7 +748,7 @@
     },
     "question": {
       "en": "Which World Rally Championship category was discontinued after the 1986 season following serious safety concerns and fatal accidents?",
-      "ar": "أي فئة في بطولة العالم للراليات انلغت بعد موسم 1986 بسبب مخاوف أمان كبيرة وحوادث قاتلة؟"
+      "ar": "أي فئة في بطولة العالم للراليات أُوقفت بعد موسم 1986 إثر مخاوف كبيرة تتعلق بالسلامة وحوادث مميتة؟"
     },
     "answer": {
       "en": "Group B.",

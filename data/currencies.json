@@ -3,7 +3,7 @@
     "id": "currencies-1",
     "question": {
       "en": "What is a piece of paper or polymer money issued for circulation called?",
-      "ar": "شو اسم قطعة الفلوس الورقية، أو المصنوعة من البوليمر، اللي تنطبع عشان يتداولها الناس؟"
+      "ar": "ماذا تُسمّى قطعة المال الورقية أو المصنوعة من البوليمر والمصدرة للتداول؟"
     },
     "answer": {
       "en": "A banknote",
@@ -22,7 +22,7 @@
     "id": "currencies-2",
     "question": {
       "en": "Which currency is represented by the symbol €?",
-      "ar": "أي عملة رمزها €؟"
+      "ar": "ما العملة التي يرمز إليها بالعلامة €؟"
     },
     "answer": {
       "en": "Euro",
@@ -41,7 +41,7 @@
     "id": "currencies-3",
     "question": {
       "en": "What is the currency of Japan?",
-      "ar": "شو عملة اليابان؟"
+      "ar": "ما هي عملة اليابان؟"
     },
     "answer": {
       "en": "Yen",
@@ -60,7 +60,7 @@
     "id": "currencies-4",
     "question": {
       "en": "What is the currency of the United Kingdom?",
-      "ar": "شو عملة بريطانيا؟"
+      "ar": "ما هي عملة المملكة المتحدة؟"
     },
     "answer": {
       "en": "Pound Sterling",
@@ -79,7 +79,7 @@
     "id": "currencies-5",
     "question": {
       "en": "What is the name of the digital currency created by Satoshi Nakamoto?",
-      "ar": "شو اسم العملة الرقمية اللي ابتكرها ساتوشي ناكاموتو؟"
+      "ar": "ما هو اسم العملة الرقمية التي ابتكرها ساتوشي ناكاموتو؟"
     },
     "answer": {
       "en": "Bitcoin",
@@ -98,7 +98,7 @@
     "id": "currencies-6",
     "question": {
       "en": "What is the currency of China?",
-      "ar": "شو عملة الصين؟"
+      "ar": "ما هي عملة الصين؟"
     },
     "answer": {
       "en": "Yuan (Renminbi)",
@@ -117,7 +117,7 @@
     "id": "currencies-7",
     "question": {
       "en": "What term means the stated face-value category of a coin or banknote, such as 5, 10, or 20?",
-      "ar": "شو نسمّي القيمة المكتوبة على العملة أو الورقة النقدية، مثل 5 أو 10 أو 20؟"
+      "ar": "ما المصطلح الذي يعني فئة القيمة الاسمية لعملة معدنية أو ورقة نقدية، مثل 5 أو 10 أو 20؟"
     },
     "answer": {
       "en": "Denomination",
@@ -136,7 +136,7 @@
     "id": "currencies-8",
     "question": {
       "en": "What is the currency of Saudi Arabia?",
-      "ar": "شو عملة السعودية؟"
+      "ar": "ما هي عملة المملكة العربية السعودية؟"
     },
     "answer": {
       "en": "Saudi Riyal",
@@ -155,7 +155,7 @@
     "id": "currencies-9",
     "question": {
       "en": "What is the currency of India?",
-      "ar": "شو عملة الهند؟"
+      "ar": "ما هي عملة الهند؟"
     },
     "answer": {
       "en": "Indian Rupee",
@@ -174,7 +174,7 @@
     "id": "currencies-10",
     "question": {
       "en": "What is the term for exchanging goods and services without using money?",
-      "ar": "شو اسم تبادل البضايع والخدمات من غير ما تستخدم فلوس؟"
+      "ar": "ما هو مصطلح تبادل السلع والخدمات دون استخدام المال؟"
     },
     "answer": {
       "en": "Barter",
@@ -193,7 +193,7 @@
     "id": "currencies-11",
     "question": {
       "en": "What is the currency of Switzerland?",
-      "ar": "شو عملة سويسرا؟"
+      "ar": "ما هي عملة سويسرا؟"
     },
     "answer": {
       "en": "Swiss Franc",
@@ -212,7 +212,7 @@
     "id": "currencies-12",
     "question": {
       "en": "What is the currency of South Korea?",
-      "ar": "شو عملة كوريا الجنوبية؟"
+      "ar": "ما هي عملة كوريا الجنوبية؟"
     },
     "answer": {
       "en": "South Korean Won",
@@ -231,7 +231,7 @@
     "id": "currencies-13",
     "question": {
       "en": "Which institution is responsible for printing paper currency in the US?",
-      "ar": "أي جهة تطبع الفلوس الورقية في أمريكا؟"
+      "ar": "أي مؤسسة مسؤولة عن طباعة العملات الورقية في الولايات المتحدة؟"
     },
     "answer": {
       "en": "Bureau of Engraving and Printing",
@@ -250,7 +250,7 @@
     "id": "currencies-14",
     "question": {
       "en": "What does 'FOREX' stand for?",
-      "ar": "شو معنى كلمة «FOREX»؟"
+      "ar": "ماذا يعني مصطلح «FOREX»؟"
     },
     "answer": {
       "en": "Foreign Exchange",
@@ -269,7 +269,7 @@
     "id": "currencies-15",
     "question": {
       "en": "Which currency did Germany replace with euro banknotes and coins in 2002?",
-      "ar": "شو العملة اللي تخلّت عنها ألمانيا سنة 2002 لما صار عندها اليورو؟"
+      "ar": "أيّ عملة استبدلتها ألمانيا بأوراق اليورو وقطعه النقدية عام 2002؟"
     },
     "answer": {
       "en": "The Deutsche Mark",
@@ -288,7 +288,7 @@
     "id": "currencies-16",
     "question": {
       "en": "What is the value of one currency expressed in units of another currency called?",
-      "ar": "شو نسمّي قيمة عملة لما نحسبها بعملة ثانية؟"
+      "ar": "ماذا تُسمّى قيمة عملة ما معبّراً عنها بوحدات عملة أخرى؟"
     },
     "answer": {
       "en": "The exchange rate",
@@ -307,7 +307,7 @@
     "id": "currencies-17",
     "question": {
       "en": "What is the currency of Mexico?",
-      "ar": "شو عملة المكسيك؟"
+      "ar": "ما هي عملة المكسيك؟"
     },
     "answer": {
       "en": "Mexican Peso",
@@ -326,7 +326,7 @@
     "id": "currencies-18",
     "question": {
       "en": "What does fiat money mean in modern monetary terminology?",
-      "ar": "شو المقصود بـ«النقود الإلزامية» (Fiat money) اليوم؟"
+      "ar": "ما المقصود بمصطلح Fiat money في المصطلحات النقدية الحديثة؟"
     },
     "answer": {
       "en": "Money whose value is not defined by redemption for a fixed amount of a commodity such as gold; modern state-issued fiat currencies are supported by their monetary and legal systems.",
@@ -345,7 +345,7 @@
     "id": "currencies-19",
     "question": {
       "en": "Which country experienced severe hyperinflation in the late 2000s, issuing a 100 trillion dollar note?",
-      "ar": "أي دولة صار فيها تضخم جنوني آخر العقد الأول من الألفية، لدرجة إنها طبعت ورقة بـ100 تريليون دولار؟"
+      "ar": "أي دولة شهدت تضخماً مفرطاً حاداً في أواخر العقد الأول من القرن الحادي والعشرين، وأصدرت ورقة نقدية بقيمة 100 تريليون دولار؟"
     },
     "answer": {
       "en": "Zimbabwe",
@@ -364,7 +364,7 @@
     "id": "currencies-20",
     "question": {
       "en": "What is the currency of Russia?",
-      "ar": "شو عملة روسيا؟"
+      "ar": "ما هي عملة روسيا؟"
     },
     "answer": {
       "en": "Russian Ruble",
@@ -383,7 +383,7 @@
     "id": "currencies-21",
     "question": {
       "en": "What was the Bretton Woods Agreement of 1944?",
-      "ar": "شو هي اتفاقية بريتون وودز سنة 1944؟"
+      "ar": "ما هي اتفاقية بريتون وودز لعام 1944؟"
     },
     "answer": {
       "en": "It established a system where currencies were pegged to the US dollar, which was pegged to gold",
@@ -402,7 +402,7 @@
     "id": "currencies-22",
     "question": {
       "en": "Which US president announced the suspension of the dollar’s official convertibility into gold in August 1971?",
-      "ar": "أي رئيس أمريكي وقّف رسميًا تحويل الدولار لذهب في أغسطس 1971؟"
+      "ar": "أيّ رئيس أمريكي أعلن تعليق قابلية تحويل الدولار رسميًا إلى الذهب في أغسطس 1971؟"
     },
     "answer": {
       "en": "Richard Nixon",
@@ -421,7 +421,7 @@
     "id": "currencies-23",
     "question": {
       "en": "In a hypothetical exchange with no fees, 1 unit of currency A buys 4 units of currency B. How many B units do you receive for 25 A units?",
-      "ar": "لو بدون أي رسوم، الوحدة من العملة A تشتري 4 وحدات من B، كم وحدة B تاخذ مقابل 25 وحدة A؟"
+      "ar": "في عملية صرف افتراضية دون رسوم، تشتري وحدة واحدة من العملة A أربع وحدات من B. كم وحدة B تحصل عليها مقابل 25 وحدة A؟"
     },
     "answer": {
       "en": "100 units of B: 25 × 4 = 100.",
@@ -440,7 +440,7 @@
     "id": "currencies-24",
     "question": {
       "en": "What ancient civilization is credited with creating the first standardized metal coins around 600 BCE?",
-      "ar": "أي شعب قديم يُنسب له إنه أول من سكّ عملات معدنية موحّدة حوالي سنة 600 قبل الميلاد؟"
+      "ar": "ما هي الحضارة القديمة التي يُنسب إليها الفضل في ابتكار أول عملات معدنية موحدة حوالي عام 600 قبل الميلاد؟"
     },
     "answer": {
       "en": "The Lydians",
@@ -459,7 +459,7 @@
     "id": "currencies-25",
     "question": {
       "en": "What is 'Gresham's Law'?",
-      "ar": "شو هو «قانون جريشام»؟"
+      "ar": "ما هو «قانون جريشام»؟"
     },
     "answer": {
       "en": "When two kinds of money must trade at the same official face value despite differing commodity values, people tend to spend the lower-value money and retain the higher-value money.",
@@ -478,7 +478,7 @@
     "id": "currencies-26",
     "question": {
       "en": "Which currency is Kuwait's official monetary unit and is divided into 1,000 fils?",
-      "ar": "شو عملة الكويت اللي تنقسم لـ1000 فلس؟"
+      "ar": "ما العملة التي تُعد وحدة النقد الرسمية في الكويت وتنقسم إلى 1000 فلس؟"
     },
     "answer": {
       "en": "The Kuwaiti dinar",
@@ -497,7 +497,7 @@
     "id": "currencies-27",
     "question": {
       "en": "What broad term includes Bitcoin and other digital assets whose transactions use cryptographic techniques?",
-      "ar": "شو الاسم العام اللي يشمل البيتكوين وغيره من الأصول الرقمية اللي تعتمد على التشفير؟"
+      "ar": "ما المصطلح العام الذي يشمل البيتكوين وأصولًا رقمية أخرى تستخدم معاملاتها تقنيات التشفير؟"
     },
     "answer": {
       "en": "Cryptocurrency. Specific systems differ in governance, backing and decentralization.",
@@ -516,7 +516,7 @@
     "id": "currencies-28",
     "question": {
       "en": "The Spanish-American coin known as a 'piece of eight' was made mainly from which metal?",
-      "ar": "من أي معدن كانت تنصنع «قطعة الثمانية» الإسبانية الأمريكية بالأساس؟"
+      "ar": "من أي معدن صُنعت أساساً القطعة النقدية الإسبانية الأمريكية المعروفة باسم «قطعة الثمانية»؟"
     },
     "answer": {
       "en": "Silver.",
@@ -535,7 +535,7 @@
     "id": "currencies-29",
     "question": {
       "en": "What does 'quantitative easing' refer to?",
-      "ar": "شو معنى «التيسير الكمي»؟"
+      "ar": "إلى ماذا يشير «التيسير الكمي»؟"
     },
     "answer": {
       "en": "A central bank’s large-scale purchase of financial assets, typically bonds, financed by creating central-bank reserves. It is more specific than any increase in the money supply.",
@@ -554,7 +554,7 @@
     "id": "currencies-30",
     "question": {
       "en": "What is the international code for the currency of the United Arab Emirates?",
-      "ar": "شو الرمز الدولي لعملة الإمارات؟"
+      "ar": "ما هو الرمز الدولي لعملة الإمارات العربية المتحدة؟"
     },
     "answer": {
       "en": "AED",
@@ -573,7 +573,7 @@
     "id": "currencies-31",
     "question": {
       "en": "What was the exact name of the massive silver mine in Bolivia that funded the Spanish Empire and changed global currency markets?",
-      "ar": "شو اسم منجم الفضة الضخم في بوليفيا اللي موّل الإمبراطورية الإسبانية وغيّر أسواق العملات بالعالم؟"
+      "ar": "ما كان الاسم الدقيق لمنجم الفضة الضخم في بوليفيا الذي موّل الإمبراطورية الإسبانية وغير أسواق العملات العالمية؟"
     },
     "answer": {
       "en": "Cerro Rico at Potosí",
@@ -592,7 +592,7 @@
     "id": "currencies-32",
     "question": {
       "en": "What is a 'currency board' in macroeconomics?",
-      "ar": "شو يعني «مجلس النقد» في الاقتصاد؟"
+      "ar": "ما هو «مجلس النقد» في الاقتصاد الكلي؟"
     },
     "answer": {
       "en": "A monetary arrangement that issues domestic money against foreign reserves and commits to conversion at a fixed exchange rate, with reserve-backing rules limiting discretionary issuance.",
@@ -611,7 +611,7 @@
     "id": "currencies-33",
     "question": {
       "en": "What was the 'Triffin dilemma' regarding the US Dollar in the post-WWII era?",
-      "ar": "شو كانت «معضلة تريفين» بخصوص الدولار بعد الحرب العالمية الثانية؟"
+      "ar": "ما كانت «معضلة تريفين» فيما يتعلق بالدولار الأمريكي في فترة ما بعد الحرب العالمية الثانية؟"
     },
     "answer": {
       "en": "The conflict of economic interests that arises between short-term domestic and long-term international objectives for countries whose currencies serve as global reserve currencies",
@@ -630,7 +630,7 @@
     "id": "currencies-34",
     "question": {
       "en": "Which ancient item was commonly used as currency in West Africa and parts of China, known as 'cowrie'?",
-      "ar": "شو الشي القديم اللي كان الناس يستخدمونه كعملة في غرب إفريقيا وأجزاء من الصين، واسمه «الودع»؟"
+      "ar": "أي عنصر قديم كان يُستخدم بشكل شائع كعملة في غرب إفريقيا وأجزاء من الصين، ويُعرف باسم «الودع» (Cowrie)؟"
     },
     "answer": {
       "en": "Sea snail shells",
@@ -649,7 +649,7 @@
     "id": "currencies-35",
     "question": {
       "en": "From which European exchange-rate arrangement did the United Kingdom withdraw sterling on Black Wednesday in September 1992?",
-      "ar": "من أي نظام أوروبي لأسعار الصرف طلّعت بريطانيا الجنيه الإسترليني في «الأربعاء الأسود» سنة 1992؟"
+      "ar": "من أيّ ترتيب أوروبي لأسعار الصرف سحبت المملكة المتحدة الجنيه الإسترليني في «الأربعاء الأسود» في سبتمبر 1992؟"
     },
     "answer": {
       "en": "The Exchange Rate Mechanism (ERM)",
@@ -668,7 +668,7 @@
     "id": "currencies-36",
     "question": {
       "en": "In monetary theory, what does 'Seigniorage' mean?",
-      "ar": "في عالم النقود، شو يعني «رسوم سكّ العملة» (Seigniorage)؟"
+      "ar": "في النظرية النقدية، ماذا تعني «رسوم سك العملة» (Seigniorage)؟"
     },
     "answer": {
       "en": "The profit made by a government by issuing currency, especially the difference between the face value of coins and their production costs",
@@ -687,7 +687,7 @@
     "id": "currencies-37",
     "question": {
       "en": "What is the 'Hawala' system?",
-      "ar": "شو هو نظام «الحوالة»؟"
+      "ar": "ما هو نظام «الحوالة»؟"
     },
     "answer": {
       "en": "An informal value-transfer arrangement in which trusted intermediaries arrange payment to a recipient and settle obligations between themselves separately.",
@@ -706,7 +706,7 @@
     "id": "currencies-38",
     "question": {
       "en": "The people of which Micronesian island group are associated with rai stone money, whose large stones can change ownership without being physically moved?",
-      "ar": "أهل أي جزيرة في ميكرونيزيا عندهم فلوس من حجارة «راي»، وممكن تتغير ملكية الحجر الكبير من غير ما يتحرك من مكانه؟"
+      "ar": "يرتبط سكان أيّ مجموعة جزر في ميكرونيزيا بنقود أحجار «راي»، التي قد تتغير ملكية أحجارها الكبيرة دون نقلها من مكانها؟"
     },
     "answer": {
       "en": "Yap",
@@ -725,7 +725,7 @@
     "id": "currencies-39",
     "question": {
       "en": "What does the 'Big Mac Index' theoretically measure?",
-      "ar": "شو اللي يقيسه «مؤشر بيغ ماك» نظريًا؟"
+      "ar": "ما الذي يقيسه «مؤشر بيج ماك» نظرياً؟"
     },
     "answer": {
       "en": "Purchasing power parity (PPP) between two currencies",
@@ -744,7 +744,7 @@
     "id": "currencies-40",
     "question": {
       "en": "What was the 'Continental'?",
-      "ar": "شو كانت عملة «الكونتيننتال»؟"
+      "ar": "ما كان «الكونتيننتال»؟"
     },
     "answer": {
       "en": "The paper money issued by the Continental Congress during the American Revolution, which quickly became worthless",

@@ -5,7 +5,7 @@
     "mode": "quiz",
     "question": {
       "en": "A bat and a ball cost $1.10 total. The bat costs $1.00 more than the ball. How much does the ball cost?",
-      "ar": "مضرب وكرة سعرهم مع بعض 1.10 دولار. المضرب أغلى من الكرة بدولار. كم سعر الكرة؟"
+      "ar": "مضرب وكرة يكلفان 1.10 دولار معاً. المضرب يزيد عن الكرة بدولار واحد. كم سعر الكرة؟"
     },
     "answer": {
       "en": "$0.05. The ball is 5 cents, the bat is $1.05, and together they equal $1.10.",
@@ -55,7 +55,7 @@
     "mode": "quiz",
     "question": {
       "en": "If you are driving at 60 mph, how long does it take to travel 60 miles?",
-      "ar": "إذا تسوق بسرعة 60 ميل بالساعة، كم تاخذ عشان تقطع 60 ميل؟"
+      "ar": "إذا كنت تقود بسرعة 60 ميلاً في الساعة، كم يستغرق قطع 60 ميلاً؟"
     },
     "answer": {
       "en": "1 hour. Distance ÷ Speed = 60 ÷ 60 = 1 hour.",
@@ -105,7 +105,7 @@
     "mode": "quiz",
     "question": {
       "en": "On a map, 1 cm represents 5 km. Two towns are 7 cm apart on the map. What is the actual distance between them?",
-      "ar": "على خريطة، كل 1 سم يساوي 5 كم. إذا المسافة بين بلدتين على الخريطة 7 سم، كم المسافة الحقيقية؟"
+      "ar": "على خريطة، يمثّل كل 1 سم مسافة 5 كم. إذا كانت المسافة بين بلدتين على الخريطة 7 سم، فما المسافة الحقيقية بينهما؟"
     },
     "answer": {
       "en": "35 km. Multiply the map distance by the scale: 7 × 5 = 35.",
@@ -155,7 +155,7 @@
     "mode": "quiz",
     "question": {
       "en": "Which is greater: 5/8 or 3/5?",
-      "ar": "أيهم أكبر: 5/8 ولا 3/5؟"
+      "ar": "أيهما أكبر: 5/8 أم 3/5؟"
     },
     "answer": {
       "en": "5/8. Using a common denominator, 5/8 = 25/40 while 3/5 = 24/40.",
@@ -175,7 +175,7 @@
     "mode": "quiz",
     "question": {
       "en": "A farm has 10 cows and 10 chickens. How many legs do these animals have altogether?",
-      "ar": "بمزرعة 10 بقرات و10 دجاجات. كم رجل عند هالحيوانات كلها؟"
+      "ar": "في مزرعة 10 بقرات و 10 دجاجات. كم عدد أرجل هذه الحيوانات مجتمعة؟"
     },
     "answer": {
       "en": "60 legs. Cows: 4×10=40; chickens: 2×10=20. Total = 60.",
@@ -195,7 +195,7 @@
     "mode": "quiz",
     "question": {
       "en": "At 3:00, what is the angle between the hour and minute hand?",
-      "ar": "الساعة 3:00 بالضبط، كم الزاوية بين عقرب الساعات وعقرب الدقايق؟"
+      "ar": "عند الساعة 3:00 تماماً، ما هي الزاوية بين عقرب الساعات وعقرب الدقائق؟"
     },
     "answer": {
       "en": "90°. The minute hand is at 12, the hour hand is at 3 — one quarter of 360°.",
@@ -245,7 +245,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is (-1)⁴?",
-      "ar": "كم قيمة (-1)⁴؟"
+      "ar": "ما قيمة (-1)⁴؟"
     },
     "answer": {
       "en": "1. Negative × Negative = Positive, applied twice: (-1)(-1)(-1)(-1) = 1.",
@@ -295,7 +295,7 @@
     "mode": "quiz",
     "question": {
       "en": "How many seconds are there in one hour?",
-      "ar": "كم ثانية في ساعة وحدة؟"
+      "ar": "كم ثانية في الساعة الواحدة؟"
     },
     "answer": {
       "en": "3600. One hour has 60 minutes, and each minute has 60 seconds: 60 × 60 = 3600.",
@@ -345,7 +345,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the reflection of the point (3, −2) across the x-axis?",
-      "ar": "شو صورة النقطة (3، −2) لما نعكسها حول المحور السيني؟"
+      "ar": "ما صورة النقطة (3، −2) بالانعكاس حول المحور السيني؟"
     },
     "answer": {
       "en": "(3, 2). Reflection across the x-axis keeps the x-coordinate and changes the sign of the y-coordinate.",
@@ -395,7 +395,7 @@
     "mode": "quiz",
     "question": {
       "en": "How many years are in a millennium?",
-      "ar": "كم سنة في الألفية؟"
+      "ar": "كم سنة في الألفية الواحدة؟"
     },
     "answer": {
       "en": "1,000 years. Millennium derives from Latin words for thousand and year.",
@@ -415,7 +415,7 @@
     "mode": "quiz",
     "question": {
       "en": "How many items are in a baker's dozen?",
-      "ar": "كم قطعة في «دزينة الخبّاز» (Baker's Dozen)؟"
+      "ar": "كم عنصراً في «درزن الخباز» (Baker's Dozen)؟"
     },
     "answer": {
       "en": "13 items: one more than a standard dozen.",
@@ -435,7 +435,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the square root of 144?",
-      "ar": "كم الجذر التربيعي لـ144؟"
+      "ar": "ما هو الجذر التربيعي للعدد 144؟"
     },
     "answer": {
       "en": "12. Because 12 × 12 = 144.",
@@ -485,7 +485,7 @@
     "mode": "quiz",
     "question": {
       "en": "What number is represented by the Roman numeral 'LXVI'?",
-      "ar": "الرقم الروماني «LXVI» كم يساوي؟"
+      "ar": "ما العدد الذي يمثله الرقم الروماني «LXVI»؟"
     },
     "answer": {
       "en": "66. L=50, X=10, V=5, I=1. So 50+10+5+1=66.",
@@ -505,7 +505,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the decimal value of the binary number 101?",
-      "ar": "كم يساوي الرقم الثنائي 101 بالنظام العشري؟"
+      "ar": "ما القيمة العشرية للرقم الثنائي 101؟"
     },
     "answer": {
       "en": "5. In binary: 1×4 + 0×2 + 1×1 = 5.",
@@ -525,7 +525,7 @@
     "mode": "quiz",
     "question": {
       "en": "How many lines of symmetry does a circle have?",
-      "ar": "كم محور تماثل للدائرة؟"
+      "ar": "كم عدد محاور التماثل للدائرة؟"
     },
     "answer": {
       "en": "Infinite. Any line through the centre is a line of symmetry.",
@@ -545,11 +545,11 @@
     "mode": "quiz",
     "question": {
       "en": "What comes next: 2, 6, 12, 20, …?",
-      "ar": "شو الرقم اللي بعده: 2، 6، 12، 20، …؟"
+      "ar": "ما العدد التالي: 2، 6، 12، 20، …؟"
     },
     "answer": {
       "en": "30. The terms are 1×2, 2×3, 3×4, 4×5, so next is 5×6.",
-      "ar": "30. الحدود هي 1×2، 2×3، 3×4، 4×5، فاللي بعدها 5×6."
+      "ar": "30. الحدود هي 1×2، 2×3، 3×4، 4×5، فالحد التالي 5×6."
     },
     "subcategory": {
       "en": "Patterns, Sequences & Word Problems",
@@ -565,7 +565,7 @@
     "mode": "quiz",
     "question": {
       "en": "Is 1,234,567,890 divisible by 9?",
-      "ar": "الرقم 1,234,567,890 ينقسم على 9؟"
+      "ar": "هل العدد 1,234,567,890 يقبل القسمة على 9؟"
     },
     "answer": {
       "en": "Yes. The sum of its digits is 1+2+3+4+5+6+7+8+9+0 = 45, which is divisible by 9.",
@@ -585,7 +585,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the mean (average) of 10, 20, and 60?",
-      "ar": "كم المتوسط الحسابي لـ10 و20 و60؟"
+      "ar": "ما هو المتوسط الحسابي للأعداد 10 و20 و60؟"
     },
     "answer": {
       "en": "30. Add them: 10+20+60=90, then divide by 3: 90÷3=30.",
@@ -635,7 +635,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the sum of the interior angles of a triangle?",
-      "ar": "كم مجموع زوايا المثلث الداخلية؟"
+      "ar": "ما هو مجموع الزوايا الداخلية للمثلث؟"
     },
     "answer": {
       "en": "180°. This is a fundamental theorem of Euclidean geometry.",
@@ -655,7 +655,7 @@
     "mode": "quiz",
     "question": {
       "en": "Three notebooks cost $4 each. If you pay with $20, how much change should you receive?",
-      "ar": "كل دفتر بـ4 دولار. إذا اشتريت ثلاث دفاتر ودفعت 20 دولار، كم يرجع لك؟"
+      "ar": "ثمن كل دفتر 4 دولارات. إذا اشتريت ثلاثة دفاتر ودفعت 20 دولاراً، فكم تسترد؟"
     },
     "answer": {
       "en": "$8. The notebooks cost 3 × $4 = $12, so the change is $20 − $12 = $8.",
@@ -705,7 +705,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is x⁰ for any x ≠ 0?",
-      "ar": "كم قيمة x⁰ لأي x مش صفر؟"
+      "ar": "ما قيمة x⁰ لأي x لا يساوي صفراً؟"
     },
     "answer": {
       "en": "1. Any non-zero number raised to the power 0 equals 1.",
@@ -725,7 +725,7 @@
     "mode": "quiz",
     "question": {
       "en": "How many faces does a cube have?",
-      "ar": "كم وجه للمكعب؟"
+      "ar": "كم عدد أوجه المكعب؟"
     },
     "answer": {
       "en": "6 faces — top, bottom, and four sides.",
@@ -745,7 +745,7 @@
     "mode": "quiz",
     "question": {
       "en": "How many months are in 25 years?",
-      "ar": "كم شهر في 25 سنة؟"
+      "ar": "كم شهراً في 25 سنة؟"
     },
     "answer": {
       "en": "300 months. 25 × 12 = 300.",
@@ -765,7 +765,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is 0.5 × 0.5?",
-      "ar": "كم 0.5 × 0.5؟"
+      "ar": "ما ناتج 0.5 × 0.5؟"
     },
     "answer": {
       "en": "0.25. Half of a half is a quarter.",
@@ -785,7 +785,7 @@
     "mode": "quiz",
     "question": {
       "en": "How many times does the digit 9 appear between 1 and 100?",
-      "ar": "كم مرة يطلع الرقم 9 بين 1 و100؟"
+      "ar": "كم مرة يظهر الرقم 9 بين 1 و100؟"
     },
     "answer": {
       "en": "20 times:10 in the units place (9,19,...,99), plus 10 in the tens place (90–99). Count both 9s in 99.",
@@ -805,7 +805,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the most common fraction used to approximate π?",
-      "ar": "شو الكسر الشائع اللي نستخدمه لتقريب قيمة π؟"
+      "ar": "ما هو الكسر الشائع المستخدم لتقريب قيمة π؟"
     },
     "answer": {
       "en": "22/7. It gives ≈ 3.1428, close to π ≈ 3.14159.",
@@ -825,7 +825,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the perimeter of a square with area 16 cm²?",
-      "ar": "كم محيط مربع مساحته 16 سم²؟"
+      "ar": "ما محيط مربع مساحته 16 سم²؟"
     },
     "answer": {
       "en": "16 cm. Each side is√16=4 cm, so the perimeter is 4×4=16 cm.",
@@ -845,7 +845,7 @@
     "mode": "quiz",
     "question": {
       "en": "How many edges does a cube have?",
-      "ar": "كم حافّة للمكعب؟"
+      "ar": "كم عدد حواف المكعب؟"
     },
     "answer": {
       "en": "12 edges. A cube has 6 faces, 8 vertices, and 12 edges.",
@@ -865,7 +865,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is 3! (3 factorial)?",
-      "ar": "شو ناتج 3! (مضروب 3)؟"
+      "ar": "ما قيمة 3! (مضروب 3)؟"
     },
     "answer": {
       "en": "6. 3! = 3 × 2 × 1 = 6.",
@@ -885,7 +885,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the sum of opposite faces on a standard 6-sided die?",
-      "ar": "في حجر النرد العادي اللي له ست أوجه، كم مجموع أي وجهين متقابلين؟"
+      "ar": "ما هو مجموع الوجهين المتقابلين في حجر النرد القياسي ذي الستة أوجه؟"
     },
     "answer": {
       "en": "7. Every pair of opposite faces adds to 7: (1,6), (2,5), (3,4).",
@@ -905,7 +905,7 @@
     "mode": "quiz",
     "question": {
       "en": "You have 10 black socks and 10 white socks in a dark drawer. How many must you pull out to guarantee a matching pair?",
-      "ar": "عندك 10 جوارب سود و10 بيض بدرج مظلم. كم جورب لازم تسحب عشان تضمن زوج متطابق؟"
+      "ar": "لديك 10 جوارب سوداء و10 بيضاء في درج مظلم. كم جورباً يجب سحبها لضمان زوج متطابق؟"
     },
     "answer": {
       "en": "3 socks. With only two colors, a third sock must match at least one of the first two.",
@@ -925,7 +925,7 @@
     "mode": "quiz",
     "question": {
       "en": "How many sides does a decagon have?",
-      "ar": "كم ضلع للشكل العشاري (Decagon)؟"
+      "ar": "كم ضلعاً للشكل العشاري (Decagon)؟"
     },
     "answer": {
       "en": "10 sides. 'Deca-' means ten.",
@@ -945,7 +945,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is 15% of 200?",
-      "ar": "كم 15% من 200؟"
+      "ar": "ما هي قيمة 15% من 200؟"
     },
     "answer": {
       "en": "30. 10% of 200 = 20, and 5% = 10, so 15% = 30.",
@@ -965,7 +965,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the reciprocal of 0.25?",
-      "ar": "شو مقلوب 0.25؟"
+      "ar": "ما هو مقلوب العدد 0.25؟"
     },
     "answer": {
       "en": "4. The reciprocal of 0.25 = 1/0.25 = 4.",
@@ -985,7 +985,7 @@
     "mode": "quiz",
     "question": {
       "en": "Three men pay $10 each ($30). The manager refunds $5 via a bellboy who keeps $2 and returns $1 to each man. They each paid $9 net ($27 total). $27 + $2 = $29. Where is the missing dollar?",
-      "ar": "ثلاث رجال دفعوا 10$ كل واحد (30$). المدير رجّع 5$ مع خادم أخذ 2$ وعطى كل رجل 1$. يعني كل واحد دفع 9$ (المجموع 27$). و27$ + 2$ = 29$. وين راح الدولار الناقص؟"
+      "ar": "ثلاثة رجال دفعوا $10 لكل منهم ($30). المدير رد $5 عبر خادم أخذ $2 وأعطى $1 لكل رجل. دفع كل رجل $9 (المجموع $27). $27 + $2 = $29. أين الدولار المفقود؟"
     },
     "answer": {
       "en": "There is no missing dollar. The men paid $27 in total ($25 room + $2 bellboy tip). Adding the $2 tip to the $27 is a trick — the $2 is already inside the $27, not outside it. Correct accounting: $30 paid − $3 refunded = $27 spent, split as $25 (hotel) + $2 (bellboy).",
@@ -1005,7 +1005,7 @@
     "mode": "quiz",
     "question": {
       "en": "If 10 people each shake hands with everyone else exactly once, how many handshakes occur?",
-      "ar": "إذا 10 أشخاص كل واحد صافح الباقين مرة وحدة بالضبط، كم مصافحة صارت؟"
+      "ar": "إذا صافح 10 أشخاص كل منهم الآخرين مرة واحدة بالضبط، كم عدد المصافحات؟"
     },
     "answer": {
       "en": "45. C(10,2) = 10×9÷2 = 45.",
@@ -1025,7 +1025,7 @@
     "mode": "quiz",
     "question": {
       "en": "A train one mile long travels through a one-mile-long tunnel at 1 mph. How long does it take for the entire train to pass through completely?",
-      "ar": "قطار طوله ميل يمشي بسرعة 1 ميل/ساعة دخل نفق طوله ميل. كم ياخذ لحد ما يطلع القطار كله؟"
+      "ar": "قطار طوله ميل يسير بسرعة 1 ميل/ساعة يدخل نفقاً طوله ميل. كم يستغرق حتى يخرج القطار كاملاً؟"
     },
     "answer": {
       "en": "2 hours. The front enters at time 0 and the rear exits after the train travels 2 miles total.",
@@ -1045,7 +1045,7 @@
     "mode": "quiz",
     "question": {
       "en": "In a right triangle, the two legs are 5 and 12. What is the hypotenuse?",
-      "ar": "مثلث قائم ضلعيه 5 و12. كم طول الوتر؟"
+      "ar": "في مثلث قائم، طول الضلعين 5 و12. ما طول الوتر؟"
     },
     "answer": {
       "en": "13. Pythagoras: √(5²+12²) = √(25+144) = √169 = 13.",
@@ -1065,7 +1065,7 @@
     "mode": "quiz",
     "question": {
       "en": "How many times do the hour and minute hands of a clock overlap in 24 hours?",
-      "ar": "كم مرة يتطابق عقرب الساعات مع عقرب الدقايق في 24 ساعة؟"
+      "ar": "كم مرة يتطابق عقربا الساعات والدقائق في 24 ساعة؟"
     },
     "answer": {
       "en": "22 times. They overlap 11 times every 12 hours (not 12, since the 12 o'clock overlap counts once per cycle).",
@@ -1085,7 +1085,7 @@
     "mode": "quiz",
     "question": {
       "en": "Assuming independent birthdays uniformly distributed over 365 days, approximately what is the probability that at least two of 23 people share a birthday?",
-      "ar": "إذا افترضنا إن أعياد الميلاد مستقلة ومتساوية الاحتمال على 365 يوم، تقريبًا كم احتمال إن اثنين على الأقل من 23 شخص عيد ميلادهم بنفس اليوم؟"
+      "ar": "بافتراض استقلال أعياد الميلاد وتساوي احتمالها على 365 يوماً، ما الاحتمال التقريبي لاشتراك شخصين على الأقل من بين 23 شخصاً في يوم الميلاد؟"
     },
     "answer": {
       "en": "About 50.7%:1−(365×364×...×343)/365²³.",
@@ -1105,7 +1105,7 @@
     "mode": "quiz",
     "question": {
       "en": "What are twin primes?",
-      "ar": "شو هي «الأعداد الأولية التوأم»؟"
+      "ar": "ما هي الأعداد الأولية التوأم؟"
     },
     "answer": {
       "en": "Twin primes are pairs of prime numbers that differ by 2, such as (3,5), (11,13), and (17,19).",
@@ -1125,7 +1125,7 @@
     "mode": "quiz",
     "question": {
       "en": "If you flip a fair coin 3 times, what is the probability of getting exactly 2 heads?",
-      "ar": "إذا رميت عملة عادلة 3 مرات، كم احتمال يطلع لك وجهين بالضبط؟"
+      "ar": "عند رمي قطعة نقد عادلة 3 مرات، ما احتمال الحصول على وجهين بالضبط؟"
     },
     "answer": {
       "en": "3/8. The winning outcomes are HHT, HTH, THH — 3 out of 8 equally likely outcomes.",
@@ -1145,7 +1145,7 @@
     "mode": "quiz",
     "question": {
       "en": "A circle touches all four sides of a square of side 10 cm. What is the circle's area?",
-      "ar": "دائرة تلمس الأضلاع الأربعة لمربع طول ضلعه 10 سم. كم مساحة الدائرة؟"
+      "ar": "دائرة تمس الأضلاع الأربعة لمربع طول ضلعه 10 سم. ما مساحة الدائرة؟"
     },
     "answer": {
       "en": "25π cm². Its diameter is 10 cm, so its radius is 5 cm.",
@@ -1165,7 +1165,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the sum of the digits of all integers from 1 to 10?",
-      "ar": "كم مجموع أرقام كل الأعداد الصحيحة من 1 لـ10؟"
+      "ar": "ما هو مجموع أرقام كل الأعداد الصحيحة من 1 إلى 10؟"
     },
     "answer": {
       "en": "46. Digit sums: 1+2+3+4+5+6+7+8+9+(1+0) = 45+1 = 46.",
@@ -1185,7 +1185,7 @@
     "mode": "quiz",
     "question": {
       "en": "Solve for x: 2x + 7 = 3x − 5",
-      "ar": "حل المعادلة وطلّع x: ‏2x + 7 = 3x − 5"
+      "ar": "حل المعادلة لإيجاد x: 2x + 7 = 3x − 5"
     },
     "answer": {
       "en": "x = 12. Rearranging: 7+5 = 3x−2x → 12 = x.",
@@ -1205,7 +1205,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the sum of the interior angles of a regular hexagon?",
-      "ar": "كم مجموع الزوايا الداخلية للسداسي المنتظم؟"
+      "ar": "ما هو مجموع الزوايا الداخلية للسداسي المنتظم؟"
     },
     "answer": {
       "en": "720°. Formula: (n−2)×180° = (6−2)×180° = 720°.",
@@ -1225,7 +1225,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the next number in the Fibonacci sequence: 1, 1, 2, 3, 5, 8, 13, ...?",
-      "ar": "شو الرقم اللي بعده بمتتابعة فيبوناتشي: 1، 1، 2، 3، 5، 8، 13، ...؟"
+      "ar": "ما الرقم التالي في متتابعة فيبوناتشي: 1، 1، 2، 3، 5، 8، 13، ...؟"
     },
     "answer": {
       "en": "21. Each number is the sum of the two preceding it: 8+13 = 21.",
@@ -1245,7 +1245,7 @@
     "mode": "quiz",
     "question": {
       "en": "If you place 1 grain of rice on the 1st square of a chessboard and double it each square, how many grains are on the 8th square?",
-      "ar": "إذا حطيت حبة رز على أول مربع برقعة الشطرنج وضاعفتها بكل مربع، كم حبة بتكون على المربع الثامن؟"
+      "ar": "إذا وضعت حبة أرز على المربع الأول من رقعة شطرنج وضاعفتها في كل مربع، كم حبة على المربع الثامن؟"
     },
     "answer": {
       "en": "128. The 8th square has 2⁷ = 128 grains.",
@@ -1265,7 +1265,7 @@
     "mode": "quiz",
     "question": {
       "en": "If the radius of a circle doubles, what happens to its area?",
-      "ar": "إذا نصف قطر الدائرة تضاعف، شو يصير لمساحتها؟"
+      "ar": "إذا تضاعف نصف قطر دائرة، فماذا يحدث لمساحتها؟"
     },
     "answer": {
       "en": "It quadruples. Area = πr²; doubling r gives π(2r)² = 4πr².",
@@ -1305,7 +1305,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is 2⁻³?",
-      "ar": "2⁻³ تساوي كم؟"
+      "ar": "ما قيمة 2⁻³؟"
     },
     "answer": {
       "en": "1/8. Negative exponents are reciprocals: 2⁻³ = 1/2³ = 1/8.",
@@ -1325,7 +1325,7 @@
     "mode": "quiz",
     "question": {
       "en": "A rope is 10 m long. You cut 1 m off each day. How many days until it is fully cut into 1-metre pieces?",
-      "ar": "حبل طوله 10 متر. كل يوم تقص منه متر. بعد كم يوم يصير عندك قطع، كل وحدة طولها متر؟"
+      "ar": "حبل طوله 10 أمتار. تقطع منه متراً كل يوم. بعد كم يوماً ستحصل على قطع طول كل منها متر؟"
     },
     "answer": {
       "en": "9 days. The ninth cut leaves two 1-metre pieces, so 10 pieces require 9 cuts.",
@@ -1345,7 +1345,7 @@
     "mode": "quiz",
     "question": {
       "en": "Solve the system x + y = 17 and x − y = 5.",
-      "ar": "حل المعادلتين x + y = 17 وx − y = 5."
+      "ar": "حل نظام المعادلتين x + y = 17 وx − y = 5."
     },
     "answer": {
       "en": "x = 11 and y = 6. Adding the equations gives 2x = 22, so x = 11; then y = 6.",
@@ -1365,7 +1365,7 @@
     "mode": "quiz",
     "question": {
       "en": "A brick weighs 1 kg plus half a brick. How much does the brick weigh?",
-      "ar": "وزن قالب الطوب = 1 كجم + نص وزن قالب الطوب. كم وزن القالب؟"
+      "ar": "وزن قالب طوب = 1 كجم + نصف وزن قالب الطوب. كم يزن القالب؟"
     },
     "answer": {
       "en": "2 kg. Let w = 1 + w/2. Then w/2 = 1, so w = 2 kg.",
@@ -1385,7 +1385,7 @@
     "mode": "quiz",
     "question": {
       "en": "Using exactly four 4s and any standard operators, how can you make 0?",
-      "ar": "باستخدام الرقم 4 أربع مرات بالضبط وأي عمليات عادية، كيف توصل للصفر؟"
+      "ar": "باستخدام الرقم 4 أربع مرات بالضبط وأي عمليات قياسية، كيف تحصل على الناتج 0؟"
     },
     "answer": {
       "en": "4+4−4−4 = 0. (Many solutions exist, e.g. 44−44 = 0.)",
@@ -1405,7 +1405,7 @@
     "mode": "quiz",
     "question": {
       "en": "Solve 10ˣ=1000 for x.",
-      "ar": "حل المعادلة 10ˣ=1000 وطلّع x."
+      "ar": "حل المعادلة 10ˣ=1000 لإيجاد x."
     },
     "answer": {
       "en": "x=3, because 10³=1000.",
@@ -1425,7 +1425,7 @@
     "mode": "quiz",
     "question": {
       "en": "How many diagonals does a regular pentagon have?",
-      "ar": "كم قطر للخماسي المنتظم؟"
+      "ar": "كم عدد أقطار الخماسي المنتظم؟"
     },
     "answer": {
       "en": "5. Formula: n(n−3)/2 = 5×2/2 = 5.",
@@ -1445,7 +1445,7 @@
     "mode": "quiz",
     "question": {
       "en": "If you double all dimensions of a cube, by what factor does the volume increase?",
-      "ar": "إذا ضاعفت كل أبعاد المكعب، حجمه يزيد كم مرة؟"
+      "ar": "إذا ضاعفت جميع أبعاد مكعب، بكم مرة يزداد الحجم؟"
     },
     "answer": {
       "en": "8 times. Volume = s³; doubling s gives (2s)³ = 8s³.",
@@ -1465,7 +1465,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the sum of the first six terms of the arithmetic sequence 4, 7, 10, 13, ...?",
-      "ar": "كم مجموع أول ست حدود من المتتالية الحسابية 4، 7، 10، 13، ...؟"
+      "ar": "ما مجموع الحدود الستة الأولى من المتتالية الحسابية 4، 7، 10، 13، ...؟"
     },
     "answer": {
       "en": "69. The first six terms are 4, 7, 10, 13, 16, and 19; their sum is 69.",
@@ -1485,7 +1485,7 @@
     "mode": "quiz",
     "question": {
       "en": "How many trailing zeros are at the end of 10! (ten factorial)?",
-      "ar": "كم صفر بآخر 10! (مضروب 10)؟"
+      "ar": "كم صفراً في نهاية 10! (مضروب 10)؟"
     },
     "answer": {
       "en": "2. Count factors of 5: only 5 and 10 contribute, giving 2 trailing zeros.",
@@ -1505,7 +1505,7 @@
     "mode": "quiz",
     "question": {
       "en": "What letter represents 10 in hexadecimal (base 16)?",
-      "ar": "بالنظام السداسي عشري (Base 16)، أي حرف يمثّل الرقم 10؟"
+      "ar": "ما الحرف الذي يمثل الرقم 10 في النظام السادس عشري (Base 16)؟"
     },
     "answer": {
       "en": "A. In hex: A=10, B=11, C=12, D=13, E=14, F=15.",
@@ -1525,7 +1525,7 @@
     "mode": "quiz",
     "question": {
       "en": "A tank is 3/5 full. After 24 litres are added, it is 9/10 full. What is the tank's capacity?",
-      "ar": "خزان مليان لـ3/5 من سعته. بعد ما زدنا 24 لتر صار مليان لـ9/10. كم سعة الخزان؟"
+      "ar": "خزان ممتلئ إلى 3/5 من سعته. بعد إضافة 24 لتراً أصبح ممتلئاً إلى 9/10. ما سعة الخزان؟"
     },
     "answer": {
       "en": "80 litres. The added water is 9/10 − 3/5 = 3/10 of the capacity, so the capacity is 24 ÷ (3/10) = 80.",
@@ -1545,7 +1545,7 @@
     "mode": "quiz",
     "question": {
       "en": "A father is 3 times as old as his son. In 12 years he will be twice his son's age. How old is the son now?",
-      "ar": "أب عمره 3 أضعاف عمر ولده. بعد 12 سنة بيصير عمره ضعف عمر ولده. كم عمر الولد الحين؟"
+      "ar": "أب عمره 3 أضعاف ابنه. بعد 12 سنة سيكون عمره ضعفي عمر ابنه. كم عمر الابن الآن؟"
     },
     "answer": {
       "en": "12 years old. Let son = s: 3s+12 = 2(s+12) → s = 12.",
@@ -1565,7 +1565,7 @@
     "mode": "quiz",
     "question": {
       "en": "A bag contains 4 red balls and 3 blue balls. Two balls are drawn without replacement. What is the probability that both are blue?",
-      "ar": "كيس فيه 4 كرات حمرا و3 زرقا. سحبنا كرتين من غير ما نرجّع. كم احتمال الاثنتين زرقا؟"
+      "ar": "يحتوي كيس على 4 كرات حمراء و3 كرات زرقاء. سُحبت كرتان من دون إرجاع. ما احتمال أن تكونا زرقاوين؟"
     },
     "answer": {
       "en": "1/7. The probability is (3/7) × (2/6) = 6/42 = 1/7.",
@@ -1585,7 +1585,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the smallest positive integer that is divisible by 3 and leaves a remainder of 2 when divided by 5?",
-      "ar": "شو أصغر عدد صحيح موجب ينقسم على 3، ولما تقسمه على 5 يبقى 2؟"
+      "ar": "ما أصغر عدد صحيح موجب يقبل القسمة على 3 ويترك باقي 2 عند قسمته على 5؟"
     },
     "answer": {
       "en": "12. The positive multiples of 3 are 3, 6, 9, 12, ...; 12 is the first with remainder 2 modulo 5.",
@@ -1605,7 +1605,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the complement of a 30° angle?",
-      "ar": "كم الزاوية المتمّمة لزاوية قياسها 30 درجة؟"
+      "ar": "ما هي الزاوية المتممة لزاوية قياسها 30 درجة؟"
     },
     "answer": {
       "en": "60°. Complementary angles sum to 90°: 90°−30° = 60°.",
@@ -1625,7 +1625,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the intersection of the set of even numbers and the set of prime numbers?",
-      "ar": "شو تقاطع مجموعة الأعداد الزوجية مع مجموعة الأعداد الأولية؟"
+      "ar": "ما هو تقاطع مجموعة الأعداد الزوجية ومجموعة الأعداد الأولية؟"
     },
     "answer": {
       "en": "{2}. The only even prime is 2; all other even numbers are divisible by 2 and not prime.",
@@ -1645,7 +1645,7 @@
     "mode": "quiz",
     "question": {
       "en": "One of two boxes is chosen at random. Box A contains 2 gold coins and 1 silver coin; Box B contains 1 gold coin and 2 silver coins. A gold coin is drawn. What is the probability that Box A was chosen?",
-      "ar": "اخترنا عشوائيًا واحد من صندوقين. الصندوق A فيه قطعتين ذهب وقطعة فضة، والصندوق B فيه قطعة ذهب وقطعتين فضة. سحبنا قطعة ذهب. كم احتمال إن الصندوق المختار هو A؟"
+      "ar": "اختير عشوائياً أحد صندوقين. يحتوي الصندوق A على قطعتين ذهبيتين وقطعة فضية، ويحتوي الصندوق B على قطعة ذهبية وقطعتين فضيتين. سُحبت قطعة ذهبية. ما احتمال أن يكون الصندوق A هو المختار؟"
     },
     "answer": {
       "en": "2/3. By Bayes' rule, P(A and gold) = (1/2)(2/3) = 1/3, while P(gold) = 1/2, so P(A | gold) = (1/3)/(1/2) = 2/3.",
@@ -1665,7 +1665,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is i², where i is the imaginary unit?",
-      "ar": "كم قيمة i²، إذا i هي الوحدة التخيلية؟"
+      "ar": "ما قيمة i²، حيث i هي الوحدة التخيلية؟"
     },
     "answer": {
       "en": "−1. The imaginary unit is defined as i = √(−1), so i² = −1.",
@@ -1685,7 +1685,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the smallest positive integer n satisfying n ≡ 2 (mod 5), n ≡ 3 (mod 7), and n ≡ 4 (mod 9)?",
-      "ar": "شو أصغر عدد صحيح موجب n يحقق n ≡ 2 (mod 5) وn ≡ 3 (mod 7) وn ≡ 4 (mod 9)؟"
+      "ar": "ما أصغر عدد صحيح موجب n يحقق n ≡ 2 (mod 5) وn ≡ 3 (mod 7) وn ≡ 4 (mod 9)؟"
     },
     "answer": {
       "en": "157. The first two congruences give n = 35k + 17. Applying the third gives 8k + 8 ≡ 4 (mod 9), so k ≡ 4 (mod 9). The smallest choice k = 4 gives n = 157.",
@@ -1705,7 +1705,7 @@
     "mode": "quiz",
     "question": {
       "en": "A regular hexagon is inscribed in a circle of radius 4. What is the exact area inside the circle but outside the hexagon?",
-      "ar": "سداسي منتظم مرسوم داخل دائرة نصف قطرها 4 ورؤوسه على الدائرة. كم المساحة الدقيقة اللي داخل الدائرة وبرّا السداسي؟"
+      "ar": "رُسم سداسي منتظم داخل دائرة نصف قطرها 4 بحيث تقع رؤوسه على الدائرة. ما المساحة الدقيقة الواقعة داخل الدائرة وخارج السداسي؟"
     },
     "answer": {
       "en": "16π − 24√3 square units. An inscribed regular hexagon has side length equal to the radius, so its area is 6 × (√3/4) × 4² = 24√3; subtract this from the circle's area 16π.",
@@ -1725,7 +1725,7 @@
     "mode": "quiz",
     "question": {
       "en": "How many distinct arrangements of all the letters of BANANA have no two A's adjacent?",
-      "ar": "كم ترتيب مختلف لكل حروف كلمة BANANA ما يكون فيه حرفين A جنب بعض؟"
+      "ar": "كم ترتيباً مختلفاً لجميع حروف كلمة BANANA لا يتجاور فيه حرفا A؟"
     },
     "answer": {
       "en": "12. Arrange B, N, N in 3!/2! = 3 ways. They create four gaps; choose three of those gaps for the identical A's, giving C(4,3) = 4 choices. Thus 3 × 4 = 12.",
@@ -1745,7 +1745,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the Golden Ratio φ to three decimal places?",
-      "ar": "كم قيمة النسبة الذهبية φ لثلاث خانات عشرية؟"
+      "ar": "ما قيمة النسبة الذهبية φ حتى ثلاث خانات عشرية؟"
     },
     "answer": {
       "en": "1.618. φ = (1+√5)/2 ≈ 1.61803... It appears in geometry, art, and nature.",
@@ -1765,7 +1765,7 @@
     "mode": "quiz",
     "question": {
       "en": "With x measured in radians, what is the derivative of sin(x) with respect to x?",
-      "ar": "إذا x بالراديان، شو مشتقة sin(x) بالنسبة لـx؟"
+      "ar": "إذا كانت x مقاسة بالراديان، فما مشتقة sin(x) بالنسبة إلى x؟"
     },
     "answer": {
       "en": "cos(x). A fundamental result of differential calculus.",
@@ -1785,7 +1785,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the integral of 1/x?",
-      "ar": "شو تكامل 1/x؟"
+      "ar": "ما هو تكامل 1/x؟"
     },
     "answer": {
       "en": "ln|x| + C. The natural logarithm is the antiderivative of 1/x.",
@@ -1805,7 +1805,7 @@
     "mode": "quiz",
     "question": {
       "en": "A and B are the endpoints of a circle's diameter, and C is another point on its circumference. What is angle ACB?",
-      "ar": "النقطتين A وB طرفين قطر دائرة، وC نقطة ثانية على المحيط. كم قياس الزاوية ACB؟"
+      "ar": "النقطتان A و B طرفا قطر دائرة، وC نقطة أخرى على محيطها. ما قياس الزاوية ACB؟"
     },
     "answer": {
       "en": "90°, by Thales' theorem.",
@@ -1825,7 +1825,7 @@
     "mode": "quiz",
     "question": {
       "en": "If r and s are the roots of x² − 7x + 10 = 0, what is 1/r + 1/s?",
-      "ar": "إذا r وs جذرين المعادلة x² − 7x + 10 = 0، كم قيمة 1/r + 1/s؟"
+      "ar": "إذا كان r وs جذري المعادلة x² − 7x + 10 = 0، فما قيمة 1/r + 1/s؟"
     },
     "answer": {
       "en": "7/10. By Vieta's formulas, r + s = 7 and rs = 10, so 1/r + 1/s = (r+s)/(rs) = 7/10.",
@@ -1845,7 +1845,7 @@
     "mode": "quiz",
     "question": {
       "en": "What did Eratosthenes use his famous sieve for?",
-      "ar": "إراتوستينس استخدم غرباله المشهور عشان يلاقي شو؟"
+      "ar": "ماذا استخدم إراتوستينس غرباله الشهير لإيجاده؟"
     },
     "answer": {
       "en": "Finding prime numbers. The Sieve of Eratosthenes is an ancient algorithm for listing all primes up to a given limit.",
@@ -1865,7 +1865,7 @@
     "mode": "quiz",
     "question": {
       "en": "A convex polyhedron has 12 vertices and 18 edges. How many faces does it have?",
-      "ar": "مجسّم محدّب متعدد الوجوه فيه 12 رأس و18 حافّة. كم وجه فيه؟"
+      "ar": "لمجسم محدب متعدد الوجوه 12 رأسًا و18 حافة. كم وجهًا له؟"
     },
     "answer": {
       "en": "8 faces, from Euler's formula V − E + F = 2.",
@@ -1905,7 +1905,7 @@
     "mode": "quiz",
     "question": {
       "en": "A sequence is defined by a₁ = 1 and aₙ₊₁ = √(2 + aₙ). If the sequence converges, what is its limit?",
-      "ar": "متتالية معرّفة بـa₁ = 1 وaₙ₊₁ = √(2 + aₙ). إذا كانت متقاربة، شو نهايتها؟"
+      "ar": "تُعرّف متتالية بالعلاقتين a₁ = 1 وaₙ₊₁ = √(2 + aₙ). إذا كانت المتتالية متقاربة، فما نهايتها؟"
     },
     "answer": {
       "en": "2. If the limit is L, then L = √(2+L), so L² − L − 2 = 0. The roots are 2 and −1, and the sequence is positive, so L = 2.",
@@ -1925,7 +1925,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is 17 mod 5?",
-      "ar": "كم 17 mod 5؟"
+      "ar": "ما قيمة 17 mod 5؟"
     },
     "answer": {
       "en": "2. 17 = 3×5 + 2, so the remainder is 2.",
@@ -1945,7 +1945,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the general form of a Mersenne prime?",
-      "ar": "شو الصيغة العامة لعدد ميرسين الأولي؟"
+      "ar": "ما هي الصيغة العامة لعدد ميرسين الأولي؟"
     },
     "answer": {
       "en": "2^p−1, where p is prime and the resulting number is also prime. Prime p alone is not sufficient:2^11−1=2047=23×89.",
@@ -1965,7 +1965,7 @@
     "mode": "quiz",
     "question": {
       "en": "How many ways can you choose 2 people from a group of 5?",
-      "ar": "بكم طريقة نقدر نختار شخصين من 5 أشخاص؟"
+      "ar": "كم عدد طرق اختيار شخصين من مجموعة من 5 أشخاص؟"
     },
     "answer": {
       "en": "10. C(5,2) = 5!/(2!×3!) = 10.",
@@ -1985,7 +1985,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the harmonic mean of 2 and 4?",
-      "ar": "كم المتوسط التوافقي لـ2 و4؟"
+      "ar": "ما هو المتوسط التوافقي للعددين 2 و4؟"
     },
     "answer": {
       "en": "8/3 ≈ 2.67. Harmonic mean = 2÷(1/2+1/4) = 2÷(3/4) = 8/3.",
@@ -2005,7 +2005,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the determinant of the 2×2 matrix [[a, b], [c, d]]?",
-      "ar": "شو محدّد (Determinant) المصفوفة 2×2 ‏[[a, b], [c, d]]؟"
+      "ar": "ما هو محدد (Determinant) المصفوفة 2×2 [[a, b], [c, d]]؟"
     },
     "answer": {
       "en": "ad−bc. Its absolute value is the area-scaling factor; its sign records whether orientation is reversed.",
@@ -2025,7 +2025,7 @@
     "mode": "quiz",
     "question": {
       "en": "Convert 25 from decimal to base 3.",
-      "ar": "حوّل الرقم 25 من النظام العشري للنظام الثلاثي (Base 3)."
+      "ar": "حوّل العدد 25 من النظام العشري إلى النظام الثلاثي (Base 3)."
     },
     "answer": {
       "en": "221₃. Because 25 = 2×9 + 2×3 + 1×1 = 18+6+1.",
@@ -2045,7 +2045,7 @@
     "mode": "quiz",
     "question": {
       "en": "If √2=a/b in lowest terms, squaring gives a²=2b². Why does assuming this lead to a contradiction?",
-      "ar": "إذا افترضنا إن √2=a/b بأبسط صورة، التربيع يعطي a²=2b². ليش هذا يوصلنا لتناقض؟"
+      "ar": "إذا افترضنا أن√2=a/b في أبسط صورة، فإن التربيع يعطي a²=2b². لماذا يؤدي ذلك إلى تناقض؟"
     },
     "answer": {
       "en": "a² is even, so a is even. Substituting a=2k makes b²=2k², so b is also even. Both share factor 2, contradicting lowest terms.",
@@ -2065,7 +2065,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the formula for the volume of a sphere of radius r?",
-      "ar": "شو قانون حجم الكرة اللي نصف قطرها r؟"
+      "ar": "ما هو قانون حجم الكرة ذات نصف القطر r؟"
     },
     "answer": {
       "en": "(4/3)πr³. First derived by Archimedes.",
@@ -2085,7 +2085,7 @@
     "mode": "quiz",
     "question": {
       "en": "Two cards are dealt from a standard shuffled 52-card deck. What is the probability that they have the same rank?",
-      "ar": "سحبنا ورقتين من رزمة لعب عادية مخلوطة فيها 52 ورقة. كم احتمال إنهم من نفس الرتبة؟"
+      "ar": "سُحبت ورقتان من رزمة لعب قياسية مخلوطة تضم 52 ورقة. ما احتمال أن تكونا من الرتبة نفسها؟"
     },
     "answer": {
       "en": "1/17, about 5.9%. After the first card,3 of the remaining 51 cards match its rank.",
@@ -2105,7 +2105,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is the absolute value (magnitude) of the complex number 3 + 4i?",
-      "ar": "كم القيمة المطلقة (المقياس) للعدد المركّب 3 + 4i؟"
+      "ar": "ما هي القيمة المطلقة (المقياس) للعدد المركب 3 + 4i؟"
     },
     "answer": {
       "en": "5. |3+4i| = √(3²+4²) = √(9+16) = √25 = 5.",
@@ -2125,7 +2125,7 @@
     "mode": "quiz",
     "question": {
       "en": "Two trains 60 miles apart move toward each other, each at 30 mph. A fly starts with them and keeps flying between them at 60 mph until they meet. How far does it fly?",
-      "ar": "قطارين بينهم 60 ميل، وكل واحد يمشي ناحية الثاني بسرعة 30 ميل/ساعة. ذبابة تطير بينهم بسرعة 60 ميل/ساعة لحد ما يلتقون. كم مسافة تقطع؟"
+      "ar": "قطاران تفصل بينهما 60 ميلاً ويتحرك كل منهما نحو الآخر بسرعة 30 ميلاً/ساعة. تبدأ ذبابة بالطيران بينهما بسرعة 60 ميلاً/ساعة وتستمر حتى يلتقيا. كم تقطع؟"
     },
     "answer": {
       "en": "60 miles. The trains take 1 hour to meet; the fly covers 60 mph × 1 hour = 60 miles. No infinite series needed.",
@@ -2145,7 +2145,7 @@
     "mode": "quiz",
     "question": {
       "en": "For a prime p>3, why is p²−1 divisible by 24?",
-      "ar": "إذا p عدد أولي أكبر من 3، ليش p²−1 ينقسم على 24؟"
+      "ar": "إذا كان p عدداً أولياً أكبر من 3، فلماذا يقبل p²−1 القسمة على 24؟"
     },
     "answer": {
       "en": "p²−1=(p−1)(p+1). These are consecutive even numbers, so their product is divisible by 8. Since p is not divisible by 3, one neighbor is divisible by 3. Thus the product is divisible by 24.",
@@ -2165,7 +2165,7 @@
     "mode": "quiz",
     "question": {
       "en": "A data set contains at least two values, all identical. What is its standard deviation?",
-      "ar": "مجموعة بيانات فيها قيمتين على الأقل، وكل القيم متساوية. كم انحرافها المعياري؟"
+      "ar": "تضم مجموعة بيانات قيمتين على الأقل، وجميع القيم متساوية. ما انحرافها المعياري؟"
     },
     "answer": {
       "en": "0. Standard deviation measures spread from the mean. No spread means zero deviation.",
@@ -2185,7 +2185,7 @@
     "mode": "quiz",
     "question": {
       "en": "Fermat's Last Theorem says aⁿ+bⁿ=cⁿ has no positive-integer solutions when the integer exponent n is greater than what?",
-      "ar": "مبرهنة فيرما الأخيرة تقول إن aⁿ+bⁿ=cⁿ ما لها حلول صحيحة موجبة لما يكون الأس الصحيح n أكبر من أي رقم؟"
+      "ar": "تنص مبرهنة فيرما الأخيرة على أن aⁿ+bⁿ=cⁿ لا تملك حلولاً صحيحة موجبة عندما يكون الأس الصحيح n أكبر من أي عدد؟"
     },
     "answer": {
       "en": "2. Proven by Andrew Wiles in 1995 after 358 years as an open problem.",
@@ -2205,7 +2205,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is sin(30°)?",
-      "ar": "كم قيمة sin(30°)؟"
+      "ar": "ما قيمة sin(30°)؟"
     },
     "answer": {
       "en": "0.5 (or 1/2). In a 30-60-90 triangle, the side opposite 30° is half the hypotenuse.",
@@ -2225,11 +2225,11 @@
     "mode": "quiz",
     "question": {
       "en": "What is the sum of all the numbers in row 10 of Pascal's triangle, counting the top 1 as row 0?",
-      "ar": "كم مجموع كل الأرقام بالصف العاشر من مثلث باسكال، إذا اعتبرنا الـ1 اللي فوق هو الصف صفر؟"
+      "ar": "ما مجموع كل الأعداد في الصف العاشر من مثلث باسكال، إذا عددنا العدد 1 في القمة الصف صفر؟"
     },
     "answer": {
       "en": "1,024. Each row's sum doubles the one before, so row n adds up to 2ⁿ.",
-      "ar": "1024. مجموع كل صف ضعف اللي قبله، فمجموع الصف n هو 2ⁿ."
+      "ar": "1024. مجموع كل صف ضعف مجموع الصف الذي قبله، فمجموع الصف n هو 2ⁿ."
     },
     "subcategory": {
       "en": "Patterns, Sequences & Word Problems",
@@ -2245,7 +2245,7 @@
     "mode": "quiz",
     "question": {
       "en": "How many prime numbers are there between 1 and 50?",
-      "ar": "كم عدد أولي بين 1 و50؟"
+      "ar": "كم عدداً أولياً يوجد بين 1 و50؟"
     },
     "answer": {
       "en": "15: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47.",
@@ -2265,7 +2265,7 @@
     "mode": "quiz",
     "question": {
       "en": "In triangle ABC, the Law of Sines states a/sin(A) equals what?",
-      "ar": "في المثلث ABC، «قانون الجيوب» يقول إن a/sin(A) يساوي شو؟"
+      "ar": "في المثلث ABC، ينص قانون الجيوب أن a/sin(A) يساوي ماذا؟"
     },
     "answer": {
       "en": "b/sin(B) = c/sin(C) = 2R, where R is the circumradius of the triangle.",
@@ -2285,7 +2285,7 @@
     "mode": "quiz",
     "question": {
       "en": "What is e^(iπ) + 1?",
-      "ar": "كم قيمة e^(iπ) + 1؟"
+      "ar": "ما قيمة e^(iπ) + 1؟"
     },
     "answer": {
       "en": "0. Euler's Identity — often called the most beautiful equation in mathematics, linking e, i, π, 1, and 0.",
@@ -2308,7 +2308,7 @@
     },
     "question": {
       "en": "What is 7 × 8?",
-      "ar": "كم 7 × 8؟"
+      "ar": "ما هو حاصل 7 × 8؟"
     },
     "answer": {
       "en": "56",
@@ -2346,7 +2346,7 @@
     },
     "question": {
       "en": "What is 25% of 80?",
-      "ar": "كم 25% من 80؟"
+      "ar": "ما هو 25% من 80؟"
     },
     "answer": {
       "en": "20",
@@ -2365,7 +2365,7 @@
     },
     "question": {
       "en": "What is the next prime number after 11?",
-      "ar": "شو العدد الأولي اللي بعد 11؟"
+      "ar": "ما العدد الأولي الذي يلي 11؟"
     },
     "answer": {
       "en": "13",
@@ -2384,7 +2384,7 @@
     },
     "question": {
       "en": "What is the area of a rectangle with length 8 and width 5?",
-      "ar": "كم مساحة مستطيل طوله 8 وعرضه 5؟"
+      "ar": "ما مساحة مستطيل طوله 8 وعرضه 5؟"
     },
     "answer": {
       "en": "40 square units",
@@ -2403,7 +2403,7 @@
     },
     "question": {
       "en": "What is 2⁴?",
-      "ar": "كم 2⁴؟"
+      "ar": "ما هو 2⁴؟"
     },
     "answer": {
       "en": "16",
@@ -2422,7 +2422,7 @@
     },
     "question": {
       "en": "How many vertices does a cube have?",
-      "ar": "كم رأس للمكعب؟"
+      "ar": "كم رأساً للمكعب؟"
     },
     "answer": {
       "en": "8",
@@ -2441,7 +2441,7 @@
     },
     "question": {
       "en": "What is the sum of all whole numbers from 1 to 9?",
-      "ar": "كم مجموع الأعداد الصحيحة من 1 لـ9؟"
+      "ar": "ما مجموع الأعداد الصحيحة من 1 إلى 9؟"
     },
     "answer": {
       "en": "45",
@@ -2460,7 +2460,7 @@
     },
     "question": {
       "en": "A square has a perimeter of 36 cm. What is its area?",
-      "ar": "مربع محيطه 36 سم. كم مساحته؟"
+      "ar": "مربع محيطه 36 سم. ما مساحته؟"
     },
     "answer": {
       "en": "81 cm²",
@@ -2479,7 +2479,7 @@
     },
     "question": {
       "en": "What is the greatest common divisor (GCD) of 12 and 18?",
-      "ar": "كم القاسم المشترك الأكبر لـ12 و18؟"
+      "ar": "ما القاسم المشترك الأكبر لـ 12 و18؟"
     },
     "answer": {
       "en": "6",
@@ -2498,7 +2498,7 @@
     },
     "question": {
       "en": "How many degrees make a full rotation?",
-      "ar": "كم درجة في اللفة الكاملة؟"
+      "ar": "كم درجة في الدوران الكامل؟"
     },
     "answer": {
       "en": "360 degrees",
@@ -2517,7 +2517,7 @@
     },
     "question": {
       "en": "What is 3/5 written as a decimal?",
-      "ar": "كم 3/5 بالكسر العشري؟"
+      "ar": "ما هو 3/5 بالصيغة العشرية؟"
     },
     "answer": {
       "en": "0.6",
@@ -2536,7 +2536,7 @@
     },
     "question": {
       "en": "If 4 apples cost $2, how much do 10 apples cost?",
-      "ar": "إذا 4 تفاحات بدولارين، كم سعر 10 تفاحات؟"
+      "ar": "إذا كانت 4 تفاحات بدولارَين، بكم تكون 10 تفاحات؟"
     },
     "answer": {
       "en": "$5",
@@ -2555,7 +2555,7 @@
     },
     "question": {
       "en": "What is the remainder when 17 is divided by 4?",
-      "ar": "كم الباقي لما نقسم 17 على 4؟"
+      "ar": "ما باقي قسمة 17 على 4؟"
     },
     "answer": {
       "en": "1",
@@ -2574,7 +2574,7 @@
     },
     "question": {
       "en": "How many zeros are in one million?",
-      "ar": "كم صفر في المليون؟"
+      "ar": "كم صفراً في مليون؟"
     },
     "answer": {
       "en": "6",
@@ -2593,7 +2593,7 @@
     },
     "question": {
       "en": "What is the smallest 3-digit prime number?",
-      "ar": "شو أصغر عدد أولي من ثلاث خانات؟"
+      "ar": "ما أصغر عدد أولي مكوَّن من ثلاثة أرقام؟"
     },
     "answer": {
       "en": "101",
@@ -2612,7 +2612,7 @@
     },
     "question": {
       "en": "What is the slope of the line y = 3x + 5?",
-      "ar": "كم ميل الخط y = 3x + 5؟"
+      "ar": "ما ميل الخط y = 3x + 5؟"
     },
     "answer": {
       "en": "3",
@@ -2653,7 +2653,7 @@
     },
     "question": {
       "en": "Two independent fair six-sided dice are rolled. What is the probability of a total of 7?",
-      "ar": "رمينا حجرين نرد عادلين ومستقلين، كل واحد ست أوجه. كم احتمال يطلع المجموع 7؟"
+      "ar": "رُمي حجرا نرد عادلان مستقلان، لكل منهما ستة أوجه. ما احتمال الحصول على مجموع 7؟"
     },
     "answer": {
       "en": "1/6 — there are 6 winning combinations out of 36 total",
@@ -2702,7 +2702,7 @@
     },
     "question": {
       "en": "In how many ways can 4 people be arranged in a line?",
-      "ar": "بكم طريقة نقدر نرتّب 4 أشخاص بصف؟"
+      "ar": "بكم طريقة يمكن ترتيب 4 أشخاص في صف؟"
     },
     "answer": {
       "en": "24 (4! = 4 × 3 × 2 × 1)",
@@ -2751,7 +2751,7 @@
     },
     "question": {
       "en": "What is the area of a circle with radius 7?",
-      "ar": "كم مساحة دائرة نصف قطرها 7؟"
+      "ar": "ما مساحة دائرة نصف قطرها 7؟"
     },
     "answer": {
       "en": "49π ≈ 153.94 square units",
@@ -2770,7 +2770,7 @@
     },
     "question": {
       "en": "Solve for x: x² − 5x + 6 = 0",
-      "ar": "طلّع x: ‏x² − 5x + 6 = 0"
+      "ar": "أوجد x: x² − 5x + 6 = 0"
     },
     "answer": {
       "en": "x = 2 or x = 3",
@@ -2811,7 +2811,7 @@
     },
     "question": {
       "en": "What is the median of the set {2, 3, 5, 7, 9}?",
-      "ar": "شو الوسيط بالمجموعة {2، 3، 5، 7، 9}؟"
+      "ar": "ما الوسيط في المجموعة {2، 3، 5، 7، 9}؟"
     },
     "answer": {
       "en": "5",
@@ -2852,7 +2852,7 @@
     },
     "question": {
       "en": "A 10% discount is applied, then another 10% off the new price. What is the total percentage saved?",
-      "ar": "انخصم 10%، وبعدين انخصم 10% ثانية من السعر الجديد. كم نسبة التوفير الكلية؟"
+      "ar": "خُصم 10%، ثم خُصم 10% آخر على السعر الجديد. ما إجمالي نسبة التوفير؟"
     },
     "answer": {
       "en": "19% — the second 10% applies to the already-reduced price, not the original",
@@ -2901,7 +2901,7 @@
     },
     "question": {
       "en": "What is the exact value of sin(45°)?",
-      "ar": "كم القيمة الدقيقة لـsin(45°)؟"
+      "ar": "ما القيمة الدقيقة لـ sin(45°)؟"
     },
     "answer": {
       "en": "√2 / 2 (≈ 0.707)",
@@ -2920,7 +2920,7 @@
     },
     "question": {
       "en": "Express the repeating decimal 0.333... as a fraction.",
-      "ar": "اكتب الكسر العشري المتكرر 0.333... ككسر عادي."
+      "ar": "عبِّر عن العشري المتكرر 0.333... في صورة كسر اعتيادي."
     },
     "answer": {
       "en": "1/3",
@@ -2961,7 +2961,7 @@
     },
     "question": {
       "en": "What is the lowest common multiple (LCM) of 4 and 6?",
-      "ar": "كم المضاعف المشترك الأصغر لـ4 و6؟"
+      "ar": "ما المضاعف المشترك الأصغر لـ 4 و6؟"
     },
     "answer": {
       "en": "12",
@@ -3002,7 +3002,7 @@
     },
     "question": {
       "en": "In a class of 30 students, 60% are girls. How many are boys?",
-      "ar": "بصف فيه 30 طالب، 60% بنات. كم عدد الأولاد؟"
+      "ar": "في فصل من 30 طالباً، 60% إناث. كم عدد الذكور؟"
     },
     "answer": {
       "en": "12",
@@ -3043,7 +3043,7 @@
     },
     "question": {
       "en": "How many prime numbers are there between 10 and 30?",
-      "ar": "كم عدد أولي بين 10 و30؟"
+      "ar": "كم عدداً أولياً بين 10 و30؟"
     },
     "answer": {
       "en": "6 — they are 11, 13, 17, 19, 23, and 29",
@@ -3062,7 +3062,7 @@
     },
     "question": {
       "en": "What is the sum of the interior angles of any quadrilateral?",
-      "ar": "كم مجموع الزوايا الداخلية لأي شكل رباعي؟"
+      "ar": "ما مجموع الزوايا الداخلية لأي رباعي الأضلاع؟"
     },
     "answer": {
       "en": "360°",
@@ -3103,7 +3103,7 @@
     },
     "question": {
       "en": "A car worth $10,000 depreciates by 20% each year. What is it worth after 2 years?",
-      "ar": "سيارة قيمتها 10,000 دولار تنزل قيمتها 20% كل سنة. كم قيمتها بعد سنتين؟"
+      "ar": "سيارة قيمتها 10,000 دولار تنخفض 20% سنوياً. ما قيمتها بعد سنتَين؟"
     },
     "answer": {
       "en": "$6,400 (10,000 × 0.8 × 0.8 = 6,400)",
@@ -3122,7 +3122,7 @@
     },
     "question": {
       "en": "What is the value of (2 + 3i)(2 − 3i)?",
-      "ar": "كم قيمة (2 + 3i)(2 − 3i)؟"
+      "ar": "ما قيمة (2 + 3i)(2 − 3i)؟"
     },
     "answer": {
       "en": "13 (difference of squares: 4 + 9 = 13)",
@@ -3141,7 +3141,7 @@
     },
     "question": {
       "en": "How many ways can you choose 3 items from a group of 6? (order does not matter)",
-      "ar": "بكم طريقة نختار 3 عناصر من 6؟ (الترتيب ما يهم)"
+      "ar": "بكم طريقة يمكن اختيار 3 عناصر من 6؟ (الترتيب لا يهم)"
     },
     "answer": {
       "en": "20 — C(6,3) = 6! ÷ (3! × 3!) = 20",
@@ -3160,7 +3160,7 @@
     },
     "question": {
       "en": "What is the ratio of a circle's circumference to its diameter?",
-      "ar": "شو نسبة محيط الدائرة لقطرها؟"
+      "ar": "ما نسبة محيط الدائرة إلى قطرها؟"
     },
     "answer": {
       "en": "π (pi), approximately 3.14159",
@@ -3179,7 +3179,7 @@
     },
     "question": {
       "en": "With x measured in radians, what is lim(x→0) sin(x)/x?",
-      "ar": "إذا x بالراديان، كم قيمة lim(x→0) sin(x)/x؟"
+      "ar": "إذا كانت x مقاسة بالراديان، فما قيمة lim(x→0) sin(x)/x؟"
     },
     "answer": {
       "en": "1",
@@ -3198,7 +3198,7 @@
     },
     "question": {
       "en": "What is the derivative of f(x) = x³ − 2x²?",
-      "ar": "شو مشتقة f(x) = x³ − 2x²؟"
+      "ar": "ما مشتقة f(x) = x³ − 2x²؟"
     },
     "answer": {
       "en": "3x² − 4x",
@@ -3217,7 +3217,7 @@
     },
     "question": {
       "en": "A geometric series has first term 3 and common ratio 1/2. What is the sum to infinity?",
-      "ar": "متتالية هندسية أول حد فيها 3 وأساسها 1/2. كم مجموعها للانهاية؟"
+      "ar": "متتالية هندسية حدها الأول 3 وأساسها 1/2. ما مجموعها إلى ما لا نهاية؟"
     },
     "answer": {
       "en": "6 — S = a ÷ (1 − r) = 3 ÷ 0.5 = 6",
@@ -3236,7 +3236,7 @@
     },
     "question": {
       "en": "What is the smallest integer greater than 1 that is both a perfect square and a perfect cube?",
-      "ar": "شو أصغر عدد صحيح أكبر من 1 يكون مربع كامل ومكعب كامل بنفس الوقت؟"
+      "ar": "ما أصغر عدد صحيح أكبر من 1 يكون مربعاً كاملاً ومكعباً كاملاً معاً؟"
     },
     "answer": {
       "en": "64 — 8² = 64 and 4³ = 64",
@@ -3255,7 +3255,7 @@
     },
     "question": {
       "en": "What is 2¹⁰?",
-      "ar": "كم 2¹⁰؟"
+      "ar": "ما هو 2¹⁰؟"
     },
     "answer": {
       "en": "1024",
@@ -3274,7 +3274,7 @@
     },
     "question": {
       "en": "Evaluate the definite integral: ∫₀¹ 2x dx",
-      "ar": "طلّع التكامل المحدد: ∫₀¹ 2x dx"
+      "ar": "أوجد التكامل المحدد: ∫₀¹ 2x dx"
     },
     "answer": {
       "en": "1 — anti-derivative is x², evaluated from 0 to 1: 1² − 0² = 1",
@@ -3293,7 +3293,7 @@
     },
     "question": {
       "en": "If f(x) = x² and g(x) = x + 1, what is f(g(2))?",
-      "ar": "إذا f(x) = x² وg(x) = x + 1، كم قيمة f(g(2))؟"
+      "ar": "إذا كان f(x) = x² و g(x) = x + 1، ما قيمة f(g(2))؟"
     },
     "answer": {
       "en": "9 — g(2) = 3, then f(3) = 9",
@@ -3312,7 +3312,7 @@
     },
     "question": {
       "en": "How many real solutions does x² + 1 = 0 have?",
-      "ar": "كم حل حقيقي للمعادلة x² + 1 = 0؟"
+      "ar": "كم حلاً حقيقياً للمعادلة x² + 1 = 0؟"
     },
     "answer": {
       "en": "None — the solutions are imaginary: x = ±i",
@@ -3331,7 +3331,7 @@
     },
     "question": {
       "en": "What is the formula for the sum of the first n odd numbers?",
-      "ar": "شو صيغة مجموع أول n عدد فردي؟"
+      "ar": "ما صيغة مجموع أول n من الأعداد الفردية؟"
     },
     "answer": {
       "en": "n² — for example 1+3+5+7 = 4² = 16",
@@ -3350,7 +3350,7 @@
     },
     "question": {
       "en": "What is the indefinite integral of 2x?",
-      "ar": "شو التكامل غير المحدد لـ2x؟"
+      "ar": "ما التكامل غير المحدد لـ 2x؟"
     },
     "answer": {
       "en": "x² + C",
@@ -3369,7 +3369,7 @@
     },
     "question": {
       "en": "In modular arithmetic, what is 3⁴ mod 5?",
-      "ar": "في الحساب المعياري، كم 3⁴ mod 5؟"
+      "ar": "في الحساب المعياري، ما قيمة 3⁴ mod 5؟"
     },
     "answer": {
       "en": "1 — 3⁴ = 81, and 81 = 16 × 5 + 1",
@@ -3388,7 +3388,7 @@
     },
     "question": {
       "en": "What is log₂(32)?",
-      "ar": "كم قيمة log₂(32)؟"
+      "ar": "ما قيمة log₂(32)؟"
     },
     "answer": {
       "en": "5 — because 2⁵ = 32",
@@ -3407,7 +3407,7 @@
     },
     "question": {
       "en": "What is the 10th term of the arithmetic sequence 3, 7, 11, 15, ...?",
-      "ar": "شو الحد العاشر بالمتتالية الحسابية 3، 7، 11، 15، ...؟"
+      "ar": "ما الحد العاشر للمتتالية الحسابية 3، 7، 11، 15، ...؟"
     },
     "answer": {
       "en": "39 — a₁₀ = 3 + (10−1) × 4 = 39",
@@ -3426,7 +3426,7 @@
     },
     "question": {
       "en": "What is the value of the infinite series 1 + 1/4 + 1/9 + 1/16 + ... (the Basel problem)?",
-      "ar": "كم قيمة المتسلسلة اللانهائية 1 + 1/4 + 1/9 + 1/16 + ... (مسألة بازل)؟"
+      "ar": "ما قيمة المتسلسلة اللانهائية 1 + 1/4 + 1/9 + 1/16 + ... (مسألة بازل)؟"
     },
     "answer": {
       "en": "π²/6. This is the Basel sum, evaluated by Euler.",
@@ -3445,7 +3445,7 @@
     },
     "question": {
       "en": "How is Euler's number e defined as a limit?",
-      "ar": "كيف نعرّف عدد أويلر e بصيغة نهاية؟"
+      "ar": "كيف يُعرَّف عدد أويلر e بصيغة نهاية؟"
     },
     "answer": {
       "en": "e = lim(n→∞) (1 + 1/n)ⁿ ≈ 2.71828",
@@ -3464,7 +3464,7 @@
     },
     "question": {
       "en": "What is the value of the Gaussian integral: ∫₋∞^∞ e^(−x²) dx?",
-      "ar": "كم قيمة التكامل الغاوسي: ∫₋∞^∞ e^(−x²) dx؟"
+      "ar": "ما قيمة التكامل الغاوسي: ∫₋∞^∞ e^(−x²) dx؟"
     },
     "answer": {
       "en": "√π (approximately 1.7725)",
@@ -3483,7 +3483,7 @@
     },
     "question": {
       "en": "Every polynomial of odd degree with real coefficients must have at least how many real roots?",
-      "ar": "أي كثير حدود درجته فردية ومعاملاته حقيقية، كم جذر حقيقي لازم يكون له على الأقل؟"
+      "ar": "كم جذراً حقيقياً على الأقل يجب أن يملكه أي كثير حدود ذو درجة فردية بمعاملات حقيقية؟"
     },
     "answer": {
       "en": "At least 1 — complex roots come in conjugate pairs, so one real root must remain",

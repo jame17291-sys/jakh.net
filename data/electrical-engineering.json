@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "Which terminal of a battery is usually marked with a plus sign?",
-      "ar": "أي طرف بالبطارية يكون عليه عادةً علامة الزائد؟"
+      "ar": "أي طرف في البطارية يُعلَّم عادةً بعلامة الجمع؟"
     },
     "answer": {
       "en": "Positive",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "What is the unit of measurement for electrical current?",
-      "ar": "شو وحدة قياس التيار الكهربائي؟"
+      "ar": "ما وحدة قياس التيار الكهربائي؟"
     },
     "answer": {
       "en": "Ampere (Amp)",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "What is the purpose of a circuit breaker?",
-      "ar": "شو فايدة قاطع الدارة الكهربائية؟"
+      "ar": "ما الغرض من قاطع الدارة الكهربائية؟"
     },
     "answer": {
       "en": "To interrupt current flow after a fault is detected",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "What is the unit of electrical potential?",
-      "ar": "شو وحدة الجهد الكهربائي؟"
+      "ar": "ما وحدة الجهد الكهربائي؟"
     },
     "answer": {
       "en": "Volt",
@@ -84,7 +84,7 @@
     },
     "question": {
       "en": "What do you call a path that allows electricity to flow?",
-      "ar": "شو نسمّي المسار اللي تمشي فيه الكهربا؟"
+      "ar": "ما اسم المسار الذي يسمح للكهرباء بالتدفق؟"
     },
     "answer": {
       "en": "A circuit",
@@ -103,7 +103,7 @@
     },
     "question": {
       "en": "Is rubber an insulator or a conductor?",
-      "ar": "المطاط عازل ولا موصل؟"
+      "ar": "هل المطاط عازل أم موصل؟"
     },
     "answer": {
       "en": "Insulator",
@@ -122,7 +122,7 @@
     },
     "question": {
       "en": "In an incandescent bulb, which part becomes hot enough to emit visible light?",
-      "ar": "في اللمبة المتوهجة، أي جزء يسخن لدرجة إنه يطلّع ضوء؟"
+      "ar": "في المصباح المتوهج، أي جزء يسخن بدرجة تكفي لإصدار ضوء مرئي؟"
     },
     "answer": {
       "en": "The filament.",
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "What is the unit of electrical power?",
-      "ar": "شو وحدة القدرة الكهربائية؟"
+      "ar": "ما وحدة القدرة الكهربائية؟"
     },
     "answer": {
       "en": "Watt",
@@ -160,7 +160,7 @@
     },
     "question": {
       "en": "What device uses an electric current to create a magnetic field?",
-      "ar": "شو الجهاز اللي يستخدم التيار الكهربائي عشان يعمل مجال مغناطيسي؟"
+      "ar": "ما الجهاز الذي يستخدم التيار الكهربائي لخلق مجال مغناطيسي؟"
     },
     "answer": {
       "en": "Electromagnet",
@@ -179,7 +179,7 @@
     },
     "question": {
       "en": "What does 'AC' stand for in electricity?",
-      "ar": "شو معنى AC في الكهربا؟"
+      "ar": "ماذا تعني AC في الكهرباء؟"
     },
     "answer": {
       "en": "Alternating Current",
@@ -198,7 +198,7 @@
     },
     "question": {
       "en": "If V is voltage, I is current, and R is resistance, what is Ohm's formula?",
-      "ar": "إذا V هو الجهد وI التيار وR المقاومة، كيف نكتب قانون أوم؟"
+      "ar": "إذا كان V هو الجهد وI هو التيار وR هو المقاومة، ما صيغة قانون أوم؟"
     },
     "answer": {
       "en": "V = IR",
@@ -217,7 +217,7 @@
     },
     "question": {
       "en": "What device is used to increase or decrease the voltage of alternating current?",
-      "ar": "شو الجهاز اللي يرفع أو ينزّل جهد التيار المتردد؟"
+      "ar": "ما الجهاز المستخدم لرفع أو خفض جهد التيار المتردد؟"
     },
     "answer": {
       "en": "Transformer",
@@ -236,7 +236,7 @@
     },
     "question": {
       "en": "If two 10-ohm resistors are connected in series, what is the total resistance?",
-      "ar": "إذا وصّلنا مقاومتين كل وحدة 10 أوم على التوالي، كم المقاومة الكلية؟"
+      "ar": "إذا وُصل مقاومان بقيمة 10 أوم على التوالي، ما المقاومة الكلية؟"
     },
     "answer": {
       "en": "20 ohms",
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "What component is designed to store energy in an electric field?",
-      "ar": "شو القطعة المصمّمة عشان تخزّن الطاقة في مجال كهربائي؟"
+      "ar": "ما المكوّن المصمم لتخزين الطاقة في حقل كهربائي؟"
     },
     "answer": {
       "en": "Capacitor",
@@ -274,7 +274,7 @@
     },
     "question": {
       "en": "What is the most common element used in the production of computer chips?",
-      "ar": "شو العنصر الأكثر استخدامًا في صناعة الرقائق الإلكترونية؟"
+      "ar": "ما العنصر الأكثر شيوعاً في تصنيع الرقائق الإلكترونية؟"
     },
     "answer": {
       "en": "Silicon",
@@ -293,7 +293,7 @@
     },
     "question": {
       "en": "Which ideal electronic component conducts current in the forward direction and blocks it in reverse?",
-      "ar": "شو القطعة الإلكترونية المثالية اللي تمرّر التيار باتجاه وتمنعه بالاتجاه المعاكس؟"
+      "ar": "ما المكون الإلكتروني المثالي الذي يمرر التيار في الاتجاه الأمامي ويمنعه في العكسي؟"
     },
     "answer": {
       "en": "An ideal diode. Real diodes also have leakage and breakdown limits.",
@@ -312,7 +312,7 @@
     },
     "question": {
       "en": "Faraday's Law relates to EMF production across a conductor in a changing what?",
-      "ar": "قانون فاراداي يربط توليد القوة الدافعة الكهربائية في موصل بأي نوع مجال متغيّر؟"
+      "ar": "يرتبط قانون فاراداي بإنتاج القوة الدافعة الكهربائية عبر موصل في مجال متغير من أي نوع؟"
     },
     "answer": {
       "en": "Magnetic field",
@@ -331,7 +331,7 @@
     },
     "question": {
       "en": "What are the two most common nominal AC mains frequencies used worldwide?",
-      "ar": "شو الترددين الأكثر انتشارًا لشبكات الكهربا المتناوبة بالعالم؟"
+      "ar": "ما الترددان الاسميان الأكثر شيوعاً لشبكات الكهرباء المتناوبة عالمياً؟"
     },
     "answer": {
       "en": "50 Hz and 60 Hz.",
@@ -350,7 +350,7 @@
     },
     "question": {
       "en": "Which gate gives a HIGH output only if all its inputs are HIGH?",
-      "ar": "أي بوابة منطقية تطلّع HIGH بس إذا كل مداخلها HIGH؟"
+      "ar": "أي بوابة منطقية تعطي إشارة HIGH فقط إذا كانت جميع مداخلاتها HIGH؟"
     },
     "answer": {
       "en": "AND gate",
@@ -369,7 +369,7 @@
     },
     "question": {
       "en": "What are the three primary things a standard multimeter measures?",
-      "ar": "شو الثلاث أشياء الأساسية اللي يقيسها جهاز القياس المتعدد؟"
+      "ar": "ما الثلاثة أشياء الأساسية التي يقيسها جهاز قياس متعدد الوظائف؟"
     },
     "answer": {
       "en": "Voltage, Current, and Resistance",
@@ -407,7 +407,7 @@
     },
     "question": {
       "en": "What are the three terminals of a Bipolar Junction Transistor (BJT)?",
-      "ar": "شو الأطراف الثلاثة للترانزستور ثنائي القطبية (BJT)؟"
+      "ar": "ما الأطراف الثلاثة للترانزستور ثنائي القطبية (BJT)؟"
     },
     "answer": {
       "en": "Emitter, Base, Collector",
@@ -426,7 +426,7 @@
     },
     "question": {
       "en": "What does a Fourier Transform convert a signal from the time domain into?",
-      "ar": "تحويل فورييه ياخذ الإشارة من مجال الزمن ويحوّلها لأي مجال؟"
+      "ar": "إلى ماذا يحوّل تحويل فورييه الإشارة من نطاق الزمن؟"
     },
     "answer": {
       "en": "The frequency domain",
@@ -445,7 +445,7 @@
     },
     "question": {
       "en": "In sinusoidal steady-state circuit analysis, what quantity combines resistance R and reactance X as R+jX?",
-      "ar": "في تحليل الدوائر الجيبية المستقرة، شو الكمية اللي تجمع المقاومة R والمفاعلة X بالشكل R+jX؟"
+      "ar": "في تحليل الدوائر الجيبية المستقرة، ما الكمية التي تجمع المقاومة R والمفاعلة X بالشكل R+jX؟"
     },
     "answer": {
       "en": "Impedance",
@@ -464,7 +464,7 @@
     },
     "question": {
       "en": "What is the fundamental principle behind Kirchhoff's Current Law (KCL)?",
-      "ar": "شو المبدأ الأساسي لقانون كيرشوف للتيار (KCL)؟"
+      "ar": "ما المبدأ الأساسي لقانون كيرشهوف للتيار (KCL)؟"
     },
     "answer": {
       "en": "Conservation of Charge",
@@ -483,7 +483,7 @@
     },
     "question": {
       "en": "What effect produces a transverse voltage in a current-carrying conductor placed in a magnetic field perpendicular to the current?",
-      "ar": "شو التأثير اللي يولّد جهد عرضي في موصل فيه تيار، لما يكون بمجال مغناطيسي عمودي على التيار؟"
+      "ar": "ما التأثير الذي يولد جهداً عرضياً في موصل يحمل تياراً ويوضع في مجال مغناطيسي عمودي على التيار؟"
     },
     "answer": {
       "en": "The Hall Effect",
@@ -502,7 +502,7 @@
     },
     "question": {
       "en": "Why is RMS used to measure AC voltage?",
-      "ar": "ليش نستخدم قيمة «الجذر التربيعي للمتوسط» (RMS) لقياس جهد التيار المتردد؟"
+      "ar": "لماذا تُستخدم القيمة الجذرية التربيعية المتوسطة (RMS) لقياس جهد التيار المتردد؟"
     },
     "answer": {
       "en": "It gives the equivalent DC value producing the same heating effect",
@@ -521,7 +521,7 @@
     },
     "question": {
       "en": "What limit does Shannon's noisy-channel coding theorem identify?",
-      "ar": "شو الحد اللي تحدده مبرهنة شانون لترميز القناة اللي فيها تشويش؟"
+      "ar": "ما الحد الذي تحدده مبرهنة شانون لترميز القناة المشوشة؟"
     },
     "answer": {
       "en": "Channel capacity: the highest communication rate below which suitably designed codes can make error probability arbitrarily small under the model's assumptions.",
@@ -540,7 +540,7 @@
     },
     "question": {
       "en": "What does 'Op-Amp' stand for?",
-      "ar": "شو معنى Op-Amp؟"
+      "ar": "ماذا تعني Op-Amp؟"
     },
     "answer": {
       "en": "Operational Amplifier",
@@ -559,7 +559,7 @@
     },
     "question": {
       "en": "What is the SI unit of inductance?",
-      "ar": "شو وحدة المحاثة في النظام الدولي؟"
+      "ar": "ما وحدة المحاثة في النظام الدولي؟"
     },
     "answer": {
       "en": "Henry",

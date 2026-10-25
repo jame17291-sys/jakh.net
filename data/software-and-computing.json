@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "What does CPU stand for and what does it do?",
-      "ar": "شو معنى CPU، وشو شغلته؟"
+      "ar": "ما الذي يرمز إليه CPU وما وظيفته؟"
     },
     "answer": {
       "en": "Central Processing Unit — the primary component that executes instructions and performs calculations in a computer.",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "What is the difference between RAM and ROM?",
-      "ar": "شو الفرق بين RAM وROM؟"
+      "ar": "ما الفرق بين RAM و ROM؟"
     },
     "answer": {
       "en": "RAM (Random Access Memory) is volatile — it stores data temporarily while the computer is running. ROM (Read-Only Memory) is non-volatile — it stores permanent instructions (like firmware) that persist even when powered off.",
@@ -56,7 +56,7 @@
     },
     "question": {
       "en": "Why do computers store information as 0s and 1s?",
-      "ar": "ليش الكمبيوتر يخزّن المعلومات على شكل 0 و1؟"
+      "ar": "لماذا تخزّن الحواسيب المعلومات على شكل 0 و1؟"
     },
     "answer": {
       "en": "Because electronic circuits can reliably tell two states apart, such as low and high voltage, which stand for 0 and 1.",
@@ -83,7 +83,7 @@
     },
     "question": {
       "en": "What is a one-dimensional array in C?",
-      "ar": "في لغة C، شو هي المصفوفة أحادية البعد؟"
+      "ar": "ما المصفوفة أحادية البعد في لغة C؟"
     },
     "answer": {
       "en": "A contiguous sequence of elements of one type, accessed by index. The first element has index 0.",
@@ -110,7 +110,7 @@
     },
     "question": {
       "en": "What is an IP address?",
-      "ar": "شو هو «عنوان IP»؟"
+      "ar": "ما عنوان IP؟"
     },
     "answer": {
       "en": "A unique numerical label assigned to each device on a network, used to identify and communicate with it. IPv4 uses 32-bit addresses (e.g., 192.168.1.1); IPv6 uses 128-bit addresses.",
@@ -129,7 +129,7 @@
     },
     "question": {
       "en": "What is the basic distinction between compilation and interpretation?",
-      "ar": "شو الفرق الأساسي بين الترجمة (Compile) والتفسير (Interpret)؟"
+      "ar": "ما الفرق الأساسي بين الترجمة البرمجية والتفسير؟"
     },
     "answer": {
       "en": "Compilation translates a program into another representation. Interpretation executes a program's semantics directly. Real implementations can combine both, as in bytecode and just-in-time compilation.",
@@ -156,7 +156,7 @@
     },
     "question": {
       "en": "What is an operating system (OS)?",
-      "ar": "شو هو نظام التشغيل؟"
+      "ar": "ما نظام التشغيل؟"
     },
     "answer": {
       "en": "Software that manages hardware resources and provides services for application programs. Examples: Windows, macOS, Linux.",
@@ -175,7 +175,7 @@
     },
     "question": {
       "en": "Why does a singly linked list normally have O(n) indexed access but O(1) insertion immediately after a known node?",
-      "ar": "في القائمة المترابطة الأحادية، ليش الوصول بالفهرس ياخذ عادةً O(n)، بينما الإضافة بعد عقدة معروفة مباشرة تاخذ O(1)؟"
+      "ar": "لماذا يحتاج الوصول بالفهرس في قائمة مترابطة أحادية عادةً إلى O(n)، بينما يحتاج الإدراج بعد عقدة معلومة مباشرةً إلى O(1)؟"
     },
     "answer": {
       "en": "Indexed access may traverse links from the head. Inserting after a known node only updates a fixed number of links.",
@@ -194,7 +194,7 @@
     },
     "question": {
       "en": "What does HTTP stand for and what is it used for?",
-      "ar": "شو معنى HTTP، وليش نستخدمه؟"
+      "ar": "ما الذي يرمز إليه HTTP ولماذا يُستخدم؟"
     },
     "answer": {
       "en": "HyperText Transfer Protocol — the foundation of data communication on the World Wide Web, used to transfer web pages and other resources between a browser and a server.",
@@ -213,7 +213,7 @@
     },
     "question": {
       "en": "What is version control and why is Git widely used?",
-      "ar": "شو هو «التحكم بالإصدارات»، وليش Git منتشر كثير؟"
+      "ar": "ما التحكم في الإصدارات ولماذا يُستخدم Git على نطاق واسع؟"
     },
     "answer": {
       "en": "Version control tracks changes to code over time, allowing teams to collaborate, roll back errors, and maintain history. Git is a distributed VCS — every developer has a full copy of the repository, enabling offline work and fast branching.",
@@ -232,7 +232,7 @@
     },
     "question": {
       "en": "What is an algorithm?",
-      "ar": "شو هي «الخوارزمية»؟"
+      "ar": "ما الخوارزمية؟"
     },
     "answer": {
       "en": "A finite, ordered set of well-defined instructions that solves a problem or accomplishes a task.",
@@ -251,7 +251,7 @@
     },
     "question": {
       "en": "What is the difference between a process and a thread?",
-      "ar": "شو الفرق بين العملية (Process) والخيط (Thread)؟"
+      "ar": "ما الفرق بين العملية والخيط؟"
     },
     "answer": {
       "en": "A process is an independent program instance with its own memory space. Threads are lighter-weight units of execution within a process, sharing the same memory — enabling concurrency with less overhead.",
@@ -270,7 +270,7 @@
     },
     "question": {
       "en": "What is object-oriented programming (OOP)?",
-      "ar": "شو هي البرمجة كائنية التوجه (OOP)؟"
+      "ar": "ما البرمجة كائنية التوجه (OOP)؟"
     },
     "answer": {
       "en": "A programming paradigm that organises code around 'objects' — entities that bundle data (attributes) and behaviour (methods). Core principles: encapsulation, inheritance, polymorphism, and abstraction.",
@@ -289,7 +289,7 @@
     },
     "question": {
       "en": "Which data structure works like a line at a bakery, where the first item added is the first one taken out?",
-      "ar": "أي بنية بيانات تشتغل مثل طابور المخبز، أول عنصر يدخل هو أول عنصر يطلع؟"
+      "ar": "أي بنية بيانات تعمل مثل طابور المخبز، حيث يكون أول عنصر يدخل هو أول عنصر يخرج؟"
     },
     "answer": {
       "en": "A queue (first in, first out)",
@@ -318,7 +318,7 @@
     },
     "question": {
       "en": "What does a running-time bound O(n log n) mean?",
-      "ar": "شو معنى الحد الزمني O(n log n)؟"
+      "ar": "ماذا يعني الحد الزمني O(n log n)؟"
     },
     "answer": {
       "en": "For sufficiently large n, the analyzed running time is at most a constant multiple of n log n. BigO is an upper bound; the analysis must separately specify worst, average, or another case.",
@@ -337,7 +337,7 @@
     },
     "question": {
       "en": "What is the OSI model and how many layers does it have?",
-      "ar": "شو هو نموذج OSI، وكم طبقة فيه؟"
+      "ar": "ما نموذج OSI وكم عدد طبقاته؟"
     },
     "answer": {
       "en": "The Open Systems Interconnection model is a 7-layer conceptual framework for network communication: Physical, Data Link, Network, Transport, Session, Presentation, Application. Each layer handles specific functions and communicates with adjacent layers.",
@@ -366,7 +366,7 @@
     },
     "question": {
       "en": "How do relational and nonrelational databases differ in their basic data models?",
-      "ar": "كيف تختلف قواعد البيانات العلائقية وغير العلائقية في طريقة تنظيم البيانات الأساسية؟"
+      "ar": "كيف تختلف قواعد البيانات العلائقية وغير العلائقية في نماذج بياناتها الأساسية؟"
     },
     "answer": {
       "en": "Relational databases organize data in relations, usually tables. Nonrelational systems use models such as documents, key-value pairs, graphs, or wide columns. Performance and consistency depend on the specific system and workload.",
@@ -385,7 +385,7 @@
     },
     "question": {
       "en": "What is a hash table and what is its average time complexity for lookups?",
-      "ar": "شو هو «جدول التجزئة» (Hash Table)، وكم متوسط تعقيد الوقت للبحث فيه؟"
+      "ar": "ما جدول التجزئة وما متوسط تعقيد الوقت لعمليات البحث فيه؟"
     },
     "answer": {
       "en": "A hash table stores key-value pairs by computing a hash of the key to determine storage location. Average O(1) for insertions, lookups, and deletions. Worst-case O(n) with many collisions.",
@@ -414,7 +414,7 @@
     },
     "question": {
       "en": "What is DNS and how does it work?",
-      "ar": "شو هو DNS، وكيف يشتغل؟"
+      "ar": "ما DNS وكيف يعمل؟"
     },
     "answer": {
       "en": "The Domain Name System translates human-readable domain names (e.g., example.com) into IP addresses. When you request a URL, a DNS resolver queries a hierarchy of servers (root → TLD → authoritative) to find the corresponding IP.",
@@ -443,7 +443,7 @@
     },
     "question": {
       "en": "What is the SOLID principle in object-oriented design?",
-      "ar": "في التصميم كائني التوجه، شو هي مبادئ SOLID؟"
+      "ar": "ما مبدأ SOLID في التصميم كائني التوجه؟"
     },
     "answer": {
       "en": "Five design principles: Single Responsibility (one reason to change), Open/Closed (open for extension, closed for modification), Liskov Substitution (subclasses substitutable for parent), Interface Segregation (specific interfaces), Dependency Inversion (depend on abstractions, not concretions).",
@@ -472,7 +472,7 @@
     },
     "question": {
       "en": "What is recursion and what is a base case?",
-      "ar": "شو هي «العودية»، وشو هي «الحالة الأساسية»؟"
+      "ar": "ما العودية وما الحالة الأساسية؟"
     },
     "answer": {
       "en": "Recursion is when a function calls itself to solve a smaller instance of the same problem. A base case is the condition that terminates the recursion — without it, the function would call itself infinitely and cause a stack overflow.",
@@ -501,7 +501,7 @@
     },
     "question": {
       "en": "For a graph with nonnegative edge weights, what time bound does Dijkstra's algorithm achieve with adjacency lists and a binary heap?",
-      "ar": "لرسم بياني أوزان حوافّه مش سالبة، كم الحد الزمني لخوارزمية ديكسترا باستخدام قوائم التجاور وكومة ثنائية؟"
+      "ar": "لرسم بياني ذي أوزان حواف غير سالبة، ما الحد الزمني لخوارزمية ديكسترا باستخدام قوائم التجاور وكومة ثنائية؟"
     },
     "answer": {
       "en": "O((V+E) log V), where V is the number of vertices and E the number of edges.",
@@ -528,7 +528,7 @@
     },
     "question": {
       "en": "Two threads update a shared counter without synchronization, causing results to depend on execution timing. What problem is this?",
-      "ar": "خيطين يحدّثون عدّاد مشترك من غير تزامن، فالنتيجة تعتمد على توقيت التنفيذ. شو اسم هالمشكلة؟"
+      "ar": "يحدّث خيطان عداداً مشتركاً دون مزامنة، فتتوقف النتيجة على توقيت التنفيذ. ما اسم هذه المشكلة؟"
     },
     "answer": {
       "en": "A race condition. A correctly applied mutex or suitable atomic operation can protect this update.",
@@ -555,7 +555,7 @@
     },
     "question": {
       "en": "During a network partition, which two guarantees cannot both be provided by a distributed data system according to CAP?",
-      "ar": "حسب مبرهنة CAP، لما تنقسم الشبكة، شو الضمانين اللي ما يقدر نظام البيانات الموزّع يوفّرهم مع بعض؟"
+      "ar": "أثناء انقسام الشبكة، ما الضمانان اللذان لا يستطيع نظام بيانات موزع توفيرهما معاً وفق مبرهنة CAP؟"
     },
     "answer": {
       "en": "Consistency and availability: while the network is split, the system must give up one of them.",
@@ -574,7 +574,7 @@
     },
     "question": {
       "en": "What distinguishes dynamic programming from a greedy strategy?",
-      "ar": "شو اللي يميّز البرمجة الديناميكية عن الاستراتيجية الجشعة؟"
+      "ar": "ما الذي يميز البرمجة الديناميكية عن الاستراتيجية الجشعة؟"
     },
     "answer": {
       "en": "Dynamic programming reuses solutions to overlapping subproblems according to a recurrence. A greedy strategy commits to a locally preferred choice. Either yields an optimum only when its correctness conditions are satisfied.",
@@ -593,7 +593,7 @@
     },
     "question": {
       "en": "How does paging map a process's virtual memory to physical memory?",
-      "ar": "كيف تقسيم الذاكرة لصفحات يربط الذاكرة الافتراضية للعملية بالذاكرة الفعلية؟"
+      "ar": "كيف يربط تقسيم الذاكرة إلى صفحات ذاكرة العملية الافتراضية بالذاكرة الفعلية؟"
     },
     "answer": {
       "en": "Virtual memory is divided into fixed-size pages mapped to physical frames using page tables. A page fault requires operating-system handling, which may load data from storage, allocate a page, or reject an invalid access.",
@@ -612,7 +612,7 @@
     },
     "question": {
       "en": "What is test-driven development (TDD) and what is the 'Red-Green-Refactor' cycle?",
-      "ar": "شو هو «التطوير القائم على الاختبار» (TDD)، وشو دورة «أحمر-أخضر-إعادة هيكلة»؟"
+      "ar": "ما التطوير القائم على الاختبار (TDD) وما دورة «أحمر-أخضر-إعادة هيكلة»؟"
     },
     "answer": {
       "en": "TDD is a development approach where tests are written before production code. Cycle: Red (write a failing test), Green (write minimal code to pass the test), Refactor (clean up code while keeping tests green). Benefits: better design, coverage, and fewer regressions.",
@@ -641,7 +641,7 @@
     },
     "question": {
       "en": "What is the halting problem and what did Turing prove about it?",
-      "ar": "شو هي «مشكلة التوقف»، وشو اللي أثبته تورنغ عنها؟"
+      "ar": "ما مشكلة التوقف وماذا أثبت تيورنغ بشأنها؟"
     },
     "answer": {
       "en": "The halting problem asks whether a general algorithm can determine if any given program will eventually halt or run forever. Turing proved (1936) this is undecidable — no such general algorithm can exist — by demonstrating a contradiction (if it could, you could construct a program that halts iff it doesn't).",
@@ -670,7 +670,7 @@
     },
     "question": {
       "en": "What is a balanced binary search tree (BST) and why is balance important?",
-      "ar": "شو هي شجرة البحث الثنائي المتوازنة، وليش التوازن مهم؟"
+      "ar": "ما شجرة البحث الثنائي المتوازنة ولماذا يهم التوازن؟"
     },
     "answer": {
       "en": "A BST where the heights of subtrees are kept close (e.g., AVL tree: height difference ≤ 1; Red-Black tree: more relaxed). Balance ensures search, insertion, and deletion remain O(log n) in the worst case. An unbalanced BST can degrade to O(n) — a linked list.",
@@ -689,7 +689,7 @@
     },
     "question": {
       "en": "How do TCP and UDP differ in their transport service?",
-      "ar": "كيف تختلف خدمة النقل اللي يعطيها TCP عن UDP؟"
+      "ar": "كيف تختلف خدمة النقل التي يوفرها TCP عن UDP؟"
     },
     "answer": {
       "en": "TCP offers a reliable ordered byte stream with retransmission and failure reporting. UDP sends independent datagrams without delivery or ordering guarantees. Neither protocol can guarantee successful communication through every failure.",
@@ -708,7 +708,7 @@
     },
     "question": {
       "en": "What deployment distinction separates a monolith from a microservices architecture?",
-      "ar": "من ناحية النشر، شو الفرق بين المعمارية الأحادية ومعمارية الخدمات المصغّرة؟"
+      "ar": "ما الفرق في النشر بين المعمارية الأحادية ومعمارية الخدمات المصغرة؟"
     },
     "answer": {
       "en": "A monolith deploys its main application as one unit; microservices separate capabilities into independently deployable services. The latter can increase team autonomy but adds distributed-system and operational complexity.",
@@ -727,7 +727,7 @@
     },
     "question": {
       "en": "Can a garbage-collected program still leak memory by retaining references to objects it no longer needs?",
-      "ar": "هل برنامج يستخدم جمع الذاكرة التلقائي ممكن «يسرّب» ذاكرة لأنه ماسك مراجع لكائنات ما عاد يحتاجها؟"
+      "ar": "هل يمكن لبرنامج يستخدم جمع الذاكرة التلقائي أن يسرّب الذاكرة بسبب الاحتفاظ بمراجع إلى كائنات لم يعد يحتاجها؟"
     },
     "answer": {
       "en": "Yes. Reachability-based garbage collectors reclaim unreachable objects, so unnecessarily retained reachable objects can keep consuming memory.",
@@ -746,7 +746,7 @@
     },
     "question": {
       "en": "What is the difference between depth-first search (DFS) and breadth-first search (BFS)?",
-      "ar": "شو الفرق بين البحث بالعمق أولًا (DFS) والبحث بالعرض أولًا (BFS)؟"
+      "ar": "ما الفرق بين البحث بالعمق أولاً (DFS) والبحث بالعرض أولاً (BFS)؟"
     },
     "answer": {
       "en": "DFS explores as far as possible along each branch before backtracking — uses a stack (or recursion); good for cycle detection, topological sort. BFS explores all neighbours at the current depth before going deeper — uses a queue; good for shortest path in unweighted graphs.",
@@ -765,7 +765,7 @@
     },
     "question": {
       "en": "What four Coffman conditions are necessary for resource deadlock in the classical model?",
-      "ar": "شو شروط كوفمان الأربعة اللازمة لـ«الجمود» (Deadlock) بالنموذج التقليدي؟"
+      "ar": "ما شروط كوفمان الأربعة اللازمة لاختناق الموارد في النموذج التقليدي؟"
     },
     "answer": {
       "en": "Mutual exclusion; hold and wait; no forced preemption of resources; circular wait.",
@@ -792,7 +792,7 @@
     },
     "question": {
       "en": "What is eventual consistency in distributed databases?",
-      "ar": "في قواعد البيانات الموزّعة، شو هو «التناسق النهائي»؟"
+      "ar": "ما التناسق النهائي في قواعد البيانات الموزعة؟"
     },
     "answer": {
       "en": "A consistency model in which replicas eventually converge if updates stop and communication succeeds, while temporary differences between replicas are allowed.",
@@ -811,7 +811,7 @@
     },
     "question": {
       "en": "What is the difference between P, NP, and NP-complete problems?",
-      "ar": "شو الفرق بين مسائل P وNP وNP-complete؟"
+      "ar": "ما الفرق بين مسائل P وNP وNP-complete؟"
     },
     "answer": {
       "en": "P: problems solvable in polynomial time. NP: problems whose proposed solution can be verified in polynomial time. NP-complete: the hardest NP problems; every NP problem reduces to them. Whether P = NP is unsolved.",
@@ -830,7 +830,7 @@
     },
     "question": {
       "en": "What is HTTPS and how does TLS protect web traffic?",
-      "ar": "شو هو HTTPS، وكيف TLS يحمي حركة الإنترنت؟"
+      "ar": "ما HTTPS وكيف يحمي TLS حركة الويب؟"
     },
     "answer": {
       "en": "HTTPS is HTTP over TLS (Transport Layer Security). TLS provides encryption (prevents eavesdropping), authentication (server certificate verifies identity), and integrity (prevents tampering). The TLS handshake negotiates cipher suites and exchanges session keys using asymmetric cryptography before switching to symmetric encryption.",
@@ -849,7 +849,7 @@
     },
     "question": {
       "en": "Which design pattern lets an object notify registered subscribers when its state changes?",
-      "ar": "شو نمط التصميم اللي يخلّي كائن يبلّغ المشتركين المسجّلين لما تتغير حالته؟"
+      "ar": "ما نمط التصميم الذي يتيح لكائن إخطار المشتركين المسجلين عند تغير حالته؟"
     },
     "answer": {
       "en": "The Observer pattern.",
@@ -868,7 +868,7 @@
     },
     "question": {
       "en": "In the usual PBFT replication model, how many replicas are required to tolerate up to f Byzantine-faulty replicas?",
-      "ar": "في نموذج النسخ المعتاد لخوارزمية PBFT، كم نسخة نحتاج عشان نتحمّل لحد f نسخة فيها أعطال بيزنطية؟"
+      "ar": "في نموذج النسخ المعتاد لخوارزمية PBFT، كم نسخة تلزم لتحمل ما يصل إلى f من النسخ ذات الأعطال البيزنطية؟"
     },
     "answer": {
       "en": "At least 3f+1 replicas, under the protocol's assumptions. This is not a universal bound for every fault and timing model.",
@@ -887,7 +887,7 @@
     },
     "question": {
       "en": "What is the Raft consensus algorithm and what problem does it solve?",
-      "ar": "شو هي خوارزمية الإجماع Raft، وشو المشكلة اللي تحلّها؟"
+      "ar": "ما خوارزمية الإجماع Raft وما المشكلة التي تحلها؟"
     },
     "answer": {
       "en": "Raft (Ongaro & Ousterhout, 2014) is a consensus algorithm for distributed systems that ensures multiple nodes agree on a sequence of values even in the presence of failures. It decomposes consensus into leader election, log replication, and safety. Designed as a more understandable alternative to Paxos — used in etcd, CockroachDB.",
@@ -916,7 +916,7 @@
     },
     "question": {
       "en": "What is a cache coherence protocol and why does it matter for multi-core processors?",
-      "ar": "شو هو بروتوكول تماسك الذاكرة المخبئية، وليش مهم للمعالجات متعددة الأنوية؟"
+      "ar": "ما بروتوكول تماسك الذاكرة المخبئية ولماذا يهم لمعالجات متعددة النوى؟"
     },
     "answer": {
       "en": "In multi-core CPUs, each core has its own cache. Cache coherence protocols (e.g., MESI — Modified, Exclusive, Shared, Invalid) ensure all caches present a consistent view of memory. Without coherence, one core might read a stale value written by another. The protocol uses bus snooping or directory-based mechanisms to track cache line states.",
@@ -945,7 +945,7 @@
     },
     "question": {
       "en": "What classes of languages are recognized by finite automata and by Turing machines?",
-      "ar": "شو فئات اللغات اللي تتعرّف عليها الآلات محدودة الحالات وآلات تورنغ؟"
+      "ar": "ما فئات اللغات التي تتعرف عليها الآلات محدودة الحالات وآلات تورينغ؟"
     },
     "answer": {
       "en": "Finite automata recognize regular languages. Turing machines recognize recursively enumerable, or Turing-recognizable, languages.",
@@ -972,7 +972,7 @@
     },
     "question": {
       "en": "In event sourcing, what is the authoritative record from which application state can be reconstructed?",
-      "ar": "لما الأحداث تكون مصدر الحقيقة، شو السجل المرجعي اللي نقدر نعيد منه بناء حالة التطبيق؟"
+      "ar": "عند اعتماد الأحداث مصدراً للحقيقة، ما السجل المرجعي الذي يمكن إعادة بناء حالة التطبيق منه؟"
     },
     "answer": {
       "en": "An ordered log of immutable events. Snapshots and projections may also be stored, but can be derived from the event history.",
@@ -999,7 +999,7 @@
     },
     "question": {
       "en": "What is a skip list and what are its time complexity guarantees?",
-      "ar": "شو هي «قائمة التخطي» (Skip List)، وشو ضمانات تعقيدها الزمني؟"
+      "ar": "ما قائمة التخطي (Skip List) وما ضمانات تعقيدها الزمني؟"
     },
     "answer": {
       "en": "A skip list is a probabilistic data structure with multiple linked layers, each a subset of the layer below, allowing O(log n) expected search, insertion, and deletion. It achieves the same performance as balanced BSTs without complex rotations. Used in Redis sorted sets and LevelDB.",
@@ -1028,7 +1028,7 @@
     },
     "question": {
       "en": "What capability does eBPF provide for supported Linux-kernel use cases?",
-      "ar": "شو الإمكانية اللي يوفّرها eBPF للاستخدامات المدعومة داخل نواة لينكس؟"
+      "ar": "ما الإمكانية التي يوفرها eBPF للاستخدامات المدعومة داخل نواة لينكس؟"
     },
     "answer": {
       "en": "It runs verified, constrained programs at supported hook points without modifying kernel source. Uses include networking, tracing, and security; their runtime overhead depends on the program and workload.",
@@ -1047,7 +1047,7 @@
     },
     "question": {
       "en": "When does optimistic concurrency control detect conflicts, compared with holding locks throughout a transaction?",
-      "ar": "متى «التحكم التفاؤلي بالتزامن» يكتشف التعارضات، مقارنة بإنك تمسك الأقفال طول المعاملة؟"
+      "ar": "متى يكتشف التحكم التفاؤلي في التزامن التعارضات، مقارنةً بالاحتفاظ بالأقفال طوال المعاملة؟"
     },
     "answer": {
       "en": "It lets work proceed and validates for conflicts before committing, retrying or aborting when needed. Implementations may still use short-lived locks during validation or commit.",
@@ -1066,7 +1066,7 @@
     },
     "question": {
       "en": "What is type theory and how does the Curry-Howard correspondence connect it to logic?",
-      "ar": "شو هي «نظرية الأنواع»، وكيف «تطابق كاري-هوارد» يربطها بالمنطق؟"
+      "ar": "ما نظرية النوع وكيف تربطها مراسلة كاري-هاوارد بالمنطق؟"
     },
     "answer": {
       "en": "Type theory studies formal systems that classify values by type. The Curry-Howard correspondence states that types are propositions and programs are proofs — an inhabited type corresponds to a provable proposition. This deep connection underpins dependently typed languages (Coq, Agda, Lean) used for program verification.",
@@ -1085,7 +1085,7 @@
     },
     "question": {
       "en": "Why is append O(1) amortized for a dynamic array whose capacity doubles when full?",
-      "ar": "ليش الإضافة بآخر مصفوفة ديناميكية تضاعف سعتها لما تمتلي تكلّف O(1) بالتكلفة الموزّعة؟"
+      "ar": "لماذا تكون كلفة الإضافة في نهاية مصفوفة ديناميكية تضاعف سعتها عند امتلائها O(1) بالتكلفة الموزعة؟"
     },
     "answer": {
       "en": "Across n appends, resize-copy costs form a geometric sum 1+2+4+... = O(n). Including ordinary appends gives total O(n), hence O(1) amortized per append.",
@@ -1104,7 +1104,7 @@
     },
     "question": {
       "en": "In a fixed-capacity ring buffer, what happens to the logical next index after the last array position?",
-      "ar": "في مخزن دائري سعته ثابتة، شو يصير للفهرس اللي بعده منطقيًا بعد آخر مكان بالمصفوفة؟"
+      "ar": "في مخزن دائري ثابت السعة، ماذا يحدث للفهرس التالي منطقياً بعد آخر موضع في المصفوفة؟"
     },
     "answer": {
       "en": "It wraps around to index 0, usually computed as (index + 1) mod capacity. Full and empty states must be tracked separately.",
@@ -1123,7 +1123,7 @@
     },
     "question": {
       "en": "What integer problem can Shor's quantum algorithm solve in polynomial time on a sufficiently capable quantum computer?",
-      "ar": "شو مسألة الأعداد الصحيحة اللي تحلّها خوارزمية شور بزمن كثير حدود على كمبيوتر كمّي قوي كفاية؟"
+      "ar": "ما المسألة المتعلقة بالأعداد الصحيحة التي تحلها خوارزمية شور في زمن كثير حدود على حاسوب كمي ذي قدرة كافية؟"
     },
     "answer": {
       "en": "Integer factorization. This is faster asymptotically than the best known classical factoring methods, but no proof rules out every possible efficient classical algorithm.",
@@ -1142,7 +1142,7 @@
     },
     "question": {
       "en": "What does HTML stand for?",
-      "ar": "شو معنى HTML؟"
+      "ar": "ماذا تعني HTML؟"
     },
     "answer": {
       "en": "HyperText Markup Language",
@@ -1161,7 +1161,7 @@
     },
     "question": {
       "en": "What is the term for an error or flaw in a computer program?",
-      "ar": "شو نسمّي الغلط أو العيب في برنامج الكمبيوتر؟"
+      "ar": "ما المصطلح الذي يشير إلى خطأ أو عيب في برنامج حاسوبي؟"
     },
     "answer": {
       "en": "A software bug.",
@@ -1180,7 +1180,7 @@
     },
     "question": {
       "en": "How many values (digits) are used in binary code?",
-      "ar": "كم قيمة يستخدمها النظام الثنائي؟"
+      "ar": "كم عدد القيم المستخدمة في الرمز الثنائي؟"
     },
     "answer": {
       "en": "Two: 0 and 1",
@@ -1199,7 +1199,7 @@
     },
     "question": {
       "en": "What programming construct repeats a block of code until a condition is met?",
-      "ar": "شو اسم البنية البرمجية اللي تكرر جزء من الكود لحد ما يتحقق شرط معيّن؟"
+      "ar": "ما البنية البرمجية التي تكرر كتلة من الكود حتى يتحقق شرط معين؟"
     },
     "answer": {
       "en": "A loop",
@@ -1218,7 +1218,7 @@
     },
     "question": {
       "en": "Which language is used to style and layout web pages?",
-      "ar": "أي لغة نستخدمها لتنسيق صفحات الويب وترتيبها؟"
+      "ar": "أي لغة تُستخدم لتنسيق وتخطيط صفحات الويب؟"
     },
     "answer": {
       "en": "CSS",
@@ -1237,7 +1237,7 @@
     },
     "question": {
       "en": "What is a named storage location in a program called?",
-      "ar": "شو نسمّي مكان التخزين اللي له اسم داخل البرنامج؟"
+      "ar": "ما اسم موقع التخزين الذي له اسم في البرنامج؟"
     },
     "answer": {
       "en": "A variable",
@@ -1256,7 +1256,7 @@
     },
     "question": {
       "en": "What does 'UI' stand for in design?",
-      "ar": "شو معنى UI في التصميم؟"
+      "ar": "ماذا تعني UI في التصميم؟"
     },
     "answer": {
       "en": "User Interface",
@@ -1275,7 +1275,7 @@
     },
     "question": {
       "en": "What are explanatory annotations in source code that the language does not execute called?",
-      "ar": "شو اسم الملاحظات التوضيحية في الكود اللي اللغة ما تنفذها؟"
+      "ar": "ما اسم الملاحظات التوضيحية في الكود المصدري التي لا تنفذها اللغة؟"
     },
     "answer": {
       "en": "A comment",
@@ -1294,7 +1294,7 @@
     },
     "question": {
       "en": "Which part of a website can a user see and interact with?",
-      "ar": "أي جزء من الموقع يقدر المستخدم يشوفه ويتفاعل معه؟"
+      "ar": "أي جزء من الموقع يمكن للمستخدم رؤيته والتفاعل معه؟"
     },
     "answer": {
       "en": "The Frontend",
@@ -1313,7 +1313,7 @@
     },
     "question": {
       "en": "What is the flashing line that shows where you are typing?",
-      "ar": "شو اسم الخط اللي يومض ويبيّن وين بتكتب؟"
+      "ar": "ما الخط الوامض الذي يُظهر موضع الكتابة؟"
     },
     "answer": {
       "en": "The cursor",
@@ -1332,7 +1332,7 @@
     },
     "question": {
       "en": "What is the difference between UI and UX?",
-      "ar": "شو الفرق بين UI وUX؟"
+      "ar": "ما الفرق بين UI وUX؟"
     },
     "answer": {
       "en": "UI is the interface through which users interact, including controls and presentation. UX is the broader experience of using a product, including usability, accessibility, and whether it meets users' needs.",
@@ -1351,7 +1351,7 @@
     },
     "question": {
       "en": "What are the two possible values of a Boolean data type?",
-      "ar": "شو القيمتين الممكنتين للنوع المنطقي Boolean؟"
+      "ar": "ما قيمتا النوع المنطقي Boolean المحتملتان؟"
     },
     "answer": {
       "en": "True and False",
@@ -1370,7 +1370,7 @@
     },
     "question": {
       "en": "What does 'API' stand for?",
-      "ar": "شو معنى API؟"
+      "ar": "ماذا تعني API؟"
     },
     "answer": {
       "en": "Application Programming Interface",
@@ -1389,7 +1389,7 @@
     },
     "question": {
       "en": "What is the term for a website that adjusts its layout for different screen sizes?",
-      "ar": "شو نسمّي الموقع اللي تصميمه يتغير حسب حجم الشاشة؟"
+      "ar": "ما المصطلح الذي يصف موقعاً يتكيف تخطيطه مع أحجام الشاشات المختلفة؟"
     },
     "answer": {
       "en": "Responsive Design",
@@ -1408,7 +1408,7 @@
     },
     "question": {
       "en": "Which widely used distributed version-control system was created by Linus Torvalds in 2005?",
-      "ar": "شو نظام إدارة الإصدارات الموزّع المنتشر اللي عمله لينوس تورفالدس سنة 2005؟"
+      "ar": "ما نظام التحكم الموزع في الإصدارات واسع الاستخدام الذي أنشأه لينوس تورفالدس عام 2005؟"
     },
     "answer": {
       "en": "Git",
@@ -1427,7 +1427,7 @@
     },
     "question": {
       "en": "In programming, what do you call a sequence of characters?",
-      "ar": "في البرمجة، شو اسم سلسلة الحروف؟"
+      "ar": "في البرمجة، ما اسم سلسلة الأحرف؟"
     },
     "answer": {
       "en": "A String",
@@ -1446,7 +1446,7 @@
     },
     "question": {
       "en": "In web design, what is #000000 the color code for?",
-      "ar": "في تصميم الويب، أي لون يمثّله الكود ‎#000000؟"
+      "ar": "في تصميم الويب، ما اللون الذي يرمز إليه الكود #000000؟"
     },
     "answer": {
       "en": "Black",
@@ -1465,7 +1465,7 @@
     },
     "question": {
       "en": "Which language is commonly used for back-end development: HTML or Python?",
-      "ar": "أي لغة تنستخدم عادةً في تطوير الواجهة الخلفية: HTML ولا Python؟"
+      "ar": "أي لغة تُستخدم عادةً في تطوير الواجهة الخلفية: HTML أم Python؟"
     },
     "answer": {
       "en": "Python",
@@ -1484,7 +1484,7 @@
     },
     "question": {
       "en": "What is the term for the style and appearance of printed text (fonts)?",
-      "ar": "شو نسمّي شكل وأسلوب النص المطبوع، يعني الخطوط؟"
+      "ar": "ما المصطلح الذي يشير إلى أسلوب ومظهر النص المطبوع (الخطوط)؟"
     },
     "answer": {
       "en": "Typography",
@@ -1503,7 +1503,7 @@
     },
     "question": {
       "en": "Which mathematician of Baghdad's House of Wisdom gave his name to the word 'algorithm', and his book title to the word 'algebra'?",
-      "ar": "مين عالم الرياضيات في بيت الحكمة ببغداد اللي صار اسمه أصل كلمة «Algorithm»، وعنوان كتابه أصل كلمة «Algebra»؟"
+      "ar": "مَن عالم الرياضيات في بيت الحكمة ببغداد الذي أصبح اسمه أصل كلمة «Algorithm»، وعنوان كتابه أصل كلمة «Algebra»؟"
     },
     "answer": {
       "en": "Muhammad ibn Musa al-Khwarizmi (9th century)",
@@ -1522,7 +1522,7 @@
     },
     "question": {
       "en": "What is Big O notation used to measure?",
-      "ar": "ليش نستخدم «Big O Notation»؟"
+      "ar": "لماذا يُستخدم مصطلح Big O Notation؟"
     },
     "answer": {
       "en": "The efficiency/complexity of an algorithm",
@@ -1541,7 +1541,7 @@
     },
     "question": {
       "en": "Which web programming language did Brendan Eich create in about ten days at Netscape in 1995?",
-      "ar": "أي لغة برمجة للويب صمّمها برندن آيك بحوالي عشرة أيام في شركة نتسكيب سنة 1995؟"
+      "ar": "أي لغة برمجة للويب صمّمها برندن آيك في نحو عشرة أيام في شركة نتسكيب عام 1995؟"
     },
     "answer": {
       "en": "JavaScript (despite the name, unrelated to Java)",
@@ -1560,7 +1560,7 @@
     },
     "question": {
       "en": "Which data structure follows the 'Last In, First Out' (LIFO) principle?",
-      "ar": "أي هيكل بيانات يمشي على مبدأ «آخر واحد يدخل أول واحد يطلع»؟"
+      "ar": "أي هيكل بيانات يتبع مبدأ «آخر ما يدخل أول ما يخرج»؟"
     },
     "answer": {
       "en": "A Stack",
@@ -1579,7 +1579,7 @@
     },
     "question": {
       "en": "Which open problem asks whether every decision problem whose proposed solutions can be verified in polynomial time can also be solved in polynomial time?",
-      "ar": "شو المسألة المفتوحة اللي تسأل: هل كل مسألة نقدر نتحقق من حلّها بسرعة (بزمن كثير حدود)، نقدر كمان نحلّها بنفس السرعة؟"
+      "ar": "ما المسألة المفتوحة التي تسأل هل كل مسألة قرار يمكن التحقق من حلولها المقترحة في زمن كثير حدود يمكن حلها أيضاً في زمن كثير حدود؟"
     },
     "answer": {
       "en": "P vs NP",
@@ -1598,7 +1598,7 @@
     },
     "question": {
       "en": "In a typical ahead-of-time C++ build, is source code compiled before the resulting executable runs?",
-      "ar": "في بناء C++ العادي بالترجمة المسبقة، هل الكود ينترجم قبل ما يشتغل الملف التنفيذي؟"
+      "ar": "في بناء C++ المعتاد بالترجمة المسبقة، هل يُترجم المصدر قبل تشغيل الملف التنفيذي الناتج؟"
     },
     "answer": {
       "en": "Yes. C++ is typically compiled, although interpreters and other implementation strategies also exist.",
@@ -1617,7 +1617,7 @@
     },
     "question": {
       "en": "In typography, what term means adjusting the spacing between a specific pair of characters?",
-      "ar": "في تنسيق الخطوط، شو اسم ضبط المسافة بين زوج معيّن من الحروف؟"
+      "ar": "في تنسيق الخطوط، ما المصطلح الذي يعني ضبط المسافة بين زوج محدد من الحروف؟"
     },
     "answer": {
       "en": "Kerning",
@@ -1636,7 +1636,7 @@
     },
     "question": {
       "en": "What is the primary language used for managing data in a relational database?",
-      "ar": "شو اللغة الأساسية لإدارة البيانات في قواعد البيانات العلائقية؟"
+      "ar": "ما اللغة الرئيسية لإدارة البيانات في قاعدة البيانات العلائقية؟"
     },
     "answer": {
       "en": "SQL",
@@ -1655,7 +1655,7 @@
     },
     "question": {
       "en": "Is React a programming language or a JavaScript library?",
-      "ar": "React لغة برمجة ولا مكتبة JavaScript؟"
+      "ar": "هل React لغة برمجة أم مكتبة JavaScript؟"
     },
     "answer": {
       "en": "A JavaScript library",
@@ -1674,7 +1674,7 @@
     },
     "question": {
       "en": "What translates assembly language into machine code?",
-      "ar": "شو اللي يحوّل لغة التجميع لكود الآلة؟"
+      "ar": "ما الذي يترجم لغة التجميع إلى رمز الآلة؟"
     },
     "answer": {
       "en": "An assembler",
@@ -1693,7 +1693,7 @@
     },
     "question": {
       "en": "Who is famous for creating the '10 Usability Heuristics for User Interface Design'?",
-      "ar": "مين اشتهر بـ«10 قواعد لسهولة الاستخدام» في تصميم الواجهات؟"
+      "ar": "من اشتُهر بإنشاء «10 قواعد إرشادية لسهولة الاستخدام في تصميم واجهة المستخدم»؟"
     },
     "answer": {
       "en": "Jakob Nielsen",

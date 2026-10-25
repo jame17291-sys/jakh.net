@@ -14,8 +14,9 @@ export const ASSET_BUDGETS = Object.freeze({
   'battle-mode.js': Object.freeze({ raw: 30_000, gzip: 8_000, brotli: 7_000 }),
   'battle-selection.js': Object.freeze({ raw: 14_000, gzip: 4_000, brotli: 3_500 }),
   'battle-mode.css': Object.freeze({ raw: 12_000, gzip: 3_000, brotli: 2_500 }),
-  // Includes exact Arabic speech tokens and sentence-preserving mobile chunks.
-  'speech-quality.js': Object.freeze({ raw: 6_500, gzip: 2_700, brotli: 2_300 }),
+  // Includes exact Arabic speech tokens, sentence-preserving mobile chunks and
+  // natural-voice ranking that never picks Apple's novelty voices.
+  'speech-quality.js': Object.freeze({ raw: 8_200, gzip: 3_500, brotli: 3_000 }),
   'party-games.js': Object.freeze({ raw: 35_000, gzip: 11_000, brotli: 9_500 }),
   'party-games-engine.js': Object.freeze({ raw: 9_000, gzip: 3_000, brotli: 2_600 }),
   'party-games-copy.js': Object.freeze({ raw: 16_000, gzip: 6_000, brotli: 5_000 }),

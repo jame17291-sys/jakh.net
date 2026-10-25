@@ -5,6 +5,7 @@ import test from 'node:test';
 import {
   TOPIC_MERGE_LEDGER, bankBeforeMerge, beforeTopicMove, cardBeforeMerge, cardMoveHistory, readCurrentBank, readTopicMergeLedger,
 } from './topic-merge-ledger.mjs';
+import { bankBeforeMsaRestore } from './arabic-msa-restore-ledger.mjs';
 import { RETIRED_TOPIC_REDIRECTS, RETIRED_TV_SHOWS, retiredTopicRouteTarget } from '../site-worker/src/topic-route-migrations.js';
 import { SHOWS } from '../tv-trivia-engine.js';
 import { TOPIC_ILLUSTRATIONS } from '../site-illustrations.js';
@@ -20,6 +21,9 @@ const held = new Set(quarantine.categories.map(category => category.slug));
 const slugs = new Set(catalog.categories.map(category => category.slug));
 const retired = new Map(ledger.retiredTopics.map(topic => [topic.slug, topic]));
 const LEVELS = new Set(['easy', 'medium', 'hard', 'very-advanced']);
+// Topic files as they stood before the 2026-10-25 return to Modern Standard
+// Arabic, which changed only Arabic wording and is recorded in its own ledger.
+const beforeMsa = bankBeforeMsaRestore;
 
 test('the 2026-10-25 topic merges are recorded, pending review, and leave held topics alone', () => {
   assert.equal(TOPIC_MERGE_LEDGER, 'docs/content-review/topic-merge-2026-10-25.json');
@@ -50,7 +54,7 @@ test('every moved card keeps its id and content, changes only topic and subtopic
   for (const move of ledger.moved) {
     assert.ok(slugs.has(move.to), `${move.id}: target topic exists`);
     assert.notEqual(move.from, move.to, `${move.id}: a real move`);
-    const target = readCurrentBank(move.to);
+    const target = beforeMsa(move.to);
     const matches = target.filter(card => card.id === move.id);
     assert.equal(matches.length, 1, `${move.id}: present once in ${move.to}`);
     assert.ok(!readCurrentBank(move.from).some(card => card.id === move.id), `${move.id}: gone from ${move.from}`);
@@ -67,7 +71,7 @@ test('every moved card keeps its id and content, changes only topic and subtopic
     assert.ok(LEVELS.has(card.difficulty), `${move.id}: valid level`);
     // A new subtopic is one the target topic already uses; a merged topic may
     // keep its own subtopic name when the target has no equivalent.
-    const original = bankBeforeMerge(ledger, move.to);
+    const original = bankBeforeMerge(ledger, move.to, beforeMsa);
     const existing = original.some(other => other.subcategory.en === card.subcategory.en && other.subcategory.ar === card.subcategory.ar);
     const kept = JSON.stringify(move.subcategory.before) === JSON.stringify(move.subcategory.after);
     assert.ok(existing || (kept && retired.has(move.from)), `${move.id}: lands in an existing subtopic of ${move.to}`);
@@ -102,9 +106,9 @@ test('the ledger restores every pre-merge topic file and the 3,798-card public c
   assert.equal(before.size, 56);
   let publicCards = 0;
   for (const slug of before) {
-    const cards = bankBeforeMerge(ledger, slug);
+    const cards = bankBeforeMerge(ledger, slug, beforeMsa);
     const touched = ledger.moved.some(move => move.from === slug || move.to === slug) || ledger.removed.some(entry => entry.category === slug);
-    if (!touched) assert.deepEqual(cards, readCurrentBank(slug), `${slug}: untouched topics are unchanged`);
+    if (!touched) assert.deepEqual(cards, beforeMsa(slug), `${slug}: untouched topics are unchanged`);
     for (const entry of [...ledger.moved.filter(move => move.from === slug), ...ledger.removed.filter(item => item.category === slug)]) {
       assert.equal(cards[entry.position]?.id, entry.id, `${entry.id}: restores to its recorded position in ${slug}`);
     }

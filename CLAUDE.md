@@ -39,8 +39,8 @@ Riddle Arabia is unrelated to the owner's JAKH ERP/Odoo project.
 ## Product rules
 
 - Bilingual Arabic/English (natural Arabic, full RTL) with a complete English option. Question
-  cards use light everyday Arabic (شو/مين/اللي); interface copy stays Modern Standard Arabic. See
-  `docs/content-review/ARABIC-STYLE-GUIDE.md`. Keep the
+  cards and interface copy use clear Modern Standard Arabic (the owner reversed the
+  everyday-dialect style on 25 Oct 2026). See `docs/content-review/ARABIC-STYLE-GUIDE.md`. Keep the
   cream / terracotta / hourglass identity unless the owner asks otherwise.
 - All public practice questions and difficulty levels are free to guests. Accounts are optional.
   Do not add guest question limits, difficulty paywalls, paid services, paid tiers or external

@@ -98,17 +98,27 @@ The search shards are separately budgeted because they load only when global
 search opens. The gate measures the exact checked-in bytes with fixed compression
 settings, so results are repeatable across runs.
 
-The reader loads on pages that offer read-aloud controls. Its 6,435 raw bytes,
-2,546 gzip bytes and 2,138 Brotli bytes include synchronous mobile activation,
+The reader loads on pages that offer read-aloud controls. Its 7,923 raw bytes,
+3,357 gzip bytes and 2,824 Brotli bytes include synchronous mobile activation,
 retained chunks for long instructions, startup timeout, cancellation and error
 recovery. Both cards and Kids use the same voice selection and text preparation.
 Exact Arabic pronunciations of C++, C#, DNA, RNA and pH prevent technical tokens
 from being misread as arithmetic or arbitrary foreign words. Sentence-aware
 chunks preserve complete questions and avoid isolated final-word utterances.
-These corrections add 580 gzip bytes over the previously deployed reader. Only
-this separately loaded feature budget increases; all initial application
-limits stay unchanged. This input preparation does not establish the acoustic
-quality of a device voice or a generated recording.
+
+The 2026-10-25 voice fix adds 1,488 raw, 811 gzip and 686 Brotli bytes. Users
+reported a broken English voice on Classic Riddles: on Apple devices, and above
+all on a phone set to Arabic, no English voice is the default, so every local
+English voice tied and the first in list order won, usually a novelty voice
+such as Albert, Bahh or Bells. The reader now names Apple's novelty voices so it
+never picks them, ranks older robotic voices (Fred, Eddy, Grandma and the like)
+below well-known natural ones (Samantha, Daniel, Karen, Majed, Tarik and
+others), and prefers en-US/en-GB and ar-SA/ar-001. Text preparation also drops
+invisible direction marks, straight quotes, tatweel after بـ/لـ, dashes and
+fill-in blanks that a voice would otherwise spell out. Only this separately
+loaded feature budget increases; all initial application limits stay
+unchanged. This input preparation does not establish the acoustic quality of a
+device voice or a generated recording.
 
 The two friendship games load their own module graph and public question bank
 only on their dedicated pages. Games hub cards use the existing directory

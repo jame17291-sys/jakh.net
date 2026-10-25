@@ -45,12 +45,12 @@
       "ar": "النجوم وتطورها"
     },
     "question": {
-      "en": "What is the name of the star at the center of our solar system?",
-      "ar": "شو اسم النجم اللي بنص مجموعتنا الشمسية؟"
+      "en": "Seen from space, above Earth's atmosphere, what colour is the Sun?",
+      "ar": "لو شفنا الشمس من الفضاء، فوق الغلاف الجوي، شو لونها؟"
     },
     "answer": {
-      "en": "The Sun",
-      "ar": "الشمس"
+      "en": "White; the air scatters some blue light, so from the ground it looks yellowish.",
+      "ar": "أبيض؛ الغلاف الجوي يشتّت جزءاً من الضوء الأزرق، فتبدو الشمس مصفرّة من الأرض."
     },
     "review": {
       "status": "pending"
@@ -134,7 +134,7 @@
   },
   {
     "id": "space-and-astrology-008",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Solar System & Planets",
       "ar": "النظام الشمسي والكواكب"
@@ -210,7 +210,7 @@
   },
   {
     "id": "space-and-astrology-012",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Solar System & Planets",
       "ar": "النظام الشمسي والكواكب"
@@ -248,7 +248,7 @@
   },
   {
     "id": "space-and-astrology-014",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Solar System & Planets",
       "ar": "النظام الشمسي والكواكب"
@@ -267,7 +267,7 @@
   },
   {
     "id": "space-and-astrology-015",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Space Exploration & Telescopes",
       "ar": "استكشاف الفضاء والتلسكوبات"
@@ -305,7 +305,7 @@
   },
   {
     "id": "space-and-astrology-017",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Solar System & Planets",
       "ar": "النظام الشمسي والكواكب"
@@ -514,7 +514,7 @@
   },
   {
     "id": "space-and-astrology-028",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Space Physics & Orbits",
       "ar": "فيزياء الفضاء والمدارات"
@@ -609,7 +609,7 @@
   },
   {
     "id": "space-033",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Solar System & Planets",
       "ar": "النظام الشمسي والكواكب"
@@ -628,7 +628,7 @@
   },
   {
     "id": "space-034",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Solar System & Planets",
       "ar": "النظام الشمسي والكواكب"
@@ -685,7 +685,7 @@
   },
   {
     "id": "space-037",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Solar System & Planets",
       "ar": "النظام الشمسي والكواكب"
@@ -742,18 +742,18 @@
   },
   {
     "id": "space-040",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Solar System & Planets",
       "ar": "النظام الشمسي والكواكب"
     },
     "question": {
-      "en": "Which planet is closest to the Sun?",
-      "ar": "أي كوكب أقرب للشمس؟"
+      "en": "On which planet is a day longer than its year?",
+      "ar": "على أي كوكب اليوم أطول من السنة؟"
     },
     "answer": {
-      "en": "Mercury",
-      "ar": "عطارد"
+      "en": "Venus: one spin takes about 243 Earth days, one orbit about 225.",
+      "ar": "الزهرة: تدور حول نفسها في نحو 243 يوماً، وحول الشمس في نحو 225 يوماً."
     },
     "review": {
       "status": "pending"
@@ -1008,18 +1008,18 @@
   },
   {
     "id": "space-054",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Stars & Stellar Evolution",
-      "ar": "النجوم وتطورها"
+      "en": "Observational Astronomy",
+      "ar": "علم الفلك الرصدي"
     },
     "question": {
-      "en": "What is the Hertzsprung-Russell diagram?",
-      "ar": "شو هو «مخطط هيرتزبرونغ-راسل»؟"
+      "en": "Which astronomer, observing mainly at Raqqa around 900 CE, measured the solar year as 365 days, 5 hours and 46 minutes?",
+      "ar": "أي فلكي كان يرصد غالباً من الرقّة حوالي سنة 900م، وقاس السنة الشمسية بـ365 يوم و5 ساعات و46 دقيقة؟"
     },
     "answer": {
-      "en": "A scatter plot of stars showing their luminosity versus temperature, used to classify stars and track their evolution",
-      "ar": "مخطط انتشار للنجوم يُظهر علاقة الإضاءة بدرجة الحرارة، يُستخدم لتصنيف النجوم وتتبّع تطوّرها"
+      "en": "Al-Battani (Albategnius).",
+      "ar": "البتّاني."
     },
     "review": {
       "status": "pending"
@@ -1029,16 +1029,16 @@
     "id": "space-055",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Galaxies & Cosmology",
-      "ar": "المجرات وعلم الكون"
+      "en": "Observational Astronomy",
+      "ar": "علم الفلك الرصدي"
     },
     "question": {
-      "en": "What is the cosmic microwave background (CMB)?",
-      "ar": "شو هو «إشعاع الخلفية الكونية الميكروي» (CMB)؟"
+      "en": "Bright stars such as Aldebaran, Altair and Betelgeuse take their names from which language?",
+      "ar": "نجوم لامعة مثل Aldebaran وAltair وBetelgeuse، أسماؤها جاية من أي لغة؟"
     },
     "answer": {
-      "en": "Relic thermal radiation from the early universe, now nearly uniform across the sky but containing small, measurable variations.",
-      "ar": "إشعاع حراري متبقٍ من الكون المبكر، شبه متجانس الآن في السماء مع اختلافات صغيرة قابلة للقياس."
+      "en": "Arabic, e.g. Aldebaran from al-Dabaran, 'the follower'.",
+      "ar": "العربية، مثل «الدَّبَران» أي التابع."
     },
     "review": {
       "status": "pending"
@@ -1103,7 +1103,7 @@
   },
   {
     "id": "space-059",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Galaxies & Cosmology",
       "ar": "المجرات وعلم الكون"
@@ -1293,7 +1293,7 @@
   },
   {
     "id": "space-069",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Stars & Stellar Evolution",
       "ar": "النجوم وتطورها"
@@ -1337,12 +1337,12 @@
       "ar": "استكشاف الفضاء والتلسكوبات"
     },
     "question": {
-      "en": "What is the James Webb Space Telescope designed to observe?",
-      "ar": "شو اللي انصمم تلسكوب جيمس ويب الفضائي عشان يرصده؟"
+      "en": "How many hexagonal segments make up the James Webb Space Telescope's main mirror?",
+      "ar": "مرآة تلسكوب جيمس ويب الرئيسية مكوّنة من كم قطعة سداسية؟"
     },
     "answer": {
-      "en": "The first galaxies, exoplanet atmospheres, and stars forming in dust clouds using infrared wavelengths",
-      "ar": "أوائل المجرات وأغلفة الكواكب الخارجية والنجوم المتكوّنة في سحب الغبار باستخدام الأطوال الموجية للأشعة تحت الحمراء"
+      "en": "18 gold-coated segments, about 6.5 m across in total.",
+      "ar": "18 قطعة مطلية بالذهب، قطرها مجتمعة نحو 6.5 أمتار."
     },
     "review": {
       "status": "pending"
@@ -1369,18 +1369,18 @@
   },
   {
     "id": "space-073",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Galaxies & Cosmology",
-      "ar": "المجرات وعلم الكون"
+      "en": "Space Physics & Orbits",
+      "ar": "فيزياء الفضاء والمدارات"
     },
     "question": {
-      "en": "What is the weak anthropic principle?",
-      "ar": "شو هو «المبدأ الإنساني الضعيف»؟"
+      "en": "Why do we always see the same side of the Moon from Earth?",
+      "ar": "ليش دايماً نشوف نفس الوجه من القمر؟"
     },
     "answer": {
-      "en": "Our observations are conditioned by the requirement that observers can exist at the place and time of observation.",
-      "ar": "تتأثر مشاهداتنا بشرط إمكان وجود راصدين في مكان الرصد وزمانه."
+      "en": "It is tidally locked: it spins once in the time it takes to orbit Earth.",
+      "ar": "لأنه مقيّد مدّياً: يدور حول نفسه مرة واحدة في نفس مدة دورانه حول الأرض."
     },
     "review": {
       "status": "pending"
@@ -1407,7 +1407,7 @@
   },
   {
     "id": "space-075",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Space Exploration & Telescopes",
       "ar": "استكشاف الفضاء والتلسكوبات"
@@ -1654,7 +1654,7 @@
   },
   {
     "id": "space-088",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Black Holes & Gravity",
       "ar": "الثقوب السوداء والجاذبية"
@@ -1673,7 +1673,7 @@
   },
   {
     "id": "space-089",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Stars & Stellar Evolution",
       "ar": "النجوم وتطورها"
@@ -1770,16 +1770,16 @@
     "id": "space-094",
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Galaxies & Cosmology",
-      "ar": "المجرات وعلم الكون"
+      "en": "Observational Astronomy",
+      "ar": "علم الفلك الرصدي"
     },
     "question": {
-      "en": "What is the Sunyaev-Zel'dovich effect?",
-      "ar": "شو هو «تأثير سونيايف-زيلدوفيتش»؟"
+      "en": "In 1977, Ohio's Big Ear radio telescope caught a strong, narrow signal that was never detected again. What is it nicknamed?",
+      "ar": "سنة 1977، التقط تلسكوب «بيغ إير» الراديوي في أوهايو إشارة قوية وضيقة وما انرصدت مرة ثانية أبداً. شو لقبها؟"
     },
     "answer": {
-      "en": "The distortion of the cosmic microwave background radiation by inverse Compton scattering of photons off electrons in galaxy clusters",
-      "ar": "تشوّه إشعاع الخلفية الكونية الميكروي بسبب التشتت الكومبتوني العكسي للفوتونات على الإلكترونات في عناقيد المجرات"
+      "en": "The 'Wow!' signal, after the note an astronomer wrote beside it.",
+      "ar": "إشارة «واو!»، نسبةً إلى الكلمة التي كتبها أحد الفلكيين بجانبها."
     },
     "review": {
       "status": "pending"

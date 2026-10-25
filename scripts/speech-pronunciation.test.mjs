@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import * as speech from '../speech-quality.js';
+import { readContentPhase2Ledger } from './content-phase2-ledger.mjs';
 
 function question(category, id) {
   const cards = JSON.parse(readFileSync(new URL(`../data/${category}.json`, import.meta.url), 'utf8'));
@@ -31,7 +32,10 @@ test('dates, times, standalone decimals and symbolic division retain their actua
 });
 
 test('the actual Arabic C++ question uses the language name rather than two arithmetic operators', () => {
-  assert.equal(speech.prepareSpeechText(question('software-and-computing', 'coding-and-design-025'), 'ar'),
+  // coding-and-design-025 asked about C++ until the 2026-10-25 phase-2 pass gave
+  // it a new fact; the bank has no other C++ card, so its recorded question is used.
+  const cpp = readContentPhase2Ledger().changes.find(change => change.id === 'coding-and-design-025').previous['question.ar'];
+  assert.equal(speech.prepareSpeechText(cpp, 'ar'),
     'في بناء سي بلس بلس العادي بالترجمة المسبقة، هل الكود ينترجم قبل ما يشتغل الملف التنفيذي؟');
   assert.equal(speech.prepareSpeechText('هل تستخدم C# أم C++؟', 'ar'), 'هل تستخدم سي شارب أم سي بلس بلس؟');
   assert.equal(speech.prepareSpeechText('ما حاصل 2+3=5 و7−3=4؟', 'ar'),

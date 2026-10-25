@@ -8,7 +8,7 @@
       "en": "A mobile-first bilingual riddle and quiz website with curated categories, clear levels, and premium-ready challenge pages.",
       "ar": "منصة ألغاز واختبارات ثنائية اللغة مصممة للهاتف أولاً، مع تصنيفات منسقة ومستويات واضحة وصفحات جاهزة للتجربة المميزة."
     },
-    "totalQuestions": 3982
+    "totalQuestions": 3564
   },
   "sections": [
     {
@@ -172,35 +172,35 @@
         "geography"
       ],
       "difficultyCounts": {
-        "easy": 14,
-        "medium": 12,
-        "hard": 6,
-        "very-advanced": 8
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
       },
       "topics": [
         {
           "en": "National Currencies",
           "ar": "العملات الوطنية",
-          "count": 12
+          "count": 10
         },
         {
           "en": "Foreign Exchange",
           "ar": "الصرف الأجنبي",
-          "count": 8
+          "count": 9
         },
         {
           "en": "Monetary History",
           "ar": "تاريخ النقود",
-          "count": 6
-        },
-        {
-          "en": "Money Basics",
-          "ar": "أساسيات المال",
-          "count": 6
+          "count": 9
         },
         {
           "en": "Alternative Money",
           "ar": "أشكال المال البديلة",
+          "count": 3
+        },
+        {
+          "en": "Digital Currency",
+          "ar": "العملات الرقمية",
           "count": 3
         },
         {
@@ -209,9 +209,9 @@
           "count": 3
         },
         {
-          "en": "Digital Currency",
-          "ar": "العملات الرقمية",
-          "count": 2
+          "en": "Money Basics",
+          "ar": "أساسيات المال",
+          "count": 3
         }
       ],
       "scorableQuestionCount": 31,
@@ -235,8 +235,8 @@
       },
       "href": "/linguistics",
       "description": {
-        "en": "40 bilingual Linguistics questions covering Language Use & Diversity, Grammar & Structure, Writing Systems, and more. Switch between English and Arabic, reveal answers, and track your score.",
-        "ar": "يضم موضوع «علم اللغة» 40 سؤالًا بالعربية والإنجليزية، ويتناول استخدام اللغة وتنوعها، القواعد والبنية، وأنظمة الكتابة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "en": "40 bilingual Linguistics questions covering Language Use & Diversity, Writing Systems, Grammar & Structure, and more. Switch between English and Arabic, reveal answers, and track your score.",
+        "ar": "يضم موضوع «علم اللغة» 40 سؤالًا بالعربية والإنجليزية، ويتناول استخدام اللغة وتنوعها، أنظمة الكتابة، والقواعد والبنية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "related": [
         "books-and-quotes",
@@ -246,9 +246,9 @@
       ],
       "difficultyCounts": {
         "easy": 10,
-        "medium": 14,
-        "hard": 8,
-        "very-advanced": 8
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
       },
       "topics": [
         {
@@ -257,18 +257,18 @@
           "count": 10
         },
         {
+          "en": "Writing Systems",
+          "ar": "أنظمة الكتابة",
+          "count": 8
+        },
+        {
           "en": "Grammar & Structure",
           "ar": "القواعد والبنية",
-          "count": 8
+          "count": 7
         },
         {
           "en": "Words & Meaning",
           "ar": "الكلمات والمعاني",
-          "count": 6
-        },
-        {
-          "en": "Writing Systems",
-          "ar": "أنظمة الكتابة",
           "count": 6
         },
         {
@@ -279,10 +279,10 @@
         {
           "en": "Sounds & Pronunciation",
           "ar": "الأصوات والنطق",
-          "count": 5
+          "count": 4
         }
       ],
-      "scorableQuestionCount": 35,
+      "scorableQuestionCount": 36,
       "reviewedQuestionCount": 0,
       "image": "assets/linguistics.svg",
       "quickFireQuestionCount": 0
@@ -303,8 +303,8 @@
       },
       "href": "/tech-retro",
       "description": {
-        "en": "40 bilingual Tech & Retro Gaming questions covering Retro Gaming, Early Internet, Hardware & Storage, and more. Switch between English and Arabic, reveal answers, and track your score.",
-        "ar": "يضم موضوع «تقنيات الماضي» 40 سؤالًا بالعربية والإنجليزية، ويتناول ألعاب الفيديو الكلاسيكية، الإنترنت المبكر، والعتاد والتخزين. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "en": "40 bilingual Tech & Retro Gaming questions covering Retro Gaming, Early Internet, Mobile & Gadgets, and more. Switch between English and Arabic, reveal answers, and track your score.",
+        "ar": "يضم موضوع «تقنيات الماضي» 40 سؤالًا بالعربية والإنجليزية، ويتناول ألعاب الفيديو الكلاسيكية، الإنترنت المبكر، والهواتف والأجهزة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "related": [
         "software-and-computing",
@@ -313,21 +313,26 @@
         "automotive"
       ],
       "difficultyCounts": {
-        "easy": 13,
-        "medium": 12,
-        "hard": 9,
-        "very-advanced": 6
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
       },
       "topics": [
         {
           "en": "Retro Gaming",
           "ar": "ألعاب الفيديو الكلاسيكية",
-          "count": 12
+          "count": 13
         },
         {
           "en": "Early Internet",
           "ar": "الإنترنت المبكر",
-          "count": 10
+          "count": 8
+        },
+        {
+          "en": "Mobile & Gadgets",
+          "ar": "الهواتف والأجهزة",
+          "count": 6
         },
         {
           "en": "Software & Programming",
@@ -335,23 +340,18 @@
           "count": 5
         },
         {
-          "en": "Mobile & Gadgets",
-          "ar": "الهواتف والأجهزة",
-          "count": 4
-        },
-        {
           "en": "Personal Computers",
           "ar": "الحواسيب الشخصية",
           "count": 4
         },
         {
-          "en": "Hardware & Storage",
-          "ar": "العتاد والتخزين",
-          "count": 3
-        },
-        {
           "en": "Computing Pioneers",
           "ar": "رواد الحوسبة",
+          "count": 2
+        },
+        {
+          "en": "Hardware & Storage",
+          "ar": "العتاد والتخزين",
           "count": 2
         }
       ],
@@ -376,8 +376,8 @@
       },
       "href": "/automotive",
       "description": {
-        "en": "40 bilingual Automotive & Racing questions covering Brands & Models, Engines & Drivetrains, Motorsport, and more. Switch between English and Arabic, reveal answers, and track your score.",
-        "ar": "يضم موضوع «عالم السيارات» 40 سؤالًا بالعربية والإنجليزية، ويتناول العلامات والطرازات، المحركات وأنظمة الدفع، ورياضة المحركات. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "en": "40 bilingual Automotive & Racing questions covering Motorsport, Brands & Models, Engines & Drivetrains, and more. Switch between English and Arabic, reveal answers, and track your score.",
+        "ar": "يضم موضوع «عالم السيارات» 40 سؤالًا بالعربية والإنجليزية، ويتناول رياضة المحركات، العلامات والطرازات، والمحركات وأنظمة الدفع. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "related": [
         "mechanical-engineering",
@@ -386,16 +386,21 @@
         "infrastructure-systems"
       ],
       "difficultyCounts": {
-        "easy": 12,
+        "easy": 10,
         "medium": 10,
         "hard": 10,
-        "very-advanced": 8
+        "very-advanced": 10
       },
       "topics": [
         {
+          "en": "Motorsport",
+          "ar": "رياضة المحركات",
+          "count": 9
+        },
+        {
           "en": "Brands & Models",
           "ar": "العلامات والطرازات",
-          "count": 12
+          "count": 8
         },
         {
           "en": "Engines & Drivetrains",
@@ -403,32 +408,22 @@
           "count": 8
         },
         {
-          "en": "Motorsport",
-          "ar": "رياضة المحركات",
+          "en": "Components & Maintenance",
+          "ar": "المكونات والصيانة",
           "count": 6
         },
         {
-          "en": "Components & Maintenance",
-          "ar": "المكونات والصيانة",
+          "en": "Automotive History",
+          "ar": "تاريخ السيارات",
           "count": 5
         },
         {
           "en": "Safety & Vehicle Dynamics",
           "ar": "السلامة وديناميكيات المركبات",
           "count": 4
-        },
-        {
-          "en": "Automotive History",
-          "ar": "تاريخ السيارات",
-          "count": 3
-        },
-        {
-          "en": "Electric Vehicles",
-          "ar": "المركبات الكهربائية",
-          "count": 2
         }
       ],
-      "scorableQuestionCount": 38,
+      "scorableQuestionCount": 40,
       "reviewedQuestionCount": 0,
       "image": "assets/automotive.svg",
       "quickFireQuestionCount": 0
@@ -520,15 +515,15 @@
       "emoji": "🧙‍♂️",
       "cluster_key": "culture",
       "color": "var(--accent)",
-      "count": 40,
+      "count": 48,
       "cluster": {
         "en": "Arts, Culture & Entertainment",
         "ar": "الفنون والثقافة والترفيه"
       },
       "href": "/fictional-worlds",
       "description": {
-        "en": "40 bilingual Fictional Worlds questions covering Fantasy & Magic, Science Fiction & Space, Anime & Animation, and more. Switch between English and Arabic, reveal answers, and track your score.",
-        "ar": "يضم موضوع «العوالم الخيالية» 40 سؤالًا بالعربية والإنجليزية، ويتناول الفانتازيا والسحر، الخيال العلمي والفضاء، والأنمي والرسوم المتحركة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "en": "48 bilingual Fictional Worlds questions covering Fantasy & Magic, Science Fiction & Space, Anime & Animation, and more. Switch between English and Arabic, reveal answers, and track your score.",
+        "ar": "يضم موضوع «العوالم الخيالية» 48 سؤالًا بالعربية والإنجليزية، ويتناول الفانتازيا والسحر، الخيال العلمي والفضاء، والأنمي والرسوم المتحركة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "related": [
         "books-and-quotes",
@@ -537,26 +532,26 @@
         "superheroes"
       ],
       "difficultyCounts": {
-        "easy": 10,
-        "medium": 14,
-        "hard": 11,
-        "very-advanced": 5
+        "easy": 12,
+        "medium": 12,
+        "hard": 12,
+        "very-advanced": 12
       },
       "topics": [
         {
           "en": "Fantasy & Magic",
           "ar": "الفانتازيا والسحر",
-          "count": 15
+          "count": 20
         },
         {
           "en": "Science Fiction & Space",
           "ar": "الخيال العلمي والفضاء",
-          "count": 12
+          "count": 14
         },
         {
           "en": "Anime & Animation",
           "ar": "الأنمي والرسوم المتحركة",
-          "count": 4
+          "count": 5
         },
         {
           "en": "Superhero Worlds",
@@ -574,7 +569,7 @@
           "count": 2
         }
       ],
-      "scorableQuestionCount": 40,
+      "scorableQuestionCount": 48,
       "reviewedQuestionCount": 0,
       "image": "assets/fictional-worlds.svg",
       "quickFireQuestionCount": 0
@@ -588,15 +583,15 @@
       "emoji": "🦸‍♂️",
       "cluster_key": "culture",
       "color": "var(--accent)",
-      "count": 40,
+      "count": 56,
       "cluster": {
         "en": "Arts, Culture & Entertainment",
         "ar": "الفنون والثقافة والترفيه"
       },
       "href": "/superheroes",
       "description": {
-        "en": "40 bilingual Superhero Universe questions covering Villains & Rivalries, Origins & Identities, Powers, Materials & Artifacts, and more. Switch between English and Arabic, reveal answers, and track your score.",
-        "ar": "يضم موضوع «الأبطال الخارقين» 40 سؤالًا بالعربية والإنجليزية، ويتناول الأشرار والخصومات، الأصول والهويات، والقوى والمواد والتحف. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "en": "56 bilingual Superhero Universe questions covering Villains & Rivalries, DC Heroes, Marvel Heroes, and more. Switch between English and Arabic, reveal answers, and track your score.",
+        "ar": "يضم موضوع «الأبطال الخارقين» 56 سؤالًا بالعربية والإنجليزية، ويتناول الأشرار والخصومات، أبطال دي سي، وأبطال مارفل. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "related": [
         "cinema-and-film-history",
@@ -605,54 +600,54 @@
         "fictional-worlds"
       ],
       "difficultyCounts": {
-        "easy": 13,
-        "medium": 11,
-        "hard": 11,
-        "very-advanced": 5
+        "easy": 14,
+        "medium": 14,
+        "hard": 14,
+        "very-advanced": 14
       },
       "topics": [
         {
           "en": "Villains & Rivalries",
           "ar": "الأشرار والخصومات",
+          "count": 9
+        },
+        {
+          "en": "DC Heroes",
+          "ar": "أبطال دي سي",
+          "count": 8
+        },
+        {
+          "en": "Marvel Heroes",
+          "ar": "أبطال مارفل",
           "count": 8
         },
         {
           "en": "Origins & Identities",
           "ar": "الأصول والهويات",
-          "count": 6
+          "count": 8
         },
         {
           "en": "Powers, Materials & Artifacts",
           "ar": "القوى والمواد والتحف",
-          "count": 6
-        },
-        {
-          "en": "DC Heroes",
-          "ar": "أبطال دي سي",
-          "count": 5
+          "count": 8
         },
         {
           "en": "Comics History & Storylines",
           "ar": "تاريخ القصص المصورة والأحداث",
-          "count": 4
-        },
-        {
-          "en": "Marvel Heroes",
-          "ar": "أبطال مارفل",
-          "count": 4
+          "count": 6
         },
         {
           "en": "Worlds & Organizations",
           "ar": "العوالم والمنظمات",
-          "count": 4
+          "count": 5
         },
         {
           "en": "Teams & Alliances",
           "ar": "الفرق والتحالفات",
-          "count": 3
+          "count": 4
         }
       ],
-      "scorableQuestionCount": 40,
+      "scorableQuestionCount": 56,
       "reviewedQuestionCount": 0,
       "image": "assets/superheroes.svg",
       "quickFireQuestionCount": 0
@@ -666,15 +661,15 @@
       "emoji": "📱",
       "cluster_key": "culture",
       "color": "var(--accent)",
-      "count": 40,
+      "count": 48,
       "cluster": {
         "en": "Arts, Culture & Entertainment",
         "ar": "الفنون والثقافة والترفيه"
       },
       "href": "/pop-culture",
       "description": {
-        "en": "40 bilingual Pop Culture & Web questions covering Film & TV, Internet Culture, Fan Culture, and more. Switch between English and Arabic, reveal answers, and track your score.",
-        "ar": "يضم موضوع «الثقافة الشعبية» 40 سؤالًا بالعربية والإنجليزية، ويتناول الأفلام والتلفزيون، ثقافة الإنترنت، وثقافة المعجبين. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "en": "48 bilingual Pop Culture & Web questions covering Internet Culture, Film & TV, Fan Culture, and more. Switch between English and Arabic, reveal answers, and track your score.",
+        "ar": "يضم موضوع «الثقافة الشعبية» 48 سؤالًا بالعربية والإنجليزية، ويتناول ثقافة الإنترنت، الأفلام والتلفزيون، وثقافة المعجبين. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "related": [
         "tv-shows-trivia",
@@ -683,12 +678,17 @@
         "anime"
       ],
       "difficultyCounts": {
-        "easy": 10,
-        "medium": 15,
-        "hard": 11,
-        "very-advanced": 4
+        "easy": 12,
+        "medium": 12,
+        "hard": 12,
+        "very-advanced": 12
       },
       "topics": [
+        {
+          "en": "Internet Culture",
+          "ar": "ثقافة الإنترنت",
+          "count": 12
+        },
         {
           "en": "Film & TV",
           "ar": "الأفلام والتلفزيون",
@@ -697,12 +697,7 @@
         {
           "en": "Fan Culture",
           "ar": "ثقافة المعجبين",
-          "count": 8
-        },
-        {
-          "en": "Internet Culture",
-          "ar": "ثقافة الإنترنت",
-          "count": 8
+          "count": 7
         },
         {
           "en": "Music",
@@ -712,20 +707,20 @@
         {
           "en": "Gaming",
           "ar": "ألعاب الفيديو",
-          "count": 4
+          "count": 5
         },
         {
           "en": "TV Animation",
           "ar": "الرسوم المتحركة التلفزيونية",
-          "count": 2
+          "count": 5
         },
         {
           "en": "TV Comedy",
           "ar": "الكوميديا التلفزيونية",
-          "count": 2
+          "count": 3
         }
       ],
-      "scorableQuestionCount": 40,
+      "scorableQuestionCount": 48,
       "reviewedQuestionCount": 0,
       "image": "assets/pop-culture.svg",
       "quickFireQuestionCount": 0
@@ -746,8 +741,8 @@
       },
       "href": "/true-crime",
       "description": {
-        "en": "40 bilingual True Crime & Mysteries questions covering Forensic Science, Organized Crime & Outlaws, Serial Killers & Unsolved Cases, and more. Switch between English and Arabic, reveal answers, and track your score.",
-        "ar": "يضم موضوع «الجرائم الحقيقية» 40 سؤالًا بالعربية والإنجليزية، ويتناول علوم الأدلة الجنائية، الجريمة المنظمة والخارجون عن القانون، والقتلة المتسلسلون والقضايا الغامضة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "en": "40 bilingual True Crime & Mysteries questions covering Forensic Science, Heists, Kidnappings & Prisons, Organized Crime & Outlaws, and more. Switch between English and Arabic, reveal answers, and track your score.",
+        "ar": "يضم موضوع «الجرائم الحقيقية» 40 سؤالًا بالعربية والإنجليزية، ويتناول علوم الأدلة الجنائية، السرقات والخطف والسجون، والجريمة المنظمة والخارجون عن القانون. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "related": [
         "story-mysteries",
@@ -756,10 +751,10 @@
         "law-middle-east"
       ],
       "difficultyCounts": {
-        "easy": 12,
-        "medium": 12,
-        "hard": 8,
-        "very-advanced": 8
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
       },
       "topics": [
         {
@@ -770,12 +765,12 @@
         {
           "en": "Heists, Kidnappings & Prisons",
           "ar": "السرقات والخطف والسجون",
-          "count": 8
+          "count": 9
         },
         {
           "en": "Organized Crime & Outlaws",
           "ar": "الجريمة المنظمة والخارجون عن القانون",
-          "count": 8
+          "count": 6
         },
         {
           "en": "Assassinations & Political Crime",
@@ -783,14 +778,14 @@
           "count": 5
         },
         {
-          "en": "Serial Killers & Unsolved Cases",
-          "ar": "القتلة المتسلسلون والقضايا الغامضة",
+          "en": "Unsolved Cases & Mysteries",
+          "ar": "القضايا الغامضة والألغاز",
           "count": 4
         },
         {
-          "en": "Cults & Mass Crimes",
-          "ar": "الطوائف والجرائم الجماعية",
-          "count": 2
+          "en": "Famous Trials & Frauds",
+          "ar": "محاكمات شهيرة واحتيال",
+          "count": 3
         }
       ],
       "scorableQuestionCount": 38,
@@ -807,15 +802,15 @@
       "emoji": "🐉",
       "cluster_key": "culture",
       "color": "var(--accent)",
-      "count": 40,
+      "count": 45,
       "cluster": {
         "en": "Arts, Culture & Entertainment",
         "ar": "الفنون والثقافة والترفيه"
       },
       "href": "/mythology-legends",
       "description": {
-        "en": "40 bilingual Mythology & Legends questions covering Greek & Roman, Heroes & Creatures, Norse, and more. Switch between English and Arabic, reveal answers, and track your score.",
-        "ar": "يضم موضوع «الأساطير والملاحم» 40 سؤالًا بالعربية والإنجليزية، ويتناول الأساطير اليونانية والرومانية، الأبطال والمخلوقات، والأساطير الإسكندنافية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "en": "45 bilingual Mythology & Legends questions covering Greek & Roman, Middle Eastern, Heroes & Creatures, and more. Switch between English and Arabic, reveal answers, and track your score.",
+        "ar": "يضم موضوع «الأساطير والملاحم» 45 سؤالًا بالعربية والإنجليزية، ويتناول الأساطير اليونانية والرومانية، أساطير الشرق الأوسط، والأبطال والمخلوقات. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "related": [
         "history",
@@ -825,15 +820,20 @@
       ],
       "difficultyCounts": {
         "easy": 11,
-        "medium": 12,
+        "medium": 14,
         "hard": 10,
-        "very-advanced": 7
+        "very-advanced": 10
       },
       "topics": [
         {
           "en": "Greek & Roman",
           "ar": "الأساطير اليونانية والرومانية",
-          "count": 13
+          "count": 12
+        },
+        {
+          "en": "Middle Eastern",
+          "ar": "أساطير الشرق الأوسط",
+          "count": 8
         },
         {
           "en": "Heroes & Creatures",
@@ -844,6 +844,11 @@
           "en": "Norse",
           "ar": "الأساطير الإسكندنافية",
           "count": 6
+        },
+        {
+          "en": "Egyptian",
+          "ar": "الأساطير المصرية",
+          "count": 4
         },
         {
           "en": "Indigenous Traditions",
@@ -858,20 +863,10 @@
         {
           "en": "Celtic & Arthurian",
           "ar": "الأساطير السلتية والآرثرية",
-          "count": 3
-        },
-        {
-          "en": "Egyptian",
-          "ar": "الأساطير المصرية",
-          "count": 3
-        },
-        {
-          "en": "Middle Eastern",
-          "ar": "أساطير الشرق الأوسط",
           "count": 2
         }
       ],
-      "scorableQuestionCount": 40,
+      "scorableQuestionCount": 45,
       "reviewedQuestionCount": 0,
       "image": "assets/mythology-legends.svg",
       "quickFireQuestionCount": 0
@@ -884,7 +879,7 @@
       },
       "description": {
         "en": "Painters, famous works, styles, and art clues designed for friendly play.",
-        "ar": "يضم موضوع «الفن والرسّامون» 30 سؤالًا بالعربية والإنجليزية، ويتناول الفنانون والروائع، الحركات والأساليب الفنية، وتاريخ الفن. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «الفن والرسّامون» 40 سؤالًا بالعربية والإنجليزية، ويتناول الفنانون والروائع، الحركات والأساليب الفنية، وتاريخ الفن. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Arts, Culture & Entertainment",
@@ -893,12 +888,12 @@
       "cluster_key": "culture",
       "emoji": "🎨",
       "mode": "quiz",
-      "count": 30,
+      "count": 40,
       "difficultyCounts": {
         "easy": 10,
         "medium": 10,
-        "hard": 9,
-        "very-advanced": 1
+        "hard": 10,
+        "very-advanced": 10
       },
       "href": "/art-and-painters",
       "image": "assets/art-and-painters.svg",
@@ -906,12 +901,12 @@
         {
           "en": "Artists & Masterpieces",
           "ar": "الفنانون والروائع",
-          "count": 10
+          "count": 18
         },
         {
           "en": "Movements & Styles",
           "ar": "الحركات والأساليب الفنية",
-          "count": 9
+          "count": 11
         },
         {
           "en": "Art History",
@@ -935,7 +930,7 @@
         "music-and-performing-arts",
         "cinema-and-film-history"
       ],
-      "scorableQuestionCount": 30,
+      "scorableQuestionCount": 40,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -947,7 +942,7 @@
       },
       "description": {
         "en": "Biology for adult learners, spanning cells, genetics, physiology, ecology, evolution, immunity, and modern molecular tools.",
-        "ar": "يضم موضوع «علم الأحياء» 113 سؤالًا بالعربية والإنجليزية، ويتناول الخلايا والأيض، الوراثة والأحياء الجزيئية، وتشريح ووظائف جسم الإنسان. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «علم الأحياء» 100 سؤال بالعربية والإنجليزية، ويتناول الخلايا والأيض، تشريح ووظائف جسم الإنسان، والوراثة والأحياء الجزيئية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Science, Nature & Health",
@@ -956,11 +951,11 @@
       "cluster_key": "science",
       "emoji": "🧬",
       "mode": "quiz",
-      "count": 113,
+      "count": 100,
       "difficultyCounts": {
-        "easy": 26,
-        "medium": 32,
-        "hard": 30,
+        "easy": 24,
+        "medium": 26,
+        "hard": 25,
         "very-advanced": 25
       },
       "href": "/biology",
@@ -969,12 +964,7 @@
         {
           "en": "Cells & Metabolism",
           "ar": "الخلايا والأيض",
-          "count": 28
-        },
-        {
-          "en": "Genetics & Molecular Biology",
-          "ar": "الوراثة والأحياء الجزيئية",
-          "count": 21
+          "count": 22
         },
         {
           "en": "Human Anatomy & Physiology",
@@ -982,29 +972,34 @@
           "count": 20
         },
         {
-          "en": "Evolution",
-          "ar": "التطور",
-          "count": 11
-        },
-        {
-          "en": "Microbiology & Immunity",
-          "ar": "الأحياء الدقيقة والمناعة",
-          "count": 10
+          "en": "Genetics & Molecular Biology",
+          "ar": "الوراثة والأحياء الجزيئية",
+          "count": 19
         },
         {
           "en": "Plant Biology",
           "ar": "علم النبات",
-          "count": 10
+          "count": 11
+        },
+        {
+          "en": "Evolution",
+          "ar": "التطور",
+          "count": 9
+        },
+        {
+          "en": "Microbiology & Immunity",
+          "ar": "الأحياء الدقيقة والمناعة",
+          "count": 9
         },
         {
           "en": "Ecology",
           "ar": "علم البيئة",
-          "count": 9
+          "count": 7
         },
         {
           "en": "Animals & Classification",
           "ar": "الحيوانات والتصنيف",
-          "count": 4
+          "count": 3
         }
       ],
       "related": [
@@ -1013,7 +1008,7 @@
         "space-and-astrology",
         "environment-and-ecology"
       ],
-      "scorableQuestionCount": 68,
+      "scorableQuestionCount": 65,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -1025,7 +1020,7 @@
       },
       "description": {
         "en": "Authors, novels, famous lines, and literary clues in one category page.",
-        "ar": "يضم موضوع «الكتب والاقتباسات» 30 سؤالًا بالعربية والإنجليزية، ويتناول المؤلفون وهوياتهم، الاقتباسات والمطالع، والأعمال والشخصيات. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «الكتب والاقتباسات» 40 سؤالًا بالعربية والإنجليزية، ويتناول المؤلفون وهوياتهم، الأعمال والشخصيات، والاقتباسات والمطالع. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Arts, Culture & Entertainment",
@@ -1034,11 +1029,12 @@
       "cluster_key": "culture",
       "emoji": "📚",
       "mode": "quiz",
-      "count": 30,
+      "count": 40,
       "difficultyCounts": {
         "easy": 10,
         "medium": 10,
-        "hard": 10
+        "hard": 10,
+        "very-advanced": 10
       },
       "href": "/books-and-quotes",
       "image": "assets/books-and-quotes.svg",
@@ -1046,7 +1042,12 @@
         {
           "en": "Authors & Identities",
           "ar": "المؤلفون وهوياتهم",
-          "count": 10
+          "count": 14
+        },
+        {
+          "en": "Works & Characters",
+          "ar": "الأعمال والشخصيات",
+          "count": 12
         },
         {
           "en": "Quotes & Opening Lines",
@@ -1054,14 +1055,9 @@
           "count": 8
         },
         {
-          "en": "Works & Characters",
-          "ar": "الأعمال والشخصيات",
-          "count": 7
-        },
-        {
           "en": "Literary History, Terms & Awards",
           "ar": "تاريخ الأدب ومصطلحاته وجوائزه",
-          "count": 5
+          "count": 6
         }
       ],
       "related": [
@@ -1070,7 +1066,7 @@
         "cinema-and-film-history",
         "anime"
       ],
-      "scorableQuestionCount": 30,
+      "scorableQuestionCount": 40,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -1082,7 +1078,7 @@
       },
       "description": {
         "en": "Business Management for adult learners, with strategy, finance, operations, leadership, and Gulf-region commercial context.",
-        "ar": "يضم موضوع «إدارة الأعمال» 30 سؤالًا بالعربية والإنجليزية، ويتناول المالية والمحاسبة، الإدارة والتنظيم، والاستراتيجية والمنافسة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «إدارة الأعمال» 40 سؤالًا بالعربية والإنجليزية، ويتناول الاستراتيجية والمنافسة، المالية والمحاسبة، والعمليات والنمو. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "World, History & Society",
@@ -1091,18 +1087,29 @@
       "cluster_key": "world",
       "emoji": "📊",
       "mode": "quiz",
-      "count": 30,
+      "count": 40,
       "difficultyCounts": {
         "easy": 10,
-        "medium": 12,
-        "hard": 8
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
       },
       "href": "/business-and-management",
       "image": "assets/business-and-management.svg",
       "topics": [
         {
+          "en": "Strategy & Competition",
+          "ar": "الاستراتيجية والمنافسة",
+          "count": 9
+        },
+        {
           "en": "Finance & Accounting",
           "ar": "المالية والمحاسبة",
+          "count": 8
+        },
+        {
+          "en": "Operations & Growth",
+          "ar": "العمليات والنمو",
           "count": 7
         },
         {
@@ -1111,24 +1118,14 @@
           "count": 6
         },
         {
-          "en": "Strategy & Competition",
-          "ar": "الاستراتيجية والمنافسة",
-          "count": 5
-        },
-        {
           "en": "Marketing & Branding",
           "ar": "التسويق وبناء العلامة",
-          "count": 4
+          "count": 5
         },
         {
           "en": "Markets & Economics",
           "ar": "الأسواق والاقتصاد",
-          "count": 4
-        },
-        {
-          "en": "Operations & Growth",
-          "ar": "العمليات والنمو",
-          "count": 4
+          "count": 5
         }
       ],
       "related": [
@@ -1137,7 +1134,7 @@
         "food-and-cuisines",
         "geography"
       ],
-      "scorableQuestionCount": 29,
+      "scorableQuestionCount": 39,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -1149,7 +1146,7 @@
       },
       "description": {
         "en": "Chemistry vocabulary and lab ideas from easy recognition to very advanced recall.",
-        "ar": "يضم موضوع «الكيمياء» 111 سؤالًا بالعربية والإنجليزية، ويتناول الذرات والعناصر والجدول الدوري، الديناميكا الحرارية والكيمياء الفيزيائية، والكيمياء العضوية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «الكيمياء» 90 سؤالًا بالعربية والإنجليزية، ويتناول الذرات والعناصر والجدول الدوري، الديناميكا الحرارية والكيمياء الفيزيائية، والمادة والمخاليط والكيمياء النووية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Science, Nature & Health",
@@ -1158,12 +1155,12 @@
       "cluster_key": "science",
       "emoji": "⚗️",
       "mode": "quiz",
-      "count": 111,
+      "count": 90,
       "difficultyCounts": {
-        "easy": 25,
-        "medium": 29,
-        "hard": 29,
-        "very-advanced": 28
+        "easy": 22,
+        "medium": 24,
+        "hard": 22,
+        "very-advanced": 22
       },
       "href": "/chemistry",
       "image": "assets/chemistry.svg",
@@ -1171,37 +1168,42 @@
         {
           "en": "Atoms, Elements & Periodicity",
           "ar": "الذرات والعناصر والجدول الدوري",
-          "count": 26
+          "count": 24
         },
         {
           "en": "Thermodynamics & Physical Chemistry",
           "ar": "الديناميكا الحرارية والكيمياء الفيزيائية",
-          "count": 19
-        },
-        {
-          "en": "Organic Chemistry",
-          "ar": "الكيمياء العضوية",
-          "count": 18
-        },
-        {
-          "en": "Bonding & Molecular Structure",
-          "ar": "الروابط والبنية الجزيئية",
-          "count": 15
-        },
-        {
-          "en": "Reactions & Stoichiometry",
-          "ar": "التفاعلات والحسابات الكيميائية",
           "count": 13
         },
         {
           "en": "Matter, Mixtures & Nuclear Chemistry",
           "ar": "المادة والمخاليط والكيمياء النووية",
+          "count": 12
+        },
+        {
+          "en": "Organic Chemistry",
+          "ar": "الكيمياء العضوية",
           "count": 11
+        },
+        {
+          "en": "Bonding & Molecular Structure",
+          "ar": "الروابط والبنية الجزيئية",
+          "count": 9
         },
         {
           "en": "Acids, Bases & Equilibrium",
           "ar": "الأحماض والقواعد والاتزان",
-          "count": 9
+          "count": 8
+        },
+        {
+          "en": "Reactions & Stoichiometry",
+          "ar": "التفاعلات والحسابات الكيميائية",
+          "count": 7
+        },
+        {
+          "en": "History of Chemistry",
+          "ar": "تاريخ الكيمياء",
+          "count": 6
         }
       ],
       "related": [
@@ -1210,7 +1212,7 @@
         "environment-and-ecology",
         "animal-kingdom"
       ],
-      "scorableQuestionCount": 71,
+      "scorableQuestionCount": 67,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 20
     },
@@ -1222,7 +1224,7 @@
       },
       "description": {
         "en": "Classic flip-card riddles with everyday objects, clever clues, and a balanced path from easy to very advanced.",
-        "ar": "يضم موضوع «ألغاز كلاسيكية» 100 سؤالًا بالعربية والإنجليزية، ويتناول المنطق والاستنتاج، الأرقام والرموز، والتلاعب بالكلمات واللغة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «ألغاز كلاسيكية» 70 سؤالًا بالعربية والإنجليزية، ويتناول الأشياء والحياة اليومية، الأرقام والرموز، والطبيعة والعالم. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Mind & Puzzles",
@@ -1231,12 +1233,12 @@
       "cluster_key": "mind",
       "emoji": "❓",
       "mode": "riddle",
-      "count": 100,
+      "count": 70,
       "difficultyCounts": {
-        "easy": 59,
-        "medium": 18,
-        "hard": 9,
-        "very-advanced": 14
+        "easy": 30,
+        "medium": 20,
+        "hard": 10,
+        "very-advanced": 10
       },
       "href": "/classic-riddles",
       "image": "assets/classic-riddles.svg",
@@ -1244,32 +1246,32 @@
         {
           "en": "Objects & Everyday Life",
           "ar": "الأشياء والحياة اليومية",
-          "count": 47
+          "count": 21
         },
         {
           "en": "Numbers & Codes",
           "ar": "الأرقام والرموز",
-          "count": 19
-        },
-        {
-          "en": "Logic & Deduction",
-          "ar": "المنطق والاستنتاج",
-          "count": 11
-        },
-        {
-          "en": "Wordplay & Language",
-          "ar": "التلاعب بالكلمات واللغة",
-          "count": 10
+          "count": 13
         },
         {
           "en": "Nature & the World",
           "ar": "الطبيعة والعالم",
-          "count": 7
+          "count": 11
+        },
+        {
+          "en": "Logic & Deduction",
+          "ar": "المنطق والاستنتاج",
+          "count": 10
         },
         {
           "en": "Time, Space & Measurement",
           "ar": "الزمن والمكان والقياس",
-          "count": 6
+          "count": 8
+        },
+        {
+          "en": "Wordplay & Language",
+          "ar": "التلاعب بالكلمات واللغة",
+          "count": 7
         }
       ],
       "related": [
@@ -1278,7 +1280,7 @@
         "story-mysteries",
         "true-crime"
       ],
-      "scorableQuestionCount": 93,
+      "scorableQuestionCount": 63,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 10
     },
@@ -1290,7 +1292,7 @@
       },
       "description": {
         "en": "Sharpen your mind with lateral thinking, number puzzles, deduction challenges, and classic paradoxes.",
-        "ar": "يضم موضوع «ألغاز منطقية» 59 سؤالًا بالعربية والإنجليزية، ويتناول الأرقام والأنماط، المنطق والاستنتاج، والتفكير الجانبي. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «ألغاز منطقية» 60 سؤالًا بالعربية والإنجليزية، ويتناول المنطق والاستنتاج، الأرقام والأنماط، والتفكير الجانبي. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Mind & Puzzles",
@@ -1299,12 +1301,12 @@
       "cluster_key": "mind",
       "emoji": "🧠",
       "mode": "riddle",
-      "count": 59,
+      "count": 60,
       "difficultyCounts": {
-        "easy": 19,
-        "medium": 21,
-        "hard": 13,
-        "very-advanced": 6
+        "easy": 16,
+        "medium": 20,
+        "hard": 12,
+        "very-advanced": 12
       },
       "href": "/logic-puzzles",
       "image": "assets/logic-puzzles.svg",
@@ -1312,7 +1314,7 @@
         {
           "en": "Logic & Deduction",
           "ar": "المنطق والاستنتاج",
-          "count": 29
+          "count": 23
         },
         {
           "en": "Numbers & Patterns",
@@ -1322,12 +1324,12 @@
         {
           "en": "Lateral Thinking",
           "ar": "التفكير الجانبي",
-          "count": 7
+          "count": 12
         },
         {
           "en": "Constraints & Ordering",
           "ar": "القيود والترتيب",
-          "count": 6
+          "count": 8
         }
       ],
       "related": [
@@ -1336,7 +1338,7 @@
         "true-crime",
         "psychology"
       ],
-      "scorableQuestionCount": 28,
+      "scorableQuestionCount": 30,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 10
     },
@@ -1348,7 +1350,7 @@
       },
       "description": {
         "en": "Circuits, power, components, and protection systems in a friendly layout.",
-        "ar": "يضم موضوع «الهندسة الكهربائية» 30 سؤالًا بالعربية والإنجليزية، ويتناول المكونات والإلكترونيات، أساسيات الكهرباء، وأنظمة القدرة المتناوبة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «الهندسة الكهربائية» 40 سؤالًا بالعربية والإنجليزية، ويتناول أنظمة القدرة المتناوبة، أساسيات الكهرباء، والمكونات والإلكترونيات. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Technology & Engineering",
@@ -1357,44 +1359,45 @@
       "cluster_key": "tech",
       "emoji": "🔌",
       "mode": "quiz",
-      "count": 30,
+      "count": 40,
       "difficultyCounts": {
-        "easy": 11,
+        "easy": 10,
         "medium": 10,
-        "hard": 9
+        "hard": 10,
+        "very-advanced": 10
       },
       "href": "/electrical-engineering",
       "image": "assets/electrical-engineering.svg",
       "topics": [
+        {
+          "en": "AC Power Systems",
+          "ar": "أنظمة القدرة المتناوبة",
+          "count": 10
+        },
+        {
+          "en": "Electrical Fundamentals",
+          "ar": "أساسيات الكهرباء",
+          "count": 8
+        },
         {
           "en": "Components & Electronics",
           "ar": "المكونات والإلكترونيات",
           "count": 7
         },
         {
-          "en": "Electrical Fundamentals",
-          "ar": "أساسيات الكهرباء",
-          "count": 7
-        },
-        {
-          "en": "AC Power Systems",
-          "ar": "أنظمة القدرة المتناوبة",
-          "count": 5
-        },
-        {
           "en": "Circuits & Measurement",
           "ar": "الدوائر والقياس",
-          "count": 5
+          "count": 6
         },
         {
           "en": "Electromagnetism",
           "ar": "الكهرومغناطيسية",
-          "count": 4
+          "count": 6
         },
         {
           "en": "Signals & Communications",
           "ar": "الإشارات والاتصالات",
-          "count": 2
+          "count": 3
         }
       ],
       "related": [
@@ -1403,7 +1406,7 @@
         "architecture-and-landmarks",
         "inventions-and-minds"
       ],
-      "scorableQuestionCount": 29,
+      "scorableQuestionCount": 39,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -1415,7 +1418,7 @@
       },
       "description": {
         "en": "Flag and symbol knowledge with geography, design, and recognition prompts.",
-        "ar": "يضم موضوع «أعلام العالم» 30 سؤالًا بالعربية والإنجليزية، ويتناول تصميم الأعلام وعلم الأعلام، الأمريكتان، وآسيا وأوقيانوسيا. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «أعلام العالم» 40 سؤالًا بالعربية والإنجليزية، ويتناول أفريقيا والشرق الأوسط، تصميم الأعلام وعلم الأعلام، وآسيا وأوقيانوسيا. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "World, History & Society",
@@ -1424,19 +1427,35 @@
       "cluster_key": "world",
       "emoji": "🚩",
       "mode": "quiz",
-      "count": 30,
+      "count": 40,
       "difficultyCounts": {
-        "easy": 9,
-        "medium": 14,
-        "hard": 7
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
       },
       "href": "/flag-questions",
       "image": "assets/flag-questions.svg",
       "topics": [
         {
+          "en": "Africa & Middle East",
+          "ar": "أفريقيا والشرق الأوسط",
+          "count": 11
+        },
+        {
           "en": "Flag Design & Vexillology",
           "ar": "تصميم الأعلام وعلم الأعلام",
           "count": 8
+        },
+        {
+          "en": "Asia & Oceania",
+          "ar": "آسيا وأوقيانوسيا",
+          "count": 6
+        },
+        {
+          "en": "Flag History & Identity",
+          "ar": "تاريخ الأعلام والهوية",
+          "count": 6
         },
         {
           "en": "Americas",
@@ -1444,23 +1463,8 @@
           "count": 5
         },
         {
-          "en": "Asia & Oceania",
-          "ar": "آسيا وأوقيانوسيا",
-          "count": 5
-        },
-        {
-          "en": "Africa & Middle East",
-          "ar": "أفريقيا والشرق الأوسط",
-          "count": 4
-        },
-        {
           "en": "Europe",
           "ar": "أوروبا",
-          "count": 4
-        },
-        {
-          "en": "Flag History & Identity",
-          "ar": "تاريخ الأعلام والهوية",
           "count": 4
         }
       ],
@@ -1470,7 +1474,7 @@
         "middle-east-history",
         "ancient-civilizations"
       ],
-      "scorableQuestionCount": 30,
+      "scorableQuestionCount": 40,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -1482,7 +1486,7 @@
       },
       "description": {
         "en": "Structured football questions covering rules, positions, match terms, tactics, and competition basics.",
-        "ar": "يضم موضوع «كرة القدم» 175 سؤالًا بالعربية والإنجليزية، ويتناول كرة القدم الدولية وكأس العالم، تاريخ كرة القدم والأرقام القياسية، وبطولات الأندية والدوريات. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «كرة القدم» 160 سؤالًا بالعربية والإنجليزية، ويتناول كرة القدم الدولية وكأس العالم، تاريخ كرة القدم والأرقام القياسية، وبطولات الأندية والدوريات. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Arts, Culture & Entertainment",
@@ -1491,12 +1495,12 @@
       "cluster_key": "culture",
       "emoji": "⚽",
       "mode": "quiz",
-      "count": 175,
+      "count": 160,
       "difficultyCounts": {
-        "easy": 51,
-        "medium": 61,
-        "hard": 47,
-        "very-advanced": 16
+        "easy": 40,
+        "medium": 45,
+        "hard": 45,
+        "very-advanced": 30
       },
       "href": "/football",
       "image": "assets/football.svg",
@@ -1504,42 +1508,42 @@
         {
           "en": "International Football & World Cup",
           "ar": "كرة القدم الدولية وكأس العالم",
-          "count": 35
+          "count": 38
         },
         {
           "en": "Football History & Records",
           "ar": "تاريخ كرة القدم والأرقام القياسية",
-          "count": 29
+          "count": 30
         },
         {
           "en": "Club Competitions & Leagues",
           "ar": "بطولات الأندية والدوريات",
-          "count": 26
+          "count": 23
         },
         {
           "en": "Players & Awards",
           "ar": "اللاعبون والجوائز",
-          "count": 25
-        },
-        {
-          "en": "Clubs, Stadiums & Identity",
-          "ar": "الأندية والملاعب والهوية",
-          "count": 20
+          "count": 21
         },
         {
           "en": "Rules, Officials & Governance",
           "ar": "القواعد والتحكيم والحوكمة",
-          "count": 20
+          "count": 16
+        },
+        {
+          "en": "Clubs, Stadiums & Identity",
+          "ar": "الأندية والملاعب والهوية",
+          "count": 15
         },
         {
           "en": "Tactics, Skills & Management",
           "ar": "التكتيكات والمهارات والإدارة",
-          "count": 15
+          "count": 13
         },
         {
           "en": "Transfers & Football Business",
           "ar": "الانتقالات وأعمال كرة القدم",
-          "count": 5
+          "count": 4
         }
       ],
       "related": [
@@ -1548,7 +1552,7 @@
         "pop-culture",
         "mythology-legends"
       ],
-      "scorableQuestionCount": 163,
+      "scorableQuestionCount": 158,
       "reviewedQuestionCount": 1,
       "quickFireQuestionCount": 0
     },
@@ -1560,7 +1564,7 @@
       },
       "description": {
         "en": "Landforms, climates, regions, and map terms built into a fun geography page.",
-        "ar": "يضم موضوع «الجغرافيا» 100 سؤالًا بالعربية والإنجليزية، ويتناول الدول والعواصم والحدود، المحيطات والبحار والمضائق، والأنهار والبحيرات والدلتا. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «الجغرافيا» 100 سؤال بالعربية والإنجليزية، ويتناول الدول والعواصم والحدود، الأنهار والبحيرات والدلتا، والمحيطات والبحار والمضائق. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "World, History & Society",
@@ -1571,10 +1575,10 @@
       "mode": "quiz",
       "count": 100,
       "difficultyCounts": {
-        "easy": 30,
-        "medium": 33,
-        "hard": 22,
-        "very-advanced": 15
+        "easy": 25,
+        "medium": 25,
+        "hard": 25,
+        "very-advanced": 25
       },
       "href": "/geography",
       "image": "assets/geography.svg",
@@ -1582,22 +1586,27 @@
         {
           "en": "Countries, Capitals & Borders",
           "ar": "الدول والعواصم والحدود",
-          "count": 44
-        },
-        {
-          "en": "Oceans, Seas & Straits",
-          "ar": "المحيطات والبحار والمضائق",
-          "count": 13
+          "count": 31
         },
         {
           "en": "Rivers, Lakes & Deltas",
           "ar": "الأنهار والبحيرات والدلتا",
-          "count": 12
+          "count": 17
+        },
+        {
+          "en": "Oceans, Seas & Straits",
+          "ar": "المحيطات والبحار والمضائق",
+          "count": 15
         },
         {
           "en": "Mountains & Elevation",
           "ar": "الجبال والارتفاعات",
-          "count": 10
+          "count": 12
+        },
+        {
+          "en": "Landforms, Deserts & Climate",
+          "ar": "التضاريس والصحاري والمناخ",
+          "count": 9
         },
         {
           "en": "Continents, Islands & Regions",
@@ -1605,14 +1614,9 @@
           "count": 8
         },
         {
-          "en": "Landforms, Deserts & Climate",
-          "ar": "التضاريس والصحاري والمناخ",
-          "count": 7
-        },
-        {
           "en": "Maps & Coordinates",
           "ar": "الخرائط والإحداثيات",
-          "count": 6
+          "count": 8
         }
       ],
       "related": [
@@ -1644,10 +1648,10 @@
       "mode": "quiz",
       "count": 50,
       "difficultyCounts": {
-        "easy": 16,
-        "medium": 7,
-        "hard": 20,
-        "very-advanced": 7
+        "easy": 14,
+        "medium": 12,
+        "hard": 13,
+        "very-advanced": 11
       },
       "href": "/geology",
       "image": "assets/geology.svg",
@@ -1694,7 +1698,7 @@
         "animal-kingdom",
         "survival"
       ],
-      "scorableQuestionCount": 36,
+      "scorableQuestionCount": 38,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -1706,7 +1710,7 @@
       },
       "description": {
         "en": "Big moments, old empires, inventions, and turning points turned into balanced quiz cards.",
-        "ar": "يضم موضوع «التاريخ» 100 سؤالًا بالعربية والإنجليزية، ويتناول الإمبراطوريات والدول والشخصيات التاريخية، الحروب والمعاهدات والدبلوماسية، والحضارات القديمة وعلم الآثار. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «التاريخ» 100 سؤال بالعربية والإنجليزية، ويتناول الإمبراطوريات والدول والشخصيات التاريخية، الحروب والمعاهدات والدبلوماسية، والثورات والاستقلال. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "World, History & Society",
@@ -1718,9 +1722,9 @@
       "count": 100,
       "difficultyCounts": {
         "easy": 25,
-        "medium": 33,
-        "hard": 23,
-        "very-advanced": 19
+        "medium": 25,
+        "hard": 25,
+        "very-advanced": 25
       },
       "href": "/history",
       "image": "assets/history.svg",
@@ -1728,42 +1732,42 @@
         {
           "en": "Empires, States & Historical Figures",
           "ar": "الإمبراطوريات والدول والشخصيات التاريخية",
-          "count": 29
+          "count": 28
         },
         {
           "en": "Wars, Treaties & Diplomacy",
           "ar": "الحروب والمعاهدات والدبلوماسية",
-          "count": 21
+          "count": 19
         },
         {
           "en": "Revolutions & Independence",
           "ar": "الثورات والاستقلال",
-          "count": 12
-        },
-        {
-          "en": "Ancient Civilizations & Archaeology",
-          "ar": "الحضارات القديمة وعلم الآثار",
-          "count": 11
+          "count": 14
         },
         {
           "en": "Cold War & Modern Politics",
           "ar": "الحرب الباردة والسياسة الحديثة",
-          "count": 10
+          "count": 11
         },
         {
           "en": "Exploration, Science & Industry",
           "ar": "الاستكشاف والعلوم والصناعة",
-          "count": 8
+          "count": 10
         },
         {
           "en": "Medieval & Early Modern History",
           "ar": "تاريخ العصور الوسطى وبدايات العصر الحديث",
-          "count": 5
+          "count": 7
         },
         {
           "en": "Society, Religion & Crisis",
           "ar": "المجتمع والدين والأزمات",
-          "count": 4
+          "count": 6
+        },
+        {
+          "en": "Ancient Civilizations & Archaeology",
+          "ar": "الحضارات القديمة وعلم الآثار",
+          "count": 5
         }
       ],
       "related": [
@@ -1772,7 +1776,7 @@
         "law-middle-east",
         "world-habits-and-etiquette"
       ],
-      "scorableQuestionCount": 98,
+      "scorableQuestionCount": 100,
       "reviewedQuestionCount": 1,
       "quickFireQuestionCount": 0
     },
@@ -1784,7 +1788,7 @@
       },
       "description": {
         "en": "Bridges, concrete, foundations, water, transport, and power: how civil engineers design and build the systems cities run on.",
-        "ar": "يضم موضوع «الهندسة المدنية والبنية التحتية» 80 سؤالًا بالعربية والإنجليزية، ويتناول الجسور والهندسة الإنشائية، أنظمة المياه والصرف الصحي، والطرق وتخطيط النقل. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «الهندسة المدنية والبنية التحتية» 56 سؤالًا بالعربية والإنجليزية، ويتناول الجسور والهندسة الإنشائية، أنظمة المياه والصرف الصحي، والسكك الحديدية والأنفاق. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Technology & Engineering",
@@ -1793,12 +1797,12 @@
       "cluster_key": "tech",
       "emoji": "🚦",
       "mode": "quiz",
-      "count": 80,
+      "count": 56,
       "difficultyCounts": {
-        "easy": 23,
-        "medium": 17,
-        "hard": 29,
-        "very-advanced": 11
+        "easy": 14,
+        "medium": 14,
+        "hard": 14,
+        "very-advanced": 14
       },
       "href": "/infrastructure-systems",
       "image": "assets/infrastructure-systems.svg",
@@ -1806,52 +1810,47 @@
         {
           "en": "Bridges & Structural Engineering",
           "ar": "الجسور والهندسة الإنشائية",
-          "count": 19
+          "count": 15
         },
         {
           "en": "Water & Wastewater Systems",
           "ar": "أنظمة المياه والصرف الصحي",
-          "count": 14
-        },
-        {
-          "en": "Roads & Transport Planning",
-          "ar": "الطرق وتخطيط النقل",
-          "count": 10
-        },
-        {
-          "en": "Power & Energy Systems",
-          "ar": "أنظمة الطاقة والكهرباء",
-          "count": 9
+          "count": 12
         },
         {
           "en": "Railways & Tunnels",
           "ar": "السكك الحديدية والأنفاق",
-          "count": 7
+          "count": 8
+        },
+        {
+          "en": "Roads & Transport Planning",
+          "ar": "الطرق وتخطيط النقل",
+          "count": 6
         },
         {
           "en": "Ports, Canals & Airports",
           "ar": "الموانئ والقنوات والمطارات",
-          "count": 6
+          "count": 4
+        },
+        {
+          "en": "Power & Energy Systems",
+          "ar": "أنظمة الطاقة والكهرباء",
+          "count": 4
         },
         {
           "en": "Materials & Concrete",
           "ar": "المواد والخرسانة",
-          "count": 5
-        },
-        {
-          "en": "Geotechnical & Foundations",
-          "ar": "الهندسة الجيوتقنية والأساسات",
-          "count": 4
+          "count": 3
         },
         {
           "en": "Digital & Urban Infrastructure",
           "ar": "البنية التحتية الرقمية والحضرية",
-          "count": 3
+          "count": 2
         },
         {
-          "en": "Surveying & Design",
-          "ar": "المساحة والتصميم",
-          "count": 3
+          "en": "Geotechnical & Foundations",
+          "ar": "الهندسة الجيوتقنية والأساسات",
+          "count": 2
         }
       ],
       "related": [
@@ -1860,7 +1859,7 @@
         "software-and-computing",
         "tech-retro"
       ],
-      "scorableQuestionCount": 39,
+      "scorableQuestionCount": 50,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2012,7 +2011,7 @@
       },
       "description": {
         "en": "Math for adults with a stronger mix of riddles, patterns, logic, geometry, probability, and only a smaller share of direct equation work.",
-        "ar": "يضم موضوع «الرياضيات» 150 سؤالًا بالعربية والإنجليزية، ويتناول نظرية الأعداد وألغازها، الهندسة وعلم المثلثات، والجبر والدوال. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «الرياضيات» 120 سؤالًا بالعربية والإنجليزية، ويتناول نظرية الأعداد وألغازها، الهندسة وعلم المثلثات، والمنطق والأسس والمسائل غير المحلولة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Science, Nature & Health",
@@ -2021,12 +2020,12 @@
       "cluster_key": "science",
       "emoji": "∑",
       "mode": "quiz",
-      "count": 150,
+      "count": 120,
       "difficultyCounts": {
-        "easy": 51,
-        "medium": 63,
-        "hard": 28,
-        "very-advanced": 8
+        "easy": 30,
+        "medium": 40,
+        "hard": 30,
+        "very-advanced": 20
       },
       "href": "/math",
       "image": "assets/math.svg",
@@ -2034,42 +2033,42 @@
         {
           "en": "Number Theory & Number Riddles",
           "ar": "نظرية الأعداد وألغازها",
-          "count": 36
+          "count": 28
         },
         {
           "en": "Geometry & Trigonometry",
           "ar": "الهندسة وعلم المثلثات",
-          "count": 30
-        },
-        {
-          "en": "Algebra & Functions",
-          "ar": "الجبر والدوال",
-          "count": 22
-        },
-        {
-          "en": "Probability, Combinatorics & Statistics",
-          "ar": "الاحتمالات والتوافقيات والإحصاء",
-          "count": 15
-        },
-        {
-          "en": "Calculus & Analysis",
-          "ar": "التفاضل والتكامل والتحليل",
-          "count": 13
-        },
-        {
-          "en": "Patterns, Sequences & Word Problems",
-          "ar": "الأنماط والمتتاليات والمسائل اللفظية",
-          "count": 13
-        },
-        {
-          "en": "Arithmetic, Fractions & Percentages",
-          "ar": "الحساب والكسور والنسب المئوية",
-          "count": 11
+          "count": 23
         },
         {
           "en": "Logic, Foundations & Unsolved Problems",
           "ar": "المنطق والأسس والمسائل غير المحلولة",
+          "count": 17
+        },
+        {
+          "en": "Probability, Combinatorics & Statistics",
+          "ar": "الاحتمالات والتوافقيات والإحصاء",
+          "count": 16
+        },
+        {
+          "en": "Patterns, Sequences & Word Problems",
+          "ar": "الأنماط والمتتاليات والمسائل اللفظية",
+          "count": 14
+        },
+        {
+          "en": "Calculus & Analysis",
+          "ar": "التفاضل والتكامل والتحليل",
           "count": 10
+        },
+        {
+          "en": "Algebra & Functions",
+          "ar": "الجبر والدوال",
+          "count": 6
+        },
+        {
+          "en": "Arithmetic, Fractions & Percentages",
+          "ar": "الحساب والكسور والنسب المئوية",
+          "count": 6
         }
       ],
       "related": [
@@ -2078,7 +2077,7 @@
         "chemistry",
         "geology"
       ],
-      "scorableQuestionCount": 110,
+      "scorableQuestionCount": 82,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 20
     },
@@ -2090,7 +2089,7 @@
       },
       "description": {
         "en": "Motion, machines, and power transfer in card form.",
-        "ar": "يضم موضوع «الهندسة الميكانيكية» 30 سؤالًا بالعربية والإنجليزية، ويتناول الآلات والتروس والآليات، الديناميكا الحرارية والحرارة والطاقة، والمواد والفشل. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «الهندسة الميكانيكية» 40 سؤالًا بالعربية والإنجليزية، ويتناول الآلات والتروس والآليات، المواد والفشل، والديناميكا الحرارية والحرارة والطاقة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Technology & Engineering",
@@ -2099,11 +2098,12 @@
       "cluster_key": "tech",
       "emoji": "⚙️",
       "mode": "quiz",
-      "count": 30,
+      "count": 40,
       "difficultyCounts": {
         "easy": 10,
         "medium": 10,
-        "hard": 10
+        "hard": 10,
+        "very-advanced": 10
       },
       "href": "/mechanical-engineering",
       "image": "assets/mechanical-engineering.svg",
@@ -2111,17 +2111,22 @@
         {
           "en": "Machines, Gears & Mechanisms",
           "ar": "الآلات والتروس والآليات",
-          "count": 8
-        },
-        {
-          "en": "Thermodynamics, Heat & Power",
-          "ar": "الديناميكا الحرارية والحرارة والطاقة",
-          "count": 7
+          "count": 10
         },
         {
           "en": "Materials & Failure",
           "ar": "المواد والفشل",
-          "count": 6
+          "count": 9
+        },
+        {
+          "en": "Thermodynamics, Heat & Power",
+          "ar": "الديناميكا الحرارية والحرارة والطاقة",
+          "count": 9
+        },
+        {
+          "en": "Fluids & Hydraulics",
+          "ar": "الموائع والهيدروليكا",
+          "count": 5
         },
         {
           "en": "Mechanics & Structural Analysis",
@@ -2132,11 +2137,6 @@
           "en": "Measurement & Maintenance",
           "ar": "القياس والصيانة",
           "count": 3
-        },
-        {
-          "en": "Fluids & Hydraulics",
-          "ar": "الموائع والهيدروليكا",
-          "count": 2
         }
       ],
       "related": [
@@ -2145,7 +2145,7 @@
         "inventions-and-minds",
         "software-and-computing"
       ],
-      "scorableQuestionCount": 28,
+      "scorableQuestionCount": 39,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2235,7 +2235,7 @@
       },
       "description": {
         "en": "Civilizations, scholars, cities, and turning points from the Middle East.",
-        "ar": "يضم موضوع «تاريخ الشرق الأوسط» 50 سؤالًا بالعربية والإنجليزية، ويتناول التاريخ الحديث، التاريخ الإسلامي، وعصور قديمة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «تاريخ الشرق الأوسط» 60 سؤالًا بالعربية والإنجليزية، ويتناول التاريخ الحديث، التاريخ الإسلامي، والتاريخ العثماني. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "World, History & Society",
@@ -2244,12 +2244,12 @@
       "cluster_key": "world",
       "emoji": "🕌",
       "mode": "quiz",
-      "count": 50,
+      "count": 60,
       "difficultyCounts": {
-        "easy": 20,
-        "medium": 11,
-        "hard": 17,
-        "very-advanced": 2
+        "easy": 15,
+        "medium": 15,
+        "hard": 15,
+        "very-advanced": 15
       },
       "href": "/middle-east-history",
       "image": "assets/middle-east-history.svg",
@@ -2257,22 +2257,22 @@
         {
           "en": "Modern History",
           "ar": "التاريخ الحديث",
-          "count": 23
+          "count": 25
         },
         {
           "en": "Islamic History",
           "ar": "التاريخ الإسلامي",
-          "count": 16
+          "count": 22
+        },
+        {
+          "en": "Ottoman History",
+          "ar": "التاريخ العثماني",
+          "count": 7
         },
         {
           "en": "Ancient",
           "ar": "عصور قديمة",
           "count": 6
-        },
-        {
-          "en": "Ottoman History",
-          "ar": "التاريخ العثماني",
-          "count": 5
         }
       ],
       "related": [
@@ -2281,7 +2281,7 @@
         "world-habits-and-etiquette",
         "linguistics"
       ],
-      "scorableQuestionCount": 43,
+      "scorableQuestionCount": 60,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2366,7 +2366,7 @@
       },
       "description": {
         "en": "Ideas about ethics, truth, knowledge, and meaning in a quiz-friendly format.",
-        "ar": "يضم موضوع «الفلسفة» 50 سؤالًا بالعربية والإنجليزية، ويتناول الأخلاق، الميتافيزيقا وفلسفة العقل، والمدارس الفلسفية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «الفلسفة» 40 سؤالًا بالعربية والإنجليزية، ويتناول المدارس الفلسفية، الميتافيزيقا وفلسفة العقل، ونظرية المعرفة والمنطق. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Mind & Puzzles",
@@ -2375,45 +2375,45 @@
       "cluster_key": "mind",
       "emoji": "🧠",
       "mode": "quiz",
-      "count": 50,
+      "count": 40,
       "difficultyCounts": {
-        "easy": 13,
-        "medium": 9,
-        "hard": 16,
-        "very-advanced": 12
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
       },
       "href": "/philosophy",
       "image": "assets/philosophy.svg",
       "topics": [
         {
-          "en": "Ethics",
-          "ar": "الأخلاق",
-          "count": 12
+          "en": "Philosophical Traditions",
+          "ar": "المدارس الفلسفية",
+          "count": 13
         },
         {
           "en": "Metaphysics & Mind",
           "ar": "الميتافيزيقا وفلسفة العقل",
-          "count": 11
-        },
-        {
-          "en": "Philosophical Traditions",
-          "ar": "المدارس الفلسفية",
-          "count": 10
+          "count": 8
         },
         {
           "en": "Epistemology & Logic",
           "ar": "نظرية المعرفة والمنطق",
-          "count": 6
+          "count": 5
         },
         {
-          "en": "Language & Philosophy of Science",
-          "ar": "فلسفة اللغة والعلم",
-          "count": 6
+          "en": "Ethics",
+          "ar": "الأخلاق",
+          "count": 5
         },
         {
           "en": "Political Philosophy",
           "ar": "الفلسفة السياسية",
           "count": 5
+        },
+        {
+          "en": "Language & Philosophy of Science",
+          "ar": "فلسفة اللغة والعلم",
+          "count": 4
         }
       ],
       "related": [
@@ -2422,7 +2422,7 @@
         "logic-puzzles",
         "kids-riddles"
       ],
-      "scorableQuestionCount": 15,
+      "scorableQuestionCount": 39,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2434,7 +2434,7 @@
       },
       "description": {
         "en": "Psychology cards about behavior, memory, emotion, and human patterns.",
-        "ar": "يضم موضوع «علم النفس» 101 سؤال بالعربية والإنجليزية، ويتناول الإدراك والذاكرة والإحساس، الأسس والتعلم والدافعية، وعلم النفس الاجتماعي. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «علم النفس» 100 سؤال بالعربية والإنجليزية، ويتناول الإدراك والذاكرة والإحساس، علم النفس الاجتماعي، والأسس والتعلم والدافعية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Mind & Puzzles",
@@ -2443,12 +2443,12 @@
       "cluster_key": "mind",
       "emoji": "🫶",
       "mode": "quiz",
-      "count": 101,
+      "count": 100,
       "difficultyCounts": {
         "easy": 23,
-        "medium": 38,
-        "hard": 21,
-        "very-advanced": 19
+        "medium": 28,
+        "hard": 27,
+        "very-advanced": 22
       },
       "href": "/psychology",
       "image": "assets/psychology.svg",
@@ -2456,7 +2456,12 @@
         {
           "en": "Cognition, Memory & Perception",
           "ar": "الإدراك والذاكرة والإحساس",
-          "count": 22
+          "count": 21
+        },
+        {
+          "en": "Social Psychology",
+          "ar": "علم النفس الاجتماعي",
+          "count": 15
         },
         {
           "en": "Foundations, Learning & Motivation",
@@ -2464,29 +2469,24 @@
           "count": 14
         },
         {
-          "en": "Social Psychology",
-          "ar": "علم النفس الاجتماعي",
-          "count": 14
-        },
-        {
-          "en": "Clinical & Mental Health",
-          "ar": "علم النفس السريري والصحة النفسية",
-          "count": 12
-        },
-        {
           "en": "Developmental Psychology",
           "ar": "علم نفس النمو",
           "count": 12
         },
         {
+          "en": "Clinical & Mental Health",
+          "ar": "علم النفس السريري والصحة النفسية",
+          "count": 11
+        },
+        {
           "en": "Neuroscience",
           "ar": "علم الأعصاب",
-          "count": 10
+          "count": 11
         },
         {
           "en": "Personality & Emotion",
           "ar": "الشخصية والانفعال",
-          "count": 9
+          "count": 8
         },
         {
           "en": "Research Methods",
@@ -2500,7 +2500,7 @@
         "classic-riddles",
         "logic-puzzles"
       ],
-      "scorableQuestionCount": 55,
+      "scorableQuestionCount": 57,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2511,8 +2511,8 @@
         "ar": "العلاقات"
       },
       "description": {
-        "en": "50 bilingual relationship scenarios and communication tasks. Apply stated goals to listening, boundaries, conflict repair and shared decisions; these are not diagnoses or universal rules for personal relationships.",
-        "ar": "50 موقفًا ومهمة بالعربية والإنجليزية عن العلاقات. طبّق أهدافًا محددة في الإصغاء والحدود وإصلاح الخلاف والقرارات المشتركة؛ ليست هذه الأسئلة تشخيصات أو قواعد عامة لكل علاقة."
+        "en": "44 bilingual relationship questions: everyday scenarios and communication tasks, plus findings from relationship and friendship research. They are not diagnoses or universal rules for personal relationships.",
+        "ar": "44 سؤالًا بالعربية والإنجليزية عن العلاقات: مواقف يومية ومهام تواصل، إلى جانب نتائج من أبحاث العلاقات والصداقة. ليست هذه الأسئلة تشخيصات أو قواعد عامة لكل علاقة."
       },
       "cluster": {
         "en": "Mind & Puzzles",
@@ -2521,39 +2521,45 @@
       "cluster_key": "mind",
       "emoji": "💞",
       "mode": "quiz",
-      "count": 50,
+      "count": 44,
       "difficultyCounts": {
-        "easy": 16,
-        "medium": 32,
-        "hard": 2
+        "easy": 11,
+        "medium": 12,
+        "hard": 11,
+        "very-advanced": 10
       },
       "href": "/relationship-questions",
       "image": "assets/relationship-questions.svg",
       "topics": [
         {
-          "en": "Boundaries & Permission",
-          "ar": "الحدود والإذن",
-          "count": 12
-        },
-        {
           "en": "Communication & Listening",
           "ar": "التواصل والاستماع",
-          "count": 12
+          "count": 14
+        },
+        {
+          "en": "Friendship & Closeness",
+          "ar": "الصداقة والتقارب",
+          "count": 10
         },
         {
           "en": "Conflict & Repair",
           "ar": "الخلاف والإصلاح",
-          "count": 12
+          "count": 8
         },
         {
-          "en": "Support & Shared Decisions",
-          "ar": "الدعم والقرارات المشتركة",
-          "count": 8
+          "en": "Boundaries & Permission",
+          "ar": "الحدود والإذن",
+          "count": 7
         },
         {
           "en": "Digital Privacy & Expectations",
           "ar": "الخصوصية الرقمية والتوقعات",
-          "count": 6
+          "count": 3
+        },
+        {
+          "en": "Support & Shared Decisions",
+          "ar": "الدعم والقرارات المشتركة",
+          "count": 2
         }
       ],
       "related": [
@@ -2562,7 +2568,7 @@
         "kids-riddles",
         "story-mysteries"
       ],
-      "scorableQuestionCount": 43,
+      "scorableQuestionCount": 41,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2574,7 +2580,7 @@
       },
       "description": {
         "en": "Core science concepts from living systems to physics and space, all in card form.",
-        "ar": "يضم موضوع «العلوم» 83 سؤالًا بالعربية والإنجليزية، ويتناول الكم والنسبية وعلم الكون، الميكانيكا والفيزياء الكلاسيكية، والكيمياء والمواد. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «العلوم» 80 سؤالًا بالعربية والإنجليزية، ويتناول الكم والنسبية وعلم الكون، الميكانيكا والفيزياء الكلاسيكية، والموجات والضوء والصوت. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Science, Nature & Health",
@@ -2583,12 +2589,12 @@
       "cluster_key": "science",
       "emoji": "🔬",
       "mode": "quiz",
-      "count": 83,
+      "count": 80,
       "difficultyCounts": {
-        "easy": 27,
-        "medium": 23,
-        "hard": 20,
-        "very-advanced": 13
+        "easy": 23,
+        "medium": 20,
+        "hard": 19,
+        "very-advanced": 18
       },
       "href": "/science",
       "image": "assets/science.svg",
@@ -2604,24 +2610,24 @@
           "count": 16
         },
         {
-          "en": "Chemistry & Materials",
-          "ar": "الكيمياء والمواد",
-          "count": 13
-        },
-        {
-          "en": "Biology & Life Sciences",
-          "ar": "الأحياء وعلوم الحياة",
-          "count": 11
-        },
-        {
           "en": "Waves, Light & Sound",
           "ar": "الموجات والضوء والصوت",
-          "count": 11
+          "count": 14
         },
         {
           "en": "Heat & Energy",
           "ar": "الحرارة والطاقة",
+          "count": 12
+        },
+        {
+          "en": "Chemistry & Materials",
+          "ar": "الكيمياء والمواد",
           "count": 8
+        },
+        {
+          "en": "Biology & Life Sciences",
+          "ar": "الأحياء وعلوم الحياة",
+          "count": 6
         }
       ],
       "related": [
@@ -2630,7 +2636,7 @@
         "geology",
         "space-and-astrology"
       ],
-      "scorableQuestionCount": 58,
+      "scorableQuestionCount": 52,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2641,8 +2647,8 @@
         "ar": "العلوم الاجتماعية"
       },
       "description": {
-        "en": "A broader social-science page built from psychology, interpersonal behavior, and cultural etiquette concepts.",
-        "ar": "يضم موضوع «العلوم الاجتماعية» 53 سؤالًا بالعربية والإنجليزية، ويتناول علم الاجتماع، الأنثروبولوجيا، والاقتصاد. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "en": "Sociology, economics, political science and anthropology: the key ideas and thinkers behind how societies work.",
+        "ar": "يضم موضوع «العلوم الاجتماعية» 50 سؤالًا بالعربية والإنجليزية، ويتناول علم الاجتماع، الاقتصاد، والعلوم السياسية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "World, History & Society",
@@ -2651,12 +2657,12 @@
       "cluster_key": "world",
       "emoji": "👥",
       "mode": "quiz",
-      "count": 53,
+      "count": 50,
       "difficultyCounts": {
-        "easy": 13,
-        "medium": 15,
+        "easy": 12,
+        "medium": 12,
         "hard": 13,
-        "very-advanced": 12
+        "very-advanced": 13
       },
       "href": "/social-sciences",
       "image": "assets/social-sciences.svg",
@@ -2667,19 +2673,19 @@
           "count": 17
         },
         {
-          "en": "Anthropology",
-          "ar": "الأنثروبولوجيا",
-          "count": 12
-        },
-        {
           "en": "Economics",
           "ar": "الاقتصاد",
-          "count": 12
+          "count": 13
         },
         {
           "en": "Political Science",
           "ar": "العلوم السياسية",
           "count": 12
+        },
+        {
+          "en": "Anthropology",
+          "ar": "الأنثروبولوجيا",
+          "count": 8
         }
       ],
       "related": [
@@ -2688,7 +2694,7 @@
         "flag-questions",
         "currencies"
       ],
-      "scorableQuestionCount": 21,
+      "scorableQuestionCount": 50,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2700,7 +2706,7 @@
       },
       "description": {
         "en": "Computing, programming, the web, and interface design, from your first bug to P vs NP.",
-        "ar": "يضم موضوع «البرمجيات والحوسبة» 80 سؤالًا بالعربية والإنجليزية، ويتناول علوم الحاسب، هندسة البرمجيات، والخوارزميات وهياكل البيانات. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «البرمجيات والحوسبة» 60 سؤالًا بالعربية والإنجليزية، ويتناول علوم الحاسب، هندسة البرمجيات، والأنظمة والشبكات. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Technology & Engineering",
@@ -2709,12 +2715,12 @@
       "cluster_key": "tech",
       "emoji": "💻",
       "mode": "quiz",
-      "count": 80,
+      "count": 60,
       "difficultyCounts": {
-        "easy": 24,
-        "medium": 18,
-        "hard": 25,
-        "very-advanced": 13
+        "easy": 15,
+        "medium": 15,
+        "hard": 15,
+        "very-advanced": 15
       },
       "href": "/software-and-computing",
       "image": "assets/software-and-computing.svg",
@@ -2722,37 +2728,37 @@
         {
           "en": "Computer Science",
           "ar": "علوم الحاسب",
-          "count": 17
+          "count": 13
         },
         {
           "en": "Software Engineering",
           "ar": "هندسة البرمجيات",
-          "count": 16
-        },
-        {
-          "en": "Algorithms & Data Structures",
-          "ar": "الخوارزميات وهياكل البيانات",
-          "count": 14
+          "count": 12
         },
         {
           "en": "Systems & Networking",
           "ar": "الأنظمة والشبكات",
-          "count": 13
+          "count": 10
+        },
+        {
+          "en": "Algorithms & Data Structures",
+          "ar": "الخوارزميات وهياكل البيانات",
+          "count": 9
         },
         {
           "en": "Programming Fundamentals",
           "ar": "أساسيات البرمجة",
-          "count": 8
+          "count": 6
         },
         {
           "en": "Web Development",
           "ar": "تطوير الويب",
-          "count": 7
+          "count": 6
         },
         {
           "en": "UI/UX & Visual Design",
           "ar": "واجهات وتجربة المستخدم والتصميم البصري",
-          "count": 5
+          "count": 4
         }
       ],
       "related": [
@@ -2761,7 +2767,7 @@
         "automotive",
         "electrical-engineering"
       ],
-      "scorableQuestionCount": 49,
+      "scorableQuestionCount": 54,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2773,7 +2779,7 @@
       },
       "description": {
         "en": "Planets, stars, galaxies, eclipses, and space missions for curious stargazers.",
-        "ar": "يضم موضوع «الفضاء وعلم الفلك» 100 سؤالًا بالعربية والإنجليزية، ويتناول النظام الشمسي والكواكب، المجرات وعلم الكون، والنجوم وتطورها. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «الفضاء وعلم الفلك» 100 سؤال بالعربية والإنجليزية، ويتناول النظام الشمسي والكواكب، المجرات وعلم الكون، والنجوم وتطورها. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Science, Nature & Health",
@@ -2784,10 +2790,10 @@
       "mode": "quiz",
       "count": 100,
       "difficultyCounts": {
-        "easy": 25,
-        "medium": 27,
-        "hard": 26,
-        "very-advanced": 22
+        "easy": 24,
+        "medium": 28,
+        "hard": 24,
+        "very-advanced": 24
       },
       "href": "/space-and-astrology",
       "image": "assets/space-and-astrology.svg",
@@ -2800,12 +2806,12 @@
         {
           "en": "Galaxies & Cosmology",
           "ar": "المجرات وعلم الكون",
-          "count": 24
+          "count": 21
         },
         {
           "en": "Stars & Stellar Evolution",
           "ar": "النجوم وتطورها",
-          "count": 17
+          "count": 16
         },
         {
           "en": "Space Exploration & Telescopes",
@@ -2820,12 +2826,12 @@
         {
           "en": "Observational Astronomy",
           "ar": "علم الفلك الرصدي",
-          "count": 6
+          "count": 9
         },
         {
           "en": "Space Physics & Orbits",
           "ar": "فيزياء الفضاء والمدارات",
-          "count": 2
+          "count": 3
         }
       ],
       "related": [
@@ -2834,7 +2840,7 @@
         "survival",
         "medical-questions"
       ],
-      "scorableQuestionCount": 50,
+      "scorableQuestionCount": 54,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2845,8 +2851,8 @@
         "ar": "ألغاز القصص"
       },
       "description": {
-        "en": "49 bilingual fictional story mysteries for a game master. Players ask yes/no questions to uncover the intended backstory; other explanations may also fit the opening clues.",
-        "ar": "49 لغزًا قصصيًا خياليًا بالعربية والإنجليزية يديرها مقدّم اللعبة. يطرح اللاعبون أسئلة بنعم أو لا لاكتشاف الخلفية المقصودة؛ وقد تلائم تفسيرات أخرى القرائن الأولى أيضًا."
+        "en": "48 bilingual story mysteries for a game master. Players ask yes/no questions to uncover what really happened; other explanations may also fit the opening clues.",
+        "ar": "48 لغزًا قصصيًا بالعربية والإنجليزية يديرها مقدّم اللعبة. يطرح اللاعبون أسئلة بنعم أو لا لاكتشاف ما حدث فعلًا؛ وقد تلائم تفسيرات أخرى القرائن الأولى أيضًا."
       },
       "cluster": {
         "en": "Mind & Puzzles",
@@ -2855,39 +2861,35 @@
       "cluster_key": "mind",
       "emoji": "🕯️",
       "mode": "story",
-      "count": 49,
+      "count": 48,
       "difficultyCounts": {
-        "easy": 26,
-        "medium": 21,
-        "very-advanced": 2
+        "easy": 16,
+        "medium": 12,
+        "hard": 10,
+        "very-advanced": 10
       },
       "href": "/story-mysteries",
       "image": "assets/story-mysteries.svg",
       "topics": [
         {
-          "en": "Arts, Language & Performance",
-          "ar": "الفنون واللغة والعروض",
-          "count": 9
-        },
-        {
           "en": "Everyday & Family",
           "ar": "الحياة اليومية والعائلة",
+          "count": 12
+        },
+        {
+          "en": "Survival & Accidents",
+          "ar": "النجاة والحوادث",
           "count": 8
         },
         {
           "en": "Crime & Investigation",
           "ar": "الجريمة والتحقيق",
-          "count": 7
-        },
-        {
-          "en": "Survival & Accidents",
-          "ar": "النجاة والحوادث",
-          "count": 7
+          "count": 6
         },
         {
           "en": "Logic & Paradoxes",
           "ar": "المنطق والمفارقات",
-          "count": 5
+          "count": 6
         },
         {
           "en": "Society, Money & Power",
@@ -2895,14 +2897,19 @@
           "count": 5
         },
         {
-          "en": "Games & Competition",
-          "ar": "الألعاب والمنافسة",
+          "en": "Arts, Language & Performance",
+          "ar": "الفنون واللغة والعروض",
           "count": 4
         },
         {
           "en": "Science & Medicine",
           "ar": "العلوم والطب",
           "count": 4
+        },
+        {
+          "en": "Games & Competition",
+          "ar": "الألعاب والمنافسة",
+          "count": 3
         }
       ],
       "related": [
@@ -2911,7 +2918,7 @@
         "philosophy",
         "relationship-questions"
       ],
-      "scorableQuestionCount": 16,
+      "scorableQuestionCount": 32,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2932,12 +2939,12 @@
       "cluster_key": "culture",
       "emoji": "📺",
       "mode": "quiz",
-      "count": 720,
+      "count": 344,
       "difficultyCounts": {
-        "easy": 166,
-        "medium": 417,
-        "hard": 133,
-        "very-advanced": 4
+        "easy": 94,
+        "medium": 113,
+        "hard": 88,
+        "very-advanced": 49
       },
       "href": "/tv-shows-trivia",
       "image": "assets/tv-shows-trivia.svg",
@@ -2945,47 +2952,47 @@
         {
           "en": "Al-Hashasheen",
           "ar": "الحشاشين",
-          "count": 80
+          "count": 40
         },
         {
           "en": "Bab Al-Hara",
           "ar": "باب الحارة",
-          "count": 80
+          "count": 40
         },
         {
           "en": "Breaking Bad",
           "ar": "بريكينغ باد",
-          "count": 80
+          "count": 40
         },
         {
           "en": "Diriliş: Ertuğrul",
           "ar": "قيامة أرطغرل",
-          "count": 80
+          "count": 40
         },
         {
           "en": "Friends",
           "ar": "فريندز",
-          "count": 80
+          "count": 40
         },
         {
           "en": "Game of Thrones",
           "ar": "صراع العروش",
-          "count": 80
-        },
-        {
-          "en": "Maraya",
-          "ar": "مرايا",
-          "count": 80
+          "count": 40
         },
         {
           "en": "Stranger Things",
           "ar": "سترينجر ثينغز",
-          "count": 80
+          "count": 40
         },
         {
           "en": "Tash Ma Tash",
           "ar": "طاش ما طاش",
-          "count": 80
+          "count": 34
+        },
+        {
+          "en": "Maraya",
+          "ar": "مرايا",
+          "count": 30
         }
       ],
       "related": [
@@ -2994,7 +3001,7 @@
         "anime",
         "ayam-tayebeen"
       ],
-      "scorableQuestionCount": 720,
+      "scorableQuestionCount": 344,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3006,7 +3013,7 @@
       },
       "description": {
         "en": "Customs, greetings, hospitality, and social habits from around the world.",
-        "ar": "يضم موضوع «عادات البلدان والإتيكيت» 46 سؤالًا بالعربية والإنجليزية، ويتناول العادات الاجتماعية، آداب المائدة، والديني والاحتفالي. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «عادات البلدان والإتيكيت» 44 سؤالًا بالعربية والإنجليزية، ويتناول العادات الاجتماعية، التحيات والإيماءات، وآداب المائدة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "World, History & Society",
@@ -3015,12 +3022,12 @@
       "cluster_key": "world",
       "emoji": "🌍",
       "mode": "quiz",
-      "count": 46,
+      "count": 44,
       "difficultyCounts": {
-        "easy": 13,
-        "medium": 22,
-        "hard": 5,
-        "very-advanced": 6
+        "easy": 11,
+        "medium": 11,
+        "hard": 11,
+        "very-advanced": 11
       },
       "href": "/world-habits-and-etiquette",
       "image": "assets/world-habits-and-etiquette.svg",
@@ -3028,22 +3035,22 @@
         {
           "en": "Social Customs",
           "ar": "العادات الاجتماعية",
-          "count": 17
-        },
-        {
-          "en": "Dining Etiquette",
-          "ar": "آداب المائدة",
-          "count": 11
-        },
-        {
-          "en": "Religious & Ceremonial",
-          "ar": "الديني والاحتفالي",
-          "count": 10
+          "count": 16
         },
         {
           "en": "Greetings & Gestures",
           "ar": "التحيات والإيماءات",
-          "count": 8
+          "count": 12
+        },
+        {
+          "en": "Dining Etiquette",
+          "ar": "آداب المائدة",
+          "count": 9
+        },
+        {
+          "en": "Religious & Ceremonial",
+          "ar": "الديني والاحتفالي",
+          "count": 7
         }
       ],
       "related": [
@@ -3052,7 +3059,7 @@
         "economics-and-finance",
         "social-sciences"
       ],
-      "scorableQuestionCount": 30,
+      "scorableQuestionCount": 43,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3064,7 +3071,7 @@
       },
       "description": {
         "en": "Explore ecosystems, conservation, and the science of our planet.",
-        "ar": "يضم موضوع «البيئة وعلم البيئة» 42 سؤالًا بالعربية والإنجليزية، ويتناول النظم البيئية والتنوع الحيوي، تغير المناخ، والتلوث والنفايات. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «البيئة وعلم البيئة» 50 سؤالًا بالعربية والإنجليزية، ويتناول النظم البيئية والتنوع الحيوي، التلوث والنفايات، وتغير المناخ. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "🌿",
       "cluster": {
@@ -3073,12 +3080,12 @@
       },
       "cluster_key": "science",
       "mode": "quiz",
-      "count": 42,
+      "count": 50,
       "difficultyCounts": {
-        "easy": 11,
-        "medium": 10,
-        "hard": 11,
-        "very-advanced": 10
+        "easy": 12,
+        "medium": 13,
+        "hard": 13,
+        "very-advanced": 12
       },
       "href": "/environment-and-ecology",
       "image": "assets/environment-and-ecology.svg",
@@ -3089,34 +3096,34 @@
           "count": 10
         },
         {
-          "en": "Climate Change",
-          "ar": "تغير المناخ",
-          "count": 7
-        },
-        {
           "en": "Pollution & Waste",
           "ar": "التلوث والنفايات",
+          "count": 9
+        },
+        {
+          "en": "Climate Change",
+          "ar": "تغير المناخ",
+          "count": 8
+        },
+        {
+          "en": "Conservation & Policy",
+          "ar": "الحماية والسياسات البيئية",
           "count": 7
         },
         {
           "en": "Atmosphere & Weather",
           "ar": "الغلاف الجوي والطقس",
-          "count": 5
-        },
-        {
-          "en": "Conservation & Policy",
-          "ar": "الحماية والسياسات البيئية",
-          "count": 5
+          "count": 6
         },
         {
           "en": "Oceans & Water",
           "ar": "المحيطات والمياه",
-          "count": 5
+          "count": 6
         },
         {
           "en": "Biogeochemical Cycles",
           "ar": "الدورات البيوجيوكيميائية",
-          "count": 3
+          "count": 4
         }
       ],
       "related": [
@@ -3125,7 +3132,7 @@
         "medical-questions",
         "pharmacy"
       ],
-      "scorableQuestionCount": 36,
+      "scorableQuestionCount": 41,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3137,7 +3144,7 @@
       },
       "description": {
         "en": "Uncover the secrets of the Aztecs, Maya, and ancient empires.",
-        "ar": "يضم موضوع «الحضارات القديمة» 40 سؤالًا بالعربية والإنجليزية، ويتناول مصر القديمة، اليونان وروما، وبلاد الرافدين. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «الحضارات القديمة» 50 سؤالًا بالعربية والإنجليزية، ويتناول مصر القديمة، أفريقيا والشرق الأدنى، واليونان وروما. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "🏛️",
       "cluster": {
@@ -3146,12 +3153,12 @@
       },
       "cluster_key": "world",
       "mode": "quiz",
-      "count": 40,
+      "count": 50,
       "difficultyCounts": {
-        "easy": 9,
-        "medium": 11,
-        "hard": 10,
-        "very-advanced": 10
+        "easy": 13,
+        "medium": 13,
+        "hard": 12,
+        "very-advanced": 12
       },
       "href": "/ancient-civilizations",
       "image": "assets/ancient-civilizations.svg",
@@ -3159,7 +3166,17 @@
         {
           "en": "Ancient Egypt",
           "ar": "مصر القديمة",
+          "count": 12
+        },
+        {
+          "en": "Africa & Near East",
+          "ar": "أفريقيا والشرق الأدنى",
           "count": 10
+        },
+        {
+          "en": "Greece & Rome",
+          "ar": "اليونان وروما",
+          "count": 9
         },
         {
           "en": "Mesopotamia",
@@ -3167,19 +3184,9 @@
           "count": 8
         },
         {
-          "en": "Greece & Rome",
-          "ar": "اليونان وروما",
-          "count": 7
-        },
-        {
-          "en": "Africa & Near East",
-          "ar": "أفريقيا والشرق الأدنى",
-          "count": 5
-        },
-        {
           "en": "Asian Civilizations",
           "ar": "حضارات آسيا",
-          "count": 5
+          "count": 6
         },
         {
           "en": "Civilizations of the Americas",
@@ -3193,7 +3200,7 @@
         "linguistics",
         "business-and-management"
       ],
-      "scorableQuestionCount": 39,
+      "scorableQuestionCount": 49,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3205,7 +3212,7 @@
       },
       "description": {
         "en": "The history of breakthroughs and the minds that changed the world.",
-        "ar": "يضم موضوع «الاختراعات والأفكار» 40 سؤالًا بالعربية والإنجليزية، ويتناول تاريخ الحوسبة، العلوم والطب، والاتصالات. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «الاختراعات والأفكار» 40 سؤالًا بالعربية والإنجليزية، ويتناول تاريخ الحوسبة، التكنولوجيا اليومية، والعلوم والطب. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "💡",
       "cluster": {
@@ -3230,6 +3237,11 @@
           "count": 11
         },
         {
+          "en": "Everyday Technology",
+          "ar": "التكنولوجيا اليومية",
+          "count": 6
+        },
+        {
           "en": "Science & Medicine",
           "ar": "العلوم والطب",
           "count": 6
@@ -3245,23 +3257,18 @@
           "count": 4
         },
         {
-          "en": "Everyday Technology",
-          "ar": "التكنولوجيا اليومية",
-          "count": 4
-        },
-        {
           "en": "Materials",
           "ar": "المواد",
           "count": 4
         },
         {
-          "en": "Transportation",
-          "ar": "النقل",
-          "count": 4
-        },
-        {
           "en": "Navigation",
           "ar": "الملاحة",
+          "count": 2
+        },
+        {
+          "en": "Transportation",
+          "ar": "النقل",
           "count": 2
         }
       ],
@@ -3271,7 +3278,7 @@
         "future-tech-and-energy",
         "automotive"
       ],
-      "scorableQuestionCount": 37,
+      "scorableQuestionCount": 39,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3283,7 +3290,7 @@
       },
       "description": {
         "en": "Amazing facts about the diverse creatures sharing our planet.",
-        "ar": "يضم موضوع «عالم الحيوان» 43 سؤالًا بالعربية والإنجليزية، ويتناول الطيور والطيران، السلوك والبيئة والتكيف، والحشرات ومفصليات الأرجل. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «عالم الحيوان» 60 سؤالًا بالعربية والإنجليزية، ويتناول الثدييات، الطيور والطيران، وتشريح الحيوان ووظائف الأعضاء. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "🐾",
       "cluster": {
@@ -3292,54 +3299,54 @@
       },
       "cluster_key": "science",
       "mode": "quiz",
-      "count": 43,
+      "count": 60,
       "difficultyCounts": {
-        "easy": 13,
-        "medium": 13,
-        "hard": 10,
-        "very-advanced": 7
+        "easy": 14,
+        "medium": 16,
+        "hard": 15,
+        "very-advanced": 15
       },
       "href": "/animal-kingdom",
       "image": "assets/animal-kingdom.svg",
       "topics": [
         {
-          "en": "Birds & Flight",
-          "ar": "الطيور والطيران",
-          "count": 7
-        },
-        {
-          "en": "Behavior, Ecology & Adaptation",
-          "ar": "السلوك والبيئة والتكيف",
-          "count": 6
-        },
-        {
-          "en": "Insects & Arthropods",
-          "ar": "الحشرات ومفصليات الأرجل",
-          "count": 6
-        },
-        {
           "en": "Mammals",
           "ar": "الثدييات",
-          "count": 6
+          "count": 11
         },
         {
-          "en": "Marine Life",
-          "ar": "الحياة البحرية",
-          "count": 6
+          "en": "Birds & Flight",
+          "ar": "الطيور والطيران",
+          "count": 10
         },
         {
           "en": "Animal Anatomy & Physiology",
           "ar": "تشريح الحيوان ووظائف الأعضاء",
-          "count": 4
+          "count": 8
         },
         {
-          "en": "Reproduction & Life Cycles",
-          "ar": "التكاثر ودورات الحياة",
-          "count": 4
+          "en": "Marine Life",
+          "ar": "الحياة البحرية",
+          "count": 8
+        },
+        {
+          "en": "Behavior, Ecology & Adaptation",
+          "ar": "السلوك والبيئة والتكيف",
+          "count": 7
+        },
+        {
+          "en": "Insects & Arthropods",
+          "ar": "الحشرات ومفصليات الأرجل",
+          "count": 7
         },
         {
           "en": "Reptiles & Amphibians",
           "ar": "الزواحف والبرمائيات",
+          "count": 5
+        },
+        {
+          "en": "Reproduction & Life Cycles",
+          "ar": "التكاثر ودورات الحياة",
           "count": 4
         }
       ],
@@ -3349,7 +3356,7 @@
         "pharmacy",
         "math"
       ],
-      "scorableQuestionCount": 40,
+      "scorableQuestionCount": 58,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3439,7 +3446,7 @@
       },
       "description": {
         "en": "The art and science of famous landmarks and structures.",
-        "ar": "يضم موضوع «العمارة والمعالم» 40 سؤالًا بالعربية والإنجليزية، ويتناول المعماريون والمصممون، معالم العالم، والعناصر المعمارية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «العمارة والمعالم» 44 سؤالًا بالعربية والإنجليزية، ويتناول معالم العالم، المعماريون والمصممون، والعناصر المعمارية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "🏙️",
       "cluster": {
@@ -3448,30 +3455,30 @@
       },
       "cluster_key": "tech",
       "mode": "quiz",
-      "count": 40,
+      "count": 44,
       "difficultyCounts": {
-        "easy": 9,
+        "easy": 11,
         "medium": 11,
-        "hard": 10,
-        "very-advanced": 10
+        "hard": 11,
+        "very-advanced": 11
       },
       "href": "/architecture-and-landmarks",
       "image": "assets/architecture-and-landmarks.svg",
       "topics": [
+        {
+          "en": "World Landmarks",
+          "ar": "معالم العالم",
+          "count": 12
+        },
         {
           "en": "Architects & Designers",
           "ar": "المعماريون والمصممون",
           "count": 9
         },
         {
-          "en": "World Landmarks",
-          "ar": "معالم العالم",
-          "count": 9
-        },
-        {
           "en": "Architectural Elements",
           "ar": "العناصر المعمارية",
-          "count": 6
+          "count": 7
         },
         {
           "en": "Architectural Styles",
@@ -3500,7 +3507,7 @@
         "tech-retro",
         "future-tech-and-energy"
       ],
-      "scorableQuestionCount": 38,
+      "scorableQuestionCount": 42,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3512,7 +3519,7 @@
       },
       "description": {
         "en": "Composers, instruments, and the magic of performing arts.",
-        "ar": "يضم موضوع «الموسيقى والفنون الأدائية» 40 سؤالًا بالعربية والإنجليزية، ويتناول نظرية الموسيقى والتدوين، المؤلفون والأعمال الموسيقية، والآلات والفرق الموسيقية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «الموسيقى والفنون الأدائية» 50 سؤالًا بالعربية والإنجليزية، ويتناول المؤلفون والأعمال الموسيقية، نظرية الموسيقى والتدوين، والأنواع والتقاليد الموسيقية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "🎻",
       "cluster": {
@@ -3521,25 +3528,30 @@
       },
       "cluster_key": "culture",
       "mode": "quiz",
-      "count": 40,
+      "count": 50,
       "difficultyCounts": {
-        "easy": 10,
-        "medium": 12,
-        "hard": 12,
-        "very-advanced": 6
+        "easy": 12,
+        "medium": 13,
+        "hard": 13,
+        "very-advanced": 12
       },
       "href": "/music-and-performing-arts",
       "image": "assets/music-and-performing-arts.svg",
       "topics": [
+        {
+          "en": "Composers & Works",
+          "ar": "المؤلفون والأعمال الموسيقية",
+          "count": 13
+        },
         {
           "en": "Music Theory & Notation",
           "ar": "نظرية الموسيقى والتدوين",
           "count": 11
         },
         {
-          "en": "Composers & Works",
-          "ar": "المؤلفون والأعمال الموسيقية",
-          "count": 9
+          "en": "Genres & Traditions",
+          "ar": "الأنواع والتقاليد الموسيقية",
+          "count": 8
         },
         {
           "en": "Instruments & Ensembles",
@@ -3552,14 +3564,9 @@
           "count": 4
         },
         {
-          "en": "Genres & Traditions",
-          "ar": "الأنواع والتقاليد الموسيقية",
-          "count": 3
-        },
-        {
           "en": "Performance Techniques",
           "ar": "تقنيات الأداء",
-          "count": 3
+          "count": 4
         },
         {
           "en": "Sound, Tuning & Acoustics",
@@ -3573,7 +3580,7 @@
         "ayam-tayebeen",
         "football"
       ],
-      "scorableQuestionCount": 39,
+      "scorableQuestionCount": 50,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3585,7 +3592,7 @@
       },
       "description": {
         "en": "A journey through tastes, ingredients, and global traditions.",
-        "ar": "يضم موضوع «الطعام والمأكولات» 40 سؤالًا بالعربية والإنجليزية، ويتناول المكونات، تقنيات الطهي، وعلوم الغذاء. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «الطعام والمأكولات» 45 سؤالًا بالعربية والإنجليزية، ويتناول المشروبات والتوابل، المكونات، ومطابخ العالم. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "🍽️",
       "cluster": {
@@ -3594,20 +3601,30 @@
       },
       "cluster_key": "world",
       "mode": "quiz",
-      "count": 40,
+      "count": 45,
       "difficultyCounts": {
-        "easy": 12,
+        "easy": 11,
         "medium": 12,
-        "hard": 13,
-        "very-advanced": 3
+        "hard": 11,
+        "very-advanced": 11
       },
       "href": "/food-and-cuisines",
       "image": "assets/food-and-cuisines.svg",
       "topics": [
         {
+          "en": "Drinks & Spices",
+          "ar": "المشروبات والتوابل",
+          "count": 9
+        },
+        {
           "en": "Ingredients",
           "ar": "المكونات",
           "count": 9
+        },
+        {
+          "en": "World Cuisines",
+          "ar": "مطابخ العالم",
+          "count": 8
         },
         {
           "en": "Cooking Techniques",
@@ -3617,16 +3634,6 @@
         {
           "en": "Food Science",
           "ar": "علوم الغذاء",
-          "count": 7
-        },
-        {
-          "en": "Drinks & Spices",
-          "ar": "المشروبات والتوابل",
-          "count": 6
-        },
-        {
-          "en": "World Cuisines",
-          "ar": "مطابخ العالم",
           "count": 5
         },
         {
@@ -3637,7 +3644,7 @@
         {
           "en": "Food Culture",
           "ar": "ثقافة الطعام",
-          "count": 2
+          "count": 3
         }
       ],
       "related": [
@@ -3646,7 +3653,7 @@
         "currencies",
         "history"
       ],
-      "scorableQuestionCount": 36,
+      "scorableQuestionCount": 42,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3658,7 +3665,7 @@
       },
       "description": {
         "en": "Behind the scenes of movie history and cinematic magic.",
-        "ar": "يضم موضوع «السينما والأفلام» 40 سؤالًا بالعربية والإنجليزية، ويتناول صنّاع الأفلام والممثلون، تاريخ السينما ومحطاتها، والتصوير السينمائي والكاميرا. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «السينما والأفلام» 50 سؤالًا بالعربية والإنجليزية، ويتناول صنّاع الأفلام والممثلون، تاريخ السينما ومحطاتها، والجوائز والمهرجانات والصناعة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "🎬",
       "cluster": {
@@ -3667,12 +3674,12 @@
       },
       "cluster_key": "culture",
       "mode": "quiz",
-      "count": 40,
+      "count": 50,
       "difficultyCounts": {
-        "easy": 10,
-        "medium": 12,
-        "hard": 10,
-        "very-advanced": 8
+        "easy": 12,
+        "medium": 13,
+        "hard": 13,
+        "very-advanced": 12
       },
       "href": "/cinema-and-film-history",
       "image": "assets/cinema-and-film-history.svg",
@@ -3680,26 +3687,26 @@
         {
           "en": "Filmmakers & Performers",
           "ar": "صنّاع الأفلام والممثلون",
-          "count": 9
+          "count": 13
         },
         {
           "en": "Film History & Milestones",
           "ar": "تاريخ السينما ومحطاتها",
-          "count": 8
-        },
-        {
-          "en": "Cinematography & Camera",
-          "ar": "التصوير السينمائي والكاميرا",
-          "count": 7
-        },
-        {
-          "en": "Editing, Sound & Visual Effects",
-          "ar": "المونتاج والصوت والمؤثرات البصرية",
-          "count": 5
+          "count": 12
         },
         {
           "en": "Awards, Festivals & Industry",
           "ar": "الجوائز والمهرجانات والصناعة",
+          "count": 9
+        },
+        {
+          "en": "Cinematography & Camera",
+          "ar": "التصوير السينمائي والكاميرا",
+          "count": 5
+        },
+        {
+          "en": "Editing, Sound & Visual Effects",
+          "ar": "المونتاج والصوت والمؤثرات البصرية",
           "count": 4
         },
         {
@@ -3724,7 +3731,7 @@
         "football",
         "fictional-worlds"
       ],
-      "scorableQuestionCount": 37,
+      "scorableQuestionCount": 47,
       "reviewedQuestionCount": 1,
       "quickFireQuestionCount": 0
     },
@@ -3736,7 +3743,7 @@
       },
       "description": {
         "en": "AI, robotics, and the renewable energy of the future.",
-        "ar": "يضم موضوع «تقنية المستقبل والطاقة» 40 سؤالًا بالعربية والإنجليزية، ويتناول الحوسبة والأمن، الذكاء الاصطناعي وتعلم الآلة، والتقنيات المتصلة والغامرة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «تقنية المستقبل والطاقة» 40 سؤالًا بالعربية والإنجليزية، ويتناول الطاقة وأنظمة القدرة، الحوسبة والأمن، والذكاء الاصطناعي وتعلم الآلة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "🚀",
       "cluster": {
@@ -3747,32 +3754,27 @@
       "mode": "quiz",
       "count": 40,
       "difficultyCounts": {
-        "easy": 11,
-        "medium": 11,
-        "hard": 9,
-        "very-advanced": 9
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
       },
       "href": "/future-tech-and-energy",
       "image": "assets/future-tech-and-energy.svg",
       "topics": [
         {
+          "en": "Energy & Power Systems",
+          "ar": "الطاقة وأنظمة القدرة",
+          "count": 11
+        },
+        {
           "en": "Computing & Security",
           "ar": "الحوسبة والأمن",
-          "count": 9
+          "count": 7
         },
         {
           "en": "AI & Machine Learning",
           "ar": "الذكاء الاصطناعي وتعلم الآلة",
-          "count": 7
-        },
-        {
-          "en": "Connected & Immersive Tech",
-          "ar": "التقنيات المتصلة والغامرة",
-          "count": 5
-        },
-        {
-          "en": "Energy & Power Systems",
-          "ar": "الطاقة وأنظمة القدرة",
           "count": 5
         },
         {
@@ -3791,6 +3793,11 @@
           "count": 3
         },
         {
+          "en": "Connected & Immersive Tech",
+          "ar": "التقنيات المتصلة والغامرة",
+          "count": 3
+        },
+        {
           "en": "Robotics & Autonomous Systems",
           "ar": "الروبوتات والأنظمة الذاتية",
           "count": 3
@@ -3802,7 +3809,7 @@
         "mechanical-engineering",
         "infrastructure-systems"
       ],
-      "scorableQuestionCount": 26,
+      "scorableQuestionCount": 29,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3825,10 +3832,10 @@
       "mode": "quiz",
       "count": 150,
       "difficultyCounts": {
-        "easy": 45,
-        "medium": 48,
-        "hard": 43,
-        "very-advanced": 14
+        "easy": 40,
+        "medium": 47,
+        "hard": 38,
+        "very-advanced": 25
       },
       "href": "/anime",
       "image": "assets/anime.svg",
@@ -3901,8 +3908,8 @@
         "ar": "أيام الطيبين - سبيستون"
       },
       "description": {
-        "en": "Relive the golden era of Spacetoon with 199 bilingual questions across 10 beloved classic series — Adnan and Lina, Captain Majed, Grendizer, and more.",
-        "ar": "يضم موضوع «أيام الطيبين - سبيستون» 199 سؤالًا بالعربية والإنجليزية، ويتناول عدنان ولينا، الكابتن ماجد، وماروكو الصغيرة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "en": "Relive the golden era of Spacetoon with 164 bilingual questions across 10 beloved classic series — Adnan and Lina, Captain Majed, Grendizer, and more.",
+        "ar": "يضم موضوع «أيام الطيبين - سبيستون» 164 سؤالًا بالعربية والإنجليزية، ويتناول سالي، جزيرة الكنز، وعدنان ولينا. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Arts, Culture & Entertainment",
@@ -3911,65 +3918,65 @@
       "cluster_key": "culture",
       "emoji": "📺",
       "mode": "quiz",
-      "count": 199,
+      "count": 164,
       "difficultyCounts": {
-        "easy": 54,
-        "medium": 60,
-        "hard": 62,
-        "very-advanced": 23
+        "easy": 45,
+        "medium": 47,
+        "hard": 44,
+        "very-advanced": 28
       },
       "href": "/ayam-tayebeen",
       "image": "assets/ayam-tayebeen.svg",
       "topics": [
-        {
-          "en": "Adnan and Lina",
-          "ar": "عدنان ولينا",
-          "count": 20
-        },
-        {
-          "en": "Captain Majid",
-          "ar": "الكابتن ماجد",
-          "count": 20
-        },
-        {
-          "en": "Chibi Maruko-chan",
-          "ar": "ماروكو الصغيرة",
-          "count": 20
-        },
-        {
-          "en": "Grendizer",
-          "ar": "غرندايزر",
-          "count": 20
-        },
-        {
-          "en": "Iron Man",
-          "ar": "الرجل الحديدي",
-          "count": 20
-        },
-        {
-          "en": "Remi",
-          "ar": "ريمي",
-          "count": 20
-        },
         {
           "en": "Sally",
           "ar": "سالي",
           "count": 20
         },
         {
-          "en": "Sandybell",
-          "ar": "ساندييبيل",
-          "count": 20
-        },
-        {
           "en": "Treasure Island",
           "ar": "جزيرة الكنز",
-          "count": 20
+          "count": 19
+        },
+        {
+          "en": "Adnan and Lina",
+          "ar": "عدنان ولينا",
+          "count": 18
+        },
+        {
+          "en": "Grendizer",
+          "ar": "غرندايزر",
+          "count": 18
         },
         {
           "en": "Tom and Jerry",
           "ar": "توم وجيري",
-          "count": 19
+          "count": 18
+        },
+        {
+          "en": "Chibi Maruko-chan",
+          "ar": "ماروكو الصغيرة",
+          "count": 17
+        },
+        {
+          "en": "Remi",
+          "ar": "ريمي",
+          "count": 15
+        },
+        {
+          "en": "Iron Man",
+          "ar": "الرجل الحديدي",
+          "count": 14
+        },
+        {
+          "en": "Captain Majid",
+          "ar": "الكابتن ماجد",
+          "count": 13
+        },
+        {
+          "en": "Sandybell",
+          "ar": "ساندييبيل",
+          "count": 12
         }
       ],
       "related": [
@@ -3978,7 +3985,7 @@
         "superheroes",
         "pop-culture"
       ],
-      "scorableQuestionCount": 199,
+      "scorableQuestionCount": 164,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     }

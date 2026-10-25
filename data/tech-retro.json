@@ -44,14 +44,14 @@
       "ar": "ألعاب الفيديو الكلاسيكية"
     },
     "question": {
-      "en": "Which Sony console succeeded the original PlayStation?",
-      "ar": "أي جهاز من سوني إجا بعد البلايستيشن الأول؟"
+      "en": "Sony's PlayStation grew out of a cancelled CD add-on that Sony was building for which rival company's console?",
+      "ar": "جهاز بلايستيشن من سوني طلع من مشروع ملحق أقراص CD انلغى، كانت سوني تصنعه لجهاز أي شركة منافسة؟"
     },
     "answer": {
-      "en": "PlayStation 2.",
-      "ar": "بلاي ستيشن 2."
+      "en": "Nintendo (for the Super Nintendo).",
+      "ar": "نينتندو (لجهاز سوبر نينتندو)."
     },
-    "difficulty": "easy",
+    "difficulty": "medium",
     "review": {
       "status": "pending"
     }
@@ -59,18 +59,18 @@
   {
     "id": "tech-retro-4",
     "subcategory": {
-      "en": "Early Internet",
-      "ar": "الإنترنت المبكر"
+      "en": "Retro Gaming",
+      "ar": "ألعاب الفيديو الكلاسيكية"
     },
     "question": {
-      "en": "What does the acronym 'URL' stand for in web terminology?",
-      "ar": "شو معنى اختصار «URL» في الإنترنت؟"
+      "en": "Which 1962 game, written on a PDP-1 computer at MIT, had two spaceships duelling around a star?",
+      "ar": "أي لعبة من سنة 1962، انكتبت على كمبيوتر PDP-1 في معهد MIT، فيها سفينتين فضائيتين يتقاتلون حول نجم؟"
     },
     "answer": {
-      "en": "Uniform Resource Locator",
-      "ar": "محدد موقع الموارد المُوحّد"
+      "en": "Spacewar!",
+      "ar": "«Spacewar!» (حرب الفضاء)."
     },
-    "difficulty": "easy",
+    "difficulty": "very-advanced",
     "review": {
       "status": "pending"
     }
@@ -154,16 +154,16 @@
   {
     "id": "tech-retro-9",
     "subcategory": {
-      "en": "Early Internet",
-      "ar": "الإنترنت المبكر"
+      "en": "Mobile & Gadgets",
+      "ar": "الهواتف والأجهزة"
     },
     "question": {
-      "en": "In what year was the World Wide Web invented by Tim Berners-Lee?",
-      "ar": "بأي سنة اخترع تيم بيرنرز لي شبكة الويب العالمية؟"
+      "en": "Which company launched the Walkman, the pocket cassette player, in 1979?",
+      "ar": "أي شركة طلّعت «ووكمان»، مشغّل الكاسيت اللي ينحط بالجيب، سنة 1979؟"
     },
     "answer": {
-      "en": "1989",
-      "ar": "1989"
+      "en": "Sony.",
+      "ar": "سوني."
     },
     "difficulty": "easy",
     "review": {
@@ -336,7 +336,7 @@
       "en": "Tamagotchi",
       "ar": "تاماغوتشي"
     },
-    "difficulty": "medium",
+    "difficulty": "easy",
     "review": {
       "status": "pending"
     }
@@ -355,7 +355,7 @@
       "en": "Yahoo!",
       "ar": "ياهو!"
     },
-    "difficulty": "medium",
+    "difficulty": "hard",
     "review": {
       "status": "pending"
     }
@@ -393,7 +393,7 @@
       "en": "symbolics.com.",
       "ar": "symbolics.com."
     },
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "review": {
       "status": "pending"
     }
@@ -427,7 +427,7 @@
       "en": "Gopher.",
       "ar": "غوفر."
     },
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Early Internet",
       "ar": "الإنترنت المبكر"
@@ -469,7 +469,7 @@
       "en": "Chicago",
       "ar": "شيكاغو"
     },
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "review": {
       "status": "pending"
     }
@@ -534,18 +534,18 @@
   {
     "id": "tech-retro-29",
     "subcategory": {
-      "en": "Hardware & Storage",
-      "ar": "العتاد والتخزين"
+      "en": "Mobile & Gadgets",
+      "ar": "الهواتف والأجهزة"
     },
     "question": {
-      "en": "In retro computing, what does the acronym 'RAM' stand for?",
-      "ar": "في الكمبيوترات، شو معنى اختصار «RAM»؟"
+      "en": "What two-word greeting was the first text message (SMS), sent from a computer to a phone in December 1992?",
+      "ar": "شو التهنئة المكوّنة من كلمتين اللي كانت أول رسالة نصية SMS، انبعتت من كمبيوتر لجوال في ديسمبر 1992؟"
     },
     "answer": {
-      "en": "Random Access Memory",
-      "ar": "ذاكرة الوصول العشوائي"
+      "en": "\"Merry Christmas\".",
+      "ar": "«Merry Christmas» (ميلاد مجيد)."
     },
-    "difficulty": "easy",
+    "difficulty": "hard",
     "review": {
       "status": "pending"
     }
@@ -583,7 +583,7 @@
       "en": "Creeper, an early worm-like program.",
       "ar": "كريبر، برنامج مبكر شبيه بدودة الحاسوب."
     },
-    "difficulty": "medium",
+    "difficulty": "hard",
     "review": {
       "status": "pending"
     }
@@ -671,14 +671,14 @@
       "ar": "الإنترنت المبكر"
     },
     "question": {
-      "en": "In networking, what does the port number 80 traditionally default to?",
-      "ar": "في الشبكات، المنفذ رقم 80 لأي خدمة يكون عادةً؟"
+      "en": "Which keyboard symbol did Ray Tomlinson pick in 1971 to separate the user's name from the computer's name in the first network email?",
+      "ar": "أي رمز من الكيبورد اختاره راي توملينسون سنة 1971 عشان يفصل اسم المستخدم عن اسم الكمبيوتر بأول إيميل عبر الشبكة؟"
     },
     "answer": {
-      "en": "HTTP traffic",
-      "ar": "حركة مرور HTTP"
+      "en": "The @ (at) sign.",
+      "ar": "علامة @ (آت)."
     },
-    "difficulty": "easy",
+    "difficulty": "medium",
     "review": {
       "status": "pending"
     }
@@ -690,14 +690,14 @@
       "ar": "ألعاب الفيديو الكلاسيكية"
     },
     "question": {
-      "en": "What technique generates game worlds algorithmically instead of storing every detail as hand-made content?",
-      "ar": "شو اسم التقنية اللي تبني عوالم الألعاب بالخوارزميات بدل ما تنحفظ كل تفاصيلها يدويًا؟"
+      "en": "Which technique let the 1984 space game Elite squeeze eight whole galaxies into a home computer's tiny memory?",
+      "ar": "شو التقنية اللي خلّت لعبة الفضاء «إيليت» سنة 1984 تحط ثماني مجرات كاملة بذاكرة كمبيوتر منزلي صغيرة؟"
     },
     "answer": {
       "en": "Procedural generation.",
       "ar": "التوليد الإجرائي."
     },
-    "difficulty": "medium",
+    "difficulty": "hard",
     "review": {
       "status": "pending"
     }
@@ -728,12 +728,12 @@
       "ar": "ألعاب الفيديو الكلاسيكية"
     },
     "question": {
-      "en": "Which company produced the Amiga CD32 game console?",
-      "ar": "أي شركة صنعت جهاز الألعاب أميغا CD32؟"
+      "en": "Long before video games, Nintendo was founded in Kyoto in 1889 to make what?",
+      "ar": "قبل ألعاب الفيديو بزمن طويل، تأسست نينتندو في كيوتو عام 1889. ماذا كانت تصنع؟"
     },
     "answer": {
-      "en": "Commodore.",
-      "ar": "كومودور."
+      "en": "Playing cards (hanafuda).",
+      "ar": "ورق اللعب (أوراق الهانافودا)."
     },
     "difficulty": "hard",
     "review": {

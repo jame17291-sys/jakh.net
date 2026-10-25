@@ -1,18 +1,18 @@
 [
   {
     "id": "geology-001",
-    "difficulty": "easy",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Plate Tectonics & Earth Structure",
       "ar": "تكتونيات الصفائح وبنية الأرض"
     },
     "question": {
-      "en": "What is the name of the outermost solid layer of the Earth?",
-      "ar": "شو اسم الطبقة الصلبة الخارجية للأرض؟"
+      "en": "Which plate boundary runs from the Gulf of Aqaba north through the Jordan Valley, separating the Arabian Plate from the African (Sinai) Plate?",
+      "ar": "أي حدّ بين الصفائح يمتد من خليج العقبة شمالاً عبر وادي الأردن، ويفصل الصفيحة العربية عن الصفيحة الأفريقية (سيناء)؟"
     },
     "answer": {
-      "en": "The crust.",
-      "ar": "القشرة الأرضية."
+      "en": "The Dead Sea Transform (Dead Sea fault system).",
+      "ar": "صدع البحر الميت التحويلي."
     },
     "review": {
       "status": "pending"
@@ -248,18 +248,18 @@
   },
   {
     "id": "geology-014",
-    "difficulty": "easy",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Geological Time & Fossils",
       "ar": "الزمن الجيولوجي والأحافير"
     },
     "question": {
-      "en": "What is the preserved remains or trace of an ancient organism found in rock called?",
-      "ar": "شو نسمّي بقايا أو آثار كائن قديم محفوظة بالصخر؟"
+      "en": "Tiny zircon crystals from Western Australia's Jack Hills are the oldest known pieces of Earth. About how old are they?",
+      "ar": "بلورات زركون صغيرة من تلال «جاك هيلز» غرب أستراليا هي أقدم قطع معروفة من الأرض. تقريباً كم عمرها؟"
     },
     "answer": {
-      "en": "A fossil.",
-      "ar": "الأحفور."
+      "en": "About 4.4 billion years.",
+      "ar": "حوالي 4.4 مليار سنة."
     },
     "review": {
       "status": "pending"
@@ -368,12 +368,12 @@
       "ar": "المعادن والجيوكيمياء"
     },
     "question": {
-      "en": "What is the scale used to measure the hardness of minerals, ranging from 1 (talc) to 10 (diamond)?",
-      "ar": "شو المقياس اللي يقيس صلابة المعادن من 1 (التلك) لـ10 (الألماس)؟"
+      "en": "Which shiny, brassy-yellow mineral is nicknamed 'fool's gold'?",
+      "ar": "أي معدن لامع لونه أصفر نحاسي ولقبه «ذهب الحمقى»؟"
     },
     "answer": {
-      "en": "The Mohs hardness scale.",
-      "ar": "مقياس موس للصلابة."
+      "en": "Pyrite (iron sulfide).",
+      "ar": "البيريت (كبريتيد الحديد)."
     },
     "review": {
       "status": "pending"
@@ -381,7 +381,7 @@
   },
   {
     "id": "geology-021",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Plate Tectonics & Earth Structure",
       "ar": "تكتونيات الصفائح وبنية الأرض"
@@ -457,7 +457,7 @@
   },
   {
     "id": "geology-025",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Geological Time & Fossils",
       "ar": "الزمن الجيولوجي والأحافير"
@@ -495,7 +495,7 @@
   },
   {
     "id": "geology-027",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Plate Tectonics & Earth Structure",
       "ar": "تكتونيات الصفائح وبنية الأرض"
@@ -514,18 +514,18 @@
   },
   {
     "id": "geology-028",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Rocks, Petrology & Rock Cycle",
       "ar": "الصخور وعلم الصخور ودورتها"
     },
     "question": {
-      "en": "In the rock cycle, what process converts sedimentary rock into metamorphic rock?",
-      "ar": "في دورة الصخور، شو العملية اللي تحوّل الصخور الرسوبية لصخور متحوّلة؟"
+      "en": "Jordan's ancient city of Petra is carved into cliffs of which rock?",
+      "ar": "مدينة البتراء الأثرية في الأردن منحوتة بصخور من أي نوع؟"
     },
     "answer": {
-      "en": "Intense heat and pressure deep within the Earth (typically at subduction zones or mountain-building regions).",
-      "ar": "الحرارة الشديدة والضغط في أعماق الأرض (عادةً عند مناطق الاندساس أو بناء الجبال)."
+      "en": "Sandstone; iron-rich layers give it the famous rose-red colours.",
+      "ar": "الحجر الرملي، وطبقاته الغنية بالحديد تعطيه ألوانه الوردية المشهورة."
     },
     "review": {
       "status": "pending"
@@ -552,7 +552,7 @@
   },
   {
     "id": "geology-030",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Surface Processes & Landforms",
       "ar": "العمليات السطحية والتضاريس"
@@ -609,7 +609,7 @@
   },
   {
     "id": "geology-033",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Geological Time & Fossils",
       "ar": "الزمن الجيولوجي والأحافير"
@@ -685,7 +685,7 @@
   },
   {
     "id": "geology-037",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Rocks, Petrology & Rock Cycle",
       "ar": "الصخور وعلم الصخور ودورتها"
@@ -710,12 +710,12 @@
       "ar": "العمليات السطحية والتضاريس"
     },
     "question": {
-      "en": "What is the geomorphological term for a steep-sided flat-topped hill formed by erosion in arid regions?",
-      "ar": "شو نسمّي التلة اللي جوانبها منحدرة كثير وقمّتها مسطحة، وتتكوّن بالتعرية بالمناطق الجافة؟"
+      "en": "Geologists worldwide use which Arabic word for the flat, salt-crusted coastal plains along the Gulf, as in Abu Dhabi?",
+      "ar": "شو الكلمة العربية اللي صارت مصطلح جيولوجي عالمي للسهول الساحلية المسطّحة اللي تغطيها قشرة ملح على ساحل الخليج، مثل أبوظبي؟"
     },
     "answer": {
-      "en": "A mesa (if large) or a butte (if smaller and narrower).",
-      "ar": "الميسا (إذا كانت كبيرة) أو البيوت (إذا كانت أصغر وأضيق)."
+      "en": "Sabkha.",
+      "ar": "السبخة."
     },
     "review": {
       "status": "pending"
@@ -761,7 +761,7 @@
   },
   {
     "id": "geology-041",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Minerals & Geochemistry",
       "ar": "المعادن والجيوكيمياء"
@@ -786,12 +786,12 @@
       "ar": "الصخور وعلم الصخور ودورتها"
     },
     "question": {
-      "en": "What is an ophiolite and why is it geologically significant?",
-      "ar": "شو هو «الأوفيوليت»، وليش مهم جيولوجيًا؟"
+      "en": "Which Arab country has the world's largest, best-exposed ophiolite, a slab of ancient ocean floor and mantle pushed up onto land?",
+      "ar": "أي دولة عربية فيها أكبر وأوضح «أوفيوليت» بالعالم، يعني قطعة من قاع محيط قديم ووشاح الأرض اندفعت فوق اليابسة؟"
     },
     "answer": {
-      "en": "An ophiolite is a section of oceanic crust and upper mantle that has been thrust onto continental crust during subduction. They are significant because they provide geologists with direct access to material from the ocean floor and upper mantle.",
-      "ar": "الأوفيوليت هو مقطع من القشرة المحيطية والوشاح العلوي دُفع إلى القشرة القارية أثناء الاندساس. أهميته أنه يوفّر لعلماء الجيولوجيا وصولًا مباشرًا إلى مواد من قاع المحيط والوشاح العلوي."
+      "en": "Oman (the Semail Ophiolite, which extends into the UAE).",
+      "ar": "سلطنة عُمان (أوفيوليت سمائل، ويمتد إلى الإمارات)."
     },
     "review": {
       "status": "pending"
@@ -837,7 +837,7 @@
   },
   {
     "id": "geology-045",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Minerals & Geochemistry",
       "ar": "المعادن والجيوكيمياء"

@@ -140,62 +140,6 @@
     }
   },
   {
-    "id": "relationship-questions-006",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Communication & Listening",
-      "ar": "التواصل والاستماع"
-    },
-    "question": {
-      "en": "Which sentence expresses a feeling and a specific request without calling the other person a name? A: “You are inconsiderate and never think.” B: “I felt worried when the plan changed. Could you message me next time?”",
-      "ar": "أي جملة تعبّر عن شعورك وطلب محدد من غير ما تهين الثاني؟ A: «إنت ما تراعي أبدًا وما تفكّر.» B: «قلقت لما تغيّرت الخطة. تقدر تراسلني المرة الجاية؟»"
-    },
-    "answer": {
-      "en": "B — It links a feeling to an event and asks for a concrete action.",
-      "ar": "B — تربط الشعور بحدث وتطلب تصرفًا محددًا."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "B"
-      ],
-      "ar": [
-        "B"
-      ]
-    },
-    "review": {
-      "status": "pending"
-    },
-    "mode": "quiz"
-  },
-  {
-    "id": "relationship-questions-007",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Communication & Listening",
-      "ar": "التواصل والاستماع"
-    },
-    "question": {
-      "en": "Your friend is speaking and you disagree. Which response lets them finish before you give your view? A: “Please finish your thought; then I would like to explain my view.” B: “Stop. I already know what you are going to say.”",
-      "ar": "صاحبك يحكي وإنت مختلف معه. أي رد يخلّيه يكمّل قبل ما تقول رأيك؟ A: «كمّل فكرتك، وبعدين ودّي أوضح وجهة نظري.» B: «وقّف؛ أنا عارف شو بتقول.»"
-    },
-    "answer": {
-      "en": "A — It preserves a turn for each person.",
-      "ar": "A — يحافظ على دور لكل شخص في الحديث."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "A"
-      ],
-      "ar": [
-        "A"
-      ]
-    },
-    "review": {
-      "status": "pending"
-    },
-    "mode": "quiz"
-  },
-  {
     "id": "relationship-questions-008",
     "difficulty": "easy",
     "subcategory": {
@@ -252,34 +196,6 @@
     "mode": "quiz"
   },
   {
-    "id": "relationship-questions-010",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Communication & Listening",
-      "ar": "التواصل والاستماع"
-    },
-    "question": {
-      "en": "Which request is more concrete and observable? A: “Please put the shared keys on the hook after using them.” B: “Be a better person around the house.”",
-      "ar": "أي طلب أوضح وتقدر تلاحظ إذا تنفّذ؟ A: «حط المفاتيح المشتركة على العلّاقة بعد ما تستخدمها لو سمحت.» B: «كن شخص أحسن بالبيت.»"
-    },
-    "answer": {
-      "en": "A — It names a specific action and when to do it.",
-      "ar": "A — يحدد تصرفًا بعينه ومتى يُنفَّذ."
-    },
-    "review": {
-      "status": "pending"
-    },
-    "mode": "quiz",
-    "acceptedAnswers": {
-      "en": [
-        "A"
-      ],
-      "ar": [
-        "A"
-      ]
-    }
-  },
-  {
     "id": "relationship-questions-011",
     "difficulty": "medium",
     "subcategory": {
@@ -321,34 +237,6 @@
     "answer": {
       "en": "B — It asks for details, not just confirmation.",
       "ar": "B — يطلب تفاصيل لا مجرد تأكيد."
-    },
-    "review": {
-      "status": "pending"
-    },
-    "mode": "quiz",
-    "acceptedAnswers": {
-      "en": [
-        "B"
-      ],
-      "ar": [
-        "B"
-      ]
-    }
-  },
-  {
-    "id": "relationship-questions-013",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Boundaries & Permission",
-      "ar": "الحدود والإذن"
-    },
-    "question": {
-      "en": "You are unavailable after 9 p.m. Which statement describes your own availability rather than controlling the other person’s whole evening? A: “You are not allowed to talk to anyone after 9 p.m.” B: “I will respond to non-urgent messages in the morning.”",
-      "ar": "إنت مش متاح بعد الساعة تسعة بالليل. أي جملة توصف وقتك إنت بدل ما تتحكم بمساء الثاني كله؟ A: «ممنوع تحكي مع أي أحد بعد تسعة.» B: «برد على الرسائل اللي مش مستعجلة الصبح.»"
-    },
-    "answer": {
-      "en": "B — It states what you will do rather than imposing unrelated control.",
-      "ar": "B — توضح ما ستفعله أنت بدل فرض سيطرة لا تتعلق بتفرغك."
     },
     "review": {
       "status": "pending"
@@ -420,34 +308,6 @@
     }
   },
   {
-    "id": "relationship-questions-016",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Boundaries & Permission",
-      "ar": "الحدود والإذن"
-    },
-    "question": {
-      "en": "Which reply clearly declines a request without inventing an excuse? A: “Maybe, I suppose, although I know I will not do it.” B: “I cannot take that on this week.”",
-      "ar": "أي رد يرفض طلب بوضوح من غير ما تختلق عذر؟ A: «يمكن، أظن، مع إني عارف إني ما بسويها.» B: «ما أقدر أتكفّل فيها هالأسبوع.»"
-    },
-    "answer": {
-      "en": "B — It communicates the decision directly.",
-      "ar": "B — يعبّر عن القرار مباشرة."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "B"
-      ],
-      "ar": [
-        "B"
-      ]
-    },
-    "review": {
-      "status": "pending"
-    },
-    "mode": "quiz"
-  },
-  {
     "id": "relationship-questions-017",
     "difficulty": "medium",
     "subcategory": {
@@ -476,54 +336,26 @@
     "mode": "quiz"
   },
   {
-    "id": "relationship-questions-018",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Boundaries & Permission",
-      "ar": "الحدود والإذن"
-    },
-    "question": {
-      "en": "Someone previously agreed to a social activity but now says they no longer want to take part. Which reply acknowledges the changed choice? A: “Your earlier yes means you can never change your mind.” B: “I understand that you have changed your mind; let us discuss any practical arrangements.”",
-      "ar": "شخص وافق قبل على طلعة، بس الحين يقول ما يبي يشارك. أي رد يحترم إنه غيّر رأيه؟ A: «موافقتك الأولى تعني إنك ما تقدر تغيّر رأيك أبدًا.» B: «فاهم إنك غيّرت رأيك؛ خلّنا نحكي عن الترتيبات العملية إذا في شي.»"
-    },
-    "answer": {
-      "en": "B — It acknowledges the present choice without ignoring practical consequences.",
-      "ar": "B — يعترف بالاختيار الحالي دون تجاهل التبعات العملية."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "B"
-      ],
-      "ar": [
-        "B"
-      ]
-    },
-    "review": {
-      "status": "pending"
-    },
-    "mode": "quiz"
-  },
-  {
     "id": "relationship-questions-019",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "Boundaries & Permission",
-      "ar": "الحدود والإذن"
+      "en": "Conflict & Repair",
+      "ar": "الخلاف والإصلاح"
     },
     "question": {
-      "en": "You need quiet time after work. Which request gives a clear time boundary? A: “Could I have 20 minutes alone, then we can talk at 7?” B: “Go away until I feel different, whenever that is.”",
-      "ar": "تحتاج وقت هادي بعد الدوام. أي طلب يحدد مدة واضحة؟ A: «ممكن أقعد لحالي عشرين دقيقة وبعدين نحكي الساعة سبعة؟» B: «ابعد عني لحد ما يتغير مزاجي، مهما طوّل.»"
+      "en": "Psychologist John Gottman named four habits in arguments that predict a relationship breaking down, the 'Four Horsemen'. What are they?",
+      "ar": "عالم النفس جون غوتمان سمّى أربع عادات بالخلافات تنبّئ إن العلاقة رايحة للانهيار، ولقّبها «الفرسان الأربعة». شو هي؟"
     },
     "answer": {
-      "en": "A — It names a duration and a proposed time to reconnect.",
-      "ar": "A — يحدد مدة ووقتًا مقترحًا لاستئناف التواصل."
+      "en": "Criticism, contempt, defensiveness and stonewalling.",
+      "ar": "الانتقاد، والازدراء، والدفاعية، والانسحاب الصامت."
     },
     "acceptedAnswers": {
       "en": [
-        "A"
+        "Criticism, contempt, defensiveness, stonewalling"
       ],
       "ar": [
-        "A"
+        "الانتقاد والازدراء والدفاعية والانسحاب الصامت"
       ]
     },
     "review": {
@@ -561,25 +393,28 @@
   },
   {
     "id": "relationship-questions-021",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "Boundaries & Permission",
-      "ar": "الحدود والإذن"
+      "en": "Communication & Listening",
+      "ar": "التواصل والاستماع"
     },
     "question": {
-      "en": "A guest repeatedly arrives without notice. Which statement asks for a specific change? A: “You should already know every time I am busy.” B: “Please check with me before visiting so we can agree on a time.”",
-      "ar": "ضيف يجي كل مرة من غير ما يخبّر. أي جملة تطلب تغيير محدد؟ A: «المفروض تعرف من قبل كل الأوقات اللي أكون فيها مشغول.» B: «لو سمحت كلّمني قبل الزيارة عشان نتفق على وقت.»"
+      "en": "What name is given to a sentence like 'I feel worried when plans change at the last minute', which starts from your own feelings instead of blaming?",
+      "ar": "شو اسم الجملة اللي تبدأ من مشاعرك إنت بدل اللوم، مثل «أنا أقلق لما تتغيّر الخطة آخر لحظة»؟"
     },
     "answer": {
-      "en": "B — It gives an actionable request instead of expecting mind-reading.",
-      "ar": "B — تقدم طلبًا قابلًا للتنفيذ بدل توقع قراءة الأفكار."
+      "en": "An 'I-statement' (I-message).",
+      "ar": "«رسالة الأنا» (I-statement)."
     },
     "acceptedAnswers": {
       "en": [
-        "B"
+        "I-statement",
+        "I-message",
+        "I statement"
       ],
       "ar": [
-        "B"
+        "رسالة الأنا",
+        "عبارة الأنا"
       ]
     },
     "review": {
@@ -589,18 +424,18 @@
   },
   {
     "id": "relationship-questions-022",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "Boundaries & Permission",
-      "ar": "الحدود والإذن"
+      "en": "Communication & Listening",
+      "ar": "التواصل والاستماع"
     },
     "question": {
-      "en": "You want to decline discussing a private topic. Which reply states that limit directly? A: “I would rather keep that private. Can we talk about something else?” B: “I will answer only if you first reveal something equally private.”",
-      "ar": "ما تبي تحكي بموضوع خاص. أي رد يوضح هالحد مباشرة؟ A: «أفضّل أخلّيه خاص. نحكي بشي ثاني؟» B: «ما بجاوب إلا إذا كشفت إنت أول شي خاص بنفس القدر.»"
+      "en": "Which American psychologist, founder of person-centred therapy, co-wrote the 1957 paper that named 'active listening'?",
+      "ar": "أي عالم نفس أمريكي، مؤسس «العلاج المتمركز حول الشخص»، شارك بكتابة ورقة سنة 1957 سمّت «الاستماع الفعّال»؟"
     },
     "answer": {
-      "en": "A — It expresses privacy without demanding a trade of disclosures.",
-      "ar": "A — يعبّر عن الخصوصية دون اشتراط تبادل الإفصاحات."
+      "en": "Carl Rogers (with Richard Farson).",
+      "ar": "كارل روجرز (مع ريتشارد فارسون)."
     },
     "review": {
       "status": "pending"
@@ -608,16 +443,18 @@
     "mode": "quiz",
     "acceptedAnswers": {
       "en": [
-        "A"
+        "Carl Rogers",
+        "Rogers"
       ],
       "ar": [
-        "A"
+        "كارل روجرز",
+        "روجرز"
       ]
     }
   },
   {
     "id": "relationship-questions-023",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Boundaries & Permission",
       "ar": "الحدود والإذن"
@@ -693,23 +530,33 @@
   },
   {
     "id": "relationship-questions-026",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "Conflict & Repair",
-      "ar": "الخلاف والإصلاح"
+      "en": "Communication & Listening",
+      "ar": "التواصل والاستماع"
     },
     "question": {
-      "en": "Two friends agree to this discussion sequence: describe the issue → listener summarizes → speaker confirms or corrects → discuss solutions. The listener has just summarized. What comes next under their agreement?",
-      "ar": "صاحبين اتفقوا على هالترتيب للنقاش: توصيف المشكلة ← المستمع يلخّص ← المتكلم يأكد أو يصحّح ← يناقشون الحلول. المستمع خلّص التلخيص الحين. شو الخطوة الجاية حسب اتفاقهم؟"
+      "en": "Which four-pane model (open, blind, hidden and unknown) maps what you and other people know about you?",
+      "ar": "أي نموذج فيه أربع خانات (مكشوفة، وعمياء، ومخفية، ومجهولة) يبيّن شو تعرف إنت عن نفسك وشو يعرفون الناس عنك؟"
     },
     "answer": {
-      "en": "The original speaker confirms or corrects the summary before either person proposes solutions.",
-      "ar": "يؤكد المتحدث الأصلي صحة التلخيص أو يصححه قبل أن يقترح أي منهما حلولاً."
+      "en": "The Johari window.",
+      "ar": "نافذة جوهاري."
     },
     "review": {
       "status": "pending"
     },
-    "mode": "quiz"
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "Johari window",
+        "Johari"
+      ],
+      "ar": [
+        "نافذة جوهاري",
+        "جوهاري"
+      ]
+    }
   },
   {
     "id": "relationship-questions-027",
@@ -781,38 +628,18 @@
   },
   {
     "id": "relationship-questions-030",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "Conflict & Repair",
-      "ar": "الخلاف والإصلاح"
+      "en": "Friendship & Closeness",
+      "ar": "الصداقة والتقارب"
     },
     "question": {
-      "en": "Two housemates are checking an incident before discussing a recurring pattern. Both confirm that yesterday's dishes were left overnight; they disagree about earlier weeks. What can they record as agreed, and what remains unresolved?",
-      "ar": "شريكين بالسكن يتأكدون من حادثة قبل ما يحكون عن شي يتكرر. الاثنين متفقين إن صحون أمس ظلّت طول الليل، بس مختلفين على الأسابيع اللي قبل. شو يسجّلون كحادثة متفق عليها، وشو اللي يظل مش محسوم؟"
+      "en": "Anthropologist Robin Dunbar proposed a rough limit on how many stable relationships one person can keep up. About how many?",
+      "ar": "عالم الأنثروبولوجيا روبن دنبار اقترح حد تقريبي لعدد العلاقات الثابتة اللي يقدر الشخص يحافظ عليها. كم تقريباً؟"
     },
     "answer": {
-      "en": "Agreed: yesterday's dishes remained overnight. Unresolved: whether this is a recurring pattern.",
-      "ar": "المتفق عليه: بقاء أطباق الأمس طوال الليل. غير المحسوم: هل يتكرر ذلك كنمط؟"
-    },
-    "review": {
-      "status": "pending"
-    },
-    "mode": "quiz"
-  },
-  {
-    "id": "relationship-questions-031",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Conflict & Repair",
-      "ar": "الخلاف والإصلاح"
-    },
-    "question": {
-      "en": "You forgot to collect a friend's parcel. They say, “It closes at 6; I need the parcel today.” Which offer addresses both constraints? A: Collect it tomorrow morning. B: Collect it at 5 today.",
-      "ar": "نسيت تستلم طرد لصاحبك. يقول: «المكان يسكّر الساعة ستة؛ وأحتاج الطرد اليوم». أي عرض يحقق الشرطين؟ A: تستلمه بكرة الصبح. B: تستلمه اليوم الساعة خمسة."
-    },
-    "answer": {
-      "en": "B: collect it at 5 today, before closing and on the requested day.",
-      "ar": "B: استلامه اليوم عند الخامسة، قبل الإغلاق وفي اليوم المطلوب."
+      "en": "About 150 ('Dunbar's number').",
+      "ar": "حوالي 150 («رقم دنبار»)."
     },
     "review": {
       "status": "pending"
@@ -820,27 +647,59 @@
     "mode": "quiz",
     "acceptedAnswers": {
       "en": [
-        "B"
+        "150",
+        "Dunbar's number"
       ],
       "ar": [
-        "B"
+        "150",
+        "رقم دنبار"
+      ]
+    }
+  },
+  {
+    "id": "relationship-questions-031",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Boundaries & Permission",
+      "ar": "الحدود والإذن"
+    },
+    "question": {
+      "en": "The word for manipulating someone until they doubt their own memory comes from the title of which 1938 play, later a 1944 film?",
+      "ar": "الكلمة اللي توصف التلاعب بشخص لين يشك بذاكرته، جاية من عنوان أي مسرحية سنة 1938 صارت فيلم سنة 1944؟"
+    },
+    "answer": {
+      "en": "'Gaslight', hence 'gaslighting'.",
+      "ar": "«ضوء الغاز» (Gaslight)، ومنها جاء مصطلح «الغازلايتنغ»."
+    },
+    "review": {
+      "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "Gaslight",
+        "Gas Light"
+      ],
+      "ar": [
+        "ضوء الغاز",
+        "غازلايت"
       ]
     }
   },
   {
     "id": "relationship-questions-032",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "Conflict & Repair",
-      "ar": "الخلاف والإصلاح"
+      "en": "Friendship & Closeness",
+      "ar": "الصداقة والتقارب"
     },
     "question": {
-      "en": "Which reply asks for a concrete example instead of turning a complaint into a character judgment? A: “Anyone who complains like this is impossible to talk to.” B: “Can you give an example of when you felt I was not listening?”",
-      "ar": "أي رد يطلب مثال محدد بدل ما يحوّل الشكوى لحكم على الشخصية؟ A: «كل واحد يشتكي كذا مستحيل تتفاهم معه.» B: «تعطيني مثال على موقف حسّيت فيه إني ما سمعتك؟»"
+      "en": "Why do we often grow to like a song, a face or a neighbour simply because we keep encountering it? Name the effect.",
+      "ar": "ليش أحياناً نحب أغنية أو وجه أو جار بس لأننا نصادفه كثير؟ شو اسم هالأثر؟"
     },
     "answer": {
-      "en": "B — It seeks information about a situation.",
-      "ar": "B — يسعى إلى معلومات عن موقف محدد."
+      "en": "The mere-exposure effect.",
+      "ar": "أثر التعرّض المجرّد."
     },
     "review": {
       "status": "pending"
@@ -848,32 +707,47 @@
     "mode": "quiz",
     "acceptedAnswers": {
       "en": [
-        "B"
+        "Mere-exposure effect",
+        "Mere exposure",
+        "Familiarity principle"
       ],
       "ar": [
-        "B"
+        "أثر التعرض المجرد",
+        "أثر الألفة"
       ]
     }
   },
   {
     "id": "relationship-questions-033",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "Conflict & Repair",
-      "ar": "الخلاف والإصلاح"
+      "en": "Friendship & Closeness",
+      "ar": "الصداقة والتقارب"
     },
     "question": {
-      "en": "Housemates will test a new cleaning schedule for one week. They agree to review it on Sunday but have not defined what success means. What should they add so the review is not based only on impressions?",
-      "ar": "شريكين بالسكن بيجرّبون جدول تنظيف جديد لمدة أسبوع، واتفقوا يراجعونه يوم الأحد، بس ما حدّدوا شو يعني النجاح. شو يضيفون عشان المراجعة ما تعتمد على الانطباعات وبس؟"
+      "en": "Asking someone for a small favour can make them like you more. Which American founding father described winning over a rival by borrowing a rare book from him?",
+      "ar": "إنك تطلب من شخص خدمة صغيرة ممكن يخلّيه يحبك أكثر. أي واحد من مؤسسي أمريكا حكى إنه كسب خصمه لما استعار منه كتاب نادر؟"
     },
     "answer": {
-      "en": "An agreed measure, such as whether each assigned task was completed by its deadline.",
-      "ar": "معياراً متفقاً عليه، مثل إنجاز كل مهمة مكلّف بها في موعدها."
+      "en": "Benjamin Franklin (the 'Ben Franklin effect').",
+      "ar": "بنجامين فرانكلين («أثر بن فرانكلين»)."
     },
     "review": {
       "status": "pending"
     },
-    "mode": "quiz"
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "Benjamin Franklin",
+        "Ben Franklin",
+        "Franklin"
+      ],
+      "ar": [
+        "بنجامين فرانكلين",
+        "بن فرانكلين",
+        "فرانكلين"
+      ]
+    }
   },
   {
     "id": "relationship-questions-034",
@@ -897,23 +771,33 @@
   },
   {
     "id": "relationship-questions-035",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Conflict & Repair",
       "ar": "الخلاف والإصلاح"
     },
     "question": {
-      "en": "Two friends remember agreeing on different meeting times. A shared message says only, “Let's meet after work.” What can that message establish, and what must they still clarify?",
-      "ar": "صاحبين يتذكّرون إنهم اتفقوا على وقتين مختلفين للقاء. والرسالة اللي بينهم مكتوب فيها بس: «نلتقي بعد الدوام». شو تقدر تثبته الرسالة، وشو اللي يحتاج توضيح؟"
+      "en": "What did John Gottman call any joke, smile or 'let's take a break' that stops an argument from spiralling?",
+      "ar": "شو سمّى جون غوتمان أي نكتة أو ابتسامة أو «خلّنا ناخذ استراحة» توقف الخلاف قبل ما يكبر؟"
     },
     "answer": {
-      "en": "It supports meeting after work but does not establish an exact time. They still need to agree on a time.",
-      "ar": "تؤيد اللقاء بعد العمل، لكنها لا تحدد ساعة بعينها. وما زالا بحاجة إلى الاتفاق على وقت محدد."
+      "en": "A repair attempt.",
+      "ar": "محاولة إصلاح."
     },
     "review": {
       "status": "pending"
     },
-    "mode": "quiz"
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "Repair attempt",
+        "Repair attempts"
+      ],
+      "ar": [
+        "محاولة إصلاح",
+        "محاولات الإصلاح"
+      ]
+    }
   },
   {
     "id": "relationship-questions-036",
@@ -937,18 +821,18 @@
   },
   {
     "id": "relationship-questions-037",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Support & Shared Decisions",
-      "ar": "الدعم والقرارات المشتركة"
+      "en": "Communication & Listening",
+      "ar": "التواصل والاستماع"
     },
     "question": {
-      "en": "A friend asks, “Help me work out what matters most; please don't rank the options for me yet.” Which reply meets that request? A: “How would you rank the pay, location and working hours?” B: “Shall we compare which job has the most advantages?”",
-      "ar": "صاحبك يقول: «ساعدني أحدد شو الأهم بالنسبة لي؛ ولا ترتّب الخيارات بدالي الحين». أي رد يلبّي طلبه؟ A: «كيف ترتّب أهمية الراتب والمكان وساعات الدوام؟» B: «نقارن أي وظيفة فيها مزايا أكثر؟»"
+      "en": "Marshall Rosenberg's 'Nonviolent Communication' is built on four components. Name them.",
+      "ar": "أسلوب «التواصل اللاعنفي» عند مارشال روزنبرغ قايم على أربع مكوّنات. شو هي؟"
     },
     "answer": {
-      "en": "A: it elicits the friend's priorities before evaluating the jobs.",
-      "ar": "A: يستوضح أولويات الصديق قبل تقييم الوظائف."
+      "en": "Observations, feelings, needs and requests.",
+      "ar": "الملاحظات، والمشاعر، والاحتياجات، والطلبات."
     },
     "review": {
       "status": "pending"
@@ -956,87 +840,27 @@
     "mode": "quiz",
     "acceptedAnswers": {
       "en": [
-        "A"
+        "Observations, feelings, needs, requests"
       ],
       "ar": [
-        "A"
+        "الملاحظات والمشاعر والاحتياجات والطلبات"
       ]
     }
   },
   {
-    "id": "relationship-questions-038",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Support & Shared Decisions",
-      "ar": "الدعم والقرارات المشتركة"
-    },
-    "question": {
-      "en": "The agreed task-list format is “task + owner + deadline.” The entry says, “Sam will buy the groceries.” Which required field is missing?",
-      "ar": "الصيغة المتفق عليها لقائمة المهام هي «المهمة + المسؤول عنها + آخر موعد». البند مكتوب: «سام بيشتري الأغراض». شو العنصر الناقص؟"
-    },
-    "answer": {
-      "en": "The deadline: when Sam has agreed to complete the shopping.",
-      "ar": "الموعد النهائي: متى اتفق سام على إتمام الشراء."
-    },
-    "review": {
-      "status": "pending"
-    },
-    "mode": "quiz"
-  },
-  {
     "id": "relationship-questions-039",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Support & Shared Decisions",
-      "ar": "الدعم والقرارات المشتركة"
+      "en": "Communication & Listening",
+      "ar": "التواصل والاستماع"
     },
     "question": {
-      "en": "Two friends may use their shared car only if both approve the same trip plan. One approves Saturday, 9–12. The other approves Saturday, 10–1. Have they met their rule? If not, what remains to be agreed?",
-      "ar": "صاحبين يشترطون عشان يستخدمون سيارتهم المشتركة إنهم يتفقون على نفس خطة المشوار. واحد موافق على السبت من 9 لـ12، والثاني على السبت من 10 لـ1. القاعدة تحققت؟ وإذا لا، على شو لازم يتفقون؟"
+      "en": "A popular rule says only 7% of a message's meaning comes from words. What did Albert Mehrabian, whose experiments it comes from, say about it?",
+      "ar": "قاعدة منتشرة تقول إن 7% بس من معنى الكلام يجي من الكلمات. شو قال ألبرت مهرابيان، صاحب التجارب اللي طلعت منها القاعدة؟"
     },
     "answer": {
-      "en": "No. Their approvals cover different time windows; both must approve one common plan, not an assumed overlap.",
-      "ar": "لا. موافقتاهما تتعلقان بفترتين مختلفتين؛ ويجب أن يوافقا كلاهما على خطة واحدة، لا على تداخل زمني مفترض."
-    },
-    "review": {
-      "status": "pending"
-    },
-    "mode": "quiz"
-  },
-  {
-    "id": "relationship-questions-040",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Support & Shared Decisions",
-      "ar": "الدعم والقرارات المشتركة"
-    },
-    "question": {
-      "en": "Housemates chose two review criteria: weekly time spent on chores and whether fixed deadlines were met. One completed six ten-minute tasks; the other completed two one-hour tasks. All deadlines were met. Does task count alone answer their review question?",
-      "ar": "شريكين بالسكن اختاروا معيارين للمراجعة: الوقت الأسبوعي لشغل البيت والالتزام بالمواعيد. واحد خلّص ست مهام، كل وحدة عشر دقايق، والثاني مهمتين، كل وحدة ساعة. كلها خلصت بوقتها. هل عدد المهام يكفي للمراجعة؟"
-    },
-    "answer": {
-      "en": "No. The recorded times are 60 versus 120 minutes. They should review those totals, without assuming task count measures effort.",
-      "ar": "لا. الوقت المسجّل 60 دقيقة مقابل 120 دقيقة. يراجعان هذين المجموعين دون افتراض أن عدد المهام يقيس الجهد."
-    },
-    "review": {
-      "status": "pending"
-    },
-    "mode": "quiz"
-  },
-  {
-    "id": "relationship-questions-041",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Support & Shared Decisions",
-      "ar": "الدعم والقرارات المشتركة"
-    },
-    "question": {
-      "en": "You want to thank a friend for helping. Which response describes the specific contribution? A: “You are useful when you do what I want.” B: “Thank you for collecting the keys; it let me finish the appointment on time.”",
-      "ar": "تبي تشكر صاحبك على مساعدته. أي رد يوصف مساهمته بالتحديد؟ A: «إنت مفيد لما تسوي اللي أبيه.» B: «شكرًا إنك جبت المفاتيح؛ ساعدتني ألحق الموعد بوقته.»"
-    },
-    "answer": {
-      "en": "B — It names the helpful action without making appreciation conditional on obedience.",
-      "ar": "B — يسمّي الفعل المفيد دون ربط التقدير بالطاعة."
+      "en": "That it is misapplied: his studies only covered words about feelings and attitudes, not communication in general.",
+      "ar": "أنها تُطبَّق خطأً: دراساته اقتصرت على كلمات تعبّر عن المشاعر والمواقف، لا على التواصل عموماً."
     },
     "review": {
       "status": "pending"
@@ -1044,34 +868,98 @@
     "mode": "quiz",
     "acceptedAnswers": {
       "en": [
-        "B"
+        "It is misapplied",
+        "It does not apply to communication in general"
       ],
       "ar": [
-        "B"
+        "تطبق خطأ",
+        "لا تنطبق على التواصل عموما"
+      ]
+    }
+  },
+  {
+    "id": "relationship-questions-040",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Friendship & Closeness",
+      "ar": "الصداقة والتقارب"
+    },
+    "question": {
+      "en": "Which theory compares getting to know someone to peeling an onion, with sharing moving from surface layers to deeper ones?",
+      "ar": "أي نظرية تشبّه التعرّف على شخص بتقشير البصلة، والبوح ينتقل من الطبقات السطحية للأعمق؟"
+    },
+    "answer": {
+      "en": "Social penetration theory (Altman and Taylor, 1973).",
+      "ar": "نظرية الاختراق الاجتماعي (ألتمان وتايلور، 1973)."
+    },
+    "review": {
+      "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "Social penetration theory",
+        "Social penetration"
+      ],
+      "ar": [
+        "نظرية الاختراق الاجتماعي",
+        "الاختراق الاجتماعي"
+      ]
+    }
+  },
+  {
+    "id": "relationship-questions-041",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Support & Shared Decisions",
+      "ar": "الدعم والقرارات المشتركة"
+    },
+    "question": {
+      "en": "In 1987, Cindy Hazan and Phillip Shaver applied infant attachment theory to adult relationships. Which three styles did they describe?",
+      "ar": "سنة 1987، سيندي هازان وفيليب شيفر طبّقوا نظرية التعلّق عند الرضّع على علاقات الكبار. شو الأنماط الثلاثة اللي وصفوها؟"
+    },
+    "answer": {
+      "en": "Secure, anxious-ambivalent and avoidant.",
+      "ar": "الآمن، والقلِق المتردّد، والتجنّبي."
+    },
+    "review": {
+      "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "Secure, anxious, avoidant",
+        "Secure, anxious-ambivalent, avoidant"
+      ],
+      "ar": [
+        "آمن وقلق وتجنبي",
+        "الآمن والقلق المتردد والتجنبي"
       ]
     }
   },
   {
     "id": "relationship-questions-042",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Support & Shared Decisions",
-      "ar": "الدعم والقرارات المشتركة"
+      "en": "Friendship & Closeness",
+      "ar": "الصداقة والتقارب"
     },
     "question": {
-      "en": "A friend is quieter than usual. Which response avoids diagnosing them from one observation? A: “Your silence proves you have a psychological disorder.” B: “You seem quieter today. Would you like to talk, or would you prefer some space?”",
-      "ar": "صاحبك أهدى من العادة. أي رد ما يشخّصه من ملاحظة وحدة؟ A: «سكوتك يثبت إن عندك اضطراب نفسي.» B: «تبان أهدى اليوم. تحب نحكي ولا تفضّل شوية مساحة؟»"
+      "en": "In Elliot Aronson's 1966 study, a highly skilled quiz contestant became more likeable after spilling coffee on himself. What is this called?",
+      "ar": "في دراسة إليوت آرونسون سنة 1966، متسابق شاطر كثير صار محبوب أكثر بعد ما كبّ القهوة على نفسه. شو اسم هالأثر؟"
     },
     "answer": {
-      "en": "B — It checks what the friend wants without making a diagnosis.",
-      "ar": "B — يتحقق مما يريده الصديق دون إطلاق تشخيص."
+      "en": "The pratfall effect.",
+      "ar": "أثر الهفوة (Pratfall effect)."
     },
     "acceptedAnswers": {
       "en": [
-        "B"
+        "Pratfall effect",
+        "Pratfall"
       ],
       "ar": [
-        "B"
+        "أثر الهفوة",
+        "أثر الزلة"
       ]
     },
     "review": {
@@ -1081,25 +969,28 @@
   },
   {
     "id": "relationship-questions-043",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Support & Shared Decisions",
-      "ar": "الدعم والقرارات المشتركة"
+      "en": "Friendship & Closeness",
+      "ar": "الصداقة والتقارب"
     },
     "question": {
-      "en": "Your friend needs someone to collect a document today and deliver it tomorrow. You are available tomorrow only. Which offer states your capacity while preserving today's collection deadline? A: “I can deliver it tomorrow if someone else collects it today.” B: “I can collect and deliver it tomorrow.”",
-      "ar": "صاحبك يحتاج أحد يستلم مستند اليوم ويسلّمه بكرة، وإنت فاضي بكرة بس. أي عرض يوضح قدرتك ويحافظ على موعد الاستلام اليوم؟ A: «أقدر أسلّمه بكرة إذا أحد ثاني استلمه اليوم». B: «أقدر أستلمه وأسلّمه بكرة»."
+      "en": "A 1950 study of student housing by Festinger, Schachter and Back found that friendships depended heavily on which simple factor?",
+      "ar": "دراسة فستنجر وشاختر وباك سنة 1950 على سكن طلاب لقت إن الصداقات تعتمد كثير على عامل بسيط. شو هو؟"
     },
     "answer": {
-      "en": "A: it offers the part you can do while keeping today's collection requirement explicit.",
-      "ar": "A: يعرض الجزء الذي يمكنك إنجازه ويُبقي شرط الاستلام اليوم واضحاً."
+      "en": "Physical closeness: people mostly befriended their nearest neighbours.",
+      "ar": "القرب المكاني: معظمهم صادقوا أقرب جيرانهم."
     },
     "acceptedAnswers": {
       "en": [
-        "A"
+        "Physical closeness",
+        "Proximity",
+        "Propinquity"
       ],
       "ar": [
-        "A"
+        "القرب المكاني",
+        "القرب"
       ]
     },
     "review": {
@@ -1109,18 +1000,18 @@
   },
   {
     "id": "relationship-questions-044",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Support & Shared Decisions",
-      "ar": "الدعم والقرارات المشتركة"
+      "en": "Friendship & Closeness",
+      "ar": "الصداقة والتقارب"
     },
     "question": {
-      "en": "Two friends prefer different ways of celebrating. Which question explores both preferences? A: “Why can you not enjoy things exactly as I do?” B: “What would make the occasion enjoyable for each of us?”",
-      "ar": "صاحبين يحبون يحتفلون بطريقتين مختلفتين. أي سؤال يستكشف اللي يحبه كل واحد؟ A: «ليش ما تستمتع بالأشياء بنفس طريقتي؟» B: «شو اللي يخلّي المناسبة حلوة لكل واحد فينا؟»"
+      "en": "Arthur Aron's 1997 study built closeness between strangers using a set of how many increasingly personal questions?",
+      "ar": "دراسة آرثر آرون سنة 1997 قرّبت بين غرباء باستخدام مجموعة من كم سؤال يصير شخصي أكثر فأكثر؟"
     },
     "answer": {
-      "en": "B — It leaves room for different preferences.",
-      "ar": "B — يتيح مساحة لاختلاف التفضيلات."
+      "en": "36.",
+      "ar": "36 سؤالاً."
     },
     "review": {
       "status": "pending"
@@ -1128,10 +1019,12 @@
     "mode": "quiz",
     "acceptedAnswers": {
       "en": [
-        "B"
+        "36",
+        "36 questions"
       ],
       "ar": [
-        "B"
+        "36",
+        "36 سؤال"
       ]
     }
   },
@@ -1162,34 +1055,6 @@
       "status": "pending"
     },
     "mode": "quiz"
-  },
-  {
-    "id": "relationship-questions-046",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Digital Privacy & Expectations",
-      "ar": "الخصوصية الرقمية والتوقعات"
-    },
-    "question": {
-      "en": "A friend privately shares news. Which action checks whether you may pass it on? A: “Ask who, if anyone, they are comfortable with you telling.” B: “Assume that telling you means permission to tell a group chat.”",
-      "ar": "صاحبك قال لك خبر على انفراد. أي تصرف يتأكد إذا ينفع تنقله؟ A: «اسأله مين يقبل إنك تقوله، إذا يقبل أصلًا.» B: «افترض إنه لما قالك يعني موافق تنشره بمجموعة الدردشة.»"
-    },
-    "answer": {
-      "en": "A — Private disclosure does not itself specify permission for wider sharing.",
-      "ar": "A — الإفصاح الخاص لا يحدد بحد ذاته إذنًا بالمشاركة الأوسع."
-    },
-    "review": {
-      "status": "pending"
-    },
-    "mode": "quiz",
-    "acceptedAnswers": {
-      "en": [
-        "A"
-      ],
-      "ar": [
-        "A"
-      ]
-    }
   },
   {
     "id": "relationship-questions-047",
@@ -1233,18 +1098,18 @@
   },
   {
     "id": "relationship-questions-049",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Digital Privacy & Expectations",
-      "ar": "الخصوصية الرقمية والتوقعات"
+      "en": "Support & Shared Decisions",
+      "ar": "الدعم والقرارات المشتركة"
     },
     "question": {
-      "en": "You agree to remove a friend's photo. You control your own post, but another person has already shared a copy. Which update accurately distinguishes an action from an uncertain outcome? A: “I removed my post and asked them to remove theirs.” B: “The photo is now gone everywhere.”",
-      "ar": "وافقت تشيل صورة لصاحبك. منشورك إنت تتحكم فيه، بس في شخص ثاني سبق وشارك نسخة. أي تحديث يفرّق بين اللي سويته فعلًا والنتيجة اللي مش مأكدة؟ A: «شلت منشوري وطلبت منه يشيل نسخته». B: «الصورة اختفت الحين من كل مكان»."
+      "en": "Shelly Gable's research on how we react when a friend shares good news found which response style strengthens relationships most?",
+      "ar": "أبحاث شيلي غيبل عن ردّة فعلنا لما صاحبنا يشاركنا خبر حلو، لقت إن أي أسلوب رد يقوّي العلاقة أكثر؟"
     },
     "answer": {
-      "en": "A. Removing your post and requesting another removal does not establish that every copy has disappeared.",
-      "ar": "A. إزالة منشورك وطلب إزالة نسخة أخرى لا يثبتان اختفاء جميع النسخ."
+      "en": "Active-constructive: genuine, enthusiastic interest.",
+      "ar": "الأسلوب «النشط البنّاء»: اهتمام حقيقي وحماس."
     },
     "review": {
       "status": "pending"
@@ -1252,31 +1117,103 @@
     "mode": "quiz",
     "acceptedAnswers": {
       "en": [
-        "A"
+        "Active-constructive",
+        "Active constructive responding"
       ],
       "ar": [
-        "A"
+        "النشط البناء",
+        "الاستجابة النشطة البناءة"
       ]
     }
   },
   {
     "id": "relationship-questions-050",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Digital Privacy & Expectations",
-      "ar": "الخصوصية الرقمية والتوقعات"
+      "en": "Friendship & Closeness",
+      "ar": "الصداقة والتقارب"
     },
     "question": {
-      "en": "Two friends agree: routine messages receive a reply within one day; time-sensitive matters use a phone call. One needs an answer within an hour but has sent only a routine message. What step follows their agreed process without assuming instant availability?",
-      "ar": "صاحبين اتفقوا يردّون على الرسائل العادية خلال يوم، ويتصلون بالتلفون للأمور المستعجلة. واحد منهم يحتاج جواب خلال ساعة بس بعت رسالة عادية. شو الخطوة اللي تتماشى مع اتفاقهم من غير ما يفترض إن الثاني فاضي فورًا؟"
+      "en": "To study how it feels to be left out, psychologist Kipling Williams created an online ball-tossing game in which the other 'players' stop passing to you. What is it called?",
+      "ar": "عشان يدرس شعور الاستبعاد، عالم النفس كيبلنغ ويليامز صمّم لعبة إلكترونية لتمرير الكرة، فيها «اللاعبين» الباقين يوقفون يمرّرون لك. شو اسمها؟"
     },
     "answer": {
-      "en": "Try the agreed phone call and explain the deadline; a call still does not guarantee the other person can answer immediately.",
-      "ar": "يحاول الاتصال بالطريقة المتفق عليها ويوضح الموعد المطلوب؛ ولا يضمن الاتصال أن يستطيع الآخر الإجابة فوراً."
+      "en": "Cyberball.",
+      "ar": "سايبربول (Cyberball)."
     },
     "review": {
       "status": "pending"
     },
-    "mode": "quiz"
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "Cyberball"
+      ],
+      "ar": [
+        "سايبربول",
+        "Cyberball"
+      ]
+    }
+  },
+  {
+    "id": "relationship-questions-051",
+    "difficulty": "hard",
+    "mode": "quiz",
+    "subcategory": {
+      "en": "Friendship & Closeness",
+      "ar": "الصداقة والتقارب"
+    },
+    "question": {
+      "en": "What do psychologists call our unconscious habit of copying the posture and gestures of people we're with, which can increase liking?",
+      "ar": "شو يسمّي علماء النفس عادتنا اللاواعية إننا نقلّد جلسة وحركات اللي معنا، واللي ممكن تزيد المودّة بيننا؟"
+    },
+    "answer": {
+      "en": "The chameleon effect (mimicry).",
+      "ar": "أثر الحرباء (المحاكاة)."
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Chameleon effect",
+        "Mimicry",
+        "Mirroring"
+      ],
+      "ar": [
+        "أثر الحرباء",
+        "المحاكاة",
+        "التقليد"
+      ]
+    }
+  },
+  {
+    "id": "relationship-questions-052",
+    "difficulty": "hard",
+    "mode": "quiz",
+    "subcategory": {
+      "en": "Friendship & Closeness",
+      "ar": "الصداقة والتقارب"
+    },
+    "question": {
+      "en": "Which 11th-century Andalusian scholar wrote 'The Ring of the Dove', a famous treatise on love and its signs?",
+      "ar": "أي عالم أندلسي بالقرن الحادي عشر ألّف «طوق الحمامة»، الكتاب المشهور عن الحب وعلاماته؟"
+    },
+    "answer": {
+      "en": "Ibn Hazm.",
+      "ar": "ابن حزم الأندلسي."
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Ibn Hazm"
+      ],
+      "ar": [
+        "ابن حزم",
+        "ابن حزم الأندلسي"
+      ]
+    }
   }
 ]

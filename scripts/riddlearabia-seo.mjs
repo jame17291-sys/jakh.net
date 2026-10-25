@@ -43,7 +43,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   {
     key: "riddles",
     // Expanded from 8 to 30 riddles, ordered from easy to hard, on 2026-10-23.
-    lastModified: "2026-10-23",
+    // Cards removed in the 2026-10-25 phase-2 content pass replaced with current cards of the same topic.
+    lastModified: "2026-10-25",
     paths: { en: "/riddles", ar: "/ar/alghaz/" },
     titles: {
       en: "Riddles With Answers | Riddle Arabia",
@@ -70,7 +71,7 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
       ["classic-riddles", "classic-riddles-004"],
       ["classic-riddles", "classic-riddles-008"],
       ["classic-riddles", "classic-riddles-009"],
-      ["classic-riddles", "classic-riddles-012"],
+      ["classic-riddles", "classic-riddles-047"],
       ["classic-riddles", "classic-riddles-024"],
       ["classic-riddles", "classic-riddles-033"],
       ["classic-riddles", "classic-riddles-023"],
@@ -83,11 +84,11 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
       ["classic-riddles", "classic-riddles-011"],
       ["classic-riddles", "classic-riddles-018"],
       ["classic-riddles", "classic-riddles-046"],
-      ["classic-riddles", "classic-riddles-060"],
+      ["classic-riddles", "classic-riddles-067"],
       ["classic-riddles", "classic-riddles-095"],
       ["classic-riddles", "classic-riddles-066"],
       ["classic-riddles", "classic-riddles-072"],
-      ["classic-riddles", "classic-riddles-029"],
+      ["classic-riddles", "classic-riddles-088"],
       ["classic-riddles", "classic-riddles-071"],
       ["classic-riddles", "classic-riddles-075"],
       ["classic-riddles", "classic-riddles-078"],
@@ -100,7 +101,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   {
     key: "arabic-riddles",
     // Expanded from 8 to 30 riddles whose wording works naturally in Arabic on 2026-10-23.
-    lastModified: "2026-10-23",
+    // Cards removed in the 2026-10-25 phase-2 content pass replaced with current cards of the same topic.
+    lastModified: "2026-10-25",
     paths: { en: "/arabic-riddles", ar: "/ar/alghaz-arabiya/" },
     titles: {
       en: "Arabic Riddles With Answers | Riddle Arabia",
@@ -130,34 +132,35 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
       ["classic-riddles", "classic-riddles-041"],
       ["classic-riddles", "classic-riddles-030"],
       ["classic-riddles", "classic-riddles-002"],
-      ["classic-riddles", "classic-riddles-010"],
-      ["classic-riddles", "classic-riddles-094"],
+      ["classic-riddles", "classic-riddles-059"],
+      ["classic-riddles", "classic-riddles-050"],
       ["classic-riddles", "classic-riddles-032"],
       ["classic-riddles", "classic-riddles-028"],
       ["classic-riddles", "classic-riddles-031"],
-      ["classic-riddles", "classic-riddles-039"],
-      ["classic-riddles", "classic-riddles-074"],
+      ["classic-riddles", "classic-riddles-045"],
+      ["classic-riddles", "classic-riddles-020"],
       ["classic-riddles", "classic-riddles-035"],
       ["classic-riddles", "classic-riddles-043"],
       ["classic-riddles", "classic-riddles-005"],
-      ["classic-riddles", "classic-riddles-006"],
-      ["classic-riddles", "classic-riddles-016"],
-      ["classic-riddles", "classic-riddles-022"],
+      ["classic-riddles", "classic-riddles-065"],
+      ["classic-riddles", "classic-riddles-027"],
+      ["classic-riddles", "classic-riddles-057"],
       ["classic-riddles", "classic-riddles-007"],
       ["classic-riddles", "classic-riddles-049"],
-      ["classic-riddles", "classic-riddles-064"],
-      ["classic-riddles", "classic-riddles-093"],
-      ["classic-riddles", "classic-riddles-076"],
-      ["classic-riddles", "classic-riddles-089"],
+      ["classic-riddles", "classic-riddles-098"],
+      ["classic-riddles", "classic-riddles-092"],
+      ["classic-riddles", "classic-riddles-054"],
+      ["classic-riddles", "classic-riddles-101"],
       ["classic-riddles", "classic-riddles-019"],
-      ["classic-riddles", "classic-riddles-015"],
+      ["classic-riddles", "classic-riddles-103"],
       ["classic-riddles", "classic-riddles-021"],
     ],
   },
   {
     key: "logic-puzzles",
     // Expanded from 8 to 30 puzzles, easy to hard, on 2026-10-23.
-    lastModified: "2026-10-23",
+    // Cards removed in the 2026-10-25 phase-2 content pass replaced with current cards of the same topic.
+    lastModified: "2026-10-25",
     paths: { en: "/logic-challenges", ar: "/ar/alghaz-mantiq/" },
     titles: {
       en: "Logic Puzzles and Brain Teasers With Answers | Riddle Arabia",
@@ -188,7 +191,7 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
       ["logic-puzzles", "logic-puzzles-013"],
       ["logic-puzzles", "logic-puzzles-014"],
       ["logic-puzzles", "logic-puzzles-015"],
-      ["logic-puzzles", "logic-puzzles-028"],
+      ["logic-puzzles", "logic-puzzles-012"],
       ["logic-puzzles", "logic-puzzles-042"],
       ["logic-puzzles", "logic-puzzles-002"],
       ["logic-puzzles", "logic-puzzles-017"],
@@ -266,7 +269,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
     key: "general-knowledge",
     // Arabic cards rewritten in light everyday Arabic on 2026-10-21 (#144).
     // Expanded from 8 to 30 evergreen questions across 15 topics on 2026-10-23.
-    lastModified: "2026-10-23",
+    // Cards removed in the 2026-10-25 phase-2 content pass replaced with current cards of the same topic.
+    lastModified: "2026-10-25",
     paths: { en: "/general-knowledge", ar: "/ar/malumat-amma/" },
     titles: {
       en: "Arabic Trivia & General Knowledge Quiz | Riddle Arabia",
@@ -302,7 +306,7 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
       ["architecture-and-landmarks", "arc-6"],
       ["ancient-civilizations", "anc-6"],
       ["science", "science-001"],
-      ["biology", "biology-005"],
+      ["biology", "biology-001"],
       ["geography", "geography-002"],
       ["chemistry", "chemistry-007"],
       ["history", "history-006"],
@@ -323,7 +327,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   {
     key: "arabia-quiz",
     // Arabic cards rewritten in light everyday Arabic on 2026-10-21 (#144).
-    lastModified: { en: "2026-09-29", ar: "2026-10-21" },
+    // Card wording updated in the 2026-10-25 phase-2 content pass.
+    lastModified: "2026-10-25",
     paths: { en: "/arabia-quiz", ar: "/ar/tarikh-al-arab/" },
     titles: {
       en: "Arab & Middle East History Trivia | Riddle Arabia",
@@ -358,7 +363,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   {
     key: "spacetoon-nostalgia",
     // Arabic cards rewritten in light everyday Arabic on 2026-10-21 (#144).
-    lastModified: { en: "2026-09-30", ar: "2026-10-21" },
+    // Cards removed in the 2026-10-25 phase-2 content pass replaced with current cards of the same topic.
+    lastModified: "2026-10-25",
     paths: { en: "/spacetoon-nostalgia", ar: "/ar/hanin-spacetoon/" },
     titles: {
       en: "Spacetoon Nostalgia Quiz | Riddle Arabia",
@@ -389,7 +395,7 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
       ["ayam-tayebeen", "ayt-003"],
       ["ayam-tayebeen", "ayt-004"],
       ["ayam-tayebeen", "ayt-005"],
-      ["ayam-tayebeen", "ayt-006"],
+      ["ayam-tayebeen", "ayt-010"],
       ["ayam-tayebeen", "ayt-008"],
       ["ayam-tayebeen", "ayt-009"],
     ],

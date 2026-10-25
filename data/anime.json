@@ -210,7 +210,7 @@
   },
   {
     "id": "anime-012",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Naruto",
       "ar": "ناروتو"
@@ -254,12 +254,12 @@
       "ar": "ناروتو"
     },
     "question": {
-      "en": "What is the personal name of the Two-Tails sealed inside Yugito Nii in Naruto?",
-      "ar": "في ناروتو، شو الاسم الشخصي للوحش أبو الذيلين المختوم داخل يوغيتو نيي؟"
+      "en": "In Naruto, which of the Legendary Sannin becomes the Fifth Hokage?",
+      "ar": "في «ناروتو»، مين من «السانين الأسطوريين» صارت الهوكاغي الخامسة؟"
     },
     "answer": {
-      "en": "Matatabi",
-      "ar": "ماتاتابي"
+      "en": "Tsunade",
+      "ar": "تسونادي"
     },
     "review": {
       "status": "pending"
@@ -419,7 +419,7 @@
   },
   {
     "id": "anime-023",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Dragon Ball Z",
       "ar": "دراغون بول زي"
@@ -704,7 +704,7 @@
   },
   {
     "id": "anime-038",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Pokémon",
       "ar": "بوكيمون"
@@ -1027,7 +1027,7 @@
   },
   {
     "id": "anime-055",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Death Note",
       "ar": "دفتر الموت"
@@ -1109,12 +1109,12 @@
       "ar": "دفتر الموت"
     },
     "question": {
-      "en": "What is Mello's real name?",
-      "ar": "شو الاسم الحقيقي لـ«ميلو»؟"
+      "en": "In Death Note, Light has a fake rule written into the notebook to clear himself and Misa: the owner dies if they stop writing names for how many days?",
+      "ar": "في «مذكرة الموت»، لايت خلّى قاعدة مزيّفة تنكتب بالدفتر عشان يبعد الشك عنه وعن ميسا: صاحب الدفتر يموت إذا وقف عن كتابة الأسماء كم يوم؟"
     },
     "answer": {
-      "en": "Mihael Keehl",
-      "ar": "ميهايل كيهل"
+      "en": "13 days",
+      "ar": "13 يومًا"
     },
     "review": {
       "status": "pending"
@@ -1128,12 +1128,12 @@
       "ar": "دفتر الموت"
     },
     "question": {
-      "en": "Under the Death Note's basic rules, how long after writing a name does the user have to specify the cause of death?",
-      "ar": "حسب القواعد الأساسية لـ«مذكرة الموت»، كم المهلة اللي عندك تحدد سبب الموت بعد ما تكتب الاسم؟"
+      "en": "In Death Note, where does Light keep a hidden scrap of the notebook so he can write a name secretly in front of others?",
+      "ar": "في «مذكرة الموت»، وين يخبّي لايت قطعة من الدفتر عشان يكتب اسم بالسر وهو قدّام الناس؟"
     },
     "answer": {
-      "en": "40 seconds",
-      "ar": "40 ثانية"
+      "en": "In a secret compartment in his wristwatch",
+      "ar": "بمخبأ سري داخل ساعة يده"
     },
     "review": {
       "status": "pending"
@@ -1426,18 +1426,18 @@
   },
   {
     "id": "anime-076",
-    "difficulty": "easy",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "One Piece",
       "ar": "ون بيس"
     },
     "question": {
-      "en": "What is the name of the main character in One Piece?",
-      "ar": "شو اسم الشخصية الأساسية في «ون بيس»؟"
+      "en": "In One Piece, what was the name of Gol D. Roger's pirate ship?",
+      "ar": "في «ون بيس»، شو اسم سفينة القرصان غول دي روجر؟"
     },
     "answer": {
-      "en": "Monkey D. Luffy",
-      "ar": "مونكي دي لوفي"
+      "en": "The Oro Jackson",
+      "ar": "أورو جاكسون"
     },
     "review": {
       "status": "pending"
@@ -1578,7 +1578,7 @@
   },
   {
     "id": "anime-084",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "One Piece",
       "ar": "ون بيس"
@@ -1616,7 +1616,7 @@
   },
   {
     "id": "anime-086",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "One Piece",
       "ar": "ون بيس"
@@ -1711,18 +1711,18 @@
   },
   {
     "id": "anime-091",
-    "difficulty": "easy",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Demon Slayer",
       "ar": "قاتل الشياطين"
     },
     "question": {
-      "en": "What is the name of the main character in Demon Slayer?",
-      "ar": "شو اسم الشخصية الأساسية في «قاتل الشياطين»؟"
+      "en": "In Demon Slayer, which is the only Thunder Breathing form that Zenitsu manages to master during his training?",
+      "ar": "في «قاتل الشياطين»، أي شكل من «تنفّس الرعد» هو الوحيد اللي قدر زينيتسو يتقنه بتدريبه؟"
     },
     "answer": {
-      "en": "Tanjiro Kamado",
-      "ar": "تانجيرو كامادو"
+      "en": "First Form: Thunderclap and Flash",
+      "ar": "الشكل الأول: الرعد والوميض (Thunderclap and Flash)"
     },
     "review": {
       "status": "pending"
@@ -1873,8 +1873,8 @@
       "ar": "شو أسلوب التنفس الأصلي اللي طلعت منه كل أساليب التنفس الثانية؟"
     },
     "answer": {
-      "en": "Sun Breathing (Hinokami Kagura)",
-      "ar": "تنفس الشمس (هينوكامي كاغورا)"
+      "en": "Sun Breathing",
+      "ar": "تنفّس الشمس"
     },
     "review": {
       "status": "pending"
@@ -2034,7 +2034,7 @@
   },
   {
     "id": "anime-108",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Fullmetal Alchemist: Brotherhood",
       "ar": "المحوّل الكيميائي المدرّع: الأخوّة"
@@ -2053,7 +2053,7 @@
   },
   {
     "id": "anime-109",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Fullmetal Alchemist: Brotherhood",
       "ar": "المحوّل الكيميائي المدرّع: الأخوّة"
@@ -2078,12 +2078,12 @@
       "ar": "المحوّل الكيميائي المدرّع: الأخوّة"
     },
     "question": {
-      "en": "What State Alchemist title is awarded to Edward Elric?",
-      "ar": "شو اللقب اللي انعطى لإدوارد إيلريك لما صار خيميائي حكومي معتمد؟"
+      "en": "In Fullmetal Alchemist: Brotherhood, who is the Elric brothers' childhood friend who builds and repairs Edward's automail?",
+      "ar": "في «الخيميائي الفولاذي: الأخوّة»، مين صديقة طفولة الأخوين إيلريك اللي تصنع وتصلّح أطراف إدوارد الآلية (الأوتوميل)؟"
     },
     "answer": {
-      "en": "Fullmetal Alchemist",
-      "ar": "الخيميائي الفولاذي"
+      "en": "Winry Rockbell",
+      "ar": "وينري روكبيل"
     },
     "review": {
       "status": "pending"
@@ -2243,7 +2243,7 @@
   },
   {
     "id": "anime-119",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Fullmetal Alchemist: Brotherhood",
       "ar": "المحوّل الكيميائي المدرّع: الأخوّة"
@@ -2281,18 +2281,18 @@
   },
   {
     "id": "anime-121",
-    "difficulty": "easy",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "My Hero Academia",
       "ar": "أكاديمية بطلي"
     },
     "question": {
-      "en": "What is the name of the main character in My Hero Academia?",
-      "ar": "شو اسم الشخصية الأساسية في «أكاديمية بطلي»؟"
+      "en": "In My Hero Academia, who was the first holder of One For All, All For One's younger brother?",
+      "ar": "في «أكاديمية بطلي»، مين أول واحد حمل «ون فور أول»، وهو الأخ الصغير لـ«أول فور ون»؟"
     },
     "answer": {
-      "en": "Izuku Midoriya (Deku)",
-      "ar": "إيزوكو ميدوريا (ديكو)"
+      "en": "Yoichi Shigaraki",
+      "ar": "يوئيتشي شيغاراكي"
     },
     "review": {
       "status": "pending"
@@ -2414,18 +2414,18 @@
   },
   {
     "id": "anime-128",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "My Hero Academia",
       "ar": "أكاديمية بطلي"
     },
     "question": {
-      "en": "What are the names of the Big 3 students at U.A. High?",
-      "ar": "شو أسماء «الثلاثة الكبار» من طلاب ثانوية يو.إيه؟"
+      "en": "Which member of U.A.'s 'Big 3' has the Permeation Quirk and was Sir Nighteye's choice to inherit One For All?",
+      "ar": "مين من «الثلاثة الكبار» في يو.إيه عنده خارقة «الاختراق»، وكان سير نايت آي يبيه يورث «ون فور أول»؟"
     },
     "answer": {
-      "en": "Mirio Togata, Tamaki Amajiki, Nejire Hado",
-      "ar": "ميريو توغاتا، تاماكي أماجيكي، نيجيري هادو"
+      "en": "Mirio Togata",
+      "ar": "ميريو توغاتا"
     },
     "review": {
       "status": "pending"
@@ -2452,7 +2452,7 @@
   },
   {
     "id": "anime-130",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "My Hero Academia",
       "ar": "أكاديمية بطلي"
@@ -2490,7 +2490,7 @@
   },
   {
     "id": "anime-132",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "My Hero Academia",
       "ar": "أكاديمية بطلي"
@@ -2528,7 +2528,7 @@
   },
   {
     "id": "anime-134",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "My Hero Academia",
       "ar": "أكاديمية بطلي"
@@ -2572,12 +2572,12 @@
       "ar": "فن السيف الإلكتروني"
     },
     "question": {
-      "en": "What virtual-reality game traps Kirito and other players in the floating castle Aincrad?",
-      "ar": "شو لعبة الواقع الافتراضي اللي تحبس كيريتو واللاعبين الثانيين بقلعة «أينكراد» الطايرة؟"
+      "en": "In Sword Art Online, what is the name of the virtual-reality headset that traps the players inside the game?",
+      "ar": "في «سورد آرت أونلاين»، شو اسم خوذة الواقع الافتراضي اللي حبست اللاعبين داخل اللعبة؟"
     },
     "answer": {
-      "en": "Sword Art Online",
-      "ar": "سورد آرت أونلاين"
+      "en": "NerveGear",
+      "ar": "نيرف غير (NerveGear)"
     },
     "review": {
       "status": "pending"
@@ -2667,12 +2667,12 @@
       "ar": "فن السيف الإلكتروني"
     },
     "question": {
-      "en": "Who is the game master and true villain of the original SAO arc?",
-      "ar": "مين مدير اللعبة والشرير الحقيقي بقصة SAO الأصلية؟"
+      "en": "Which famous player in Sword Art Online turns out to be the game's creator, Akihiko Kayaba, in disguise?",
+      "ar": "أي لاعب مشهور في «سورد آرت أونلاين» يطلع إنه صانع اللعبة أكيهيكو كايابا متنكّر؟"
     },
     "answer": {
-      "en": "Akihiko Kayaba (Heathcliff in-game)",
-      "ar": "أكيهيكو كايابا (هيث كليف داخل اللعبة)"
+      "en": "Heathcliff",
+      "ar": "هيثكليف"
     },
     "review": {
       "status": "pending"
@@ -2737,7 +2737,7 @@
   },
   {
     "id": "anime-145",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Sword Art Online",
       "ar": "فن السيف الإلكتروني"
@@ -2775,18 +2775,18 @@
   },
   {
     "id": "anime-147",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Sword Art Online",
       "ar": "فن السيف الإلكتروني"
     },
     "question": {
-      "en": "What is the name of Kirito's childhood friend who fights alongside him in the Alicization arc?",
-      "ar": "شو اسم صاحب كيريتو من الطفولة اللي يقاتل جنبه بقصة «أليسيزيشن»؟"
+      "en": "What is the name of the AI girl whom Kirito and Asuna look after as their daughter in Sword Art Online?",
+      "ar": "شو اسم البنت الذكاء الاصطناعي اللي يربّونها كيريتو وأسونا كأنها بنتهم في «سورد آرت أونلاين»؟"
     },
     "answer": {
-      "en": "Eugeo",
-      "ar": "يوجيو"
+      "en": "Yui",
+      "ar": "يوي"
     },
     "review": {
       "status": "pending"
@@ -2813,7 +2813,7 @@
   },
   {
     "id": "anime-149",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Sword Art Online",
       "ar": "فن السيف الإلكتروني"

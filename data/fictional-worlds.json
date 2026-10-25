@@ -161,7 +161,7 @@
       "en": "Nebuchadnezzar",
       "ar": "نبوخذنصر"
     },
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Science Fiction & Space",
       "ar": "الخيال العلمي والفضاء"
@@ -332,7 +332,7 @@
       "en": "Sindarin",
       "ar": "السندارين"
     },
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Fantasy & Magic",
       "ar": "الفانتازيا والسحر"
@@ -446,7 +446,7 @@
       "en": "Water, Earth, Fire and Air",
       "ar": "الماء والأرض والنار والهواء"
     },
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Anime & Animation",
       "ar": "الأنمي والرسوم المتحركة"
@@ -465,7 +465,7 @@
       "en": "Roshar",
       "ar": "روشار"
     },
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Fantasy & Magic",
       "ar": "الفانتازيا والسحر"
@@ -617,7 +617,7 @@
       "en": "Melange",
       "ar": "ميلانج"
     },
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Science Fiction & Space",
       "ar": "الخيال العلمي والفضاء"
@@ -629,17 +629,17 @@
   {
     "id": "fictional-worlds-34",
     "question": {
-      "en": "In Warhammer 40,000, what is the Immaterium commonly called?",
-      "ar": "في عالم «وارهامر 40,000»، بأي اسم شائع ينعرف «الإيماتيريوم»؟"
+      "en": "In Gulliver's Travels, what is the name of the island of tiny people?",
+      "ar": "في «رحلات جليفر»، شو اسم جزيرة الناس الصغار؟"
     },
     "answer": {
-      "en": "The Warp",
-      "ar": "الوارب (الالتواء)"
+      "en": "Lilliput",
+      "ar": "ليليبوت"
     },
     "difficulty": "medium",
     "subcategory": {
-      "en": "Science Fiction & Space",
-      "ar": "الخيال العلمي والفضاء"
+      "en": "Fantasy & Magic",
+      "ar": "الفانتازيا والسحر"
     },
     "review": {
       "status": "pending"
@@ -686,12 +686,12 @@
   {
     "id": "fictional-worlds-37",
     "question": {
-      "en": "In the SCP Foundation universe, what does the classification 'Keter' specifically mean?",
-      "ar": "في عالم «مؤسسة SCP»، شو يعني تصنيف «كيتر» (Keter) بالضبط؟"
+      "en": "In H. P. Lovecraft's stories, what is the name of the fictional Massachusetts town that is home to Miskatonic University?",
+      "ar": "في قصص إتش بي لافكرافت، شو اسم البلدة الخيالية في ولاية ماساتشوستس اللي فيها جامعة ميسكاتونيك؟"
     },
     "answer": {
-      "en": "An anomaly that is exceedingly difficult to contain reliably",
-      "ar": "حالة شاذة يصعب احتواؤها بشكل موثوق للغاية"
+      "en": "Arkham",
+      "ar": "أركهام"
     },
     "difficulty": "very-advanced",
     "subcategory": {
@@ -705,12 +705,12 @@
   {
     "id": "fictional-worlds-38",
     "question": {
-      "en": "Who is the creator of the manga BLAME!?",
-      "ar": "مين مؤلف مانغا «BLAME!»؟"
+      "en": "In Kung Fu Panda, what is the name of the valley where Po lives?",
+      "ar": "في «كونغ فو باندا»، شو اسم الوادي اللي يعيش فيه بو؟"
     },
     "answer": {
-      "en": "Tsutomu Nihei",
-      "ar": "تسوتومو نيهي"
+      "en": "The Valley of Peace",
+      "ar": "وادي السلام"
     },
     "difficulty": "hard",
     "subcategory": {
@@ -751,6 +751,158 @@
       "ar": "ماوكلي"
     },
     "difficulty": "easy",
+    "subcategory": {
+      "en": "Fantasy & Magic",
+      "ar": "الفانتازيا والسحر"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "fictional-worlds-41",
+    "question": {
+      "en": "In Disney's Frozen, what is the name of the kingdom where Elsa and Anna live?",
+      "ar": "في فيلم ديزني «فروزن» (ملكة الثلج)، شو اسم المملكة اللي تعيش فيها إلسا وآنا؟"
+    },
+    "answer": {
+      "en": "Arendelle",
+      "ar": "أرينديل"
+    },
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Anime & Animation",
+      "ar": "الأنمي والرسوم المتحركة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "fictional-worlds-42",
+    "question": {
+      "en": "In Harry Potter, from which platform at King's Cross station does the Hogwarts Express leave?",
+      "ar": "في «هاري بوتر»، من أي رصيف بمحطة كينغز كروس يطلع قطار «هوجورتس السريع»؟"
+    },
+    "answer": {
+      "en": "Platform 9¾",
+      "ar": "الرصيف تسعة وثلاثة أرباع (9¾)"
+    },
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Fantasy & Magic",
+      "ar": "الفانتازيا والسحر"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "fictional-worlds-43",
+    "question": {
+      "en": "In medieval Arabic tales and travel books, which faraway islands have trees whose fruit are shaped like human heads?",
+      "ar": "بالحكايات وكتب الرحلات العربية القديمة، شو اسم الجزر البعيدة اللي ثمار أشجارها على شكل رؤوس بشر؟"
+    },
+    "answer": {
+      "en": "The Waq-Waq Islands",
+      "ar": "جزر الواق واق"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Fantasy & Magic",
+      "ar": "الفانتازيا والسحر"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "fictional-worlds-44",
+    "question": {
+      "en": "Tatooine, Luke Skywalker's desert home planet in Star Wars, is named after a real town in which country?",
+      "ar": "كوكب «تاتوين» الصحراوي، بيت لوك سكاي ووكر في «حرب النجوم»، أخذ اسمه من مدينة حقيقية بأي بلد؟"
+    },
+    "answer": {
+      "en": "Tunisia (the town of Tataouine)",
+      "ar": "تونس (مدينة تطاوين)"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Science Fiction & Space",
+      "ar": "الخيال العلمي والفضاء"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "fictional-worlds-45",
+    "question": {
+      "en": "In Michael Ende's 'The NeverEnding Story', what is the name of the magical land being swallowed by 'the Nothing'?",
+      "ar": "في رواية ميشائيل إنده «القصة اللانهائية»، شو اسم الأرض السحرية اللي «العدم» قاعد يبتلعها؟"
+    },
+    "answer": {
+      "en": "Fantastica (Fantasia in the film)",
+      "ar": "فانتاستيكا (فانتازيا في الفيلم)"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Fantasy & Magic",
+      "ar": "الفانتازيا والسحر"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "fictional-worlds-46",
+    "question": {
+      "en": "In George Orwell's 'Nineteen Eighty-Four', what is the name of the superstate where Winston Smith lives?",
+      "ar": "في رواية جورج أورويل «1984»، شو اسم الدولة العظمى اللي يعيش فيها وينستون سميث؟"
+    },
+    "answer": {
+      "en": "Oceania",
+      "ar": "أوشينيا"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Science Fiction & Space",
+      "ar": "الخيال العلمي والفضاء"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "fictional-worlds-47",
+    "question": {
+      "en": "In 'The Hitchhiker's Guide to the Galaxy', what number does the supercomputer Deep Thought give as the answer to life, the universe and everything?",
+      "ar": "في «دليل المسافر إلى المجرة»، شو الرقم اللي أعطاه الكمبيوتر العملاق «ديب ثوت» كجواب عن الحياة والكون وكل شي؟"
+    },
+    "answer": {
+      "en": "42",
+      "ar": "42"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Science Fiction & Space",
+      "ar": "الخيال العلمي والفضاء"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "fictional-worlds-48",
+    "question": {
+      "en": "In the 'One Thousand and One Nights', which abandoned enchanted city does an expedition led by Musa ibn Nusayr discover in the desert?",
+      "ar": "في «ألف ليلة وليلة»، ما المدينة المسحورة المهجورة التي تكتشفها في الصحراء حملةٌ يقودها موسى بن نصير؟"
+    },
+    "answer": {
+      "en": "The City of Brass",
+      "ar": "مدينة النحاس"
+    },
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Fantasy & Magic",
       "ar": "الفانتازيا والسحر"

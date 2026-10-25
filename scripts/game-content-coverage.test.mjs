@@ -129,7 +129,7 @@ test('bilingual chemistry concepts retain their precise scientific definitions',
     [18, ['Sublimation', 'التسامي']],
     [20, ['A catalyst', 'المحفز (الكاتاليست)']],
     [42, ['Carbon', 'الكربون']],
-    [46, ['A bond formed by the electrostatic attraction between oppositely charged ions', 'رابطة تتكوّن بالتجاذب الكهروستاتيكي بين أيونات مشحونة بشحنات متعاكسة']],
+    [46, ['Ionic bond', 'رابطة أيونية']],
     [58, ['Dmitri Mendeleev.', 'ديمتري مندليف.']],
   ]);
   for (const [number, answers] of expectedConcepts) {
@@ -151,13 +151,15 @@ test('bilingual chemistry concepts retain their precise scientific definitions',
 });
 
 const numericalValue = text => {
-  const normalized = text.normalize('NFKC').replace(/−/gu, '-');
+  const normalized = text.normalize('NFKC').replace(/−/gu, '-').replace(/(\d),(?=\d{3}(?:\D|$))/gu, '$1');
   const fraction = /^(-?\d+)\s*\/\s*(\d+)$/u.exec(normalized);
   if (fraction) return Number(fraction[1]) / Number(fraction[2]);
   const number = /^(-?\d+(?:\.\d+)?)(?:%|°)?$/u.exec(normalized);
   assert.ok(number, `Expected a concise numerical option: ${text}`);
   return Number(number[1]);
 };
+// A numerical option, or null for a worded option such as "It depends on the number".
+const numericalOrWorded = text => (/\d/u.test(text) && !/[\p{L}]/u.test(text.replace(/[°%]/gu, '')) ? numericalValue(text) : null);
 
 test('each authored Math Medium option set has exactly one independently computed answer', () => {
   let sumSeven = 0;
@@ -168,20 +170,23 @@ test('each authored Math Medium option set has exactly one independently compute
   }
   const permutations = values => values.length === 0 ? [[]]
     : values.flatMap((value, index) => permutations(values.filter((_, candidate) => candidate !== index)).map(rest => [value, ...rest]));
-  const sorted = [2, 3, 5, 7, 9].toSorted((a, b) => a - b);
-  let lowestCommonMultiple = 1;
-  while (lowestCommonMultiple % 4 || lowestCommonMultiple % 6) lowestCommonMultiple += 1;
-  const linear = x => 3 * x + 5;
+  const gcd = (a, b) => (b ? gcd(b, a % b) : a);
+  const lowestCommonMultiple = Array.from({ length: 10 }, (_, i) => i + 1).reduce((lcm, n) => (lcm * n) / gcd(lcm, n), 1);
+  let squares = 0;
+  for (let size = 1; size <= 8; size += 1) squares += (9 - size) ** 2;
+  // A classic football is a truncated icosahedron: each of the 12 pentagons is
+  // ringed by 5 hexagons and each hexagon touches 3 pentagons, so 3h = 12 x 5.
+  const hexagons = [(12 * 5) / 3];
+  const faces = 12 + hexagons[0], edges = (12 * 5 + hexagons[0] * 6) / 2, vertices = (12 * 5 + hexagons[0] * 6) / 3;
+  assert.equal(vertices - edges + faces, 2);
+  assert.deepEqual(hexagons, [20]);
   const expected = new Map([
-    [117, linear(1) - linear(0)],
     [118, sumSeven / (6 * 6)],
     [119, permutations(['A', 'B', 'C', 'D']).length],
-    [122, sorted[Math.floor(sorted.length / 2)]],
     [123, (1 - (1 - 0.10) * (1 - 0.10)) * 100],
-    [125, 3 / (10 - 1)],
     [126, lowestCommonMultiple],
-    [127, 30 - 30 * 0.60],
-    [129, (4 - 2) * 180],
+    [127, squares],
+    [129, hexagons[0]],
   ]);
   for (const [number, result] of expected) {
     const card = getCard(math, 'math', number);
@@ -190,11 +195,31 @@ test('each authored Math Medium option set has exactly one independently compute
         [true, false, false, false], `${card.id}/${language}`);
     }
   }
-  const quadratic = getCard(math, 'math', 121);
-  for (const language of ['en', 'ar']) {
-    assert.deepEqual(options(quadratic, language).map(option => {
-      const roots = (option.replace(/−/gu, '-').match(/-?\d+/gu) || []).map(Number);
-      return roots.length === 2 && new Set(roots).size === 2 && roots.every(x => x * x - 5 * x + 6 === 0);
-    }), [true, false, false, false], `${quadratic.id}/${language}`);
+  // Think of a number: (2x + 6) / 2 - x is 3 for every x, so "it depends" is wrong.
+  const trick = x => (2 * x + 6) / 2 - x;
+  assert.ok([-4, 0, 1, 7, 12.5].every(x => trick(x) === 3));
+  // 0.999... is the geometric series 9/10 + 9/100 + ..., whose sum is exactly 1.
+  const repeating = (9 / 10) / (1 - 1 / 10);
+  for (const [number, result] of [[117, trick(5)], [125, repeating]]) {
+    const card = getCard(math, 'math', number);
+    for (const language of ['en', 'ar']) {
+      const values = options(card, language).map(numericalOrWorded);
+      assert.deepEqual(values.map(value => value !== null && Math.abs(value - result) < 1e-10), [true, false, false, false], `${card.id}/${language}`);
+      assert.equal(values.filter(value => value === null).length, 1, `${card.id}/${language}: one worded distractor`);
+    }
   }
+  const repunit = getCard(math, 'math', 121);
+  for (const language of ['en', 'ar']) {
+    assert.deepEqual(options(repunit, language).map(option => BigInt(option.replace(/,/gu, '')) === 111_111_111n ** 2n),
+      [true, false, false, false], `${repunit.id}/${language}`);
+  }
+  // One extreme value moves the mean far more than the median.
+  const wealth = [30_000, 40_000, 50_000, 60_000, 70_000];
+  const mean = values => values.reduce((total, value) => total + value, 0) / values.length;
+  const median = values => { const sorted = values.toSorted((a, b) => a - b); const middle = sorted.length / 2; return Number.isInteger(middle) ? (sorted[middle - 1] + sorted[middle]) / 2 : sorted[Math.floor(middle)]; };
+  const withBillionaire = [...wealth, 1_000_000_000];
+  assert.ok(mean(withBillionaire) - mean(wealth) > 1000 * (median(withBillionaire) - median(wealth)));
+  const average = getCard(math, 'math', 122);
+  assert.deepEqual(options(average, 'en').map(option => option === 'The mean'), [true, false, false, false]);
+  assert.deepEqual(options(average, 'ar').map(option => option === 'المتوسط الحسابي'), [true, false, false, false]);
 });

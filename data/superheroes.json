@@ -9,7 +9,7 @@
       "en": "Kal-El",
       "ar": "كال-إل"
     },
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Origins & Identities",
       "ar": "الأصول والهويات"
@@ -66,7 +66,7 @@
       "en": "Themyscira",
       "ar": "ثيميسكيرا"
     },
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Worlds & Organizations",
       "ar": "العوالم والمنظمات"
@@ -306,14 +306,14 @@
   {
     "id": "superheroes-17",
     "question": {
-      "en": "What alien race is Gamora from Guardians of the Galaxy a part of?",
-      "ar": "من أي عرق فضائي جامورا من «حراس المجرة»؟"
+      "en": "Which Guardians of the Galaxy hero is a walking tree who can only say three words?",
+      "ar": "مين بطل «حراس المجرة» اللي هو شجرة تمشي وما يقول غير ثلاث كلمات؟"
     },
     "answer": {
-      "en": "Zen-Whoberis",
-      "ar": "زين هوبيريس"
+      "en": "Groot",
+      "ar": "غروت"
     },
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Marvel Heroes",
       "ar": "أبطال مارفل"
@@ -370,7 +370,7 @@
       "en": "Joe Chill",
       "ar": "جو تشيل"
     },
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Villains & Rivalries",
       "ar": "الأشرار والخصومات"
@@ -503,7 +503,7 @@
       "en": "The Daily Planet",
       "ar": "ديلي بلانيت"
     },
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Worlds & Organizations",
       "ar": "العوالم والمنظمات"
@@ -591,12 +591,12 @@
   {
     "id": "superheroes-32",
     "question": {
-      "en": "What is the true identity of the Marvel villain Doctor Doom?",
-      "ar": "شو الهوية الحقيقية لشرير مارفل «دكتور دوم»؟"
+      "en": "In a famous 1973 Spider-Man comic, which villain is responsible for the death of Peter Parker's girlfriend Gwen Stacy?",
+      "ar": "في عدد مشهور من قصص «سبايدر مان» سنة 1973، أي شرير تسبّب بموت حبيبة بيتر باركر، غوين ستايسي؟"
     },
     "answer": {
-      "en": "Victor von Doom",
-      "ar": "فيكتور فون دووم"
+      "en": "The Green Goblin (Norman Osborn)",
+      "ar": "العفريت الأخضر (نورمان أوزبورن)"
     },
     "difficulty": "very-advanced",
     "subcategory": {
@@ -705,12 +705,12 @@
   {
     "id": "superheroes-38",
     "question": {
-      "en": "Which Marvel gauntlet holds the six Infinity Gems in the comics?",
-      "ar": "في قصص مارفل، شو القفاز اللي يحمل أحجار اللانهاية الستة؟"
+      "en": "How many Infinity Stones does Thanos need to collect?",
+      "ar": "كم حجر من «أحجار اللانهاية» لازم يجمع ثانوس؟"
     },
     "answer": {
-      "en": "The Infinity Gauntlet",
-      "ar": "قفاز اللانهاية"
+      "en": "Six",
+      "ar": "ستة"
     },
     "difficulty": "easy",
     "subcategory": {
@@ -754,6 +754,310 @@
     "subcategory": {
       "en": "Comics History & Storylines",
       "ar": "تاريخ القصص المصورة والأحداث"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "superheroes-41",
+    "question": {
+      "en": "Complete the famous lesson Spider-Man learns: 'With great power comes great...'?",
+      "ar": "كمّل الجملة المشهورة اللي تعلّمها سبايدر مان: «مع القوة العظيمة تأتي...»؟"
+    },
+    "answer": {
+      "en": "Responsibility",
+      "ar": "مسؤولية عظيمة"
+    },
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Marvel Heroes",
+      "ar": "أبطال مارفل"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "superheroes-42",
+    "question": {
+      "en": "What is the name of Bruce Wayne's loyal butler?",
+      "ar": "شو اسم كبير الخدم الوفي عند بروس واين؟"
+    },
+    "answer": {
+      "en": "Alfred (Alfred Pennyworth)",
+      "ar": "ألفريد"
+    },
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "DC Heroes",
+      "ar": "أبطال دي سي"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "superheroes-43",
+    "question": {
+      "en": "What magic word does young Billy Batson shout to turn into an adult superhero?",
+      "ar": "شو الكلمة السحرية اللي يصرخ فيها الولد بيلي باتسون عشان يتحوّل لبطل خارق كبير؟"
+    },
+    "answer": {
+      "en": "Shazam!",
+      "ar": "شازام!"
+    },
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "DC Heroes",
+      "ar": "أبطال دي سي"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "superheroes-44",
+    "question": {
+      "en": "What name does Captain America's best friend Bucky Barnes go by after he is brainwashed into an assassin?",
+      "ar": "شو الاسم اللي صار ينعرف فيه باكي بارنز، صاحب كابتن أمريكا، بعد ما غسلوا دماغه وصار قاتل مأجور؟"
+    },
+    "answer": {
+      "en": "The Winter Soldier",
+      "ar": "جندي الشتاء"
+    },
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Origins & Identities",
+      "ar": "الأصول والهويات"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "superheroes-45",
+    "question": {
+      "en": "What does 'DC' stand for in the name DC Comics?",
+      "ar": "شو معنى «DC» في اسم شركة DC Comics؟"
+    },
+    "answer": {
+      "en": "Detective Comics",
+      "ar": "Detective Comics (قصص المحققين)"
+    },
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Comics History & Storylines",
+      "ar": "تاريخ القصص المصورة والأحداث"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "superheroes-46",
+    "question": {
+      "en": "Which Pakistani-American teenager from Jersey City became Ms. Marvel in 2014?",
+      "ar": "مين المراهقة الأمريكية من أصل باكستاني، من مدينة جيرسي سيتي، اللي صارت «مس مارفل» سنة 2014؟"
+    },
+    "answer": {
+      "en": "Kamala Khan",
+      "ar": "كامالا خان"
+    },
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Marvel Heroes",
+      "ar": "أبطال مارفل"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "superheroes-47",
+    "question": {
+      "en": "In Marvel's 'Moon Knight' (2022), Layla El-Faouly becomes which hero, billed as the MCU's first Egyptian superhero?",
+      "ar": "في مسلسل مارفل «مون نايت» (2022)، ليلى الفاولي تتحوّل لأي بطلة، اللي انقال عنها أول بطلة خارقة مصرية بعالم مارفل السينمائي؟"
+    },
+    "answer": {
+      "en": "The Scarlet Scarab",
+      "ar": "الجعران القرمزي (Scarlet Scarab)"
+    },
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Marvel Heroes",
+      "ar": "أبطال مارفل"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "superheroes-48",
+    "question": {
+      "en": "Which artist co-created Spider-Man with Stan Lee in 1962?",
+      "ar": "مين الرسّام اللي ابتكر سبايدر مان مع ستان لي سنة 1962؟"
+    },
+    "answer": {
+      "en": "Steve Ditko",
+      "ar": "ستيف ديتكو"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Comics History & Storylines",
+      "ar": "تاريخ القصص المصورة والأحداث"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "superheroes-49",
+    "question": {
+      "en": "Which Lebanese-American hero from Dearborn, Michigan, became a Green Lantern in 2012?",
+      "ar": "مين البطل الأمريكي من أصل لبناني، من مدينة ديربورن، اللي صار «فانوس أخضر» سنة 2012؟"
+    },
+    "answer": {
+      "en": "Simon Baz",
+      "ar": "سايمون باز"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "DC Heroes",
+      "ar": "أبطال دي سي"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "superheroes-50",
+    "question": {
+      "en": "Which Egyptian filmmaker directed most episodes of Marvel's 'Moon Knight' (2022)?",
+      "ar": "مين المخرج المصري اللي أخرج أغلب حلقات مسلسل مارفل «مون نايت» (2022)؟"
+    },
+    "answer": {
+      "en": "Mohamed Diab",
+      "ar": "محمد دياب"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Marvel Heroes",
+      "ar": "أبطال مارفل"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "superheroes-51",
+    "question": {
+      "en": "What is the name of Black Adam's fictional Middle Eastern homeland in DC Comics?",
+      "ar": "شو اسم الوطن الخيالي لـ«بلاك آدم» في الشرق الأوسط بقصص دي سي؟"
+    },
+    "answer": {
+      "en": "Kahndaq",
+      "ar": "كانداك (Kahndaq)"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Worlds & Organizations",
+      "ar": "العوالم والمنظمات"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "superheroes-52",
+    "question": {
+      "en": "Which Kuwaiti psychologist created 'The 99', a 2006 comic series about a team of 99 young heroes from around the world?",
+      "ar": "مين الطبيب النفسي الكويتي اللي ابتكر سلسلة القصص المصورة «الـ99» سنة 2006، عن فريق من 99 بطل شاب من كل العالم؟"
+    },
+    "answer": {
+      "en": "Naif Al-Mutawa",
+      "ar": "نايف المطوّع"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Teams & Alliances",
+      "ar": "الفرق والتحالفات"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "superheroes-53",
+    "question": {
+      "en": "In the Marvel films, which amulet worn by Doctor Strange holds the Time Stone?",
+      "ar": "في أفلام مارفل، شو اسم القلادة اللي يلبسها دكتور سترينج وفيها «حجر الزمن»؟"
+    },
+    "answer": {
+      "en": "The Eye of Agamotto",
+      "ar": "عين أغاموتو"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Powers, Materials & Artifacts",
+      "ar": "القوى والمواد والتحف"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "superheroes-54",
+    "question": {
+      "en": "In his very first comic in 1941, what shape was Captain America's shield before it became round?",
+      "ar": "بأول قصة مصورة له سنة 1941، كيف كان شكل درع كابتن أمريكا قبل ما يصير دائري؟"
+    },
+    "answer": {
+      "en": "Triangular, like a badge (a heater shield)",
+      "ar": "مثلّث يشبه الشارة"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Powers, Materials & Artifacts",
+      "ar": "القوى والمواد والتحف"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "superheroes-55",
+    "question": {
+      "en": "In his first comic in 1962, what colour was the Hulk before he became green?",
+      "ar": "بأول قصة مصورة له سنة 1962، شو كان لون هالك قبل ما يصير أخضر؟"
+    },
+    "answer": {
+      "en": "Grey",
+      "ar": "رمادي"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Origins & Identities",
+      "ar": "الأصول والهويات"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "superheroes-56",
+    "question": {
+      "en": "In which TV cartoon did Harley Quinn first appear in 1992, before she joined the comics?",
+      "ar": "بأي مسلسل كرتوني ظهرت هارلي كوين أول مرة سنة 1992، قبل ما تدخل القصص المصورة؟"
+    },
+    "answer": {
+      "en": "Batman: The Animated Series",
+      "ar": "«باتمان: المسلسل الكرتوني» (Batman: The Animated Series)"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Villains & Rivalries",
+      "ar": "الأشرار والخصومات"
     },
     "review": {
       "status": "pending"

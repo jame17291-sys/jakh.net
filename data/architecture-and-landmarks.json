@@ -2,17 +2,17 @@
   {
     "id": "arc-1",
     "subcategory": {
-      "en": "World Landmarks",
-      "ar": "معالم العالم"
+      "en": "Materials & Structures",
+      "ar": "المواد والإنشاءات"
     },
     "difficulty": "easy",
     "question": {
-      "en": "In which city is the Eiffel Tower located?",
-      "ar": "بأي مدينة برج إيفل؟"
+      "en": "The Eiffel Tower is about 12–15 cm taller in a hot summer than in winter. Why?",
+      "ar": "برج إيفل يطول حوالي 12 إلى 15 سم بالصيف الحار مقارنة بالشتاء. ليش؟"
     },
     "answer": {
-      "en": "Paris",
-      "ar": "باريس"
+      "en": "Its iron expands in the heat.",
+      "ar": "لأن حديده يتمدد بالحرارة."
     },
     "review": {
       "status": "pending"
@@ -154,17 +154,17 @@
   {
     "id": "arc-9",
     "subcategory": {
-      "en": "Materials & Structures",
-      "ar": "المواد والإنشاءات"
+      "en": "Architectural Elements",
+      "ar": "العناصر المعمارية"
     },
     "difficulty": "medium",
     "question": {
-      "en": "In a staircase with closed steps, what is the upright face between two consecutive treads called?",
-      "ar": "في الدرج اللي درجاته مسكّرة، شو اسم الجزء الواقف بين سطح درجة والدرجة اللي بعدها؟"
+      "en": "What is the carved wooden lattice screen on traditional Arab windows that lets in air and light while keeping privacy?",
+      "ar": "شو اسم الشبّاك الخشبي المخرّم بالبيوت العربية القديمة، اللي يدخّل الهوا والنور ويحافظ على الخصوصية؟"
     },
     "answer": {
-      "en": "A riser.",
-      "ar": "قائمة الدرجة."
+      "en": "The mashrabiya.",
+      "ar": "المشربية."
     },
     "review": {
       "status": "pending"
@@ -330,12 +330,12 @@
     },
     "difficulty": "medium",
     "question": {
-      "en": "What is the main longitudinal space of a church where the congregation gathers called?",
-      "ar": "شو اسم المساحة الطولية الرئيسية في الكنيسة اللي يتجمّع فيها المصلّين؟"
+      "en": "What is the traditional Gulf tower, seen in old Dubai's Al Fahidi district, that catches breezes to cool the house below?",
+      "ar": "شو اسم البرج التقليدي في الخليج، اللي نشوفه بحي الفهيدي في دبي القديمة، ويلقط الهوا عشان يبرّد البيت اللي تحته؟"
     },
     "answer": {
-      "en": "The nave.",
-      "ar": "صحن الكنيسة."
+      "en": "A wind tower (barjeel).",
+      "ar": "البرجيل (برج الهواء)."
     },
     "review": {
       "status": "pending"
@@ -347,14 +347,14 @@
       "en": "Architectural Elements",
       "ar": "العناصر المعمارية"
     },
-    "difficulty": "medium",
+    "difficulty": "hard",
     "question": {
-      "en": "What is the term for a circular window often found in Gothic cathedrals?",
-      "ar": "شو نسمّي الشباك الدائري اللي نشوفه كثير في الكاتدرائيات القوطية؟"
+      "en": "What is the honeycomb-like, stalactite-style vaulting that decorates domes, niches and arches in Islamic architecture?",
+      "ar": "شو اسم الزخرفة المعمارية اللي تشبه خلايا النحل أو الهوابط، وتزيّن القباب والمحاريب والأقواس بالعمارة الإسلامية؟"
     },
     "answer": {
-      "en": "Rose Window",
-      "ar": "نافذة الوردة"
+      "en": "Muqarnas.",
+      "ar": "المقرنصات."
     },
     "review": {
       "status": "pending"
@@ -406,12 +406,12 @@
     },
     "difficulty": "hard",
     "question": {
-      "en": "Who designed the 'Glass House' in New Canaan, Connecticut?",
-      "ar": "مين صمّم «البيت الزجاجي» في نيو كنعان بكونيتيكت؟"
+      "en": "Which Iraqi-born architect, nicknamed the 'Queen of the Curve', designed the London Aquatics Centre for the 2012 Olympics?",
+      "ar": "أي معمارية من مواليد العراق، يلقبونها «ملكة المنحنيات»، صمّمت مركز الألعاب المائية في لندن لأولمبياد 2012؟"
     },
     "answer": {
-      "en": "Philip Johnson",
-      "ar": "فيليب جونسون"
+      "en": "Zaha Hadid.",
+      "ar": "زها حديد."
     },
     "review": {
       "status": "pending"
@@ -423,7 +423,7 @@
       "en": "Architectural Elements",
       "ar": "العناصر المعمارية"
     },
-    "difficulty": "hard",
+    "difficulty": "medium",
     "question": {
       "en": "What is the central wedge-shaped stone at the crown of a masonry arch called?",
       "ar": "شو اسم الحجر اللي بالنص فوق القوس الحجري ويقفله؟"
@@ -746,14 +746,90 @@
       "en": "Architectural Elements",
       "ar": "العناصر المعمارية"
     },
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "question": {
-      "en": "What is a 'Hypostyle Hall'?",
-      "ar": "شو هي «قاعة الأعمدة» (Hypostyle Hall)؟"
+      "en": "What do we call a vast hall whose roof rests on rows of many columns, like the famous one at Karnak Temple in Luxor?",
+      "ar": "شو نسمّي القاعة الضخمة اللي سقفها قايم على صفوف أعمدة كثيرة، مثل القاعة المشهورة بمعبد الكرنك في الأقصر؟"
     },
     "answer": {
-      "en": "A large room with a roof supported by many columns",
-      "ar": "غرفة كبيرة لها سقف مدعوم بالعديد من الأعمدة"
+      "en": "A hypostyle hall.",
+      "ar": "قاعة الأعمدة (Hypostyle Hall)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "arc-41",
+    "subcategory": {
+      "en": "World Landmarks",
+      "ar": "معالم العالم"
+    },
+    "difficulty": "easy",
+    "question": {
+      "en": "Which Dubai hotel, standing on its own island, is shaped like a billowing ship's sail?",
+      "ar": "أي فندق في دبي، قايم على جزيرة لحاله، شكله مثل شراع سفينة منفوخ بالهوا؟"
+    },
+    "answer": {
+      "en": "Burj Al Arab.",
+      "ar": "برج العرب."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "arc-42",
+    "subcategory": {
+      "en": "World Landmarks",
+      "ar": "معالم العالم"
+    },
+    "difficulty": "easy",
+    "question": {
+      "en": "Which red-walled palace and fortress in Granada, Spain, was built by the Muslim rulers of al-Andalus?",
+      "ar": "أي قصر وقلعة بأسوار حمراء في غرناطة بإسبانيا، بناه الحكّام المسلمون في الأندلس؟"
+    },
+    "answer": {
+      "en": "The Alhambra.",
+      "ar": "قصر الحمراء."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "arc-43",
+    "subcategory": {
+      "en": "World Landmarks",
+      "ar": "معالم العالم"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "Which walled town in Yemen, packed with mud-brick high-rise houses, is nicknamed the 'Manhattan of the Desert'?",
+      "ar": "أي مدينة مسوّرة في اليمن، مليانة بيوت طينية عالية مثل الأبراج، ويسمّونها «مانهاتن الصحراء»؟"
+    },
+    "answer": {
+      "en": "Shibam (Hadhramaut).",
+      "ar": "شِبام حضرموت."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "arc-44",
+    "subcategory": {
+      "en": "World Landmarks",
+      "ar": "معالم العالم"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "Which 9th-century Iraqi minaret is famous for a spiral ramp winding round its outside like a snail shell?",
+      "ar": "أي مئذنة عراقية من القرن التاسع مشهورة بدرجها الحلزوني اللي يلفّ من برّا مثل قوقعة الحلزون؟"
+    },
+    "answer": {
+      "en": "The Malwiya of Samarra.",
+      "ar": "الملوية في سامراء."
     },
     "review": {
       "status": "pending"

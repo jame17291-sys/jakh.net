@@ -7,12 +7,12 @@
       "ar": "الآلات والتروس والآليات"
     },
     "question": {
-      "en": "What is the name of the support point about which a lever turns?",
-      "ar": "شو اسم نقطة الارتكاز اللي تدور حولها الرافعة؟"
+      "en": "Archimedes boasted that with a long enough lever and a place to stand he could move the Earth. What is the point a lever pivots on called?",
+      "ar": "أرخميدس قال إنه لو عنده رافعة طويلة كفاية ومكان يوقف فيه، بيحرّك الأرض. شو اسم النقطة اللي تدور عليها الرافعة؟"
     },
     "answer": {
-      "en": "The Fulcrum",
-      "ar": "نقطة الارتكاز"
+      "en": "The fulcrum.",
+      "ar": "نقطة الارتكاز."
     },
     "review": {
       "status": "pending"
@@ -98,16 +98,16 @@
     "id": "mechanical-engineering-006",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Thermodynamics, Heat & Power",
-      "ar": "الديناميكا الحرارية والحرارة والطاقة"
+      "en": "Machines, Gears & Mechanisms",
+      "ar": "الآلات والتروس والآليات"
     },
     "question": {
-      "en": "What type of energy does an object possess due to its motion?",
-      "ar": "شو نوع الطاقة اللي عند الجسم بسبب حركته؟"
+      "en": "An axe head and a doorstop are both examples of which simple machine?",
+      "ar": "رأس الفأس وقطعة الخشب اللي نحطها تحت الباب عشان يظل مفتوح، مثالين على أي آلة بسيطة؟"
     },
     "answer": {
-      "en": "Kinetic energy",
-      "ar": "الطاقة الحركية"
+      "en": "The wedge.",
+      "ar": "الإسفين."
     },
     "review": {
       "status": "pending"
@@ -178,12 +178,12 @@
       "ar": "الميكانيكا والتحليل الإنشائي"
     },
     "question": {
-      "en": "What is the formula for pressure?",
-      "ar": "كيف نحسب الضغط؟"
+      "en": "Why does a sharp knife cut more easily than a blunt one, with the same push?",
+      "ar": "ليش السكين الحادة تقطع أسهل من الثلمة، بنفس قوة الضغط؟"
     },
     "answer": {
-      "en": "P = Force / Area",
-      "ar": "P = القوة / المساحة"
+      "en": "The force acts on a tiny area, so the pressure is much higher.",
+      "ar": "لأن القوة تتركز على مساحة صغيرة جداً، فيصبح الضغط أعلى بكثير."
     },
     "review": {
       "status": "pending"
@@ -235,12 +235,12 @@
       "ar": "الديناميكا الحرارية والحرارة والطاقة"
     },
     "question": {
-      "en": "What does the First Law of Thermodynamics state about energy?",
-      "ar": "شو يقول القانون الأول للديناميكا الحرارية عن الطاقة؟"
+      "en": "What do we call a machine that would run forever with no energy input, something the laws of thermodynamics rule out?",
+      "ar": "شو نسمّي الآلة اللي تشتغل للأبد من غير أي مصدر طاقة، وهي شي تمنعه قوانين الديناميكا الحرارية؟"
     },
     "answer": {
-      "en": "Energy cannot be created or destroyed, only transformed",
-      "ar": "لا تُخلق الطاقة ولا تُفنى، بل تتحول من شكل لآخر"
+      "en": "A perpetual motion machine.",
+      "ar": "آلة الحركة الدائمة."
     },
     "review": {
       "status": "pending"
@@ -311,12 +311,12 @@
       "ar": "الميكانيكا والتحليل الإنشائي"
     },
     "question": {
-      "en": "What is the magnitude of torque produced by force F acting at radius r and angle θ to the radius vector?",
-      "ar": "كم عزم القوة F اللي تأثر على بعد r وبزاوية θ مع متجه نصف القطر؟"
+      "en": "Why is a door easiest to push open at the handle side, far from the hinges?",
+      "ar": "ليش أسهل تفتح الباب لما تدفّه من جهة المقبض، بعيد عن المفصلات؟"
     },
     "answer": {
-      "en": "τ = rF sin θ, which equals the force multiplied by its perpendicular moment arm.",
-      "ar": "τ = rF sin θ، ويكافئ القوة مضروبة في ذراعها العمودي."
+      "en": "A longer lever arm gives more torque for the same force.",
+      "ar": "لأن ذراع العزم الأطول يعطي عزماً أكبر بالقوة نفسها."
     },
     "review": {
       "status": "pending"
@@ -349,12 +349,12 @@
       "ar": "الآلات والتروس والآليات"
     },
     "question": {
-      "en": "What is the mechanical device used to regulate the speed of a machine?",
-      "ar": "شو الجهاز الميكانيكي اللي ينظّم سرعة الآلة؟"
+      "en": "James Watt fitted steam engines with two spinning balls that swung outward to cut the steam as speed rose. What is this device?",
+      "ar": "جيمس وات ركّب على المحركات البخارية كرتين تدوران وتنفرجان لبرّا كل ما زادت السرعة، فتخفف البخار. شو اسم هالجهاز؟"
     },
     "answer": {
-      "en": "Governor",
-      "ar": "الحاكم (Governor)"
+      "en": "A centrifugal (flyball) governor.",
+      "ar": "الحاكم النابذ ذو الكرات (Centrifugal governor)."
     },
     "review": {
       "status": "pending"
@@ -419,7 +419,7 @@
   },
   {
     "id": "mechanical-engineering-023",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Materials & Failure",
       "ar": "المواد والفشل"
@@ -457,7 +457,7 @@
   },
   {
     "id": "mechanical-engineering-025",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Thermodynamics, Heat & Power",
       "ar": "الديناميكا الحرارية والحرارة والطاقة"
@@ -533,7 +533,7 @@
   },
   {
     "id": "mechanical-engineering-029",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Materials & Failure",
       "ar": "المواد والفشل"
@@ -564,6 +564,196 @@
     "answer": {
       "en": "To find the internal forces in the members of a truss",
       "ar": "لإيجاد القوى الداخلية في أعضاء الجمالون"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mechanical-engineering-031",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Materials & Failure",
+      "ar": "المواد والفشل"
+    },
+    "question": {
+      "en": "Why do airliner windows have rounded corners instead of square ones?",
+      "ar": "ليش شبابيك الطيارات زواياها مدوّرة مو مربعة؟"
+    },
+    "answer": {
+      "en": "Sharp corners concentrate stress and can start fatigue cracks.",
+      "ar": "لأن الزوايا الحادة تركّز الإجهاد وقد تبدأ منها شقوق الإجهاد التعبي."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mechanical-engineering-032",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Fluids & Hydraulics",
+      "ar": "الموائع والهيدروليكا"
+    },
+    "question": {
+      "en": "Why do golf balls have dimples?",
+      "ar": "ليش كرة الغولف سطحها فيه نقر صغيرة؟"
+    },
+    "answer": {
+      "en": "They cut air drag, so the ball flies farther.",
+      "ar": "لأنها تقلل مقاومة الهواء، فتطير الكرة أبعد."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mechanical-engineering-033",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Fluids & Hydraulics",
+      "ar": "الموائع والهيدروليكا"
+    },
+    "question": {
+      "en": "What are the giant wooden wheels on the Orontes River in Hama, Syria, that lift river water using only the current?",
+      "ar": "شو اسم الدواليب الخشبية العملاقة على نهر العاصي في حماة بسوريا، اللي ترفع مي النهر بقوة التيار بس؟"
+    },
+    "answer": {
+      "en": "Norias (water wheels).",
+      "ar": "النواعير."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mechanical-engineering-034",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Machines, Gears & Mechanisms",
+      "ar": "الآلات والتروس والآليات"
+    },
+    "question": {
+      "en": "In a mechanical clock, which mechanism lets the gears advance in small, regular steps, making the 'tick'?",
+      "ar": "في الساعة الميكانيكية، أي آلية تخلّي التروس تتقدّم بخطوات صغيرة منتظمة، وهي اللي تطلّع صوت «التك»؟"
+    },
+    "answer": {
+      "en": "The escapement.",
+      "ar": "آلية الانفلات (Escapement)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mechanical-engineering-035",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Fluids & Hydraulics",
+      "ar": "الموائع والهيدروليكا"
+    },
+    "question": {
+      "en": "What eats tiny pits into fast ship propellers when low pressure forms vapour bubbles that then collapse violently?",
+      "ar": "شو الظاهرة اللي تحفر نقر صغيرة بمراوح السفن السريعة، لما الضغط المنخفض يكوّن فقاعات بخار تنفجر بعنف؟"
+    },
+    "answer": {
+      "en": "Cavitation.",
+      "ar": "التكهّف (Cavitation)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mechanical-engineering-036",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Materials & Failure",
+      "ar": "المواد والفشل"
+    },
+    "question": {
+      "en": "Some welded WWII Liberty ships suddenly cracked in two in icy seas. Which kind of failure was to blame?",
+      "ar": "بعض سفن «ليبرتي» الملحومة بالحرب العالمية الثانية انشقت فجأة نصّين بالبحار الباردة. أي نوع من الانهيار كان السبب؟"
+    },
+    "answer": {
+      "en": "Brittle fracture: the steel became brittle in the cold.",
+      "ar": "الكسر الهش: صار الفولاذ هشاً في البرد."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mechanical-engineering-037",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Materials & Failure",
+      "ar": "المواد والفشل"
+    },
+    "question": {
+      "en": "What is the slow, permanent stretching of a material under a constant load, a big worry for red-hot jet turbine blades?",
+      "ar": "شو اسم التمدد البطيء والدائم للمادة تحت حمل ثابت، اللي يقلق المهندسين كثير بشفرات توربينات الطيارات الحامية؟"
+    },
+    "answer": {
+      "en": "Creep.",
+      "ar": "الزحف (Creep)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mechanical-engineering-038",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Thermodynamics, Heat & Power",
+      "ar": "الديناميكا الحرارية والحرارة والطاقة"
+    },
+    "question": {
+      "en": "Which engine, patented in 1816, runs on the temperature difference between a hot side and a cold side, with no internal combustion?",
+      "ar": "أي محرك سُجّلت براءته سنة 1816، يشتغل على فرق الحرارة بين جهة حارة وجهة باردة، من غير احتراق داخلي؟"
+    },
+    "answer": {
+      "en": "The Stirling engine.",
+      "ar": "محرك ستيرلنغ."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mechanical-engineering-039",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Thermodynamics, Heat & Power",
+      "ar": "الديناميكا الحرارية والحرارة والطاقة"
+    },
+    "question": {
+      "en": "In a modern airliner's turbofan engine, where does most of the thrust come from?",
+      "ar": "في محرك التوربوفان بالطيارات الحديثة، من وين تجي أغلب قوة الدفع؟"
+    },
+    "answer": {
+      "en": "The big front fan, pushing 'bypass' air around the engine's core.",
+      "ar": "من المروحة الأمامية الكبيرة التي تدفع هواءً «التفافياً» حول قلب المحرك."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mechanical-engineering-040",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Thermodynamics, Heat & Power",
+      "ar": "الديناميكا الحرارية والحرارة والطاقة"
+    },
+    "question": {
+      "en": "Whose 1712 'atmospheric' steam engine pumped water out of mines, decades before James Watt's improvements?",
+      "ar": "مين صاحب المحرك البخاري «الجوي» سنة 1712 اللي كان يضخ المي من المناجم، قبل تحسينات جيمس وات بعشرات السنين؟"
+    },
+    "answer": {
+      "en": "Thomas Newcomen.",
+      "ar": "توماس نيوكمن."
     },
     "review": {
       "status": "pending"

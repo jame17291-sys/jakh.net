@@ -7,12 +7,12 @@
     },
     "difficulty": "easy",
     "question": {
-      "en": "What gas do plants absorb from the atmosphere to perform photosynthesis?",
-      "ar": "شو الغاز اللي تمتصه النباتات من الجو عشان تسوي البناء الضوئي؟"
+      "en": "Which salt-tolerant trees grow along Gulf and Red Sea shores with their roots in seawater?",
+      "ar": "أي أشجار تتحمّل الملوحة وتنمو على سواحل الخليج والبحر الأحمر وجذورها بمي البحر؟"
     },
     "answer": {
-      "en": "Carbon Dioxide (CO2)",
-      "ar": "ثاني أكسيد الكربون"
+      "en": "Mangroves (in the Gulf mostly the grey mangrove, locally called qurm).",
+      "ar": "أشجار القرم (المانغروف)."
     },
     "review": {
       "status": "pending"
@@ -195,7 +195,7 @@
       "en": "Ecosystems & Biodiversity",
       "ar": "النظم البيئية والتنوع الحيوي"
     },
-    "difficulty": "medium",
+    "difficulty": "easy",
     "question": {
       "en": "What is the term for the variety of life in a particular habitat or ecosystem?",
       "ar": "شو نسمّي تنوّع الحياة في موطن أو نظام بيئي معيّن؟"
@@ -254,12 +254,12 @@
     },
     "difficulty": "medium",
     "question": {
-      "en": "Which gas is a more potent greenhouse gas than CO2, though it stays in the atmosphere for less time?",
-      "ar": "أي غاز دفيئة أقوى من ثاني أكسيد الكربون، مع إنه يبقى بالجو مدة أقصر؟"
+      "en": "What warming limit did the 2015 Paris Agreement set as its central goal?",
+      "ar": "شو حدّ الاحترار اللي حطّته اتفاقية باريس سنة 2015 كهدف رئيسي؟"
     },
     "answer": {
-      "en": "Methane (CH4)",
-      "ar": "الميثان"
+      "en": "Keeping warming well below 2 °C above pre-industrial levels, while aiming for 1.5 °C.",
+      "ar": "إبقاء الاحترار أقل بكثير من درجتين مئويتين فوق مستويات ما قبل الثورة الصناعية، مع السعي لحصره عند 1.5 درجة."
     },
     "review": {
       "status": "pending"
@@ -406,12 +406,12 @@
     },
     "difficulty": "hard",
     "question": {
-      "en": "What is the 'Albedo Effect' in the context of climate change?",
-      "ar": "في موضوع تغيّر المناخ، شو هو «تأثير الألبيدو»؟"
+      "en": "Why does melting Arctic sea ice speed up warming?",
+      "ar": "ليش ذوبان جليد بحر القطب الشمالي يسرّع الاحترار؟"
     },
     "answer": {
-      "en": "The reflectivity of the Earth's surface",
-      "ar": "قدرة سطح الأرض على عكس الإشعاع الشمسي"
+      "en": "Bright ice reflects sunlight; the darker ocean beneath absorbs more heat and melts more ice (the ice–albedo feedback).",
+      "ar": "الجليد الفاتح يعكس ضوء الشمس، والمحيط الداكن تحته يمتص حرارة أكثر فيذوب جليد أكثر (تغذية راجعة بين الجليد والألبيدو)."
     },
     "review": {
       "status": "pending"
@@ -482,12 +482,12 @@
     },
     "difficulty": "hard",
     "question": {
-      "en": "What does the term 'Endemism' refer to in ecology?",
-      "ar": "في علم البيئة، شو يعني «التوطّن» (Endemism)؟"
+      "en": "Socotra's dragon's blood tree grows naturally nowhere else on Earth. What do ecologists call a species found only in one place?",
+      "ar": "شجرة دم الأخوين في سقطرى ما تنبت طبيعياً بأي مكان ثاني بالعالم. شو يسمّي علماء البيئة النوع اللي يعيش بمكان واحد بس؟"
     },
     "answer": {
-      "en": "Species found only in one specific geographic area",
-      "ar": "الأنواع التي توجد فقط في منطقة جغرافية محددة"
+      "en": "Endemic (the phenomenon is called endemism).",
+      "ar": "نوع مستوطِن (والظاهرة اسمها التوطّن)."
     },
     "review": {
       "status": "pending"
@@ -537,7 +537,7 @@
       "en": "Atmosphere & Weather",
       "ar": "الغلاف الجوي والطقس"
     },
-    "difficulty": "hard",
+    "difficulty": "medium",
     "question": {
       "en": "Which atmospheric layer contains the vast majority of the Earth's weather systems?",
       "ar": "أي طبقة بالجو فيها أغلب الطقس اللي نعيشه على الأرض؟"
@@ -556,7 +556,7 @@
       "en": "Oceans & Water",
       "ar": "المحيطات والمياه"
     },
-    "difficulty": "hard",
+    "difficulty": "medium",
     "question": {
       "en": "What is the term for the loss of color in corals due to stress from rising water temperatures?",
       "ar": "شو نسمّي لما المرجان يفقد لونه بسبب الإجهاد من سخونة المي؟"
@@ -790,8 +790,160 @@
       "ar": "شو هو «الاحتباس الحراري»، وكيف يسبب تغيّر المناخ؟"
     },
     "answer": {
-      "en": "Greenhouse gases (CO₂, CH₄, N₂O) trap infrared radiation re-emitted by Earth's surface. Increased anthropogenic emissions enhance this effect, raising global average temperatures and disrupting climate systems.",
-      "ar": "غازات الاحتباس الحراري (CO₂، CH₄، N₂O) تحبس الأشعة تحت الحمراء المنبعثة من سطح الأرض. زيادة الانبعاثات البشرية تعزز هذا التأثير، فترتفع درجات الحرارة العالمية المتوسطة وتتعطل أنظمة المناخ."
+      "en": "Greenhouse gases trap heat that Earth radiates; extra emissions trap more and warm the planet.",
+      "ar": "غازات الدفيئة تحبس الحرارة التي تشعها الأرض، وزيادة الانبعاثات تحبس حرارة أكثر فيسخن الكوكب."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "eco-41",
+    "subcategory": {
+      "en": "Conservation & Policy",
+      "ar": "الحماية والسياسات البيئية"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "Which two Arab countries hosted back-to-back UN climate summits, COP27 in 2022 and COP28 in 2023?",
+      "ar": "أي دولتين عربيتين استضافوا قمّتين متتاليتين للأمم المتحدة عن المناخ، COP27 سنة 2022 وCOP28 سنة 2023؟"
+    },
+    "answer": {
+      "en": "Egypt (Sharm El-Sheikh) and the UAE (Dubai).",
+      "ar": "مصر (شرم الشيخ) والإمارات (دبي)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "eco-42",
+    "subcategory": {
+      "en": "Pollution & Waste",
+      "ar": "التلوث والنفايات"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "Which gas, released mainly when coal and oil are burned, is a leading cause of acid rain?",
+      "ar": "أي غاز يطلع بالأساس لما نحرق الفحم والنفط، ويعتبر من أهم أسباب المطر الحمضي؟"
+    },
+    "answer": {
+      "en": "Sulfur dioxide (SO₂), along with nitrogen oxides.",
+      "ar": "ثاني أكسيد الكبريت (SO₂)، إلى جانب أكاسيد النيتروجين."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "eco-43",
+    "subcategory": {
+      "en": "Atmosphere & Weather",
+      "ar": "الغلاف الجوي والطقس"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "What Arabic-derived name do meteorologists use for a towering wall of dust pushed ahead of a thunderstorm?",
+      "ar": "شو الاسم المأخوذ من العربي اللي يستخدمه علماء الأرصاد لجدار غبار ضخم تدفعه رياح العاصفة الرعدية قدّامها؟"
+    },
+    "answer": {
+      "en": "A haboob.",
+      "ar": "الهبوب (Haboob)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "eco-44",
+    "subcategory": {
+      "en": "Conservation & Policy",
+      "ar": "الحماية والسياسات البيئية"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "Which African-led project aims to restore a belt of land across the Sahel, from Senegal to Djibouti, to hold back desertification?",
+      "ar": "أي مشروع تقوده دول أفريقية يهدف لإحياء حزام من الأراضي عبر منطقة الساحل، من السنغال لجيبوتي، عشان يوقف التصحّر؟"
+    },
+    "answer": {
+      "en": "The Great Green Wall.",
+      "ar": "السور الأخضر العظيم."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "eco-45",
+    "subcategory": {
+      "en": "Oceans & Water",
+      "ar": "المحيطات والمياه"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "Each summer monsoon, winds off Oman's southern coast draw cold, nutrient-rich water up from the deep, feeding rich fisheries. What is this process called?",
+      "ar": "كل صيف مع الرياح الموسمية، الرياح قبالة ساحل عُمان الجنوبي تسحب مي باردة غنية بالمغذّيات من الأعماق للسطح، فتنتعش مصايد السمك. شو اسم هالعملية؟"
+    },
+    "answer": {
+      "en": "Upwelling.",
+      "ar": "صعود المياه العميقة (التيارات الصاعدة)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "eco-46",
+    "subcategory": {
+      "en": "Pollution & Waste",
+      "ar": "التلوث والنفايات"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "On air-quality apps, what does 'PM2.5' measure?",
+      "ar": "بتطبيقات جودة الهوا، شو اللي يقيسه مؤشر PM2.5؟"
+    },
+    "answer": {
+      "en": "Fine particles 2.5 micrometres or smaller across, small enough to reach deep into the lungs.",
+      "ar": "الجسيمات الدقيقة التي يبلغ قطرها 2.5 ميكرومتر أو أقل، وهي صغيرة بما يكفي لتصل إلى عمق الرئتين."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "eco-47",
+    "subcategory": {
+      "en": "Climate Change",
+      "ar": "تغير المناخ"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is the famous graph of rising atmospheric CO₂, measured at Hawaii's Mauna Loa since 1958, called?",
+      "ar": "شو اسم الرسم البياني المشهور لارتفاع ثاني أكسيد الكربون بالجو، اللي ينقاس بمرصد ماونا لوا في هاواي من سنة 1958؟"
+    },
+    "answer": {
+      "en": "The Keeling Curve.",
+      "ar": "منحنى كيلينغ."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "eco-48",
+    "subcategory": {
+      "en": "Biogeochemical Cycles",
+      "ar": "الدورات البيوجيوكيميائية"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "Mangroves, seagrass meadows and salt marshes lock away large amounts of carbon in their soils. What is this coastal carbon called?",
+      "ar": "أشجار القرم ومروج الأعشاب البحرية والمستنقعات المالحة تخزّن كميات كبيرة من الكربون بتربتها. شو اسم هالكربون الساحلي؟"
+    },
+    "answer": {
+      "en": "Blue carbon.",
+      "ar": "الكربون الأزرق."
     },
     "review": {
       "status": "pending"

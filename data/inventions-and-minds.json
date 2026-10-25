@@ -68,8 +68,8 @@
       "ar": "شو تقنية الطباعة اللي طوّرها يوهانس غوتنبرغ في أوروبا بالقرن الخامس عشر؟"
     },
     "answer": {
-      "en": "A system of printing with movable metal type and a press. Printing traditions already existed in East Asia.",
-      "ar": "نظام طباعة بحروف معدنية متحركة ومكبس. وكانت تقاليد الطباعة موجودة قبل ذلك في شرق آسيا."
+      "en": "Movable metal type with a printing press (East Asia had printed earlier).",
+      "ar": "حروف معدنية متحركة مع مكبس طباعة (وسبقته الطباعة في شرق آسيا)."
     },
     "review": {
       "status": "pending"
@@ -116,17 +116,17 @@
   {
     "id": "inv-7",
     "subcategory": {
-      "en": "Science & Medicine",
-      "ar": "العلوم والطب"
+      "en": "Everyday Technology",
+      "ar": "التكنولوجيا اليومية"
     },
     "difficulty": "easy",
     "question": {
-      "en": "Which invention allows us to see distant stars and planets?",
-      "ar": "أي اختراع يخلّينا نشوف النجوم والكواكب البعيدة؟"
+      "en": "The wheel appeared in ancient Mesopotamia around 3500 BCE. What was it first used for, before carts?",
+      "ar": "العجلة ظهرت في بلاد الرافدين حوالي سنة 3500 قبل الميلاد. لشو استخدموها أول شي، قبل العربات؟"
     },
     "answer": {
-      "en": "The Telescope",
-      "ar": "التلسكوب"
+      "en": "Making pottery (the potter's wheel).",
+      "ar": "لصناعة الفخار (عجلة الفخّار)."
     },
     "review": {
       "status": "pending"
@@ -135,17 +135,17 @@
   {
     "id": "inv-8",
     "subcategory": {
-      "en": "Transportation",
-      "ar": "النقل"
+      "en": "Everyday Technology",
+      "ar": "التكنولوجيا اليومية"
     },
     "difficulty": "easy",
     "question": {
-      "en": "What source of mechanical power drove an early steam locomotive's wheels?",
-      "ar": "شو اللي كان يعطي القوة لعجلات القاطرات البخارية الأولى؟"
+      "en": "Which American inventor is famous for developing a practical, long-lasting electric light bulb in 1879?",
+      "ar": "أي مخترع أمريكي مشهور إنه طوّر لمبة كهربائية عملية تعيش طويلاً سنة 1879؟"
     },
     "answer": {
-      "en": "Pressurized steam moved pistons, which drove the wheels through connecting mechanisms.",
-      "ar": "حرّك البخار المضغوط مكابس تنقل الحركة إلى العجلات عبر آليات ربط."
+      "en": "Thomas Edison (Britain's Joseph Swan built similar bulbs).",
+      "ar": "توماس إديسون (وصنع البريطاني جوزيف سوان مصابيح مشابهة)."
     },
     "review": {
       "status": "pending"
@@ -311,12 +311,12 @@
     },
     "difficulty": "easy",
     "question": {
-      "en": "What is the main function of a sewing machine?",
-      "ar": "شو الشغلة الأساسية لماكينة الخياطة؟"
+      "en": "Isaac Singer's company turned which household machine into a worldwide bestseller from the 1850s?",
+      "ar": "شركة إسحاق سينغر خلّت أي آلة منزلية تنباع بكل العالم من خمسينيات القرن التاسع عشر؟"
     },
     "answer": {
-      "en": "To join or decorate fabric by forming stitches with thread.",
-      "ar": "وصل القماش أو تزيينه بتكوين غرز من الخيط."
+      "en": "The sewing machine.",
+      "ar": "ماكينة الخياطة."
     },
     "review": {
       "status": "pending"
@@ -349,12 +349,12 @@
     },
     "difficulty": "medium",
     "question": {
-      "en": "Which production method moves a vehicle from station to station while workers perform successive tasks?",
-      "ar": "شو طريقة الإنتاج اللي تنقل السيارة من محطة لمحطة والعمال كل واحد يسوي مهمته ورا الثاني؟"
+      "en": "Which 9th-century inventor from Córdoba in al-Andalus is said to have flown briefly with a winged glider?",
+      "ar": "أي مخترع من قرطبة بالأندلس، عاش بالقرن التاسع، يقولون إنه طار شوي بجناحين صنعهم بنفسه؟"
     },
     "answer": {
-      "en": "A moving assembly line.",
-      "ar": "خط التجميع المتحرك."
+      "en": "Abbas ibn Firnas.",
+      "ar": "عباس بن فرناس."
     },
     "review": {
       "status": "pending"
@@ -406,11 +406,11 @@
     },
     "difficulty": "hard",
     "question": {
-      "en": "What kind of motor uses a rotating magnetic field to induce current in its rotor?",
-      "ar": "شو نوع المحرك اللي يستخدم مجال مغناطيسي دوّار عشان يولّد تيار في الجزء الدوّار؟"
+      "en": "Nikola Tesla patented which type of AC motor in 1888, one that uses a rotating magnetic field?",
+      "ar": "نيكولا تسلا سجّل سنة 1888 براءة أي نوع من محركات التيار المتردد، اللي يشتغل بمجال مغناطيسي دوّار؟"
     },
     "answer": {
-      "en": "An induction motor.",
+      "en": "The induction motor.",
       "ar": "المحرك الحثّي."
     },
     "review": {
@@ -442,7 +442,7 @@
       "en": "Computing History",
       "ar": "تاريخ الحوسبة"
     },
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "question": {
       "en": "Which business-oriented programming language was developed by a committee in 1959, drawing on work including Grace Hopper's FLOW-MATIC?",
       "ar": "شو لغة البرمجة الخاصة بالأعمال اللي طوّرتها لجنة سنة 1959، واستفادت من أعمال منها لغة فلو-ماتيك المرتبطة بغريس هوبر؟"
@@ -477,17 +477,17 @@
   {
     "id": "inv-26",
     "subcategory": {
-      "en": "Transportation",
-      "ar": "النقل"
+      "en": "Science & Medicine",
+      "ar": "العلوم والطب"
     },
     "difficulty": "hard",
     "question": {
-      "en": "Who invented the 'Liquid-Fuel Rocket'?",
-      "ar": "مين اخترع «الصاروخ اللي يشتغل بالوقود السائل»؟"
+      "en": "Which 10th-century Andalusian surgeon, often called the father of surgery, described about 200 surgical instruments?",
+      "ar": "مين الجرّاح الأندلسي من القرن العاشر، اللي يسمّونه «أبو الجراحة»، ووصف حوالي 200 أداة جراحية؟"
     },
     "answer": {
-      "en": "Robert Goddard",
-      "ar": "روبرت جودارد"
+      "en": "Al-Zahrawi (Abulcasis).",
+      "ar": "أبو القاسم الزهراوي."
     },
     "review": {
       "status": "pending"
@@ -499,7 +499,7 @@
       "en": "Science & Medicine",
       "ar": "العلوم والطب"
     },
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "question": {
       "en": "Which medical imaging technique was co-invented by Godfrey Hounsfield and Allan Cormack?",
       "ar": "أي تقنية تصوير طبي شارك في اختراعها غودفري هاونسفيلد وآلان كورماك؟"
@@ -518,7 +518,7 @@
       "en": "Science & Medicine",
       "ar": "العلوم والطب"
     },
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "question": {
       "en": "Who demonstrated the first working laser in 1960?",
       "ar": "مين قدّم أول ليزر شغّال سنة 1960؟"
@@ -543,8 +543,8 @@
       "ar": "شو الآلة المرتبطة بإيلاي ويتني اللي تفصل ألياف القطن عن بذوره؟"
     },
     "answer": {
-      "en": "The cotton gin. Its adoption helped expand cotton production and demand for enslaved labour in the US South.",
-      "ar": "محلج القطن. وقد ساعد انتشاره على توسيع إنتاج القطن والطلب على عمل المستعبَدين في جنوب الولايات المتحدة."
+      "en": "The cotton gin.",
+      "ar": "محلج القطن."
     },
     "review": {
       "status": "pending"
@@ -613,7 +613,7 @@
       "en": "Computing History",
       "ar": "تاريخ الحوسبة"
     },
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "question": {
       "en": "What was the name of the first commercially available microprocessor, released by Intel in 1971?",
       "ar": "شو اسم أول معالج دقيق انباع تجاريًا، اللي طلّعته إنتل سنة 1971؟"
@@ -651,7 +651,7 @@
       "en": "Everyday Technology",
       "ar": "التكنولوجيا اليومية"
     },
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "question": {
       "en": "Which invention by Willis Carrier changed modern architecture by allowing for climate control indoors?",
       "ar": "أي اختراع لويليس كارير غيّر العمارة الحديثة لأنه خلّى التحكم بالجو داخل المباني ممكن؟"
@@ -670,14 +670,14 @@
       "en": "Science & Medicine",
       "ar": "العلوم والطب"
     },
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "question": {
-      "en": "Who invented the 'Cyclotron', a type of particle accelerator?",
-      "ar": "مين اخترع «السيكلوترون»، وهو نوع من مسرّعات الجسيمات؟"
+      "en": "Which Egyptian-born scientist won the 1999 Nobel Prize in Chemistry for filming chemical reactions with ultra-fast laser flashes?",
+      "ar": "أي عالم من مواليد مصر فاز بجائزة نوبل للكيمياء سنة 1999 لأنه صوّر التفاعلات الكيميائية بومضات ليزر فائقة السرعة؟"
     },
     "answer": {
-      "en": "Ernest Lawrence",
-      "ar": "إرنست لورانس"
+      "en": "Ahmed Zewail.",
+      "ar": "أحمد زويل."
     },
     "review": {
       "status": "pending"

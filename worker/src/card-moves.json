@@ -23,16 +23,7 @@
     "civil-engineering-003": [
       "civil-engineering"
     ],
-    "civil-engineering-004": [
-      "civil-engineering"
-    ],
     "civil-engineering-005": [
-      "civil-engineering"
-    ],
-    "civil-engineering-006": [
-      "civil-engineering"
-    ],
-    "civil-engineering-007": [
       "civil-engineering"
     ],
     "civil-engineering-008": [
@@ -44,16 +35,10 @@
     "civil-engineering-010": [
       "civil-engineering"
     ],
-    "civil-engineering-011": [
-      "civil-engineering"
-    ],
     "civil-engineering-012": [
       "civil-engineering"
     ],
     "civil-engineering-013": [
-      "civil-engineering"
-    ],
-    "civil-engineering-014": [
       "civil-engineering"
     ],
     "civil-engineering-015": [
@@ -63,12 +48,6 @@
       "civil-engineering"
     ],
     "civil-engineering-017": [
-      "civil-engineering"
-    ],
-    "civil-engineering-018": [
-      "civil-engineering"
-    ],
-    "civil-engineering-019": [
       "civil-engineering"
     ],
     "civil-engineering-020": [
@@ -83,22 +62,10 @@
     "civil-engineering-023": [
       "civil-engineering"
     ],
-    "civil-engineering-024": [
-      "civil-engineering"
-    ],
-    "civil-engineering-025": [
-      "civil-engineering"
-    ],
     "civil-engineering-026": [
       "civil-engineering"
     ],
     "civil-engineering-027": [
-      "civil-engineering"
-    ],
-    "civil-engineering-028": [
-      "civil-engineering"
-    ],
-    "civil-engineering-029": [
       "civil-engineering"
     ],
     "civil-engineering-030": [
@@ -122,12 +89,6 @@
     "coding-and-design-006": [
       "coding-and-design"
     ],
-    "coding-and-design-007": [
-      "coding-and-design"
-    ],
-    "coding-and-design-008": [
-      "coding-and-design"
-    ],
     "coding-and-design-009": [
       "coding-and-design"
     ],
@@ -140,22 +101,13 @@
     "coding-and-design-012": [
       "coding-and-design"
     ],
-    "coding-and-design-013": [
-      "coding-and-design"
-    ],
     "coding-and-design-014": [
       "coding-and-design"
     ],
     "coding-and-design-015": [
       "coding-and-design"
     ],
-    "coding-and-design-016": [
-      "coding-and-design"
-    ],
     "coding-and-design-017": [
-      "coding-and-design"
-    ],
-    "coding-and-design-018": [
       "coding-and-design"
     ],
     "coding-and-design-019": [
@@ -269,37 +221,10 @@
     "physical-and-life-sciences-048": [
       "physical-and-life-sciences"
     ],
-    "science-048": [
-      "science"
-    ],
-    "science-050": [
-      "science"
-    ],
-    "science-054": [
-      "science"
-    ],
-    "science-057": [
-      "science"
-    ],
-    "science-059": [
-      "science"
-    ],
-    "science-062": [
-      "science"
-    ],
-    "science-063": [
-      "science"
-    ],
     "science-065": [
       "science"
     ],
-    "science-066": [
-      "science"
-    ],
     "science-068": [
-      "science"
-    ],
-    "science-075": [
       "science"
     ],
     "science-081": [
@@ -311,29 +236,11 @@
     "science-089": [
       "science"
     ],
-    "science-090": [
-      "science"
-    ],
-    "science-092": [
-      "science"
-    ],
     "science-093": [
       "science"
     ],
     "science-095": [
       "science"
-    ],
-    "world-habits-and-etiquette-042": [
-      "world-habits-and-etiquette"
-    ],
-    "world-habits-and-etiquette-045": [
-      "world-habits-and-etiquette"
-    ],
-    "world-habits-and-etiquette-046": [
-      "world-habits-and-etiquette"
-    ],
-    "world-habits-and-etiquette-047": [
-      "world-habits-and-etiquette"
     ]
   },
   "currentCategories": {
@@ -343,32 +250,21 @@
     "civil-engineering-001": "infrastructure-systems",
     "civil-engineering-002": "infrastructure-systems",
     "civil-engineering-003": "infrastructure-systems",
-    "civil-engineering-004": "infrastructure-systems",
     "civil-engineering-005": "infrastructure-systems",
-    "civil-engineering-006": "infrastructure-systems",
-    "civil-engineering-007": "infrastructure-systems",
     "civil-engineering-008": "infrastructure-systems",
     "civil-engineering-009": "infrastructure-systems",
     "civil-engineering-010": "infrastructure-systems",
-    "civil-engineering-011": "infrastructure-systems",
     "civil-engineering-012": "infrastructure-systems",
     "civil-engineering-013": "infrastructure-systems",
-    "civil-engineering-014": "infrastructure-systems",
     "civil-engineering-015": "infrastructure-systems",
     "civil-engineering-016": "infrastructure-systems",
     "civil-engineering-017": "infrastructure-systems",
-    "civil-engineering-018": "infrastructure-systems",
-    "civil-engineering-019": "infrastructure-systems",
     "civil-engineering-020": "infrastructure-systems",
     "civil-engineering-021": "infrastructure-systems",
     "civil-engineering-022": "infrastructure-systems",
     "civil-engineering-023": "infrastructure-systems",
-    "civil-engineering-024": "infrastructure-systems",
-    "civil-engineering-025": "infrastructure-systems",
     "civil-engineering-026": "infrastructure-systems",
     "civil-engineering-027": "infrastructure-systems",
-    "civil-engineering-028": "infrastructure-systems",
-    "civil-engineering-029": "infrastructure-systems",
     "civil-engineering-030": "infrastructure-systems",
     "coding-and-design-001": "software-and-computing",
     "coding-and-design-002": "software-and-computing",
@@ -376,18 +272,13 @@
     "coding-and-design-004": "software-and-computing",
     "coding-and-design-005": "software-and-computing",
     "coding-and-design-006": "software-and-computing",
-    "coding-and-design-007": "software-and-computing",
-    "coding-and-design-008": "software-and-computing",
     "coding-and-design-009": "software-and-computing",
     "coding-and-design-010": "software-and-computing",
     "coding-and-design-011": "software-and-computing",
     "coding-and-design-012": "software-and-computing",
-    "coding-and-design-013": "software-and-computing",
     "coding-and-design-014": "software-and-computing",
     "coding-and-design-015": "software-and-computing",
-    "coding-and-design-016": "software-and-computing",
     "coding-and-design-017": "software-and-computing",
-    "coding-and-design-018": "software-and-computing",
     "coding-and-design-019": "software-and-computing",
     "coding-and-design-020": "software-and-computing",
     "coding-and-design-021": "software-and-computing",
@@ -425,27 +316,12 @@
     "physical-and-life-sciences-043": "chemistry",
     "physical-and-life-sciences-045": "science",
     "physical-and-life-sciences-048": "science",
-    "science-048": "chemistry",
-    "science-050": "biology",
-    "science-054": "chemistry",
-    "science-057": "chemistry",
-    "science-059": "biology",
-    "science-062": "biology",
-    "science-063": "chemistry",
     "science-065": "biology",
-    "science-066": "chemistry",
     "science-068": "biology",
-    "science-075": "chemistry",
     "science-081": "chemistry",
     "science-087": "chemistry",
     "science-089": "biology",
-    "science-090": "chemistry",
-    "science-092": "biology",
     "science-093": "chemistry",
-    "science-095": "biology",
-    "world-habits-and-etiquette-042": "social-sciences",
-    "world-habits-and-etiquette-045": "social-sciences",
-    "world-habits-and-etiquette-046": "social-sciences",
-    "world-habits-and-etiquette-047": "psychology"
+    "science-095": "biology"
   }
 }

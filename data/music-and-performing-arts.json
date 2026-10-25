@@ -178,12 +178,12 @@
       "ar": "الآلات والفرق الموسيقية"
     },
     "question": {
-      "en": "What is a 'Duet'?",
-      "ar": "شو هو «الدويتو» (Duet)؟"
+      "en": "What is the pear-shaped, fretless string instrument at the heart of Arabic music?",
+      "ar": "شو اسم الآلة الوترية اللي شكلها مثل الإجاصة، بدون دساتين، وتعتبر أساس الموسيقى العربية؟"
     },
     "answer": {
-      "en": "A musical composition for two performers",
-      "ar": "تأليف موسيقي لشخصين"
+      "en": "The oud",
+      "ar": "العود"
     },
     "review": {
       "status": "pending"
@@ -267,18 +267,18 @@
   },
   {
     "id": "mus-15",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
-      "en": "Instruments & Ensembles",
-      "ar": "الآلات والفرق الموسيقية"
+      "en": "Genres & Traditions",
+      "ar": "الأنواع والتقاليد الموسيقية"
     },
     "question": {
-      "en": "What is the usual term for a large-scale orchestral composition traditionally written in several movements?",
-      "ar": "شو الاسم المعتاد لعمل أوركسترالي كبير ينكتب تقليديًا بكذا حركة؟"
+      "en": "Which Lebanese singer is famous for her songs with the Rahbani Brothers, heard every morning on Arab radio?",
+      "ar": "مين المطربة اللبنانية المشهورة بأغانيها مع الأخوين رحباني، اللي تنسمع كل صبح بالإذاعات العربية؟"
     },
     "answer": {
-      "en": "Symphony",
-      "ar": "سيمفونية"
+      "en": "Fairuz",
+      "ar": "فيروز"
     },
     "review": {
       "status": "pending"
@@ -419,18 +419,18 @@
   },
   {
     "id": "mus-23",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Music Theory & Notation",
       "ar": "نظرية الموسيقى والتدوين"
     },
     "question": {
-      "en": "What is the term for a musical texture with a single melodic line without accompaniment?",
-      "ar": "شو نسمّي النسيج الموسيقي اللي فيه لحن واحد بدون مرافقة؟"
+      "en": "What is the Arabic name for the system of melodic modes, such as Rast and Bayati?",
+      "ar": "شو اسم نظام الأنغام بالموسيقى العربية، مثل الراست والبياتي؟"
     },
     "answer": {
-      "en": "Monophony",
-      "ar": "أحادية الصوت (Monophony)"
+      "en": "Maqam (plural: maqamat)",
+      "ar": "المقام (والجمع مقامات)"
     },
     "review": {
       "status": "pending"
@@ -444,12 +444,12 @@
       "ar": "نظرية الموسيقى والتدوين"
     },
     "question": {
-      "en": "In music theory, what is an interval?",
-      "ar": "في نظرية الموسيقى، شو المقصود بـ«المسافة الموسيقية»؟"
+      "en": "Which interval, smaller than a semitone, gives Arabic maqams such as Bayati their distinctive sound?",
+      "ar": "أي مسافة صوتية، أصغر من نصف التون، تعطي مقامات مثل البياتي صوتها المميّز؟"
     },
     "answer": {
-      "en": "The difference in pitch between two notes",
-      "ar": "الفرق في الحدة بين نغمتين"
+      "en": "The quarter tone",
+      "ar": "ربع التون (ربع الصوت)"
     },
     "review": {
       "status": "pending"
@@ -571,18 +571,18 @@
   },
   {
     "id": "mus-31",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
-      "en": "Modern & Experimental Music",
-      "ar": "الموسيقى الحديثة والتجريبية"
+      "en": "Genres & Traditions",
+      "ar": "الأنواع والتقاليد الموسيقية"
     },
     "question": {
-      "en": "In twelve-tone composition, what is the ordered sequence containing all 12 pitch classes called?",
-      "ar": "في التأليف بنظام الاثنتي عشرة نغمة، شو نسمّي الترتيب اللي فيه الفئات النغمية الاثنتي عشرة كلها؟"
+      "en": "Which Egyptian singer was nicknamed 'Kawkab al-Sharq' (Star of the East)?",
+      "ar": "مين المطربة المصرية اللي لقبها «كوكب الشرق»؟"
     },
     "answer": {
-      "en": "A tone row",
-      "ar": "صف نغمي"
+      "en": "Umm Kulthum",
+      "ar": "أم كلثوم"
     },
     "review": {
       "status": "pending"
@@ -687,16 +687,16 @@
     "id": "mus-37",
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Music Theory & Notation",
-      "ar": "نظرية الموسيقى والتدوين"
+      "en": "Composers & Works",
+      "ar": "المؤلفون والأعمال الموسيقية"
     },
     "question": {
-      "en": "What is 'Counterpoint'?",
-      "ar": "شو هو «الكونتربوينت» (Counterpoint)؟"
+      "en": "Which 9th-century musician from Baghdad moved to Córdoba and is credited with adding a fifth string to the oud?",
+      "ar": "مين الموسيقي البغدادي بالقرن التاسع اللي انتقل لقرطبة، وينسبون له إنه زاد وتر خامس على العود؟"
     },
     "answer": {
-      "en": "The relationship between voices that are harmonically interdependent yet independent in rhythm and contour",
-      "ar": "العلاقة بين الأصوات المعتمدة على بعضها هارمونياً ولكنها مستقلة في الإيقاع والمسار"
+      "en": "Ziryab",
+      "ar": "زرياب"
     },
     "review": {
       "status": "pending"
@@ -754,6 +754,196 @@
     "answer": {
       "en": "Music in which some element of the composition is left to chance",
       "ar": "موسيقى تترك فيها بعض عناصر التأليف للصدفة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mus-41",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Genres & Traditions",
+      "ar": "الأنواع والتقاليد الموسيقية"
+    },
+    "question": {
+      "en": "Which Egyptian singer was nicknamed 'al-Andaleeb al-Asmar' (the Dark Nightingale)?",
+      "ar": "مين المطرب المصري اللي لقبه «العندليب الأسمر»؟"
+    },
+    "answer": {
+      "en": "Abdel Halim Hafez",
+      "ar": "عبد الحليم حافظ"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mus-42",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Instruments & Ensembles",
+      "ar": "الآلات والفرق الموسيقية"
+    },
+    "question": {
+      "en": "Which trapezoid-shaped Arabic string instrument is laid flat on the lap and plucked with finger picks?",
+      "ar": "شو اسم الآلة الوترية العربية اللي شكلها شبه منحرف، تنحط على الحضن وتنعزف بريش بالأصابع؟"
+    },
+    "answer": {
+      "en": "The qanun",
+      "ar": "القانون"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mus-43",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Performance Techniques",
+      "ar": "تقنيات الأداء"
+    },
+    "question": {
+      "en": "What is the improvised solo that explores a maqam on one instrument before a song begins?",
+      "ar": "شو اسم العزف المرتجل المنفرد اللي يستعرض المقام على آلة وحدة قبل ما تبدأ الأغنية؟"
+    },
+    "answer": {
+      "en": "Taqsim (taqasim)",
+      "ar": "التقاسيم (التقسيم)"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mus-44",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Composers & Works",
+      "ar": "المؤلفون والأعمال الموسيقية"
+    },
+    "question": {
+      "en": "Which Verdi opera, set in ancient Egypt, had its premiere in Cairo in 1871?",
+      "ar": "أي أوبرا لفيردي، أحداثها بمصر القديمة، انعرضت لأول مرة بالقاهرة سنة 1871؟"
+    },
+    "answer": {
+      "en": "Aida",
+      "ar": "«عايدة»"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mus-45",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Composers & Works",
+      "ar": "المؤلفون والأعمال الموسيقية"
+    },
+    "question": {
+      "en": "Who composed 'Enta Omri' for Umm Kulthum in 1964, a meeting of giants nicknamed 'Liqaa al-Sahab'?",
+      "ar": "مين الموسيقار اللي لحّن «إنت عمري» لأم كلثوم سنة 1964، بالتعاون اللي سمّوه «لقاء السحاب»؟"
+    },
+    "answer": {
+      "en": "Mohammed Abdel Wahab",
+      "ar": "محمد عبد الوهاب"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mus-46",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Composers & Works",
+      "ar": "المؤلفون والأعمال الموسيقية"
+    },
+    "question": {
+      "en": "Which composer, a father of modern Egyptian song, wrote the melody of Egypt's national anthem 'Bilady, Bilady, Bilady'?",
+      "ar": "مين الملحّن اللي يعتبرونه أبو الأغنية المصرية الحديثة، ولحّن النشيد الوطني المصري «بلادي بلادي بلادي»؟"
+    },
+    "answer": {
+      "en": "Sayed Darwish",
+      "ar": "سيد درويش"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mus-47",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Music Theory & Notation",
+      "ar": "نظرية الموسيقى والتدوين"
+    },
+    "question": {
+      "en": "Which 10th-century philosopher wrote 'Kitab al-Musiqa al-Kabir' (The Great Book of Music)?",
+      "ar": "مين الفيلسوف اللي ألّف «كتاب الموسيقى الكبير» بالقرن العاشر؟"
+    },
+    "answer": {
+      "en": "Al-Farabi",
+      "ar": "الفارابي"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mus-48",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Genres & Traditions",
+      "ar": "الأنواع والتقاليد الموسيقية"
+    },
+    "question": {
+      "en": "Which Lebanese pioneer staged the first modern Arabic play, 'Al-Bakhil' (The Miser), in Beirut in 1847?",
+      "ar": "مين الرائد اللبناني اللي قدّم أول مسرحية عربية حديثة، «البخيل»، ببيروت سنة 1847؟"
+    },
+    "answer": {
+      "en": "Marun al-Naqqash",
+      "ar": "مارون النقاش"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mus-49",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Genres & Traditions",
+      "ar": "الأنواع والتقاليد الموسيقية"
+    },
+    "question": {
+      "en": "What is the suite form of Andalusian classical music, preserved in Morocco, Algeria and Tunisia, called?",
+      "ar": "شو اسم القالب (المتتالية) بالموسيقى الأندلسية اللي انحفظ بالمغرب والجزائر وتونس؟"
+    },
+    "answer": {
+      "en": "The nuba (nawba)",
+      "ar": "النوبة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mus-50",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Modern & Experimental Music",
+      "ar": "الموسيقى الحديثة والتجريبية"
+    },
+    "question": {
+      "en": "Which Hungarian composer took part in the 1932 Congress of Arab Music in Cairo?",
+      "ar": "أي مؤلف موسيقي مجري شارك في مؤتمر الموسيقى العربية في القاهرة عام 1932؟"
+    },
+    "answer": {
+      "en": "Béla Bartók",
+      "ar": "بيلا بارتوك"
     },
     "review": {
       "status": "pending"

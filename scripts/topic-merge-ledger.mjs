@@ -6,6 +6,7 @@
 // `subcategory`); each removed card is stored in full with its original
 // position. Moved cards were appended to their new topic files.
 import fs from 'node:fs';
+import { readTopicFileBeforePhase2 } from './content-phase2-ledger.mjs';
 
 export const TOPIC_MERGE_LEDGER = 'docs/content-review/topic-merge-2026-10-25.json';
 
@@ -35,10 +36,15 @@ export function beforeTopicMove(card, move) {
   return restored;
 }
 
+// The topic file as the merge left it. The later 2026-10-25 phase-2 content
+// pass edited, removed and added cards; its ledger restores each topic file
+// exactly, so this ledger keeps verifying against the state it produced.
+export const readBankAfterMerge = readTopicFileBeforePhase2;
+
 // A topic file's cards exactly as they stood before the merge: cards moved in
 // are taken out, and cards moved or removed out are put back, unmoved, at their
-// recorded positions. `readBank` defaults to the repository's data files.
-export function bankBeforeMerge(ledger, category, readBank = readCurrentBank) {
+// recorded positions. `readBank` defaults to the topic files as the merge left them.
+export function bankBeforeMerge(ledger, category, readBank = readBankAfterMerge) {
   const incoming = new Set(ledger.moved.filter(move => move.to === category).map(move => move.id));
   const cards = readBank(category).filter(card => !incoming.has(card.id));
   const targets = new Map();
@@ -63,7 +69,7 @@ export function cardBeforeMerge(ledger, id, current) {
   if (removed) return structuredClone(removed.card);
   const move = ledger.moved.find(entry => entry.id === id);
   if (!move) return current;
-  const card = current || readCurrentBank(move.to).find(entry => entry.id === id);
+  const card = current || readBankAfterMerge(move.to).find(entry => entry.id === id);
   if (!card) throw new Error(`${id}: missing from ${move.to}`);
   return beforeTopicMove(card, move);
 }
@@ -73,10 +79,13 @@ export function cardBeforeMerge(ledger, id, current) {
 // progress, favourites and Content Studio rows keep the topic recorded when
 // they were written, so the API uses this to recognise them after a move; the
 // static edge uses it to send a shared card link to the card's current topic.
-export function cardMoveHistory(ledger) {
+// Cards a later pass removed (`laterRemoved`, a set of ids) have no current
+// topic and are left out.
+export function cardMoveHistory(ledger, laterRemoved = new Set()) {
   const formerCategories = {};
   const currentCategories = {};
   for (const move of [...ledger.moved].sort((left, right) => left.id.localeCompare(right.id))) {
+    if (laterRemoved.has(move.id)) continue;
     formerCategories[move.id] = [...new Set([...(formerCategories[move.id] || []), move.from])];
     currentCategories[move.id] = move.to;
   }

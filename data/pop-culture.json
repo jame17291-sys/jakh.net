@@ -154,12 +154,12 @@
   {
     "id": "pop-culture-9",
     "question": {
-      "en": "Which 2009 James Cameron film introduced the Na'vi and the world of Pandora?",
-      "ar": "أي فيلم لجيمس كاميرون نزل سنة 2009 وعرّفنا على شعب النافي وعالم باندورا؟"
+      "en": "Which Egyptian comedy star is nicknamed 'Al-Zaeem' (The Leader)?",
+      "ar": "مين نجم الكوميديا المصري اللي لقبه «الزعيم»؟"
     },
     "answer": {
-      "en": "Avatar",
-      "ar": "أفاتار"
+      "en": "Adel Imam",
+      "ar": "عادل إمام"
     },
     "difficulty": "easy",
     "subcategory": {
@@ -332,7 +332,7 @@
       "en": "Minecraft",
       "ar": "ماين كرافت"
     },
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Gaming",
       "ar": "ألعاب الفيديو"
@@ -427,7 +427,7 @@
       "en": "Y2K bug",
       "ar": "مشكلة عام 2000 (Y2K)"
     },
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Internet Culture",
       "ar": "ثقافة الإنترنت"
@@ -560,7 +560,7 @@
       "en": "Ridley Scott",
       "ar": "ريدلي سكوت"
     },
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Film & TV",
       "ar": "الأفلام والتلفزيون"
@@ -572,17 +572,17 @@
   {
     "id": "pop-culture-31",
     "question": {
-      "en": "Which hexadecimal constant appears in Quake III Arena's famous fast inverse-square-root implementation?",
-      "ar": "شو الرقم السداسي العشري الشهير الموجود في كود الجذر التربيعي العكسي السريع بلعبة «كويك 3 أرينا»؟"
+      "en": "What is the title of the very first video uploaded to YouTube, in April 2005?",
+      "ar": "شو عنوان أول فيديو انرفع على يوتيوب، في أبريل 2005؟"
     },
     "answer": {
-      "en": "0x5f3759df",
-      "ar": "0x5f3759df"
+      "en": "Me at the zoo",
+      "ar": "«Me at the zoo» (أنا في حديقة الحيوان)"
     },
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Gaming",
-      "ar": "ألعاب الفيديو"
+      "en": "Internet Culture",
+      "ar": "ثقافة الإنترنت"
     },
     "review": {
       "status": "pending"
@@ -617,7 +617,7 @@
       "en": "Papyrus",
       "ar": "بابيروس"
     },
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Film & TV",
       "ar": "الأفلام والتلفزيون"
@@ -648,17 +648,17 @@
   {
     "id": "pop-culture-35",
     "question": {
-      "en": "Who wrote the screenplay for the 1993 film True Romance?",
-      "ar": "مين كتب سيناريو فيلم «ترو رومانس» سنة 1993؟"
+      "en": "Which Emirati animated series, first shown in Ramadan 2006, follows four elderly women living in an old Dubai neighbourhood?",
+      "ar": "شو اسم المسلسل الكرتوني الإماراتي اللي بدأ برمضان 2006، وبطلاته أربع عجايز عايشين بحي قديم في دبي؟"
     },
     "answer": {
-      "en": "Quentin Tarantino",
-      "ar": "كوينتن تارانتينو"
+      "en": "Freej",
+      "ar": "«فريج»"
     },
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Film & TV",
-      "ar": "الأفلام والتلفزيون"
+      "en": "TV Animation",
+      "ar": "الرسوم المتحركة التلفزيونية"
     },
     "review": {
       "status": "pending"
@@ -705,17 +705,17 @@
   {
     "id": "pop-culture-38",
     "question": {
-      "en": "Which linguist developed the Klingon language for Star Trek III: The Search for Spock?",
-      "ar": "مين خبير اللغات اللي ابتكر لغة الكلينغون لفيلم «ستار تريك 3: البحث عن سبوك»؟"
+      "en": "Which Saudi animated comedy, created by Malik Nejer, began on YouTube in 2011 and later got its own Netflix series?",
+      "ar": "شو اسم المسلسل الكرتوني الكوميدي السعودي اللي ابتكره مالك نجر، وبدأ على يوتيوب سنة 2011 وبعدين صار له مسلسل على نتفليكس؟"
     },
     "answer": {
-      "en": "Marc Okrand",
-      "ar": "مارك أوكراند"
+      "en": "Masameer",
+      "ar": "«مسامير»"
     },
     "difficulty": "hard",
     "subcategory": {
-      "en": "Fan Culture",
-      "ar": "ثقافة المعجبين"
+      "en": "TV Animation",
+      "ar": "الرسوم المتحركة التلفزيونية"
     },
     "review": {
       "status": "pending"
@@ -724,14 +724,14 @@
   {
     "id": "pop-culture-39",
     "question": {
-      "en": "Which singer released the album Emotions in 1991?",
-      "ar": "أي مغنية أصدرت ألبوم «Emotions» سنة 1991؟"
+      "en": "Which singer from Gaza won the second season of 'Arab Idol' in 2013?",
+      "ar": "مين المغني من غزة اللي فاز بالموسم الثاني من «عرب آيدول» سنة 2013؟"
     },
     "answer": {
-      "en": "Mariah Carey",
-      "ar": "ماريا كاري"
+      "en": "Mohammed Assaf",
+      "ar": "محمد عساف"
     },
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Music",
       "ar": "الموسيقى"
@@ -754,6 +754,158 @@
     "subcategory": {
       "en": "Gaming",
       "ar": "ألعاب الفيديو"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "pop-culture-41",
+    "question": {
+      "en": "In which 2018 online game must the crew find the hidden 'impostor' among them?",
+      "ar": "بأي لعبة أونلاين نزلت سنة 2018 لازم الطاقم يكشف «المحتال» المخبّى بينهم؟"
+    },
+    "answer": {
+      "en": "Among Us",
+      "ar": "أمونغ أس (Among Us)"
+    },
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Gaming",
+      "ar": "ألعاب الفيديو"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "pop-culture-42",
+    "question": {
+      "en": "Which city hosts the Esports World Cup, first held in 2024?",
+      "ar": "بأي مدينة تنقام «كأس العالم للرياضات الإلكترونية» اللي انطلقت أول مرة سنة 2024؟"
+    },
+    "answer": {
+      "en": "Riyadh",
+      "ar": "الرياض"
+    },
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Gaming",
+      "ar": "ألعاب الفيديو"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "pop-culture-43",
+    "question": {
+      "en": "Which Syrian comic character of the 1960s and 70s is known for his red fez, wooden clogs and mischievous tricks?",
+      "ar": "أي شخصية كوميدية سورية من الستينيات والسبعينيات معروفة بطربوشها الأحمر وقبقابها الخشبي ومقالبها؟"
+    },
+    "answer": {
+      "en": "Ghawar al-Toshe (played by Duraid Lahham)",
+      "ar": "غوار الطوشة (دريد لحام)"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "TV Comedy",
+      "ar": "الكوميديا التلفزيونية"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "pop-culture-44",
+    "question": {
+      "en": "In the Egyptian Ramadan cartoon 'Bakkar', what is the name of Bakkar's pet goat?",
+      "ar": "في الكرتون المصري الرمضاني «بكّار»، شو اسم العنزة اللي يربّيها بكّار؟"
+    },
+    "answer": {
+      "en": "Rashida",
+      "ar": "رشيدة"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "TV Animation",
+      "ar": "الرسوم المتحركة التلفزيونية"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "pop-culture-45",
+    "question": {
+      "en": "What did the first-ever tweet, posted by Jack Dorsey in 2006, say?",
+      "ar": "شو كانت أول تغريدة بالتاريخ، اللي كتبها جاك دورسي سنة 2006؟"
+    },
+    "answer": {
+      "en": "\"just setting up my twttr\"",
+      "ar": "«just setting up my twttr» (قاعد أجهّز تويتر حقي)"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Internet Culture",
+      "ar": "ثقافة الإنترنت"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "pop-culture-46",
+    "question": {
+      "en": "The meme 'All your base are belong to us' comes from the clumsy English translation of which Japanese video game?",
+      "ar": "الميم المشهور «All your base are belong to us» جاي من ترجمة إنجليزية ركيكة لأي لعبة فيديو يابانية؟"
+    },
+    "answer": {
+      "en": "Zero Wing",
+      "ar": "زيرو وينغ (Zero Wing)"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Internet Culture",
+      "ar": "ثقافة الإنترنت"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "pop-culture-47",
+    "question": {
+      "en": "In 2015, Oxford Dictionaries chose a pictograph instead of a word as its Word of the Year for the first time. Which emoji was it?",
+      "ar": "في عام 2015 اختارت قواميس أكسفورد لأول مرة رمزًا تعبيريًا بدلًا من كلمة ليكون «كلمة العام». ما هذا الرمز؟"
+    },
+    "answer": {
+      "en": "Face with Tears of Joy",
+      "ar": "الوجه الضاحك بدموع الفرح"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Internet Culture",
+      "ar": "ثقافة الإنترنت"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "pop-culture-48",
+    "question": {
+      "en": "Which Egyptian-born Canadian actor played the title role in Disney's live-action 'Aladdin' (2019)?",
+      "ar": "أي ممثل كندي مصري المولد أدّى دور البطولة في فيلم ديزني «علاء الدين» (2019) بنسخته الحية؟"
+    },
+    "answer": {
+      "en": "Mena Massoud",
+      "ar": "مينا مسعود"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Film & TV",
+      "ar": "الأفلام والتلفزيون"
     },
     "review": {
       "status": "pending"

@@ -172,7 +172,7 @@
   },
   {
     "id": "art-and-painters-010",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Techniques & Materials",
       "ar": "التقنيات والمواد"
@@ -343,18 +343,18 @@
   },
   {
     "id": "art-and-painters-019",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Art History",
       "ar": "تاريخ الفن"
     },
     "question": {
-      "en": "The term 'Renaissance' translates to what English word?",
-      "ar": "شو معنى كلمة «Renaissance» بالعربي؟"
+      "en": "Which 10th-century Baghdad vizier set the rules of proportion for Arabic calligraphy, measuring letters in rhombic dots?",
+      "ar": "مين الوزير البغدادي بالقرن العاشر اللي وضع قواعد النِّسب للخط العربي، وصار يقيس الحروف بالنقطة المعيّنة؟"
     },
     "answer": {
-      "en": "Rebirth",
-      "ar": "إعادة الميلاد / النهضة"
+      "en": "Ibn Muqla",
+      "ar": "ابن مقلة"
     },
     "review": {
       "status": "pending"
@@ -362,18 +362,18 @@
   },
   {
     "id": "art-and-painters-020",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Techniques & Materials",
-      "ar": "التقنيات والمواد"
+      "en": "Artists & Masterpieces",
+      "ar": "الفنانون والروائع"
     },
     "question": {
-      "en": "What is the term for paint laid onto a canvas in very thick layers?",
-      "ar": "شو نسمّي الألوان لما تنحط على اللوحة بطبقات سميكة كثير؟"
+      "en": "Which 13th-century Baghdad artist painted the illustrations of a famous 1237 copy of al-Hariri's 'Maqamat'?",
+      "ar": "مين الرسام البغدادي بالقرن الثالث عشر اللي رسم صور نسخة مشهورة من «مقامات الحريري» سنة 1237؟"
     },
     "answer": {
-      "en": "Impasto",
-      "ar": "الإمباستو"
+      "en": "Yahya al-Wasiti",
+      "ar": "يحيى الواسطي"
     },
     "review": {
       "status": "pending"
@@ -387,12 +387,12 @@
       "ar": "تاريخ الفن"
     },
     "question": {
-      "en": "Which captain leads the militia company depicted in Rembrandt's The Night Watch?",
-      "ar": "مين النقيب اللي يقود سرية الحرس في لوحة رامبرانت «دورية الليل»؟"
+      "en": "Which ornate, flowing Arabic script was developed at the Ottoman court for writing royal decrees?",
+      "ar": "شو اسم الخط العربي المزخرف المنساب اللي تطوّر ببلاط العثمانيين عشان تنكتب فيه الفرمانات السلطانية؟"
     },
     "answer": {
-      "en": "Frans Banninck Cocq",
-      "ar": "فرانس بانينك كوك"
+      "en": "Diwani script",
+      "ar": "الخط الديواني"
     },
     "review": {
       "status": "pending"
@@ -476,7 +476,7 @@
   },
   {
     "id": "art-and-painters-026",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Movements & Styles",
       "ar": "الحركات والأساليب الفنية"
@@ -533,7 +533,7 @@
   },
   {
     "id": "art-and-painters-029",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Artists & Masterpieces",
       "ar": "الفنانون والروائع"
@@ -564,6 +564,196 @@
     "answer": {
       "en": "Lapis lazuli",
       "ar": "اللازورد"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "art-and-painters-031",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Artists & Masterpieces",
+      "ar": "الفنانون والروائع"
+    },
+    "question": {
+      "en": "Which Mexican painter is famous for her colourful self-portraits and joined eyebrows?",
+      "ar": "مين الرسامة المكسيكية المشهورة بلوحاتها الذاتية الملوّنة وحواجبها المتّصلة؟"
+    },
+    "answer": {
+      "en": "Frida Kahlo",
+      "ar": "فريدا كاهلو"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "art-and-painters-032",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Techniques & Materials",
+      "ar": "التقنيات والمواد"
+    },
+    "question": {
+      "en": "What is the Moroccan craft of geometric mosaics built from small hand-cut glazed tiles called?",
+      "ar": "شو اسم الفن المغربي اللي يركّب زخارف هندسية من قطع بلاط مزجّج صغيرة مقصوصة باليد؟"
+    },
+    "answer": {
+      "en": "Zellige",
+      "ar": "الزليج"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "art-and-painters-033",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Artists & Masterpieces",
+      "ar": "الفنانون والروائع"
+    },
+    "question": {
+      "en": "Which Dutch artist is famous for impossible staircases and endlessly repeating tessellations?",
+      "ar": "أي فنان هولندي مشهور بالسلالم المستحيلة والأشكال اللي تتكرر وتتداخل بلا نهاية؟"
+    },
+    "answer": {
+      "en": "M. C. Escher",
+      "ar": "موريتس كورنيليس إيشر"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "art-and-painters-034",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Artists & Masterpieces",
+      "ar": "الفنانون والروائع"
+    },
+    "question": {
+      "en": "Which British painter of stormy seas and blazing sunsets appears on the Bank of England £20 note?",
+      "ar": "أي رسام بريطاني مشهور بلوحات البحر الهايج وغروب الشمس الملتهب، وصورته على ورقة الـ20 جنيه الإسترليني؟"
+    },
+    "answer": {
+      "en": "J. M. W. Turner",
+      "ar": "ويليام تيرنر"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "art-and-painters-035",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Artists & Masterpieces",
+      "ar": "الفنانون والروائع"
+    },
+    "question": {
+      "en": "Which Persian painter, working in Herat around 1500, is the most celebrated master of manuscript miniatures?",
+      "ar": "مين أشهر أساتذة المنمنمات الفارسية، اللي اشتغل بهراة حوالي سنة 1500؟"
+    },
+    "answer": {
+      "en": "Kamal ud-Din Behzad",
+      "ar": "كمال الدين بهزاد"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "art-and-painters-036",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Artists & Masterpieces",
+      "ar": "الفنانون والروائع"
+    },
+    "question": {
+      "en": "Which Spanish painter included himself at his easel in 'Las Meninas' (1656)?",
+      "ar": "أي رسام إسباني رسم نفسه واقف قدام لوحته بـ«وصيفات الشرف» (لاس مينيناس) سنة 1656؟"
+    },
+    "answer": {
+      "en": "Diego Velázquez",
+      "ar": "دييغو فيلاسكيث"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "art-and-painters-037",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Movements & Styles",
+      "ar": "الحركات والأساليب الفنية"
+    },
+    "question": {
+      "en": "Which French artist painted single-colour canvases in a deep ultramarine he registered as 'IKB'?",
+      "ar": "أي فنان فرنسي رسم لوحات بلون واحد، أزرق لازوردي غامق سجّله باسم «IKB»؟"
+    },
+    "answer": {
+      "en": "Yves Klein",
+      "ar": "إيف كلاين"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "art-and-painters-038",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Movements & Styles",
+      "ar": "الحركات والأساليب الفنية"
+    },
+    "question": {
+      "en": "Which Japanese artist is famous for polka dots and her 'Infinity Mirror Rooms'?",
+      "ar": "أي فنانة يابانية مشهورة بالنقاط الدائرية الملوّنة و«غرف المرايا اللانهائية»؟"
+    },
+    "answer": {
+      "en": "Yayoi Kusama",
+      "ar": "يايوي كوساما"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "art-and-painters-039",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Artists & Masterpieces",
+      "ar": "الفنانون والروائع"
+    },
+    "question": {
+      "en": "Which Iraqi artist created the Freedom Monument (Nasb al-Hurriyah) in Baghdad's Tahrir Square?",
+      "ar": "مين الفنان العراقي اللي صمّم «نصب الحرية» بساحة التحرير ببغداد؟"
+    },
+    "answer": {
+      "en": "Jawad Saleem",
+      "ar": "جواد سليم"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "art-and-painters-040",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Artists & Masterpieces",
+      "ar": "الفنانون والروائع"
+    },
+    "question": {
+      "en": "Which Egyptian sculptor carved the granite statue 'Egypt's Awakening' (Nahdet Masr) in Cairo?",
+      "ar": "مين النحّات المصري اللي نحت تمثال «نهضة مصر» من الجرانيت بالقاهرة؟"
+    },
+    "answer": {
+      "en": "Mahmoud Mokhtar",
+      "ar": "محمود مختار"
     },
     "review": {
       "status": "pending"

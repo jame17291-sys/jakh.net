@@ -7,12 +7,12 @@
       "ar": "الثورات والاستقلال"
     },
     "question": {
-      "en": "What Paris fortress was stormed on 14 July 1789, becoming a symbol of the French Revolution?",
-      "ar": "شو الحصن الباريسي اللي اقتحموه في 14 يوليو 1789 وصار رمز للثورة الفرنسية؟"
+      "en": "Which Paris fortress-prison was stormed on 14 July, the date France now celebrates as its national day?",
+      "ar": "شو الحصن والسجن الباريسي اللي اقتحموه يوم 14 يوليو، اللي صار اليوم العيد الوطني لفرنسا؟"
     },
     "answer": {
-      "en": "The Bastille.",
-      "ar": "الباستيل."
+      "en": "The Bastille",
+      "ar": "الباستيل"
     },
     "review": {
       "status": "pending"
@@ -39,18 +39,18 @@
   },
   {
     "id": "history-003",
-    "difficulty": "easy",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Revolutions & Independence",
-      "ar": "الثورات والاستقلال"
+      "en": "Medieval & Early Modern History",
+      "ar": "تاريخ العصور الوسطى وبدايات العصر الحديث"
     },
     "question": {
-      "en": "Which country did the United States win its independence from?",
-      "ar": "من أي دولة أخذت أمريكا استقلالها؟"
+      "en": "What was the name of Japan's policy of strictly limiting foreign contact under the Tokugawa shoguns, for more than 200 years?",
+      "ar": "شو اسم سياسة اليابان اللي قيّدت التواصل مع الأجانب بشكل شديد أيام شوغونات توكوغاوا، لأكثر من 200 سنة؟"
     },
     "answer": {
-      "en": "Great Britain",
-      "ar": "بريطانيا العظمى"
+      "en": "Sakoku",
+      "ar": "ساكوكو (سياسة العزلة)"
     },
     "review": {
       "status": "pending"
@@ -155,16 +155,16 @@
     "id": "history-009",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Empires, States & Historical Figures",
-      "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
+      "en": "Exploration, Science & Industry",
+      "ar": "الاستكشاف والعلوم والصناعة"
     },
     "question": {
-      "en": "What was a major defensive purpose of the Great Wall's watchtowers?",
-      "ar": "شو كان من أهم أغراض أبراج المراقبة الدفاعية بسور الصين العظيم؟"
+      "en": "Which Moroccan traveller journeyed across Africa and Asia in the 14th century and wrote the famous Rihla?",
+      "ar": "مين الرحّالة المغربي اللي جال بإفريقيا وآسيا بالقرن الرابع عشر وكتب «الرحلة» المشهورة؟"
     },
     "answer": {
-      "en": "To watch for approaching forces and relay warnings.",
-      "ar": "مراقبة القوات المقتربة ونقل إشارات التحذير."
+      "en": "Ibn Battuta",
+      "ar": "ابن بطوطة"
     },
     "review": {
       "status": "pending"
@@ -210,7 +210,7 @@
   },
   {
     "id": "history-012",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Society, Religion & Crisis",
       "ar": "المجتمع والدين والأزمات"
@@ -229,7 +229,7 @@
   },
   {
     "id": "history-013",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Cold War & Modern Politics",
       "ar": "الحرب الباردة والسياسة الحديثة"
@@ -273,12 +273,12 @@
       "ar": "الثورات والاستقلال"
     },
     "question": {
-      "en": "Which revolution began in 1791 and led to Haiti becoming the first independent Black republic?",
-      "ar": "أي ثورة بدأت سنة 1791 وخلّت هايتي أول جمهورية مستقلة للسود؟"
+      "en": "In 1804, which Caribbean country became the first independent Black republic, after a revolution that began in 1791?",
+      "ar": "سنة 1804، أي دولة كاريبية صارت أول جمهورية مستقلة للسود، بعد ثورة بدأت سنة 1791؟"
     },
     "answer": {
-      "en": "The Haitian Revolution",
-      "ar": "الثورة الهايتية"
+      "en": "Haiti",
+      "ar": "هايتي"
     },
     "review": {
       "status": "pending"
@@ -324,18 +324,18 @@
   },
   {
     "id": "history-018",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Wars, Treaties & Diplomacy",
-      "ar": "الحروب والمعاهدات والدبلوماسية"
+      "en": "Revolutions & Independence",
+      "ar": "الثورات والاستقلال"
     },
     "question": {
-      "en": "What was the primary issue that led to the American Civil War?",
-      "ar": "شو القضية الأساسية اللي أدّت للحرب الأهلية الأمريكية؟"
+      "en": "Which general led the 'Expedition of the Thousand' in 1860, a key step in unifying Italy?",
+      "ar": "أي قائد قاد «حملة الألف» سنة 1860، وكانت خطوة أساسية بتوحيد إيطاليا؟"
     },
     "answer": {
-      "en": "Slavery",
-      "ar": "العبودية"
+      "en": "Giuseppe Garibaldi",
+      "ar": "جوزيبي غاريبالدي"
     },
     "review": {
       "status": "pending"
@@ -362,7 +362,7 @@
   },
   {
     "id": "history-020",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Empires, States & Historical Figures",
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
@@ -457,7 +457,7 @@
   },
   {
     "id": "history-025",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Wars, Treaties & Diplomacy",
       "ar": "الحروب والمعاهدات والدبلوماسية"
@@ -533,18 +533,18 @@
   },
   {
     "id": "history-029",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Medieval & Early Modern History",
-      "ar": "تاريخ العصور الوسطى وبدايات العصر الحديث"
+      "en": "Wars, Treaties & Diplomacy",
+      "ar": "الحروب والمعاهدات والدبلوماسية"
     },
     "question": {
-      "en": "The Defenestration of Prague in 1618 helped trigger which European war?",
-      "ar": "أي حرب أوروبية ساهمت بإشعالها حادثة رمي المسؤولين من الشباك في براغ سنة 1618؟"
+      "en": "Which Ethiopian emperor defeated an Italian army at the Battle of Adwa in 1896?",
+      "ar": "أي إمبراطور إثيوبي هزم الجيش الإيطالي بمعركة عدوة سنة 1896؟"
     },
     "answer": {
-      "en": "The Thirty Years' War.",
-      "ar": "حرب الثلاثين عاماً."
+      "en": "Menelik II",
+      "ar": "منليك الثاني"
     },
     "review": {
       "status": "pending"
@@ -552,7 +552,7 @@
   },
   {
     "id": "history-030",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Cold War & Modern Politics",
       "ar": "الحرب الباردة والسياسة الحديثة"
@@ -685,7 +685,7 @@
   },
   {
     "id": "history-037",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Medieval & Early Modern History",
       "ar": "تاريخ العصور الوسطى وبدايات العصر الحديث"
@@ -789,18 +789,18 @@
   },
   {
     "id": "history-042",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Ancient Civilizations & Archaeology",
-      "ar": "الحضارات القديمة وعلم الآثار"
+      "en": "Empires, States & Historical Figures",
+      "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
     },
     "question": {
-      "en": "What office did Julius Caesar hold for life shortly before his assassination in 44 BCE?",
-      "ar": "شو المنصب اللي استلمه يوليوس قيصر مدى الحياة قبل ما ينقتل سنة 44 ق.م بفترة قصيرة؟"
+      "en": "Which Inca emperor was captured by the Spanish conquistador Francisco Pizarro at Cajamarca in 1532?",
+      "ar": "أي إمبراطور من الإنكا أسره الغازي الإسباني فرانسيسكو بيزارو بكاخاماركا سنة 1532؟"
     },
     "answer": {
-      "en": "Dictator of the Roman Republic; he was not an emperor of the later Roman Empire.",
-      "ar": "ديكتاتور الجمهورية الرومانية؛ ولم يكن إمبراطوراً للإمبراطورية الرومانية اللاحقة."
+      "en": "Atahualpa",
+      "ar": "أتاوالبا"
     },
     "review": {
       "status": "pending"
@@ -846,18 +846,18 @@
   },
   {
     "id": "history-045",
-    "difficulty": "easy",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Ancient Civilizations & Archaeology",
-      "ar": "الحضارات القديمة وعلم الآثار"
+      "en": "Medieval & Early Modern History",
+      "ar": "تاريخ العصور الوسطى وبدايات العصر الحديث"
     },
     "question": {
-      "en": "What ancient wonder was located in Alexandria, Egypt?",
-      "ar": "أي عجيبة من عجايب الدنيا القديمة كانت في الإسكندرية بمصر؟"
+      "en": "Which Korean admiral defeated Japanese fleets in the 1590s, famously using armoured 'turtle ships'?",
+      "ar": "أي أميرال كوري هزم الأساطيل اليابانية بتسعينيات القرن السادس عشر، واشتهر بـ«سفن السلحفاة» المدرّعة؟"
     },
     "answer": {
-      "en": "The Lighthouse of Alexandria",
-      "ar": "منارة الإسكندرية"
+      "en": "Yi Sun-sin",
+      "ar": "يي سون-سين"
     },
     "review": {
       "status": "pending"
@@ -865,7 +865,7 @@
   },
   {
     "id": "history-046",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Cold War & Modern Politics",
       "ar": "الحرب الباردة والسياسة الحديثة"
@@ -941,18 +941,18 @@
   },
   {
     "id": "history-050",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Ancient Civilizations & Archaeology",
-      "ar": "الحضارات القديمة وعلم الآثار"
+      "en": "Empires, States & Historical Figures",
+      "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
     },
     "question": {
-      "en": "Name one Roman city buried by the eruption of Mount Vesuvius in 79 CE.",
-      "ar": "اذكر وحدة من المدينتين الرومانيتين اللي دفنهم ثوران بركان فيزوف سنة 79 م، واشتهروا باكتشافاتهم الأثرية."
+      "en": "Which king built the Zulu Kingdom into a major power in southern Africa in the early 1800s?",
+      "ar": "أي ملك خلّى مملكة الزولو قوة كبيرة بجنوب إفريقيا ببداية القرن التاسع عشر؟"
     },
     "answer": {
-      "en": "Pompeii or Herculaneum.",
-      "ar": "بومبي أو هيركولانيوم."
+      "en": "Shaka",
+      "ar": "شاكا"
     },
     "review": {
       "status": "pending"
@@ -979,7 +979,7 @@
   },
   {
     "id": "history-052",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Empires, States & Historical Figures",
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
@@ -998,7 +998,7 @@
   },
   {
     "id": "history-053",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Exploration, Science & Industry",
       "ar": "الاستكشاف والعلوم والصناعة"
@@ -1017,18 +1017,18 @@
   },
   {
     "id": "history-054",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Wars, Treaties & Diplomacy",
       "ar": "الحروب والمعاهدات والدبلوماسية"
     },
     "question": {
-      "en": "What was the name of the military alliance against Nazi Germany in WWII?",
-      "ar": "شو اسم التحالف العسكري ضد ألمانيا النازية بالحرب العالمية الثانية؟"
+      "en": "Which 1842 treaty ended the First Opium War between Britain and China?",
+      "ar": "أي معاهدة سنة 1842 خلّصت حرب الأفيون الأولى بين بريطانيا والصين؟"
     },
     "answer": {
-      "en": "The Allied Powers",
-      "ar": "قوات الحلفاء"
+      "en": "The Treaty of Nanking (Nanjing)",
+      "ar": "معاهدة نانكينغ (نانجينغ)"
     },
     "review": {
       "status": "pending"
@@ -1042,12 +1042,12 @@
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
     },
     "question": {
-      "en": "Who was Napoleon Bonaparte?",
-      "ar": "مين كان نابليون بونابرت؟"
+      "en": "On which Mediterranean island was Napoleon Bonaparte born?",
+      "ar": "على أي جزيرة بالبحر المتوسط انولد نابليون بونابرت؟"
     },
     "answer": {
-      "en": "A French military leader and emperor, reigning in 1804–1814 and briefly again in 1815.",
-      "ar": "قائد عسكري فرنسي وإمبراطور حكم من 1804 إلى 1814، ثم لفترة قصيرة عام 1815."
+      "en": "Corsica",
+      "ar": "كورسيكا"
     },
     "review": {
       "status": "pending"
@@ -1055,18 +1055,18 @@
   },
   {
     "id": "history-056",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Revolutions & Independence",
       "ar": "الثورات والاستقلال"
     },
     "question": {
-      "en": "Which amendment to the US Constitution abolished slavery, except as punishment for a duly convicted crime?",
-      "ar": "أي تعديل بالدستور الأمريكي ألغى العبودية، إلا كعقوبة على جريمة انحكم فيها الشخص حسب القانون؟"
+      "en": "Which year saw a wave of revolutions across Europe, later called the 'Springtime of Nations'?",
+      "ar": "بأي سنة اجتاحت أوروبا موجة ثورات، صار اسمها بعدين «ربيع الشعوب»؟"
     },
     "answer": {
-      "en": "The Thirteenth Amendment, ratified in 1865.",
-      "ar": "التعديل الثالث عشر، الذي صُدّق عليه عام 1865."
+      "en": "1848",
+      "ar": "1848"
     },
     "review": {
       "status": "pending"
@@ -1118,12 +1118,12 @@
       "ar": "الحروب والمعاهدات والدبلوماسية"
     },
     "question": {
-      "en": "Which British destroyer was struck by an Exocet missile on 4 May 1982 during the Falklands War?",
-      "ar": "شو المدمّرة البريطانية اللي أصابها صاروخ إكسوسيت في 4 مايو 1982 خلال حرب فوكلاند؟"
+      "en": "Which 1982 war did Britain and Argentina fight over islands in the South Atlantic?",
+      "ar": "شو الحرب اللي صارت سنة 1982 بين بريطانيا والأرجنتين على جزر بجنوب المحيط الأطلسي؟"
     },
     "answer": {
-      "en": "HMS Sheffield.",
-      "ar": "إتش إم إس شيفيلد."
+      "en": "The Falklands War (Malvinas War)",
+      "ar": "حرب فوكلاند (حرب جزر مالفيناس)"
     },
     "review": {
       "status": "pending"
@@ -1131,7 +1131,7 @@
   },
   {
     "id": "history-060",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Empires, States & Historical Figures",
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
@@ -1150,18 +1150,18 @@
   },
   {
     "id": "history-061",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Ancient Civilizations & Archaeology",
-      "ar": "الحضارات القديمة وعلم الآثار"
+      "en": "Cold War & Modern Politics",
+      "ar": "الحرب الباردة والسياسة الحديثة"
     },
     "question": {
-      "en": "Which Spartan king led the Greek defence at Thermopylae in 480 BCE?",
-      "ar": "أي ملك إسبرطي قاد دفاع اليونانيين عند ثيرموبيلاي سنة 480 ق.م؟"
+      "en": "The 1968 'Prague Spring' reforms were ended by a Soviet-led invasion of which country?",
+      "ar": "إصلاحات «ربيع براغ» سنة 1968 انتهت بغزو بقيادة سوفيتية لأي دولة؟"
     },
     "answer": {
-      "en": "Leonidas I.",
-      "ar": "ليونيداس الأول."
+      "en": "Czechoslovakia",
+      "ar": "تشيكوسلوفاكيا"
     },
     "review": {
       "status": "pending"
@@ -1169,18 +1169,18 @@
   },
   {
     "id": "history-062",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Wars, Treaties & Diplomacy",
-      "ar": "الحروب والمعاهدات والدبلوماسية"
+      "en": "Exploration, Science & Industry",
+      "ar": "الاستكشاف والعلوم والصناعة"
     },
     "question": {
-      "en": "In which German cities were the negotiations associated with the Peace of Westphalia held?",
-      "ar": "بأي مدينتين ألمانيتين صارت المفاوضات المرتبطة بصلح وستفاليا؟"
+      "en": "Which Chinese admiral led huge treasure fleets as far as Arabia and East Africa in the early 1400s?",
+      "ar": "أي أميرال صيني قاد أساطيل ضخمة وصلت للجزيرة العربية وشرق إفريقيا ببداية القرن الخامس عشر؟"
     },
     "answer": {
-      "en": "Münster and Osnabrück.",
-      "ar": "مونستر وأوسنابروك."
+      "en": "Zheng He",
+      "ar": "تشنغ خه"
     },
     "review": {
       "status": "pending"
@@ -1188,7 +1188,7 @@
   },
   {
     "id": "history-063",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Empires, States & Historical Figures",
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
@@ -1207,7 +1207,7 @@
   },
   {
     "id": "history-064",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Wars, Treaties & Diplomacy",
       "ar": "الحروب والمعاهدات والدبلوماسية"
@@ -1283,7 +1283,7 @@
   },
   {
     "id": "history-068",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Empires, States & Historical Figures",
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
@@ -1302,7 +1302,7 @@
   },
   {
     "id": "history-069",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Wars, Treaties & Diplomacy",
       "ar": "الحروب والمعاهدات والدبلوماسية"
@@ -1321,7 +1321,7 @@
   },
   {
     "id": "history-070",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Exploration, Science & Industry",
       "ar": "الاستكشاف والعلوم والصناعة"
@@ -1359,18 +1359,18 @@
   },
   {
     "id": "history-072",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "Empires, States & Historical Figures",
-      "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
+      "en": "Society, Religion & Crisis",
+      "ar": "المجتمع والدين والأزمات"
     },
     "question": {
-      "en": "What does the Latin title Magna Carta mean in English?",
-      "ar": "شو معنى العنوان اللاتيني «ماغنا كارتا»؟"
+      "en": "In 1893, which country became the first self-governing nation to give women the vote in national elections?",
+      "ar": "سنة 1893، أي دولة صارت أول دولة تحكم نفسها تعطي المرأة حق التصويت بالانتخابات الوطنية؟"
     },
     "answer": {
-      "en": "Great Charter.",
-      "ar": "الميثاق العظيم."
+      "en": "New Zealand",
+      "ar": "نيوزيلندا"
     },
     "review": {
       "status": "pending"
@@ -1384,12 +1384,12 @@
       "ar": "الحروب والمعاهدات والدبلوماسية"
     },
     "question": {
-      "en": "In casualty statistics, does 'casualties' necessarily mean only people killed?",
-      "ar": "في إحصائيات الحروب، كلمة «الخسائر البشرية» تعني بالضرورة القتلى بس؟"
+      "en": "The Berlin Conference of 1884–85 set rules for European powers to claim territory on which continent?",
+      "ar": "مؤتمر برلين سنة 1884–1885 حطّ قواعد لتقاسم الدول الأوروبية لأراضي أي قارة؟"
     },
     "answer": {
-      "en": "No. Depending on the definition, it can include killed, wounded, missing or captured people.",
-      "ar": "لا. فقد تشمل، بحسب التعريف المستخدم، القتلى والجرحى والمفقودين والأسرى."
+      "en": "Africa",
+      "ar": "إفريقيا"
     },
     "review": {
       "status": "pending"
@@ -1473,18 +1473,18 @@
   },
   {
     "id": "history-078",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "Wars, Treaties & Diplomacy",
-      "ar": "الحروب والمعاهدات والدبلوماسية"
+      "en": "Empires, States & Historical Figures",
+      "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
     },
     "question": {
-      "en": "Which battle in 1453 ended the Byzantine Empire?",
-      "ar": "أي معركة سنة 1453 خلّصت الإمبراطورية البيزنطية؟"
+      "en": "Which Turco-Mongol conqueror built a vast empire from his capital, Samarkand, in the late 14th century?",
+      "ar": "أي فاتح تركي-مغولي بنى إمبراطورية ضخمة عاصمتها سمرقند بآخر القرن الرابع عشر؟"
     },
     "answer": {
-      "en": "The Fall of Constantinople",
-      "ar": "سقوط القسطنطينية"
+      "en": "Timur (Tamerlane)",
+      "ar": "تيمورلنك"
     },
     "review": {
       "status": "pending"
@@ -1492,7 +1492,7 @@
   },
   {
     "id": "history-079",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Empires, States & Historical Figures",
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
@@ -1530,7 +1530,7 @@
   },
   {
     "id": "history-081",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Wars, Treaties & Diplomacy",
       "ar": "الحروب والمعاهدات والدبلوماسية"
@@ -1587,7 +1587,7 @@
   },
   {
     "id": "history-084",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Cold War & Modern Politics",
       "ar": "الحرب الباردة والسياسة الحديثة"
@@ -1606,7 +1606,7 @@
   },
   {
     "id": "history-085",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Empires, States & Historical Figures",
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
@@ -1625,7 +1625,7 @@
   },
   {
     "id": "history-086",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Wars, Treaties & Diplomacy",
       "ar": "الحروب والمعاهدات والدبلوماسية"
@@ -1646,16 +1646,16 @@
     "id": "history-087",
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Ancient Civilizations & Archaeology",
-      "ar": "الحضارات القديمة وعلم الآثار"
+      "en": "Revolutions & Independence",
+      "ar": "الثورات والاستقلال"
     },
     "question": {
-      "en": "Who was the last ruling queen of Ptolemaic Egypt?",
-      "ar": "مين آخر ملكة حكمت مصر البطلمية؟"
+      "en": "Who led Ghana to independence from Britain in 1957 and became its first leader?",
+      "ar": "مين قاد غانا للاستقلال عن بريطانيا سنة 1957 وصار أول زعيم لها؟"
     },
     "answer": {
-      "en": "Cleopatra VII; her final co-ruler was her son Caesarion.",
-      "ar": "كليوباترا السابعة؛ وكان آخر شريك لها في الحكم ابنها قيصرون."
+      "en": "Kwame Nkrumah",
+      "ar": "كوامي نكروما"
     },
     "review": {
       "status": "pending"
@@ -1682,7 +1682,7 @@
   },
   {
     "id": "history-089",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Empires, States & Historical Figures",
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
@@ -1703,16 +1703,16 @@
     "id": "history-090",
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Empires, States & Historical Figures",
-      "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
+      "en": "Medieval & Early Modern History",
+      "ar": "تاريخ العصور الوسطى وبدايات العصر الحديث"
     },
     "question": {
-      "en": "Who founded the modern Republic of Turkey?",
-      "ar": "مين أسّس جمهورية تركيا الحديثة؟"
+      "en": "The medieval Hanseatic League was a trading network centred mainly on which sea?",
+      "ar": "«الرابطة الهانزية» بالعصور الوسطى كانت شبكة تجارية متمركزة بالأساس حول أي بحر؟"
     },
     "answer": {
-      "en": "Mustafa Kemal Atatürk",
-      "ar": "مصطفى كمال أتاتورك"
+      "en": "The Baltic Sea",
+      "ar": "بحر البلطيق"
     },
     "review": {
       "status": "pending"
@@ -1741,16 +1741,16 @@
     "id": "history-092",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Ancient Civilizations & Archaeology",
-      "ar": "الحضارات القديمة وعلم الآثار"
+      "en": "Revolutions & Independence",
+      "ar": "الثورات والاستقلال"
     },
     "question": {
-      "en": "What was the name of the writing system used in ancient Mesopotamia?",
-      "ar": "شو اسم نظام الكتابة اللي كان مستخدم في بلاد الرافدين القديمة؟"
+      "en": "Which 1947 event split British India into two independent states?",
+      "ar": "شو الحدث اللي صار سنة 1947 وقسم الهند البريطانية لدولتين مستقلتين؟"
     },
     "answer": {
-      "en": "Cuneiform",
-      "ar": "الكتابة المسمارية"
+      "en": "The Partition of India (into India and Pakistan)",
+      "ar": "تقسيم الهند (إلى الهند وباكستان)"
     },
     "review": {
       "status": "pending"
@@ -1777,7 +1777,7 @@
   },
   {
     "id": "history-094",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Cold War & Modern Politics",
       "ar": "الحرب الباردة والسياسة الحديثة"
@@ -1855,16 +1855,16 @@
     "id": "history-098",
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Empires, States & Historical Figures",
-      "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
+      "en": "Society, Religion & Crisis",
+      "ar": "المجتمع والدين والأزمات"
     },
     "question": {
-      "en": "What was the full name of the dictator who led fascist Italy?",
-      "ar": "شو الاسم الكامل للديكتاتور اللي قاد إيطاليا الفاشية؟"
+      "en": "Which volcano's 1815 eruption caused the 'Year Without a Summer' in 1816?",
+      "ar": "أي بركان سبّب ثورانه سنة 1815 «السنة اللي بلا صيف» سنة 1816؟"
     },
     "answer": {
-      "en": "Benito Amilcare Andrea Mussolini",
-      "ar": "بينيتو أميلكاري أندريا موسوليني"
+      "en": "Mount Tambora (Indonesia)",
+      "ar": "بركان تامبورا (إندونيسيا)"
     },
     "review": {
       "status": "pending"

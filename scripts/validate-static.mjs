@@ -4,6 +4,7 @@ import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { validatePartyData } from "../party-games-engine.js";
 import { cardMoveHistory, readTopicMergeLedger } from "./topic-merge-ledger.mjs";
+import { removedByPhase2 } from "./content-phase2-ledger.mjs";
 import {
   conciseScorableAnswer,
   hasScorableAnswer,
@@ -413,7 +414,7 @@ if (!workerCardIndex) {
 }
 
 const cardMovesPath = path.join(root, "worker", "src", "card-moves.json");
-const expectedCardMoves = cardMoveHistory(readTopicMergeLedger());
+const expectedCardMoves = cardMoveHistory(readTopicMergeLedger(), removedByPhase2());
 if (!fs.existsSync(cardMovesPath)) {
   fail("worker/src/card-moves.json: missing generated card move history");
 } else if (fs.readFileSync(cardMovesPath, "utf8") !== `${JSON.stringify(expectedCardMoves, null, 2)}\n`) {

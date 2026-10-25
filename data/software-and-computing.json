@@ -11,8 +11,8 @@
       "ar": "شو معنى CPU، وشو شغلته؟"
     },
     "answer": {
-      "en": "Central Processing Unit — the primary component that executes instructions and performs calculations in a computer.",
-      "ar": "وحدة المعالجة المركزية — المكوّن الرئيسي الذي ينفّذ التعليمات ويُجري العمليات الحسابية في الحاسب."
+      "en": "Central Processing Unit: the chip that carries out the computer's instructions.",
+      "ar": "وحدة المعالجة المركزية: الشريحة التي تنفّذ تعليمات الحاسوب."
     },
     "review": {
       "status": "pending"
@@ -30,8 +30,8 @@
       "ar": "شو الفرق بين RAM وROM؟"
     },
     "answer": {
-      "en": "RAM (Random Access Memory) is volatile — it stores data temporarily while the computer is running. ROM (Read-Only Memory) is non-volatile — it stores permanent instructions (like firmware) that persist even when powered off.",
-      "ar": "RAM (ذاكرة الوصول العشوائي) متطايرة — تُخزّن البيانات مؤقتاً أثناء تشغيل الحاسب. ROM (ذاكرة القراءة فقط) غير متطايرة — تُخزّن التعليمات الدائمة (كالبرامج الثابتة) التي تبقى حتى بعد إيقاف التشغيل."
+      "en": "RAM is temporary working memory, wiped when power goes off; ROM keeps its contents permanently.",
+      "ar": "RAM ذاكرة عمل مؤقتة تُمسح عند انقطاع الكهرباء؛ وROM تحتفظ بمحتواها بشكل دائم."
     },
     "acceptedAnswers": {
       "en": [
@@ -75,54 +75,8 @@
     }
   },
   {
-    "id": "software-and-computing-004",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Algorithms & Data Structures",
-      "ar": "الخوارزميات وهياكل البيانات"
-    },
-    "question": {
-      "en": "What is a one-dimensional array in C?",
-      "ar": "في لغة C، شو هي المصفوفة أحادية البعد؟"
-    },
-    "answer": {
-      "en": "A contiguous sequence of elements of one type, accessed by index. The first element has index 0.",
-      "ar": "تتابع متجاور في الذاكرة لعناصر من نوع واحد، يُوصل إليها بفهرس. فهرس العنصر الأول هو 0."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Contiguous same-type elements accessed by zero-based indices."
-      ],
-      "ar": [
-        "عناصر متجاورة من نوع واحد بفهرسة تبدأ من الصفر."
-      ]
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "software-and-computing-005",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Systems & Networking",
-      "ar": "الأنظمة والشبكات"
-    },
-    "question": {
-      "en": "What is an IP address?",
-      "ar": "شو هو «عنوان IP»؟"
-    },
-    "answer": {
-      "en": "A unique numerical label assigned to each device on a network, used to identify and communicate with it. IPv4 uses 32-bit addresses (e.g., 192.168.1.1); IPv6 uses 128-bit addresses.",
-      "ar": "تسمية رقمية فريدة مُعيَّنة لكل جهاز في الشبكة، تُستخدم لتعريفه والتواصل معه. يستخدم IPv4 عناوين 32 بت (مثلاً 192.168.1.1)؛ ويستخدم IPv6 عناوين 128 بت."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "software-and-computing-006",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Software Engineering",
       "ar": "هندسة البرمجيات"
@@ -132,8 +86,8 @@
       "ar": "شو الفرق الأساسي بين الترجمة (Compile) والتفسير (Interpret)؟"
     },
     "answer": {
-      "en": "Compilation translates a program into another representation. Interpretation executes a program's semantics directly. Real implementations can combine both, as in bytecode and just-in-time compilation.",
-      "ar": "تحول الترجمة البرنامج إلى تمثيل آخر، بينما ينفذ التفسير دلالات البرنامج مباشرةً. وقد تجمع التطبيقات بينهما، كما في الشفرة الوسيطة والترجمة الآنية."
+      "en": "Compiling translates the program into another form first; interpreting runs it directly. Many systems mix both.",
+      "ar": "الترجمة تحوّل البرنامج إلى صيغة أخرى قبل تشغيله، والتفسير ينفّذه مباشرة. وكثير من الأنظمة تجمع بينهما."
     },
     "acceptedAnswers": {
       "en": [
@@ -142,44 +96,6 @@
       "ar": [
         "الترجمة تحول التمثيل؛ والتفسير ينفذ دلالات البرنامج."
       ]
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "software-and-computing-007",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Computer Science",
-      "ar": "علوم الحاسب"
-    },
-    "question": {
-      "en": "What is an operating system (OS)?",
-      "ar": "شو هو نظام التشغيل؟"
-    },
-    "answer": {
-      "en": "Software that manages hardware resources and provides services for application programs. Examples: Windows, macOS, Linux.",
-      "ar": "برنامج يُدير موارد العتاد ويوفر خدمات للتطبيقات. أمثلة: ويندوز، ماك أو إس، لينوكس."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "software-and-computing-008",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Algorithms & Data Structures",
-      "ar": "الخوارزميات وهياكل البيانات"
-    },
-    "question": {
-      "en": "Why does a singly linked list normally have O(n) indexed access but O(1) insertion immediately after a known node?",
-      "ar": "في القائمة المترابطة الأحادية، ليش الوصول بالفهرس ياخذ عادةً O(n)، بينما الإضافة بعد عقدة معروفة مباشرة تاخذ O(1)؟"
-    },
-    "answer": {
-      "en": "Indexed access may traverse links from the head. Inserting after a known node only updates a fixed number of links.",
-      "ar": "قد يتطلب الوصول بالفهرس اجتياز الروابط من رأس القائمة. أما الإدراج بعد عقدة معلومة فلا يحدّث إلا عدداً ثابتاً من الروابط."
     },
     "review": {
       "status": "pending"
@@ -197,46 +113,8 @@
       "ar": "شو معنى HTTP، وليش نستخدمه؟"
     },
     "answer": {
-      "en": "HyperText Transfer Protocol — the foundation of data communication on the World Wide Web, used to transfer web pages and other resources between a browser and a server.",
-      "ar": "بروتوكول نقل النص التشعبي — أساس الاتصال البياني على الشبكة العالمية للمعلومات، يُستخدم لنقل صفحات الويب والموارد الأخرى بين المتصفح والخادم."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "software-and-computing-010",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Software Engineering",
-      "ar": "هندسة البرمجيات"
-    },
-    "question": {
-      "en": "What is version control and why is Git widely used?",
-      "ar": "شو هو «التحكم بالإصدارات»، وليش Git منتشر كثير؟"
-    },
-    "answer": {
-      "en": "Version control tracks changes to code over time, allowing teams to collaborate, roll back errors, and maintain history. Git is a distributed VCS — every developer has a full copy of the repository, enabling offline work and fast branching.",
-      "ar": "التحكم في الإصدارات يتتبع التغييرات في الكود بمرور الوقت، مما يُتيح للفرق التعاون والتراجع عن الأخطاء والحفاظ على السجل. Git نظام تحكم إصدار موزع — كل مطوّر لديه نسخة كاملة من المستودع مما يُتيح العمل دون اتصال والتفريع السريع."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "software-and-computing-011",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Computer Science",
-      "ar": "علوم الحاسب"
-    },
-    "question": {
-      "en": "What is an algorithm?",
-      "ar": "شو هي «الخوارزمية»؟"
-    },
-    "answer": {
-      "en": "A finite, ordered set of well-defined instructions that solves a problem or accomplishes a task.",
-      "ar": "مجموعة محدودة ومرتبة من التعليمات المحددة بدقة التي تحل مشكلة أو تُنجز مهمة."
+      "en": "HyperText Transfer Protocol: the rules browsers and servers use to exchange web pages.",
+      "ar": "بروتوكول نقل النص التشعبي: القواعد التي يتبادل بها المتصفح والخادم صفحات الويب."
     },
     "review": {
       "status": "pending"
@@ -244,7 +122,7 @@
   },
   {
     "id": "software-and-computing-012",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Systems & Networking",
       "ar": "الأنظمة والشبكات"
@@ -254,8 +132,8 @@
       "ar": "شو الفرق بين العملية (Process) والخيط (Thread)؟"
     },
     "answer": {
-      "en": "A process is an independent program instance with its own memory space. Threads are lighter-weight units of execution within a process, sharing the same memory — enabling concurrency with less overhead.",
-      "ar": "العملية هي نموذج برنامج مستقل بفضاء ذاكرة خاص به. الخيوط وحدات تنفيذ خفيفة الوزن داخل عملية واحدة تُشارك الذاكرة ذاتها — مما يُتيح التزامن بعبء أقل."
+      "en": "A process has its own memory; threads run inside a process and share it.",
+      "ar": "للعملية ذاكرتها الخاصة؛ والخيوط تعمل داخلها وتتشارك تلك الذاكرة."
     },
     "review": {
       "status": "pending"
@@ -263,7 +141,7 @@
   },
   {
     "id": "software-and-computing-013",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Software Engineering",
       "ar": "هندسة البرمجيات"
@@ -273,8 +151,8 @@
       "ar": "شو هي البرمجة كائنية التوجه (OOP)؟"
     },
     "answer": {
-      "en": "A programming paradigm that organises code around 'objects' — entities that bundle data (attributes) and behaviour (methods). Core principles: encapsulation, inheritance, polymorphism, and abstraction.",
-      "ar": "نموذج برمجي ينظم الكود حول 'كائنات' — كيانات تجمع البيانات (الخصائص) والسلوك (الأساليب). المبادئ الأساسية: التغليف، والوراثة، وتعدد الأشكال، والتجريد."
+      "en": "Organising code around 'objects' that bundle data with the actions (methods) that use it.",
+      "ar": "تنظيم الكود حول «كائنات» تجمع البيانات مع الدوال (الأساليب) التي تعمل عليها."
     },
     "review": {
       "status": "pending"
@@ -310,25 +188,6 @@
     }
   },
   {
-    "id": "software-and-computing-015",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Algorithms & Data Structures",
-      "ar": "الخوارزميات وهياكل البيانات"
-    },
-    "question": {
-      "en": "What does a running-time bound O(n log n) mean?",
-      "ar": "شو معنى الحد الزمني O(n log n)؟"
-    },
-    "answer": {
-      "en": "For sufficiently large n, the analyzed running time is at most a constant multiple of n log n. BigO is an upper bound; the analysis must separately specify worst, average, or another case.",
-      "ar": "عندما تكبر n بما يكفي، لا يتجاوز الزمن المحلل مضاعفاً ثابتاً لـn log n. فرمز O حد علوي، ويجب تحديد ما إذا كان التحليل للحالة الأسوأ أو المتوسطة أو غيرها بصورة منفصلة."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "software-and-computing-016",
     "difficulty": "medium",
     "subcategory": {
@@ -340,8 +199,8 @@
       "ar": "شو هو نموذج OSI، وكم طبقة فيه؟"
     },
     "answer": {
-      "en": "The Open Systems Interconnection model is a 7-layer conceptual framework for network communication: Physical, Data Link, Network, Transport, Session, Presentation, Application. Each layer handles specific functions and communicates with adjacent layers.",
-      "ar": "نموذج ربط الأنظمة المفتوحة إطار مفاهيمي من 7 طبقات لاتصالات الشبكة: المادية، وربط البيانات، والشبكة، والنقل، والجلسة، والتقديم، والتطبيق. تتولى كل طبقة وظائف محددة وتتواصل مع الطبقات المجاورة."
+      "en": "The Open Systems Interconnection model: a 7-layer framework for describing network communication.",
+      "ar": "نموذج ربط الأنظمة المفتوحة: إطار من 7 طبقات لوصف اتصالات الشبكة."
     },
     "acceptedAnswers": {
       "en": [
@@ -358,27 +217,8 @@
     }
   },
   {
-    "id": "software-and-computing-017",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Software Engineering",
-      "ar": "هندسة البرمجيات"
-    },
-    "question": {
-      "en": "How do relational and nonrelational databases differ in their basic data models?",
-      "ar": "كيف تختلف قواعد البيانات العلائقية وغير العلائقية في طريقة تنظيم البيانات الأساسية؟"
-    },
-    "answer": {
-      "en": "Relational databases organize data in relations, usually tables. Nonrelational systems use models such as documents, key-value pairs, graphs, or wide columns. Performance and consistency depend on the specific system and workload.",
-      "ar": "تنظم العلائقية البيانات في علاقات تُمثل عادةً بجداول. وتستخدم غير العلائقية نماذج كالمستندات وأزواج المفتاح والقيمة والرسوم البيانية والأعمدة العريضة. ويعتمد الأداء والاتساق على النظام وحمل العمل."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "software-and-computing-018",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Algorithms & Data Structures",
       "ar": "الخوارزميات وهياكل البيانات"
@@ -388,8 +228,8 @@
       "ar": "شو هو «جدول التجزئة» (Hash Table)، وكم متوسط تعقيد الوقت للبحث فيه؟"
     },
     "answer": {
-      "en": "A hash table stores key-value pairs by computing a hash of the key to determine storage location. Average O(1) for insertions, lookups, and deletions. Worst-case O(n) with many collisions.",
-      "ar": "جدول التجزئة يُخزّن أزواج مفتاح-قيمة بحساب تجزئة المفتاح لتحديد موضع التخزين. متوسط O(1) للإدراج والبحث والحذف. وO(n) في الحالة الأسوأ مع التصادمات الكثيرة."
+      "en": "It stores key-value pairs at positions computed by hashing the key; average lookup is O(1).",
+      "ar": "يخزّن أزواج المفتاح والقيمة في مواقع تُحسب بتجزئة المفتاح؛ ومتوسط البحث O(1)."
     },
     "acceptedAnswers": {
       "en": [
@@ -413,12 +253,12 @@
       "ar": "الأنظمة والشبكات"
     },
     "question": {
-      "en": "What is DNS and how does it work?",
-      "ar": "شو هو DNS، وكيف يشتغل؟"
+      "en": "What does DNS do when you type a website name into your browser?",
+      "ar": "شو اللي يسويه DNS لما تكتب اسم موقع بالمتصفح؟"
     },
     "answer": {
-      "en": "The Domain Name System translates human-readable domain names (e.g., example.com) into IP addresses. When you request a URL, a DNS resolver queries a hierarchy of servers (root → TLD → authoritative) to find the corresponding IP.",
-      "ar": "نظام اسم النطاق يُترجم أسماء النطاقات القابلة للقراءة (مثلاً example.com) إلى عناوين IP. عند طلب عنوان URL، يستعلم محلّل DNS تسلسلاً هرمياً من الخوادم (الجذر ← TLD ← الموثوق) للعثور على IP المقابل."
+      "en": "It looks up the site's IP address, like the internet's phone book.",
+      "ar": "يبحث عن عنوان IP الخاص بالموقع، مثل دليل هاتف للإنترنت."
     },
     "acceptedAnswers": {
       "en": [
@@ -428,35 +268,6 @@
       "ar": [
         "يحوّل DNS النطاقات إلى عناوين IP عبر خوادم الجذر ثم TLD ثم الموثوقة.",
         "يستعلم المحلل خوادم الجذر وTLD والموثوقة لربط النطاق بعنوان IP."
-      ]
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "software-and-computing-020",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Software Engineering",
-      "ar": "هندسة البرمجيات"
-    },
-    "question": {
-      "en": "What is the SOLID principle in object-oriented design?",
-      "ar": "في التصميم كائني التوجه، شو هي مبادئ SOLID؟"
-    },
-    "answer": {
-      "en": "Five design principles: Single Responsibility (one reason to change), Open/Closed (open for extension, closed for modification), Liskov Substitution (subclasses substitutable for parent), Interface Segregation (specific interfaces), Dependency Inversion (depend on abstractions, not concretions).",
-      "ar": "خمسة مبادئ تصميم: المسؤولية الفردية (سبب واحد للتغيير)، المفتوح/المغلق (مفتوح للتوسيع مغلق للتعديل)، استبدال ليسكوف (الأصناف الفرعية قابلة للتبديل بالأصل)، فصل الواجهات (واجهات محددة)، انعكاس الاعتمادية (اعتمد على التجريدات لا التطبيقات)."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Single Responsibility, Open-Closed, Liskov, Interface Segregation, Dependency Inversion.",
-        "SRP, OCP, LSP, ISP, DIP—the five SOLID object-design principles."
-      ],
-      "ar": [
-        "المسؤولية الفردية، المفتوح-المغلق، ليسكوف، فصل الواجهات، انعكاس الاعتمادية.",
-        "SRP وOCP وLSP وISP وDIP؛ مبادئ SOLID الخمسة لتصميم الكائنات."
       ]
     },
     "review": {
@@ -475,8 +286,8 @@
       "ar": "شو هي «العودية»، وشو هي «الحالة الأساسية»؟"
     },
     "answer": {
-      "en": "Recursion is when a function calls itself to solve a smaller instance of the same problem. A base case is the condition that terminates the recursion — without it, the function would call itself infinitely and cause a stack overflow.",
-      "ar": "العودية هي عندما تُستدعي دالة ذاتها لحل نسخة أصغر من المشكلة ذاتها. الحالة الأساسية هي الشرط الذي ينهي العودية — بدونها ستستدعي الدالة نفسها بلا حدود مما يُسبب فيضان المكدس."
+      "en": "A function calling itself on a smaller version of the problem; the base case is where it stops.",
+      "ar": "أن تستدعي الدالة نفسها على نسخة أصغر من المسألة؛ والحالة الأساسية هي نقطة التوقف."
     },
     "acceptedAnswers": {
       "en": [
@@ -494,7 +305,7 @@
   },
   {
     "id": "software-and-computing-022",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Algorithms & Data Structures",
       "ar": "الخوارزميات وهياكل البيانات"
@@ -566,44 +377,6 @@
     }
   },
   {
-    "id": "software-and-computing-025",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Computer Science",
-      "ar": "علوم الحاسب"
-    },
-    "question": {
-      "en": "What distinguishes dynamic programming from a greedy strategy?",
-      "ar": "شو اللي يميّز البرمجة الديناميكية عن الاستراتيجية الجشعة؟"
-    },
-    "answer": {
-      "en": "Dynamic programming reuses solutions to overlapping subproblems according to a recurrence. A greedy strategy commits to a locally preferred choice. Either yields an optimum only when its correctness conditions are satisfied.",
-      "ar": "تعيد البرمجة الديناميكية استخدام حلول مسائل فرعية متداخلة وفق علاقة عودية. أما الاستراتيجية الجشعة فتلتزم باختيار مفضل محلياً. ولا تضمن أي منهما الحل الأمثل إلا عند تحقق شروط صحتها."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "software-and-computing-026",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Systems & Networking",
-      "ar": "الأنظمة والشبكات"
-    },
-    "question": {
-      "en": "How does paging map a process's virtual memory to physical memory?",
-      "ar": "كيف تقسيم الذاكرة لصفحات يربط الذاكرة الافتراضية للعملية بالذاكرة الفعلية؟"
-    },
-    "answer": {
-      "en": "Virtual memory is divided into fixed-size pages mapped to physical frames using page tables. A page fault requires operating-system handling, which may load data from storage, allocate a page, or reject an invalid access.",
-      "ar": "تُقسم الذاكرة الافتراضية إلى صفحات ثابتة الحجم تربطها جداول الصفحات بإطارات فعلية. ويعالج نظام التشغيل خطأ الصفحة، وقد يحمّل بيانات أو يخصص صفحة أو يرفض وصولاً غير صالح."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "software-and-computing-027",
     "difficulty": "hard",
     "subcategory": {
@@ -615,8 +388,8 @@
       "ar": "شو هو «التطوير القائم على الاختبار» (TDD)، وشو دورة «أحمر-أخضر-إعادة هيكلة»؟"
     },
     "answer": {
-      "en": "TDD is a development approach where tests are written before production code. Cycle: Red (write a failing test), Green (write minimal code to pass the test), Refactor (clean up code while keeping tests green). Benefits: better design, coverage, and fewer regressions.",
-      "ar": "TDD نهج تطويري تُكتب فيه الاختبارات قبل كود الإنتاج. الدورة: أحمر (اكتب اختباراً فاشلاً)، أخضر (اكتب أدنى كود لاجتياز الاختبار)، إعادة الهيكلة (نظّف الكود مع إبقاء الاختبارات خضراء). الفوائد: تصميم أفضل وتغطية أوسع وتراجعات أقل."
+      "en": "Writing tests before code: Red = a failing test, Green = just enough code to pass, then Refactor = tidy up.",
+      "ar": "كتابة الاختبار قبل الكود: أحمر = اختبار يفشل، أخضر = أقل كود ينجحه، ثم إعادة الهيكلة = ترتيب الكود."
     },
     "acceptedAnswers": {
       "en": [
@@ -644,8 +417,8 @@
       "ar": "شو هي «مشكلة التوقف»، وشو اللي أثبته تورنغ عنها؟"
     },
     "answer": {
-      "en": "The halting problem asks whether a general algorithm can determine if any given program will eventually halt or run forever. Turing proved (1936) this is undecidable — no such general algorithm can exist — by demonstrating a contradiction (if it could, you could construct a program that halts iff it doesn't).",
-      "ar": "مشكلة التوقف تسأل هل يمكن لخوارزمية عامة تحديد ما إذا كان أي برنامج سيتوقف في نهاية المطاف أم يواصل التشغيل إلى الأبد. أثبت تورينغ (1936) أنها غير قابلة للبت — لا يمكن وجود مثل هذه الخوارزمية العامة — بإظهار تناقض (لو أمكن، يمكنك بناء برنامج يتوقف إذا وفقط إذا لم يتوقف)."
+      "en": "It asks whether one program can tell if any program will finish or run forever. Turing proved (1936) it cannot.",
+      "ar": "تسأل: هل يستطيع برنامج أن يحدد إن كان أي برنامج سينتهي أم سيعمل للأبد؟ أثبت تورنغ (1936) أن ذلك مستحيل."
     },
     "acceptedAnswers": {
       "en": [
@@ -656,25 +429,6 @@
         "لا خوارزمية تحدد توقف كل برنامج أو استمراره؛ أثبت تورينغ أنها غير قابلة للبت.",
         "أثبت تورينغ استحالة تقرير توقف أي برنامج عموماً؛ فتلك مشكلة غير قابلة للبت."
       ]
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "software-and-computing-029",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Algorithms & Data Structures",
-      "ar": "الخوارزميات وهياكل البيانات"
-    },
-    "question": {
-      "en": "What is a balanced binary search tree (BST) and why is balance important?",
-      "ar": "شو هي شجرة البحث الثنائي المتوازنة، وليش التوازن مهم؟"
-    },
-    "answer": {
-      "en": "A BST where the heights of subtrees are kept close (e.g., AVL tree: height difference ≤ 1; Red-Black tree: more relaxed). Balance ensures search, insertion, and deletion remain O(log n) in the worst case. An unbalanced BST can degrade to O(n) — a linked list.",
-      "ar": "شجرة BST تُحافظ فيها ارتفاعات الأشجار الفرعية على قرب (مثلاً شجرة AVL: فرق الارتفاع ≤ 1؛ شجرة أحمر-أسود: أكثر مرونة). يضمن التوازن بقاء البحث والإدراج والحذف O(log n) في الحالة الأسوأ. شجرة BST غير متوازنة قد تتدهور إلى O(n) — قائمة مترابطة."
     },
     "review": {
       "status": "pending"
@@ -692,27 +446,8 @@
       "ar": "كيف تختلف خدمة النقل اللي يعطيها TCP عن UDP؟"
     },
     "answer": {
-      "en": "TCP offers a reliable ordered byte stream with retransmission and failure reporting. UDP sends independent datagrams without delivery or ordering guarantees. Neither protocol can guarantee successful communication through every failure.",
-      "ar": "يوفر TCP تدفق بايتات مرتباً وموثوقاً مع إعادة الإرسال والإبلاغ عن الفشل. ويرسل UDP رزم بيانات مستقلة دون ضمان التسليم أو الترتيب. ولا يضمن أيهما نجاح الاتصال أمام كل الأعطال."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "software-and-computing-031",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Software Engineering",
-      "ar": "هندسة البرمجيات"
-    },
-    "question": {
-      "en": "What deployment distinction separates a monolith from a microservices architecture?",
-      "ar": "من ناحية النشر، شو الفرق بين المعمارية الأحادية ومعمارية الخدمات المصغّرة؟"
-    },
-    "answer": {
-      "en": "A monolith deploys its main application as one unit; microservices separate capabilities into independently deployable services. The latter can increase team autonomy but adds distributed-system and operational complexity.",
-      "ar": "تنشر المعمارية الأحادية التطبيق الرئيسي كوحدة واحدة، بينما تفصل الخدمات المصغرة الوظائف إلى خدمات مستقلة النشر. وقد تزيد استقلالية الفرق، لكنها تضيف تعقيداً تشغيلياً وتعقيد الأنظمة الموزعة."
+      "en": "TCP is reliable and ordered; UDP sends fast packets with no delivery guarantee.",
+      "ar": "TCP موثوق ومرتّب؛ وUDP يرسل حزماً سريعة دون ضمان وصولها."
     },
     "review": {
       "status": "pending"
@@ -738,27 +473,8 @@
     }
   },
   {
-    "id": "software-and-computing-033",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Algorithms & Data Structures",
-      "ar": "الخوارزميات وهياكل البيانات"
-    },
-    "question": {
-      "en": "What is the difference between depth-first search (DFS) and breadth-first search (BFS)?",
-      "ar": "شو الفرق بين البحث بالعمق أولًا (DFS) والبحث بالعرض أولًا (BFS)؟"
-    },
-    "answer": {
-      "en": "DFS explores as far as possible along each branch before backtracking — uses a stack (or recursion); good for cycle detection, topological sort. BFS explores all neighbours at the current depth before going deeper — uses a queue; good for shortest path in unweighted graphs.",
-      "ar": "DFS يستكشف أبعد ما يمكن على طول كل فرع قبل الرجوع — يستخدم مكدساً (أو العودية)؛ جيد لاكتشاف الدورات والترتيب الطولوجي. BFS يستكشف جميع الجيران على العمق الحالي قبل التعمق — يستخدم طابوراً؛ جيد للمسار الأقصر في الرسوم البيانية غير الموزونة."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "software-and-computing-034",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Systems & Networking",
       "ar": "الأنظمة والشبكات"
@@ -784,65 +500,8 @@
     }
   },
   {
-    "id": "software-and-computing-035",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Software Engineering",
-      "ar": "هندسة البرمجيات"
-    },
-    "question": {
-      "en": "What is eventual consistency in distributed databases?",
-      "ar": "في قواعد البيانات الموزّعة، شو هو «التناسق النهائي»؟"
-    },
-    "answer": {
-      "en": "A consistency model in which replicas eventually converge if updates stop and communication succeeds, while temporary differences between replicas are allowed.",
-      "ar": "نموذج اتساق تتقارب فيه النسخ في النهاية إذا توقفت التحديثات ونجح الاتصال، مع السماح باختلافات مؤقتة بين النسخ."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "software-and-computing-036",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Computer Science",
-      "ar": "علوم الحاسب"
-    },
-    "question": {
-      "en": "What is the difference between P, NP, and NP-complete problems?",
-      "ar": "شو الفرق بين مسائل P وNP وNP-complete؟"
-    },
-    "answer": {
-      "en": "P: problems solvable in polynomial time. NP: problems whose proposed solution can be verified in polynomial time. NP-complete: the hardest NP problems; every NP problem reduces to them. Whether P = NP is unsolved.",
-      "ar": "P: مسائل تُحل في زمن كثير حدود. NP: مسائل يمكن التحقق من الحل المقترح لها في زمن كثير حدود. NP-complete: أصعب مسائل NP، وكل مسألة NP تُختزل إليها. وسؤال هل P = NP ما زال بلا حل."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "software-and-computing-037",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Systems & Networking",
-      "ar": "الأنظمة والشبكات"
-    },
-    "question": {
-      "en": "What is HTTPS and how does TLS protect web traffic?",
-      "ar": "شو هو HTTPS، وكيف TLS يحمي حركة الإنترنت؟"
-    },
-    "answer": {
-      "en": "HTTPS is HTTP over TLS (Transport Layer Security). TLS provides encryption (prevents eavesdropping), authentication (server certificate verifies identity), and integrity (prevents tampering). The TLS handshake negotiates cipher suites and exchanges session keys using asymmetric cryptography before switching to symmetric encryption.",
-      "ar": "HTTPS هو HTTP عبر TLS (أمان طبقة النقل). يوفر TLS التشفير (يمنع التنصت)، والمصادقة (شهادة الخادم تتحقق من الهوية)، والسلامة (تمنع التلاعب). مصافحة TLS تتفاوض على مجموعات التشفير وتبادل مفاتيح الجلسة باستخدام التشفير غير المتماثل قبل التحويل إلى التشفير المتماثل."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "software-and-computing-038",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Software Engineering",
       "ar": "هندسة البرمجيات"
@@ -860,25 +519,6 @@
     }
   },
   {
-    "id": "software-and-computing-039",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Computer Science",
-      "ar": "علوم الحاسب"
-    },
-    "question": {
-      "en": "In the usual PBFT replication model, how many replicas are required to tolerate up to f Byzantine-faulty replicas?",
-      "ar": "في نموذج النسخ المعتاد لخوارزمية PBFT، كم نسخة نحتاج عشان نتحمّل لحد f نسخة فيها أعطال بيزنطية؟"
-    },
-    "answer": {
-      "en": "At least 3f+1 replicas, under the protocol's assumptions. This is not a universal bound for every fault and timing model.",
-      "ar": "تلزم 3f+1 نسخة على الأقل وفق افتراضات البروتوكول. وليس هذا حداً عاماً لكل نماذج الأعطال والتوقيت."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "software-and-computing-040",
     "difficulty": "very-advanced",
     "subcategory": {
@@ -890,8 +530,8 @@
       "ar": "شو هي خوارزمية الإجماع Raft، وشو المشكلة اللي تحلّها؟"
     },
     "answer": {
-      "en": "Raft (Ongaro & Ousterhout, 2014) is a consensus algorithm for distributed systems that ensures multiple nodes agree on a sequence of values even in the presence of failures. It decomposes consensus into leader election, log replication, and safety. Designed as a more understandable alternative to Paxos — used in etcd, CockroachDB.",
-      "ar": "Raft (أونغارو وأوسترهاوت، 2014) خوارزمية إجماع للأنظمة الموزعة تضمن اتفاق عقد متعددة على تسلسل القيم حتى في حالة الأعطال. تُقسّم الإجماع إلى انتخاب القائد وتكرار السجل والسلامة. صُمِّمت كبديل أكثر قابلية للفهم من Paxos — مُستخدمة في etcd وCockroachDB."
+      "en": "It lets a group of servers agree on the same log despite failures, using an elected leader.",
+      "ar": "يجعل مجموعة خوادم تتفق على السجل نفسه رغم الأعطال، عبر قائد منتخب."
     },
     "acceptedAnswers": {
       "en": [
@@ -919,8 +559,8 @@
       "ar": "شو هو بروتوكول تماسك الذاكرة المخبئية، وليش مهم للمعالجات متعددة الأنوية؟"
     },
     "answer": {
-      "en": "In multi-core CPUs, each core has its own cache. Cache coherence protocols (e.g., MESI — Modified, Exclusive, Shared, Invalid) ensure all caches present a consistent view of memory. Without coherence, one core might read a stale value written by another. The protocol uses bus snooping or directory-based mechanisms to track cache line states.",
-      "ar": "في المعالجات متعددة النوى، لكل نواة ذاكرتها المخبئية الخاصة. بروتوكولات تماسك الذاكرة (مثلاً MESI — معدَّل، حصري، مشترك، غير صالح) تضمن تقديم جميع الذاكرات المخبئية رؤية متناسقة للذاكرة. بدون التماسك، قد تقرأ إحدى النوى قيمة قديمة كتبتها أخرى. يستخدم البروتوكول رصد الناقل أو آليات قائمة على الدليل لتتبع حالات خطوط الذاكرة المخبئية."
+      "en": "It keeps each core's cache consistent so no core reads stale data; MESI is a common example.",
+      "ar": "يحافظ على اتساق الذاكرة المخبئية لكل نواة حتى لا تقرأ نواة بيانات قديمة؛ وMESI مثال شائع."
     },
     "acceptedAnswers": {
       "en": [
@@ -1002,8 +642,8 @@
       "ar": "شو هي «قائمة التخطي» (Skip List)، وشو ضمانات تعقيدها الزمني؟"
     },
     "answer": {
-      "en": "A skip list is a probabilistic data structure with multiple linked layers, each a subset of the layer below, allowing O(log n) expected search, insertion, and deletion. It achieves the same performance as balanced BSTs without complex rotations. Used in Redis sorted sets and LevelDB.",
-      "ar": "قائمة التخطي هيكل بيانات احتمالي بطبقات مترابطة متعددة، كل منها مجموعة فرعية من الطبقة التي تليها، مما يُتيح O(log n) متوقعاً للبحث والإدراج والحذف. تحقق أداءً مماثلاً لـ BST المتوازنة دون دورانات معقدة. مُستخدمة في المجموعات المرتبة بـ Redis وLevelDB."
+      "en": "A layered, randomised linked list giving expected O(log n) search, insertion and deletion.",
+      "ar": "قائمة مترابطة عشوائية متعددة الطبقات، تعطي بحثاً وإدراجاً وحذفاً بزمن متوقع O(log n)."
     },
     "acceptedAnswers": {
       "en": [
@@ -1023,16 +663,16 @@
     "id": "software-and-computing-045",
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Systems & Networking",
-      "ar": "الأنظمة والشبكات"
+      "en": "Software Engineering",
+      "ar": "هندسة البرمجيات"
     },
     "question": {
-      "en": "What capability does eBPF provide for supported Linux-kernel use cases?",
-      "ar": "شو الإمكانية اللي يوفّرها eBPF للاستخدامات المدعومة داخل نواة لينكس؟"
+      "en": "In 1996, a European rocket destroyed itself about 40 seconds after launch because its software squeezed a 64-bit number into a 16-bit integer. Which rocket?",
+      "ar": "سنة 1996، صاروخ أوروبي دمّر نفسه بعد حوالي 40 ثانية من الإطلاق، لأن برنامجه حشر رقم 64 بت في عدد صحيح 16 بت. أي صاروخ؟"
     },
     "answer": {
-      "en": "It runs verified, constrained programs at supported hook points without modifying kernel source. Uses include networking, tracing, and security; their runtime overhead depends on the program and workload.",
-      "ar": "يشغل برامج متحققاً منها ومقيدة عند نقاط ربط مدعومة دون تعديل مصدر النواة. ومن استخداماته الشبكات والتتبع والأمن، ويتوقف عبؤها وقت التشغيل على البرنامج وحمل العمل."
+      "en": "Ariane 5 (Flight 501).",
+      "ar": "أريان 5 (الرحلة 501)."
     },
     "review": {
       "status": "pending"
@@ -1065,12 +705,12 @@
       "ar": "علوم الحاسب"
     },
     "question": {
-      "en": "What is type theory and how does the Curry-Howard correspondence connect it to logic?",
-      "ar": "شو هي «نظرية الأنواع»، وكيف «تطابق كاري-هوارد» يربطها بالمنطق؟"
+      "en": "What does the Curry-Howard correspondence say about programs and proofs?",
+      "ar": "شو تقول «مطابقة كاري-هوارد» عن البرامج والبراهين؟"
     },
     "answer": {
-      "en": "Type theory studies formal systems that classify values by type. The Curry-Howard correspondence states that types are propositions and programs are proofs — an inhabited type corresponds to a provable proposition. This deep connection underpins dependently typed languages (Coq, Agda, Lean) used for program verification.",
-      "ar": "نظرية النوع تدرس الأنظمة الرسمية التي تُصنّف القيم حسب النوع. مراسلة كاري-هاوارد تقول إن الأنواع هي قضايا والبرامج هي براهين — النوع المأهول يقابل قضية قابلة للبرهان. هذا الارتباط العميق يدعم اللغات ذات الأنواع التابعة (Coq، Agda، Lean) المُستخدمة للتحقق من البرامج."
+      "en": "Types correspond to logical propositions, and programs to proofs of them.",
+      "ar": "الأنواع تقابل القضايا المنطقية، والبرامج تقابل براهينها."
     },
     "review": {
       "status": "pending"
@@ -1126,8 +766,8 @@
       "ar": "شو مسألة الأعداد الصحيحة اللي تحلّها خوارزمية شور بزمن كثير حدود على كمبيوتر كمّي قوي كفاية؟"
     },
     "answer": {
-      "en": "Integer factorization. This is faster asymptotically than the best known classical factoring methods, but no proof rules out every possible efficient classical algorithm.",
-      "ar": "تحليل الأعداد الصحيحة إلى عواملها. وهو أسرع تقاربياً من أفضل الطرق الكلاسيكية المعروفة، لكن لا يوجد برهان يستبعد كل خوارزمية كلاسيكية سريعة ممكنة."
+      "en": "Integer factorisation (splitting a number into its prime factors).",
+      "ar": "تحليل الأعداد الصحيحة إلى عواملها الأولية."
     },
     "review": {
       "status": "pending"
@@ -1160,12 +800,12 @@
       "ar": "أساسيات البرمجة"
     },
     "question": {
-      "en": "What is the term for an error or flaw in a computer program?",
-      "ar": "شو نسمّي الغلط أو العيب في برنامج الكمبيوتر؟"
+      "en": "In 1947, engineers found a real moth stuck inside the Harvard Mark II computer and taped it into their logbook. Which word for a program error does it famously illustrate?",
+      "ar": "سنة 1947، مهندسين لقوا عثّة حقيقية عالقة جوّا كمبيوتر «هارفارد مارك 2» ولصقوها في دفتر السجل. أي كلمة تعني غلط البرنامج اشتهرت بسببها؟"
     },
     "answer": {
-      "en": "A software bug.",
-      "ar": "خطأ برمجي."
+      "en": "Bug.",
+      "ar": "Bug (حشرة)، أي خطأ برمجي."
     },
     "review": {
       "status": "pending"
@@ -1179,12 +819,12 @@
       "ar": "علوم الحاسب"
     },
     "question": {
-      "en": "How many values (digits) are used in binary code?",
-      "ar": "كم قيمة يستخدمها النظام الثنائي؟"
+      "en": "How many bits make up one byte?",
+      "ar": "كم بِت في البايت الواحد؟"
     },
     "answer": {
-      "en": "Two: 0 and 1",
-      "ar": "اثنتان: 0 و 1"
+      "en": "8 bits.",
+      "ar": "8 بِت."
     },
     "review": {
       "status": "pending"
@@ -1248,44 +888,6 @@
     }
   },
   {
-    "id": "coding-and-design-007",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "UI/UX & Visual Design",
-      "ar": "واجهات وتجربة المستخدم والتصميم البصري"
-    },
-    "question": {
-      "en": "What does 'UI' stand for in design?",
-      "ar": "شو معنى UI في التصميم؟"
-    },
-    "answer": {
-      "en": "User Interface",
-      "ar": "واجهة المستخدم"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "coding-and-design-008",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Programming Fundamentals",
-      "ar": "أساسيات البرمجة"
-    },
-    "question": {
-      "en": "What are explanatory annotations in source code that the language does not execute called?",
-      "ar": "شو اسم الملاحظات التوضيحية في الكود اللي اللغة ما تنفذها؟"
-    },
-    "answer": {
-      "en": "A comment",
-      "ar": "التعليق"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "coding-and-design-009",
     "difficulty": "easy",
     "subcategory": {
@@ -1335,8 +937,8 @@
       "ar": "شو الفرق بين UI وUX؟"
     },
     "answer": {
-      "en": "UI is the interface through which users interact, including controls and presentation. UX is the broader experience of using a product, including usability, accessibility, and whether it meets users' needs.",
-      "ar": "UI هي الواجهة التي يتفاعل المستخدم عبرها، بما فيها عناصر التحكم والعرض. أما UX فهي تجربة استخدام المنتج الأوسع، وتشمل سهولة الاستخدام وإمكانية الوصول ومدى تلبية الاحتياجات."
+      "en": "UI: the screens and controls. UX: the whole experience of using the product.",
+      "ar": "UI: الشاشات وعناصر التحكم. UX: تجربة استخدام المنتج كلها."
     },
     "review": {
       "status": "pending"
@@ -1344,7 +946,7 @@
   },
   {
     "id": "coding-and-design-012",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Programming Fundamentals",
       "ar": "أساسيات البرمجة"
@@ -1356,25 +958,6 @@
     "answer": {
       "en": "True and False",
       "ar": "صحيح (True) وخطأ (False)"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "coding-and-design-013",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Software Engineering",
-      "ar": "هندسة البرمجيات"
-    },
-    "question": {
-      "en": "What does 'API' stand for?",
-      "ar": "شو معنى API؟"
-    },
-    "answer": {
-      "en": "Application Programming Interface",
-      "ar": "واجهة برمجة التطبيقات"
     },
     "review": {
       "status": "pending"
@@ -1419,25 +1002,6 @@
     }
   },
   {
-    "id": "coding-and-design-016",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Programming Fundamentals",
-      "ar": "أساسيات البرمجة"
-    },
-    "question": {
-      "en": "In programming, what do you call a sequence of characters?",
-      "ar": "في البرمجة، شو اسم سلسلة الحروف؟"
-    },
-    "answer": {
-      "en": "A String",
-      "ar": "السلسلة النصية (String)"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "coding-and-design-017",
     "difficulty": "medium",
     "subcategory": {
@@ -1451,25 +1015,6 @@
     "answer": {
       "en": "Black",
       "ar": "الأسود"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "coding-and-design-018",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Web Development",
-      "ar": "تطوير الويب"
-    },
-    "question": {
-      "en": "Which language is commonly used for back-end development: HTML or Python?",
-      "ar": "أي لغة تنستخدم عادةً في تطوير الواجهة الخلفية: HTML ولا Python؟"
-    },
-    "answer": {
-      "en": "Python",
-      "ar": "Python"
     },
     "review": {
       "status": "pending"
@@ -1515,7 +1060,7 @@
   },
   {
     "id": "coding-and-design-021",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Algorithms & Data Structures",
       "ar": "الخوارزميات وهياكل البيانات"
@@ -1553,7 +1098,7 @@
   },
   {
     "id": "coding-and-design-023",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Algorithms & Data Structures",
       "ar": "الخوارزميات وهياكل البيانات"
@@ -1578,12 +1123,12 @@
       "ar": "علوم الحاسب"
     },
     "question": {
-      "en": "Which open problem asks whether every decision problem whose proposed solutions can be verified in polynomial time can also be solved in polynomial time?",
-      "ar": "شو المسألة المفتوحة اللي تسأل: هل كل مسألة نقدر نتحقق من حلّها بسرعة (بزمن كثير حدود)، نقدر كمان نحلّها بنفس السرعة؟"
+      "en": "Solving which famous computer-science question would earn a US$1 million Millennium Prize from the Clay Mathematics Institute?",
+      "ar": "حلّ أي سؤال مشهور في علوم الكمبيوتر يجيب لصاحبه جائزة الألفية من معهد كلاي، وقيمتها مليون دولار؟"
     },
     "answer": {
-      "en": "P vs NP",
-      "ar": "P مقابل NP"
+      "en": "P vs NP: can every problem that's quick to check also be solved quickly?",
+      "ar": "مسألة P مقابل NP: هل كل مسألة سهلة التحقق سهلة الحل أيضاً؟"
     },
     "review": {
       "status": "pending"
@@ -1597,12 +1142,12 @@
       "ar": "أساسيات البرمجة"
     },
     "question": {
-      "en": "In a typical ahead-of-time C++ build, is source code compiled before the resulting executable runs?",
-      "ar": "في بناء C++ العادي بالترجمة المسبقة، هل الكود ينترجم قبل ما يشتغل الملف التنفيذي؟"
+      "en": "The programming language Python is named after what?",
+      "ar": "لغة البرمجة Python، على اسم شو انسمّت؟"
     },
     "answer": {
-      "en": "Yes. C++ is typically compiled, although interpreters and other implementation strategies also exist.",
-      "ar": "نعم. تُترجم C++ عادةً مسبقاً، مع وجود مفسرات واستراتيجيات تنفيذ أخرى أيضاً."
+      "en": "The comedy show 'Monty Python's Flying Circus', not the snake.",
+      "ar": "على اسم البرنامج الكوميدي البريطاني «مونتي بايثون»، لا على اسم الثعبان."
     },
     "review": {
       "status": "pending"
@@ -1629,7 +1174,7 @@
   },
   {
     "id": "coding-and-design-027",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Software Engineering",
       "ar": "هندسة البرمجيات"
@@ -1648,7 +1193,7 @@
   },
   {
     "id": "coding-and-design-028",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Web Development",
       "ar": "تطوير الويب"
@@ -1698,6 +1243,63 @@
     "answer": {
       "en": "Jakob Nielsen",
       "ar": "جاكوب نيلسن"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "software-and-computing-051",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Software Engineering",
+      "ar": "هندسة البرمجيات"
+    },
+    "question": {
+      "en": "When a website switches to Arabic, its menus and text flip to start from the right. What is this layout direction called?",
+      "ar": "لما الموقع يتحول للعربي، القوائم والنص ينقلبون ويبدون من اليمين. شو اسم اتجاه التصميم هذا؟"
+    },
+    "answer": {
+      "en": "Right-to-left (RTL).",
+      "ar": "من اليمين إلى اليسار (RTL)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "software-and-computing-052",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Systems & Networking",
+      "ar": "الأنظمة والشبكات"
+    },
+    "question": {
+      "en": "Which 1988 program, released by a Cornell student, was one of the first worms to spread across the internet, slowing thousands of computers?",
+      "ar": "أي برنامج سنة 1988، أطلقه طالب من جامعة كورنيل، كان من أوائل الديدان اللي انتشرت عبر الإنترنت وبطّأت آلاف الكمبيوترات؟"
+    },
+    "answer": {
+      "en": "The Morris worm.",
+      "ar": "دودة موريس."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "software-and-computing-053",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Computer Science",
+      "ar": "علوم الحاسب"
+    },
+    "question": {
+      "en": "Many older systems count time as seconds since 1 January 1970 in a 32-bit number. In which year does that counter overflow?",
+      "ar": "أنظمة قديمة كثير تحسب الوقت بعدد الثواني من 1 يناير 1970 في رقم 32 بت. بأي سنة يفيض هالعدّاد؟"
+    },
+    "answer": {
+      "en": "2038 (on 19 January).",
+      "ar": "سنة 2038 (في 19 يناير)."
     },
     "review": {
       "status": "pending"

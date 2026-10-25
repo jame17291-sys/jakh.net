@@ -254,12 +254,12 @@
       "ar": "السلوك والبيئة والتكيف"
     },
     "question": {
-      "en": "What is the term for an animal that is active during the night?",
-      "ar": "شو نسمّي الحيوان اللي ينشط بالليل؟"
+      "en": "Which small desert fox of the Sahara has huge ears that help it shed body heat?",
+      "ar": "أي ثعلب صغير بالصحراء الكبرى عنده آذان ضخمة تساعده يتخلّص من حرارة جسمه؟"
     },
     "answer": {
-      "en": "Nocturnal",
-      "ar": "ليلي (Nocturnal)"
+      "en": "The fennec fox.",
+      "ar": "ثعلب الفنك."
     },
     "review": {
       "status": "pending"
@@ -419,18 +419,18 @@
   },
   {
     "id": "ani-23",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Behavior, Ecology & Adaptation",
       "ar": "السلوك والبيئة والتكيف"
     },
     "question": {
-      "en": "What is bioluminescence?",
-      "ar": "شو هو «التلألؤ الحيوي»؟"
+      "en": "Fireflies, some jellyfish and many deep-sea fish make their own light. What is this ability called?",
+      "ar": "اليراعات وبعض قناديل البحر وأسماك كثيرة بالأعماق تطلّع ضوء من جسمها. شو اسم هالقدرة؟"
     },
     "answer": {
-      "en": "The production and emission of light by a living organism",
-      "ar": "إنتاج وانبعاث الضوء من قبل كائن حي"
+      "en": "Bioluminescence.",
+      "ar": "التلألؤ الحيوي."
     },
     "review": {
       "status": "pending"
@@ -476,7 +476,7 @@
   },
   {
     "id": "ani-26",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Mammals",
       "ar": "الثدييات"
@@ -501,12 +501,12 @@
       "ar": "الطيور والطيران"
     },
     "question": {
-      "en": "What is the specific name for the study of birds?",
-      "ar": "شو اسم العلم اللي يدرس الطيور؟"
+      "en": "Which seabird has the widest wingspan of any living bird, up to about 3.5 metres?",
+      "ar": "أي طائر بحري عنده أعرض جناحين بين الطيور الحية، يوصل امتدادهم لحوالي 3.5 متر؟"
     },
     "answer": {
-      "en": "Ornithology",
-      "ar": "علم الطيور"
+      "en": "The wandering albatross.",
+      "ar": "القطرس الجوّال (الألباتروس)."
     },
     "review": {
       "status": "pending"
@@ -577,12 +577,12 @@
       "ar": "الحياة البحرية"
     },
     "question": {
-      "en": "What is the name of the light-producing organ found in many deep-sea fish?",
-      "ar": "شو اسم العضو اللي يطلّع ضوء عند أسماك كثيرة بأعماق البحر؟"
+      "en": "In many deep-sea anglerfish, where does the light of the glowing lure come from?",
+      "ar": "عند كثير من أسماك أبو الشص بأعماق البحر، من وين يجي ضوء الطُّعم اللي يلمع قدّام راسها؟"
     },
     "answer": {
-      "en": "Photophore",
-      "ar": "فوتوفور (Photophore)"
+      "en": "From glowing bacteria living inside the lure.",
+      "ar": "من بكتيريا مضيئة تعيش داخل الطُّعم."
     },
     "review": {
       "status": "pending"
@@ -596,12 +596,12 @@
       "ar": "تشريح الحيوان ووظائف الأعضاء"
     },
     "question": {
-      "en": "What does an animal's brain-to-body mass ratio compare?",
-      "ar": "شو اللي تقارنه نسبة وزن مخ الحيوان لوزن جسمه؟"
+      "en": "Which animal has the heaviest brain of any living animal?",
+      "ar": "أي حيوان عنده أثقل دماغ بين كل الحيوانات الحية؟"
     },
     "answer": {
-      "en": "Brain mass divided by body mass. The ratio alone is not a universal measure of intelligence.",
-      "ar": "كتلة الدماغ مقسومة على كتلة الجسم. وهذه النسبة وحدها ليست مقياساً شاملاً للذكاء."
+      "en": "The sperm whale (about 7–8 kg).",
+      "ar": "حوت العنبر (نحو 7–8 كغ)."
     },
     "review": {
       "status": "pending"
@@ -634,12 +634,12 @@
       "ar": "الزواحف والبرمائيات"
     },
     "question": {
-      "en": "Which two lake systems in the Valley of Mexico were the axolotl's historical native range?",
-      "ar": "شو نظامين البحيرات في وادي المكسيك اللي كانوا الموطن الأصلي للأكسولوتل؟"
+      "en": "The axolotl keeps larval features, such as feathery external gills, throughout its adult life. What is this called?",
+      "ar": "الأكسولوتل يحتفظ بصفات اليرقة، مثل الخياشيم الخارجية اللي تشبه الريش، طول حياته وهو بالغ. شو اسم هالظاهرة؟"
     },
     "answer": {
-      "en": "Xochimilco and Chalco.",
-      "ar": "زوتشيميلكو وتشالكو."
+      "en": "Neoteny.",
+      "ar": "النيوتيني (استبقاء صفات اليرقة في الطور البالغ)."
     },
     "review": {
       "status": "pending"
@@ -666,7 +666,7 @@
   },
   {
     "id": "ani-36",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Insects & Arthropods",
       "ar": "الحشرات ومفصليات الأرجل"
@@ -729,12 +729,12 @@
       "ar": "التكاثر ودورات الحياة"
     },
     "question": {
-      "en": "What is 'Parthenogenesis'?",
-      "ar": "شو هو «التوالد العذري» (Parthenogenesis)؟"
+      "en": "Female Komodo dragons in zoos have laid eggs that hatched with no male involved. What is this kind of reproduction called?",
+      "ar": "إناث تنين كومودو بحدائق الحيوان باضت بيض فقس بدون أي ذكر. شو اسم هالنوع من التكاثر؟"
     },
     "answer": {
-      "en": "Reproduction from an ovum without fertilization",
-      "ar": "التكاثر من بويضة بدون إخصاب"
+      "en": "Parthenogenesis (virgin birth).",
+      "ar": "التوالد العذري."
     },
     "review": {
       "status": "pending"
@@ -811,6 +811,329 @@
     "answer": {
       "en": "The blue whale",
       "ar": "الحوت الأزرق"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ani-41",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Mammals",
+      "ar": "الثدييات"
+    },
+    "question": {
+      "en": "What does a camel actually store in its hump?",
+      "ar": "شو اللي يخزّنه الجمل فعلاً بسنامه؟"
+    },
+    "answer": {
+      "en": "Fat, which it can use for energy, not water.",
+      "ar": "الدهون، ويستخدمها مصدراً للطاقة، وليس الماء."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ani-42",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Mammals",
+      "ar": "الثدييات"
+    },
+    "question": {
+      "en": "Hunted out of the wild by 1972, which desert antelope in 2011 became the first animal to move from 'Extinct in the Wild' back to 'Vulnerable' on the IUCN Red List?",
+      "ar": "حيوان صحراوي من الظباء انقرض من البرية بسبب الصيد سنة 1972، وبسنة 2011 صار أول حيوان ينتقل بالقائمة الحمراء من «منقرض في البرية» إلى «معرّض للخطر». شو هو؟"
+    },
+    "answer": {
+      "en": "The Arabian oryx.",
+      "ar": "المها العربي."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ani-43",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Birds & Flight",
+      "ar": "الطيور والطيران"
+    },
+    "question": {
+      "en": "Which bird of prey, a favourite of falconers, is the fastest animal on Earth, diving at over 300 km/h?",
+      "ar": "أي طير جارح، من الطيور المفضّلة عند الصقّارين، هو أسرع حيوان على الأرض، وينقضّ بسرعة تتجاوز 300 كم/ساعة؟"
+    },
+    "answer": {
+      "en": "The peregrine falcon.",
+      "ar": "الشاهين (صقر الشاهين)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ani-44",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Marine Life",
+      "ar": "الحياة البحرية"
+    },
+    "question": {
+      "en": "Which seagrass-grazing 'sea cow' lives in UAE waters in the world's second-largest population, after Australia's?",
+      "ar": "أي حيوان بحري يرعى الأعشاب البحرية ويلقّبونه «بقرة البحر»، وتعيش بمياه الإمارات ثاني أكبر مجموعة منه بالعالم بعد أستراليا؟"
+    },
+    "answer": {
+      "en": "The dugong.",
+      "ar": "الأطوم (عروس البحر)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ani-45",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Mammals",
+      "ar": "الثدييات"
+    },
+    "question": {
+      "en": "Which critically endangered big cat survives in the wild mainly in Oman's Dhofar mountains and in Yemen, and has its own UN international day on 10 February?",
+      "ar": "أي حيوان من فصيلة القطط الكبيرة مهدّد بالانقراض بشدّة، يعيش بالبرية بالأساس بجبال ظفار في عُمان وباليمن، وله يوم دولي بالأمم المتحدة في 10 فبراير؟"
+    },
+    "answer": {
+      "en": "The Arabian leopard.",
+      "ar": "النمر العربي."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ani-46",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Insects & Arthropods",
+      "ar": "الحشرات ومفصليات الأرجل"
+    },
+    "question": {
+      "en": "Leafcutter ants carry pieces of leaves back to their nest, but they don't eat them. What do they use them for?",
+      "ar": "النمل قاطع الأوراق يشيل قطع أوراق لعشّه، بس ما ياكلها. شو يسوي فيها؟"
+    },
+    "answer": {
+      "en": "To grow a fungus garden, which the ants then eat.",
+      "ar": "يزرع عليها فطراً داخل العش، ثم يتغذى على الفطر."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ani-47",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Reptiles & Amphibians",
+      "ar": "الزواحف والبرمائيات"
+    },
+    "question": {
+      "en": "In sea turtles, what decides whether an egg hatches into a male or a female?",
+      "ar": "عند السلاحف البحرية، شو اللي يحدّد إذا البيضة تفقس ذكر ولا أنثى؟"
+    },
+    "answer": {
+      "en": "The temperature of the sand around the nest: warmer nests produce more females.",
+      "ar": "حرارة الرمل حول العش؛ فالأعشاش الأدفأ تنتج إناثاً أكثر."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ani-48",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Animal Anatomy & Physiology",
+      "ar": "تشريح الحيوان ووظائف الأعضاء"
+    },
+    "question": {
+      "en": "Which basic taste can cats not detect at all, because the gene for its receptor is broken?",
+      "ar": "أي طعم أساسي ما تقدر القطط تحسّ فيه أبداً، لأن الجين المسؤول عن مستقبِله معطّل؟"
+    },
+    "answer": {
+      "en": "Sweetness.",
+      "ar": "الطعم الحلو."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ani-49",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Animal Anatomy & Physiology",
+      "ar": "تشريح الحيوان ووظائف الأعضاء"
+    },
+    "question": {
+      "en": "Unlike almost all other mammals, camels have red blood cells of what shape?",
+      "ar": "على عكس كل الثدييات تقريباً، شو شكل كريات الدم الحمرا عند الجمل؟"
+    },
+    "answer": {
+      "en": "Oval, which helps them keep flowing when the camel is dehydrated.",
+      "ar": "بيضاوية، وهذا يساعدها على مواصلة الجريان حين يعطش الجمل."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ani-50",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Birds & Flight",
+      "ar": "الطيور والطيران"
+    },
+    "question": {
+      "en": "Male sandgrouse fly long distances to water holes and bring water back to their chicks in the desert. How do they carry it?",
+      "ar": "ذكور طيور القطا تطير مسافات طويلة لموارد المي وترجّع مي لفراخها بالصحراء. كيف تشيل المي؟"
+    },
+    "answer": {
+      "en": "Soaked up in specially adapted belly feathers.",
+      "ar": "تمتصه بريش خاص على بطنها ثم تنقله."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ani-51",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Behavior, Ecology & Adaptation",
+      "ar": "السلوك والبيئة والتكيف"
+    },
+    "question": {
+      "en": "Which African mammal lives in underground colonies with a single breeding queen, like bees or ants?",
+      "ar": "أي حيوان ثديي أفريقي يعيش بمستعمرات تحت الأرض فيها ملكة وحدة بس هي اللي تتكاثر، مثل النحل والنمل؟"
+    },
+    "answer": {
+      "en": "The naked mole-rat.",
+      "ar": "فأر الخلد العاري."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ani-52",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Marine Life",
+      "ar": "الحياة البحرية"
+    },
+    "question": {
+      "en": "Which small shrimp stuns its prey by snapping its claw so fast that it creates a collapsing bubble, one of the loudest sounds in the sea?",
+      "ar": "أي روبيان صغير يصعق فريسته لما يطقطق مخلبه بسرعة كبيرة لدرجة تتكوّن فقاعة تنهار بقوة وتطلّع صوت من أعلى الأصوات بالبحر؟"
+    },
+    "answer": {
+      "en": "The pistol (snapping) shrimp.",
+      "ar": "روبيان المسدس (الروبيان الطقّاق)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ani-53",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Mammals",
+      "ar": "الثدييات"
+    },
+    "question": {
+      "en": "Male platypuses are among the few venomous mammals. Where do they deliver their venom from?",
+      "ar": "ذكر خلد الماء (البلاتيبوس) من الثدييات القليلة السامّة. من وين يطلّع سمّه؟"
+    },
+    "answer": {
+      "en": "Sharp spurs on the ankles of their hind legs.",
+      "ar": "من مهاميز حادة على كواحل رجليه الخلفيتين."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ani-54",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Mammals",
+      "ar": "الثدييات"
+    },
+    "question": {
+      "en": "Which Australian animal has fingerprints so similar to ours that they could confuse investigators at a crime scene?",
+      "ar": "أي حيوان أسترالي بصمات أصابعه تشبه بصماتنا لدرجة إنها ممكن تلخبط المحققين بمسرح الجريمة؟"
+    },
+    "answer": {
+      "en": "The koala.",
+      "ar": "الكوالا."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ani-55",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Animal Anatomy & Physiology",
+      "ar": "تشريح الحيوان ووظائف الأعضاء"
+    },
+    "question": {
+      "en": "A flamingo's leg seems to have a knee that bends backwards. Which joint is it really?",
+      "ar": "رجل طائر الفلامنغو كأن فيها ركبة تنثني لورا. هالمفصل شو هو فعلياً؟"
+    },
+    "answer": {
+      "en": "The ankle; the real knee is hidden up under the feathers.",
+      "ar": "الكاحل؛ أما الركبة الحقيقية فمخفية في الأعلى تحت الريش."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ani-56",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Animal Anatomy & Physiology",
+      "ar": "تشريح الحيوان ووظائف الأعضاء"
+    },
+    "question": {
+      "en": "Hippos ooze a reddish fluid that people once mistook for 'blood sweat'. What does it actually do?",
+      "ar": "فرس النهر يفرز سائل أحمر كانوا الناس يحسبونه «عرق دم». شو فايدته فعلاً؟"
+    },
+    "answer": {
+      "en": "It works as a natural sunscreen (and may help fight germs).",
+      "ar": "يعمل واقياً طبيعياً من الشمس (وقد يساعد على مقاومة الجراثيم)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ani-57",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Birds & Flight",
+      "ar": "الطيور والطيران"
+    },
+    "question": {
+      "en": "Which small bird can stay airborne for about 10 months without landing, feeding on insects in flight?",
+      "ar": "أي طير صغير يقدر يظل طاير حوالي 10 شهور بدون ما ينزل، وياكل الحشرات وهو طاير؟"
+    },
+    "answer": {
+      "en": "The common swift.",
+      "ar": "السمامة الشائعة (طائر السمامة)."
     },
     "review": {
       "status": "pending"

@@ -30,8 +30,8 @@
       "ar": "أي حضارة قديمة في بلاد الرافدين ينسب لها أقدم نظام كتابة معروف بالعالم؟"
     },
     "answer": {
-      "en": "The Sumerians, who developed cuneiform writing around 3200 BC.",
-      "ar": "السومريون، الذين طوّروا الكتابة المسمارية حول عام 3200 ق.م."
+      "en": "The Sumerians (cuneiform)",
+      "ar": "السومريون (الكتابة المسمارية)"
     },
     "review": {
       "status": "pending"
@@ -39,7 +39,7 @@
   },
   {
     "id": "me-hist-003",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Ancient",
       "ar": "عصور قديمة"
@@ -49,8 +49,8 @@
       "ar": "أي إمبراطورية قديمة كانت في بلاد فارس، ووقت قوتها امتدت من مصر للهند؟"
     },
     "answer": {
-      "en": "The Achaemenid (Persian) Empire, founded by Cyrus the Great in 550 BC.",
-      "ar": "الإمبراطورية الأخمينية (الفارسية)، التي أسّسها قورش الكبير عام 550 ق.م."
+      "en": "The Achaemenid (Persian) Empire",
+      "ar": "الإمبراطورية الأخمينية (الفارسية)"
     },
     "review": {
       "status": "pending"
@@ -68,8 +68,8 @@
       "ar": "بأي مدينة انولد النبي محمد صلى الله عليه وسلم؟"
     },
     "answer": {
-      "en": "Mecca (Makkah), in the Arabian Peninsula, around 570 CE.",
-      "ar": "مكة المكرمة، في شبه الجزيرة العربية، حوالي عام 570 م."
+      "en": "Mecca",
+      "ar": "مكة المكرمة"
     },
     "review": {
       "status": "pending"
@@ -87,8 +87,8 @@
       "ar": "بأي سنة هاجر النبي محمد من مكة للمدينة، وصارت بداية التقويم الهجري؟"
     },
     "answer": {
-      "en": "622 CE — the Hijra. The Islamic calendar (AH) is dated from this event.",
-      "ar": "عام 622 م — الهجرة. التقويم الإسلامي (هجري) يُؤرَّخ منذ هذا الحدث."
+      "en": "622 CE",
+      "ar": "622 م"
     },
     "review": {
       "status": "pending"
@@ -144,8 +144,8 @@
       "ar": "أي خلافة إجت بعد الأمويين سنة 750 م، وبعدين خلّت بغداد عاصمتها؟"
     },
     "answer": {
-      "en": "The Abbasid Caliphate. Its rule in Baghdad ended in 1258; Abbasid caliphs later held a largely ceremonial position in Cairo.",
-      "ar": "الخلافة العباسية. انتهى حكمها في بغداد عام 1258، وحمل خلفاء عباسيون اللقب لاحقاً في القاهرة بدور رمزي إلى حد كبير."
+      "en": "The Abbasid Caliphate",
+      "ar": "الخلافة العباسية"
     },
     "review": {
       "status": "pending"
@@ -191,18 +191,18 @@
   },
   {
     "id": "me-hist-011",
-    "difficulty": "easy",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Ottoman History",
       "ar": "التاريخ العثماني"
     },
     "question": {
-      "en": "What empire ruled much of the Middle East and North Africa for about 400 years until World War I?",
-      "ar": "شو الإمبراطورية اللي حكمت أغلب الشرق الأوسط وشمال إفريقيا حوالي 400 سنة لحد الحرب العالمية الأولى؟"
+      "en": "Which Ottoman sultan abolished the Janissary corps in 1826?",
+      "ar": "أي سلطان عثماني ألغى فرقة الإنكشارية سنة 1826؟"
     },
     "answer": {
-      "en": "The Ottoman Empire, centered in Constantinople (Istanbul).",
-      "ar": "الإمبراطورية العثمانية، التي تمركزت في القسطنطينية (إسطنبول)."
+      "en": "Mahmud II",
+      "ar": "محمود الثاني"
     },
     "review": {
       "status": "pending"
@@ -210,7 +210,7 @@
   },
   {
     "id": "me-hist-012",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Ottoman History",
       "ar": "التاريخ العثماني"
@@ -220,8 +220,8 @@
       "ar": "بأي سنة انعلنت الجمهورية التركية؟"
     },
     "answer": {
-      "en": "1923. The Ottoman sultanate had been abolished in 1922.",
-      "ar": "1923. وكانت السلطنة العثمانية قد أُلغيت عام 1922."
+      "en": "1923",
+      "ar": "1923"
     },
     "review": {
       "status": "pending"
@@ -239,8 +239,8 @@
       "ar": "شو الوثيقة اللي أصدرتها بريطانيا سنة 1917 وأعلنت فيها دعمها لوطن قومي يهودي في فلسطين؟"
     },
     "answer": {
-      "en": "The Balfour Declaration, issued by British Foreign Secretary Arthur Balfour on November 2, 1917.",
-      "ar": "وعد بلفور، الذي أصدره وزير الخارجية البريطاني آرثر بلفور في 2 نوفمبر 1917."
+      "en": "The Balfour Declaration",
+      "ar": "وعد بلفور"
     },
     "review": {
       "status": "pending"
@@ -258,8 +258,8 @@
       "ar": "بأي سنة انعلنت دولة إسرائيل؟"
     },
     "answer": {
-      "en": "1948 — declared on May 14, 1948, by David Ben-Gurion.",
-      "ar": "1948 — أُعلنت في 14 مايو 1948 على يد ديفيد بن غوريون."
+      "en": "1948",
+      "ar": "1948"
     },
     "review": {
       "status": "pending"
@@ -296,8 +296,8 @@
       "ar": "شو الاسم الشائع لموجة الاحتجاجات والانتفاضات اللي بدأت بتونس آخر 2010 وانتشرت بكذا دولة عربية؟"
     },
     "answer": {
-      "en": "The Arab Spring. Causes, responses and outcomes differed by country.",
-      "ar": "الربيع العربي. وقد اختلفت الأسباب والاستجابات والنتائج من بلد إلى آخر."
+      "en": "The Arab Spring",
+      "ar": "الربيع العربي"
     },
     "review": {
       "status": "pending"
@@ -315,8 +315,8 @@
       "ar": "بأي سنة غزا العراق الكويت وبدأت حرب الخليج؟"
     },
     "answer": {
-      "en": "1990 — Iraq invaded Kuwait on August 2, 1990. The US-led coalition liberated Kuwait in early 1991.",
-      "ar": "1990 — غزا العراق الكويت في 2 أغسطس 1990. حرّر التحالف بقيادة الولايات المتحدة الكويت في مطلع 1991."
+      "en": "1990",
+      "ar": "1990"
     },
     "review": {
       "status": "pending"
@@ -324,7 +324,7 @@
   },
   {
     "id": "me-hist-018",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Islamic History",
       "ar": "التاريخ الإسلامي"
@@ -353,8 +353,8 @@
       "ar": "أي دولة غزتها أمريكا مع تحالف دولي سنة 2003 وأسقطت حكومتها؟"
     },
     "answer": {
-      "en": "Iraq — the 2003 invasion led to the fall of Saddam Hussein's government.",
-      "ar": "العراق — أدى الغزو عام 2003 إلى سقوط حكومة صدام حسين."
+      "en": "Iraq",
+      "ar": "العراق"
     },
     "review": {
       "status": "pending"
@@ -362,7 +362,7 @@
   },
   {
     "id": "me-hist-020",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Modern History",
       "ar": "التاريخ الحديث"
@@ -372,8 +372,8 @@
       "ar": "بأي سنة وقّعت مصر وإسرائيل معاهدة السلام التاريخية؟"
     },
     "answer": {
-      "en": "1979 — the Egypt-Israel Peace Treaty was signed on March 26, 1979, making Egypt the first Arab country to formally recognize Israel.",
-      "ar": "1979 — وُقِّعت معاهدة السلام المصرية الإسرائيلية في 26 مارس 1979، مما جعل مصر أول دولة عربية تعترف رسميًا بإسرائيل."
+      "en": "1979",
+      "ar": "1979"
     },
     "review": {
       "status": "pending"
@@ -387,12 +387,12 @@
       "ar": "عصور قديمة"
     },
     "question": {
-      "en": "At which battle in 490 BCE did Athenian forces and their allies defeat a Persian invasion force?",
-      "ar": "بأي معركة سنة 490 ق.م انتصر الأثينيون وحلفاؤهم على جيش فارسي غازي؟"
+      "en": "Which 3rd-century queen of Palmyra rebelled against Rome and took control of Egypt?",
+      "ar": "أي ملكة من تدمر بالقرن الثالث تمرّدت على روما وسيطرت على مصر؟"
     },
     "answer": {
-      "en": "The Battle of Marathon.",
-      "ar": "معركة ماراثون."
+      "en": "Zenobia",
+      "ar": "زنوبيا"
     },
     "review": {
       "status": "pending"
@@ -448,8 +448,8 @@
       "ar": "شو القوتين اللي تفاوضوا على اتفاقية سايكس–بيكو سنة 1916؟"
     },
     "answer": {
-      "en": "Britain and France. The proposed zones of control and influence did not simply become today's national borders.",
-      "ar": "بريطانيا وفرنسا. ولم تتحول مناطق السيطرة والنفوذ المقترحة ببساطة إلى الحدود الوطنية الحالية."
+      "en": "Britain and France",
+      "ar": "بريطانيا وفرنسا"
     },
     "review": {
       "status": "pending"
@@ -704,7 +704,7 @@
   },
   {
     "id": "me-hist-038",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Modern History",
       "ar": "التاريخ الحديث"
@@ -761,7 +761,7 @@
   },
   {
     "id": "me-hist-041",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Modern History",
       "ar": "التاريخ الحديث"
@@ -771,8 +771,8 @@
       "ar": "حسب إطار أوسلو الثانية، شو الحروف اللي تسمّي المناطق الإدارية الثلاث في الضفة الغربية؟"
     },
     "answer": {
-      "en": "Areas A, B and C. The framework assigned different civil and security responsibilities to each.",
-      "ar": "المناطق أ، وب، وج. وقد وزّع الإطار المسؤوليات المدنية والأمنية على نحو مختلف بينها."
+      "en": "Areas A, B and C",
+      "ar": "المناطق (أ) و(ب) و(ج)"
     },
     "review": {
       "status": "pending"
@@ -805,12 +805,12 @@
       "ar": "عصور قديمة"
     },
     "question": {
-      "en": "What was the Phoenician civilization known for?",
-      "ar": "بشو اشتهرت الحضارة الفينيقية؟"
+      "en": "Which ancient Phoenician city was so famous for its costly purple dye, made from sea snails, that the dye was named after it?",
+      "ar": "أي مدينة فينيقية قديمة اشتهرت بصبغة أرجوانية غالية تنصنع من الحلزون البحري، لدرجة إن الصبغة صارت تنسب لها؟"
     },
     "answer": {
-      "en": "The Phoenicians, based in the eastern Mediterranean (modern Lebanon), were master traders and seafarers who established colonies across the Mediterranean including Carthage. Most significantly, they developed an early alphabet that became the ancestor of most modern alphabets including Arabic, Greek, Latin, and Hebrew.",
-      "ar": "الفينيقيون، الذين كانوا مستقرّين في شرق البحر المتوسط (لبنان الحديث)، كانوا تجارًا وبحارة بارعين أسّسوا مستعمرات عبر البحر المتوسط بما فيها قرطاج. الأهم أنهم طوّروا أبجدية مبكرة أصبحت أصل معظم الأبجديات الحديثة بما فيها العربية واليونانية واللاتينية والعبرية."
+      "en": "Tyre",
+      "ar": "صور"
     },
     "review": {
       "status": "pending"
@@ -818,7 +818,7 @@
   },
   {
     "id": "me-hist-044",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Modern History",
       "ar": "التاريخ الحديث"
@@ -885,8 +885,8 @@
       "ar": "شو المصطلح العثماني للطوائف الدينية المعترف فيها اللي لها قيادتها الخاصة؟"
     },
     "answer": {
-      "en": "Millet (plural: millets). Their institutions and degree of autonomy varied over time.",
-      "ar": "الملّة، وجمعها الملل. وقد اختلفت مؤسساتها ودرجة استقلالها باختلاف العصور."
+      "en": "Millet",
+      "ar": "الملّة"
     },
     "review": {
       "status": "pending"
@@ -900,12 +900,12 @@
       "ar": "التاريخ الحديث"
     },
     "question": {
-      "en": "What is an oil embargo?",
-      "ar": "شو هو «الحظر النفطي»؟"
+      "en": "During the 1973 war, Arab oil producers halted oil exports to the United States and some other countries. What is such a ban called?",
+      "ar": "خلال حرب 1973، وقّفت الدول العربية المنتجة للنفط تصديره لأمريكا ودول ثانية. شو اسم هالإجراء؟"
     },
     "answer": {
-      "en": "A restriction on oil sales or shipments to specified countries, often used to exert political or economic pressure.",
-      "ar": "تقييد بيع النفط أو شحنه إلى دول محددة، ويُستخدم غالباً لممارسة ضغط سياسي أو اقتصادي."
+      "en": "An oil embargo",
+      "ar": "الحظر النفطي"
     },
     "review": {
       "status": "pending"
@@ -934,16 +934,206 @@
     "id": "me-hist-050",
     "difficulty": "medium",
     "subcategory": {
+      "en": "Islamic History",
+      "ar": "التاريخ الإسلامي"
+    },
+    "question": {
+      "en": "Which caliph founded the Round City of Baghdad in 762 CE?",
+      "ar": "أي خليفة أسّس مدينة بغداد المدوّرة سنة 762 م؟"
+    },
+    "answer": {
+      "en": "Abu Ja'far al-Mansur",
+      "ar": "أبو جعفر المنصور"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "me-hist-051",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Ottoman History",
+      "ar": "التاريخ العثماني"
+    },
+    "question": {
+      "en": "Which Ottoman commander took power in Egypt in 1805 and founded a dynasty that ruled until 1952?",
+      "ar": "أي قائد عثماني استلم حكم مصر سنة 1805 وأسّس أسرة حكمت لحد سنة 1952؟"
+    },
+    "answer": {
+      "en": "Muhammad Ali Pasha",
+      "ar": "محمد علي باشا"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "me-hist-052",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Islamic History",
+      "ar": "التاريخ الإسلامي"
+    },
+    "question": {
+      "en": "Which woman founded the al-Qarawiyyin mosque and centre of learning in Fez in 859?",
+      "ar": "مين المرأة اللي أسّست جامع القرويين ومركز العلم اللي فيه بفاس سنة 859؟"
+    },
+    "answer": {
+      "en": "Fatima al-Fihri",
+      "ar": "فاطمة الفهرية"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "me-hist-053",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Islamic History",
+      "ar": "التاريخ الإسلامي"
+    },
+    "question": {
+      "en": "Which woman ruled Egypt as sultan in 1250, as Ayyubid rule gave way to the Mamluks?",
+      "ar": "مين المرأة اللي حكمت مصر كسلطانة سنة 1250، وقت انتقال الحكم من الأيوبيين للمماليك؟"
+    },
+    "answer": {
+      "en": "Shajar al-Durr",
+      "ar": "شجرة الدر"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "me-hist-054",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Islamic History",
+      "ar": "التاريخ الإسلامي"
+    },
+    "question": {
+      "en": "Which Iraqi city on the Tigris, north of Baghdad, was the caliphs' capital for most of the 9th century (836–892)?",
+      "ar": "أي مدينة عراقية على نهر دجلة شمال بغداد كانت عاصمة الخلفاء معظم القرن التاسع الميلادي (836–892)؟"
+    },
+    "answer": {
+      "en": "Samarra",
+      "ar": "سامراء"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "me-hist-055",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Islamic History",
+      "ar": "التاريخ الإسلامي"
+    },
+    "question": {
+      "en": "Which Berber dynasty founded the city of Marrakesh in the 11th century?",
+      "ar": "أي سلالة أمازيغية أسّست مدينة مراكش بالقرن الحادي عشر؟"
+    },
+    "answer": {
+      "en": "The Almoravids",
+      "ar": "المرابطون"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "me-hist-056",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Ottoman History",
+      "ar": "التاريخ العثماني"
+    },
+    "question": {
+      "en": "Which Ottoman sultan took Egypt from the Mamluks in 1517?",
+      "ar": "أي سلطان عثماني أخذ مصر من المماليك سنة 1517؟"
+    },
+    "answer": {
+      "en": "Selim I",
+      "ar": "سليم الأول"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "me-hist-057",
+    "difficulty": "very-advanced",
+    "subcategory": {
       "en": "Modern History",
       "ar": "التاريخ الحديث"
     },
     "question": {
-      "en": "In which country did President Zine El Abidine Ben Ali leave power in January 2011 following mass protests?",
-      "ar": "بأي دولة ترك الرئيس زين العابدين بن علي الحكم في يناير 2011 بعد احتجاجات واسعة؟"
+      "en": "Who became Egypt's first president when the republic was declared in 1953?",
+      "ar": "مين صار أول رئيس لمصر لما انعلنت الجمهورية سنة 1953؟"
     },
     "answer": {
-      "en": "Tunisia.",
-      "ar": "تونس."
+      "en": "Mohamed Naguib",
+      "ar": "محمد نجيب"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "me-hist-058",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Modern History",
+      "ar": "التاريخ الحديث"
+    },
+    "question": {
+      "en": "Which emirate was the last to join the United Arab Emirates, in February 1972?",
+      "ar": "أي إمارة كانت آخر وحدة تنضم لدولة الإمارات، في فبراير 1972؟"
+    },
+    "answer": {
+      "en": "Ras Al Khaimah",
+      "ar": "رأس الخيمة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "me-hist-059",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Modern History",
+      "ar": "التاريخ الحديث"
+    },
+    "question": {
+      "en": "Which son of Sharif Hussein of Mecca became the first king of modern Iraq in 1921?",
+      "ar": "أي ابن من أبناء الشريف حسين صار أول ملك للعراق الحديث سنة 1921؟"
+    },
+    "answer": {
+      "en": "Faisal I",
+      "ar": "فيصل الأول"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "me-hist-060",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Islamic History",
+      "ar": "التاريخ الإسلامي"
+    },
+    "question": {
+      "en": "Nicknamed 'Saqr Quraysh' (the Falcon of Quraysh), which prince escaped from Syria and in 756 founded an independent emirate in al-Andalus?",
+      "ar": "أي أمير لُقّب بـ«صقر قريش»، فرّ من الشام وأسّس سنة 756م إمارة مستقلة في الأندلس؟"
+    },
+    "answer": {
+      "en": "Abd al-Rahman I (al-Dakhil)",
+      "ar": "عبد الرحمن الداخل (عبد الرحمن الأول)"
     },
     "review": {
       "status": "pending"

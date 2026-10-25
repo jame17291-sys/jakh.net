@@ -100,14 +100,14 @@ test("artifact quarantine derives held asset names and directories from the mani
   assert.equal(isQuarantinedArtifactPath("ar/topics/future-held.html", future), true);
 });
 
-test("public catalog, card index, and search projections expose exactly 48 categories and 3,704 cards", () => {
+test("public catalog, card index, and search projections expose exactly 48 categories and 3,286 cards", () => {
   const quarantine = loadProductionQuarantine(root);
   const fullCatalog = readJson("data/catalog.json");
   const publicCatalog = publicCatalogProjection(fullCatalog, quarantine);
   assert.equal(fullCatalog.categories.length, 53, "editorial category source changed");
-  assert.equal(fullCatalog.site.totalQuestions, 3_982, "editorial card source changed");
+  assert.equal(fullCatalog.site.totalQuestions, 3_564, "editorial card source changed");
   assert.equal(publicCatalog.categories.length, 48);
-  assert.equal(publicCatalog.site.totalQuestions, 3_704);
+  assert.equal(publicCatalog.site.totalQuestions, 3_286);
   assert.equal(publicCatalog.site.publication, undefined);
   assert.ok(publicCatalog.categories.every((category) => !Object.hasOwn(category, "reviewedQuestionCount")));
   for (const category of publicCatalog.categories) {
@@ -129,11 +129,11 @@ test("public catalog, card index, and search projections expose exactly 48 categ
     },
   ]));
   assert.deepEqual(sectionTotals, new Map([
-    ["mind", { topics: 8, questions: 479 }],
-    ["science", { topics: 8, questions: 692 }],
-    ["tech", { topics: 9, questions: 420 }],
-    ["world", { topics: 11, questions: 569 }],
-    ["culture", { topics: 12, questions: 1_544 }],
+    ["mind", { topics: 8, questions: 432 }],
+    ["science", { topics: 8, questions: 650 }],
+    ["tech", { topics: 9, questions: 400 }],
+    ["world", { topics: 11, questions: 609 }],
+    ["culture", { topics: 12, questions: 1_195 }],
   ]));
   assert.doesNotMatch(publicCatalog.sections.find(({ key }) => key === "science").description.en, /medicine|pharmacy/iu);
   assert.doesNotMatch(publicCatalog.sections.find(({ key }) => key === "world").description.en, /\blaw\b/iu);
@@ -145,15 +145,15 @@ test("public catalog, card index, and search projections expose exactly 48 categ
   assert.ok(publicCards.every((card) => !Object.hasOwn(card, "review")), "public cards omit review metadata");
 
   const publicIndex = publicCardIndexProjection(readJson("data/card-index.json"), quarantine);
-  assert.equal(Object.keys(publicIndex).length, 3_704);
+  assert.equal(Object.keys(publicIndex).length, 3_286);
   for (const cardId of quarantine.cardIds) assert.equal(publicIndex[cardId], undefined, cardId);
 
   const search = publicSearchArtifacts({ catalog: fullCatalog, root, quarantine });
   for (const language of ["en", "ar"]) {
     const shard = JSON.parse(search.get(`data/search-index.${language}.json`));
-    assert.equal(shard.total, 3_704);
+    assert.equal(shard.total, 3_286);
     assert.equal(shard.categories.length, 48);
-    assert.equal(shard.cards.length, 3_704);
+    assert.equal(shard.cards.length, 3_286);
     assert.equal(shard.cards.some((row) => quarantine.cardIds.has(row[1])), false);
   }
 });

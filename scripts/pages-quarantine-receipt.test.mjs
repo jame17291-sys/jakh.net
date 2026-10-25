@@ -27,8 +27,8 @@ function manifest() {
     publication: {
       state: "safety-quarantine-active",
       policySha256: API_RELEASE_CONTRACT.contentPublication.manifestSha256,
-      fullQuestions: 3_982,
-      publicQuestions: 3_704,
+      fullQuestions: 3_564,
+      publicQuestions: 3_286,
       quarantinedQuestions: 278,
       publicCategories: 48,
       quarantinedCategories: [...API_RELEASE_CONTRACT.contentPublication.quarantinedCategories],

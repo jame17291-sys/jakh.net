@@ -76,25 +76,6 @@
     }
   },
   {
-    "id": "biology-005",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Human Anatomy & Physiology",
-      "ar": "تشريح ووظائف جسم الإنسان"
-    },
-    "question": {
-      "en": "Which human organ is responsible for pumping blood throughout the body?",
-      "ar": "أي عضو بجسم الإنسان يضخ الدم للجسم؟"
-    },
-    "answer": {
-      "en": "The heart",
-      "ar": "القلب"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "biology-006",
     "difficulty": "easy",
     "subcategory": {
@@ -419,7 +400,7 @@
   },
   {
     "id": "biology-023",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Cells & Metabolism",
       "ar": "الخلايا والأيض"
@@ -646,44 +627,6 @@
     }
   },
   {
-    "id": "biology-036",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Genetics & Molecular Biology",
-      "ar": "الوراثة والأحياء الجزيئية"
-    },
-    "question": {
-      "en": "What are the two types of nucleic acids in cells?",
-      "ar": "شو النوعين من الأحماض النووية في الخلايا؟"
-    },
-    "answer": {
-      "en": "DNA and RNA",
-      "ar": "الحمض النووي DNA والحمض النووي الريبوزي RNA"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "biology-038",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Human Anatomy & Physiology",
-      "ar": "تشريح ووظائف جسم الإنسان"
-    },
-    "question": {
-      "en": "What is the function of the lungs?",
-      "ar": "شو شغلة الرئتين؟"
-    },
-    "answer": {
-      "en": "Gas exchange — breathing in oxygen and expelling carbon dioxide",
-      "ar": "تبادل الغازات — استنشاق الأكسجين وطرح ثاني أكسيد الكربون"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "biology-039",
     "difficulty": "easy",
     "subcategory": {
@@ -725,16 +668,16 @@
     "id": "biology-041",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Animals & Classification",
-      "ar": "الحيوانات والتصنيف"
+      "en": "Plant Biology",
+      "ar": "علم النبات"
     },
     "question": {
-      "en": "What English collective noun is traditionally used for a group of lions?",
-      "ar": "شو الاسم الجماعي الإنجليزي التقليدي لمجموعة أسود؟"
+      "en": "Botanically speaking, is a tomato a fruit or a vegetable?",
+      "ar": "من ناحية علم النبات، الطماطم ثمرة ولا خضار؟"
     },
     "answer": {
-      "en": "A pride.",
-      "ar": "Pride، ويعني هنا مجموعة أسود، لا معنى الكلمة الآخر وهو الفخر."
+      "en": "A fruit: it develops from the flower's ovary and holds the seeds.",
+      "ar": "ثمرة؛ لأنها تتكوّن من مبيض الزهرة وتحمل البذور."
     },
     "review": {
       "status": "pending"
@@ -786,12 +729,12 @@
       "ar": "الخلايا والأيض"
     },
     "question": {
-      "en": "What do we call organisms made of a single cell?",
-      "ar": "شو نسمّي الكائنات اللي جسمها خلية وحدة؟"
+      "en": "True or false: plant cells have mitochondria as well as chloroplasts.",
+      "ar": "صح ولا غلط: الخلايا النباتية فيها ميتوكوندريا، مش بس بلاستيدات خضراء."
     },
     "answer": {
-      "en": "Unicellular organisms",
-      "ar": "الكائنات وحيدة الخلية"
+      "en": "True. Plants make sugar by photosynthesis, then release its energy by respiration in their mitochondria.",
+      "ar": "صحيح. يصنع النبات السكر بالبناء الضوئي، ثم يطلق طاقته بالتنفس داخل الميتوكوندريا."
     },
     "review": {
       "status": "pending"
@@ -836,27 +779,8 @@
     }
   },
   {
-    "id": "biology-048",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Microbiology & Immunity",
-      "ar": "الأحياء الدقيقة والمناعة"
-    },
-    "question": {
-      "en": "What is the role of white blood cells?",
-      "ar": "شو دور كريات الدم البيضا؟"
-    },
-    "answer": {
-      "en": "Fighting infection and disease as part of the immune system",
-      "ar": "مكافحة العدوى والأمراض كجزء من الجهاز المناعي"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "biology-049",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Evolution",
       "ar": "التطور"
@@ -875,18 +799,18 @@
   },
   {
     "id": "biology-050",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Ecology",
       "ar": "علم البيئة"
     },
     "question": {
-      "en": "What is a food chain?",
-      "ar": "شو هي «السلسلة الغذائية»؟"
+      "en": "In the food chain grass → gazelle → cheetah, what role does the grass play?",
+      "ar": "بالسلسلة الغذائية: عشب ← غزال ← فهد، شو دور العشب؟"
     },
     "answer": {
-      "en": "A sequence showing the transfer of energy from one organism to another through feeding",
-      "ar": "سلسلة تُظهر انتقال الطاقة من كائن إلى آخر عبر التغذية"
+      "en": "Producer: it makes its own food from sunlight.",
+      "ar": "مُنتِج؛ يصنع غذاءه بنفسه من ضوء الشمس."
     },
     "review": {
       "status": "pending"
@@ -894,7 +818,7 @@
   },
   {
     "id": "biology-051",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Genetics & Molecular Biology",
       "ar": "الوراثة والأحياء الجزيئية"
@@ -913,7 +837,7 @@
   },
   {
     "id": "biology-052",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Cells & Metabolism",
       "ar": "الخلايا والأيض"
@@ -932,7 +856,7 @@
   },
   {
     "id": "biology-053",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Human Anatomy & Physiology",
       "ar": "تشريح ووظائف جسم الإنسان"
@@ -976,12 +900,12 @@
       "ar": "علم البيئة"
     },
     "question": {
-      "en": "What is symbiosis?",
-      "ar": "شو هو «التكافل»؟"
+      "en": "Cattle egrets follow grazing cows to snap up the insects the cows stir up, while the cows are not affected. What is this kind of relationship called?",
+      "ar": "طيور أبو قردان (بلشون الماشية) تمشي ورا البقر وهو يرعى وتصطاد الحشرات اللي يطيّرها، والبقر ما يتأثر. شو اسم هالعلاقة؟"
     },
     "answer": {
-      "en": "A close interaction between two different organisms living together",
-      "ar": "علاقة وثيقة بين كائنَين مختلفَين يعيشان معاً"
+      "en": "Commensalism: one species benefits and the other is largely unaffected.",
+      "ar": "التعايش (المعايشة): طرف يستفيد والطرف الآخر لا يتأثر تقريباً."
     },
     "review": {
       "status": "pending"
@@ -1001,25 +925,6 @@
     "answer": {
       "en": "Regulating blood glucose levels — allowing cells to take up glucose",
       "ar": "تنظيم مستويات الجلوكوز في الدم — إتاحة امتصاص الخلايا للجلوكوز"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "biology-058",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Cells & Metabolism",
-      "ar": "الخلايا والأيض"
-    },
-    "question": {
-      "en": "What is the function of the cell membrane?",
-      "ar": "شو وظيفة غشاء الخلية؟"
-    },
-    "answer": {
-      "en": "To control what enters and exits the cell",
-      "ar": "التحكّم فيما يدخل الخلية ويخرج منها"
     },
     "review": {
       "status": "pending"
@@ -1052,12 +957,12 @@
       "ar": "التطور"
     },
     "question": {
-      "en": "What is convergent evolution?",
-      "ar": "شو هو «التطور التقاربي»؟"
+      "en": "Bats and birds evolved wings separately, not from a winged common ancestor. What is this pattern called?",
+      "ar": "الخفافيش والطيور طوّرت أجنحتها كل وحدة لحالها، مش من جدّ مشترك كان عنده أجنحة. شو اسم هالنمط؟"
     },
     "answer": {
-      "en": "The independent evolution of similar traits in distantly related lineages facing similar selective pressures.",
-      "ar": "تطور صفات متشابهة بصورة مستقلة في سلالات بعيدة القرابة تواجه ضغوطاً انتقائية متشابهة."
+      "en": "Convergent evolution.",
+      "ar": "التطور التقاربي."
     },
     "review": {
       "status": "pending"
@@ -1065,7 +970,7 @@
   },
   {
     "id": "biology-061",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Genetics & Molecular Biology",
       "ar": "الوراثة والأحياء الجزيئية"
@@ -1077,44 +982,6 @@
     "answer": {
       "en": "It carries the genetic code from DNA in the nucleus to the ribosome for translation",
       "ar": "ينقل الشفرة الوراثية من الحمض النووي في النواة إلى الريبوسوم للترجمة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "biology-062",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Cells & Metabolism",
-      "ar": "الخلايا والأيض"
-    },
-    "question": {
-      "en": "What is the main function of tight junctions between epithelial cells?",
-      "ar": "شو الوظيفة الأساسية لـ«الوصلات المحكمة» بين الخلايا الطلائية؟"
-    },
-    "answer": {
-      "en": "They seal the space between neighboring cells, limiting paracellular movement and helping maintain distinct membrane domains.",
-      "ar": "تغلق الفراغ بين الخلايا المتجاورة فتحد من المرور بينها، وتساعد على الحفاظ على نطاقات غشائية متميزة."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "biology-063",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Ecology",
-      "ar": "علم البيئة"
-    },
-    "question": {
-      "en": "What is the difference between an ecosystem and a biome?",
-      "ar": "شو الفرق بين النظام البيئي والبيوم؟"
-    },
-    "answer": {
-      "en": "An ecosystem includes organisms, their nonliving environment, and their interactions. A biome is a broad ecological region characterized by climate and typical vegetation or communities.",
-      "ar": "يشمل النظام البيئي الكائنات وبيئتها غير الحية والتفاعلات بينها. أما الإقليم الحيوي فهو نطاق بيئي واسع يتميز بمناخه ونباتاته أو مجتمعاته النموذجية."
     },
     "review": {
       "status": "pending"
@@ -1197,27 +1064,8 @@
     }
   },
   {
-    "id": "biology-068",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Plant Biology",
-      "ar": "علم النبات"
-    },
-    "question": {
-      "en": "What three-carbon sugar phosphate is the net carbohydrate product exported from the Calvin cycle?",
-      "ar": "شو السكّر الفوسفاتي ثلاثي الكربون اللي يكون الناتج الصافي من الكربوهيدرات اللي يطلع من دورة كالفن؟"
-    },
-    "answer": {
-      "en": "Glyceraldehyde 3-phosphate (G3P), which can be used to build glucose and other carbohydrates.",
-      "ar": "غليسرألدهيد 3-فوسفات (G3P)، ويمكن استخدامه لبناء الجلوكوز وكربوهيدرات أخرى."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "biology-069",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Cells & Metabolism",
       "ar": "الخلايا والأيض"
@@ -1229,25 +1077,6 @@
     "answer": {
       "en": "Apoptosis involves controlled cell dismantling with membrane-bound fragments. Necrosis typically involves swelling and membrane rupture. Some necrotic pathways are also regulated.",
       "ar": "تتضمن الاستماتة تفكيكاً منظماً للخلية إلى أجزاء محاطة بأغشية. ويتضمن النخر عادةً تورماً وتمزق الغشاء. وبعض مسارات النخر منظمة أيضاً."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "biology-070",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Ecology",
-      "ar": "علم البيئة"
-    },
-    "question": {
-      "en": "What is the nitrogen cycle?",
-      "ar": "شو هي «دورة النيتروجين»؟"
-    },
-    "answer": {
-      "en": "The biogeochemical cycle by which nitrogen is converted between its various chemical forms in ecosystems",
-      "ar": "الدورة الجيوكيميائية الحيوية التي يتحوّل فيها النيتروجين بين أشكاله الكيميائية المختلفة في النظم البيئية"
     },
     "review": {
       "status": "pending"
@@ -1292,25 +1121,6 @@
     }
   },
   {
-    "id": "biology-073",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Evolution",
-      "ar": "التطور"
-    },
-    "question": {
-      "en": "What is allopatric speciation?",
-      "ar": "شو هو «الانتواع بالتباعد الجغرافي»؟"
-    },
-    "answer": {
-      "en": "The evolution of reproductive isolation between populations separated by a geographic barrier that restricts gene flow.",
-      "ar": "تطور عزل تكاثري بين جماعات تفصلها حواجز جغرافية تحد من تدفق الجينات بينها."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "biology-074",
     "difficulty": "hard",
     "subcategory": {
@@ -1331,7 +1141,7 @@
   },
   {
     "id": "biology-075",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Cells & Metabolism",
       "ar": "الخلايا والأيض"
@@ -1362,25 +1172,6 @@
     "answer": {
       "en": "Different exons are combined from a single pre-mRNA, allowing one gene to code for multiple proteins",
       "ar": "يُجمع بين إكسونات مختلفة من mRNA أولي واحد، مما يتيح لجين واحد ترميز بروتينات متعددة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "biology-077",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Cells & Metabolism",
-      "ar": "الخلايا والأيض"
-    },
-    "question": {
-      "en": "What is the unfolded protein response (UPR)?",
-      "ar": "شو هي «استجابة البروتين غير المطوي» (UPR)؟"
-    },
-    "answer": {
-      "en": "A cellular stress response to the accumulation of unfolded proteins in the endoplasmic reticulum",
-      "ar": "استجابة إجهاد خلوي لتراكم البروتينات غير المطوية في الشبكة الإندوبلازمية"
     },
     "review": {
       "status": "pending"
@@ -1482,25 +1273,6 @@
     }
   },
   {
-    "id": "biology-083",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Microbiology & Immunity",
-      "ar": "الأحياء الدقيقة والمناعة"
-    },
-    "question": {
-      "en": "What are Toll-like receptors (TLRs)?",
-      "ar": "شو هي «مستقبلات Toll» (TLRs)؟"
-    },
-    "answer": {
-      "en": "Pattern recognition receptors of the innate immune system that detect pathogen-associated molecular patterns",
-      "ar": "مستقبلات تعرّف الأنماط في الجهاز المناعي الفطري التي تكتشف الأنماط الجزيئية المرتبطة بمسبّبات الأمراض"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "biology-084",
     "difficulty": "very-advanced",
     "subcategory": {
@@ -1521,7 +1293,7 @@
   },
   {
     "id": "biology-085",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Plant Biology",
       "ar": "علم النبات"
@@ -1751,16 +1523,16 @@
     "id": "biology-097",
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Cells & Metabolism",
-      "ar": "الخلايا والأيض"
+      "en": "Microbiology & Immunity",
+      "ar": "الأحياء الدقيقة والمناعة"
     },
     "question": {
-      "en": "What is anoikis?",
-      "ar": "شو هو «الأنويكيس»؟"
+      "en": "Roughly how does the number of bacterial cells living in and on your body compare with the number of your own human cells?",
+      "ar": "تقريباً، كيف يقارن عدد خلايا البكتيريا اللي عايشة بجسمك وعليه بعدد خلاياك البشرية؟"
     },
     "answer": {
-      "en": "A form of apoptosis triggered when cells detach from the extracellular matrix — a barrier against tumour metastasis",
-      "ar": "شكل من أشكال الاستماتة يُطلَق عندما تنفصل الخلايا عن المصفوفة خارج الخلوية — حاجز ضد انبثاث الأورام"
+      "en": "About the same: roughly 38 trillion bacteria to 30 trillion human cells, not the old '10 to 1' myth.",
+      "ar": "متقاربان تقريباً: نحو 38 تريليون خلية بكتيرية مقابل 30 تريليون خلية بشرية، وليس «عشرة إلى واحد» كما تقول الخرافة القديمة."
     },
     "review": {
       "status": "pending"
@@ -1780,25 +1552,6 @@
     "answer": {
       "en": "Species must constantly evolve not to gain advantage but merely to keep up with co-evolving competitors and pathogens",
       "ar": "يجب على الأنواع التطور باستمرار ليس للحصول على ميزة بل فقط لمواكبة المنافسين ومسبّبات الأمراض المتطورة باستمرار"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "biology-099",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Genetics & Molecular Biology",
-      "ar": "الوراثة والأحياء الجزيئية"
-    },
-    "question": {
-      "en": "What are long non-coding RNAs (lncRNAs)?",
-      "ar": "شو هو «RNA الطويل غير المرمّز» (lncRNA)؟"
-    },
-    "answer": {
-      "en": "RNA transcripts longer than about 200 nucleotides that do not encode proteins. Many have regulatory roles, but not every identified lncRNA has a known function.",
-      "ar": "نسخ RNA يزيد طولها على نحو 200 نيوكليوتيد ولا ترمز بروتينات. لكثير منها أدوار تنظيمية، لكن وظيفة كل lncRNA مكتشف ليست معروفة بالضرورة."
     },
     "review": {
       "status": "pending"
@@ -1825,7 +1578,7 @@
   },
   {
     "id": "physical-and-life-sciences-002",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Microbiology & Immunity",
       "ar": "الأحياء الدقيقة والمناعة"
@@ -1911,8 +1664,8 @@
       "ar": "إذا بدأنا بخلية ثنائية الصبغيات، كيف يختلف عدد الصبغيات المعتاد بين نواتج الانقسام المتساوي والانقسام الاختزالي؟"
     },
     "answer": {
-      "en": "Mitosis preserves diploidy; meiosis halves the chromosome number to produce haploid products. Not all meiotic products necessarily become functional gametes.",
-      "ar": "يحافظ الانقسام المتساوي على الصيغة الثنائية، بينما يخفض الانقسام الاختزالي عدد الكروموسومات إلى النصف لينتج خلايا أحادية الصيغة. ولا تتحول جميع نواتجه بالضرورة إلى أمشاج وظيفية."
+      "en": "Mitosis keeps the diploid number; meiosis halves it, giving haploid cells.",
+      "ar": "الانقسام المتساوي يحافظ على العدد الثنائي، والانقسام الاختزالي يخفضه إلى النصف فينتج خلايا أحادية الصيغة."
     },
     "review": {
       "status": "pending"
@@ -1995,63 +1748,6 @@
     }
   },
   {
-    "id": "science-050",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Cells & Metabolism",
-      "ar": "الخلايا والأيض"
-    },
-    "question": {
-      "en": "During which stage of mitosis do chromosomes line up at the cell's equator?",
-      "ar": "بأي مرحلة من الانقسام المتساوي تصطف الكروموسومات على خط استواء الخلية؟"
-    },
-    "answer": {
-      "en": "Metaphase.",
-      "ar": "الطور الاستوائي."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-059",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Cells & Metabolism",
-      "ar": "الخلايا والأيض"
-    },
-    "question": {
-      "en": "What is the role of a chromosome's centromere during cell division?",
-      "ar": "خلال انقسام الخلية، شو دور «السنترومير» بالكروموسوم؟"
-    },
-    "answer": {
-      "en": "It holds sister chromatids together and forms the region where the kinetochore assembles for spindle attachment.",
-      "ar": "يبقي الكروماتيدين الشقيقين متصلين، ويكوّن منطقة تجمّع الكينيتوكور لارتباط خيوط المغزل."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-062",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Evolution",
-      "ar": "التطور"
-    },
-    "question": {
-      "en": "What is the Hardy-Weinberg equilibrium used for?",
-      "ar": "ليش نستخدم «توازن هاردي-واينبرغ»؟"
-    },
-    "answer": {
-      "en": "It provides a non-evolving reference model: allele frequencies remain constant, and expected genotype frequencies can be calculated from them under the model's assumptions.",
-      "ar": "يوفر نموذجاً مرجعياً لجماعة لا تتطور: تبقى تكرارات الأليلات ثابتة، ويمكن حساب تكرارات الأنماط الجينية المتوقعة منها وفق افتراضات النموذج."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "science-065",
     "difficulty": "hard",
     "subcategory": {
@@ -2059,12 +1755,12 @@
       "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
-      "en": "Which enzyme separates the two DNA strands at the replication fork?",
-      "ar": "أي إنزيم يفصل شريطَي DNA عند شوكة التضاعف؟"
+      "en": "Which enzyme unzips the two strands of DNA at the replication fork?",
+      "ar": "أي إنزيم يفكّ شريطَي DNA عن بعض عند شوكة التضاعف؟"
     },
     "answer": {
-      "en": "Helicase",
-      "ar": "الهيليكاز"
+      "en": "Helicase.",
+      "ar": "الهيليكاز."
     },
     "review": {
       "status": "pending"
@@ -2078,12 +1774,12 @@
       "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
-      "en": "What is the function of the hypothalamus in the brain?",
-      "ar": "شو وظيفة «تحت المهاد» (الهايبوثالاموس) بالدماغ؟"
+      "en": "Which small region at the base of the brain works as the body's thermostat and also controls hunger and thirst?",
+      "ar": "أي منطقة صغيرة بقاعدة الدماغ تشتغل كأنها «ترموستات» الجسم، وكمان تتحكّم بالجوع والعطش؟"
     },
     "answer": {
-      "en": "Regulates body temperature, hunger, thirst, and hormone release",
-      "ar": "ينظّم درجة حرارة الجسم والجوع والعطش وإفراز الهرمونات"
+      "en": "The hypothalamus.",
+      "ar": "تحت المهاد (الهايبوثالاموس)."
     },
     "review": {
       "status": "pending"
@@ -2097,31 +1793,12 @@
       "ar": "الأحياء الدقيقة والمناعة"
     },
     "question": {
-      "en": "What information is stored in the spacer sequences of a bacterial CRISPR array?",
-      "ar": "شو المعلومات المحفوظة بـ«تسلسلات الفواصل» داخل مصفوفة CRISPR بالبكتيريا؟"
+      "en": "Bacteria keep a genetic 'memory' of past attacks in the spacer sequences of their CRISPR arrays. What exactly is stored there?",
+      "ar": "البكتيريا تحفظ «ذاكرة» وراثية للهجمات اللي تعرّضت لها داخل «الفواصل» بمصفوفة CRISPR. شو بالضبط اللي ينحفظ هناك؟"
     },
     "answer": {
-      "en": "Fragments of genetic material from past invaders, such as bacteriophages, which guide sequence-specific immune defense.",
-      "ar": "قطع من المادة الوراثية لغزاة سابقين مثل العاثيات، وتوجّه دفاعاً مناعياً نوعياً للتسلسل."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-092",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Microbiology & Immunity",
-      "ar": "الأحياء الدقيقة والمناعة"
-    },
-    "question": {
-      "en": "What is the complement system in immunology?",
-      "ar": "في علم المناعة، شو هو «نظام المتمّم»؟"
-    },
-    "answer": {
-      "en": "A network of innate immune proteins that can mark pathogens, promote inflammation, and damage microbial membranes. Some activation pathways involve antibodies; others do not.",
-      "ar": "شبكة بروتينات من المناعة الفطرية تميّز الممرضات وتعزز الالتهاب وقد تتلف أغشيتها. تعتمد بعض مسارات تنشيطها على الأجسام المضادة، ولا تعتمد أخرى عليها."
+      "en": "Snippets of DNA from past invaders such as viruses (bacteriophages), used to recognise and cut them if they return.",
+      "ar": "قطع من المادة الوراثية لغزاة سابقين مثل الفيروسات (العاثيات)، تستعين بها البكتيريا للتعرّف على هؤلاء الغزاة وتقطيع مادتهم الوراثية إذا عادوا."
     },
     "review": {
       "status": "pending"
@@ -2135,12 +1812,88 @@
       "ar": "الأحياء الدقيقة والمناعة"
     },
     "question": {
-      "en": "What was the historical purpose of Koch's postulates in microbiology?",
-      "ar": "تاريخيًا، شو كان الهدف من «مسلّمات كوخ» بعلم الأحياء الدقيقة؟"
+      "en": "What were Koch's postulates designed to prove in microbiology?",
+      "ar": "بعلم الأحياء الدقيقة، شو كان الهدف من «مسلّمات كوخ»؟"
     },
     "answer": {
-      "en": "To establish evidence that a particular microorganism causes a particular disease. They are influential criteria, but not universally applicable to every pathogen.",
-      "ar": "تقديم أدلة على أن كائناً دقيقاً معيناً يسبب مرضاً معيناً. وهي معايير مهمة تاريخياً، لكنها لا تنطبق على كل ممرض بلا استثناء."
+      "en": "That a particular microbe causes a particular disease.",
+      "ar": "إثبات أن جرثومة معيّنة تسبب مرضاً معيّناً."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "biology-101",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Plant Biology",
+      "ar": "علم النبات"
+    },
+    "question": {
+      "en": "Date palms grow as separate male and female trees. Which ones bear the dates?",
+      "ar": "النخيل فيه أشجار ذكور وأشجار إناث. أي وحدة منهم تطلّع التمر؟"
+    },
+    "answer": {
+      "en": "The female trees; farmers often pollinate them by hand with pollen from male trees.",
+      "ar": "النخلة الأنثى، وغالباً يلقّحها المزارعون يدوياً بطلع النخلة الذكر."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "biology-102",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Microbiology & Immunity",
+      "ar": "الأحياء الدقيقة والمناعة"
+    },
+    "question": {
+      "en": "Which physician of Rayy and Baghdad wrote, in the early 10th century, one of the first clear accounts telling smallpox apart from measles?",
+      "ar": "مين الطبيب اللي عاش بالرّي وبغداد، وكتب بأوائل القرن العاشر من أوضح الأوصاف الأولى اللي تفرّق بين الجدري والحصبة؟"
+    },
+    "answer": {
+      "en": "Abu Bakr al-Razi (Rhazes).",
+      "ar": "أبو بكر الرازي."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "biology-103",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
+    },
+    "question": {
+      "en": "Which 13th-century Arab physician gave the first known description of how blood travels from the heart through the lungs and back (the pulmonary circulation)?",
+      "ar": "مين الطبيب العربي اللي عاش بالقرن الثالث عشر، وقدّم أول وصف معروف لمسار الدم من القلب للرئتين ورجوعه للقلب (الدورة الدموية الصغرى)؟"
+    },
+    "answer": {
+      "en": "Ibn al-Nafis.",
+      "ar": "ابن النفيس."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "biology-104",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
+    },
+    "question": {
+      "en": "Which part of the human eye has no blood vessels and takes much of its oxygen straight from the air?",
+      "ar": "أي جزء من عين الإنسان ما فيه أوعية دموية، وياخذ جزء كبير من الأكسجين اللي يحتاجه من الهوا مباشرة؟"
+    },
+    "answer": {
+      "en": "The cornea.",
+      "ar": "القرنية."
     },
     "review": {
       "status": "pending"

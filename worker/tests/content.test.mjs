@@ -169,7 +169,7 @@ test("public content overrides reject invalid and quarantined categories", async
 test("a published edit saved under a moved card's former topic follows the card to its current topic", async () => {
   const snapshot = JSON.parse(publishedRow.snapshotJson);
   const rows = [
-    { ...publishedRow, questionId: "science-048", categorySlug: "science" },
+    { ...publishedRow, questionId: "science-093", categorySlug: "science" },
     { ...publishedRow, questionId: "chemistry-001", categorySlug: "chemistry" },
     { ...publishedRow, questionId: "science-001", categorySlug: "chemistry" },
   ];
@@ -187,7 +187,7 @@ test("a published edit saved under a moved card's former topic follows the card 
       },
     },
   };
-  const chemistry = [{ id: "science-048", question: { en: "Q", ar: "س" }, answer: { en: "A", ar: "ج" } },
+  const chemistry = [{ id: "science-093", question: { en: "Q", ar: "س" }, answer: { en: "A", ar: "ج" } },
     { id: "chemistry-001", question: { en: "Q", ar: "س" }, answer: { en: "A", ar: "ج" } }];
   const applied = await applyPublishedContentOverrides(env, "chemistry", chemistry);
   assert.deepEqual(queries.at(-1), ["chemistry", "physical-and-life-sciences", "science"]);
@@ -195,7 +195,7 @@ test("a published edit saved under a moved card's former topic follows the card 
 
   const response = await publishedContent(new Request("https://api.jakh.net/api/content/questions?category=science"), env);
   const payload = await response.json();
-  // science-048 now lives in chemistry; a row naming a topic a card never had is ignored.
+  // science-093 now lives in chemistry; a row naming a topic a card never had is ignored.
   assert.deepEqual(payload.overrides.map((override) => override.id), []);
   assert.deepEqual(queries.at(-1), ["science", "physical-and-life-sciences"]);
 });

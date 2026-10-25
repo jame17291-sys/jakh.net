@@ -224,3 +224,31 @@ jobs:
           JAKH_SITE_ROOT: ${{ github.workspace }}/site-worker/dist
           JAKH_SITE_MANIFEST: ${{ github.workspace }}/site-worker/generated/site-manifest.json
         run: npm run test:a11y
+
+  # TEMPORARY (diagnosis): run the static release's full browser matrix on
+  # this pull request so a Firefox/WebKit failure surfaces as an annotation.
+  browser-matrix:
+    name: Browser matrix (temporary diagnosis)
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "24"
+          cache: npm
+      - name: Install pinned browser test dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Build the exact static site
+        run: npm run build:site
+      - name: Install Playwright browser matrix
+        run: ./node_modules/.bin/playwright install --with-deps chromium firefox webkit
+      - name: Validate browser matrix
+        env:
+          JAKH_SITE_ROOT: ${{ github.workspace }}/site-worker/dist
+          JAKH_SITE_MANIFEST: ${{ github.workspace }}/site-worker/generated/site-manifest.json
+          JAKH_BROWSER_MATRIX_DIAGNOSTICS: ${{ runner.temp }}/browser-matrix-diagnostics.json
+          JAKH_BROWSER_ANNOTATE: "1"
+        run: npm run test:browser:matrix

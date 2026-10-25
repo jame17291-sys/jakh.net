@@ -756,7 +756,7 @@ async function main() {
       const page = await context.newPage();
       const assertNoPageErrors = trackPageErrors(page);
       try {
-        await page.goto(`${baseUrl}/science?utm_source=browser&q=atom&difficulty=hard`, {
+        await page.goto(`${baseUrl}/science?utm_source=browser&q=quantum&difficulty=hard`, {
           waitUntil: NAVIGATION_READY_EVENT,
         });
         await page.locator("#playModeQuickFireBtn").waitFor({ state: 'attached' });

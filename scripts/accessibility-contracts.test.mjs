@@ -184,38 +184,38 @@ test('interactive chess and Reversi grids own semantic rows and cells', () => {
   assert.match(reversi, /row\.setAttribute\('role', 'row'\)[\s\S]*row\.appendChild\(cell\)[\s\S]*boardEl\.appendChild\(row\)/u);
 });
 
-test('Mastermind and Codenames expose complete grid ownership', () => {
-  const mastermind = gameSource('mastermind');
-  const codenames = gameSource('codenames');
+test('Code Breaker and Spy Words expose complete grid ownership', () => {
+  const codeBreaker = gameSource('code-breaker');
+  const spyWords = gameSource('spy-words');
 
-  assert.match(mastermind, /id="mmBoard" role="grid" aria-rowcount="10" aria-colcount="6"/u);
-  assert.match(mastermind, /numEl\.setAttribute\('role', 'rowheader'\)/u);
-  assert.match(mastermind, /peg\.setAttribute\('role', 'gridcell'\)/u);
-  assert.match(mastermind, /feedbackEl\.setAttribute\('role', 'gridcell'\)/u);
+  assert.match(codeBreaker, /id="mmBoard" role="grid" aria-rowcount="10" aria-colcount="6"/u);
+  assert.match(codeBreaker, /numEl\.setAttribute\('role', 'rowheader'\)/u);
+  assert.match(codeBreaker, /peg\.setAttribute\('role', 'gridcell'\)/u);
+  assert.match(codeBreaker, /feedbackEl\.setAttribute\('role', 'gridcell'\)/u);
 
-  assert.match(codenames, /id="cnGrid" role="grid" aria-rowcount="5" aria-colcount="5"/u);
-  assert.match(codenames, /row\.setAttribute\('role', 'row'\)[\s\S]*row\.appendChild\(card\)/u);
-  assert.match(codenames, /grid\.querySelectorAll\('\.cn-card'\)/u);
+  assert.match(spyWords, /id="cnGrid" role="grid" aria-rowcount="5" aria-colcount="5"/u);
+  assert.match(spyWords, /row\.setAttribute\('role', 'row'\)[\s\S]*row\.appendChild\(card\)/u);
+  assert.match(spyWords, /grid\.querySelectorAll\('\.cn-card'\)/u);
 });
 
 test('map-like game surfaces use accurate group and button semantics', () => {
-  const catan = gameSource('catan');
-  const diplomacy = gameSource('diplomacy');
+  const islandTraders = gameSource('island-traders');
+  const alliances = gameSource('alliances');
 
-  assert.match(catan, /id="catan-board" role="group"/u);
-  assert.match(catan, /cell\.setAttribute\('role', 'button'\)/u);
-  assert.doesNotMatch(catan, /id="catan-board" role="grid"/u);
+  assert.match(islandTraders, /id="catan-board" role="group"/u);
+  assert.match(islandTraders, /cell\.setAttribute\('role', 'button'\)/u);
+  assert.doesNotMatch(islandTraders, /id="catan-board" role="grid"/u);
 
-  assert.match(diplomacy, /id="dip-map" role="group"/u);
-  assert.match(diplomacy, /card\.setAttribute\('role', 'button'\)/u);
-  assert.match(diplomacy, /card\.setAttribute\('aria-disabled', String\(!canInteract\)\)/u);
-  assert.doesNotMatch(diplomacy, /cap\.textContent\s*=\s*terr\.capital/u);
+  assert.match(alliances, /id="dip-map" role="group"/u);
+  assert.match(alliances, /card\.setAttribute\('role', 'button'\)/u);
+  assert.match(alliances, /card\.setAttribute\('aria-disabled', String\(!canInteract\)\)/u);
+  assert.doesNotMatch(alliances, /cap\.textContent\s*=\s*terr\.capital/u);
 });
 
 test('game-over dialogs leave the accessibility tree while hidden', () => {
-  for (const name of ['codenames', 'hanabi']) {
+  for (const name of ['spy-words', 'fireworks']) {
     const source = gameSource(name);
-    assert.match(source, new RegExp(`id="${name === 'codenames' ? 'cn' : 'hb'}Modal" hidden`, 'u'));
+    assert.match(source, new RegExp(`id="${name === 'spy-words' ? 'cn' : 'hb'}Modal" hidden`, 'u'));
     assert.match(source, /modal\.hidden = false[\s\S]*modal\.classList\.add\('visible'\)/u);
     assert.match(source, /modal\.classList\.remove\('visible'\)[\s\S]*modal\.hidden = true/u);
   }
@@ -223,13 +223,13 @@ test('game-over dialogs leave the accessibility tree while hidden', () => {
 
 test('game-specific small text uses contrast-safe foregrounds', () => {
   const backgammon = gameSource('backgammon');
-  const codenames = gameSource('codenames');
-  const hanabi = gameSource('hanabi');
+  const spyWords = gameSource('spy-words');
+  const fireworks = gameSource('fireworks');
 
   assert.match(backgammon, /\.bg-point-num\s*\{[^}]*color:\s*#162638/su);
   assert.match(backgammon, /\.bg-bar-label\s*\{[^}]*color:\s*#162638/su);
   assert.match(backgammon, /\.bg-mid-label\s*\{[^}]*color:\s*#162638/su);
-  assert.match(codenames, /\.cn-turn-badge\.human-turn\s*\{[^}]*color:\s*#7f2718/su);
-  assert.match(codenames, /\.cn-turn-badge\.ai-turn\s*\{[^}]*color:\s*#185581/su);
-  assert.match(hanabi, /\.hb-btn-gilt\s*\{[^}]*color:\s*#785000/su);
+  assert.match(spyWords, /\.cn-turn-badge\.human-turn\s*\{[^}]*color:\s*#7f2718/su);
+  assert.match(spyWords, /\.cn-turn-badge\.ai-turn\s*\{[^}]*color:\s*#185581/su);
+  assert.match(fireworks, /\.hb-btn-gilt\s*\{[^}]*color:\s*#785000/su);
 });

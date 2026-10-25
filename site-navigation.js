@@ -19,7 +19,7 @@
     : /^(?:\/ar\/topics)?\/kids-riddles(?:\/|$)/.test(path) ? 'kids'
     : /\/(?:daily)$/.test(path) ? 'daily'
     : document.body?.hasAttribute?.('data-puzzle-page') || document.body?.hasAttribute?.('data-party-game') ? 'games'
-    : /\/(?:play|brain-games|alab-al-dimagh|akshifha|chess|backgammon|mastermind|go|reversi|codenames|catan|set|hanabi|diplomacy)$/.test(path) ? 'games'
+    : /\/(?:play|brain-games|alab-al-dimagh|akshifha|chess|backgammon|code-breaker|go|reversi|spy-words|island-traders|triple-match|fireworks|alliances)$/.test(path) ? 'games'
     : document.body.matches('[data-page="category"], .page-mind-lab, .riddlearabia-experience, .riddlearabia-collections') ? 'library'
     : '';
   document.querySelectorAll('.primary-navigation [data-nav]').forEach(link => {

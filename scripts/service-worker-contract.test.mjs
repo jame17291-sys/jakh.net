@@ -267,7 +267,7 @@ test('offline navigation returns compatible cached documents or the dedicated fa
   // Runtime caching follows actual activity visits. No game or language route
   // is guaranteed offline before the visitor requests it while connected.
   const visitedDocuments = [
-    '/', '/akshifha', '/ar/games/akshifha/', '/catan', '/ar/games/catan/', '/ar/privacy/',
+    '/', '/akshifha', '/ar/games/akshifha/', '/island-traders', '/ar/games/island-traders/', '/ar/privacy/',
   ];
   const visitedAssets = [
     '/akshifha.js', '/akshifha-engine.js', '/akshifha-cases.js', '/akshifha-copy.js', '/akshifha-study.js', '/akshifha.css',
@@ -286,10 +286,10 @@ test('offline navigation returns compatible cached documents or the dedicated fa
   for (const asset of visitedAssets) {
     assert.equal(await (await harness.dispatchFetch(asset)).text(), `network:${asset}`);
   }
-  assert.equal(await (await harness.dispatchFetch('/catan.html?lang=ar', 'navigate')).text(), 'network:/catan');
+  assert.equal(await (await harness.dispatchFetch('/island-traders.html?lang=ar', 'navigate')).text(), 'network:/island-traders');
   assert.equal(
-    await (await harness.dispatchFetch('/ar/games/catan/?source=offline', 'navigate')).text(),
-    'network:/ar/games/catan/',
+    await (await harness.dispatchFetch('/ar/games/island-traders/?source=offline', 'navigate')).text(),
+    'network:/ar/games/island-traders/',
   );
   assert.equal(
     await (await harness.dispatchFetch('/ar/privacy/?source=offline', 'navigate')).text(),
@@ -504,8 +504,8 @@ test('all direct game entries use a same-origin service-worker registration path
   assert.doesNotMatch(workerSource, /\bCLEAR_CACHE\b/u);
 
   const games = [
-    '/akshifha', '/backgammon', '/catan', '/chess', '/codenames', '/diplomacy',
-    '/go', '/hanabi', '/mastermind', '/reversi', '/set',
+    '/akshifha', '/alliances', '/backgammon', '/chess', '/code-breaker', '/fireworks',
+    '/go', '/island-traders', '/reversi', '/spy-words', '/triple-match',
   ];
   const arabicShared = [
     '/ar/',

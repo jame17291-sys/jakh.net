@@ -5,7 +5,7 @@ import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const pages = ["set.html", "mastermind.html", "codenames.html", "catan.html"];
+const pages = ["triple-match.html", "code-breaker.html", "spy-words.html", "island-traders.html"];
 
 function read(file) {
   return fs.readFileSync(path.join(root, file), "utf8");
@@ -28,30 +28,30 @@ for (const file of pages) {
   }
 }
 
-requirePattern("set.html", /function captureGridFocus\(\)[\s\S]*function restoreGridFocus\(snapshot\)/u,
-  "SET grid rebuilds must capture and restore a logical card target");
-requirePattern("set.html", /render\(focusSnapshot\)/u,
-  "delayed SET selection updates must carry the pre-mutation focus target");
+requirePattern("triple-match.html", /function captureGridFocus\(\)[\s\S]*function restoreGridFocus\(snapshot\)/u,
+  "Triple Match grid rebuilds must capture and restore a logical card target");
+requirePattern("triple-match.html", /render\(focusSnapshot\)/u,
+  "delayed Triple Match selection updates must carry the pre-mutation focus target");
 
-requirePattern("mastermind.html", /dataset\.slotIndex[\s\S]*\.active-row \.mm-peg[\s\S]*\.focus\(\)/u,
-  "Mastermind must restore the active slot after rebuilding the board");
-requirePattern("mastermind.html", /dataset\.colorIndex[\s\S]*aria-pressed/u,
-  "Mastermind palette choices must retain focus identity and selected state");
+requirePattern("code-breaker.html", /dataset\.slotIndex[\s\S]*\.active-row \.mm-peg[\s\S]*\.focus\(\)/u,
+  "Code Breaker must restore the active slot after rebuilding the board");
+requirePattern("code-breaker.html", /dataset\.colorIndex[\s\S]*aria-pressed/u,
+  "Code Breaker palette choices must retain focus identity and selected state");
 
-requirePattern("codenames.html", /function captureGridFocus\(\)[\s\S]*function restoreGridFocus\(snapshot\)/u,
-  "Codenames must restore the same or next playable concept after a grid rebuild");
-requirePattern("codenames.html", /cnModalBtn['"]\)\.focus\(\)/u,
-  "Codenames game-over dialog must receive focus when shown");
+requirePattern("spy-words.html", /function captureGridFocus\(\)[\s\S]*function restoreGridFocus\(snapshot\)/u,
+  "Spy Words must restore the same or next playable concept after a grid rebuild");
+requirePattern("spy-words.html", /cnModalBtn['"]\)\.focus\(\)/u,
+  "Spy Words game-over dialog must receive focus when shown");
 
-requirePattern("catan.html", /<label[^>]+for="trade-give"[^>]*>[\s\S]*?<select id="trade-give"[^>]+aria-labelledby="trade-give-label"/u,
-  "Catan give-resource select must keep a persistent accessible name");
-requirePattern("catan.html", /<label[^>]+for="trade-get"[^>]*>[\s\S]*?<select id="trade-get"[^>]+aria-labelledby="trade-get-label"/u,
-  "Catan receive-resource select must keep a persistent accessible name");
-requirePattern("catan.html", /function onTradeModalKeydown\(event\)[\s\S]*event\.key === 'Escape'[\s\S]*event\.key !== 'Tab'/u,
-  "Catan trade dialog must close on Escape and contain Tab focus");
-requirePattern("catan.html", /tradeOpener[\s\S]*aria-hidden', 'false'[\s\S]*trade-give'\)\.focus\(\)[\s\S]*aria-hidden', 'true'[\s\S]*target\?\.focus\(\)/u,
-  "Catan trade dialog must focus initially and restore its opener on close");
-requirePattern("catan.html", /function captureBoardFocus\(\)[\s\S]*function restoreBoardFocus\(s\)/u,
-  "Catan board rebuilds must retain a logical keyboard target");
+requirePattern("island-traders.html", /<label[^>]+for="trade-give"[^>]*>[\s\S]*?<select id="trade-give"[^>]+aria-labelledby="trade-give-label"/u,
+  "Island Traders give-resource select must keep a persistent accessible name");
+requirePattern("island-traders.html", /<label[^>]+for="trade-get"[^>]*>[\s\S]*?<select id="trade-get"[^>]+aria-labelledby="trade-get-label"/u,
+  "Island Traders receive-resource select must keep a persistent accessible name");
+requirePattern("island-traders.html", /function onTradeModalKeydown\(event\)[\s\S]*event\.key === 'Escape'[\s\S]*event\.key !== 'Tab'/u,
+  "Island Traders trade dialog must close on Escape and contain Tab focus");
+requirePattern("island-traders.html", /tradeOpener[\s\S]*aria-hidden', 'false'[\s\S]*trade-give'\)\.focus\(\)[\s\S]*aria-hidden', 'true'[\s\S]*target\?\.focus\(\)/u,
+  "Island Traders trade dialog must focus initially and restore its opener on close");
+requirePattern("island-traders.html", /function captureBoardFocus\(\)[\s\S]*function restoreBoardFocus\(s\)/u,
+  "Island Traders board rebuilds must retain a logical keyboard target");
 
 console.log(`Game focus validation passed for ${pages.length} pages.`);

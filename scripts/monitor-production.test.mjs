@@ -25,6 +25,9 @@ import {
   QUARANTINED_SITE_ROUTES,
   PRIMARY_SITE_ORIGIN,
   PRIMARY_API_ORIGIN,
+  preRenameGamePath,
+  PRE_GAME_RENAME_SITEMAP_PATHS,
+  renamedGameRedirectProbeDefinitions,
   retiredSeoRedirectProbeDefinitions,
   runProductionMonitor,
   UNAUTHENTICATED_API_GET_ROUTES,
@@ -339,8 +342,10 @@ async function withFixture(options, run) {
 }
 
 function productionFixtureOptions(fixtureOrigin, overrides = {}) {
-  const redirects = new Map(retiredSeoRedirectProbeDefinitions(PRIMARY_SITE_ORIGIN)
-    .map((definition) => [definition.url, definition.location]));
+  const redirects = new Map([
+    ...retiredSeoRedirectProbeDefinitions(PRIMARY_SITE_ORIGIN),
+    ...renamedGameRedirectProbeDefinitions(PRIMARY_SITE_ORIGIN),
+  ].map((definition) => [definition.url, definition.location]));
   return {
     env: {}, scope: "site", siteOrigin: PRIMARY_SITE_ORIGIN, apiOrigin: PRIMARY_API_ORIGIN,
     siteContract: "release-baseline", expectedWorkerVersion: FIXTURE_WORKER_VERSION,
@@ -1090,6 +1095,89 @@ test("production monitor reserves route-migration probes for the production Ridd
   });
 });
 
+test("production monitor probes every renamed game address on the production host only", () => {
+  assert.deepEqual(renamedGameRedirectProbeDefinitions("http://127.0.0.1:8787"), []);
+  const definitions = renamedGameRedirectProbeDefinitions(PRIMARY_SITE_ORIGIN);
+  assert.equal(definitions.length, 14);
+  assert.deepEqual(definitions[0], {
+    name: "Site: renamed game /catan direct redirect",
+    url: "https://riddlearabia.com/catan?renamed_game_redirect_probe=riddlearabia",
+    location: "https://riddlearabia.com/island-traders?renamed_game_redirect_probe=riddlearabia",
+  });
+  assert.deepEqual(definitions.at(-1), {
+    name: "Site: renamed game /ar/games/connections/ direct redirect",
+    url: "https://riddlearabia.com/ar/games/connections/?renamed_game_redirect_probe=riddlearabia",
+    location: "https://riddlearabia.com/ar/games/four-groups/?renamed_game_redirect_probe=riddlearabia",
+  });
+  assert.equal(preRenameGamePath("/triple-match"), "/set");
+  assert.equal(preRenameGamePath("/ar/games/fireworks/"), "/ar/games/hanabi/");
+  assert.equal(preRenameGamePath("/chess"), "/chess");
+});
+
+test("the exact-version pre-rename release keeps its former game addresses while current checks require the new ones", async () => {
+  await withFixture({ productionSite: true }, async (fixtureOrigin) => {
+    const options = productionFixtureOptions(fixtureOrigin);
+    const renamedRoutes = HTML_ROUTES.filter((route) => preRenameGamePath(route.path) !== route.path);
+    assert.deepEqual(renamedRoutes.map(({ path }) => path).sort(), [
+      "/alliances", "/code-breaker", "/fireworks", "/island-traders", "/spy-words", "/triple-match",
+    ]);
+    const formerPages = new Map(renamedRoutes.map((route) => [preRenameGamePath(route.path), route]));
+    const newPaths = new Set(INDEXABLE_SITEMAP_PATHS.filter((path) => preRenameGamePath(path) !== path));
+    const newPathByFormer = new Map([...newPaths].map((path) => [preRenameGamePath(path), path]));
+    const requestedNewPaths = [];
+    const predecessor = (paths = PRE_GAME_RENAME_SITEMAP_PATHS) => async (input, init) => {
+      const url = new URL(input);
+      if (url.pathname === "/sitemap.xml") return new Response(`<urlset>${paths.map((path) => `<url><loc>${PRIMARY_SITE_ORIGIN}${path}</loc></url>`).join("")}</urlset>`, {
+        headers: { "content-type": "application/xml", "x-jakh-worker-version": FIXTURE_WORKER_VERSION },
+      });
+      if (newPaths.has(url.pathname)) {
+        requestedNewPaths.push(url.pathname);
+        return new Response("Not found", { status: 404, headers: { "content-type": "text/html", "x-jakh-worker-version": FIXTURE_WORKER_VERSION } });
+      }
+      const newPath = newPathByFormer.get(url.pathname);
+      if (!newPath) return options.fetchImpl(input, init);
+      // The predecessor served the same page directly, under its former title.
+      const response = await options.fetchImpl(new URL(newPath, PRIMARY_SITE_ORIGIN).href, init);
+      const former = formerPages.get(url.pathname);
+      const html = await response.text();
+      return new Response(former ? html.replace(former.marker, former.baselineMarker) : html, {
+        status: response.status, headers: response.headers,
+      });
+    };
+
+    const baseline = await runProductionMonitor({ ...options, fetchImpl: predecessor() });
+    assert.deepEqual(baseline.failures, []);
+    assert.equal(baseline.gameRouteInventory, "pre-rename");
+    assert.deepEqual(requestedNewPaths, [], "The verified predecessor predates the new addresses");
+    for (const route of renamedRoutes) assert.ok(baseline.results.some(({ name }) => name === `Site: ${route.name}`), route.name);
+    assert.equal(baseline.results.some(({ name }) => name.startsWith("Site: renamed game ")), false);
+
+    const current = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: predecessor() });
+    assert.equal(current.gameRouteInventory, "current");
+    assert.match(current.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /missing one or more focused/u);
+    for (const route of renamedRoutes) {
+      assert.ok(current.failures.some(({ name }) => name === `Site: ${route.name}`), `${route.path} must work on the candidate`);
+    }
+    for (const { name } of renamedGameRedirectProbeDefinitions(PRIMARY_SITE_ORIGIN)) {
+      assert.ok(current.failures.some((failure) => failure.name === name), `${name} must redirect on the candidate`);
+    }
+
+    for (const paths of [
+      PRE_GAME_RENAME_SITEMAP_PATHS.map((path) => (path === "/mastermind" ? "/code-breaker" : path)),
+      [...PRE_GAME_RENAME_SITEMAP_PATHS, "/code-breaker"],
+      [...PRE_GAME_RENAME_SITEMAP_PATHS.slice(1), "/unexpected-indexable-route"],
+    ]) {
+      const mixed = await runProductionMonitor({ ...options, fetchImpl: predecessor(paths) });
+      assert.ok(mixed.failures.some(({ name }) => name === "Site: sitemap"), "Old and new game addresses never mix");
+    }
+
+    const candidate = await runProductionMonitor(options);
+    assert.deepEqual(candidate.failures, []);
+    assert.equal(candidate.gameRouteInventory, "current");
+    assert.equal(candidate.results.filter(({ name }) => name.startsWith("Site: renamed game ")).length, 14);
+  });
+});
+
 test("production monitor follows the focused sitemap inventory", () => {
   assert.equal(INDEXABLE_SITEMAP_PATHS.length, 1176);
   assert.equal(PRE_PARTY_SITEMAP_PATHS.length, 1166);
@@ -1115,7 +1203,14 @@ test("production monitor follows the focused sitemap inventory", () => {
     INDEXABLE_SITEMAP_PATHS.filter((path) => ["/akshifha", "/chess", "/backgammon"].includes(path)),
     ["/akshifha", "/chess", "/backgammon"],
   );
-  assert.ok(INDEXABLE_SITEMAP_PATHS.includes("/mastermind"));
+  assert.ok(INDEXABLE_SITEMAP_PATHS.includes("/code-breaker"));
+  assert.ok(INDEXABLE_SITEMAP_PATHS.includes("/ar/games/four-groups/"));
+  for (const path of ["/mastermind", "/catan", "/ar/games/catan/", "/connections", "/ar/games/connections/"]) {
+    assert.ok(!INDEXABLE_SITEMAP_PATHS.includes(path), `${path} is a former address`);
+    assert.ok(PRE_GAME_RENAME_SITEMAP_PATHS.includes(path), `${path} remains in the pre-rename predecessor inventory`);
+  }
+  assert.equal(PRE_GAME_RENAME_SITEMAP_PATHS.length, INDEXABLE_SITEMAP_PATHS.length);
+  assert.equal(PRE_GAME_RENAME_SITEMAP_PATHS.filter((path, index) => path !== INDEXABLE_SITEMAP_PATHS[index]).length, 14);
   for (const path of ["/kids-riddles", "/ar/topics/kids-riddles/", "/kids-riddles/ages/3-4/", "/ar/topics/kids-riddles/printables/"]) {
     assert.ok(INDEXABLE_SITEMAP_PATHS.includes(path));
     assert.ok(!PRE_KIDS_SITEMAP_PATHS.includes(path));

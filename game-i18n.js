@@ -61,7 +61,7 @@
     { en: '/about', ar: '/ar/about/' },
     { en: '/privacy', ar: '/ar/privacy/' }
   ];
-  ['chess', 'mastermind', 'go', 'reversi', 'codenames', 'catan', 'backgammon', 'set', 'hanabi', 'diplomacy']
+  ['chess', 'code-breaker', 'go', 'reversi', 'spy-words', 'island-traders', 'backgammon', 'triple-match', 'fireworks', 'alliances']
     .forEach(function (slug) {
       SHARED_LANGUAGE_ROUTES.push({ en: '/' + slug, ar: '/ar/games/' + slug + '/' });
     });

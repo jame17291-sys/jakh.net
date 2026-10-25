@@ -1,24 +1,24 @@
 # Riddle Arabia puzzle room
 
-The English `/play` and Arabic `/ar/play/` directories now include all thirteen requested menu categories. Games open within the directory through `?game=...`; the existing Akshifha, Chess, Backgammon and quiz links remain available. Names, clue banks, puzzle content and artwork are original Riddle Arabia implementations.
+The English `/play` and Arabic `/ar/play/` directories now include all thirteen requested menu categories. Games open within the directory through `?game=...`; the existing Akshifha, Chess, Backgammon and quiz links remain available. Names, clue banks, puzzle content and artwork are original Riddle Arabia implementations. Public names must not copy another publisher's product names; see "Renamed games" in `docs/SEO-ARCHITECTURE.md`.
 
-| Reference category | Riddle Arabia game ID | Implementation |
+| Riddle Arabia game | Game ID | Implementation |
 | --- | --- | --- |
-| Bonus Puzzles | bonus | Three real variants: 3×3 Connections, a letter clue, and a crossword head start |
-| Crossplay | duel | Online two-player word board with invite codes, private racks and server validation |
-| Crossword / Midi / Mini | crossword / midi / mini | Connected, clued 13×13 / 9×9 / 5×5 generated grids |
-| Spelling Bee | hive | Seven letters, required centre, curated words, pangram scoring |
-| Wordle | word | Five letters, six guesses, duplicate-letter allocation, keyboard |
-| Pips | domino | Domino placement, rotation, flipping and region constraints |
-| Strands | trails | Adjacent-letter paths, full board coverage, spanning answer, earned hints |
-| Connections | links | Four groups of four, four mistakes, duplicate attempt protection |
-| Tiles | mosaic | Three-layer matching, chains, hints and undo |
-| Letter Boxed | letter-square | Alternating sides, linked words and all twelve letters |
+| Bonus puzzles | bonus | Three real variants: Three Groups (3×3), a letter clue, and a crossword head start |
+| Word Duel | duel | Online two-player word board with invite codes, private racks and server validation |
+| Big / Medium / Quick Crossword | crossword / midi / mini | Connected, clued 13×13 / 9×9 / 5×5 generated grids |
+| Word Hive | hive | Seven letters, required centre, curated words, pangram scoring |
+| Five Letters | word | Five letters, six guesses, duplicate-letter allocation, keyboard |
+| Logic Dominoes | domino | Domino placement, rotation, flipping and region constraints |
+| Word Trails | trails | Adjacent-letter paths, full board coverage, spanning answer, earned hints |
+| Four Groups | links | Four groups of four, four mistakes, duplicate attempt protection |
+| Mosaic | mosaic | Three-layer matching, chains, hints and undo |
+| Letter Square | letter-square | Alternating sides, linked words and all twelve letters |
 | Sudoku | sudoku | Unique solution, three difficulties, notes/check/hint/undo |
 
 ## Content and progress
 
-Each language has 24 Five Letters answers, 3 Hives, 6 Connections sets, 2 Trails and 2 Letter Squares. Crossword clue banks generate connected grids; Sudoku, dominoes and mosaic generate seeded boards. This is a finite editorial library, openly identified as such in the interface. The games do not promise a newly authored puzzle every day. Word dictionaries are curated, displayed in game, and do not accept every valid word in the language.
+Each language has 24 Five Letters answers, 3 Hives, 6 Four Groups sets, 2 Trails and 2 Letter Squares. Crossword clue banks generate connected grids; Sudoku, dominoes and mosaic generate seeded boards. This is a finite editorial library, openly identified as such in the interface. The games do not promise a newly authored puzzle every day. Word dictionaries are curated, displayed in game, and do not accept every valid word in the language.
 
 Solo puzzle selection changes at midnight in `Asia/Dubai`. An open round keeps its current puzzle until navigation. Progress is local to the browser, game, language, variant and date. Word Duel seats are language/date independent. Increment the storage namespace when changing an existing puzzle's identity or incompatible state format, so an older saved answer cannot be interpreted against replacement content.
 

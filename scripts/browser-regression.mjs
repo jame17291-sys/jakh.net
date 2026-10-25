@@ -38,15 +38,15 @@ const SITE_MANIFEST_PATH = process.env.JAKH_SITE_MANIFEST
 const GAME_SMOKE_FIXTURES = Object.freeze([
   { name: "Akshifha", route: "/akshifha?case=the-first-van&mode=practice", root: "#ak-case", action: "#ak-hint" },
   { name: "Chess", route: "/chess", root: "#chessBoard", action: "#btn2Players" },
-  { name: "Mastermind", route: "/mastermind", root: "#mmBoard", action: "#hintBtn" },
+  { name: "Code Breaker", route: "/code-breaker", root: "#mmBoard", action: "#hintBtn" },
   { name: "Go", route: "/go", root: "#goBoard", action: "#goPassBtn" },
   { name: "Reversi", route: "/reversi", root: "#rvBoard", action: "#rvMode2P" },
-  { name: "Codenames", route: "/codenames", root: "#cnGrid", action: "#cnPassBtn" },
-  { name: "Catan", route: "/catan", root: "#catan-board", action: "#btn-restart" },
+  { name: "Spy Words", route: "/spy-words", root: "#cnGrid", action: "#cnPassBtn" },
+  { name: "Island Traders", route: "/island-traders", root: "#catan-board", action: "#btn-restart" },
   { name: "Backgammon", route: "/backgammon", root: "#bgBoard", action: '#bgOuter button:has-text("New Game")' },
-  { name: "SET", route: "/set", root: "#setGrid", action: "#setBtnHint" },
-  { name: "Hanabi", route: "/hanabi", root: "#hbHumanCards", action: "#hbClueSuitBtn" },
-  { name: "Diplomacy", route: "/diplomacy", root: "#dip-map", action: "#btn-resolve" },
+  { name: "Triple Match", route: "/triple-match", root: "#setGrid", action: "#setBtnHint" },
+  { name: "Fireworks", route: "/fireworks", root: "#hbHumanCards", action: "#hbClueSuitBtn" },
+  { name: "Alliances", route: "/alliances", root: "#dip-map", action: "#btn-resolve" },
 ]);
 
 async function mockApi(context, { battle = null, profile = null } = {}) {

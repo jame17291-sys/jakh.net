@@ -87,6 +87,31 @@ The old English collection folders and former Arabic collection folders are
 deleted from the static source. One-hop redirects live at the edge for their
 replacement routes, preserving query strings.
 
+On 25 October 2026 seven games were renamed so that no public name copies
+another company's trademark or a New York Times product name. Only the public
+name and address changed; game IDs, storage keys, translation registrations and
+module names are unchanged, so saved progress still loads.
+
+| Old address | New name (English · Arabic) | New address |
+| --- | --- | --- |
+| `/catan`, `/ar/games/catan/` | Island Traders · جزيرة التجّار | `/island-traders`, `/ar/games/island-traders/` |
+| `/codenames`, `/ar/games/codenames/` | Spy Words · كلمات السر | `/spy-words`, `/ar/games/spy-words/` |
+| `/hanabi`, `/ar/games/hanabi/` | Fireworks · ألعاب نارية | `/fireworks`, `/ar/games/fireworks/` |
+| `/set`, `/ar/games/set/` | Triple Match · ثلاثيات | `/triple-match`, `/ar/games/triple-match/` |
+| `/mastermind`, `/ar/games/mastermind/` | Code Breaker · كاسر الشيفرة | `/code-breaker`, `/ar/games/code-breaker/` |
+| `/diplomacy`, `/ar/games/diplomacy/` | Alliances · تحالفات | `/alliances`, `/ar/games/alliances/` |
+| `/connections`, `/ar/games/connections/` | Four Groups · أربع مجموعات | `/four-groups`, `/ar/games/four-groups/` |
+
+The three crossword sizes kept their generic addresses and became Quick,
+Medium and Big Crossword (الكلمات المتقاطعة السريعة / المتوسطة / الكبيرة), and
+the Bonus nine-word variant became Three Groups (ثلاث مجموعات).
+`site-worker/src/seo-route-migrations.js` holds the old-to-new map. The edge
+answers every old address, including its `.html`, trailing-slash and
+`/index.html` forms, with one `301` to the new page and keeps the query string.
+The Worker refuses to start if an old address is still deployed or a new one
+is missing, and `scripts/renamed-games-contract.test.mjs` fails if a former
+name returns to a shipped page.
+
 Run these before a release:
 
 ```sh

@@ -11,9 +11,9 @@ find the game fun.
 
 Feature one signature reasoning game at `/akshifha` and
 `/ar/games/akshifha/`. The homepage, `/play`, and bilingual brain-games discovery
-pages point to it. Chess and Backgammon remain secondary Classics. Mastermind,
-SET, Go, Reversi, Catan Lite, Diplomacy Lite, Codenames and Hanabi are removed
-from those promoted surfaces. Their source, existing URLs, and sitemap entries
+pages point to it. Chess and Backgammon remain secondary Classics. Code
+Breaker, Triple Match, Go, Reversi, Island Traders, Alliances, Spy Words and
+Fireworks are removed from those promoted surfaces. Their source, existing URLs, and sitemap entries
 are preserved. No games or user data were deleted.
 
 The first iteration is deliberately text-first evidence cards in the existing

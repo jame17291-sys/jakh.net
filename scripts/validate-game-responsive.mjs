@@ -52,7 +52,7 @@ async function pageMetrics(page, name, viewport) {
       bodyScrollWidth: document.body.scrollWidth
     };
 
-    if (name === 'hanabi') {
+    if (name === 'fireworks') {
       result.core = ['.hb-tokens', '.hb-stacks', '.hb-hands', '.hb-actions', '.hb-log'].map(rect);
       result.stacks = [...document.querySelectorAll('.hb-stack')].map((element) => {
         const box = element.getBoundingClientRect();
@@ -100,7 +100,7 @@ async function pageMetrics(page, name, viewport) {
   check(metrics.bodyScrollWidth <= viewport.width + 1,
     `${name} ${viewport.width}x${viewport.height}: body is ${metrics.bodyScrollWidth}px wide`);
 
-  if (name === 'hanabi') {
+  if (name === 'fireworks') {
     check(metrics.core.every(Boolean), `${name}: a core state region is missing`);
     check(metrics.core.every((item) => item.left >= -1 && item.right <= viewport.width + 1),
       `${name} ${viewport.width}x${viewport.height}: a core state region is clipped`);
@@ -163,7 +163,7 @@ const browser = await chromium.launch({ headless: true, executablePath });
 const report = [];
 try {
   for (const viewport of viewports) {
-    for (const name of ['hanabi', 'backgammon', 'chess', 'reversi']) {
+    for (const name of ['fireworks', 'backgammon', 'chess', 'reversi']) {
       const page = await browser.newPage({ viewport, serviceWorkers: 'block' });
       const runtimeErrors = [];
       page.on('pageerror', (error) => runtimeErrors.push(error.message));
@@ -204,7 +204,7 @@ try {
     }
   }
 
-  for (const name of ['hanabi', 'backgammon', 'chess', 'reversi']) {
+  for (const name of ['fireworks', 'backgammon', 'chess', 'reversi']) {
     const viewport = { width: 320, height: 568 };
     const page = await browser.newPage({ viewport, serviceWorkers: 'block' });
     await page.goto(`${baseUrl}/${name}.html?lang=ar`, { waitUntil: 'domcontentloaded' });

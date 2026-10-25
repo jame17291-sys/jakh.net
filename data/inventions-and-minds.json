@@ -4,7 +4,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What communication system did Samuel Morse help develop for sending coded electrical signals over wires?",
-      "ar": "شو نظام الاتصال اللي ساهم صموئيل مورس بتطويره لإرسال إشارات كهربائية مشفّرة عبر الأسلاك؟"
+      "ar": "ما نظام الاتصال الذي ساهم صموئيل مورس في تطويره لإرسال إشارات كهربائية مشفّرة عبر الأسلاك؟"
     },
     "answer": {
       "en": "The electric telegraph",
@@ -27,7 +27,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which brothers achieved the first sustained, controlled, powered flight of a heavier-than-air aircraft in 1903?",
-      "ar": "أي أخوين عملوا سنة 1903 أول طيران متواصل ومتحكَّم فيه لطيارة أثقل من الهوا بمحرك؟"
+      "ar": "أي أخوين حققا عام 1903 أول رحلة مستمرة ومتحكَّم بها لطائرة أثقل من الهواء تعمل بمحرك؟"
     },
     "answer": {
       "en": "Orville and Wilbur Wright.",
@@ -46,7 +46,7 @@
     "difficulty": "easy",
     "question": {
       "en": "For which communication device did Alexander Graham Bell receive a US patent in 1876?",
-      "ar": "على أي جهاز اتصال أخذ ألكسندر غراهام بيل براءة اختراع أمريكية سنة 1876؟"
+      "ar": "عن أي جهاز اتصال حصل ألكسندر غراهام بيل على براءة اختراع أمريكية عام 1876؟"
     },
     "answer": {
       "en": "The telephone.",
@@ -65,7 +65,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What printing technology did Johannes Gutenberg develop in fifteenth-century Europe?",
-      "ar": "شو تقنية الطباعة اللي طوّرها يوهانس غوتنبرغ في أوروبا بالقرن الخامس عشر؟"
+      "ar": "ما تقنية الطباعة التي طوّرها يوهانس غوتنبرغ في أوروبا بالقرن الخامس عشر؟"
     },
     "answer": {
       "en": "A system of printing with movable metal type and a press. Printing traditions already existed in East Asia.",
@@ -84,7 +84,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Are the World Wide Web and the Internet the same thing?",
-      "ar": "الويب والإنترنت نفس الشي؟"
+      "ar": "هل الويب والإنترنت الشيء نفسه؟"
     },
     "answer": {
       "en": "No. The Internet is the network infrastructure; the Web is a system of linked resources accessed over it, usually through browsers.",
@@ -99,7 +99,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which instrument, refined by medieval Muslim astronomers, measured the height of the Sun or stars to tell the time and find direction?",
-      "ar": "أي أداة طوّرها الفلكيون المسلمون بالعصور الوسطى، وكانت تقيس ارتفاع الشمس والنجوم عشان يعرفون الوقت والاتجاه؟"
+      "ar": "أي أداة طوّرها الفلكيون المسلمون في العصور الوسطى، وكانت تقيس ارتفاع الشمس والنجوم لمعرفة الوقت وتحديد الاتجاه؟"
     },
     "answer": {
       "en": "The astrolabe",
@@ -122,7 +122,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which invention allows us to see distant stars and planets?",
-      "ar": "أي اختراع يخلّينا نشوف النجوم والكواكب البعيدة؟"
+      "ar": "أي اختراع يسمح لنا برؤية النجوم والكواكب البعيدة؟"
     },
     "answer": {
       "en": "The Telescope",
@@ -141,7 +141,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What source of mechanical power drove an early steam locomotive's wheels?",
-      "ar": "شو اللي كان يعطي القوة لعجلات القاطرات البخارية الأولى؟"
+      "ar": "ما الذي وفّر القوة الميكانيكية لعجلات القاطرة البخارية المبكرة؟"
     },
     "answer": {
       "en": "Pressurized steam moved pistons, which drove the wheels through connecting mechanisms.",
@@ -160,7 +160,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What does 'GPS' stand for?",
-      "ar": "شو معنى اختصار «GPS»؟"
+      "ar": "إلى ماذا يرمز اختصار «GPS»؟"
     },
     "answer": {
       "en": "Global Positioning System",
@@ -179,7 +179,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which nineteenth-century process made steel production cheaper by blowing air through molten iron?",
-      "ar": "شو العملية اللي رخّصت إنتاج الفولاذ بالقرن التاسع عشر بنفخ الهوا في الحديد المصهور؟"
+      "ar": "ما العملية التي خفّضت تكلفة إنتاج الفولاذ في القرن التاسع عشر بنفخ الهواء عبر الحديد المنصهر؟"
     },
     "answer": {
       "en": "The Bessemer process.",
@@ -194,7 +194,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What process, associated with Charles Goodyear, strengthens rubber by heating it with sulfur?",
-      "ar": "شو العملية المرتبطة بتشارلز غوديير اللي تقوّي المطاط بتسخينه مع الكبريت؟"
+      "ar": "ما العملية المرتبطة بتشارلز غوديير التي تقوّي المطاط بتسخينه مع الكبريت؟"
     },
     "answer": {
       "en": "Vulcanization",
@@ -217,7 +217,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which invention by James Watt improved the efficiency of the steam engine?",
-      "ar": "أي اختراع لجيمس وات حسّن كفاءة المحرك البخاري؟"
+      "ar": "أي اختراع لجيمس وات حسن كفاءة المحرك البخاري؟"
     },
     "answer": {
       "en": "Separate Condenser",
@@ -232,7 +232,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which early nineteenth-century textile machine used punched cards and influenced later computing?",
-      "ar": "أي نول نسيج من بداية القرن التاسع عشر استخدم البطاقات المثقّبة وأثّر بعدين على الكمبيوتر؟"
+      "ar": "أي آلة نسيج من أوائل القرن التاسع عشر استخدمت البطاقات المثقبة وأثّرت في الحوسبة لاحقاً؟"
     },
     "answer": {
       "en": "The Jacquard loom",
@@ -255,7 +255,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Who is credited with the invention of the World Wide Web while working at CERN?",
-      "ar": "مين ينسب له اختراع الشبكة العنكبوتية العالمية وهو يشتغل في سيرن؟"
+      "ar": "من ينسب إليه اختراع الشبكة العنكبوتية العالمية أثناء عمله في سيرن؟"
     },
     "answer": {
       "en": "Tim Berners-Lee",
@@ -274,7 +274,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which device, essential for modern computers, was invented at Bell Labs in 1947?",
-      "ar": "أي قطعة أساسية بالكمبيوترات الحديثة انخترعت في مختبرات بيل سنة 1947؟"
+      "ar": "أي جهاز ضروري للحواسيب الحديثة تم اختراعه في مختبرات بيل عام 1947؟"
     },
     "answer": {
       "en": "The Transistor",
@@ -293,7 +293,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which explosive did Alfred Nobel patent in 1867?",
-      "ar": "شو المادة المتفجرة اللي سجّل ألفريد نوبل براءة اختراعها سنة 1867؟"
+      "ar": "ما المادة المتفجرة التي سجّل ألفريد نوبل براءة اختراعها عام 1867؟"
     },
     "answer": {
       "en": "Dynamite.",
@@ -312,7 +312,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What is the main function of a sewing machine?",
-      "ar": "شو الشغلة الأساسية لماكينة الخياطة؟"
+      "ar": "ما الوظيفة الرئيسية لآلة الخياطة؟"
     },
     "answer": {
       "en": "To join or decorate fabric by forming stitches with thread.",
@@ -331,7 +331,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which invention allowed the storage of sound for playback for the first time?",
-      "ar": "أي اختراع خلّى الصوت ينحفظ وينعاد تشغيله لأول مرة؟"
+      "ar": "أي اختراع سمح بتخزين الصوت لتشغيله لأول مرة؟"
     },
     "answer": {
       "en": "The Phonograph",
@@ -350,7 +350,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which production method moves a vehicle from station to station while workers perform successive tasks?",
-      "ar": "شو طريقة الإنتاج اللي تنقل السيارة من محطة لمحطة والعمال كل واحد يسوي مهمته ورا الثاني؟"
+      "ar": "ما طريقة الإنتاج التي تنقل المركبة من محطة إلى أخرى بينما يؤدي العمال مهام متتابعة؟"
     },
     "answer": {
       "en": "A moving assembly line.",
@@ -369,7 +369,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Who is considered the 'Father of the Computer' for his Analytical Engine design?",
-      "ar": "مين اللي يسمّونه «أبو الكمبيوتر» لأنه صمّم المحرك التحليلي؟"
+      "ar": "من يعتبر «أبو الكمبيوتر» لتصميمه للمحرك التحليلي؟"
     },
     "answer": {
       "en": "Charles Babbage",
@@ -388,7 +388,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which process, essential for modern agriculture, allows the mass production of ammonia?",
-      "ar": "أي عملية أساسية للزراعة الحديثة خلّت إنتاج الأمونيا بكميات ضخمة ممكن؟"
+      "ar": "أي عملية ضرورية للزراعة الحديثة تسمح بالإنتاج الضخم للأمونيا؟"
     },
     "answer": {
       "en": "Haber-Bosch Process",
@@ -407,7 +407,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What kind of motor uses a rotating magnetic field to induce current in its rotor?",
-      "ar": "شو نوع المحرك اللي يستخدم مجال مغناطيسي دوّار عشان يولّد تيار في الجزء الدوّار؟"
+      "ar": "ما نوع المحرك الذي يستخدم مجالاً مغناطيسياً دوّاراً لاستحثاث تيار في دوّاره؟"
     },
     "answer": {
       "en": "An induction motor.",
@@ -426,7 +426,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What was the name of the first electronic general-purpose computer?",
-      "ar": "شو اسم أول كمبيوتر إلكتروني للاستخدام العام؟"
+      "ar": "ما اسم أول كمبيوتر إلكتروني للأغراض العامة؟"
     },
     "answer": {
       "en": "ENIAC",
@@ -445,7 +445,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which business-oriented programming language was developed by a committee in 1959, drawing on work including Grace Hopper's FLOW-MATIC?",
-      "ar": "شو لغة البرمجة الخاصة بالأعمال اللي طوّرتها لجنة سنة 1959، واستفادت من أعمال منها لغة فلو-ماتيك المرتبطة بغريس هوبر؟"
+      "ar": "ما لغة البرمجة الموجّهة للأعمال التي طوّرتها لجنة عام 1959، مستفيدةً من أعمال منها لغة فلو-ماتيك المرتبطة بغريس هوبر؟"
     },
     "answer": {
       "en": "COBOL.",
@@ -464,7 +464,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which invention by Guglielmo Marconi paved the way for modern radio?",
-      "ar": "أي اختراع لغولييلمو ماركوني مهّد للراديو الحديث؟"
+      "ar": "أي اختراع لغوغليلمو ماركوني مهد الطريق للراديو الحديث؟"
     },
     "answer": {
       "en": "Wireless Telegraphy",
@@ -483,7 +483,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Who invented the 'Liquid-Fuel Rocket'?",
-      "ar": "مين اخترع «الصاروخ اللي يشتغل بالوقود السائل»؟"
+      "ar": "من اخترع «الصاروخ الذي يعمل بالوقود السائل»؟"
     },
     "answer": {
       "en": "Robert Goddard",
@@ -502,7 +502,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which medical imaging technique was co-invented by Godfrey Hounsfield and Allan Cormack?",
-      "ar": "أي تقنية تصوير طبي شارك في اختراعها غودفري هاونسفيلد وآلان كورماك؟"
+      "ar": "أي تقنية تصوير طبي شارك في اختراعها غودفري هونسفيلد وآلان كورماك؟"
     },
     "answer": {
       "en": "CT Scan",
@@ -521,7 +521,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Who demonstrated the first working laser in 1960?",
-      "ar": "مين قدّم أول ليزر شغّال سنة 1960؟"
+      "ar": "من قدّم أول ليزر عامل عام 1960؟"
     },
     "answer": {
       "en": "Theodore Maiman.",
@@ -540,7 +540,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which machine associated with Eli Whitney separated cotton fibres from seeds?",
-      "ar": "شو الآلة المرتبطة بإيلاي ويتني اللي تفصل ألياف القطن عن بذوره؟"
+      "ar": "ما الآلة المرتبطة بإيلي ويتني التي تفصل ألياف القطن عن بذوره؟"
     },
     "answer": {
       "en": "The cotton gin. Its adoption helped expand cotton production and demand for enslaved labour in the US South.",
@@ -559,7 +559,7 @@
     "difficulty": "hard",
     "question": {
       "en": "Which engineer wrote the 1206 'Book of Knowledge of Ingenious Mechanical Devices', famous for its elephant water clock?",
-      "ar": "مين المهندس اللي ألّف سنة 1206 «الجامع بين العلم والعمل النافع في صناعة الحيل»، المشهور بساعة الفيل المائية؟"
+      "ar": "مَن المهندس الذي ألّف عام 1206 «الجامع بين العلم والعمل النافع في صناعة الحيل»، المشهور بساعة الفيل المائية؟"
     },
     "answer": {
       "en": "Al-Jazari (Ismail al-Jazari).",
@@ -578,7 +578,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Which Basra-born scholar's 'Book of Optics' argued that we see because light enters the eye, and described the camera obscura?",
-      "ar": "أي عالم من مواليد البصرة قال في «كتاب المناظر» إننا نشوف لأن الضوء يدخل العين، ووصف الغرفة المظلمة (الكاميرا المظلمة)؟"
+      "ar": "أي عالم من مواليد البصرة قال في «كتاب المناظر» إننا نرى لأن الضوء يدخل العين، ووصف الغرفة المظلمة (الكاميرا المظلمة)؟"
     },
     "answer": {
       "en": "Ibn al-Haytham (Alhazen).",
@@ -597,7 +597,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Who invented the first programmable mechanical computer, known as the Z1?",
-      "ar": "مين اخترع أول كمبيوتر ميكانيكي قابل للبرمجة، اللي اسمه Z1؟"
+      "ar": "من اخترع أول كمبيوتر ميكانيكي قابل للبرمجة، المعروف باسم Z1؟"
     },
     "answer": {
       "en": "Konrad Zuse",
@@ -616,7 +616,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What was the name of the first commercially available microprocessor, released by Intel in 1971?",
-      "ar": "شو اسم أول معالج دقيق انباع تجاريًا، اللي طلّعته إنتل سنة 1971؟"
+      "ar": "ما اسم أول معالج دقيق متاح تجارياً، أصدرته إنتل في عام 1971؟"
     },
     "answer": {
       "en": "Intel 4004",
@@ -635,7 +635,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Who developed the first technique for DNA profiling (fingerprinting)?",
-      "ar": "مين طوّر أول تقنية «بصمة وراثية» (DNA fingerprinting)؟"
+      "ar": "من طور أول تقنية للبصمة الوراثية (DNA fingerprinting)؟"
     },
     "answer": {
       "en": "Alec Jeffreys",
@@ -654,7 +654,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Which invention by Willis Carrier changed modern architecture by allowing for climate control indoors?",
-      "ar": "أي اختراع لويليس كارير غيّر العمارة الحديثة لأنه خلّى التحكم بالجو داخل المباني ممكن؟"
+      "ar": "أي اختراع لويليس كارير غير العمارة الحديثة بالسماح بالتحكم في المناخ داخل المباني؟"
     },
     "answer": {
       "en": "Modern Air Conditioning",
@@ -673,7 +673,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Who invented the 'Cyclotron', a type of particle accelerator?",
-      "ar": "مين اخترع «السيكلوترون»، وهو نوع من مسرّعات الجسيمات؟"
+      "ar": "من اخترع «السيكلوترون»، وهو نوع من مسرعات الجسيمات؟"
     },
     "answer": {
       "en": "Ernest Lawrence",
@@ -692,7 +692,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What communication technique did Hedy Lamarr and George Antheil propose in their wartime patent to make radio control harder to jam?",
-      "ar": "شو تقنية الاتصال اللي اقترحتها هيدي لامار وجورج أنثيل وقت الحرب عشان يصعب التشويش على التحكم اللاسلكي؟"
+      "ar": "ما تقنية الاتصال التي اقترحتها هيدي لامار وجورج أنثيل في براءتهما أثناء الحرب لتصعيب التشويش على التحكم اللاسلكي؟"
     },
     "answer": {
       "en": "Frequency hopping: changing the transmission frequency in a coordinated pattern.",
@@ -711,7 +711,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Which two engineers are credited with independent early developments of the integrated circuit?",
-      "ar": "مين المهندسين اللي ينسب لكل واحد منهم تطوير مبكر ومستقل للدائرة المتكاملة؟"
+      "ar": "ما المهندسان اللذان يُنسب إليهما تطويران مبكران مستقلان للدائرة المتكاملة؟"
     },
     "answer": {
       "en": "Jack Kilby and Robert Noyce; their approaches differed.",
@@ -730,7 +730,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What was the first item ever scanned using a UPC barcode in 1974?",
-      "ar": "شو أول منتج انمسح بباركود UPC سنة 1974؟"
+      "ar": "ما هو أول منتج تم مسحه ضوئياً باستخدام باركود UPC في عام 1974؟"
     },
     "answer": {
       "en": "A pack of Wrigley's Gum",
@@ -749,7 +749,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Who published notes in 1843 on Babbage's Analytical Engine that included what is often called the first computer program?",
-      "ar": "مين نشرت سنة 1843 ملاحظات عن «المحرك التحليلي» لباباج، فيها اللي يعتبرونه أول برنامج كمبيوتر؟"
+      "ar": "مَن نشرت عام 1843 ملاحظات عن «المحرك التحليلي» لباباج، تضمّنت ما يُعد غالبًا أول برنامج حاسوبي؟"
     },
     "answer": {
       "en": "Ada Lovelace.",

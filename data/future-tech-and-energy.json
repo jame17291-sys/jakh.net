@@ -8,7 +8,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What does 'AI' stand for in technology?",
-      "ar": "في التكنولوجيا، شو معنى اختصار «AI»؟"
+      "ar": "إلى ماذا يرمز اختصار «AI» في التكنولوجيا؟"
     },
     "answer": {
       "en": "Artificial Intelligence",
@@ -27,7 +27,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What is a programmable machine that performs physical tasks, often using sensors and actuators, commonly called?",
-      "ar": "شو نسمّي عادةً الآلة القابلة للبرمجة اللي تسوي مهام حركية، وكثير تستخدم حسّاسات ومحرّكات؟"
+      "ar": "ماذا تُسمّى عادةً الآلة القابلة للبرمجة التي تؤدي مهام مادية، وغالباً تستخدم حساسات ومشغّلات؟"
     },
     "answer": {
       "en": "A robot.",
@@ -46,7 +46,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which source of energy uses panels to capture sunlight?",
-      "ar": "أي مصدر طاقة يستخدم ألواح عشان يلتقط ضوء الشمس؟"
+      "ar": "أي مصدر للطاقة يستخدم ألواحاً لالتقاط ضوء الشمس؟"
     },
     "answer": {
       "en": "Solar Energy",
@@ -65,7 +65,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What is the term for a car that can drive itself without a human driver?",
-      "ar": "شو نسمّي السيارة اللي تسوق نفسها من غير سائق؟"
+      "ar": "ما هو المصطلح الذي يطلق على السيارة التي يمكنها قيادة نفسها بدون سائق بشري؟"
     },
     "answer": {
       "en": "Self-driving (Autonomous) Car",
@@ -84,7 +84,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Which technology uses a headset to immerse a user in a simulated environment?",
-      "ar": "أي تقنية تستخدم نظارة أو خوذة عشان تعرض عالم افتراضي تحس إنك جوّاه؟"
+      "ar": "أي تقنية تستخدم نظارة أو خوذة لعرض بيئة محاكاة يشعر المستخدم بوجوده داخلها؟"
     },
     "answer": {
       "en": "Virtual reality (VR).",
@@ -103,7 +103,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What is cloud computing?",
-      "ar": "شو هي «الحوسبة السحابية»؟"
+      "ar": "ما الحوسبة السحابية؟"
     },
     "answer": {
       "en": "On-demand access to shared computing resources, such as processing, storage and applications, delivered over a network.",
@@ -122,7 +122,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What is the main goal of a 'Smart Home'?",
-      "ar": "شو الهدف الأساسي من «البيت الذكي»؟"
+      "ar": "ما هو الهدف الرئيسي لـ «المنزل الذكي»؟"
     },
     "answer": {
       "en": "To automate and control home systems (lighting, heating) remotely",
@@ -141,7 +141,7 @@
     "difficulty": "easy",
     "question": {
       "en": "Name one type of wrist-worn device that can count steps and measure heart rate.",
-      "ar": "اذكر نوع جهاز ينلبس على المعصم ويقدر يعدّ الخطوات ويقيس نبض القلب."
+      "ar": "اذكر نوعاً واحداً من الأجهزة التي تُلبس على المعصم ويمكنها عدّ الخطوات وقياس معدل ضربات القلب."
     },
     "answer": {
       "en": "A smartwatch or a fitness tracker.",
@@ -160,7 +160,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What is the term for '3D Printing' in industrial terms?",
-      "ar": "شو الاسم الصناعي لـ«الطباعة ثلاثية الأبعاد»؟"
+      "ar": "ما هو المصطلح لـ «الطباعة ثلاثية الأبعاد» في المصطلحات الصناعية؟"
     },
     "answer": {
       "en": "Additive Manufacturing",
@@ -179,7 +179,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What does UAV stand for in aviation?",
-      "ar": "في الطيران، شو معنى اختصار UAV؟"
+      "ar": "ماذا يعني اختصار UAV في الطيران؟"
     },
     "answer": {
       "en": "Unmanned aerial vehicle: an aircraft with no pilot on board.",
@@ -198,7 +198,7 @@
     "difficulty": "medium",
     "question": {
       "en": "At its simplest, what kind of record does a blockchain keep?",
-      "ar": "بأبسط شكل، شو نوع السجل اللي تحفظه تقنية «البلوك تشين»؟"
+      "ar": "في أبسط صورها، ما نوع السجل الذي تحفظه تقنية «البلوك تشين»؟"
     },
     "answer": {
       "en": "A shared digital ledger, copied across many computers, that is very hard to alter",
@@ -217,7 +217,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What is the basic unit of quantum information used in quantum computing?",
-      "ar": "شو وحدة المعلومات الأساسية في الحوسبة الكمّية؟"
+      "ar": "ما الوحدة الأساسية للمعلومات الكمومية المستخدمة في الحوسبة الكمومية؟"
     },
     "answer": {
       "en": "A qubit, or quantum bit.",
@@ -236,7 +236,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What does the 'Internet of Things' (IoT) refer to?",
-      "ar": "شو المقصود بـ«إنترنت الأشياء» (IoT)؟"
+      "ar": "إلى ماذا يشير «إنترنت الأشياء» (IoT)؟"
     },
     "answer": {
       "en": "The network of physical objects connected to the internet",
@@ -255,7 +255,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What is 'Augmented Reality' (AR)?",
-      "ar": "شو هو «الواقع المعزّز» (AR)؟"
+      "ar": "ما هو «الواقع المعزز» (AR)؟"
     },
     "answer": {
       "en": "Digital information overlaid on the real world",
@@ -274,7 +274,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What makes hydrogen 'green' hydrogen?",
-      "ar": "شو اللي يخلّي الهيدروجين «أخضر»؟"
+      "ar": "ما الذي يجعل الهيدروجين «أخضر»؟"
     },
     "answer": {
       "en": "It is made by splitting water with electricity from renewable sources (electrolysis), so producing it emits almost no CO₂.",
@@ -293,7 +293,7 @@
     "difficulty": "medium",
     "question": {
       "en": "How does machine learning differ from writing a separate explicit rule for every case?",
-      "ar": "كيف يختلف تعلّم الآلة عن إنك تكتب قاعدة واضحة لكل حالة لحالها؟"
+      "ar": "كيف يختلف تعلم الآلة عن كتابة قاعدة صريحة منفصلة لكل حالة؟"
     },
     "answer": {
       "en": "A model learns patterns from training data rather than relying only on hand-written rules for each case.",
@@ -312,7 +312,7 @@
     "difficulty": "medium",
     "question": {
       "en": "Which UAE power station, whose first reactor began commercial operation in 2021, was the Arab world's first nuclear power plant?",
-      "ar": "أي محطة كهربا في الإمارات، بدأ أول مفاعل فيها تشغيله التجاري سنة 2021، كانت أول محطة طاقة نووية بالعالم العربي؟"
+      "ar": "أي محطة كهرباء في الإمارات، بدأ أول مفاعل فيها تشغيله التجاري عام 2021، كانت أول محطة طاقة نووية في العالم العربي؟"
     },
     "answer": {
       "en": "Barakah nuclear power plant (Abu Dhabi).",
@@ -331,7 +331,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What is 'Biometrics' used for in security?",
-      "ar": "في الأمن، شو اللي تستخدمه «القياسات الحيوية» (Biometrics)؟"
+      "ar": "ماذا تستخدم «القياسات الحيوية» (Biometrics) في الأمن؟"
     },
     "answer": {
       "en": "Using physical characteristics (fingerprints, face) for identification",
@@ -350,7 +350,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What is 'Edge Computing'?",
-      "ar": "شو هي «حوسبة الحافّة» (Edge Computing)؟"
+      "ar": "ما هي «حوسبة الحافة» (Edge Computing)؟"
     },
     "answer": {
       "en": "Processing data closer to where it is generated rather than in a central cloud",
@@ -369,7 +369,7 @@
     "difficulty": "medium",
     "question": {
       "en": "In an artificial neural network, what does training typically adjust?",
-      "ar": "في الشبكة العصبية الاصطناعية، شو اللي يتعدّل عادةً وقت التدريب؟"
+      "ar": "ما الذي يعدّله التدريب عادةً في الشبكة العصبية الاصطناعية؟"
     },
     "answer": {
       "en": "Model parameters, such as connection weights and biases, to improve performance on a task.",
@@ -388,7 +388,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What approximate size range is commonly associated with nanotechnology?",
-      "ar": "تقريبًا، أي مدى أحجام مرتبط عادةً بتقنية النانو؟"
+      "ar": "ما نطاق الأحجام التقريبي المرتبط عادةً بتقنية النانو؟"
     },
     "answer": {
       "en": "About 1–100 nanometres, where size-dependent properties can become important.",
@@ -407,7 +407,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What does technological singularity mean in discussions of AI futures?",
-      "ar": "لما يتكلمون عن مستقبل الذكاء الاصطناعي، شو يعني «التفرّد التقني»؟"
+      "ar": "ماذا يعني التفرد التقني في مناقشات مستقبل الذكاء الاصطناعي؟"
     },
     "answer": {
       "en": "A hypothetical transition to rapidly accelerating technological change, often linked to self-improving AI. It is a speculative idea, not an established prediction.",
@@ -426,7 +426,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What is 'Brain-Computer Interface' (BCI) technology?",
-      "ar": "شو هي تقنية «واجهة الدماغ والحاسوب» (BCI)؟"
+      "ar": "ما هي تقنية «واجهة الدماغ والحاسوب» (BCI)؟"
     },
     "answer": {
       "en": "Technology that allows communication between a brain and an external device",
@@ -445,7 +445,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What is a Dyson swarm?",
-      "ar": "شو هو «سرب دايسون»؟"
+      "ar": "ما سرب دايسون؟"
     },
     "answer": {
       "en": "A hypothetical collection of orbiting structures that capture a star's energy, rather than a single solid shell.",
@@ -464,7 +464,7 @@
     "difficulty": "easy",
     "question": {
       "en": "What is 'Generative AI'?",
-      "ar": "شو هو «الذكاء الاصطناعي التوليدي»؟"
+      "ar": "ما هو «الذكاء الاصطناعي التوليدي»؟"
     },
     "answer": {
       "en": "AI capable of creating new content (text, images, music)",
@@ -483,7 +483,7 @@
     "difficulty": "hard",
     "question": {
       "en": "How does a perovskite-silicon tandem solar cell capture more of the solar spectrum than either material alone?",
-      "ar": "كيف خلية شمسية ترادفية من البيروفسكايت والسيليكون تلتقط جزء أكبر من طيف الشمس مقارنة بكل مادة لحالها؟"
+      "ar": "كيف تلتقط خلية شمسية ترادفية من البيروفسكايت والسيليكون نطاقاً أوسع من الطيف الشمسي مقارنة بكل مادة منفردة؟"
     },
     "answer": {
       "en": "It stacks absorbers with complementary band gaps: the perovskite layer captures higher-energy photons while silicon captures lower-energy photons.",
@@ -502,7 +502,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What is 'Post-Quantum Cryptography'?",
-      "ar": "شو هو «تشفير ما بعد الكم»؟"
+      "ar": "ما هي «تشفير ما بعد الكم»؟"
     },
     "answer": {
       "en": "Cryptographic algorithms thought to be secure against a quantum computer attack",
@@ -521,7 +521,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What distinguishes a solid-state transformer from a conventional power-frequency transformer?",
-      "ar": "شو اللي يميّز محوّل الحالة الصلبة عن محوّل الكهربا التقليدي؟"
+      "ar": "ما الذي يميز محول الحالة الصلبة عن محول تردد القدرة التقليدي؟"
     },
     "answer": {
       "en": "It uses power-electronic switching and a high-frequency transformer to provide controlled voltage conversion, often with bidirectional power flow and grid-support functions.",
@@ -540,7 +540,7 @@
     "difficulty": "hard",
     "question": {
       "en": "In Turing's imitation game, what does a judge try to distinguish through written conversation?",
-      "ar": "في «لعبة التقليد» عند تورنغ، الحَكَم يحاول يفرّق بين مين ومين بالمحادثة المكتوبة؟"
+      "ar": "في لعبة التقليد عند تورنغ، ماذا يحاول الحكم التمييز بينه عبر محادثة مكتوبة؟"
     },
     "answer": {
       "en": "A human respondent and a machine. Success in the game does not by itself prove every form of intelligence.",
@@ -559,7 +559,7 @@
     "difficulty": "hard",
     "question": {
       "en": "What is 'Swarm Intelligence'?",
-      "ar": "شو هو «ذكاء السرب»؟"
+      "ar": "ما هو «ذكاء السرب»؟"
     },
     "answer": {
       "en": "The collective behavior of decentralized, self-organized systems (like robot swarms)",
@@ -578,7 +578,7 @@
     "difficulty": "medium",
     "question": {
       "en": "What historical observation is commonly called Moore's law?",
-      "ar": "شو الملاحظة التاريخية المعروفة عادةً بـ«قانون مور»؟"
+      "ar": "ما الملاحظة التاريخية المعروفة عادةً بقانون مور؟"
     },
     "answer": {
       "en": "The number of transistors on an integrated circuit increased roughly twofold every two years; it is not a physical law guaranteeing future growth.",
@@ -597,7 +597,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is a 'Type II Civilization' on the Kardashev Scale?",
-      "ar": "على مقياس كارداشيف، شو هي «حضارة النوع الثاني»؟"
+      "ar": "ما هي «حضارة النوع الثاني» على مقياس كارداسيف؟"
     },
     "answer": {
       "en": "A civilization capable of harnessing the total energy output of its parent star",
@@ -616,7 +616,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is the hypothetical grey-goo scenario in discussions of nanotechnology?",
-      "ar": "في نقاشات تقنية النانو، شو سيناريو «المادة الرمادية اللزجة» الافتراضي؟"
+      "ar": "ما سيناريو المادة الرمادية اللزجة الافتراضي في مناقشات تقنية النانو؟"
     },
     "answer": {
       "en": "Uncontrolled self-replicating machines consume available environmental resources. It is a speculative scenario, not an observed event.",
@@ -635,7 +635,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is a von Neumann probe?",
-      "ar": "شو هو «مسبار فون نيومان»؟"
+      "ar": "ما «مسبار فون نيومان»؟"
     },
     "answer": {
       "en": "A hypothetical self-replicating spacecraft for interstellar exploration.",
@@ -654,7 +654,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is the central idea of topological quantum computing?",
-      "ar": "شو الفكرة الأساسية للحوسبة الكمّية الطوبولوجية؟"
+      "ar": "ما الفكرة المركزية للحوسبة الكمية الطوبولوجية؟"
     },
     "answer": {
       "en": "Quantum information is encoded in non-Abelian anyons and processed by braiding their paths, making operations resistant to many local errors because they depend on topology.",
@@ -673,7 +673,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What process is described by the Kessler syndrome scenario?",
-      "ar": "شو العملية اللي يوصفها سيناريو «متلازمة كيسلر»؟"
+      "ar": "ما العملية التي يصفها سيناريو متلازمة كيسلر؟"
     },
     "answer": {
       "en": "Collisions create orbital debris that causes further collisions, potentially making affected orbital regions increasingly hazardous.",
@@ -692,7 +692,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What does transhumanism propose about human capabilities?",
-      "ar": "شو اللي تقترحه حركة «ما بعد الإنسانية» (الترانسهيومانية) بخصوص قدرات البشر؟"
+      "ar": "ما الذي تقترحه حركة تعزيز الإنسان بالتقنية، أو الترانسهيومانية، بشأن القدرات البشرية؟"
     },
     "answer": {
       "en": "Using technology to extend or enhance human physical and cognitive capacities.",
@@ -711,7 +711,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What is transferred in somatic cell nuclear transfer (SCNT)?",
-      "ar": "في تقنية «نقل نواة الخلية الجسدية»، شو اللي ينتقل؟"
+      "ar": "ما الذي يُنقل في تقنية نقل نواة الخلية الجسدية؟"
     },
     "answer": {
       "en": "A somatic-cell nucleus is placed into an egg whose nucleus has been removed; successful embryo development is not guaranteed.",
@@ -730,7 +730,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "What carries information in optical computing?",
-      "ar": "في الحوسبة الضوئية، شو اللي يحمل المعلومات؟"
+      "ar": "ما الذي يحمل المعلومات في الحوسبة الضوئية؟"
     },
     "answer": {
       "en": "Light, through photons. Systems may be digital, analog or hybrid.",
@@ -749,7 +749,7 @@
     "difficulty": "very-advanced",
     "question": {
       "en": "Why do proposed Earth-based space elevators require exceptionally strong, lightweight tether materials?",
-      "ar": "ليش تصاميم مصاعد الفضاء اللي تطلع من الأرض تحتاج مواد قوية وخفيفة بشكل استثنائي للكابل؟"
+      "ar": "لماذا تتطلب تصاميم مصاعد الفضاء المنطلقة من الأرض مواد استثنائية القوة والخفة للكابل؟"
     },
     "answer": {
       "en": "The long tether must support its own mass and operational loads, demanding a very high strength-to-weight ratio.",

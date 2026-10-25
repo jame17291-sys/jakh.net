@@ -43,7 +43,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   {
     key: "riddles",
     // Expanded from 8 to 30 riddles, ordered from easy to hard, on 2026-10-23.
-    lastModified: "2026-10-23",
+    // Arabic card wording returned to Modern Standard Arabic on 2026-10-25.
+    lastModified: { en: "2026-10-23", ar: "2026-10-25" },
     paths: { en: "/riddles", ar: "/ar/alghaz/" },
     titles: {
       en: "Riddles With Answers | Riddle Arabia",
@@ -100,7 +101,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   {
     key: "arabic-riddles",
     // Expanded from 8 to 30 riddles whose wording works naturally in Arabic on 2026-10-23.
-    lastModified: "2026-10-23",
+    // Arabic card wording returned to Modern Standard Arabic on 2026-10-25.
+    lastModified: { en: "2026-10-23", ar: "2026-10-25" },
     paths: { en: "/arabic-riddles", ar: "/ar/alghaz-arabiya/" },
     titles: {
       en: "Arabic Riddles With Answers | Riddle Arabia",
@@ -157,7 +159,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   {
     key: "logic-puzzles",
     // Expanded from 8 to 30 puzzles, easy to hard, on 2026-10-23.
-    lastModified: "2026-10-23",
+    // Arabic card wording returned to Modern Standard Arabic on 2026-10-25.
+    lastModified: { en: "2026-10-23", ar: "2026-10-25" },
     paths: { en: "/logic-challenges", ar: "/ar/alghaz-mantiq/" },
     titles: {
       en: "Logic Puzzles and Brain Teasers With Answers | Riddle Arabia",
@@ -214,7 +217,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   {
     key: "kids-riddles",
     // Expanded from 8 to 24 riddles, easy to hard, with kids search wording on 2026-10-23.
-    lastModified: "2026-10-23",
+    // Arabic card wording returned to Modern Standard Arabic on 2026-10-25.
+    lastModified: { en: "2026-10-23", ar: "2026-10-25" },
     paths: { en: "/family-riddles", ar: "/ar/alghaz-atfal/" },
     titles: {
       en: "Riddles for Kids With Answers | Riddle Arabia",
@@ -264,9 +268,10 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   },
   {
     key: "general-knowledge",
-    // Arabic cards rewritten in light everyday Arabic on 2026-10-21 (#144).
     // Expanded from 8 to 30 evergreen questions across 15 topics on 2026-10-23.
-    lastModified: "2026-10-23",
+    // Arabic cards briefly used everyday Arabic (2026-10-21, #144) and returned
+    // to Modern Standard Arabic on 2026-10-25.
+    lastModified: { en: "2026-10-23", ar: "2026-10-25" },
     paths: { en: "/general-knowledge", ar: "/ar/malumat-amma/" },
     titles: {
       en: "Arabic Trivia & General Knowledge Quiz | Riddle Arabia",
@@ -322,8 +327,9 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   },
   {
     key: "arabia-quiz",
-    // Arabic cards rewritten in light everyday Arabic on 2026-10-21 (#144).
-    lastModified: { en: "2026-09-29", ar: "2026-10-21" },
+    // Arabic cards briefly used everyday Arabic (2026-10-21, #144) and returned
+    // to Modern Standard Arabic on 2026-10-25.
+    lastModified: { en: "2026-09-29", ar: "2026-10-25" },
     paths: { en: "/arabia-quiz", ar: "/ar/tarikh-al-arab/" },
     titles: {
       en: "Arab & Middle East History Trivia | Riddle Arabia",
@@ -357,8 +363,9 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   },
   {
     key: "spacetoon-nostalgia",
-    // Arabic cards rewritten in light everyday Arabic on 2026-10-21 (#144).
-    lastModified: { en: "2026-09-30", ar: "2026-10-21" },
+    // Arabic cards briefly used everyday Arabic (2026-10-21, #144) and returned
+    // to Modern Standard Arabic on 2026-10-25.
+    lastModified: { en: "2026-09-30", ar: "2026-10-25" },
     paths: { en: "/spacetoon-nostalgia", ar: "/ar/hanin-spacetoon/" },
     titles: {
       en: "Spacetoon Nostalgia Quiz | Riddle Arabia",

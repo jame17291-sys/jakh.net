@@ -5,6 +5,7 @@ import test from 'node:test';
 import { CARD_AUDIT_LEDGER, beforeCardAudit, idsBeforeAudit } from './card-audit-ledger.mjs';
 import { CARD_POLISH_LEDGER } from './card-polish-ledger.mjs';
 import { bankBeforeMerge, readTopicMergeLedger } from './topic-merge-ledger.mjs';
+import { bankBeforeMsaRestore } from './arabic-msa-restore-ledger.mjs';
 import { contentKey, isPrepared } from '../tv-trivia-engine.js';
 
 const read = filename => JSON.parse(fs.readFileSync(new URL(`../${filename}`, import.meta.url), 'utf8'));
@@ -17,12 +18,13 @@ const get = (object, dotted) => dotted.split('.').reduce((value, key) => value?.
 const EDITABLE = /^(?:question\.(?:en|ar)|answer\.(?:en|ar)|difficulty|subcategory|acceptedAnswers|quickFire\.(?:answer|distractors|explanation)\.(?:en|ar)|tvQuiz\.(?:distractors\.(?:en|ar)|explanation\.(?:en|ar)|spoilerSeason|kind|contentKey))$/u;
 const LEVELS = new Set(['easy', 'medium', 'hard', 'very-advanced']);
 // The 2026-10-25 topic merges moved or removed some of these cards later; the
-// merge ledger restores each topic file exactly as this audit left it.
+// merge ledger restores each topic file exactly as this audit left it, after
+// the 2026-10-25 Modern Standard Arabic restore is reversed from its own ledger.
 const merge = readTopicMergeLedger();
 const retiredByMerge = new Set(merge.removed.map(entry => entry.id));
 const banks = new Map();
 const bank = category => {
-  if (!banks.has(category)) banks.set(category, bankBeforeMerge(merge, category));
+  if (!banks.has(category)) banks.set(category, bankBeforeMerge(merge, category, bankBeforeMsaRestore));
   return banks.get(category);
 };
 // A card of a show later dropped from the TV game keeps a content key sealed

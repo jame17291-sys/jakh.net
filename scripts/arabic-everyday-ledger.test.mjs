@@ -6,13 +6,16 @@ import { beforeArabicRewrite } from './arabic-everyday-ledger.mjs';
 import { CARD_POLISH_LEDGER, beforeCardPolish } from './card-polish-ledger.mjs';
 import { CARD_AUDIT_LEDGER, cardBeforeAudit } from './card-audit-ledger.mjs';
 import { bankBeforeMerge, readTopicMergeLedger } from './topic-merge-ledger.mjs';
+import { bankBeforeMsaRestore } from './arabic-msa-restore-ledger.mjs';
 
 const read = filename => JSON.parse(fs.readFileSync(new URL(`../${filename}`, import.meta.url), 'utf8'));
 const hash = card => crypto.createHash('sha256').update(JSON.stringify(card)).digest('hex');
 const ledger = read('docs/content-review/arabic-everyday-2026-10-21.json');
 const polish = read(CARD_POLISH_LEDGER);
 const audit = read(CARD_AUDIT_LEDGER);
-// Topic files as they stood before the 2026-10-25 topic merges.
+// Topic files as they stood before the 2026-10-25 topic merges (and before the
+// 2026-10-25 return to Modern Standard Arabic, which reversed this rewrite and is
+// recorded in its own ledger).
 const merge = readTopicMergeLedger();
 
 test('the everyday-Arabic rewrite changes only Arabic question wording and is fully reversible', () => {
@@ -21,7 +24,7 @@ test('the everyday-Arabic rewrite changes only Arabic question wording and is fu
   assert.equal(new Set(ledger.changes.map(change => change.id)).size, ledger.changes.length);
   const banks = new Map();
   for (const change of ledger.changes) {
-    if (!banks.has(change.category)) banks.set(change.category, new Map(bankBeforeMerge(merge, change.category).map(card => [card.id, card])));
+    if (!banks.has(change.category)) banks.set(change.category, new Map(bankBeforeMerge(merge, change.category, bankBeforeMsaRestore).map(card => [card.id, card])));
     const published = banks.get(change.category).get(change.id);
     const removed = audit.removed.some(entry => entry.id === change.id);
     assert.ok(published || removed, `${change.id}: card exists or its removal is recorded`);

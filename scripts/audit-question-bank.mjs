@@ -20,7 +20,8 @@ const AR_STOP_WORDS = new Set([
   "أين", "إلى", "الى", "التي", "الذي", "الذين", "أن", "ان", "أي", "اي", "بـ",
   "عن", "على", "في", "كان", "كانت", "كيف", "لـ", "لماذا", "ما", "ماذا", "متى",
   "من", "منذ", "هو", "هي", "و", "ولا", "يطلق", "يعرف", "يسمى",
-  // Everyday-Arabic question words, already in normalize()'s hamza-free form.
+  // Dialect question words from the reversed 2026-10-21 experiment, kept so a
+  // stray dialect prompt still compares fairly (normalize()'s hamza-free form).
   "شو", "مين", "منو", "اللي", "الي", "وين", "ليش", "باي", "لاي", "عشان", "لما",
   "اسم", "نسمي", "نوع",
 ]);

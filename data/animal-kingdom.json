@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "Which birds can sustain true backward flight?",
-      "ar": "أي طيور تقدر تطير لورا بشكل متواصل وحقيقي؟"
+      "ar": "أي طيور تستطيع الطيران إلى الخلف بصورة مستمرة وحقيقية؟"
     },
     "answer": {
       "en": "Hummingbirds, because their rotating wing stroke generates lift in both directions.",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "Which mammals are capable of true powered flight rather than gliding?",
-      "ar": "أي ثدييات تقدر تطير طيران حقيقي بعضلاتها، مش بس تنزلق؟"
+      "ar": "أي ثدييات قادرة على الطيران الحقيقي بقوة عضلية بدلاً من الانزلاق؟"
     },
     "answer": {
       "en": "Bats.",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "Which bird is famous for being unable to fly but being an excellent swimmer?",
-      "ar": "أي طائر مشهور إنه ما يطير بس سبّاح ماهر؟"
+      "ar": "أي طائر مشهور بعدم قدرته على الطيران ولكنه سباح ماهر؟"
     },
     "answer": {
       "en": "Penguin",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "What lightweight structures cover a bird's body and help many species fly?",
-      "ar": "شو اللي يغطي جسم الطائر، خفيف، ويساعد أنواع كثيرة تطير؟"
+      "ar": "ما التراكيب الخفيفة التي تغطي جسم الطائر وتساعد أنواعًا كثيرة على الطيران؟"
     },
     "answer": {
       "en": "Feathers.",
@@ -84,7 +84,7 @@
     },
     "question": {
       "en": "How many legs does a spider have?",
-      "ar": "كم رجل عند العنكبوت؟"
+      "ar": "كم عدداً من الأرجل لدى العنكبوت؟"
     },
     "answer": {
       "en": "Eight",
@@ -103,7 +103,7 @@
     },
     "question": {
       "en": "Which animal is known as the 'Ship of the Desert'?",
-      "ar": "أي حيوان لقبه «سفينة الصحراء»؟"
+      "ar": "أي حيوان يلقب بـ «سفينة الصحراء»؟"
     },
     "answer": {
       "en": "Camel",
@@ -122,7 +122,7 @@
     },
     "question": {
       "en": "What English term is commonly used for a young kangaroo?",
-      "ar": "شو الكلمة الإنجليزية المعروفة لصغير الكنغر؟"
+      "ar": "ما المصطلح الإنجليزي الشائع لصغير الكنغر؟"
     },
     "answer": {
       "en": "Joey.",
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "Which lizard is famous for changing skin color for signaling and temperature regulation as well as camouflage?",
-      "ar": "أي سحلية مشهورة إنها تغيّر لون جلدها عشان تتواصل وتنظّم حرارتها، مش بس عشان تتخفّى؟"
+      "ar": "أي سحلية تشتهر بتغيير لون جلدها للتواصل وتنظيم الحرارة، إلى جانب التمويه؟"
     },
     "answer": {
       "en": "Chameleon",
@@ -160,7 +160,7 @@
     },
     "question": {
       "en": "True or False: An ostrich's eye is bigger than its brain.",
-      "ar": "صح ولا غلط: عين النعامة أكبر من مخّها."
+      "ar": "صح أم خطأ: عين النعامة أكبر من دماغها."
     },
     "answer": {
       "en": "True",
@@ -179,7 +179,7 @@
     },
     "question": {
       "en": "Which animal class includes frogs, toads, salamanders, and newts?",
-      "ar": "أي مجموعة حيوانات فيها الضفادع والعلاجيم والسلمندرات وسمادل الماء؟"
+      "ar": "أي طائفة حيوانية تضم الضفادع والعلاجيم والسلمندرات وسمادل الماء؟"
     },
     "answer": {
       "en": "Amphibians.",
@@ -198,7 +198,7 @@
     },
     "question": {
       "en": "Which shark is known for estimated lifespans of several centuries, making it an exceptionally long-lived vertebrate?",
-      "ar": "أي قرش يعيش أفراده حسب التقديرات قرون، وهذا يخلّيه من أطول الفقاريات عمرًا؟"
+      "ar": "أي قرش تشتهر أعمار أفراده المقدرة ببلوغ عدة قرون، مما يجعله من أطول الفقاريات عمراً؟"
     },
     "answer": {
       "en": "The Greenland shark. Its age estimates carry substantial uncertainty.",
@@ -217,7 +217,7 @@
     },
     "question": {
       "en": "Kangaroos and koalas belong to which group of mammals?",
-      "ar": "الكنغر والكوالا من أي مجموعة من الثدييات؟"
+      "ar": "إلى أي مجموعة من الثدييات ينتمي الكنغر والكوالا؟"
     },
     "answer": {
       "en": "Marsupials; many raise their young in a pouch.",
@@ -236,7 +236,7 @@
     },
     "question": {
       "en": "In a snake, which sensory organ analyzes chemical particles delivered by the tongue?",
-      "ar": "شو العضو الحسّي عند الأفعى اللي يحلّل الجزيئات الكيميائية اللي يجيبها لسانها؟"
+      "ar": "ما العضو الحسي في الثعبان الذي يحلل الجسيمات الكيميائية التي ينقلها اللسان؟"
     },
     "answer": {
       "en": "The vomeronasal, or Jacobson's, organ. The tongue collects and delivers particles; it is not itself that organ.",
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "What is the term for an animal that is active during the night?",
-      "ar": "شو نسمّي الحيوان اللي ينشط بالليل؟"
+      "ar": "ما هو المصطلح الذي يطلق على الحيوان الذي ينشط خلال الليل؟"
     },
     "answer": {
       "en": "Nocturnal",
@@ -274,7 +274,7 @@
     },
     "question": {
       "en": "Which flightless bird was native to Mauritius and is now extinct?",
-      "ar": "أي طائر ما يطير كان عايش في موريشيوس وانقرض الحين؟"
+      "ar": "أي طائر لا يطير كان موطنه موريشيوس وهو منقرض الآن؟"
     },
     "answer": {
       "en": "Dodo",
@@ -293,7 +293,7 @@
     },
     "question": {
       "en": "What type of circulatory system do cockroaches and most other insects have: open or closed?",
-      "ar": "الجهاز الدوري عند الصراصير وأغلب الحشرات مفتوح ولا مسكّر؟"
+      "ar": "ما نوع الجهاز الدوري لدى الصراصير ومعظم الحشرات الأخرى: مفتوح أم مغلق؟"
     },
     "answer": {
       "en": "An open circulatory system.",
@@ -312,7 +312,7 @@
     },
     "question": {
       "en": "What is the only continent where bees are not found?",
-      "ar": "شو القارة الوحيدة اللي ما فيها نحل؟"
+      "ar": "ما هي القارة الوحيدة التي لا يوجد فيها نحل؟"
     },
     "answer": {
       "en": "Antarctica",
@@ -331,7 +331,7 @@
     },
     "question": {
       "en": "In English, what is the collective noun for a group of crows?",
-      "ar": "بالإنجليزي، شو الاسم اللي يطلقونه على سرب الغربان؟"
+      "ar": "ما الاسم الجماعي لسرب الغربان في اللغة الإنجليزية؟"
     },
     "answer": {
       "en": "A murder",
@@ -350,7 +350,7 @@
     },
     "question": {
       "en": "Which eight-armed cephalopod has three hearts and blue, copper-based blood?",
-      "ar": "أي حيوان من رأسيات الأرجل عنده ثماني أذرع وثلاث قلوب ودم أزرق، والأكسجين بدمه ينحمل على النحاس؟"
+      "ar": "أي رأسي قدم ذو ثمانية أذرع له ثلاثة قلوب ودم أزرق يعتمد ناقل الأكسجين فيه على النحاس؟"
     },
     "answer": {
       "en": "Octopus",
@@ -369,7 +369,7 @@
     },
     "question": {
       "en": "Which muscular organ grinds food in many birds after it is swallowed?",
-      "ar": "شو العضو العضلي اللي يطحن الأكل عند طيور كثيرة بعد ما تبلعه؟"
+      "ar": "أي عضو عضلي يطحن الطعام لدى كثير من الطيور بعد ابتلاعه؟"
     },
     "answer": {
       "en": "The gizzard.",
@@ -388,7 +388,7 @@
     },
     "question": {
       "en": "What is the term for a mammal that lays eggs?",
-      "ar": "شو نسمّي الثدييات اللي تبيض؟"
+      "ar": "ما هو المصطلح الذي يطلق على الثدييات التي تبيض؟"
     },
     "answer": {
       "en": "Monotreme",
@@ -407,7 +407,7 @@
     },
     "question": {
       "en": "Why does a giraffe need high arterial pressure to supply its brain while standing?",
-      "ar": "ليش الزرافة تحتاج ضغط دم عالي عشان يوصل الدم لمخها وهي واقفة؟"
+      "ar": "لماذا تحتاج الزرافة إلى ضغط شرياني مرتفع لإمداد دماغها بالدم أثناء الوقوف؟"
     },
     "answer": {
       "en": "Its brain is far above its heart, so blood must be pumped upward against a large gravitational pressure difference.",
@@ -426,7 +426,7 @@
     },
     "question": {
       "en": "What is bioluminescence?",
-      "ar": "شو هو «التلألؤ الحيوي»؟"
+      "ar": "ما التلألؤ الحيوي؟"
     },
     "answer": {
       "en": "The production and emission of light by a living organism",
@@ -445,7 +445,7 @@
     },
     "question": {
       "en": "Which jellyfish is famous for being able to revert from its medusa stage to a polyp stage?",
-      "ar": "أي قنديل بحر مشهور إنه يقدر يرجع من مرحلة القنديل لمرحلة البوليب؟"
+      "ar": "أي قنديل بحر يشتهر بقدرته على الرجوع من الطور الميدوزي إلى طور السليلة؟"
     },
     "answer": {
       "en": "Turritopsis dohrnii. This ability does not prevent death from predation, injury, or disease.",
@@ -464,7 +464,7 @@
     },
     "question": {
       "en": "What is the primary diet of a Blue Glaucus (Sea Slug)?",
-      "ar": "شو الأكل الرئيسي لـ«تنين البحر الأزرق» (Glaucus atlanticus)؟"
+      "ar": "ما هو الغذاء الرئيسي لغلوكوس أتلانتيكوس (تنين البحر الأزرق)؟"
     },
     "answer": {
       "en": "Portuguese Man o' War",
@@ -483,7 +483,7 @@
     },
     "question": {
       "en": "Which marine mammal is famous for exceptionally dense fur that insulates it in cold water?",
-      "ar": "أي حيوان ثديي بحري مشهور بفرو كثيف كثير يعزله بالمي الباردة؟"
+      "ar": "أي ثديي بحري يشتهر بفراء بالغ الكثافة يعزله في الماء البارد؟"
     },
     "answer": {
       "en": "Sea Otter",
@@ -502,7 +502,7 @@
     },
     "question": {
       "en": "What is the specific name for the study of birds?",
-      "ar": "شو اسم العلم اللي يدرس الطيور؟"
+      "ar": "ما هو الاسم المحدد لدراسة الطيور؟"
     },
     "answer": {
       "en": "Ornithology",
@@ -521,7 +521,7 @@
     },
     "question": {
       "en": "How many stomachs does a cow have, and how many compartments does it contain?",
-      "ar": "البقرة عندها كم معدة، وكم حجرة فيها؟"
+      "ar": "كم معدة للبقرة، وكم حجرة تضمها؟"
     },
     "answer": {
       "en": "One stomach with four compartments.",
@@ -540,7 +540,7 @@
     },
     "question": {
       "en": "Which crustacean group includes species that strike prey with rapidly moving club-like forelimbs?",
-      "ar": "أي مجموعة قشريات فيها أنواع تضرب فرايسها بأطراف أمامية سريعة مثل العصا؟"
+      "ar": "ما مجموعة القشريات التي تضم أنواعاً تضرب فرائسها بأطراف أمامية سريعة شبيهة بالهراوات؟"
     },
     "answer": {
       "en": "Mantis shrimps, specifically the smashing species.",
@@ -559,7 +559,7 @@
     },
     "question": {
       "en": "Some desert snails and African lungfish seal themselves in and slow their bodies down to survive long hot, dry spells. What is this called?",
-      "ar": "بعض حلزونات الصحراء وأسماك الرئة الأفريقية تنعزل وتبطّئ نشاط جسمها عشان تنجو من فترات الحر والجفاف الطويلة. شو اسم هالحالة؟"
+      "ar": "تنعزل بعض حلزونات الصحراء وأسماك الرئة الإفريقية وتبطّئ نشاط أجسامها لتنجو من فترات الحر والجفاف الطويلة. ما اسم هذه الحالة؟"
     },
     "answer": {
       "en": "Aestivation",
@@ -578,7 +578,7 @@
     },
     "question": {
       "en": "What is the name of the light-producing organ found in many deep-sea fish?",
-      "ar": "شو اسم العضو اللي يطلّع ضوء عند أسماك كثيرة بأعماق البحر؟"
+      "ar": "ما اسم العضو المنتج للضوء الموجود في العديد من أسماك أعماق البحار؟"
     },
     "answer": {
       "en": "Photophore",
@@ -597,7 +597,7 @@
     },
     "question": {
       "en": "What does an animal's brain-to-body mass ratio compare?",
-      "ar": "شو اللي تقارنه نسبة وزن مخ الحيوان لوزن جسمه؟"
+      "ar": "ما الذي تقارنه نسبة كتلة دماغ الحيوان إلى كتلة جسمه؟"
     },
     "answer": {
       "en": "Brain mass divided by body mass. The ratio alone is not a universal measure of intelligence.",
@@ -616,7 +616,7 @@
     },
     "question": {
       "en": "Frigatebirds chase other seabirds until they drop their catch, then snatch it. What is this food-stealing behaviour called?",
-      "ar": "طيور الفرقاط تطارد طيور بحر ثانية لحد ما ترمي صيدها، وبعدين تخطفه. شو اسم هالسلوك؟"
+      "ar": "تطارد طيور الفرقاط طيورًا بحرية أخرى حتى تُسقط صيدها، ثم تخطفه. ما اسم هذا السلوك؟"
     },
     "answer": {
       "en": "Kleptoparasitism",
@@ -635,7 +635,7 @@
     },
     "question": {
       "en": "Which two lake systems in the Valley of Mexico were the axolotl's historical native range?",
-      "ar": "شو نظامين البحيرات في وادي المكسيك اللي كانوا الموطن الأصلي للأكسولوتل؟"
+      "ar": "ما نظاما البحيرات في وادي المكسيك اللذان شكلا الموطن الأصلي التاريخي للأكسولوتل؟"
     },
     "answer": {
       "en": "Xochimilco and Chalco.",
@@ -654,7 +654,7 @@
     },
     "question": {
       "en": "What is the name of the protein that makes up a rhinoceros' horn?",
-      "ar": "من أي بروتين يتكوّن قرن وحيد القرن؟"
+      "ar": "ما اسم البروتين الذي يتكون منه قرن وحيد القرن؟"
     },
     "answer": {
       "en": "Keratin",
@@ -673,7 +673,7 @@
     },
     "question": {
       "en": "Which butterfly is famous for the migration of its eastern North American population from Canada and the United States to central Mexico?",
-      "ar": "أي فراشة مشهورة بهجرتها الجماعية في شرق أمريكا الشمالية من كندا وأمريكا لوسط المكسيك؟"
+      "ar": "أي فراشة تشتهر بهجرة جماعتها في شرق أمريكا الشمالية من كندا والولايات المتحدة إلى وسط المكسيك؟"
     },
     "answer": {
       "en": "Monarch Butterfly",
@@ -692,7 +692,7 @@
     },
     "question": {
       "en": "What is directed movement toward a light source called?",
-      "ar": "شو اسم الحركة اللي تكون باتجاه مصدر ضوء؟"
+      "ar": "ما اسم الحركة الموجهة نحو مصدر ضوء؟"
     },
     "answer": {
       "en": "Positive phototaxis.",
@@ -711,7 +711,7 @@
     },
     "question": {
       "en": "Despite its common name, is a water flea of the genus Daphnia an insect or a crustacean?",
-      "ar": "مع إن اسمه «برغوث الماء»، الدافنيا (Daphnia) حشرة ولا قشري؟"
+      "ar": "رغم اسمه الشائع، هل برغوث الماء من جنس Daphnia حشرة أم قشري؟"
     },
     "answer": {
       "en": "A crustacean, not an insect.",
@@ -730,7 +730,7 @@
     },
     "question": {
       "en": "What is 'Parthenogenesis'?",
-      "ar": "شو هو «التوالد العذري» (Parthenogenesis)؟"
+      "ar": "ما هو «التوالد العذري» (Parthenogenesis)؟"
     },
     "answer": {
       "en": "Reproduction from an ovum without fertilization",
@@ -749,7 +749,7 @@
     },
     "question": {
       "en": "What is the general name for a reversible state of almost undetectable metabolism that tardigrades can enter under extreme conditions?",
-      "ar": "شو الاسم العام لحالة ممكن ترجع منها، يكاد فيها نشاط الجسم ما ينلاحظ، ويدخلها دب الماء بالظروف القاسية؟"
+      "ar": "ما الاسم العام لحالة قابلة للعكس يكاد فيها الأيض لا يُرصد، ويمكن أن يدخلها دب الماء في ظروف قاسية؟"
     },
     "answer": {
       "en": "Cryptobiosis.",
@@ -768,7 +768,7 @@
     },
     "question": {
       "en": "What is the largest land animal?",
-      "ar": "شو أكبر حيوان بري؟"
+      "ar": "ما أكبر حيوان بري؟"
     },
     "answer": {
       "en": "The African elephant",
@@ -787,7 +787,7 @@
     },
     "question": {
       "en": "What is the fastest land animal?",
-      "ar": "شو أسرع حيوان بري؟"
+      "ar": "ما أسرع حيوان بري؟"
     },
     "answer": {
       "en": "The cheetah",
@@ -806,7 +806,7 @@
     },
     "question": {
       "en": "What is the largest animal on Earth?",
-      "ar": "شو أكبر حيوان على وجه الأرض؟"
+      "ar": "ما أكبر حيوان على وجه الأرض؟"
     },
     "answer": {
       "en": "The blue whale",

@@ -139,7 +139,7 @@ test("results carry the card's subtopic and can be found by it", () => {
   const byQuestion = rankGlobalSearch(index, categories, "William Rawls", "en");
   assert.equal(byQuestion[0].subtopic, "The Wire");
   assert.deepEqual(Array.from(rankGlobalSearch(index, categories, "The Wire", "en"), hit => hit.id), ["tv-1"]);
-  const arabic = rankGlobalSearch({ ...index, cards: [[0, "tv-1", "مين يلعب دور ويليام رولز؟", "جون دومان", 1]] }, categories, "ذا واير", "ar");
+  const arabic = rankGlobalSearch({ ...index, cards: [[0, "tv-1", "من يؤدي دور ويليام رولز؟", "جون دومان", 1]] }, categories, "ذا واير", "ar");
   assert.equal(arabic[0].subtopic, "ذا واير");
 
   const featureSource = read("search-leaderboard.js");

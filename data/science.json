@@ -8,7 +8,7 @@
     },
     "question": {
       "en": "Who is famously associated with the law of universal gravitation after seeing an apple fall?",
-      "ar": "مين اشتهر بقانون الجاذبية الكونية بعد ما شاف تفاحة تطيح؟"
+      "ar": "من يُشتهر بقانون الجاذبية الكونية بعد مشاهدة سقوط تفاحة؟"
     },
     "answer": {
       "en": "Isaac Newton",
@@ -27,7 +27,7 @@
     },
     "question": {
       "en": "What letter represents the speed of light in physics?",
-      "ar": "أي حرف يمثّل سرعة الضوء في الفيزياء؟"
+      "ar": "أي حرف يُمثّل سرعة الضوء في الفيزياء؟"
     },
     "answer": {
       "en": "c",
@@ -46,7 +46,7 @@
     },
     "question": {
       "en": "What change of state turns a gas into a liquid?",
-      "ar": "شو اسم تحوّل الغاز لسائل؟"
+      "ar": "ما اسم تحوّل الغاز إلى سائل؟"
     },
     "answer": {
       "en": "Condensation.",
@@ -65,7 +65,7 @@
     },
     "question": {
       "en": "What kind of energy is stored in a battery?",
-      "ar": "شو نوع الطاقة المخزّنة بالبطارية؟"
+      "ar": "ما نوع الطاقة المخزنة في البطارية؟"
     },
     "answer": {
       "en": "Chemical energy",
@@ -84,7 +84,7 @@
     },
     "question": {
       "en": "A stationary book rests on a horizontal table. Which upward contact force balances its weight?",
-      "ar": "كتاب ساكن على طاولة أفقية. شو قوة التلامس اللي لفوق وتوازن وزنه؟"
+      "ar": "كتاب ساكن على طاولة أفقية. ما قوة التلامس المتجهة إلى أعلى التي توازن وزنه؟"
     },
     "answer": {
       "en": "The normal force exerted by the table.",
@@ -103,7 +103,7 @@
     },
     "question": {
       "en": "Can sound travel through a vacuum like outer space?",
-      "ar": "الصوت يقدر ينتقل بالفراغ، مثل الفضاء الخارجي؟"
+      "ar": "هل يمكن للصوت أن ينتقل عبر الفراغ كما في الفضاء الخارجي؟"
     },
     "answer": {
       "en": "No",
@@ -122,7 +122,7 @@
     },
     "question": {
       "en": "What happens to white light when it passes through a prism?",
-      "ar": "شو يصير للضوء الأبيض لما يعدّي من منشور؟"
+      "ar": "ماذا يحدث للضوء الأبيض حين يمر عبر المنشور؟"
     },
     "answer": {
       "en": "It splits into a rainbow/spectrum",
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "What do you call the force that opposes motion between two surfaces?",
-      "ar": "شو اسم القوة اللي تعاكس الحركة بين سطحين؟"
+      "ar": "ما اسم القوة التي تعارض الحركة بين سطحين؟"
     },
     "answer": {
       "en": "Friction",
@@ -160,7 +160,7 @@
     },
     "question": {
       "en": "Who developed the famous equation E = mc²?",
-      "ar": "مين طوّر المعادلة المشهورة E = mc²؟"
+      "ar": "من طوّر المعادلة الشهيرة E = mc²؟"
     },
     "answer": {
       "en": "Albert Einstein",
@@ -179,7 +179,7 @@
     },
     "question": {
       "en": "Which negatively charged particle occupies atomic orbitals around the nucleus?",
-      "ar": "أي جسيم شحنته سالبة يكون بالمدارات حوالين نواة الذرة؟"
+      "ar": "أي جسيم سالب الشحنة يشغل المدارات الذرية حول النواة؟"
     },
     "answer": {
       "en": "Electron",
@@ -198,7 +198,7 @@
     },
     "question": {
       "en": "Newton's First Law of Motion is also known as the Law of what?",
-      "ar": "قانون نيوتن الأول للحركة معروف كمان بإنه قانون شو؟"
+      "ar": "قانون نيوتن الأول للحركة يُعرف أيضاً بقانون ماذا؟"
     },
     "answer": {
       "en": "Inertia",
@@ -217,7 +217,7 @@
     },
     "question": {
       "en": "Why does a metal spoon feel colder than a wooden spoon at the same room temperature?",
-      "ar": "ليش الملعقة المعدن تبان أبرد من الملعقة الخشب مع إن الاثنين بنفس حرارة الغرفة؟"
+      "ar": "لماذا تبدو الملعقة المعدنية أبرد من الملعقة الخشبية وهما في درجة حرارة الغرفة نفسها؟"
     },
     "answer": {
       "en": "Metal conducts heat away from your hand much faster than wood, even though both begin at the same temperature.",
@@ -236,7 +236,7 @@
     },
     "question": {
       "en": "An ambulance siren sounds higher as it approaches and lower as it drives away. What is this effect called?",
-      "ar": "صفارة الإسعاف يصير صوتها أحدّ وهي جاية وأغلظ وهي رايحة. شو اسم هالظاهرة؟"
+      "ar": "يبدو صوت صفارة الإسعاف أحدّ وهي تقترب وأغلظ وهي تبتعد. ما اسم هذه الظاهرة؟"
     },
     "answer": {
       "en": "The Doppler effect.",
@@ -255,7 +255,7 @@
     },
     "question": {
       "en": "What is the term for the bending of light as it passes from one medium to another?",
-      "ar": "شو اسم انحناء مسار الضوء لما ينتقل من وسط لوسط ثاني، مثل القلم اللي يبان معوّج بكاسة المي؟"
+      "ar": "ما مصطلح انحناء الضوء عند انتقاله من وسط إلى آخر؟"
     },
     "answer": {
       "en": "Refraction",
@@ -274,7 +274,7 @@
     },
     "question": {
       "en": "What does the specific heat capacity of a substance measure?",
-      "ar": "شو اللي تقيسه «السعة الحرارية النوعية» للمادة؟"
+      "ar": "ماذا تقيس السعة الحرارية النوعية لمادة؟"
     },
     "answer": {
       "en": "The energy required to raise the temperature of one unit mass of the substance by one degree.",
@@ -293,7 +293,7 @@
     },
     "question": {
       "en": "What is the temperature of absolute zero in Celsius?",
-      "ar": "كم الصفر المطلق بالدرجة المئوية؟"
+      "ar": "ما درجة الصفر المطلق بالدرجة المئوية؟"
     },
     "answer": {
       "en": "-273.15°C",
@@ -312,7 +312,7 @@
     },
     "question": {
       "en": "In the famous bathtub story, which Greek scholar realized a principle of buoyancy?",
-      "ar": "في قصة حوض الاستحمام المشهورة، أي عالم يوناني فهم مبدأ الطفو؟"
+      "ar": "في قصة حوض الاستحمام الشهيرة، أي عالم يوناني أدرك مبدأ الطفو؟"
     },
     "answer": {
       "en": "Archimedes. The bathtub account is a traditional story, not a contemporary experimental record.",
@@ -331,7 +331,7 @@
     },
     "question": {
       "en": "What is the basic unit (quantum) of light?",
-      "ar": "شو الوحدة الأساسية (الكم) للضوء؟"
+      "ar": "ما الوحدة الأساسية (الكم) للضوء؟"
     },
     "answer": {
       "en": "A photon",
@@ -350,7 +350,7 @@
     },
     "question": {
       "en": "What is the transfer of heat through direct contact between materials?",
-      "ar": "شو نسمّي انتقال الحرارة لما المواد تلمس بعض مباشرة؟"
+      "ar": "ما انتقال الحرارة عبر التلامس المباشر بين المواد؟"
     },
     "answer": {
       "en": "Conduction",
@@ -369,7 +369,7 @@
     },
     "question": {
       "en": "What is the difference between speed and velocity?",
-      "ar": "شو الفرق بين السرعة العددية والسرعة المتجهة؟"
+      "ar": "ما الفرق بين السرعة العددية والسرعة الاتجاهية؟"
     },
     "answer": {
       "en": "Velocity includes direction; speed does not",
@@ -388,7 +388,7 @@
     },
     "question": {
       "en": "What did Einstein call quantum entanglement — particles connected regardless of distance?",
-      "ar": "شو الاسم اللي سمّى فيه أينشتاين «التشابك الكمي» — الجسيمات اللي تظل مرتبطة مهما بعدت؟"
+      "ar": "ما الاسم الذي أطلقه آينشتاين على التشابك الكمي — الجسيمات المرتبطة بغض النظر عن المسافة؟"
     },
     "answer": {
       "en": "'Spooky action at a distance'",
@@ -407,7 +407,7 @@
     },
     "question": {
       "en": "Which physicist formulated the principle that position and momentum cannot both be known precisely?",
-      "ar": "أي فيزيائي صاغ المبدأ اللي يقول ما نقدر نعرف مكان الجسيم وزخمه بدقة بنفس الوقت؟"
+      "ar": "أي فيزيائي صاغ مبدأ عدم إمكانية معرفة الموضع والزخم بدقة في آنٍ واحد؟"
     },
     "answer": {
       "en": "Werner Heisenberg",
@@ -426,7 +426,7 @@
     },
     "question": {
       "en": "Which law states that total entropy of an isolated system can never decrease?",
-      "ar": "أي قانون يقول إن الإنتروبيا الكلية لنظام معزول عمرها ما تنقص؟"
+      "ar": "أي قانون ينص على أن الإنتروبيا الكلية لنظام معزول لا تتناقص أبداً؟"
     },
     "answer": {
       "en": "The Second Law of Thermodynamics",
@@ -445,7 +445,7 @@
     },
     "question": {
       "en": "Schrödinger's Cat illustrates a paradox in which field of physics?",
-      "ar": "تجربة «قطة شرودنغر» توضّح مفارقة بأي مجال من الفيزياء؟"
+      "ar": "تُوضّح تجربة قطة شرودنغر مفارقة في أي مجال من الفيزياء؟"
     },
     "answer": {
       "en": "Quantum Mechanics",
@@ -464,7 +464,7 @@
     },
     "question": {
       "en": "What does the Planck constant relate?",
-      "ar": "شو اللي يربطه ثابت بلانك؟"
+      "ar": "ما الذي يربطه ثابت بلانك؟"
     },
     "answer": {
       "en": "The energy of a photon to its frequency",
@@ -483,7 +483,7 @@
     },
     "question": {
       "en": "Which nearly massless particle, nicknamed the 'ghost particle', streams through our bodies by the trillions every second almost without interacting?",
-      "ar": "أي جسيم كتلته شبه معدومة، يسمّونه «الجسيم الشبح»، يعبر أجسامنا بالتريليونات كل ثانية تقريبًا من غير ما يتفاعل؟"
+      "ar": "أي جسيم كتلته شبه معدومة، ويُلقَّب بـ«الجسيم الشبح»، يعبر أجسامنا بالتريليونات كل ثانية دون أن يتفاعل تقريبًا؟"
     },
     "answer": {
       "en": "The neutrino",
@@ -502,7 +502,7 @@
     },
     "question": {
       "en": "Which field do elementary particles such as electrons interact with to acquire their rest masses in the Standard Model?",
-      "ar": "في النموذج المعياري، مع أي مجال تتفاعل الجسيمات الأولية مثل الإلكترونات عشان تاخذ كتلتها السكونية؟"
+      "ar": "مع أي مجال تتفاعل جسيمات أولية مثل الإلكترونات لاكتساب كتلتها السكونية في النموذج المعياري؟"
     },
     "answer": {
       "en": "The Higgs field. The Higgs boson is an excitation of that field.",
@@ -521,7 +521,7 @@
     },
     "question": {
       "en": "According to special relativity, how does an observer measure the ticking rate of a clock moving rapidly relative to them?",
-      "ar": "حسب النسبية الخاصة، كيف يشوف مراقب سرعة دقّات ساعة تتحرك بسرعة كبيرة بالنسبة له؟"
+      "ar": "وفق النسبية الخاصة، كيف يقيس راصد معدل دقات ساعة تتحرك بسرعة كبيرة بالنسبة إليه؟"
     },
     "answer": {
       "en": "The moving clock ticks more slowly than clocks at rest in the observer's frame. This is relative time dilation, not a change in how the traveler experiences their own clock.",
@@ -540,7 +540,7 @@
     },
     "question": {
       "en": "What is the minimum speed an object needs to break free from a planet's gravity?",
-      "ar": "شو اسم أقل سرعة لازم يوصلها جسم عشان يتحرر من جاذبية كوكب نهائياً؟"
+      "ar": "ما أقل سرعة يجب أن يبلغها جسم ليتحرر نهائيًا من جاذبية كوكب؟"
     },
     "answer": {
       "en": "Escape velocity",
@@ -559,7 +559,7 @@
     },
     "question": {
       "en": "What is the property of zero electrical resistance in certain materials at very low temperatures?",
-      "ar": "شو اسم الخاصية اللي تخلّي بعض المواد بدون أي مقاومة كهربائية على درجات حرارة منخفضة جدًا؟"
+      "ar": "ما خاصية انعدام المقاومة الكهربائية في بعض المواد عند درجات حرارة منخفضة جداً؟"
     },
     "answer": {
       "en": "Superconductivity",
@@ -578,7 +578,7 @@
     },
     "question": {
       "en": "Which instrument measures the mass of an object by comparing it with known masses?",
-      "ar": "شو الأداة اللي تقيس كتلة جسم بمقارنته بكتل معروفة؟"
+      "ar": "ما الأداة التي تقيس كتلة جسم بمقارنتها بكتل معلومة؟"
     },
     "answer": {
       "en": "A balance.",
@@ -597,7 +597,7 @@
     },
     "question": {
       "en": "Which plant tissue carries water and dissolved minerals from roots toward the shoots?",
-      "ar": "أي نسيج بالنبات ينقل المي والمعادن الذايبة من الجذور لفوق؟"
+      "ar": "أي نسيج نباتي ينقل الماء والمعادن الذائبة من الجذور نحو الأجزاء العليا؟"
     },
     "answer": {
       "en": "Xylem.",
@@ -635,7 +635,7 @@
     },
     "question": {
       "en": "What form of energy is stored in a stretched spring?",
-      "ar": "شو شكل الطاقة المخزّنة بنابض مشدود؟"
+      "ar": "ما شكل الطاقة المخزنة في نابض مشدود؟"
     },
     "answer": {
       "en": "Elastic potential energy.",
@@ -654,7 +654,7 @@
     },
     "question": {
       "en": "What type of connective tissue attaches muscle to bone?",
-      "ar": "شو نوع النسيج اللي يربط العضلة بالعظمة؟"
+      "ar": "ما نوع النسيج الضام الذي يربط العضلة بالعظم؟"
     },
     "answer": {
       "en": "A tendon.",
@@ -673,7 +673,7 @@
     },
     "question": {
       "en": "What is the SI unit of mechanical pressure?",
-      "ar": "شو وحدة الضغط الميكانيكي في النظام الدولي؟"
+      "ar": "ما وحدة الضغط الميكانيكي في النظام الدولي؟"
     },
     "answer": {
       "en": "The pascal (Pa), equal to one newton per square metre.",
@@ -692,7 +692,7 @@
     },
     "question": {
       "en": "Which blood vessels carry blood away from the heart?",
-      "ar": "أي أوعية دموية تاخذ الدم بعيد عن القلب؟"
+      "ar": "أي أوعية دموية تنقل الدم بعيداً عن القلب؟"
     },
     "answer": {
       "en": "Arteries. Pulmonary arteries are an exception to the usual oxygen-rich pattern, but they still carry blood away from the heart.",
@@ -711,7 +711,7 @@
     },
     "question": {
       "en": "What color does blue litmus paper turn in an acidic solution?",
-      "ar": "ورقة عبّاد الشمس الزرقا لأي لون تتحول بالمحلول الحمضي؟"
+      "ar": "إلى أي لون تتحول ورقة تباع الشمس الزرقاء في محلول حمضي؟"
     },
     "answer": {
       "en": "Red.",
@@ -730,7 +730,7 @@
     },
     "question": {
       "en": "What physical quantity does a barometer measure?",
-      "ar": "شو الكمية اللي يقيسها البارومتر؟"
+      "ar": "ما الكمية الفيزيائية التي يقيسها البارومتر؟"
     },
     "answer": {
       "en": "Atmospheric pressure.",
@@ -749,7 +749,7 @@
     },
     "question": {
       "en": "Which part of a flower produces pollen grains?",
-      "ar": "أي جزء من الزهرة يطلّع حبوب اللقاح؟"
+      "ar": "أي جزء من الزهرة ينتج حبوب اللقاح؟"
     },
     "answer": {
       "en": "The anther, which is part of the stamen.",
@@ -768,7 +768,7 @@
     },
     "question": {
       "en": "What is the atomic number of carbon?",
-      "ar": "كم العدد الذري للكربون؟"
+      "ar": "ما العدد الذري للكربون؟"
     },
     "answer": {
       "en": "6",
@@ -787,7 +787,7 @@
     },
     "question": {
       "en": "How do you calculate average speed from total distance and elapsed time?",
-      "ar": "كيف تحسب السرعة المتوسطة من المسافة الكلية والوقت اللي أخذته؟"
+      "ar": "كيف تحسب السرعة المتوسطة من المسافة الكلية والزمن المستغرق؟"
     },
     "answer": {
       "en": "Average speed = total distance ÷ elapsed time.",
@@ -806,7 +806,7 @@
     },
     "question": {
       "en": "Which plant tissue transports sugars from leaves to other parts of the plant?",
-      "ar": "أي نسيج بالنبات ينقل السكريات من الأوراق لباقي النبات؟"
+      "ar": "أي نسيج نباتي ينقل السكريات من الأوراق إلى بقية أجزاء النبات؟"
     },
     "answer": {
       "en": "Phloem.",
@@ -825,7 +825,7 @@
     },
     "question": {
       "en": "Among solids, liquids, and gases, which state has neither a fixed shape nor a fixed volume?",
-      "ar": "من بين الصلب والسائل والغاز، أي حالة ما لها شكل ثابت ولا حجم ثابت؟"
+      "ar": "من بين الصلب والسائل والغاز، أي حالة ليس لها شكل ثابت ولا حجم ثابت؟"
     },
     "answer": {
       "en": "Gas",
@@ -844,7 +844,7 @@
     },
     "question": {
       "en": "What is Newton's Second Law of Motion?",
-      "ar": "شو هو قانون نيوتن الثاني للحركة؟"
+      "ar": "ما قانون نيوتن الثاني للحركة؟"
     },
     "answer": {
       "en": "Force = Mass × Acceleration (F = ma)",
@@ -863,7 +863,7 @@
     },
     "question": {
       "en": "What is a codon?",
-      "ar": "شو هو «الكودون»؟"
+      "ar": "ما الكودون؟"
     },
     "answer": {
       "en": "A sequence of three nucleotides in messenger RNA that specifies an amino acid or a stop signal during translation.",
@@ -882,7 +882,7 @@
     },
     "question": {
       "en": "What approximate wavelength range is commonly used for visible light?",
-      "ar": "تقريبًا شو مدى الأطوال الموجية الشائع للضوء المرئي؟"
+      "ar": "ما نطاق الأطوال الموجية التقريبي الشائع للضوء المرئي؟"
     },
     "answer": {
       "en": "About 400–700 nanometres; the limits of human vision vary and are not sharp cutoffs.",
@@ -901,7 +901,7 @@
     },
     "question": {
       "en": "What is the chemical formula for table salt?",
-      "ar": "شو الصيغة الكيميائية لملح الطعام؟"
+      "ar": "ما الصيغة الكيميائية لملح الطعام؟"
     },
     "answer": {
       "en": "NaCl",
@@ -920,7 +920,7 @@
     },
     "question": {
       "en": "What is the SI unit of energy?",
-      "ar": "شو وحدة الطاقة في النظام الدولي؟"
+      "ar": "ما وحدة الطاقة في النظام الدولي للوحدات؟"
     },
     "answer": {
       "en": "Joule (J)",
@@ -939,7 +939,7 @@
     },
     "question": {
       "en": "What is the function of red blood cells?",
-      "ar": "شو شغلة كريات الدم الحمرا؟"
+      "ar": "ما وظيفة خلايا الدم الحمراء؟"
     },
     "answer": {
       "en": "To carry oxygen from the lungs to the body's tissues",
@@ -958,7 +958,7 @@
     },
     "question": {
       "en": "Which optical processes in raindrops produce a primary rainbow?",
-      "ar": "شو العمليات البصرية داخل قطرات المطر اللي تكوّن قوس قزح الأساسي؟"
+      "ar": "ما العمليات البصرية داخل قطرات المطر التي تكوّن قوس قزح الأولي؟"
     },
     "answer": {
       "en": "Refraction and dispersion as light enters and leaves, with one internal reflection inside each drop.",
@@ -977,7 +977,7 @@
     },
     "question": {
       "en": "What is osmosis?",
-      "ar": "شو هي «الخاصية الأسموزية»؟"
+      "ar": "ما الأسموزية؟"
     },
     "answer": {
       "en": "Net movement of water across a selectively permeable membrane from higher to lower water potential. At equal pressure, this usually means from lower to higher solute concentration.",
@@ -996,7 +996,7 @@
     },
     "question": {
       "en": "Why does a clear daytime sky usually appear blue?",
-      "ar": "ليش السما الصافية بالنهار تبان زرقا عادةً؟"
+      "ar": "لماذا تبدو السماء الصافية نهاراً زرقاء عادةً؟"
     },
     "answer": {
       "en": "Rayleigh scattering: molecules in the atmosphere scatter shorter visible wavelengths more strongly than longer ones.",
@@ -1015,7 +1015,7 @@
     },
     "question": {
       "en": "What is the direct change of state from a gas to a solid called?",
-      "ar": "شو نسمّي تحوّل الغاز لصلب على طول؟"
+      "ar": "ماذا يسمى التحول المباشر من غاز إلى صلب؟"
     },
     "answer": {
       "en": "Deposition, also called desublimation.",
@@ -1034,7 +1034,7 @@
     },
     "question": {
       "en": "What is the exact SI value of Planck's constant h?",
-      "ar": "كم القيمة الدقيقة لثابت بلانك h في النظام الدولي؟"
+      "ar": "ما القيمة الدقيقة لثابت بلانك h في النظام الدولي؟"
     },
     "answer": {
       "en": "6.62607015×10⁻³⁴ joule seconds (J·s).",
@@ -1053,7 +1053,7 @@
     },
     "question": {
       "en": "What fundamental connection does Noether's theorem make in physics?",
-      "ar": "شو العلاقة الأساسية اللي تثبتها «مبرهنة نويثر» في الفيزياء؟"
+      "ar": "ما العلاقة الأساسية التي تقيمها مبرهنة نويثر في الفيزياء؟"
     },
     "answer": {
       "en": "Every continuous symmetry of a system's action corresponds to a conservation law; for example, time-translation symmetry gives conservation of energy.",
@@ -1072,7 +1072,7 @@
     },
     "question": {
       "en": "What is the name of the particle responsible for electromagnetic force?",
-      "ar": "شو اسم الجسيم المسؤول عن القوة الكهرومغناطيسية؟"
+      "ar": "ما اسم الجسيم المسؤول عن القوة الكهرومغناطيسية؟"
     },
     "answer": {
       "en": "Photon",
@@ -1091,7 +1091,7 @@
     },
     "question": {
       "en": "In Schrödinger's cat thought experiment, what conceptual problem arises when quantum superposition is applied to a macroscopic cat?",
-      "ar": "في تجربة «قطة شرودنغر» الفكرية، شو المشكلة اللي تطلع لما نطبّق التراكب الكمي على قطة كبيرة؟"
+      "ar": "في تجربة قطة شرودنغر الفكرية، ما المشكلة المفاهيمية التي تظهر عند تطبيق التراكب الكمي على قطة كبيرة الحجم؟"
     },
     "answer": {
       "en": "The measurement problem: how a quantum description containing alternative outcomes relates to the single definite outcome observed.",
@@ -1110,7 +1110,7 @@
     },
     "question": {
       "en": "Which enzyme seals the gaps between Okazaki fragments during DNA replication?",
-      "ar": "أي إنزيم يسكّر الفجوات بين «قطع أوكازاكي» وقت تضاعف DNA؟"
+      "ar": "أي إنزيم يغلق الفجوات بين قطع أوكازاكي أثناء تضاعف الحمض النووي؟"
     },
     "answer": {
       "en": "DNA ligase.",
@@ -1129,7 +1129,7 @@
     },
     "question": {
       "en": "What is the hybridization of carbon in methane, CH₄?",
-      "ar": "في الميثان CH₄، شو نوع تهجين ذرة الكربون؟"
+      "ar": "ما نوع تهجين ذرة الكربون في الميثان CH₄؟"
     },
     "answer": {
       "en": "sp³",
@@ -1148,7 +1148,7 @@
     },
     "question": {
       "en": "What equation gives the de Broglie wavelength of a particle?",
-      "ar": "شو المعادلة اللي تعطي «طول موجة دي برولي» لجسيم؟"
+      "ar": "ما المعادلة التي تعطي طول موجة دي برولي لجسيم؟"
     },
     "answer": {
       "en": "λ = h/p, where h is Planck's constant and p is the particle's momentum.",
@@ -1167,7 +1167,7 @@
     },
     "question": {
       "en": "What is the name of the protein complex that breaks down damaged proteins in cells?",
-      "ar": "شو اسم المركّب البروتيني اللي يكسّر البروتينات التالفة بالخلايا؟"
+      "ar": "ما اسم المركّب البروتيني الذي يحلّل البروتينات التالفة في الخلايا؟"
     },
     "answer": {
       "en": "The proteasome",
@@ -1186,7 +1186,7 @@
     },
     "question": {
       "en": "What gauge symmetry group underlies the Standard Model of particle physics?",
-      "ar": "شو «زمرة تناظر القياس» اللي يقوم عليها النموذج المعياري لفيزياء الجسيمات؟"
+      "ar": "ما زمرة تناظر القياس التي يقوم عليها النموذج المعياري لفيزياء الجسيمات؟"
     },
     "answer": {
       "en": "SU(3)C × SU(2)L × U(1)Y, corresponding to the strong and electroweak interactions before symmetry breaking.",
@@ -1205,7 +1205,7 @@
     },
     "question": {
       "en": "Which protein causes prion diseases when it adopts a disease-associated misfolded form?",
-      "ar": "أي بروتين يسبب أمراض البريون لما ينطوي بشكل غلط مرتبط بالمرض؟"
+      "ar": "أي بروتين يسبب أمراض البريون عندما يتخذ شكلاً مطوياً على نحو خاطئ مرتبطاً بالمرض؟"
     },
     "answer": {
       "en": "PrP (Prion Protein)",
@@ -1224,7 +1224,7 @@
     },
     "question": {
       "en": "What is the Gibbs free energy equation?",
-      "ar": "شو معادلة «طاقة غيبس الحرة»؟"
+      "ar": "ما معادلة طاقة غيبس الحرة؟"
     },
     "answer": {
       "en": "ΔG = ΔH − TΔS",
@@ -1243,7 +1243,7 @@
     },
     "question": {
       "en": "What is the Unruh effect?",
-      "ar": "شو هو «تأثير أونرو»؟"
+      "ar": "ما تأثير أونرو؟"
     },
     "answer": {
       "en": "A uniformly accelerating observer perceives the inertial vacuum as a thermal bath, with temperature proportional to the observer's acceleration.",
@@ -1262,7 +1262,7 @@
     },
     "question": {
       "en": "A closed system experiences no net external force. Which quantity is conserved: total momentum or each object's speed?",
-      "ar": "نظام مسكّر ما تأثر عليه قوة خارجية محصّلة. شو اللي ينحفظ: الزخم الكلي ولا سرعة كل جسم؟"
+      "ar": "نظام مغلق لا تؤثر فيه قوة خارجية محصلة. أي كمية تُحفظ: الزخم الكلي أم سرعة كل جسم؟"
     },
     "answer": {
       "en": "Total momentum. Individual objects can change speed while exchanging momentum internally.",
@@ -1281,7 +1281,7 @@
     },
     "question": {
       "en": "What is Heisenberg's contribution to quantum chemistry?",
-      "ar": "شو مساهمة هايزنبرغ بالكيمياء الكمّية؟"
+      "ar": "ما إسهام هايزنبرغ في الكيمياء الكمية؟"
     },
     "answer": {
       "en": "Matrix mechanics formulation of quantum mechanics and uncertainty principle",
@@ -1300,7 +1300,7 @@
     },
     "question": {
       "en": "What does the Pauli Exclusion Principle state?",
-      "ar": "شو يقول «مبدأ باولي للاستبعاد»؟"
+      "ar": "ماذا ينص مبدأ باولي للإقصاء؟"
     },
     "answer": {
       "en": "No two fermions in the same quantum system can have the same quantum state simultaneously",
@@ -1319,7 +1319,7 @@
     },
     "question": {
       "en": "What is the significance of the triple point of a substance?",
-      "ar": "شو أهمية «النقطة الثلاثية» لمادة معيّنة؟"
+      "ar": "ما أهمية النقطة الثلاثية لمادة ما؟"
     },
     "answer": {
       "en": "The unique temperature and pressure at which the three phases (solid, liquid, gas) coexist in equilibrium",
@@ -1338,7 +1338,7 @@
     },
     "question": {
       "en": "What is the principle of superposition in quantum mechanics?",
-      "ar": "في ميكانيكا الكم، شو هو «مبدأ التراكب»؟"
+      "ar": "ما مبدأ التراكب في ميكانيكا الكم؟"
     },
     "answer": {
       "en": "If quantum states are allowed, an appropriate linear combination of them is also an allowed state. Measurement outcome probabilities depend on the combination's amplitudes.",
@@ -1357,7 +1357,7 @@
     },
     "question": {
       "en": "What expected effect did the Michelson–Morley experiment fail to detect?",
-      "ar": "شو التأثير المتوقع اللي ما قدرت تجربة مايكلسون–مورلي تكتشفه؟"
+      "ar": "ما التأثير المتوقع الذي لم تنجح تجربة مايكلسون–مورلي في كشفه؟"
     },
     "answer": {
       "en": "The expected light-speed difference caused by Earth's motion through a stationary luminiferous ether—the proposed ether wind.",
@@ -1376,7 +1376,7 @@
     },
     "question": {
       "en": "What is the speed of light in a vacuum?",
-      "ar": "كم سرعة الضوء في الفراغ؟"
+      "ar": "ما سرعة الضوء في الفراغ؟"
     },
     "answer": {
       "en": "Approximately 300,000 km/s (299,792,458 m/s).",
@@ -1395,7 +1395,7 @@
     },
     "question": {
       "en": "How are the frequency f and period T of a repeating wave related?",
-      "ar": "شو العلاقة بين تردد الموجة الدورية f وزمنها الدوري T؟"
+      "ar": "ما العلاقة بين تردد الموجة الدورية f وزمنها الدوري T؟"
     },
     "answer": {
       "en": "They are reciprocals: f = 1/T. A longer period therefore means a lower frequency.",
@@ -1414,7 +1414,7 @@
     },
     "question": {
       "en": "Which type of lens brings parallel light rays to a focus?",
-      "ar": "أي نوع عدسات يجمع أشعة الضوء المتوازية في بؤرة؟"
+      "ar": "أي نوع من العدسات يجمع أشعة الضوء المتوازية في بؤرة؟"
     },
     "answer": {
       "en": "A convex, or converging, lens.",
@@ -1433,7 +1433,7 @@
     },
     "question": {
       "en": "An object of mass 2 kg accelerates at 3 m/s². What net force acts on it?",
-      "ar": "جسم كتلته 2 كغ يتسارع بـ3 م/ث². كم القوة المحصّلة عليه؟"
+      "ar": "يتسارع جسم كتلته 2 كغ بمقدار 3 م/ث². ما محصلة القوة المؤثرة فيه؟"
     },
     "answer": {
       "en": "6 N, using F=ma=2×3.",
@@ -1452,7 +1452,7 @@
     },
     "question": {
       "en": "What is the difference between nuclear fission and nuclear fusion?",
-      "ar": "شو الفرق بين الانشطار النووي والاندماج النووي؟"
+      "ar": "ما الفرق بين الانشطار النووي والاندماج النووي؟"
     },
     "answer": {
       "en": "Fission splits a heavy nucleus into smaller ones (used in nuclear reactors); fusion merges light nuclei into heavier ones (powers the Sun). Both release enormous energy.",
@@ -1471,7 +1471,7 @@
     },
     "question": {
       "en": "What is wave-particle duality?",
-      "ar": "شو هي «ازدواجية الموجة والجسيم»؟"
+      "ar": "ما ازدواجية الموجة والجسيم؟"
     },
     "answer": {
       "en": "Quantum objects (electrons, photons) exhibit both wave-like and particle-like behaviour depending on how they are observed. The double-slit experiment demonstrates this duality.",
@@ -1490,7 +1490,7 @@
     },
     "question": {
       "en": "Why was the photoelectric effect important to the development of quantum theory?",
-      "ar": "ليش كان التأثير الكهروضوئي مهم بتطور نظرية الكم؟"
+      "ar": "لماذا كان التأثير الكهروضوئي مهماً في تطور نظرية الكم؟"
     },
     "answer": {
       "en": "Electron emission depends on a threshold light frequency. Einstein explained it using light quanta with energy E=hf, where classical wave theory alone could not explain the observations.",
@@ -1509,7 +1509,7 @@
     },
     "question": {
       "en": "Can measurements of entangled particles be used to send a controllable message faster than light?",
-      "ar": "هل نقدر نستخدم قياسات جسيمات متشابكة عشان نبعت رسالة نتحكم فيها أسرع من الضوء؟"
+      "ar": "هل يمكن استخدام قياسات جسيمات متشابكة لإرسال رسالة يمكن التحكم فيها أسرع من الضوء؟"
     },
     "answer": {
       "en": "No. Entanglement produces nonclassical correlations, but comparing outcomes still requires ordinary communication subject to the light-speed limit.",
@@ -1528,7 +1528,7 @@
     },
     "question": {
       "en": "Which bosons mediate the electromagnetic, weak, and strong interactions in the Standard Model?",
-      "ar": "في النموذج المعياري، شو البوزونات اللي تنقل التفاعلات الكهرومغناطيسية والضعيفة والقوية؟"
+      "ar": "ما البوزونات التي تتوسط التآثرات الكهرومغناطيسية والضعيفة والقوية في النموذج المعياري؟"
     },
     "answer": {
       "en": "The photon mediates electromagnetism, W and Z bosons the weak interaction, and gluons the strong interaction. The Higgs boson is a separate scalar particle.",
@@ -1547,7 +1547,7 @@
     },
     "question": {
       "en": "What is the key difference between special and general relativity in their treatment of spacetime and gravity?",
-      "ar": "شو الفرق الأساسي بين النسبية الخاصة والنسبية العامة في وصف الزمكان والجاذبية؟"
+      "ar": "ما الفرق الأساسي بين النسبية الخاصة والعامة في وصف الزمكان والجاذبية؟"
     },
     "answer": {
       "en": "Special relativity describes physics in flat spacetime, including accelerated motion. General relativity describes gravity through curved spacetime shaped by mass-energy.",
@@ -1566,7 +1566,7 @@
     },
     "question": {
       "en": "What characterizes a Bose–Einstein condensate in a dilute gas cooled to extremely low temperature?",
-      "ar": "شو الخاصية المميزة لـ«مكثّف بوز–أينشتاين» في غاز مخفّف انبرد لدرجة حرارة منخفضة جدًا؟"
+      "ar": "ما الخاصية المميزة لمكثف بوز–أينشتاين في غاز مخفف بُرّد إلى حرارة شديدة الانخفاض؟"
     },
     "answer": {
       "en": "A macroscopic fraction of the bosons occupies the same lowest-energy quantum state. Bosons have integer spin.",

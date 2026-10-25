@@ -24,8 +24,6 @@ export async function runPasswordChangeRegressions({ browser, baseUrl, createCon
       profile: { id: 'password-fixture-owner', username: 'PasswordFixtureOwner', role: 'OWNER', avatar: '🛡️', progress: [], favorites: [] },
     });
     await setConsent(context);
-    // TEMPORARY DIAGNOSIS
-    await context.addInitScript(() => { document.addEventListener('mousemove', event => { window.__diagMouse = [event.clientX, event.clientY, event.target?.id || event.target?.tagName]; }, true); });
     let submissions = 0;
     let pending;
     await context.route('**/api/user/password', async route => {
@@ -73,15 +71,25 @@ export async function runPasswordChangeRegressions({ browser, baseUrl, createCon
           return document.getElementById('authModal').contains(node) && (top === node || node.contains(top));
         }), true, `${language}: feedback must be readable above the modal backdrop`);
       }
-      await button.click();
+      // A click leaves the pointer where it landed. When the status line above
+      // the button then shrinks by one line (about half the button's height),
+      // the pointer rests on the button's bottom edge. There the 1px hover lift
+      // moves the edge off the pointer and back, WebKit toggles :hover on every
+      // transition, and the button never becomes stable enough to click.
+      // Start each click from a resting pointer, as a person reaching for it.
+      async function clickButton() {
+        await page.mouse.move(0, 0);
+        await button.click();
+      }
+      await clickButton();
       await expectFeedback(copy.required, 'error');
       assert.equal(await current.getAttribute('aria-invalid'), 'true');
       await current.fill('Fixture-current-password-42');
-      await button.click();
+      await clickButton();
       await expectFeedback(copy.required, 'error');
       assert.equal(await replacement.getAttribute('aria-invalid'), 'true');
       await replacement.fill('short');
-      await button.click();
+      await clickButton();
       await expectFeedback(copy.policy, 'error');
       assert.equal(submissions, 0, 'Client validation must not send a password mutation');
       await replacement.fill('Fixture-replacement-password-84');
@@ -93,23 +101,7 @@ export async function runPasswordChangeRegressions({ browser, baseUrl, createCon
       ]) {
         const before = submissions;
         pending = { ...response, entered: Promise.withResolvers(), release: Promise.withResolvers() };
-        // TEMPORARY DIAGNOSIS
-        try { await button.click({ timeout: 20_000 }); } catch (error) {
-          const diag = await page.evaluate(async () => {
-            const node = document.getElementById('changePasswordBtn');
-            const frames = [];
-            for (let i = 0; i < 16; i++) {
-              await new Promise(resolve => requestAnimationFrame(resolve));
-              const r = node.getBoundingClientRect();
-              frames.push(`${r.top.toFixed(2)}/${r.bottom.toFixed(2)}${node.matches(':hover') ? 'H' : ''}`);
-            }
-            const card = node.closest('.modal-card');
-            const status = document.getElementById('changePasswordStatus');
-            return { frames: frames.join(' '), mouse: window.__diagMouse, scrollTop: card?.scrollTop, status: status.textContent.slice(0, 40), statusH: status.getBoundingClientRect().height, h: node.offsetHeight, transform: getComputedStyle(node).transform };
-          });
-          error.message += `\nDIAG ${response.status} ${JSON.stringify(diag)}`;
-          throw error;
-        }
+        await clickButton();
         let timer;
         try {
           await Promise.race([pending.entered.promise, new Promise((_, reject) => {

@@ -220,8 +220,9 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   {
     key: "kids-riddles",
     // Expanded from 8 to 24 riddles, easy to hard, with kids search wording on 2026-10-23.
-    // Arabic card wording returned to Modern Standard Arabic on 2026-10-25.
-    lastModified: { en: "2026-10-23", ar: "2026-10-25" },
+    // Arabic card wording returned to Modern Standard Arabic on 2026-10-25, and the same day
+    // kids-riddles-019 and -021 got new puzzles in both languages.
+    lastModified: "2026-10-25",
     paths: { en: "/family-riddles", ar: "/ar/alghaz-atfal/" },
     titles: {
       en: "Riddles for Kids With Answers | Riddle Arabia",

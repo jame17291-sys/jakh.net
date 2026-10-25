@@ -10772,17 +10772,17 @@
     {
       "id": "kids-riddles-019",
       "question": {
-        "en": "A three-digit code has a middle digit of 3. Its first digit is twice its last, and all three digits add to 9. What is the code?",
-        "ar": "رمز من ثلاثة أرقام، رقمه الأوسط 3. الرقم الأول يساوي ضعف الأخير، ومجموع الأرقام الثلاثة 9. ما الرمز؟"
+        "en": "If 3 cats catch 3 mice in 3 minutes, how many cats are needed to catch 100 mice in 100 minutes?",
+        "ar": "إذا اصطادت 3 قطط 3 فئران في 3 دقائق، فكم قطة نحتاج لاصطياد 100 فأر في 100 دقيقة؟"
       },
       "answer": {
-        "en": "432",
-        "ar": "432"
+        "en": "3 cats: together they catch one mouse every minute.",
+        "ar": "3 قطط: معًا تصطاد فأرًا واحدًا كل دقيقة."
       },
       "age": "9-12",
       "explanation": {
-        "en": "The first and last digits must add to 6 because the middle is 3. The pair 4 and 2 fits, and 4 is twice 2: 432.",
-        "ar": "يجب أن يكون مجموع الرقمين الأول والأخير 6 لأنّ الأوسط 3. يناسب الرقمان 4 و2، و4 ضعف 2، فيكون الرمز 432."
+        "en": "Each cat catches one mouse every 3 minutes, so the 3 cats together catch one mouse a minute. In 100 minutes the same 3 cats catch 100 mice.",
+        "ar": "تصطاد كل قطة فأرًا واحدًا كل 3 دقائق، فتصطاد القطط الثلاث معًا فأرًا كل دقيقة. وفي 100 دقيقة تصطاد القطط الثلاث نفسها 100 فأر."
       }
     },
     {
@@ -10804,17 +10804,17 @@
     {
       "id": "kids-riddles-021",
       "question": {
-        "en": "My two digits add to 9. I am 27 greater than the number made by reversing my digits. What number am I?",
-        "ar": "مجموع رقميّ يساوي 9، وأنا أكبر بـ27 من العدد الناتج عن عكس ترتيبهما. ما العدد؟"
+        "en": "I'm a number. Whatever number you multiply me by, the answer is always me. What am I?",
+        "ar": "أنا عدد، وأيًّا كان العدد الذي تضربني فيه، فالناتج هو أنا دائمًا. ما أنا؟"
       },
       "answer": {
-        "en": "63",
-        "ar": "63"
+        "en": "Zero.",
+        "ar": "الصفر."
       },
-      "age": "9-12",
+      "age": "7-8",
       "explanation": {
-        "en": "Reverse 63 to get 36. Then 63 - 36 = 27, and 6 + 3 = 9, so both clues fit.",
-        "ar": "اعكس 63 فتحصل على 36. ثم 63 - 36 = 27، و6 + 3 = 9، فتتحقّق القرينتان."
+        "en": "Any number multiplied by zero gives zero: 7 × 0 = 0 and 100 × 0 = 0. One does not work, because 7 × 1 = 7.",
+        "ar": "أيّ عدد يُضرب في الصفر يكون ناتجه صفرًا: 7 × 0 = 0 و100 × 0 = 0. أما الواحد فلا يصلح، لأن 7 × 1 = 7."
       }
     },
     {
@@ -10959,6 +10959,166 @@
       "explanation": {
         "en": "The two main hands show hours and minutes on the clock face. Some clocks also have a thinner seconds hand.",
         "ar": "يشير العقربان الرئيسيان إلى الساعات والدقائق على وجه الساعة. وبعض الساعات لها أيضًا عقرب ثوانٍ أرفع."
+      }
+    },
+    {
+      "id": "kids-riddles-031",
+      "question": {
+        "en": "I grow tall in hot deserts, wear a crown of long leaves, and give you sweet brown fruit. What am I?",
+        "ar": "أنمو عاليةً في الصحراء الحارة، وأضع تاجًا من الأوراق الطويلة، وأقدّم لك ثمرًا حلوًا بنّيّ اللون. ما أنا؟"
+      },
+      "answer": {
+        "en": "A date palm.",
+        "ar": "النخلة."
+      },
+      "age": "5-6",
+      "explanation": {
+        "en": "A date palm grows tall in hot, dry places. Its long leaves spread out at the top like a crown, and its sweet fruit is the date.",
+        "ar": "تنمو النخلة عاليةً في الأماكن الحارة الجافة، وتنتشر أوراقها الطويلة في أعلاها مثل التاج، وثمرها الحلو هو التمر."
+      }
+    },
+    {
+      "id": "kids-riddles-032",
+      "question": {
+        "en": "I have no eyelids, so I rest with my eyes open, and I breathe through gills. What am I?",
+        "ar": "ليس لي جفون، فأستريح وعيناي مفتوحتان، وأتنفّس بالخياشيم. ما أنا؟"
+      },
+      "answer": {
+        "en": "A fish.",
+        "ar": "السمكة."
+      },
+      "age": "7-8",
+      "explanation": {
+        "en": "Most fish have no eyelids, so their eyes stay open even while they rest. Their gills take oxygen from the water.",
+        "ar": "معظم الأسماك ليس لها جفون، فتبقى عيونها مفتوحة حتى وهي تستريح. وتأخذ خياشيمها الأكسجين من الماء."
+      }
+    },
+    {
+      "id": "kids-riddles-033",
+      "question": {
+        "en": "I can carry a giant ship on my back, but I can't hold up a tiny nail. What am I?",
+        "ar": "أحمل على ظهري سفينة ضخمة، لكنني لا أستطيع أن أحمل مسمارًا صغيرًا. ما أنا؟"
+      },
+      "answer": {
+        "en": "The sea: ships float on it, but a nail sinks.",
+        "ar": "البحر: تطفو عليه السفينة، ويغرق فيه المسمار."
+      },
+      "age": "7-8",
+      "explanation": {
+        "en": "A ship is shaped to push aside a lot of water, so the water holds it up. A small iron nail is heavier than the water it pushes aside, so it sinks.",
+        "ar": "شُكِّلت السفينة لتزيح كمية كبيرة من الماء، فيحملها الماء. أما المسمار الحديدي الصغير فأثقل من الماء الذي يزيحه، فيغرق."
+      }
+    },
+    {
+      "id": "kids-riddles-034",
+      "question": {
+        "en": "Which is heavier: the full moon or a thin crescent moon?",
+        "ar": "أيّهما أثقل: القمر حين يكون بدرًا، أم حين يكون هلالًا رفيعًا؟"
+      },
+      "answer": {
+        "en": "Neither: it is the same Moon, lit differently by the Sun.",
+        "ar": "لا أحد منهما: إنه القمر نفسه، لكن الشمس تضيء منه جزءًا مختلفًا."
+      },
+      "age": "7-8",
+      "explanation": {
+        "en": "The Sun always lights half of the Moon. As the Moon travels around Earth we see more or less of that lit half, but the Moon itself keeps the same size and weight.",
+        "ar": "تضيء الشمس دائمًا نصف القمر. وحين يدور القمر حول الأرض نرى جزءًا أكبر أو أصغر من ذلك النصف المضيء، لكن القمر نفسه لا يتغيّر حجمه ولا وزنه."
+      }
+    },
+    {
+      "id": "kids-riddles-035",
+      "question": {
+        "en": "I have a hooked beak and very sharp eyes. In the Gulf, people carry me on a gloved arm and train me to hunt. What am I?",
+        "ar": "لي منقار معقوف وعينان حادّتان جدًا. في الخليج يحملني الناس على ذراع تلبس قفازًا، ويدرّبونني على الصيد. ما أنا؟"
+      },
+      "answer": {
+        "en": "A falcon.",
+        "ar": "الصقر."
+      },
+      "age": "7-8",
+      "explanation": {
+        "en": "Falcons have hooked beaks and excellent eyesight. Falconry, training falcons to hunt, is an old tradition in the Gulf, and the falconer wears a thick glove to protect the hand.",
+        "ar": "للصقر منقار معقوف وبصر حادّ. والصيد بالصقور تقليد قديم في الخليج، ويلبس المدرّب قفازًا سميكًا يحمي يده."
+      }
+    },
+    {
+      "id": "kids-riddles-036",
+      "question": {
+        "en": "A farmer has 5 haystacks in one field and 4 in another. He heaps all the hay together in one field. How many haystacks does he have now?",
+        "ar": "لدى مزارع 5 أكوام من القش في حقل، و4 أكوام في حقل آخر. جمع القش كله معًا في حقل واحد. كم كومة لديه الآن؟"
+      },
+      "answer": {
+        "en": "One big haystack.",
+        "ar": "كومة واحدة كبيرة."
+      },
+      "age": "7-8",
+      "explanation": {
+        "en": "Putting all the hay together makes one big pile, so there is one haystack. 5 + 4 = 9 counts the piles before they were joined.",
+        "ar": "عندما يُجمع القش كله معًا يصبح كومة واحدة كبيرة. أما 5 + 4 = 9 فهو عدد الأكوام قبل جمعها."
+      }
+    },
+    {
+      "id": "kids-riddles-037",
+      "question": {
+        "en": "A basket holds 5 apples. Five children each take one apple, yet one apple is still in the basket. How?",
+        "ar": "في سلّة 5 تفاحات. أخذ كل طفل من خمسة أطفال تفاحة واحدة، ومع ذلك بقيت تفاحة في السلّة. كيف؟"
+      },
+      "answer": {
+        "en": "The last child took the basket with the apple still inside.",
+        "ar": "أخذ الطفل الأخير السلّة وتفاحته ما زالت فيها."
+      },
+      "age": "7-8",
+      "explanation": {
+        "en": "Each child really did take one apple. The fifth child simply took the basket too, so that apple never left the basket.",
+        "ar": "أخذ كل طفل تفاحة فعلًا، لكن الطفل الخامس أخذ السلّة معها، فلم تخرج تفاحته من السلّة."
+      }
+    },
+    {
+      "id": "kids-riddles-038",
+      "question": {
+        "en": "Sara has 4 sisters, and each of her sisters has 1 brother. How many children are in the family?",
+        "ar": "لسارة 4 أخوات، ولكل واحدة من أخواتها أخ واحد. كم طفلًا في العائلة؟"
+      },
+      "answer": {
+        "en": "6: five girls and one boy, who is brother to them all.",
+        "ar": "6: خمس بنات وولد واحد هو أخو الجميع."
+      },
+      "age": "9-12",
+      "explanation": {
+        "en": "Sara and her 4 sisters make 5 girls. They all share the same single brother, so the family has 5 + 1 = 6 children.",
+        "ar": "سارة وأخواتها الأربع خمس بنات، ولهن جميعًا الأخ نفسه، فيكون في العائلة 5 + 1 = 6 أطفال."
+      }
+    },
+    {
+      "id": "kids-riddles-039",
+      "question": {
+        "en": "How many small 1 cm cubes do you need to build one bigger cube with 2 cm sides?",
+        "ar": "كم مكعبًا صغيرًا طول ضلعه 1 سم تحتاج لتبني مكعبًا أكبر طول ضلعه 2 سم؟"
+      },
+      "answer": {
+        "en": "8: two layers of four cubes.",
+        "ar": "8: طبقتان، في كل منهما 4 مكعبات."
+      },
+      "age": "9-12",
+      "explanation": {
+        "en": "The big cube is 2 small cubes long, 2 wide and 2 tall. One layer needs 2 × 2 = 4 cubes, and two layers need 8.",
+        "ar": "طول المكعب الكبير مكعبان صغيران، وعرضه مكعبان، وارتفاعه مكعبان. تحتاج الطبقة الواحدة إلى 2 × 2 = 4 مكعبات، والطبقتان إلى 8."
+      }
+    },
+    {
+      "id": "kids-riddles-040",
+      "question": {
+        "en": "What comes next: Monday, Wednesday, Friday, …?",
+        "ar": "ما اليوم التالي في هذا التسلسل: الاثنين، الأربعاء، الجمعة، …؟"
+      },
+      "answer": {
+        "en": "Sunday: the pattern skips one day each time.",
+        "ar": "الأحد: نتخطّى يومًا واحدًا في كل مرة."
+      },
+      "age": "7-8",
+      "explanation": {
+        "en": "Each step skips one day: Monday, then Wednesday after skipping Tuesday, then Friday after skipping Thursday, then Sunday after skipping Saturday.",
+        "ar": "كل خطوة تتخطّى يومًا: الاثنين، ثم الأربعاء بعد تخطّي الثلاثاء، ثم الجمعة بعد تخطّي الخميس، ثم الأحد بعد تخطّي السبت."
       }
     }
   ]

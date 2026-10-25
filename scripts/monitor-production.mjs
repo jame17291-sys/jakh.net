@@ -36,13 +36,15 @@ const RETIRED_SEO_REDIRECT_QUERY = "retired_seo_redirect_probe=riddlearabia";
 const RENAMED_GAME_REDIRECT_QUERY = "renamed_game_redirect_probe=riddlearabia";
 // Public inventories of earlier releases: 51 topics with 3,825 cards before
 // the 2026-10-25 card audit (PR #175) and 3,798 cards after it, then 48 topics
-// with 3,704 cards after the topic merges (PR #177), before the phase-2 content
-// pass. Only the exact-version release baseline may still serve one of these
-// inventories, and only as a coherent pair.
+// with 3,704 cards after the topic merges (PR #177) and 3,286 cards after the
+// phase-2 content pass (PR #179), before the Spacetoon and kids-riddles
+// additions. Only the exact-version release baseline may still serve one of
+// these inventories, and only as a coherent pair.
 const PREDECESSOR_INVENTORIES = Object.freeze([
   Object.freeze({ publicQuestions: 3_825, publicCategories: 51 }),
   Object.freeze({ publicQuestions: 3_798, publicCategories: 51 }),
   Object.freeze({ publicQuestions: 3_704, publicCategories: 48 }),
+  Object.freeze({ publicQuestions: 3_286, publicCategories: 48 }),
 ]);
 export const PUBLIC_CATEGORY_TOTAL = 48;
 const FRIENDSHIP_ARCADE_SLUGS = new Set(["secret-word-impostor", "panic-mode", "friendship-court"]);
@@ -57,7 +59,7 @@ export const CONTENT_PUBLICATION_CONTRACT = Object.freeze({
   state: "safety-quarantine-active",
   quarantinedCategories: Object.freeze([...checkedPublicationQuarantine.categorySlugs]),
   quarantinedQuestions: checkedPublicationQuarantine.manifest.totalCards,
-  publicQuestions: 3_286,
+  publicQuestions: 3_360,
   manifestSha256: checkedPublicationQuarantine.policySha256,
 });
 

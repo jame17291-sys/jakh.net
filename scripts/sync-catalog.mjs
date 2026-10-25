@@ -7,6 +7,7 @@ import {
   normalizeScorableAnswer,
   reviewValidationErrors,
 } from "./content-review-lib.mjs";
+import { orderTopics, pinnedTopicErrors, subtopicLimit } from "./catalog-topics.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const catalogPath = path.join(root, "data", "catalog.json");
@@ -113,10 +114,13 @@ for (const category of catalog.categories || []) {
       .filter((difficulty) => difficultyCounts[difficulty])
       .map((difficulty) => [difficulty, difficultyCounts[difficulty]]),
   );
-  category.topics = [...topicCounts.values()].sort((left, right) => (
-    right.count - left.count
-    || left.en.localeCompare(right.en)
-  ));
+  if (topicCounts.size > subtopicLimit(category.slug)) {
+    throw new Error(`${category.slug} has ${topicCounts.size} subtopics; maximum is ${subtopicLimit(category.slug)}`);
+  }
+  const pinnedErrors = pinnedTopicErrors(category.pinnedTopics, [...topicCounts.keys()]);
+  if (pinnedErrors.length) throw new Error(`${category.slug}: ${pinnedErrors.join("; ")}`);
+  // Authored pinnedTopics come first; the rest follow by card count, then name.
+  category.topics = orderTopics([...topicCounts.values()], category.pinnedTopics);
   const sectionIndex = section.members.indexOf(category.slug);
   const sectionPeers = section.members
     .slice(sectionIndex + 1)

@@ -1,5 +1,1221 @@
 [
   {
+    "id": "ayt-201",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Detective Conan",
+      "ar": "المحقق كونان"
+    },
+    "question": {
+      "en": "In Detective Conan, what is the real name of the teenage detective whose body is shrunk into a little boy's?",
+      "ar": "في «المحقق كونان»، ما الاسم الحقيقي للمحقق المراهق الذي تقلّص جسمه فصار طفلًا صغيرًا؟"
+    },
+    "answer": {
+      "en": "Shinichi Kudo",
+      "ar": "سينشي كودو"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-202",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Detective Conan",
+      "ar": "المحقق كونان"
+    },
+    "question": {
+      "en": "In Detective Conan, what is the name of Ran's father, the clumsy private detective Conan lives with?",
+      "ar": "في «المحقق كونان»، ما اسم والد ران، المحقق الخاص المتعثّر الذي يعيش كونان في بيته؟"
+    },
+    "answer": {
+      "en": "Togo Mori (Kogoro Mori in the original)",
+      "ar": "توغو موري"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-203",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Detective Conan",
+      "ar": "المحقق كونان"
+    },
+    "question": {
+      "en": "In Detective Conan, what colour do the members of the gang that shrank Shinichi always wear?",
+      "ar": "في «المحقق كونان»، ما لون الملابس التي يرتديها دائمًا أفراد العصابة التي صغّرت سينشي؟"
+    },
+    "answer": {
+      "en": "Black",
+      "ar": "الأسود"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-204",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Detective Conan",
+      "ar": "المحقق كونان"
+    },
+    "question": {
+      "en": "When Shinichi has to invent a name on the spot, which famous author's name gives him 'Conan'?",
+      "ar": "عندما اضطر سينشي إلى اختراع اسم على عجل، من اسم أيّ كاتب شهير أخذ «كونان»؟"
+    },
+    "answer": {
+      "en": "Arthur Conan Doyle",
+      "ar": "آرثر كونان دويل"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-205",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Detective Conan",
+      "ar": "المحقق كونان"
+    },
+    "question": {
+      "en": "In Detective Conan, which gadget lets Conan speak in other people's voices?",
+      "ar": "في «المحقق كونان»، ما الأداة التي تمكّن كونان من التحدث بأصوات الآخرين؟"
+    },
+    "answer": {
+      "en": "A voice-changing bow tie",
+      "ar": "ربطة عنق مغيّرة للصوت"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-206",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Detective Conan",
+      "ar": "المحقق كونان"
+    },
+    "question": {
+      "en": "In Detective Conan, which high-school detective from Osaka is Shinichi's rival and close friend?",
+      "ar": "في «المحقق كونان»، مَن محقق المدرسة الثانوية القادم من أوساكا، منافس سينشي وصديقه المقرّب؟"
+    },
+    "answer": {
+      "en": "Heiji Hattori",
+      "ar": "هيجي هاتوري"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-207",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Detective Conan",
+      "ar": "المحقق كونان"
+    },
+    "question": {
+      "en": "In Detective Conan, what is the code name of the experimental poison that shrank Shinichi?",
+      "ar": "في «المحقق كونان»، ما الاسم الرمزي للسمّ التجريبي الذي صغّر سينشي؟"
+    },
+    "answer": {
+      "en": "APTX 4869",
+      "ar": "APTX 4869"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-208",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Detective Conan",
+      "ar": "المحقق كونان"
+    },
+    "question": {
+      "en": "Which girl in Conan's class invented the shrinking poison herself, then shrank after swallowing it?",
+      "ar": "مَن الفتاة التي تدرس في صف كونان، وقد اخترعت السمّ بنفسها ثم تقلّص جسمها عندما ابتلعته؟"
+    },
+    "answer": {
+      "en": "Ai Haibara",
+      "ar": "هيبارا (آي هايبرا)"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-209",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Detective Conan",
+      "ar": "المحقق كونان"
+    },
+    "question": {
+      "en": "In the Arabic dub of Detective Conan, what is Ran to Shinichi, although in the Japanese original she is his childhood friend?",
+      "ar": "في الدبلجة العربية من «المحقق كونان»، ما صلة ران بسينشي، مع أنها في الأصل الياباني صديقة طفولته؟"
+    },
+    "answer": {
+      "en": "His fiancée",
+      "ar": "خطيبته"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-210",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Detective Conan",
+      "ar": "المحقق كونان"
+    },
+    "question": {
+      "en": "In Detective Conan, which gentleman thief, dressed all in white, sends a note announcing each theft in advance?",
+      "ar": "في «المحقق كونان»، مَن اللص الأنيق ذو الثياب البيضاء الذي يرسل رسالة يعلن فيها عن كل سرقة قبل وقوعها؟"
+    },
+    "answer": {
+      "en": "Kaito Kid (the Phantom Thief Kid)",
+      "ar": "كايتو كيد (اللص الطائر كيد)"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-211",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Detective Conan",
+      "ar": "المحقق كونان"
+    },
+    "question": {
+      "en": "Which Japanese mystery writer, often called the father of Japanese detective fiction, gave Conan his surname?",
+      "ar": "أيّ كاتب ياباني للروايات البوليسية، يُلقَّب غالبًا بأبي الرواية البوليسية اليابانية، أخذ منه كونان اسم عائلته؟"
+    },
+    "answer": {
+      "en": "Edogawa Ranpo",
+      "ar": "إدوغاوا رانبو"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-212",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Detective Conan",
+      "ar": "المحقق كونان"
+    },
+    "question": {
+      "en": "Who created the Detective Conan manga, first published in 1994?",
+      "ar": "مَن مؤلف مانغا «المحقق كونان» التي بدأ نشرها عام 1994؟"
+    },
+    "answer": {
+      "en": "Gosho Aoyama",
+      "ar": "غوشو أوياما"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-213",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Detective Conan",
+      "ar": "المحقق كونان"
+    },
+    "question": {
+      "en": "What is the job of Shinichi's father, Yusaku Kudo?",
+      "ar": "ما مهنة يوساكو كودو، والد سينشي؟"
+    },
+    "answer": {
+      "en": "Mystery novelist",
+      "ar": "كاتب روايات بوليسية"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-214",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Detective Conan",
+      "ar": "المحقق كونان"
+    },
+    "question": {
+      "en": "Where is Shinichi when the gang's men force him to swallow the poison?",
+      "ar": "أين كان سينشي حين أجبره رجال العصابة على ابتلاع السم؟"
+    },
+    "answer": {
+      "en": "At an amusement park (Tropical Land)",
+      "ar": "في مدينة ملاهٍ (تروبيكال لاند)"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-215",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Detective Conan",
+      "ar": "المحقق كونان"
+    },
+    "question": {
+      "en": "The Arabic dub of Detective Conan renamed Teitan school. What did it call it?",
+      "ar": "في الدبلجة العربية من «المحقق كونان» تغيّر اسم مدرسة تيتان. ما الاسم الذي حملته؟"
+    },
+    "answer": {
+      "en": "Al-Saada School (the School of Happiness)",
+      "ar": "مدرسة السعادة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-216",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Detective Conan",
+      "ar": "المحقق كونان"
+    },
+    "question": {
+      "en": "Like his hero Sherlock Holmes, which instrument does Shinichi play?",
+      "ar": "على غرار بطله شيرلوك هولمز، على أيّ آلة موسيقية يعزف سينشي؟"
+    },
+    "answer": {
+      "en": "The violin",
+      "ar": "الكمان"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-217",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Hunter × Hunter",
+      "ar": "القناص"
+    },
+    "question": {
+      "en": "In Hunter × Hunter, what is the name of the boy hero who leaves his island to become a Hunter?",
+      "ar": "في «القناص»، ما اسم الفتى بطل القصة الذي يغادر جزيرته ليصبح قنّاصًا؟"
+    },
+    "answer": {
+      "en": "Gon Freecss",
+      "ar": "غون فريكس"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-218",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Hunter × Hunter",
+      "ar": "القناص"
+    },
+    "question": {
+      "en": "In Hunter × Hunter, why does Gon want to become a Hunter?",
+      "ar": "في «القناص»، لماذا يريد غون أن يصبح قنّاصًا؟"
+    },
+    "answer": {
+      "en": "To find his father, Ging, who is a Hunter too",
+      "ar": "ليعثر على والده جين، وهو قنّاص أيضًا"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-219",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Hunter × Hunter",
+      "ar": "القناص"
+    },
+    "question": {
+      "en": "In Hunter × Hunter, which white-haired boy becomes Gon's best friend during the Hunter Exam?",
+      "ar": "في «القناص»، مَن الفتى ذو الشعر الأبيض الذي يصبح أعزّ أصدقاء غون خلال امتحان القنّاصين؟"
+    },
+    "answer": {
+      "en": "Killua",
+      "ar": "كيلوا"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-220",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Hunter × Hunter",
+      "ar": "القناص"
+    },
+    "question": {
+      "en": "In Hunter × Hunter, what everyday tool does Gon carry and use as his weapon?",
+      "ar": "في «القناص»، ما الأداة البسيطة التي يحملها غون ويستعملها سلاحًا؟"
+    },
+    "answer": {
+      "en": "A fishing rod",
+      "ar": "صنّارة صيد"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-221",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Hunter × Hunter",
+      "ar": "القناص"
+    },
+    "question": {
+      "en": "In Hunter × Hunter, which of Gon's friends dreams of becoming a doctor?",
+      "ar": "في «القناص»، أيّ أصدقاء غون يحلم بأن يصبح طبيبًا؟"
+    },
+    "answer": {
+      "en": "Leorio",
+      "ar": "ليوريو"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-222",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Hunter × Hunter",
+      "ar": "القناص"
+    },
+    "question": {
+      "en": "In Hunter × Hunter, what is the name of the woman who raised Gon on his island?",
+      "ar": "في «القناص»، ما اسم المرأة التي ربّت غون في جزيرته؟"
+    },
+    "answer": {
+      "en": "Mito (Aunt Mito)",
+      "ar": "ميتو"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-223",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Hunter × Hunter",
+      "ar": "القناص"
+    },
+    "question": {
+      "en": "In Hunter × Hunter, what colour do Kurapika's eyes turn when he is angry?",
+      "ar": "في «القناص»، إلى أيّ لون تتحوّل عينا كورابيكا حين يغضب؟"
+    },
+    "answer": {
+      "en": "Scarlet (bright red)",
+      "ar": "القرمزي (الأحمر)"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-224",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Hunter × Hunter",
+      "ar": "القناص"
+    },
+    "question": {
+      "en": "In Hunter × Hunter, what is Killua's favourite snack?",
+      "ar": "في «القناص»، ما الحلوى المفضلة لدى كيلوا؟"
+    },
+    "answer": {
+      "en": "Chocolate",
+      "ar": "الشوكولاتة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-225",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Hunter × Hunter",
+      "ar": "القناص"
+    },
+    "question": {
+      "en": "In Hunter × Hunter, what does Gon have to catch to win Aunt Mito's permission to take the Hunter Exam?",
+      "ar": "في «القناص»، ماذا كان على غون أن يصطاد ليحصل على موافقة ميتو على دخول امتحان القنّاصين؟"
+    },
+    "answer": {
+      "en": "A giant fish",
+      "ar": "سمكة عملاقة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-226",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Hunter × Hunter",
+      "ar": "القناص"
+    },
+    "question": {
+      "en": "In Hunter × Hunter, which weapon hangs from Kurapika's fingers?",
+      "ar": "في «القناص»، ما السلاح الذي يتدلّى من أصابع كورابيكا؟"
+    },
+    "answer": {
+      "en": "Chains",
+      "ar": "السلاسل"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-227",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Hunter × Hunter",
+      "ar": "القناص"
+    },
+    "question": {
+      "en": "In Hunter × Hunter, what is the name of the life energy that Hunters train to control?",
+      "ar": "في «القناص»، ما اسم طاقة الحياة التي يتدرّب القنّاصون على التحكم بها؟"
+    },
+    "answer": {
+      "en": "Nen",
+      "ar": "النين"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-228",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Hunter × Hunter",
+      "ar": "القناص"
+    },
+    "question": {
+      "en": "In Hunter × Hunter, which toy does Killua turn into a weapon?",
+      "ar": "في «القناص»، أيّ لعبة يحوّلها كيلوا إلى سلاح؟"
+    },
+    "answer": {
+      "en": "Yo-yos",
+      "ar": "اليويو"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-229",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Hunter × Hunter",
+      "ar": "القناص"
+    },
+    "question": {
+      "en": "In Hunter × Hunter, what number is on Gon's badge in the Hunter Exam?",
+      "ar": "في «القناص»، ما الرقم المكتوب على شارة غون في امتحان القنّاصين؟"
+    },
+    "answer": {
+      "en": "405",
+      "ar": "405"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-230",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Hunter × Hunter",
+      "ar": "القناص"
+    },
+    "question": {
+      "en": "In Hunter × Hunter, which Hunter saved young Gon from an angry fox-bear and told him about his father?",
+      "ar": "في «القناص»، مَن القنّاص الذي أنقذ غون في صغره من دبّ ثعلبي غاضب، وأخبره عن والده؟"
+    },
+    "answer": {
+      "en": "Kite",
+      "ar": "كايت"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-231",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Hunter × Hunter",
+      "ar": "القناص"
+    },
+    "question": {
+      "en": "Which studio dubbed Hunter × Hunter into Arabic as Al-Qannas?",
+      "ar": "ما الاستوديو الذي دبلج «القناص» إلى العربية؟"
+    },
+    "answer": {
+      "en": "Venus Centre (Markaz al-Zahra)",
+      "ar": "مركز الزهرة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-232",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Hunter × Hunter",
+      "ar": "القناص"
+    },
+    "question": {
+      "en": "In Hunter × Hunter, what is the name of Gon's home island?",
+      "ar": "في «القناص»، ما اسم الجزيرة التي نشأ فيها غون؟"
+    },
+    "answer": {
+      "en": "Whale Island",
+      "ar": "جزيرة الحوت"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-233",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Digimon Adventure",
+      "ar": "أبطال الديجيتال"
+    },
+    "question": {
+      "en": "In the Arabic dub of Digimon Adventure, what is the name of the goggle-wearing leader of the children?",
+      "ar": "في «أبطال الديجيتال»، ما اسم قائد الأطفال الذي يضع نظارة واقية على رأسه؟"
+    },
+    "answer": {
+      "en": "Amjad (Taichi, or Tai, in the original)",
+      "ar": "أمجد"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-234",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Digimon Adventure",
+      "ar": "أبطال الديجيتال"
+    },
+    "question": {
+      "en": "In the Arabic dub of Digimon Adventure, what is the name of Amjad's orange dinosaur partner?",
+      "ar": "في «أبطال الديجيتال»، ما اسم رفيق أمجد، الديناصور البرتقالي؟"
+    },
+    "answer": {
+      "en": "Ra'd (Agumon in the original)",
+      "ar": "رعد"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-235",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Digimon Adventure",
+      "ar": "أبطال الديجيتال"
+    },
+    "question": {
+      "en": "In Digimon Adventure, how many children are swept into the world of the Digimon at the start?",
+      "ar": "في «أبطال الديجيتال»، كم طفلًا انتقل إلى عالم الديجيمون في بداية القصة؟"
+    },
+    "answer": {
+      "en": "Seven",
+      "ar": "سبعة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-236",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Digimon Adventure",
+      "ar": "أبطال الديجيتال"
+    },
+    "question": {
+      "en": "In the Arabic dub of Digimon Adventure, which child always carries his laptop?",
+      "ar": "في «أبطال الديجيتال»، أيّ الأطفال يحمل حاسوبه المحمول دائمًا؟"
+    },
+    "answer": {
+      "en": "Shadi (Koushiro, or Izzy, in the original)",
+      "ar": "شادي"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-237",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Digimon Adventure",
+      "ar": "أبطال الديجيتال"
+    },
+    "question": {
+      "en": "In the Arabic dub of Digimon Adventure, what is the name of Yamen's partner, the Digimon who wears a wolf pelt?",
+      "ar": "في «أبطال الديجيتال»، ما اسم رفيق يامن، الديجيمون الذي يرتدي فروة ذئب؟"
+    },
+    "answer": {
+      "en": "Kasir (Gabumon in the original)",
+      "ar": "كاسر"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-238",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Digimon Adventure",
+      "ar": "أبطال الديجيتال"
+    },
+    "question": {
+      "en": "In the Arabic dub of Digimon Adventure, what is the name of Mai's plant-like partner?",
+      "ar": "في «أبطال الديجيتال»، ما اسم رفيقة مي، الديجيمون التي تشبه النبتة؟"
+    },
+    "answer": {
+      "en": "Zahra (Palmon in the original)",
+      "ar": "زهرة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-239",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Digimon Adventure",
+      "ar": "أبطال الديجيتال"
+    },
+    "question": {
+      "en": "In Digimon Adventure, which quality does Amjad's crest stand for?",
+      "ar": "في «أبطال الديجيتال»، ما الصفة التي ترمز إليها قلادة أمجد؟"
+    },
+    "answer": {
+      "en": "Courage",
+      "ar": "الشجاعة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-240",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Digimon Adventure",
+      "ar": "أبطال الديجيتال"
+    },
+    "question": {
+      "en": "In the Arabic dub of Digimon Adventure, who is the eighth child, who joins the team later?",
+      "ar": "في «أبطال الديجيتال»، مَن الطفلة الثامنة التي انضمت إلى الفريق لاحقًا؟"
+    },
+    "answer": {
+      "en": "Hind, Amjad's little sister (Hikari, or Kari, in the original)",
+      "ar": "هند، أخت أمجد الصغرى"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-241",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Digimon Adventure",
+      "ar": "أبطال الديجيتال"
+    },
+    "question": {
+      "en": "The Arabic dub of Digimon Adventure dropped the idea of 'evolution'. What did it call a partner's bigger, stronger form instead?",
+      "ar": "حذفت الدبلجة العربية من «أبطال الديجيتال» فكرة التطوّر. فماذا سمّت الشكل الأكبر والأقوى لكل رفيق بدلًا منها؟"
+    },
+    "answer": {
+      "en": "Its 'digital brother'",
+      "ar": "الأخ الرقمي"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-242",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Digimon Adventure",
+      "ar": "أبطال الديجيتال"
+    },
+    "question": {
+      "en": "In the Arabic dub of Digimon Adventure, what is the name of the giant horned dinosaur that fights in Ra'd's place (Greymon in the original)?",
+      "ar": "في «أبطال الديجيتال»، ما اسم الديناصور العملاق ذي القرون الذي يقاتل بدلًا من رعد في المعارك؟"
+    },
+    "answer": {
+      "en": "Sindeed",
+      "ar": "صنديد"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-243",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Digimon Adventure",
+      "ar": "أبطال الديجيتال"
+    },
+    "question": {
+      "en": "In Digimon Adventure's Arabic dub, a small pink bird is always at Samar's side. What is the bird called?",
+      "ar": "في «أبطال الديجيتال»، يرافق سمرَ دائمًا طائر وردي صغير. ما اسمه في الدبلجة العربية؟"
+    },
+    "answer": {
+      "en": "Hadeel (Biyomon in the original)",
+      "ar": "هديل"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-244",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Digimon Adventure",
+      "ar": "أبطال الديجيتال"
+    },
+    "question": {
+      "en": "In Digimon Adventure, Wassim (T.K. in the original) is the younger brother of which child?",
+      "ar": "في «أبطال الديجيتال»، وسيم هو الأخ الأصغر لأيّ طفل من الأطفال؟"
+    },
+    "answer": {
+      "en": "Yamen (Yamato, or Matt, in the original)",
+      "ar": "يامن"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-245",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Digimon Adventure",
+      "ar": "أبطال الديجيتال"
+    },
+    "question": {
+      "en": "Which Arabic name did the dub of Digimon Adventure give Gatomon, Hind's cat?",
+      "ar": "أيّ اسم عربي أطلقته الدبلجة على قطة هند في «أبطال الديجيتال»؟"
+    },
+    "answer": {
+      "en": "Kharmoush",
+      "ar": "خرموش"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-246",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Digimon Adventure",
+      "ar": "أبطال الديجيتال"
+    },
+    "question": {
+      "en": "Which Syrian singer sang the Arabic theme song of Digimon Adventure?",
+      "ar": "مَن المطربة السورية التي غنّت شارة «أبطال الديجيتال» بالعربية؟"
+    },
+    "answer": {
+      "en": "Sonia Bitar",
+      "ar": "سونيا بيطار"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-247",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Digimon Adventure",
+      "ar": "أبطال الديجيتال"
+    },
+    "question": {
+      "en": "The Arabic dub of Digimon Adventure renamed Odaiba, the children's home district. What did it call it?",
+      "ar": "غيّرت الدبلجة العربية من «أبطال الديجيتال» اسم أودايبا، الحيّ الذي يسكنه الأطفال. ما الاسم الذي أطلقته عليه؟"
+    },
+    "answer": {
+      "en": "The New City",
+      "ar": "المدينة الجديدة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-248",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Digimon Adventure",
+      "ar": "أبطال الديجيتال"
+    },
+    "question": {
+      "en": "In the Arabic dub of Digimon Adventure, what was the Server continent renamed?",
+      "ar": "في «أبطال الديجيتال»، ما الاسم الذي أطلقته الدبلجة العربية على قارة سيرفر؟"
+    },
+    "answer": {
+      "en": "The Land of Sapphire (Ard al-Yaqut)",
+      "ar": "أرض الياقوت"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-249",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Sindbad",
+      "ar": "مغامرات سندباد"
+    },
+    "question": {
+      "en": "In Sindbad's Adventures, from which city does Sindbad set out on his journeys?",
+      "ar": "في «مغامرات سندباد»، من أيّ مدينة ينطلق سندباد في رحلاته؟"
+    },
+    "answer": {
+      "en": "Baghdad",
+      "ar": "بغداد"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-250",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Sindbad",
+      "ar": "مغامرات سندباد"
+    },
+    "question": {
+      "en": "In Sindbad's Adventures, what kind of creature is Yasmina, Sindbad's companion on his travels?",
+      "ar": "في «مغامرات سندباد»، أيّ مخلوق هي ياسمينة التي ترافق سندباد في رحلاته؟"
+    },
+    "answer": {
+      "en": "A talking bird",
+      "ar": "طائر يتكلم"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-251",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Sindbad",
+      "ar": "مغامرات سندباد"
+    },
+    "question": {
+      "en": "In Sindbad's Adventures, which young former thief turns against the robbers and becomes Sindbad's friend?",
+      "ar": "في «مغامرات سندباد»، مَن الشاب الذي كان لصًّا ثم انقلب على اللصوص وصار صديقًا لسندباد؟"
+    },
+    "answer": {
+      "en": "Ali Baba",
+      "ar": "علي بابا"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-252",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Sindbad",
+      "ar": "مغامرات سندباد"
+    },
+    "question": {
+      "en": "In Sindbad's Adventures, which animal does Sindbad ride on his journeys over land?",
+      "ar": "في «مغامرات سندباد»، أيّ حيوان يركبه سندباد في رحلاته البرية؟"
+    },
+    "answer": {
+      "en": "A camel",
+      "ar": "الجمل"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-253",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Sindbad",
+      "ar": "مغامرات سندباد"
+    },
+    "question": {
+      "en": "In Sindbad's Adventures, who was Yasmina really, before a spell changed her?",
+      "ar": "في «مغامرات سندباد»، مَن كانت ياسمينة في الحقيقة قبل أن يصيبها السحر؟"
+    },
+    "answer": {
+      "en": "A princess",
+      "ar": "أميرة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-254",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Sindbad",
+      "ar": "مغامرات سندباد"
+    },
+    "question": {
+      "en": "In Sindbad's Adventures, which famous Arabian Nights name belongs to the old man who joins Sindbad's travels?",
+      "ar": "في «مغامرات سندباد»، ما اسم الشيخ العجوز المحب للمغامرة الذي ينضم إلى رحلات سندباد؟"
+    },
+    "answer": {
+      "en": "Aladdin",
+      "ar": "علاء الدين"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-255",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Sindbad",
+      "ar": "مغامرات سندباد"
+    },
+    "question": {
+      "en": "In Sindbad's Adventures, which relative's tales of faraway lands inspire young Sindbad to go adventuring?",
+      "ar": "في «مغامرات سندباد»، أيّ أقارب سندباد ألهمته حكاياته عن البلاد البعيدة حبَّ المغامرة؟"
+    },
+    "answer": {
+      "en": "His uncle",
+      "ar": "عمّه"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-256",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Sindbad",
+      "ar": "مغامرات سندباد"
+    },
+    "question": {
+      "en": "In Sindbad's Adventures, what is the job of Sindbad's father?",
+      "ar": "في «مغامرات سندباد»، ما مهنة والد سندباد؟"
+    },
+    "answer": {
+      "en": "A merchant",
+      "ar": "تاجر"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-257",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Sindbad",
+      "ar": "مغامرات سندباد"
+    },
+    "question": {
+      "en": "In Sindbad's Adventures, which flying object is said to be woven from the hair of a thousand sorcerers?",
+      "ar": "في «مغامرات سندباد»، ما الشيء الطائر الذي يُقال إنه مصنوع من شعر ألف ساحر؟"
+    },
+    "answer": {
+      "en": "A flying carpet",
+      "ar": "بساط الريح"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-258",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Sindbad",
+      "ar": "مغامرات سندباد"
+    },
+    "question": {
+      "en": "In Sindbad's Adventures, who is the main villain whose defeat finally breaks all the spells?",
+      "ar": "في «مغامرات سندباد»، مَن الشرير الأكبر الذي تزول كل التعاويذ بهزيمته؟"
+    },
+    "answer": {
+      "en": "The Blue Chief (the Blue Ifrit)",
+      "ar": "الزعيم الأزرق (العفريت الأزرق)"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-259",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Sindbad",
+      "ar": "مغامرات سندباد"
+    },
+    "question": {
+      "en": "In Sindbad's Adventures, what did Aladdin once own, before losing it many years ago?",
+      "ar": "في «مغامرات سندباد»، ماذا كان يملك علاء الدين قبل أن يفقده منذ سنوات طويلة؟"
+    },
+    "answer": {
+      "en": "A magic lamp with a genie",
+      "ar": "مصباح سحري فيه جنّي"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-260",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Sindbad",
+      "ar": "مغامرات سندباد"
+    },
+    "question": {
+      "en": "In Sindbad's Adventures, what is the name of the leader of the robbers?",
+      "ar": "في «مغامرات سندباد»، ما اسم زعيم اللصوص؟"
+    },
+    "answer": {
+      "en": "Bulba (Balba in the original)",
+      "ar": "بولبا"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-261",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Sindbad",
+      "ar": "مغامرات سندباد"
+    },
+    "question": {
+      "en": "In Sindbad's Adventures, what is Sindbad's father called in the Arabic dub?",
+      "ar": "في «مغامرات سندباد»، ما اسم والد سندباد في النسخة العربية؟"
+    },
+    "answer": {
+      "en": "Haytham",
+      "ar": "هيثم"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-262",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Sindbad",
+      "ar": "مغامرات سندباد"
+    },
+    "question": {
+      "en": "In Sindbad's Adventures, what did the sorcerers turn Yasmina's parents into?",
+      "ar": "في «مغامرات سندباد»، إلى ماذا حوّل المشعوذون والدَي ياسمينة؟"
+    },
+    "answer": {
+      "en": "Two white eagles",
+      "ar": "نسرين أبيضين"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-263",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Sindbad",
+      "ar": "مغامرات سندباد"
+    },
+    "question": {
+      "en": "In Sindbad's Adventures, what is strange about the shadow of the sorceress Zughl?",
+      "ar": "في «مغامرات سندباد»، ما الغريب في ظلّ الساحرة زغل؟"
+    },
+    "answer": {
+      "en": "It is the shadow of a cow",
+      "ar": "إنه ظلّ بقرة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "ayt-264",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Sindbad",
+      "ar": "مغامرات سندباد"
+    },
+    "question": {
+      "en": "In Sindbad's Adventures, what is the old witch most afraid of?",
+      "ar": "في «مغامرات سندباد»، ممّ تخاف الساحرة العجوز أكثر من أيّ شيء؟"
+    },
+    "answer": {
+      "en": "Mice",
+      "ar": "الفئران"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
     "id": "ayt-001",
     "difficulty": "easy",
     "subcategory": {

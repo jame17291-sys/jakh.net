@@ -8,7 +8,7 @@
       "en": "A mobile-first bilingual riddle and quiz website with curated categories, clear levels, and premium-ready challenge pages.",
       "ar": "منصة ألغاز واختبارات ثنائية اللغة مصممة للهاتف أولاً، مع تصنيفات منسقة ومستويات واضحة وصفحات جاهزة للتجربة المميزة."
     },
-    "totalQuestions": 3564
+    "totalQuestions": 3638
   },
   "sections": [
     {
@@ -1870,8 +1870,8 @@
         "ar": "ألغاز للأطفال"
       },
       "description": {
-        "en": "30 bilingual starter riddles about familiar objects, nature and simple patterns. A mix for independent readers and adult-led play; some questions need basic number or shape knowledge.",
-        "ar": "30 لغزًا تمهيديًا بالعربية والإنجليزية عن الأشياء المألوفة والطبيعة والأنماط البسيطة، للقراءة المستقلة أو اللعب بمساعدة الكبار. تحتاج بعض الأسئلة إلى معرفة أولية بالأعداد أو الأشكال."
+        "en": "40 bilingual starter riddles about familiar objects, animals and nature, and simple patterns. A mix for independent readers and adult-led play; some questions need basic number or shape knowledge.",
+        "ar": "40 لغزًا تمهيديًا بالعربية والإنجليزية عن الأشياء المألوفة والحيوانات والطبيعة والأنماط البسيطة، للقراءة المستقلة أو اللعب بمساعدة الكبار. تحتاج بعض الأسئلة إلى معرفة أولية بالأعداد أو الأشكال."
       },
       "cluster": {
         "en": "Mind & Puzzles",
@@ -1880,15 +1880,30 @@
       "cluster_key": "mind",
       "emoji": "🧩",
       "mode": "quiz",
-      "count": 30,
+      "count": 40,
       "difficultyCounts": {
-        "easy": 12,
-        "medium": 8,
-        "hard": 10
+        "easy": 14,
+        "medium": 13,
+        "hard": 13
       },
       "href": "/kids-riddles",
       "image": "assets/kids-riddles.svg",
       "topics": [
+        {
+          "en": "Numbers & Counting",
+          "ar": "الأعداد والعد",
+          "count": 7
+        },
+        {
+          "en": "Time, Space & Directions",
+          "ar": "الوقت والفضاء والاتجاهات",
+          "count": 7
+        },
+        {
+          "en": "Logic, Codes & Patterns",
+          "ar": "المنطق والشفرات والأنماط",
+          "count": 6
+        },
         {
           "en": "Objects, Clothing & Technology",
           "ar": "الأشياء والملابس والتقنية",
@@ -1900,23 +1915,13 @@
           "count": 5
         },
         {
-          "en": "Logic, Codes & Patterns",
-          "ar": "المنطق والشفرات والأنماط",
-          "count": 5
-        },
-        {
-          "en": "Numbers & Counting",
-          "ar": "الأعداد والعد",
-          "count": 5
-        },
-        {
-          "en": "Time, Space & Directions",
-          "ar": "الوقت والفضاء والاتجاهات",
-          "count": 5
-        },
-        {
           "en": "Wordplay & Classic Riddles",
           "ar": "التلاعب بالكلمات والألغاز الكلاسيكية",
+          "count": 5
+        },
+        {
+          "en": "Animals & Nature",
+          "ar": "الحيوانات والطبيعة",
           "count": 4
         }
       ],
@@ -1926,7 +1931,7 @@
         "psychology",
         "philosophy"
       ],
-      "scorableQuestionCount": 30,
+      "scorableQuestionCount": 40,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3908,8 +3913,8 @@
         "ar": "أيام الطيبين - سبيستون"
       },
       "description": {
-        "en": "Relive the golden era of Spacetoon with 164 bilingual questions across 10 beloved classic series — Adnan and Lina, Captain Majed, Grendizer, and more.",
-        "ar": "يضم موضوع «أيام الطيبين - سبيستون» 164 سؤالًا بالعربية والإنجليزية، ويتناول سالي، جزيرة الكنز، وعدنان ولينا. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "en": "Relive the golden era of Spacetoon with 228 bilingual questions across 14 beloved classic series — Detective Conan, Hunter × Hunter, Digimon Adventure, Sindbad, Adnan and Lina, Captain Majid and more.",
+        "ar": "يضم موضوع «أيام الطيبين - سبيستون» 228 سؤالًا بالعربية والإنجليزية عن 14 مسلسلًا كلاسيكيًا، منها «المحقق كونان» و«القناص» و«أبطال الديجيتال» و«مغامرات سندباد». اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Arts, Culture & Entertainment",
@@ -3918,16 +3923,36 @@
       "cluster_key": "culture",
       "emoji": "📺",
       "mode": "quiz",
-      "count": 164,
+      "count": 228,
       "difficultyCounts": {
-        "easy": 45,
-        "medium": 47,
-        "hard": 44,
-        "very-advanced": 28
+        "easy": 60,
+        "medium": 62,
+        "hard": 60,
+        "very-advanced": 46
       },
       "href": "/ayam-tayebeen",
       "image": "assets/ayam-tayebeen.svg",
       "topics": [
+        {
+          "en": "Detective Conan",
+          "ar": "المحقق كونان",
+          "count": 16
+        },
+        {
+          "en": "Hunter × Hunter",
+          "ar": "القناص",
+          "count": 16
+        },
+        {
+          "en": "Digimon Adventure",
+          "ar": "أبطال الديجيتال",
+          "count": 16
+        },
+        {
+          "en": "Sindbad",
+          "ar": "مغامرات سندباد",
+          "count": 16
+        },
         {
           "en": "Sally",
           "ar": "سالي",
@@ -3979,13 +4004,19 @@
           "count": 12
         }
       ],
+      "pinnedTopics": [
+        "Detective Conan",
+        "Hunter × Hunter",
+        "Digimon Adventure",
+        "Sindbad"
+      ],
       "related": [
         "football",
         "fictional-worlds",
         "superheroes",
         "pop-culture"
       ],
-      "scorableQuestionCount": 164,
+      "scorableQuestionCount": 228,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     }

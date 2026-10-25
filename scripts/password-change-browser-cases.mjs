@@ -24,6 +24,8 @@ export async function runPasswordChangeRegressions({ browser, baseUrl, createCon
       profile: { id: 'password-fixture-owner', username: 'PasswordFixtureOwner', role: 'OWNER', avatar: '🛡️', progress: [], favorites: [] },
     });
     await setConsent(context);
+    // TEMPORARY DIAGNOSIS
+    await context.addInitScript(() => { document.addEventListener('mousemove', event => { window.__diagMouse = [event.clientX, event.clientY, event.target?.id || event.target?.tagName]; }, true); });
     let submissions = 0;
     let pending;
     await context.route('**/api/user/password', async route => {
@@ -91,7 +93,23 @@ export async function runPasswordChangeRegressions({ browser, baseUrl, createCon
       ]) {
         const before = submissions;
         pending = { ...response, entered: Promise.withResolvers(), release: Promise.withResolvers() };
-        await button.click();
+        // TEMPORARY DIAGNOSIS
+        try { await button.click({ timeout: 20_000 }); } catch (error) {
+          const diag = await page.evaluate(async () => {
+            const node = document.getElementById('changePasswordBtn');
+            const frames = [];
+            for (let i = 0; i < 16; i++) {
+              await new Promise(resolve => requestAnimationFrame(resolve));
+              const r = node.getBoundingClientRect();
+              frames.push(`${r.top.toFixed(2)}/${r.bottom.toFixed(2)}${node.matches(':hover') ? 'H' : ''}`);
+            }
+            const card = node.closest('.modal-card');
+            const status = document.getElementById('changePasswordStatus');
+            return { frames: frames.join(' '), mouse: window.__diagMouse, scrollTop: card?.scrollTop, status: status.textContent.slice(0, 40), statusH: status.getBoundingClientRect().height, h: node.offsetHeight, transform: getComputedStyle(node).transform };
+          });
+          error.message += `\nDIAG ${response.status} ${JSON.stringify(diag)}`;
+          throw error;
+        }
         let timer;
         try {
           await Promise.race([pending.entered.promise, new Promise((_, reject) => {

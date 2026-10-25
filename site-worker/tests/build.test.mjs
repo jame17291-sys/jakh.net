@@ -30,7 +30,7 @@ import {
   publicCategoryCardsProjection,
 } from "../../scripts/publication-quarantine.mjs";
 import { isRetiredPublicSeoArtifactPath } from "../../scripts/public-seo-release-contract.mjs";
-import { RETIRED_SEO_ROUTE_REDIRECTS } from "../src/seo-route-migrations.js";
+import { RENAMED_GAME_ROUTE_REDIRECTS, RETIRED_SEO_ROUTE_REDIRECTS } from "../src/seo-route-migrations.js";
 
 const repositoryRoot = resolve(import.meta.dirname, "../..");
 const expectedHeldAssets = [
@@ -240,6 +240,16 @@ test("generated production manifest is complete, one-hop, and excludes repositor
     assert.equal(manifest.routes[from], undefined, `retired SEO route must not be deployed: ${from}`);
     assert.equal(manifest.aliases[from], undefined, `retired SEO route must not be a static alias: ${from}`);
     assert.ok(manifest.routes[to], `retired SEO redirect target must be deployed: ${from} -> ${to}`);
+  }
+  assert.equal(RENAMED_GAME_ROUTE_REDIRECTS.length, 14);
+  for (const { from, to } of RENAMED_GAME_ROUTE_REDIRECTS) {
+    const bare = from.replace(/\/$/u, "");
+    for (const source of [from, bare, `${bare}.html`, `${bare}/index.html`]) {
+      assert.equal(manifest.routes[source], undefined, `renamed game address must not be deployed: ${source}`);
+      assert.equal(manifest.aliases[source], undefined, `renamed game address must not be a static alias: ${source}`);
+      assert.equal(manifest.files[source], undefined, `renamed game page must not be deployed: ${source}`);
+    }
+    assert.ok(manifest.routes[to], `renamed game page must be deployed: ${from} -> ${to}`);
   }
   // The compact Riddle Arabia architecture removes generated /page/N/ aliases
   // while retaining clean-path, .html, and localized route compatibility.

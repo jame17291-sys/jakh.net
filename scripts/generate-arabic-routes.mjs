@@ -16,17 +16,20 @@ import {
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const checkOnly = process.argv.includes("--check");
 const SITE_ORIGIN = PRIMARY_SITE_ORIGIN;
-const GAME_SLUGS = [
-  "chess",
-  "mastermind",
-  "go",
-  "reversi",
-  "codenames",
-  "catan",
-  "backgammon",
-  "set",
-  "hanabi",
-  "diplomacy",
+// Public page slug and the stable translation registration ID of each classic
+// game. Renamed games keep their original registration ID (see
+// site-worker/src/seo-route-migrations.js), so only the address changes.
+const GAMES = [
+  { slug: "chess", id: "chess" },
+  { slug: "code-breaker", id: "mastermind" },
+  { slug: "go", id: "go" },
+  { slug: "reversi", id: "reversi" },
+  { slug: "spy-words", id: "codenames" },
+  { slug: "island-traders", id: "catan" },
+  { slug: "backgammon", id: "backgammon" },
+  { slug: "triple-match", id: "set" },
+  { slug: "fireworks", id: "hanabi" },
+  { slug: "alliances", id: "diplomacy" },
 ];
 
 const PAGE_ROUTES = [
@@ -82,13 +85,13 @@ const PAGE_ROUTES = [
     title: "مركز الخصوصية | ريدل أرابيا",
     description: "تحكّم في القياس، ونزّل بيانات حساب ريدل أرابيا، واحذف حسابك نهائياً، واقرأ إشعار الخصوصية ثنائي اللغة.",
   },
-  ...GAME_SLUGS.map((slug) => ({
+  ...GAMES.map(({ slug, id }) => ({
     source: `${slug}.html`,
     output: `ar/games/${slug}/index.html`,
     englishPath: `/${slug}`,
     arabicPath: `/ar/games/${slug}/`,
     runtime: "game",
-    game: slug,
+    game: id,
   })),
 ];
 

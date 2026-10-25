@@ -12,7 +12,7 @@ export const GENERATORS = Object.freeze([
   'scripts/generate-category-art.mjs',
 ]);
 export const CATEGORY_SLUGS = Object.freeze(`currencies linguistics tech-retro automotive survival fictional-worlds superheroes pop-culture true-crime mythology-legends art-and-painters biology books-and-quotes business-and-management chemistry civil-engineering classic-riddles logic-puzzles coding-and-design electrical-engineering flag-questions football geography geology history infrastructure-systems kids-riddles law-middle-east math mechanical-engineering medical-questions middle-east-history pharmacy philosophy physical-and-life-sciences psychology relationship-questions science social-sciences software-and-computing space-and-astrology story-mysteries tv-shows-trivia world-habits-and-etiquette environment-and-ecology ancient-civilizations inventions-and-minds animal-kingdom economics-and-finance architecture-and-landmarks music-and-performing-arts food-and-cuisines cinema-and-film-history future-tech-and-energy anime ayam-tayebeen`.split(' '));
-const games = ['akshifha', 'chess', 'mastermind', 'go', 'reversi', 'codenames', 'catan', 'backgammon', 'set', 'hanabi', 'diplomacy'];
+const games = ['akshifha', 'chess', 'code-breaker', 'go', 'reversi', 'spy-words', 'island-traders', 'backgammon', 'triple-match', 'fireworks', 'alliances'];
 const seoPairs = [
   ['riddles', 'alghaz'], ['arabic-riddles', 'alghaz-arabiya'],
   ['logic-challenges', 'alghaz-mantiq'], ['family-riddles', 'alghaz-atfal'],

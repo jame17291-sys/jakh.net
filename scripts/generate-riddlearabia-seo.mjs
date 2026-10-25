@@ -22,11 +22,15 @@ import {
   RIDDLE_ARABIA_SEO_PAGES,
   questionCountLabel,
 } from "./riddlearabia-seo.mjs";
+import { RENAMED_GAME_ROUTES } from "../site-worker/src/seo-route-migrations.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const checkOnly = process.argv.includes("--check");
 const SITE_ORIGIN = PRIMARY_SITE_ORIGIN;
 const LAST_MODIFIED = "2026-09-11";
+// Game names and addresses changed on this date; every puzzle page lists them.
+const GAME_RENAME_DATE = "2026-10-25";
+const RENAMED_GAME_PATHS = new Set(RENAMED_GAME_ROUTES.map(({ to }) => to.en));
 const ASSET_VERSION = "2026091102";
 const APP_ASSET_VERSION = "2026080201";
 const PRIVACY_ASSET_VERSION = "2026080101";
@@ -789,15 +793,21 @@ function renderSitemap() {
     { en: "/", ar: "/ar/", lastModified: "2026-09-30", priority: "1.0" },
     { en: "/mind-lab", ar: "/ar/mind-lab/", lastModified: "2026-09-29", priority: "0.85" },
     { en: "/collections", ar: "/ar/collections/", lastModified: "2026-09-29", priority: "0.90" },
-    { en: "/play", ar: "/ar/play/", lastModified: "2026-10-06", priority: "0.75" },
+    // Game names changed on 2026-10-25 (see site-worker/src/seo-route-migrations.js).
+    { en: "/play", ar: "/ar/play/", lastModified: "2026-10-25", priority: "0.75" },
     // Shuffle Challenge replaced the one-question Daily Challenge on 2026-10-20 (#141).
     { en: "/daily", ar: "/ar/daily/", lastModified: "2026-10-20", priority: "0.75" },
     { en: "/about", ar: "/ar/about/", priority: "0.50" },
     { en: "/privacy", ar: "/ar/privacy/", lastModified: "2026-10-06", priority: "0.35" },
     ...RIDDLE_ARABIA_SEO_PAGES.map((page) => ({ en: page.paths.en, ar: page.paths.ar, lastModified: page.lastModified, priority: page.kind === "games" ? "0.85" : "0.80" })),
     ...RIDDLE_ARABIA_GAME_CATALOG.map((game) => ({ en: `/${game.slug}`, ar: `/ar/games/${game.slug}/`, lastModified: game.lastModified || { en: LAST_MODIFIED, ar: "2026-09-30" }, priority: "0.65" })),
-    ...RIDDLE_ARABIA_PUZZLE_CATALOG.map((game) => ({ ...game.paths, lastModified: "2026-09-30", priority: "0.75" })),
-    ...PRESERVED_GAME_SLUGS.map((slug) => ({ en: `/${slug}`, ar: `/ar/games/${slug}/`, lastModified: { en: LAST_MODIFIED, ar: "2026-09-30" }, priority: "0.35" })),
+    ...RIDDLE_ARABIA_PUZZLE_CATALOG.map((game) => ({ ...game.paths, lastModified: GAME_RENAME_DATE, priority: "0.75" })),
+    ...PRESERVED_GAME_SLUGS.map((slug) => ({
+      en: `/${slug}`,
+      ar: `/ar/games/${slug}/`,
+      lastModified: RENAMED_GAME_PATHS.has(`/${slug}`) ? GAME_RENAME_DATE : { en: LAST_MODIFIED, ar: "2026-09-30" },
+      priority: "0.35",
+    })),
     ...kidsRoutePairs(),
   ];
   const entries = pairs.flatMap((pair) => {

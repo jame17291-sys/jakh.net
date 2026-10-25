@@ -3,12 +3,12 @@
 export const PUZZLE_EDITORIAL = {
   bonus: {
     title: ['Bonus Puzzles: Three Extra Challenges', 'تحديات إضافية: ثلاث تنويعات للألغاز'],
-    description: ['Try three free bonus puzzles: Mini Connections, a five-letter word with a helpful letter, and a mini crossword with starting letters. Play in Arabic or English.', 'جرّب ثلاثة تحديات مجانية: روابط مصغّرة، وكلمة من خمسة حروف مع حرف مساعد، ومتقاطعة مصغّرة بحروف بداية مكشوفة. بالعربية والإنجليزية.'],
+    description: ['Try three free bonus puzzles: Three Groups, a five-letter word with a helpful letter, and a quick crossword with starting letters. Play in Arabic or English.', 'جرّب ثلاثة تحديات مجانية: ثلاث مجموعات، وكلمة من خمسة حروف مع حرف مساعد، ومتقاطعة سريعة بحروف بداية مكشوفة. بالعربية والإنجليزية.'],
     intro: ['These three variations offer a gentler way into familiar word games. Each changes one rule of a standard puzzle, so you can practise the underlying idea with a smaller group or a helpful starting letter.', 'تقدّم هذه التنويعات الثلاثة مدخلاً أسهل إلى ألعاب الكلمات. يغيّر كل تحدٍّ قاعدة واحدة في اللعبة الأساسية، لتتدرّب على فكرتها مع مجموعة أصغر أو حرف يساعدك على البداية.'],
     rules: [
-      ['Mini Connections asks you to sort nine words into three groups of three. Look for one precise connection shared by every word in a group.', 'في الروابط المصغّرة رتّب تسع كلمات في ثلاث مجموعات، كل منها ثلاث كلمات. ابحث عن رابط محدد تشترك فيه كلمات المجموعة كلها.'],
+      ['Three Groups asks you to sort nine words into three groups of three. Look for one precise connection shared by every word in a group.', 'في تحدي «ثلاث مجموعات» رتّب تسع كلمات في ثلاث مجموعات، كل منها ثلاث كلمات. ابحث عن رابط محدد تشترك فيه كلمات المجموعة كلها.'],
       ['A Helpful Letter reveals the first letter of the hidden five-letter word. You have five guesses to finish it, using the usual letter feedback.', 'يكشف تحدي «حرف مساعد» أول حرف من الكلمة ذات الحروف الخمسة. لديك خمس محاولات لإكمالها بالاستعانة بملاحظات الحروف.'],
-      ['A Head Start fills the first letter of each answer in a 5 × 5 mini crossword. Use the clues and intersections to complete the remaining letters.', 'يملأ تحدي «بداية مساعدة» الحرف الأول من كل إجابة في متقاطعة ٥ × ٥. استخدم التعريفات والتقاطعات لإكمال بقية الحروف.'],
+      ['A Head Start fills the first letter of each answer in a 5 × 5 quick crossword. Use the clues and intersections to complete the remaining letters.', 'يملأ تحدي «بداية مساعدة» الحرف الأول من كل إجابة في متقاطعة ٥ × ٥. استخدم التعريفات والتقاطعات لإكمال بقية الحروف.'],
     ],
     note: ['Bonus progress is saved separately from the standard games. These variations do not count toward the daily completion total or streak. The collection is finite and can be revisited.', 'يُحفظ تقدّم التحديات الإضافية منفصلاً عن الألعاب الأساسية. لا تُحتسب هذه التنويعات ضمن إجمالي ألغاز اليوم أو سلسلة الأيام المتتالية. المجموعة محدودة ويمكن العودة إليها.'],
   },
@@ -24,7 +24,7 @@ export const PUZZLE_EDITORIAL = {
     note: ['No account is required. Your seat and recent match history are saved in this browser. An unjoined room waits 30 minutes; active rooms expire after 24 hours without a move. Turn reminders are optional and require a supported browser and permission.', 'لا يلزم حساب. يُحفظ مقعدك وسجل مبارياتك الأخيرة في هذا المتصفح. تنتظر الغرفة صديقك ٣٠ دقيقة، وتنتهي الغرف النشطة بعد ٢٤ ساعة دون حركة. تذكيرات الدور اختيارية وتتطلب متصفحاً يدعمها وإذناً منك.'],
   },
   crossword: {
-    title: ['Crossword: A 13 × 13 Word Puzzle', 'كلمات متقاطعة: لغز بحجم ١٣ × ١٣'],
+    title: ['Big Crossword: A 13 × 13 Word Puzzle', 'الكلمات المتقاطعة الكبيرة: لغز بحجم ١٣ × ١٣'],
     description: ['Solve a free 13 × 13 crossword in Arabic or English. Read the clues, connect answers across and down, and check letters or reveal an answer when you need help.', 'حلّ كلمات متقاطعة مجانية بحجم ١٣ × ١٣ بالعربية أو الإنجليزية. اقرأ التعريفات واربط الإجابات أفقياً ورأسياً وتحقق من الحروف أو اكشف إجابة عند الحاجة.'],
     intro: ['The largest Riddle Arabia crossword uses a 13 × 13 grid. Answers share letters at their intersections, so a short clue can unlock a longer answer elsewhere. The board is generated from a finite collection of original clue-and-answer pairs.', 'تستخدم أكبر متقاطعة في ريدل أرابيا شبكة ١٣ × ١٣. تشترك الإجابات في الحروف عند تقاطعها، وقد يساعد تعريف قصير في اكتشاف إجابة أطول. تُولّد اللوحة من مجموعة محدودة من التعريفات والإجابات الأصلية.'],
     rules: [
@@ -32,29 +32,29 @@ export const PUZZLE_EDITORIAL = {
       ['Use shared letters to narrow down uncertain answers. Arabic entries read right to left across the displayed grid; down entries run from top to bottom.', 'استخدم الحروف المشتركة لتقليل احتمالات الإجابات غير المؤكدة. تُقرأ الكلمات العربية أفقياً من اليمين لليسار، ورأسياً من الأعلى للأسفل.'],
       ['Check your entries or reveal the selected answer when you are stuck. Complete every answer to finish. Checking filled entries or revealing an answer marks this puzzle as assisted.', 'تحقّق من إدخالاتك أو اكشف الإجابة المحددة عندما تتعثر. أكمل كل الإجابات لإنهاء اللغز. يُسجَّل استخدام المساعدة عند فحص الحروف المدخلة أو كشف إجابة.'],
     ],
-    note: ['There is no countdown to beat. Work through the larger grid at your own pace, or try the 5 × 5 Mini and 9 × 9 Midi for a smaller board.', 'لا يوجد عدّ تنازلي يجب التغلب عليه. أكمل الشبكة الكبيرة على مهلك، أو جرّب المتقاطعة المصغّرة ٥ × ٥ والمتوسطة ٩ × ٩ إذا رغبت في لوحة أصغر.'],
+    note: ['There is no countdown to beat. Work through the larger grid at your own pace, or try the 5 × 5 Quick Crossword or the 9 × 9 Medium Crossword for a smaller board.', 'لا يوجد عدّ تنازلي يجب التغلب عليه. أكمل الشبكة الكبيرة على مهلك، أو جرّب الكلمات المتقاطعة السريعة ٥ × ٥ أو المتوسطة ٩ × ٩ إذا رغبت في لوحة أصغر.'],
   },
   midi: {
-    title: ['Midi Crossword: A 9 × 9 Word Puzzle', 'كلمات متقاطعة متوسطة: شبكة ٩ × ٩'],
-    description: ['Play a free 9 × 9 Midi crossword in Arabic or English. A medium-sized grid with linked clues, saved progress and optional answer reveals.', 'العب متقاطعة متوسطة مجانية بحجم ٩ × ٩ بالعربية أو الإنجليزية. شبكة بتعريفات مترابطة وحفظ للتقدّم وكشف اختياري للإجابات.'],
-    intro: ['The Midi uses a 9 × 9 grid, between the Mini and the full Crossword. It leaves room for more crossing answers while keeping the board compact. Its layout is generated from the same finite bilingual clue collection used by the other crossword sizes.', 'تستخدم المتقاطعة المتوسطة شبكة ٩ × ٩، بين المصغّرة والكبيرة. تتيح مساحة لمزيد من الإجابات المتقاطعة مع إبقاء اللوحة صغيرة نسبياً. يُولّد ترتيبها من مجموعة التعريفات الثنائية اللغة المحدودة المستخدمة في الأحجام الأخرى.'],
+    title: ['Medium Crossword: A 9 × 9 Word Puzzle', 'الكلمات المتقاطعة المتوسطة: شبكة ٩ × ٩'],
+    description: ['Play a free 9 × 9 medium crossword in Arabic or English. A medium-sized grid with linked clues, saved progress and optional answer reveals.', 'العب متقاطعة متوسطة مجانية بحجم ٩ × ٩ بالعربية أو الإنجليزية. شبكة بتعريفات مترابطة وحفظ للتقدّم وكشف اختياري للإجابات.'],
+    intro: ['The Medium Crossword uses a 9 × 9 grid, between the Quick Crossword and the Big Crossword. It leaves room for more crossing answers while keeping the board compact. Its layout is generated from the same finite bilingual clue collection used by the other crossword sizes.', 'تستخدم الكلمات المتقاطعة المتوسطة شبكة ٩ × ٩، بين السريعة والكبيرة. تتيح مساحة لمزيد من الإجابات المتقاطعة مع إبقاء اللوحة صغيرة نسبياً. يُولّد ترتيبها من مجموعة التعريفات الثنائية اللغة المحدودة المستخدمة في الأحجام الأخرى.'],
     rules: [
       ['Select a numbered clue and fill its answer across or down. The selected entry highlights the cells that belong to it.', 'اختر تعريفاً مرقماً واملأ إجابته أفقياً أو رأسياً. تُحدّد الخانات التابعة للإجابة المختارة على اللوحة.'],
       ['A letter at an intersection belongs to two answers. Use a solved word to help with a clue that is harder to recognise.', 'ينتمي حرف التقاطع إلى إجابتين. استخدم الكلمة التي حللتها للمساعدة في تعريف يصعب عليك اكتشافه.'],
       ['You can check entries or reveal the selected answer. Finish all open cells correctly to complete the puzzle. Checking filled entries or revealing an answer marks this puzzle as assisted.', 'يمكنك التحقق من الإدخالات أو كشف الإجابة المحددة. أكمل كل الخانات المفتوحة بشكل صحيح لإنهاء اللغز. يُسجَّل استخدام المساعدة عند فحص الحروف المدخلة أو كشف إجابة.'],
     ],
-    note: ['Choose this size when you want more to untangle than the Mini. The clue language follows the page language, and Arabic across answers use right-to-left order.', 'اختر هذا الحجم عندما ترغب في تحدٍّ أوسع من المصغّرة. تتبع لغة التعريفات لغة الصفحة، وتُرتّب الإجابات العربية الأفقية من اليمين لليسار.'],
+    note: ['Choose this size when you want more to untangle than the Quick Crossword. The clue language follows the page language, and Arabic across answers use right-to-left order.', 'اختر هذا الحجم عندما ترغب في تحدٍّ أوسع من السريعة. تتبع لغة التعريفات لغة الصفحة، وتُرتّب الإجابات العربية الأفقية من اليمين لليسار.'],
   },
   mini: {
-    title: ['Mini Crossword: A 5 × 5 Word Puzzle', 'كلمات متقاطعة مصغّرة: شبكة ٥ × ٥'],
-    description: ['Try a free 5 × 5 Mini crossword in Arabic or English. Solve a compact set of connected clues, with optional letter checks and answer reveals.', 'جرّب متقاطعة مصغّرة مجانية بحجم ٥ × ٥ بالعربية أو الإنجليزية. حلّ تعريفات مترابطة في شبكة صغيرة مع تحقق من الحروف وكشف اختياري للإجابات.'],
-    intro: ['The Mini is the smallest Riddle Arabia crossword. Its 5 × 5 grid focuses on short answers and their shared letters. Each board is generated from a finite clue collection, making it a compact introduction to the same across-and-down idea used by the larger games.', 'المتقاطعة المصغّرة هي أصغر متقاطعة في ريدل أرابيا. تركّز شبكة ٥ × ٥ على الإجابات القصيرة والحروف المشتركة بينها. تُولّد كل لوحة من مجموعة تعريفات محدودة، لتكون مدخلاً صغيراً لفكرة الكلمات الأفقية والرأسية المستخدمة في الألعاب الأكبر.'],
+    title: ['Quick Crossword: A 5 × 5 Word Puzzle', 'الكلمات المتقاطعة السريعة: شبكة ٥ × ٥'],
+    description: ['Try a free 5 × 5 quick crossword in Arabic or English. Solve a compact set of connected clues, with optional letter checks and answer reveals.', 'جرّب كلمات متقاطعة سريعة مجانية بحجم ٥ × ٥ بالعربية أو الإنجليزية. حلّ تعريفات مترابطة في شبكة صغيرة مع تحقق من الحروف وكشف اختياري للإجابات.'],
+    intro: ['The Quick Crossword is the smallest Riddle Arabia crossword. Its 5 × 5 grid focuses on short answers and their shared letters. Each board is generated from a finite clue collection, making it a compact introduction to the same across-and-down idea used by the larger games.', 'الكلمات المتقاطعة السريعة هي أصغر متقاطعة في ريدل أرابيا. تركّز شبكة ٥ × ٥ على الإجابات القصيرة والحروف المشتركة بينها. تُولّد كل لوحة من مجموعة تعريفات محدودة، لتكون مدخلاً صغيراً لفكرة الكلمات الأفقية والرأسية المستخدمة في الألعاب الأكبر.'],
     rules: [
       ['Choose a clue to highlight its answer, then type or tap the letters into the open cells. Dark squares are not part of an answer.', 'اختر تعريفاً لتحديد إجابته، ثم أدخل الحروف في الخانات المفتوحة. الخانات الداكنة ليست جزءاً من الإجابة.'],
       ['Read both crossing clues when a letter is uncertain. Every shared square must work for its across and down answer.', 'اقرأ التعريفين المتقاطعين عندما لا تتأكد من حرف. يجب أن يناسب كل حرف مشترك الإجابتين الأفقية والرأسية.'],
       ['Check letters or reveal the selected answer if needed. Filling every answer correctly completes the board. Checking filled entries or revealing an answer marks this puzzle as assisted.', 'تحقّق من الحروف أو اكشف الإجابة المحددة عند الحاجة. يكتمل اللغز بملء كل الإجابات بشكل صحيح. يُسجَّل استخدام المساعدة عند فحص الحروف المدخلة أو كشف إجابة.'],
     ],
-    note: ['For a gentler start, the Bonus collection has a version with the first letter of every answer already filled. For a larger grid, move to the Midi.', 'لبداية أسهل، تتضمن التحديات الإضافية نسخة يُكشف فيها أول حرف من كل إجابة. ولشبكة أكبر، انتقل إلى المتقاطعة المتوسطة.'],
+    note: ['For a gentler start, the Bonus collection has a version with the first letter of every answer already filled. For a larger grid, move to the Medium Crossword.', 'لبداية أسهل، تتضمن التحديات الإضافية نسخة يُكشف فيها أول حرف من كل إجابة. ولشبكة أكبر، انتقل إلى الكلمات المتقاطعة المتوسطة.'],
   },
   hive: {
     title: ['Word Hive: Make Words from Seven Letters', 'خلية الحروف: كوّن كلمات من سبعة حروف'],
@@ -101,15 +101,15 @@ export const PUZZLE_EDITORIAL = {
     note: ['Themed answers and accepted extra words are authored for each board. A plausible word can fall outside that board’s limited vocabulary.', 'تُعدّ إجابات الموضوع والكلمات الإضافية المقبولة لكل لوحة. وقد تكون كلمة تبدو مناسبة خارج قائمة تلك اللوحة المحدودة.'],
   },
   links: {
-    title: ['Connections: Find Four Groups of Words', 'روابط: اكتشف أربع مجموعات من الكلمات'],
+    title: ['Four Groups: Sort Sixteen Words by Theme', 'أربع مجموعات: رتّب ست عشرة كلمة حسب الرابط بينها'],
     description: ['Sort sixteen words into four connected groups. Test your reasoning with four mistakes available in this free Arabic and English word puzzle.', 'رتّب ست عشرة كلمة في أربع مجموعات مترابطة. اختبر استنتاجك مع أربع فرص للخطأ في لغز الكلمات المجاني بالعربية والإنجليزية.'],
-    intro: ['Connections presents sixteen words that belong to four hidden groups. A word may suggest more than one relationship, so the challenge is finding the intended set of four without leaving an awkward group behind. Each board has its own authored categories.', 'تقدّم روابط ست عشرة كلمة تنتمي إلى أربع مجموعات مخفية. قد توحي الكلمة بأكثر من علاقة، والتحدي هو اكتشاف المجموعة المقصودة دون ترك كلمات لا يجمعها رابط. لكل لوحة فئات أُعدّت خصيصاً لها.'],
+    intro: ['Four Groups presents sixteen words that belong to four hidden groups. A word may suggest more than one relationship, so the challenge is finding the intended set of four without leaving an awkward group behind. Each board has its own authored categories.', 'تقدّم لعبة أربع مجموعات ست عشرة كلمة تنتمي إلى أربع مجموعات مخفية. قد توحي الكلمة بأكثر من علاقة، والتحدي هو اكتشاف المجموعة المقصودة دون ترك كلمات لا يجمعها رابط. لكل لوحة فئات أُعدّت خصيصاً لها.'],
     rules: [
       ['Select four words you think share a connection, then check the group. A correct group stays together and reveals its category.', 'حدّد أربع كلمات تعتقد أنها تشترك في رابط، ثم تحقّق من المجموعة. تبقى المجموعة الصحيحة مجمّعة وتظهر فئتها.'],
       ['An incorrect group uses one of your four mistakes. A “one away” message means three selected words belong together; review the fourth.', 'تستهلك المجموعة غير الصحيحة واحدة من فرص الخطأ الأربع. تعني رسالة «كلمة واحدة تفصلك» أن ثلاث كلمات مختارة تنتمي معاً؛ فراجع الرابعة.'],
       ['Shuffle or clear your selection to reconsider the board. Solve all four groups before the fourth mistake to complete the puzzle.', 'اخلط ترتيب الكلمات أو امسح اختيارك لإعادة النظر في اللوحة. حلّ المجموعات الأربع قبل الخطأ الرابع لإكمال اللغز.'],
     ],
-    note: ['Mini Connections in the Bonus collection uses nine words in three groups of three. Its separate progress does not count toward the standard daily total.', 'تستخدم الروابط المصغّرة في التحديات الإضافية تسع كلمات في ثلاث مجموعات من ثلاث. لها تقدّم منفصل لا يُحتسب ضمن إجمالي ألغاز اليوم الأساسية.'],
+    note: ['Three Groups in the Bonus collection uses nine words in three groups of three. Its separate progress does not count toward the standard daily total.', 'تستخدم لعبة ثلاث مجموعات في التحديات الإضافية تسع كلمات في ثلاث مجموعات من ثلاث. لها تقدّم منفصل لا يُحتسب ضمن إجمالي ألغاز اليوم الأساسية.'],
   },
   mosaic: {
     title: ['Mosaic: Match Layers and Clear the Board', 'زخارف: طابق الطبقات وأفرغ اللوحة'],

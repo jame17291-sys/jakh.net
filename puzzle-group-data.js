@@ -1,4 +1,4 @@
-// Original Connections and Trails banks. IDs and ordering define dated boards.
+// Original Four Groups and Trails banks. IDs and ordering define dated boards.
 export const LINK_SETS = {
   en: [
     Object.assign([

@@ -102,6 +102,7 @@ jobs:
           scripts/public-history-policy.test.mjs
           scripts/public-seo-release-contract.test.mjs
           scripts/publication-quarantine.test.mjs
+          scripts/renamed-games-contract.test.mjs
           scripts/responsive-layout-contract.test.mjs
           scripts/search-index.test.mjs
           scripts/seo-pagination.test.mjs

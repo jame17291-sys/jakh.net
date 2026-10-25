@@ -7,8 +7,8 @@
   "reviewNote": "Cards whose Arabic and English questions were unchanged since the 2026-10-21 rewrite get their earlier Modern Standard Arabic question back from docs/content-review/arabic-everyday-2026-10-21.json (method \"restored\"); `typography` lists any style-guide fix applied on the way (Arabic question mark, «» for straight quotes, Western digits where the rest of the card uses them). Cards changed after that rewrite, or written in dialect, were rewritten by hand in Modern Standard Arabic (method \"rewritten\"). A few restored TV cards also switched another field to Western digits so each card uses one digit system (method \"restored-and-rewritten\"). Each change lists the previous value of every field it touched (dotted paths), so the earlier wording can be restored exactly. TV quiz content keys are recalculated over the new text. English text, answers, facts, levels and review status are unchanged.",
   "counts": {
     "changedCards": 3668,
-    "restored": 3418,
-    "rewritten": 241,
+    "restored": 3417,
+    "rewritten": 242,
     "restoredAndRewritten": 9
   },
   "changes": [
@@ -41319,10 +41319,9 @@
       "id": "anime-020",
       "category": "anime",
       "beforeHash": "88088f49dddf44c10b0059c033302588e6247dbd5cc7a690b12a23873e99f9d9",
-      "afterHash": "0ca1c2637eb5f75e3ccdc052f563a4eec70037c05fd29c1b18550fc48b69cb98",
-      "method": "restored",
-      "reason": "Arabic question restored to its Modern Standard Arabic wording from before the 2026-10-21 everyday-Arabic rewrite (docs/content-review/arabic-everyday-2026-10-21.json). Meaning, facts, answer and level are unchanged.",
-      "restoredFrom": "docs/content-review/arabic-everyday-2026-10-21.json",
+      "afterHash": "6930907cee5cbbeda3a1a2181469987ad50f77e73b0a3b5224db987dc12a7270",
+      "method": "rewritten",
+      "reason": "Dialect Arabic question rewritten in clear Modern Standard Arabic. The wording from before the 2026-10-21 rewrite named the answer («الانتقال الفوري»), so it was not restored. Meaning, facts, answer and level are unchanged.",
       "previous": {
         "question.ar": "شو اسم تقنية غوكو اللي تخلّيه ينتقل على طول لما يحس بالكي؟"
       }

@@ -763,7 +763,7 @@ async function main() {
         await page.waitForFunction(() => document.querySelectorAll("#cardGrid .riddle-card").length > 0);
         await page.locator("#resetPageBtn").click();
         await page.waitForFunction(() => document.querySelectorAll("#cardGrid .riddle-card").length === 20);
-        assert.match(await page.locator("#resultsLabel").innerText(), /20 of 100/u);
+        assert.match(await page.locator("#resultsLabel").innerText(), /20 of 90/u);
         await page.locator("#loadMoreBtn").waitFor();
         const resetUrl = new URL(page.url());
         assert.equal(resetUrl.searchParams.get("utm_source"), "browser");

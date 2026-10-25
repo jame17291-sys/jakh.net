@@ -78,17 +78,17 @@
   {
     "id": "true-crime-5",
     "question": {
-      "en": "What was the name of the cult leader responsible for the 1969 Tate-LaBianca murders?",
-      "ar": "مين زعيم الطائفة المسؤول عن جرائم قتل تيت-لابيانكا سنة 1969؟"
+      "en": "Which ship was found drifting in the Atlantic in 1872 with no one aboard and its cargo intact, a mystery never solved?",
+      "ar": "أي سفينة لقوها سنة 1872 تايهة بالمحيط الأطلسي وما فيها أحد وحمولتها سليمة، ولغزها ما انحل لليوم؟"
     },
     "answer": {
-      "en": "Charles Manson",
-      "ar": "تشارلز مانسون"
+      "en": "The Mary Celeste.",
+      "ar": "«ماري سيليست»."
     },
     "difficulty": "easy",
     "subcategory": {
-      "en": "Cults & Mass Crimes",
-      "ar": "الطوائف والجرائم الجماعية"
+      "en": "Serial Killers & Unsolved Cases",
+      "ar": "القتلة المتسلسلون والقضايا الغامضة"
     },
     "review": {
       "status": "pending"
@@ -97,12 +97,12 @@
   {
     "id": "true-crime-6",
     "question": {
-      "en": "What famous pirate was known for his thick black beard?",
-      "ar": "مين القرصان الشهير اللي انعرف بلحيته السودا الكثيفة؟"
+      "en": "Which pirate, Edward Teach, was said to tuck slow-burning fuses under his hat to wreathe his face in smoke?",
+      "ar": "أي قرصان، اسمه إدوارد تيتش، يقولون إنه كان يحط فتايل مشتعلة تحت قبعته عشان يحيط وجهه دخان ويرعب الناس؟"
     },
     "answer": {
-      "en": "Blackbeard",
-      "ar": "اللحية السوداء"
+      "en": "Blackbeard.",
+      "ar": "اللحية السوداء (بلاكبيرد)."
     },
     "difficulty": "easy",
     "subcategory": {
@@ -192,17 +192,17 @@
   {
     "id": "true-crime-11",
     "question": {
-      "en": "Which serial killer was known as the 'Milwaukee Cannibal'?",
-      "ar": "أي سفاح انعرف بلقب «آكل لحوم البشر في ميلووكي»؟"
+      "en": "Which French forensic pioneer gave his name to the principle that 'every contact leaves a trace'?",
+      "ar": "أي رائد فرنسي بالأدلة الجنائية انسمّى باسمه المبدأ اللي يقول «كل تلامس يترك أثر»؟"
     },
     "answer": {
-      "en": "Jeffrey Dahmer",
-      "ar": "جيفري دامر"
+      "en": "Edmond Locard (Locard's exchange principle).",
+      "ar": "إدمون لوكار («مبدأ لوكار للتبادل»)."
     },
     "difficulty": "medium",
     "subcategory": {
-      "en": "Serial Killers & Unsolved Cases",
-      "ar": "القتلة المتسلسلون والقضايا الغامضة"
+      "en": "Forensic Science",
+      "ar": "علوم الأدلة الجنائية"
     },
     "review": {
       "status": "pending"
@@ -230,12 +230,12 @@
   {
     "id": "true-crime-13",
     "question": {
-      "en": "What forensic technique compares genetic markers in biological samples?",
-      "ar": "شو التقنية الجنائية اللي تقارن علامات وراثية في العينات البيولوجية؟"
+      "en": "Which chemical do crime-scene investigators spray because it glows blue when it meets traces of blood?",
+      "ar": "أي مادة كيميائية يرشّها محققو مسرح الجريمة لأنها تتوهّج بلون أزرق لما تلامس آثار الدم؟"
     },
     "answer": {
-      "en": "DNA profiling, also called DNA fingerprinting.",
-      "ar": "تحليل البصمة الوراثية، أو بصمة الحمض النووي."
+      "en": "Luminol",
+      "ar": "اللومينول"
     },
     "difficulty": "easy",
     "subcategory": {
@@ -344,17 +344,17 @@
   {
     "id": "true-crime-19",
     "question": {
-      "en": "Which serial killer was known as the 'Night Stalker'?",
-      "ar": "أي سفاح انعرف بلقب «المطارد الليلي»؟"
+      "en": "What name was given to the 1963 raid in which a gang stopped a Royal Mail train in England and stole about £2.6 million?",
+      "ar": "شو اسم العملية اللي صارت سنة 1963، لما عصابة وقّفت قطار البريد الملكي في إنجلترا وسرقت حوالي 2.6 مليون جنيه؟"
     },
     "answer": {
-      "en": "Richard Ramirez",
-      "ar": "ريتشارد راميريز"
+      "en": "The Great Train Robbery.",
+      "ar": "سرقة القطار الكبرى."
     },
     "difficulty": "medium",
     "subcategory": {
-      "en": "Serial Killers & Unsolved Cases",
-      "ar": "القتلة المتسلسلون والقضايا الغامضة"
+      "en": "Heists, Kidnappings & Prisons",
+      "ar": "السرقات والخطف والسجون"
     },
     "review": {
       "status": "pending"
@@ -363,12 +363,12 @@
   {
     "id": "true-crime-20",
     "question": {
-      "en": "Which organization was led by Jim Jones and associated with the 1978 mass murder-suicide at Jonestown?",
-      "ar": "شو المنظمة اللي قادها جيم جونز وارتبطت بالقتل والانتحار الجماعي في جونزتاون سنة 1978؟"
+      "en": "Which room of amber panels was looted by Nazi troops from a palace near St Petersburg in World War II and has never been found?",
+      "ar": "أي غرفة ألواحها من الكهرمان نهبتها القوات النازية من قصر قرب سانت بطرسبرغ بالحرب العالمية الثانية، ولليوم ما انلقت؟"
     },
     "answer": {
-      "en": "Peoples Temple.",
-      "ar": "معبد الشعوب."
+      "en": "The Amber Room, from the Catherine Palace.",
+      "ar": "الغرفة الكهرمانية، من قصر كاترين."
     },
     "difficulty": "medium",
     "subcategory": {
@@ -477,17 +477,17 @@
   {
     "id": "true-crime-26",
     "question": {
-      "en": "Which convicted murderer performed as a clown at community events and became known in media as the 'Killer Clown'?",
-      "ar": "أي قاتل مُدان كان يطلع كمهرج في مناسبات الحي، واشتهر بالإعلام بلقب «المهرج القاتل»؟"
+      "en": "In 2003, thieves opened more than 100 vaults at a supposedly impregnable diamond centre in which Belgian city?",
+      "ar": "سنة 2003، لصوص فتحوا أكثر من 100 خزنة بمركز للألماس يقولون إنه مستحيل ينخترق، في أي مدينة بلجيكية؟"
     },
     "answer": {
-      "en": "John Wayne Gacy; the nickname does not mean he wore the costume during the murders.",
-      "ar": "جون واين غيسي؛ ولا يعني اللقب أنه ارتدى زي المهرج أثناء ارتكاب الجرائم."
+      "en": "Antwerp (the Antwerp Diamond Centre heist).",
+      "ar": "أنتويرب (سرقة مركز أنتويرب للألماس)."
     },
     "difficulty": "hard",
     "subcategory": {
-      "en": "Serial Killers & Unsolved Cases",
-      "ar": "القتلة المتسلسلون والقضايا الغامضة"
+      "en": "Heists, Kidnappings & Prisons",
+      "ar": "السرقات والخطف والسجون"
     },
     "review": {
       "status": "pending"
@@ -515,17 +515,17 @@
   {
     "id": "true-crime-28",
     "question": {
-      "en": "What was the real name of 'Black Dahlia', the victim of a famous 1947 unsolved murder?",
-      "ar": "شو كان الاسم الحقيقي لـ«الداليا السوداء»، ضحية جريمة القتل الشهيرة اللي ما انحلّت سنة 1947؟"
+      "en": "Which 13th-century Chinese official wrote 'Collected Cases of Injustice Rectified' (1247), often called the world's first forensic science handbook?",
+      "ar": "أي مسؤول صيني بالقرن الثالث عشر كتب «مجموعة قضايا الظلم المصحَّحة» سنة 1247، اللي يعتبرونه أول دليل بعلم الأدلة الجنائية بالعالم؟"
     },
     "answer": {
-      "en": "Elizabeth Short",
-      "ar": "إليزابيث شورت"
+      "en": "Song Ci.",
+      "ar": "سونغ تسي."
     },
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Serial Killers & Unsolved Cases",
-      "ar": "القتلة المتسلسلون والقضايا الغامضة"
+      "en": "Forensic Science",
+      "ar": "علوم الأدلة الجنائية"
     },
     "review": {
       "status": "pending"
@@ -705,12 +705,12 @@
   {
     "id": "true-crime-38",
     "question": {
-      "en": "In a criminal investigation, what is an alibi?",
-      "ar": "في التحقيق الجنائي، شو يعني إن المتهم يدفع بأنه «ما كان موجود» بمسرح الجريمة؟"
+      "en": "What do we call a suspect's defence that they were somewhere else when the crime happened?",
+      "ar": "شو نسمّي دفاع المتهم بإنه كان بمكان ثاني وقت ما صارت الجريمة؟"
     },
     "answer": {
-      "en": "An account or evidence that a person was elsewhere when the offence occurred; its reliability must be assessed.",
-      "ar": "رواية أو دليل على وجود الشخص في مكان آخر وقت وقوع الجريمة؛ ويجب تقييم موثوقيته."
+      "en": "An alibi.",
+      "ar": "حجة الغياب (Alibi)."
     },
     "difficulty": "easy",
     "subcategory": {

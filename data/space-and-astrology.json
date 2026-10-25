@@ -178,12 +178,12 @@
       "ar": "فيزياء الفضاء والمدارات"
     },
     "question": {
-      "en": "What travels at the universal local speed limit c in a vacuum?",
-      "ar": "شو اللي يمشي بسرعة الحد الكوني المحلي c في الفراغ؟"
+      "en": "What do we call it when the Moon passes between the Sun and Earth and blocks the Sun?",
+      "ar": "شو نسمّي لما القمر يمر بين الشمس والأرض ويحجب الشمس؟"
     },
     "answer": {
-      "en": "Light, including all electromagnetic radiation in vacuum.",
-      "ar": "الضوء، بما فيه جميع أشكال الإشعاع الكهرومغناطيسي في الفراغ."
+      "en": "A solar eclipse.",
+      "ar": "كسوف الشمس."
     },
     "review": {
       "status": "pending"
@@ -198,11 +198,11 @@
     },
     "question": {
       "en": "What distance does one astronomical unit represent?",
-      "ar": "الوحدة الفلكية الوحدة تساوي أي مسافة؟"
+      "ar": "الوحدة الفلكية تساوي تقريبًا أي مسافة؟"
     },
     "answer": {
-      "en": "Exactly 149,597,870,700 metres, approximately the average Earth-Sun distance.",
-      "ar": "149,597,870,700 متر بالضبط، أي ما يقارب متوسط المسافة بين الأرض والشمس."
+      "en": "About 150 million km, the average Earth–Sun distance (defined as exactly 149,597,870,700 m).",
+      "ar": "حوالي 150 مليون كيلومتر، وهي متوسط المسافة بين الأرض والشمس (وتُعرَّف بدقة بـ149,597,870,700 متر)."
     },
     "review": {
       "status": "pending"
@@ -809,8 +809,8 @@
       "ar": "كم ياخذ القمر عشان يدور حوالين الأرض؟"
     },
     "answer": {
-      "en": "About 27.3 days",
-      "ar": "حوالي 27.3 يوماً"
+      "en": "About 27.3 days measured against the stars; the cycle of phases, from new moon to new moon, takes about 29.5 days.",
+      "ar": "حوالي 27.3 يوماً بالنسبة للنجوم، أما دورة الأطوار من محاق إلى محاق فتستغرق نحو 29.5 يوماً."
     },
     "review": {
       "status": "pending"
@@ -839,16 +839,16 @@
     "id": "space-045",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Stars & Stellar Evolution",
-      "ar": "النجوم وتطورها"
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
     },
     "question": {
-      "en": "What is the Milky Way?",
-      "ar": "شو هي «درب التبانة»؟"
+      "en": "What is the nearest large spiral galaxy to the Milky Way, visible to the naked eye on dark nights?",
+      "ar": "شو أقرب مجرة حلزونية كبيرة لدرب التبانة، اللي ممكن تشوفها بالعين المجردة بالليالي المظلمة؟"
     },
     "answer": {
-      "en": "The galaxy that contains our solar system — a barred spiral galaxy with 200–400 billion stars",
-      "ar": "المجرة التي تحتوي نظامنا الشمسي — مجرة حلزونية ذات عارضة تضم 200–400 مليار نجم"
+      "en": "The Andromeda Galaxy.",
+      "ar": "مجرة المرأة المسلسلة (أندروميدا)."
     },
     "review": {
       "status": "pending"
@@ -1048,16 +1048,16 @@
     "id": "space-056",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Solar System & Planets",
-      "ar": "النظام الشمسي والكواكب"
+      "en": "Space Exploration & Telescopes",
+      "ar": "استكشاف الفضاء والتلسكوبات"
     },
     "question": {
-      "en": "What is the Kuiper Belt?",
-      "ar": "شو هو «حزام كايبر»؟"
+      "en": "Who became the first Arab astronaut, flying aboard the Space Shuttle Discovery in 1985?",
+      "ar": "مين أول رائد فضاء عربي، طار على متن مكوك الفضاء «ديسكفري» سنة 1985؟"
     },
     "answer": {
-      "en": "A region beyond Neptune filled with icy bodies including Pluto, comets, and other dwarf planets",
-      "ar": "منطقة تقع خلف نبتون مليئة بالأجسام الجليدية بما فيها بلوتو والمذنّبات وكواكب قزمة أخرى"
+      "en": "Prince Sultan bin Salman Al Saud of Saudi Arabia.",
+      "ar": "الأمير سلطان بن سلمان آل سعود من السعودية."
     },
     "review": {
       "status": "pending"
@@ -1067,16 +1067,16 @@
     "id": "space-057",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Stars & Stellar Evolution",
-      "ar": "النجوم وتطورها"
+      "en": "Space Exploration & Telescopes",
+      "ar": "استكشاف الفضاء والتلسكوبات"
     },
     "question": {
-      "en": "What is nuclear fusion?",
-      "ar": "شو هو «الاندماج النووي»؟"
+      "en": "Which UAE spacecraft became the first Arab mission to reach Mars, entering orbit in February 2021?",
+      "ar": "أي مسبار إماراتي صار أول مهمة عربية توصل للمريخ، ودخل مداره في فبراير 2021؟"
     },
     "answer": {
-      "en": "The process by which light atomic nuclei combine to form heavier nuclei, releasing enormous energy — how stars generate power",
-      "ar": "العملية التي تتحد فيها نوى ذرية خفيفة لتكوين نوى أثقل مع إطلاق طاقة هائلة — كيفية توليد النجوم للطاقة"
+      "en": "The Hope probe (Emirates Mars Mission).",
+      "ar": "مسبار الأمل (مشروع الإمارات لاستكشاف المريخ)."
     },
     "review": {
       "status": "pending"
@@ -1090,12 +1090,12 @@
       "ar": "استكشاف الفضاء والتلسكوبات"
     },
     "question": {
-      "en": "What is the Hubble Space Telescope?",
-      "ar": "شو هو «تلسكوب هابل الفضائي»؟"
+      "en": "Who was the first human to travel into space, in 1961?",
+      "ar": "مين أول إنسان طلع للفضاء، سنة 1961؟"
     },
     "answer": {
-      "en": "A space telescope launched in 1990 providing unprecedented optical images of the universe",
-      "ar": "تلسكوب فضائي أُطلق عام 1990 يوفّر صوراً بصرية غير مسبوقة للكون"
+      "en": "Yuri Gagarin, aboard Vostok 1.",
+      "ar": "يوري غاغارين، على متن «فوستوك 1»."
     },
     "review": {
       "status": "pending"
@@ -1143,16 +1143,16 @@
     "id": "space-061",
     "difficulty": "hard",
     "subcategory": {
-      "en": "Black Holes & Gravity",
-      "ar": "الثقوب السوداء والجاذبية"
+      "en": "Observational Astronomy",
+      "ar": "علم الفلك الرصدي"
     },
     "question": {
-      "en": "What is the event horizon of a black hole?",
-      "ar": "شو هو «أفق الحدث» للثقب الأسود؟"
+      "en": "Which 10th-century astronomer, writing in Arabic, produced the illustrated 'Book of Fixed Stars'?",
+      "ar": "أي فلكي بالقرن العاشر ألّف «كتاب صور الكواكب الثابتة» المصوَّر؟"
     },
     "answer": {
-      "en": "The boundary around a black hole beyond which nothing — including light — can escape its gravitational pull",
-      "ar": "الحدّ المحيط بالثقب الأسود الذي لا يمكن لأي شيء — بما في ذلك الضوء — تخطّيه والإفلات من جاذبيته"
+      "en": "Abd al-Rahman al-Sufi (Azophi), around 964 CE.",
+      "ar": "عبد الرحمن الصوفي، نحو سنة 964م."
     },
     "review": {
       "status": "pending"
@@ -1261,7 +1261,7 @@
       "ar": "النظام الشمسي والكواكب"
     },
     "question": {
-      "en": "What is Roche limit?",
+      "en": "What is the Roche limit?",
       "ar": "شو هو «حد روش»؟"
     },
     "answer": {
@@ -1357,7 +1357,7 @@
     },
     "question": {
       "en": "How do meteoroid, meteor, and meteorite differ?",
-      "ar": "شو الفرق بين «النيزك الصغير» و«الشهاب» و«الحجر النيزكي»؟"
+      "ar": "شو الفرق بين «الجسيم النيزكي» و«الشهاب» و«الحجر النيزكي»؟"
     },
     "answer": {
       "en": "A meteoroid is a small space body; a meteor is the luminous phenomenon during atmospheric entry; a meteorite is material that survives to reach the ground.",
@@ -1580,16 +1580,16 @@
     "id": "space-084",
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Space Exploration & Telescopes",
-      "ar": "استكشاف الفضاء والتلسكوبات"
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
     },
     "question": {
-      "en": "What is the Drake Equation?",
-      "ar": "شو هي «معادلة دريك»؟"
+      "en": "What is the name of the vast galaxy supercluster, mapped in 2014, that contains the Milky Way?",
+      "ar": "شو اسم العنقود المجري الفائق الضخم اللي فيه درب التبانة، واللي انرسمت خريطته سنة 2014؟"
     },
     "answer": {
-      "en": "A probabilistic formula estimating the number of active, communicating civilisations in the Milky Way using factors like star formation rate, habitable planets, and life emergence probability",
-      "ar": "صيغة احتمالية تُقدّر عدد الحضارات النشطة والمتواصلة في درب التبانة باستخدام عوامل كمعدل تكوّن النجوم والكواكب الصالحة للسكن واحتمال نشوء الحياة"
+      "en": "Laniakea, Hawaiian for 'immeasurable heaven'.",
+      "ar": "لانياكيا، ومعناها بلغة هاواي «السماء التي لا تُقاس»."
     },
     "review": {
       "status": "pending"
@@ -1703,7 +1703,7 @@
     },
     "answer": {
       "en": "The theoretical proposition that multiple universes exist beyond our observable universe, each potentially with different physical laws",
-      "ar": "الاقتراح النظري بأن كوناً متعدداً يتجاوز كوننا المرصود، قد يمتلك كل منها قوانين فيزيائية مختلفة"
+      "ar": "فرضية نظرية بأن هناك أكواناً متعددة خارج كوننا المرصود، وقد يكون لكل منها قوانين فيزيائية مختلفة."
     },
     "review": {
       "status": "pending"
@@ -1806,7 +1806,7 @@
   },
   {
     "id": "space-096",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Black Holes & Gravity",
       "ar": "الثقوب السوداء والجاذبية"
@@ -1816,7 +1816,7 @@
       "ar": "ظل أي ثقب أسود ظهر بصورة «تلسكوب أفق الحدث» اللي انتشرت سنة 2019؟"
     },
     "answer": {
-      "en": "M87*, at the center of galaxyM 87. The image used observations from 2017 and shows surrounding emission and the central shadow.",
+      "en": "M87*, at the centre of galaxy M87. The image used observations from 2017 and shows bright emission around the central shadow.",
       "ar": "M87* في مركز المجرة M87. استُخدمت مشاهدات عام 2017، وتُظهر الصورة الإشعاع المحيط والظل المركزي."
     },
     "review": {
@@ -1836,7 +1836,7 @@
     },
     "answer": {
       "en": "A cosmological model where dark energy causes the universe's expansion to accelerate until it tears apart all matter, from galaxy clusters down to atoms",
-      "ar": "نموذج كوزمولوجي تتسارع فيه توسّع الكون بسبب الطاقة المظلمة حتى تتمزّق كل المادة من عناقيد المجرات وصولاً إلى الذرات"
+      "ar": "نموذج كوني يتسارع فيه توسّع الكون بفعل الطاقة المظلمة حتى تتمزق كل المادة، من عناقيد المجرات وصولاً إلى الذرات."
     },
     "review": {
       "status": "pending"

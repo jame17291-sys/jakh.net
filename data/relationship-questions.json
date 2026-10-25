@@ -455,8 +455,8 @@
       "ar": "الحدود والإذن"
     },
     "question": {
-      "en": "A friend wants to borrow an item you do not lend out. Which reply states the boundary without attacking them? A: “I do not lend this item, but I can help you find another option.” B: “Only an irresponsible person would ask.”",
-      "ar": "صاحبك يبي يستعير شي إنت ما تعيره لأحد. أي رد يوضح حدّك من غير ما تهاجمه؟ A: «ما أعير هالشي، بس أقدر أساعدك تلاقي بديل.» B: «ما يطلب هالشي إلا واحد مش مسؤول.»"
+      "en": "A friend wants to borrow an item you do not lend out. Which reply states the boundary without attacking them? A: “I do not lend this item, but I can help you find another option.” B: “Sorry, I can't lend it. People like you tend to be careless with things.”",
+      "ar": "صاحبك يبي يستعير شي إنت ما تعيره لأحد. أي رد يوضح حدّك من غير ما تهاجمه؟ A: «ما أعير هالشي، بس أقدر أساعدك تلاقي بديل.» B: «آسف، ما أقدر أعيره؛ اللي مثلك عادةً ما ينتبهون للأغراض.»"
     },
     "answer": {
       "en": "A — It states the rule without judging the friend’s character.",
@@ -651,12 +651,12 @@
       "ar": "الحدود والإذن"
     },
     "question": {
-      "en": "Which statement distinguishes a request from a demand by allowing the other person to decline? A: “Would you be willing to help Saturday? It is okay if you cannot.” B: “You may say no, but I will punish you if you do.”",
-      "ar": "أي جملة تفرّق بين الطلب والأمر لأنها تسمح للثاني يرفض؟ A: «تقدر تساعدني السبت؟ عادي إذا ما تقدر.» B: «تقدر ترفض، بس بعاقبك إذا رفضت.»"
+      "en": "Which statement distinguishes a request from a demand by allowing the other person to decline? A: “Would you be willing to help Saturday? It is okay if you cannot.” B: “Would you be willing to help Saturday? I'll be really hurt if you say no.”",
+      "ar": "أي جملة تفرّق بين الطلب والأمر لأنها تسمح للثاني يرفض؟ A: «تقدر تساعدني السبت؟ عادي إذا ما تقدر.» B: «تقدر تساعدني السبت؟ بزعل منك كثير إذا رفضت.»"
     },
     "answer": {
-      "en": "A — It leaves a genuine option to decline.",
-      "ar": "A — تترك إمكانية حقيقية للرفض."
+      "en": "A — It leaves a genuine option to decline; B adds guilt pressure.",
+      "ar": "A — تترك إمكانية حقيقية للرفض؛ أما B فتضغط بالشعور بالذنب."
     },
     "acceptedAnswers": {
       "en": [

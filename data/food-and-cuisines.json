@@ -41,12 +41,12 @@
     "id": "foo-3",
     "difficulty": "easy",
     "question": {
-      "en": "Which legume is blended with tahini to make traditional hummus dip?",
-      "ar": "شو الحبوب اللي تنطحن مع الطحينة عشان نسوي الحمص بالطحينة؟"
+      "en": "Which sesame paste is blended with chickpeas, lemon and garlic to make hummus?",
+      "ar": "شو المعجون المصنوع من السمسم المطحون اللي ينخلط مع الحمص المسلوق والليمون والثوم بصحن الحمص؟"
     },
     "answer": {
-      "en": "Chickpeas",
-      "ar": "حبوب الحمص"
+      "en": "Tahini",
+      "ar": "الطحينة"
     },
     "subcategory": {
       "en": "Ingredients",
@@ -346,11 +346,11 @@
     "difficulty": "medium",
     "question": {
       "en": "In classical meat-based cooking, which is typically simmered mainly from bones: stock or broth?",
-      "ar": "في الطبخ التقليدي باللحم، أيهم يتحضّر عادةً من العظام بالأساس: Stock ولا Broth؟"
+      "ar": "بالطبخ التقليدي، أيهم يتحضّر بالأساس من العظام: الستوك (المرق المركّز) ولا البروث (المرقة الخفيفة)؟"
     },
     "answer": {
       "en": "Stock",
-      "ar": "Stock (مرق العظام)"
+      "ar": "الستوك (مرق العظام)"
     },
     "subcategory": {
       "en": "Cooking Techniques",

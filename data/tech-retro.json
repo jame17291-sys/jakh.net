@@ -21,18 +21,18 @@
   {
     "id": "tech-retro-2",
     "subcategory": {
-      "en": "Hardware & Storage",
-      "ar": "العتاد والتخزين"
+      "en": "Early Internet",
+      "ar": "الإنترنت المبكر"
     },
     "question": {
-      "en": "Which company released the 4004 microprocessor in 1971?",
-      "ar": "أي شركة طلّعت المعالج الدقيق 4004 سنة 1971؟"
+      "en": "What did the world's first webcam, set up at Cambridge University in 1991, show?",
+      "ar": "شو كانت تعرض أول كاميرا ويب بالعالم، اللي انركّبت في جامعة كامبريدج سنة 1991؟"
     },
     "answer": {
-      "en": "Intel.",
-      "ar": "إنتل."
+      "en": "A coffee pot (the 'Trojan Room coffee pot'), so researchers could check whether it was empty.",
+      "ar": "إبريق قهوة («إبريق قهوة غرفة تروجان»)، عشان يعرف الباحثون إذا كان فاضي."
     },
-    "difficulty": "easy",
+    "difficulty": "very-advanced",
     "review": {
       "status": "pending"
     }
@@ -230,18 +230,18 @@
   {
     "id": "tech-retro-13",
     "subcategory": {
-      "en": "Hardware & Storage",
-      "ar": "العتاد والتخزين"
+      "en": "Personal Computers",
+      "ar": "الحواسيب الشخصية"
     },
     "question": {
-      "en": "Which computer component is considered the 'brain' of the computer?",
-      "ar": "أي قطعة في الكمبيوتر نقول عنها «عقل» الكمبيوتر؟"
+      "en": "What was the brand of Arabic-language MSX home computers, made by Kuwait's Al Alamiah, that many Arab children learned on in the 1980s?",
+      "ar": "شو اسم ماركة كمبيوترات MSX العربية اللي صنعتها شركة العالمية الكويتية، واللي تعلّم عليها أطفال عرب كثير بالثمانينيات؟"
     },
     "answer": {
-      "en": "CPU (Central Processing Unit)",
-      "ar": "وحدة المعالجة المركزية"
+      "en": "Sakhr.",
+      "ar": "صخر."
     },
-    "difficulty": "easy",
+    "difficulty": "very-advanced",
     "review": {
       "status": "pending"
     }
@@ -500,8 +500,8 @@
       "ar": "الإنترنت المبكر"
     },
     "question": {
-      "en": "Which web browser was released by Netscape in 1994?",
-      "ar": "شو متصفح الإنترنت اللي طلّعته شركة نتسكيب سنة 1994؟"
+      "en": "Which web browser, launched in 1994, dominated the early web before losing the 'browser war' to Microsoft's Internet Explorer?",
+      "ar": "أي متصفح انطلق سنة 1994 وسيطر على بدايات الإنترنت، قبل ما يخسر «حرب المتصفحات» قدام إنترنت إكسبلورر من مايكروسوفت؟"
     },
     "answer": {
       "en": "Netscape Navigator.",

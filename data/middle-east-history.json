@@ -3,16 +3,16 @@
     "id": "me-hist-001",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Ancient",
-      "ar": "عصور قديمة"
+      "en": "Islamic History",
+      "ar": "التاريخ الإسلامي"
     },
     "question": {
-      "en": "Which ancient civilization built the pyramids at Giza?",
-      "ar": "أي حضارة قديمة بنت أهرامات الجيزة؟"
+      "en": "Which famous mosque-university in Cairo, founded in the 10th century, is still teaching today?",
+      "ar": "أي جامع وجامعة بالقاهرة، تأسّس بالقرن العاشر وما زال يدرّس لليوم؟"
     },
     "answer": {
-      "en": "The ancient Egyptians during the Old Kingdom.",
-      "ar": "المصريون القدماء خلال عصر الدولة القديمة."
+      "en": "Al-Azhar",
+      "ar": "الأزهر"
     },
     "review": {
       "status": "pending"
@@ -102,12 +102,12 @@
       "ar": "التاريخ الإسلامي"
     },
     "question": {
-      "en": "What was the first Islamic caliphate, and who were its first four caliphs?",
-      "ar": "شو أول خلافة إسلامية، ومين خلفاؤها الأربعة الأوائل؟"
+      "en": "What is the first caliphate in Islamic history, led by Abu Bakr, Umar, Uthman and Ali, called?",
+      "ar": "شو اسم أول خلافة بالتاريخ الإسلامي، اللي حكمها أبو بكر وعمر وعثمان وعلي؟"
     },
     "answer": {
-      "en": "The Rashidun Caliphate (632–661 CE). The four caliphs were Abu Bakr al-Siddiq, Umar ibn al-Khattab, Uthman ibn Affan, and Ali ibn Abi Talib.",
-      "ar": "الخلافة الراشدة (632–661 م). الخلفاء الأربعة هم أبو بكر الصديق وعمر بن الخطاب وعثمان بن عفان وعلي بن أبي طالب."
+      "en": "The Rashidun Caliphate",
+      "ar": "الخلافة الراشدة"
     },
     "review": {
       "status": "pending"
@@ -178,12 +178,12 @@
       "ar": "التاريخ الإسلامي"
     },
     "question": {
-      "en": "Who was Saladin and what is he best known for in history?",
-      "ar": "مين صلاح الدين، وبشو اشتهر بالتاريخ؟"
+      "en": "Which Ayyubid sultan retook Jerusalem from the Crusaders in 1187?",
+      "ar": "أي سلطان أيوبي استعاد القدس من الصليبيين سنة 1187؟"
     },
     "answer": {
-      "en": "Saladin (Salah al-Din al-Ayyubi) was the Muslim Kurdish leader who founded the Ayyubid dynasty and is most famous for recapturing Jerusalem from the Crusaders in 1187.",
-      "ar": "صلاح الدين الأيوبي قائد مسلم كردي أسّس الأسرة الأيوبية ويشتهر بتحريره القدس من الصليبيين عام 1187."
+      "en": "Saladin (Salah al-Din al-Ayyubi)",
+      "ar": "صلاح الدين الأيوبي"
     },
     "review": {
       "status": "pending"
@@ -273,12 +273,12 @@
       "ar": "التاريخ الحديث"
     },
     "question": {
-      "en": "What was the Suez Crisis of 1956?",
-      "ar": "شو هي أزمة السويس سنة 1956؟"
+      "en": "Which waterway did Gamal Abdel Nasser nationalise in 1956, leading Britain, France and Israel to attack Egypt?",
+      "ar": "أي ممر مائي أمّمه جمال عبد الناصر سنة 1956، وبعدها هاجمت بريطانيا وفرنسا وإسرائيل مصر؟"
     },
     "answer": {
-      "en": "Egypt's President Nasser nationalized the Suez Canal, prompting a military attack by Britain, France, and Israel. US and Soviet pressure forced them to withdraw, marking a major shift in post-colonial power and Egypt's rise as a regional leader.",
-      "ar": "أمّم الرئيس المصري جمال عبد الناصر قناة السويس، مما استدعى هجومًا عسكريًا من بريطانيا وفرنسا وإسرائيل. أجبرهم الضغط الأمريكي والسوفيتي على الانسحاب، مما شكّل تحولًا كبيرًا في موازين القوى ما بعد الاستعمار وصعود مصر كقوة إقليمية."
+      "en": "The Suez Canal",
+      "ar": "قناة السويس"
     },
     "review": {
       "status": "pending"
@@ -463,12 +463,12 @@
       "ar": "التاريخ الحديث"
     },
     "question": {
-      "en": "What was the 1967 Six-Day War?",
-      "ar": "شو هي حرب الأيام الستة سنة 1967؟"
+      "en": "Which three neighbouring Arab countries fought Israel in the June 1967 war?",
+      "ar": "أي ثلاث دول عربية مجاورة حاربت إسرائيل في حرب يونيو 1967؟"
     },
     "answer": {
-      "en": "A war in which Israel defeated Egypt, Jordan, and Syria in six days, capturing the Sinai Peninsula, Gaza Strip, West Bank, East Jerusalem, and Golan Heights. It fundamentally reshaped the Israeli-Palestinian conflict and the broader regional balance of power.",
-      "ar": "حرب هزمت فيها إسرائيل مصر والأردن وسوريا في ستة أيام، فاحتلت شبه جزيرة سيناء وقطاع غزة والضفة الغربية والقدس الشرقية ومرتفعات الجولان. غيّرت جذريًا الصراع الفلسطيني الإسرائيلي وميزان القوى الإقليمي الأشمل."
+      "en": "Egypt, Jordan and Syria",
+      "ar": "مصر والأردن وسوريا"
     },
     "review": {
       "status": "pending"
@@ -501,12 +501,12 @@
       "ar": "التاريخ الحديث"
     },
     "question": {
-      "en": "What was the Oslo Accords (1993) and what was its significance?",
-      "ar": "شو هي اتفاقيات أوسلو (1993)، وشو أهميتها؟"
+      "en": "The 1993 Oslo Accords were negotiated in Norway, but in which city were they signed at a public ceremony?",
+      "ar": "اتفاقيات أوسلو سنة 1993 انتفاوض عليها بالنرويج، بس بأي مدينة انوقّعت بحفل علني؟"
     },
     "answer": {
-      "en": "A peace framework between Israel and the PLO, signed in Washington, where the PLO recognized Israel and Israel recognized the PLO as the representative of Palestinians. It established the Palestinian Authority but left final status issues (Jerusalem, borders, refugees) unresolved.",
-      "ar": "إطار سلام بين إسرائيل ومنظمة التحرير الفلسطينية وُقِّع في واشنطن، اعترفت فيه المنظمة بإسرائيل واعترفت إسرائيل بالمنظمة ممثلًا للفلسطينيين. أسّس السلطة الفلسطينية لكن ترك قضايا الوضع النهائي (القدس والحدود واللاجئون) دون حل."
+      "en": "Washington, D.C. (at the White House)",
+      "ar": "واشنطن (بالبيت الأبيض)"
     },
     "review": {
       "status": "pending"
@@ -520,12 +520,12 @@
       "ar": "التاريخ الحديث"
     },
     "question": {
-      "en": "What was the Lebanon Civil War and how long did it last?",
-      "ar": "شو هي الحرب الأهلية اللبنانية، وكم طوّلت؟"
+      "en": "Which 1989 agreement, signed in Saudi Arabia, helped end Lebanon's civil war?",
+      "ar": "أي اتفاق انوقّع بالسعودية سنة 1989 وساعد بإنهاء الحرب الأهلية اللبنانية؟"
     },
     "answer": {
-      "en": "A multi-factional civil war in Lebanon from 1975 to 1990, involving Lebanese political factions, Palestinian groups, Israel, Syria, and later various militias. It killed an estimated 120,000–150,000 people.",
-      "ar": "حرب أهلية متعددة الفصائل في لبنان من 1975 إلى 1990، شارك فيها فصائل سياسية لبنانية وجماعات فلسطينية وإسرائيل وسوريا ومليشيات متنوعة لاحقًا. قُدِّر عدد ضحاياها بـ 120,000–150,000 شخص."
+      "en": "The Taif Agreement",
+      "ar": "اتفاق الطائف"
     },
     "review": {
       "status": "pending"
@@ -558,12 +558,12 @@
       "ar": "عصور قديمة"
     },
     "question": {
-      "en": "What was the Code of Hammurabi and why is it historically significant?",
-      "ar": "شو هي «شريعة حمورابي»، وليش مهمة تاريخيًا؟"
+      "en": "Which Assyrian king gathered a huge library of clay tablets at Nineveh?",
+      "ar": "أي ملك آشوري جمع مكتبة ضخمة من الألواح الطينية في نينوى؟"
     },
     "answer": {
-      "en": "One of the earliest and most complete written legal codes, created by the Babylonian king Hammurabi around 1754 BC. It codified 282 laws covering trade, property, family, and criminal matters and established the principle that the state enforces law — not just the aggrieved party.",
-      "ar": "من أقدم وأكمل المدوّنات القانونية المكتوبة، أنشأها الملك البابلي حمورابي حوالي 1754 ق.م. قنّنت 282 قانونًا تغطي التجارة والملكية والأسرة والشؤون الجنائية وأرست مبدأ أن الدولة هي من تُنفّذ القانون — لا الطرف المتضرر وحده."
+      "en": "Ashurbanipal",
+      "ar": "آشور بانيبال"
     },
     "review": {
       "status": "pending"
@@ -596,12 +596,12 @@
       "ar": "التاريخ العثماني"
     },
     "question": {
-      "en": "What were the Tanzimat reforms of the 19th-century Ottoman Empire?",
-      "ar": "شو هي إصلاحات «التنظيمات» بالدولة العثمانية في القرن التاسع عشر؟"
+      "en": "What name is given to the era of Ottoman reforms that began with the Gülhane edict of 1839?",
+      "ar": "شو اسم فترة الإصلاحات العثمانية اللي بدأت بخط كلخانة سنة 1839؟"
     },
     "answer": {
-      "en": "A series of modernizing reforms (1839–1876) that reorganized the military, bureaucracy, taxation, and courts; granted legal equality to non-Muslims; and introduced a secular penal code — representing the Ottoman Empire's attempt to modernize and compete with European powers.",
-      "ar": "سلسلة من الإصلاحات التحديثية (1839–1876) أعادت تنظيم الجيش والبيروقراطية والضرائب والمحاكم؛ ومنحت المساواة القانونية لغير المسلمين؛ وأدخلت قانون عقوبات علمانيًا — مثّلت محاولة الإمبراطورية العثمانية للتحديث والتنافس مع القوى الأوروبية."
+      "en": "The Tanzimat",
+      "ar": "التنظيمات"
     },
     "review": {
       "status": "pending"
@@ -653,12 +653,12 @@
       "ar": "التاريخ الإسلامي"
     },
     "question": {
-      "en": "What was the Crusades and how did they affect the Middle East?",
-      "ar": "شو هي الحروب الصليبية، وكيف أثّرت على الشرق الأوسط؟"
+      "en": "In which year did the First Crusade capture Jerusalem?",
+      "ar": "بأي سنة سيطرت الحملة الصليبية الأولى على القدس؟"
     },
     "answer": {
-      "en": "A series of religious military campaigns (1095–1291) launched by European Christians to recover the Holy Land from Muslim rule. They established short-lived Crusader states in Palestine, Lebanon, and Syria. The conflict produced significant cultural exchange but also great violence — ultimately ending with Muslim reconquest. Their legacy shaped Muslim-Christian relations for centuries.",
-      "ar": "سلسلة من الحملات العسكرية الدينية (1095–1291) شنّها مسيحيو أوروبا لاستعادة الأرض المقدسة من الحكم الإسلامي. أسّست دولًا صليبية قصيرة الأجل في فلسطين ولبنان وسوريا. أنتج الصراع تبادلًا ثقافيًا كبيرًا لكن أيضًا عنفًا هائلًا — وانتهى في نهاية المطاف بإعادة الفتح الإسلامي. إرثها شكّل العلاقات المسيحية الإسلامية لقرون."
+      "en": "1099",
+      "ar": "1099"
     },
     "review": {
       "status": "pending"
@@ -729,12 +729,12 @@
       "ar": "التاريخ الحديث"
     },
     "question": {
-      "en": "What was the significance of the 1973 Yom Kippur War (October War)?",
-      "ar": "شو أهمية حرب أكتوبر 1973 (حرب يوم الغفران)؟"
+      "en": "Which two Arab countries launched the coordinated attack that opened the October 1973 war?",
+      "ar": "أي دولتين عربيتين بدأوا الهجوم المنسّق اللي فتح حرب أكتوبر 1973؟"
     },
     "answer": {
-      "en": "Egypt and Syria launched a surprise attack against Israel on Yom Kippur to recover territories lost in 1967. Initial Arab gains were reversed but the war restored Arab military credibility, led to the Arab oil embargo (1973 oil crisis) that shocked Western economies, and ultimately paved the way for the Camp David peace process.",
-      "ar": "شنّت مصر وسوريا هجومًا مباغتًا على إسرائيل في يوم الغفران لاستعادة الأراضي المفقودة عام 1967. انعكست المكاسب العربية الأولية لاحقًا لكن الحرب استعادت المصداقية العسكرية العربية وأفضت إلى الحظر النفطي العربي (أزمة النفط 1973) الذي صدم الاقتصادات الغربية، وأفسح في المطاف الطريق لمسار سلام كامب ديفيد."
+      "en": "Egypt and Syria",
+      "ar": "مصر وسوريا"
     },
     "review": {
       "status": "pending"
@@ -748,12 +748,12 @@
       "ar": "عصور قديمة"
     },
     "question": {
-      "en": "What was the Nabataean Kingdom and what is its most famous city?",
-      "ar": "شو هي المملكة النبطية، وشو أشهر مدنها؟"
+      "en": "Which ancient Yemeni kingdom built the great Marib Dam?",
+      "ar": "أي مملكة يمنية قديمة بنت سدّ مأرب العظيم؟"
     },
     "answer": {
-      "en": "The Nabataeans were an Arab people who built a prosperous trading kingdom in the Negev desert and Jordan from around 300 BC to 106 AD, controlling incense and spice trade routes. Their most famous city is Petra, the rock-carved city in modern Jordan.",
-      "ar": "الأنباط شعب عربي بنى مملكة تجارية مزدهرة في صحراء النقب والأردن من نحو 300 ق.م حتى 106 م، يتحكمون في طرق تجارة البخور والتوابل. أشهر مدنهم البتراء، المدينة المنحوتة في الصخر في الأردن الحديث."
+      "en": "The Kingdom of Saba (Sheba)",
+      "ar": "مملكة سبأ"
     },
     "review": {
       "status": "pending"

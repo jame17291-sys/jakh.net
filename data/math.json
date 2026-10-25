@@ -294,48 +294,48 @@
     "difficulty": "easy",
     "mode": "quiz",
     "question": {
-      "en": "A baker has 13 loaves of bread. He sells all but 9. How many loaves are left?",
-      "ar": "خبّاز عنده 13 رغيف. باعهم كلهم إلا 9. كم رغيف باقي؟"
+      "en": "How many seconds are there in one hour?",
+      "ar": "كم ثانية في ساعة وحدة؟"
     },
     "answer": {
-      "en": "9. 'All but 9' means 9 remain — it's a reading trick, not arithmetic.",
-      "ar": "9. 'باع الكل إلا 9' تعني بقاء 9 — المسألة في فهم العبارة، لا في الحساب."
+      "en": "3600. One hour has 60 minutes, and each minute has 60 seconds: 60 × 60 = 3600.",
+      "ar": "3600. في الساعة 60 دقيقة، وفي كل دقيقة 60 ثانية: 60 × 60 = 3600."
     },
     "subcategory": {
-      "en": "Logic, Foundations & Unsolved Problems",
-      "ar": "المنطق والأسس والمسائل غير المحلولة"
+      "en": "Arithmetic, Fractions & Percentages",
+      "ar": "الحساب والكسور والنسب المئوية"
     },
     "review": {
       "status": "pending"
     },
     "acceptedAnswers": {
       "en": [
-        "9"
+        "3600"
       ],
       "ar": [
-        "9"
+        "3600"
       ]
     },
     "quickFire": {
       "answer": {
-        "en": "9",
-        "ar": "9"
+        "en": "3600",
+        "ar": "3600"
       },
       "distractors": {
         "en": [
-          "4",
-          "13",
-          "22"
+          "360",
+          "600",
+          "6000"
         ],
         "ar": [
-          "4",
-          "13",
-          "22"
+          "360",
+          "600",
+          "6000"
         ]
       },
       "explanation": {
-        "en": "'All but 9' means every loaf except nine was sold. Nine loaves remain.",
-        "ar": "«باع الكل إلا 9» تعني أنه باع الأرغفة باستثناء تسعة، فتبقى تسعة أرغفة."
+        "en": "An hour has 60 minutes and each minute has 60 seconds, so 60 × 60 = 3600.",
+        "ar": "في الساعة 60 دقيقة، وفي كل دقيقة 60 ثانية، إذن 60 × 60 = 3600."
       }
     }
   },
@@ -541,15 +541,15 @@
   },
   {
     "id": "math-016",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "mode": "quiz",
     "question": {
-      "en": "Each term follows n(n+1), starting at n=1:2,6,12,20,... What is the next term?",
-      "ar": "الحدود تمشي على قاعدة n(n+1) من n=1: 2، 6، 12، 20، ... شو الحد اللي بعده؟"
+      "en": "What comes next: 2, 6, 12, 20, …?",
+      "ar": "شو الرقم اللي بعده: 2، 6، 12، 20، …؟"
     },
     "answer": {
-      "en": "30. The terms follow n(n+1): 1×2, 2×3, 3×4, 4×5, so the next is 5×6.",
-      "ar": "30. تتبع الحدود القاعدة n(n+1): ‏1×2، 2×3، 3×4، 4×5، لذا الحد التالي هو 5×6."
+      "en": "30. The terms are 1×2, 2×3, 3×4, 4×5, so next is 5×6.",
+      "ar": "30. الحدود هي 1×2، 2×3، 3×4، 4×5، فاللي بعدها 5×6."
     },
     "subcategory": {
       "en": "Patterns, Sequences & Word Problems",
@@ -1864,12 +1864,12 @@
     "difficulty": "hard",
     "mode": "quiz",
     "question": {
-      "en": "A convex polyhedron has 12 vertices and 18 edges. Using V−E+F=2, how many faces does it have?",
-      "ar": "مجسّم متعدد الوجوه محدّب فيه 12 رأس و18 حافّة. باستخدام V−E+F=2، كم وجه فيه؟"
+      "en": "A convex polyhedron has 12 vertices and 18 edges. How many faces does it have?",
+      "ar": "مجسّم محدّب متعدد الوجوه فيه 12 رأس و18 حافّة. كم وجه فيه؟"
     },
     "answer": {
-      "en": "8 faces: F=2−12+18=8.",
-      "ar": "8 أوجه: F=2−12+18=8."
+      "en": "8 faces, from Euler's formula V − E + F = 2.",
+      "ar": "8 أوجه، حسب صيغة أويلر V − E + F = 2."
     },
     "subcategory": {
       "en": "Geometry & Trigonometry",
@@ -2221,15 +2221,15 @@
   },
   {
     "id": "math-097",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "mode": "quiz",
     "question": {
-      "en": "What is the sum of all numbers in row 3 of Pascal's Triangle: 1, 3, 3, 1?",
-      "ar": "كم مجموع أرقام الصف الثالث بمثلث باسكال: 1، 3، 3، 1؟"
+      "en": "What is the sum of all the numbers in row 10 of Pascal's triangle, counting the top 1 as row 0?",
+      "ar": "كم مجموع كل الأرقام بالصف العاشر من مثلث باسكال، إذا اعتبرنا الـ1 اللي فوق هو الصف صفر؟"
     },
     "answer": {
-      "en": "8. The sum of row n equals 2ⁿ. Row 3: 2³ = 8.",
-      "ar": "8. مجموع الصف n يساوي 2ⁿ. الصف الثالث: 2³ = 8."
+      "en": "1,024. Each row's sum doubles the one before, so row n adds up to 2ⁿ.",
+      "ar": "1024. مجموع كل صف ضعف اللي قبله، فمجموع الصف n هو 2ⁿ."
     },
     "subcategory": {
       "en": "Patterns, Sequences & Word Problems",

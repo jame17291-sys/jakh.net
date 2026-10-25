@@ -41,16 +41,16 @@
     "id": "anc-3",
     "difficulty": "easy",
     "question": {
-      "en": "What was the name of the ancient city in Italy famous for its gladiatorial games at the Colosseum?",
-      "ar": "شو المدينة القديمة في إيطاليا المشهورة بألعاب المصارعة في الكولوسيوم؟"
+      "en": "Which reed plant did the ancient Egyptians use to make an early kind of paper?",
+      "ar": "شو النبات اللي صنع منه المصريون القدماء نوع قديم من الورق؟"
     },
     "answer": {
-      "en": "Rome",
-      "ar": "روما"
+      "en": "Papyrus",
+      "ar": "البردي"
     },
     "subcategory": {
-      "en": "Greece & Rome",
-      "ar": "اليونان وروما"
+      "en": "Ancient Egypt",
+      "ar": "مصر القديمة"
     },
     "review": {
       "status": "pending"
@@ -231,12 +231,12 @@
     "id": "anc-13",
     "difficulty": "medium",
     "question": {
-      "en": "What was the 'Silk Road'?",
-      "ar": "شو هو «طريق الحرير»؟"
+      "en": "Which ancient Persian capital, begun by King Darius I around 518 BCE, now lies in ruins near Shiraz in Iran?",
+      "ar": "أي عاصمة فارسية قديمة بدأ الملك داريوس الأول بناءها حوالي سنة 518 قبل الميلاد، وآثارها اليوم قرب شيراز بإيران؟"
     },
     "answer": {
-      "en": "A network of trade routes connecting East and West",
-      "ar": "شبكة من الطرق التجارية التي تربط الشرق والغرب"
+      "en": "Persepolis",
+      "ar": "برسبوليس (تخت جمشيد)"
     },
     "subcategory": {
       "en": "Asian Civilizations",
@@ -421,12 +421,12 @@
     "id": "anc-23",
     "difficulty": "hard",
     "question": {
-      "en": "What kind of work is the Epic of Gilgamesh?",
-      "ar": "«ملحمة جلجامش» أي نوع من الأعمال؟"
+      "en": "Which ancient Mesopotamian epic follows a king of Uruk on his search for immortality?",
+      "ar": "أي ملحمة قديمة من بلاد الرافدين تحكي عن ملك أوروك اللي يدوّر على الخلود؟"
     },
     "answer": {
-      "en": "An ancient Mesopotamian literary epic about Gilgamesh, among the oldest surviving epics.",
-      "ar": "ملحمة أدبية من بلاد الرافدين القديمة عن جلجامش، وهي من أقدم الملاحم الباقية."
+      "en": "The Epic of Gilgamesh",
+      "ar": "ملحمة جلجامش"
     },
     "subcategory": {
       "en": "Mesopotamia",
@@ -573,12 +573,12 @@
     "id": "anc-31",
     "difficulty": "very-advanced",
     "question": {
-      "en": "What is 'Linear B'?",
-      "ar": "شو هي كتابة «الخطية ب» (Linear B)؟"
+      "en": "Which Greek scholar working in Alexandria estimated Earth's circumference by comparing noon shadows in two cities?",
+      "ar": "أي عالم يوناني اشتغل بالإسكندرية وقدّر محيط الأرض بمقارنة ظلال الظهر بمدينتين؟"
     },
     "answer": {
-      "en": "The oldest preserved form of written Greek, used by the Mycenaean civilization",
-      "ar": "أقدم شكل محفوظ لليونانية المكتوبة، استخدمته الحضارة الميسينية"
+      "en": "Eratosthenes",
+      "ar": "إراتوستينس"
     },
     "subcategory": {
       "en": "Greece & Rome",
@@ -687,12 +687,12 @@
     "id": "anc-37",
     "difficulty": "very-advanced",
     "question": {
-      "en": "Which pre-Roman civilization flourished in Etruria, in what is now central Italy?",
-      "ar": "أي حضارة ازدهرت في إتروريا، بوسط إيطاليا اليوم، قبل ما تسيطر روما؟"
+      "en": "Which pre-Roman people of central Italy left painted tombs and shaped early Rome, yet their language is still only partly understood?",
+      "ar": "أي شعب عاش بوسط إيطاليا قبل الرومان، وترك مقابر ملوّنة وأثّر بروما المبكرة، ولغته لحد اليوم مو مفهومة كاملة؟"
     },
     "answer": {
-      "en": "The Etruscans; their civilization overlapped in time with early Rome.",
-      "ar": "الإتروسكيون؛ وقد عاصرت حضارتهم روما المبكرة."
+      "en": "The Etruscans",
+      "ar": "الإتروسكيون"
     },
     "subcategory": {
       "en": "Greece & Rome",

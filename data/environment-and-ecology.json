@@ -140,7 +140,7 @@
     },
     "difficulty": "easy",
     "question": {
-      "en": "Which major human activity increases atmosphericCO₂ by burning coal, oil, and natural gas?",
+      "en": "Which major human activity increases atmospheric CO₂ by burning coal, oil, and natural gas?",
       "ar": "شو النشاط البشري الأساسي اللي يزيد ثاني أكسيد الكربون بالجو لما نحرق الفحم والنفط والغاز؟"
     },
     "answer": {
@@ -444,12 +444,12 @@
     },
     "difficulty": "hard",
     "question": {
-      "en": "What is the name for the long-term decrease in seawaterpH caused mainly by uptake of atmosphericCO₂?",
+      "en": "What is the name for the long-term decrease in seawater pH caused mainly by uptake of atmospheric CO₂?",
       "ar": "شو اسم انخفاض قيمة pH في مي البحر على المدى الطويل، اللي يصير بالأساس لأن البحر يمتص ثاني أكسيد الكربون من الجو؟"
     },
     "answer": {
-      "en": "Ocean Acidification",
-      "ar": "تحمض المحيطات"
+      "en": "Ocean acidification",
+      "ar": "تحمّض المحيطات"
     },
     "review": {
       "status": "pending"

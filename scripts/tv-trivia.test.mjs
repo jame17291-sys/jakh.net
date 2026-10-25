@@ -26,7 +26,7 @@ test('every show can run ten unique, bilingual, premise-only questions', () => {
 });
 test('authored content is complete and never fabricates formal editorial signoff', () => {
   assert.equal(cards.filter(isPrepared).length, 800);
-  assert.equal(eligibleCards(cards).length, 487);
+  assert.equal(eligibleCards(cards).length, 486);
   for (const c of cards.filter(isPrepared)) {
     assert.equal(c.review.status, 'pending');
     assert.ok(c.tvQuiz.explanation.en.length > 20);
@@ -77,6 +77,7 @@ test('the expansion preserves original identifiers and records every new or chan
   const followup = JSON.parse(fs.readFileSync(new URL('../docs/content-review/tv-trivia-followup-2026-09-30.json', import.meta.url)));
   const arabicRewrite = JSON.parse(fs.readFileSync(new URL('../docs/content-review/arabic-everyday-2026-10-21.json', import.meta.url)));
   const cardPolish = JSON.parse(fs.readFileSync(new URL('../docs/content-review/card-polish-2026-10-24.json', import.meta.url)));
+  const cardAudit = JSON.parse(fs.readFileSync(new URL('../docs/content-review/card-audit-2026-10-25.json', import.meta.url)));
   const digest = c => crypto.createHash('sha256').update(JSON.stringify(c)).digest('hex');
   const latestHash = entry => {
     const next = followup.changes.find(c => c.id === entry.id);
@@ -89,7 +90,9 @@ test('the expansion preserves original identifiers and records every new or chan
     if (rewrite) assert.equal(rewrite.beforeHash, settled, `${entry.id}: Arabic rewrite preserves earlier history`);
     const polish = cardPolish.changes.find(c => c.id === entry.id);
     if (polish) assert.equal(polish.beforeHash, rewrite?.afterHash || settled, `${entry.id}: card polish preserves earlier history`);
-    return polish?.afterHash || rewrite?.afterHash || settled;
+    const audited = cardAudit.changes.find(c => c.id === entry.id);
+    if (audited) assert.equal(audited.beforeHash, polish?.afterHash || rewrite?.afterHash || settled, `${entry.id}: card audit preserves earlier history`);
+    return audited?.afterHash || polish?.afterHash || rewrite?.afterHash || settled;
   };
   assert.deepEqual(cards.slice(0,250).map(c => c.id), Array.from({length:250}, (_,i) => `tv-shows-trivia-${String(i+1).padStart(3,'0')}`));
   assert.equal(expansion.additions.length, 550);
@@ -131,9 +134,10 @@ test('season limits cover entire cards and mixed rounds remain spoiler-safe', ()
     assert.ok(eligibleCards(cards, show.id, season).every(c => c.tvQuiz.spoilerSeason <= season));
   }
   assert.ok(eligibleCards(cards, 'all', 99).every(c => c.tvQuiz.spoilerSeason === 0));
-  const murder = cards.find(c => c.id === 'tv-shows-trivia-016');
-  assert.ok(!eligibleCards(cards, 'breaking-bad', 3).includes(murder));
-  assert.ok(eligibleCards(cards, 'breaking-bad', 4).includes(murder));
+  const seasonFive = cards.find(c => c.id === 'tv-shows-trivia-016');
+  assert.equal(seasonFive.tvQuiz.spoilerSeason, 5);
+  assert.ok(!eligibleCards(cards, 'breaking-bad', 4).includes(seasonFive));
+  assert.ok(eligibleCards(cards, 'breaking-bad', 5).includes(seasonFive));
 });
 test('mixed rounds include all ten shows and replay prefers unseen questions', () => {
   const first = createRound(cards);

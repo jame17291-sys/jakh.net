@@ -214,8 +214,8 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   assert.deepEqual(manifest.publication, {
     state: "safety-quarantine-active",
     policySha256: digest(quarantineBytes),
-    fullQuestions: 4_103,
-    publicQuestions: 3_825,
+    fullQuestions: 4_076,
+    publicQuestions: 3_798,
     quarantinedQuestions: 278,
     publicCategories: 51,
     quarantinedCategories: [
@@ -340,13 +340,13 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   const publicCatalog = JSON.parse(await readFile(join(repositoryRoot, "site-worker/dist/data/catalog.json"), "utf8"));
   const publicCardIndex = JSON.parse(await readFile(join(repositoryRoot, "site-worker/dist/data/card-index.json"), "utf8"));
   assert.equal(publicCatalog.categories.length, 51);
-  assert.equal(publicCatalog.site.totalQuestions, 3_825);
+  assert.equal(publicCatalog.site.totalQuestions, 3_798);
   assert.equal(publicCatalog.site.publication, undefined, "public catalog must not expose release governance metadata");
   assert.ok(
     publicCatalog.categories.every((category) => !Object.hasOwn(category, "reviewedQuestionCount")),
     "public catalog must not expose reviewer metrics",
   );
-  assert.equal(Object.keys(publicCardIndex).length, 3_825);
+  assert.equal(Object.keys(publicCardIndex).length, 3_798);
   const publicCardsById = new Map();
   for (const category of publicCatalog.categories) {
     const sourcePath = join(repositoryRoot, `data/${category.slug}.json`);
@@ -364,8 +364,8 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   for (const language of ["en", "ar"]) {
     const shard = JSON.parse(await readFile(join(repositoryRoot, `site-worker/dist/data/search-index.${language}.json`), "utf8"));
     assert.equal(shard.categories.length, 51, language);
-    assert.equal(shard.total, 3_825, language);
-    assert.equal(shard.cards.length, 3_825, language);
+    assert.equal(shard.total, 3_798, language);
+    assert.equal(shard.cards.length, 3_798, language);
     assert.equal(shard.cards.some((row) => quarantine.cardIds.has(row[1])), false, language);
     for (const [, cardId, question, answer] of shard.cards) {
       const sourceCard = publicCardsById.get(cardId);
@@ -392,11 +392,11 @@ test("generated production manifest is complete, one-hop, and excludes repositor
 
   const sectionContracts = [
     // Arabic labels follow MSA counting: 3–10 take the plural, 11–99 the accusative singular.
-    ["mind", 8, 480, "8 موضوعات", "480 سؤالًا"],
-    ["science", 9, 730, "9 موضوعات", "730 سؤالًا"],
+    ["mind", 8, 478, "8 موضوعات", "478 سؤالًا"],
+    ["science", 9, 706, "9 موضوعات", "706 أسئلة"],
     ["tech", 11, 420, "11 موضوعًا", "420 سؤالًا"],
     ["world", 11, 570, "11 موضوعًا", "570 سؤالًا"],
-    ["culture", 12, 1_625, "12 موضوعًا", "1,625 سؤالًا"],
+    ["culture", 12, 1_624, "12 موضوعًا", "1,624 سؤالًا"],
   ];
   const mindLab = await readFile(join(repositoryRoot, "site-worker/dist/mind-lab.html"), "utf8");
   const arabicMindLab = await readFile(join(repositoryRoot, "site-worker/dist/ar/mind-lab/index.html"), "utf8");
@@ -548,7 +548,7 @@ test("fixture builds precompress HTML behind the switch and keep loopback admin 
 
 test("artifact text scan rejects held Q/A encodings but permits policy identifiers", () => {
   const quarantine = loadProductionQuarantine(repositoryRoot);
-  const publication = { publicCategories: 51, publicQuestions: 3_825 };
+  const publication = { publicCategories: 51, publicQuestions: 3_798 };
   assert.doesNotThrow(() => assertPublicProjection(new Map([
     ["publication-policy.txt", Buffer.from(
       "safety-quarantine-active survival law-middle-east medical-questions pharmacy economics-and-finance",
@@ -574,19 +574,19 @@ test("artifact text scan rejects held Q/A encodings but permits policy identifie
 
 test("published-count rewrites are scoped away from card question and answer copy", () => {
   const source = [
-    '<meta name="description" content="4,103 questions across 56 categories">',
+    '<meta name="description" content="4,076 questions across 56 categories">',
     "<title>3,500+ questions across 56 topics</title>",
     '<p class="card-question">Which archive contains 3,553 records across 56 categories?</p>',
     '<p class="card-answer"><strong>It contains 3,500+ records.</strong></p>',
   ].join("\n");
   const rewritten = rewriteKnownHtmlClaims(source, {
     fullCategories: 56,
-    fullQuestions: 4_103,
+    fullQuestions: 4_076,
     publicCategories: 51,
-    publicQuestions: 3_825,
+    publicQuestions: 3_798,
   });
-  assert.match(rewritten, /3,825 questions across 51 categories/u);
-  assert.match(rewritten, /3,800\+ questions across 51 topics/u);
+  assert.match(rewritten, /3,798 questions across 51 categories/u);
+  assert.match(rewritten, /3,700\+ questions across 51 topics/u);
   assert.deepEqual(cardTextFragments(rewritten), cardTextFragments(source));
 });
 

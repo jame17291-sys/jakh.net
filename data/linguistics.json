@@ -40,17 +40,17 @@
   {
     "id": "linguistics-3",
     "question": {
-      "en": "What punctuation mark is used to ask a question?",
-      "ar": "شو علامة الترقيم اللي نستخدمها لما نسأل سؤال؟"
+      "en": "Arabic is often called 'the language of' which letter, a sound said to be rare in other languages?",
+      "ar": "العربية يسمّونها «لغة ...» نسبةً لحرف يقولون إنه نادر باللغات الثانية. شو هالحرف؟"
     },
     "answer": {
-      "en": "Question mark (?)",
-      "ar": "علامة الاستفهام (؟)"
+      "en": "Ḍād",
+      "ar": "الضاد (ض)"
     },
     "difficulty": "easy",
     "subcategory": {
-      "en": "Writing Systems",
-      "ar": "أنظمة الكتابة"
+      "en": "Sounds & Pronunciation",
+      "ar": "الأصوات والنطق"
     },
     "review": {
       "status": "pending"
@@ -534,12 +534,12 @@
   {
     "id": "linguistics-29",
     "question": {
-      "en": "The Rosetta Stone helped scholars decipher which ancient Egyptian writing system that uses pictorial signs?",
-      "ar": "حجر رشيد ساعد الباحثين يفكّون أي كتابة مصرية قديمة تعتمد على الرسوم؟"
+      "en": "Which alphabet was created in 15th-century Korea under King Sejong?",
+      "ar": "أي أبجدية انخترعت بكوريا بالقرن الخامس عشر أيام الملك سيجونغ؟"
     },
     "answer": {
-      "en": "Egyptian hieroglyphic writing",
-      "ar": "الكتابة الهيروغليفية المصرية"
+      "en": "Hangul",
+      "ar": "الهانغول"
     },
     "difficulty": "medium",
     "subcategory": {

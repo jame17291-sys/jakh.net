@@ -26,12 +26,12 @@
       "ar": "الجسور والهندسة الإنشائية"
     },
     "question": {
-      "en": "Which bridge type supports its deck with vertical hangers from main cables draped over towers and anchored at their ends?",
-      "ar": "أي نوع جسر يحمل سطحه بحبال عمودية متصلة بكابلات رئيسية تمرّ فوق الأبراج وتنثبّت عند أطرافها؟"
+      "en": "Which London bridge has two towers and a road deck that lifts to let tall ships pass?",
+      "ar": "أي جسر في لندن له برجين وطريق ينرفع عشان تمر السفن العالية؟"
     },
     "answer": {
-      "en": "A suspension bridge.",
-      "ar": "الجسر المعلّق."
+      "en": "Tower Bridge",
+      "ar": "جسر البرج (Tower Bridge)"
     },
     "review": {
       "status": "pending"
@@ -330,12 +330,12 @@
       "ar": "السكك الحديدية والأنفاق"
     },
     "question": {
-      "en": "What machine uses rotating cutting heads to bore tunnels through rock or soil?",
-      "ar": "شو الآلة اللي تستخدم رؤوس قطع دوّارة عشان تحفر أنفاق بالصخر أو التربة؟"
+      "en": "Which 50-km rail tunnel under the sea, opened in 1994, links England and France?",
+      "ar": "أي نفق قطارات تحت البحر طوله 50 كم، افتُتح سنة 1994، يربط إنجلترا بفرنسا؟"
     },
     "answer": {
-      "en": "A Tunnel Boring Machine (TBM).",
-      "ar": "آلة الحفر النفقي (TBM)."
+      "en": "The Channel Tunnel.",
+      "ar": "نفق المانش (يوروتانل)."
     },
     "review": {
       "status": "pending"

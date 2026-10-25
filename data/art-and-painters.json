@@ -311,12 +311,12 @@
       "ar": "تاريخ الفن"
     },
     "question": {
-      "en": "In Michelangelo's 'The Creation of Adam,' what is God's hand reaching out to touch?",
-      "ar": "في لوحة «خلق آدم» لمايكل أنجلو، شو اللي تمتد إيد الله عشان تلمسه؟"
+      "en": "Which Gulf city is home to the Louvre's sister museum, opened in 2017 beneath a huge latticed dome designed by Jean Nouvel?",
+      "ar": "بأي مدينة خليجية متحف اللوفر الشقيق اللي افتتح سنة 2017 تحت قبة مخرّمة ضخمة صمّمها جان نوفيل؟"
     },
     "answer": {
-      "en": "Adam's finger",
-      "ar": "إصبع آدم"
+      "en": "Abu Dhabi",
+      "ar": "أبوظبي"
     },
     "review": {
       "status": "pending"
@@ -400,18 +400,18 @@
   },
   {
     "id": "art-and-painters-022",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Art History",
       "ar": "تاريخ الفن"
     },
     "question": {
-      "en": "In 1990, the Isabella Stewart Gardner Museum was robbed. Name one of the stolen artists.",
-      "ar": "سنة 1990 انسرق متحف إيزابيلا ستيوارت غاردنر. اذكر اسم فنان من الفنانين اللي انسرقت أعمالهم."
+      "en": "Which 16th-century Italian painter wrote 'Lives of the Most Excellent Painters, Sculptors and Architects', often called the first work of art history?",
+      "ar": "أي رسام إيطالي من القرن السادس عشر كتب «حياة أبرع الرسامين والنحاتين والمعماريين»، اللي يعتبرونه أول كتاب بتاريخ الفن؟"
     },
     "answer": {
-      "en": "Vermeer, Rembrandt, Degas, or Manet",
-      "ar": "فيرمير أو رامبرانت أو ديغا أو مانيه"
+      "en": "Giorgio Vasari",
+      "ar": "جورجيو فازاري"
     },
     "review": {
       "status": "pending"

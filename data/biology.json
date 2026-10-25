@@ -235,7 +235,7 @@
       "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
-      "en": "In the ABO blood-group system, which antigens are present on typeAB red blood cells?",
+      "en": "In the ABO blood-group system, which antigens are present on type AB red blood cells?",
       "ar": "في نظام فصائل الدم ABO، شو المستضدات الموجودة على كريات الدم الحمرا بفصيلة AB؟"
     },
     "answer": {
@@ -331,11 +331,11 @@
     },
     "question": {
       "en": "What type of symbiotic relationship exists when both organisms benefit?",
-      "ar": "شو نوع العلاقة التكافلية اللي يستفيد فيها الكائنين؟"
+      "ar": "شو نوع العلاقة بين كائنين اللي يستفيد فيها الطرفين؟"
     },
     "answer": {
       "en": "Mutualism",
-      "ar": "التكافل المتبادل"
+      "ar": "تبادل المنفعة (التقايض)"
     },
     "review": {
       "status": "pending"
@@ -501,8 +501,8 @@
       "ar": "الخلايا والأيض"
     },
     "question": {
-      "en": "What process describes a cell engulfing a solid particle to form a phagosome?",
-      "ar": "شو اسم العملية اللي تبلع فيها الخلية جسيم صلب وتكوّن «فاغوسوم»؟"
+      "en": "What do we call the process in which a cell, such as a white blood cell, engulfs a solid particle like a bacterium?",
+      "ar": "شو اسم العملية اللي تبلع فيها الخلية، مثل كرية الدم البيضا، جسيم صلب مثل البكتيريا؟"
     },
     "answer": {
       "en": "Phagocytosis",
@@ -525,7 +525,7 @@
     },
     "answer": {
       "en": "Apoptosis",
-      "ar": "الموت الخلوي المبرمج (أبوبتوسيس)"
+      "ar": "الاستماتة (Apoptosis)"
     },
     "review": {
       "status": "pending"
@@ -862,12 +862,12 @@
       "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
-      "en": "For an autosomal gene in a diploid organism with complete dominance, how do dominant and recessive alleles differ in expression?",
-      "ar": "لجين جسمي في كائن ثنائي الصبغيات وسيادته تامة، كيف يختلف ظهور أثر الأليل السائد عن المتنحّي؟"
+      "en": "How many copies of a recessive allele must a person inherit for a recessive trait to show?",
+      "ar": "كم نسخة من الأليل المتنحّي لازم يورثها الشخص عشان تبين الصفة المتنحية؟"
     },
     "answer": {
-      "en": "One dominant copy is sufficient for the dominant phenotype. The recessive phenotype appears when both copies are recessive.",
-      "ar": "تكفي نسخة سائدة واحدة لظهور النمط الظاهري السائد، بينما يظهر النمط المتنحي عند وجود نسختين متنحيتين."
+      "en": "Two, one from each parent (for a typical gene on a non-sex chromosome).",
+      "ar": "نسختان، واحدة من كل والد (في الجينات المعتادة على الكروموسومات الجسمية)."
     },
     "review": {
       "status": "pending"
@@ -1001,25 +1001,6 @@
     "answer": {
       "en": "To filter waste products from the blood and produce urine",
       "ar": "تصفية الفضلات من الدم وإنتاج البول"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "biology-054",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Plant Biology",
-      "ar": "علم النبات"
-    },
-    "question": {
-      "en": "What is transpiration in plants?",
-      "ar": "في النباتات، شو هو «النتح»؟"
-    },
-    "answer": {
-      "en": "The process by which plants lose water through their leaves",
-      "ar": "العملية التي تفقد فيها النباتات الماء عبر أوراقها"
     },
     "review": {
       "status": "pending"
@@ -1889,7 +1870,7 @@
     },
     "question": {
       "en": "What is the Allee effect?",
-      "ar": "شو هو «تأثير آلي»؟"
+      "ar": "شو هو «تأثير أللي»؟"
     },
     "answer": {
       "en": "At low population density, individual fitness can increase as density increases. A strong Allee effect additionally creates a threshold below which population growth becomes negative.",

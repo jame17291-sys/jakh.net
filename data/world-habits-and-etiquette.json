@@ -32,18 +32,18 @@
   },
   {
     "id": "world-habits-and-etiquette-002",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Dining Etiquette",
       "ar": "آداب المائدة"
     },
     "question": {
-      "en": "In Cantonese tea-drinking settings where finger tapping is customary, what can gently tapping the table after tea is poured express?",
-      "ar": "في جلسات الشاي الكانتونية اللي ينتشر فيها النقر بالأصابع، شو ممكن يعني النقر الخفيف على الطاولة بعد ما ينصب الشاي؟"
+      "en": "In Cantonese dim sum restaurants, what does tapping two fingers on the table after someone pours your tea mean?",
+      "ar": "بمطاعم الديم سم الكانتونية، شو معنى إنك تنقر بإصبعين على الطاولة لما أحد يصبّ لك الشاي؟"
     },
     "answer": {
-      "en": "Thanks to the person pouring the tea.",
-      "ar": "شكر الشخص الذي يسكب الشاي."
+      "en": "Thank you",
+      "ar": "شكرًا"
     },
     "review": {
       "status": "pending"
@@ -57,12 +57,12 @@
       "ar": "العادات الاجتماعية"
     },
     "question": {
-      "en": "A guest has an injured right hand at a meal where food is customarily passed with that hand. What is a considerate way to handle this?",
-      "ar": "ضيف إيده اليمين مصابة، في وجبة العادة فيها إن الأكل ينمرّر بهالإيد. كيف نتعامل مع الموقف بلطف؟"
+      "en": "What is the traditional sitting room called where Gulf hosts receive and entertain guests?",
+      "ar": "شو اسم الغرفة اللي يستقبل فيها أهل الخليج ضيوفهم تقليديًا؟"
     },
     "answer": {
-      "en": "Briefly explain the injury and use a comfortable alternative; a custom should not require pain or exclude someone.",
-      "ar": "يشرح الإصابة باختصار ويستخدم بديلاً مريحاً؛ فلا ينبغي للعرف أن يسبب ألماً أو يستبعد أحداً."
+      "en": "The majlis",
+      "ar": "المجلس"
     },
     "review": {
       "status": "pending"
@@ -76,12 +76,12 @@
       "ar": "آداب المائدة"
     },
     "question": {
-      "en": "After a restaurant meal, you want to take leftovers home. Give a polite way to ask.",
-      "ar": "خلّصت أكلك بالمطعم وتبي تاخذ الباقي معك للبيت. اذكر طريقة مهذّبة تطلب فيها هالشي."
+      "en": "In Arab hospitality, how does a guest politely signal they have had enough Arabic coffee?",
+      "ar": "بالضيافة العربية، كيف يبيّن الضيف بأدب إنه اكتفى من القهوة؟"
     },
     "answer": {
-      "en": "For example: 'Could you pack the leftovers for me, please?' Whether this is available depends on the restaurant.",
-      "ar": "مثلاً: «هل يمكن تغليف الطعام المتبقي لي من فضلك؟». وتتوقف إمكانية ذلك على المطعم."
+      "en": "By gently shaking the small cup from side to side before handing it back",
+      "ar": "يهزّ الفنجال يمين ويسار وهو يرجّعه"
     },
     "review": {
       "status": "pending"
@@ -183,12 +183,12 @@
       "ar": "العادات الاجتماعية"
     },
     "question": {
-      "en": "Why should a traveller avoid assuming that a familiar hand gesture has the same meaning everywhere?",
-      "ar": "ليش المسافر ما لازم يفترض إن حركة إيد معروفة عنده لها نفس المعنى بكل مكان؟"
+      "en": "Which Levantine folk line dance has dancers linking arms and stamping in rhythm at weddings?",
+      "ar": "شو اسم الرقصة الشعبية الشامية اللي يتشابك فيها الراقصين بالإيدين ويضربون الأرض بأرجلهم على الإيقاع بالأعراس؟"
     },
     "answer": {
-      "en": "Its meaning can vary with culture, generation and context.",
-      "ar": "لأن معناها قد يختلف باختلاف الثقافة والجيل والسياق."
+      "en": "Dabke",
+      "ar": "الدبكة"
     },
     "review": {
       "status": "pending"
@@ -221,12 +221,12 @@
       "ar": "آداب المائدة"
     },
     "question": {
-      "en": "Your host asks whether you would like more food, but you are full. Give a considerate reply without making assumptions about local plate-emptying customs.",
-      "ar": "المضيف يسألك إذا تبي أكل زيادة، بس إنت شبعت. اذكر رد لطيف من غير ما تفترض قاعدة محلية عن إنهاء الصحن."
+      "en": "What is the traditional long-spouted pot used to serve Arabic coffee called?",
+      "ar": "شو اسم الإبريق أبو المنقار الطويل اللي تنصبّ منه القهوة العربية؟"
     },
     "answer": {
-      "en": "For example: 'Thank you, that was delicious. I'm full, so no more for me.'",
-      "ar": "مثلاً: «شكراً، كان الطعام لذيذاً. لقد شبعت، فلا أحتاج إلى المزيد»."
+      "en": "The dallah",
+      "ar": "الدلّة"
     },
     "review": {
       "status": "pending"
@@ -271,12 +271,12 @@
       "ar": "العادات الاجتماعية"
     },
     "question": {
-      "en": "At a German-speaking gathering, what does the toast 'Prost!' generally mean?",
-      "ar": "في تجمّع يحكي أهله ألماني، شو تعني عادةً كلمة «بروست!» لما يرفعون الكاسات؟"
+      "en": "Which Saudi sword dance, performed with drums and poetry, was added to UNESCO's heritage list in 2015?",
+      "ar": "شو اسم رقصة السيوف السعودية اللي تنأدّى مع الطبول والشعر وانضافت لقائمة اليونسكو سنة 2015؟"
     },
     "answer": {
-      "en": "Cheers! It is an expression of goodwill during a toast.",
-      "ar": "في صحتكم! وهي عبارة تمنٍّ بالخير عند رفع الكؤوس."
+      "en": "Al-Ardah (Ardah al-Najdiyah)",
+      "ar": "العرضة النجدية"
     },
     "review": {
       "status": "pending"
@@ -328,12 +328,12 @@
       "ar": "آداب المائدة"
     },
     "question": {
-      "en": "At a Korean dinner where guests are following the custom of pouring drinks for one another, how can you participate without drinking alcohol?",
-      "ar": "في عشاء كوري العادة فيه إن الضيوف يصبّون المشروبات لبعض، كيف تشارك من غير ما تشرب كحول؟"
+      "en": "What do people in Japan traditionally say before starting a meal?",
+      "ar": "شو يقولون الناس باليابان قبل ما يبدون ياكلون؟"
     },
     "answer": {
-      "en": "Use a non-alcoholic drink and politely state your preference; you need not accept alcohol.",
-      "ar": "استخدم مشروباً غير كحولي واذكر تفضيلك بلطف؛ ولست ملزماً بقبول الكحول."
+      "en": "Itadakimasu",
+      "ar": "إيتاداكيماس"
     },
     "review": {
       "status": "pending"
@@ -366,12 +366,12 @@
       "ar": "التحيات والإيماءات"
     },
     "question": {
-      "en": "A local guide explains that an upward head toss can mean 'no' in the setting you are visiting. What should you do if the gesture's meaning is unclear?",
-      "ar": "دليل محلي وضّح إن رفع الراس لفوق ممكن يعني «لا» بالمكان اللي تزوره. شو تسوي إذا ما فهمت قصد الحركة؟"
+      "en": "In parts of the Levant, Turkey and Greece, what does a quick upward tilt of the head, often with a click of the tongue, usually mean?",
+      "ar": "ببعض مناطق الشام وتركيا واليونان، شو تعني عادةً رفعة الراس السريعة لفوق، مع طقّة باللسان أحيانًا؟"
     },
     "answer": {
-      "en": "Confirm the meaning verbally instead of relying on the gesture alone.",
-      "ar": "تتحقق من المعنى بالكلام بدلاً من الاعتماد على الإيماءة وحدها."
+      "en": "No",
+      "ar": "لا"
     },
     "review": {
       "status": "pending"
@@ -379,29 +379,27 @@
   },
   {
     "id": "world-habits-and-etiquette-019",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Social Customs",
       "ar": "العادات الاجتماعية"
     },
     "question": {
-      "en": "What is the Finnish concept of 'talkoot' and how does it reflect Finnish cultural values?",
-      "ar": "شو فكرة «تالكوت» الفنلندية، وكيف تعكس قيم الثقافة الفنلندية؟"
+      "en": "What is the Finnish tradition of neighbours gathering to do a big job together, like building or harvesting, called?",
+      "ar": "شو اسم العادة الفنلندية اللي يتجمّع فيها الجيران عشان يسوون شغل كبير مع بعض، مثل البناء أو الحصاد؟"
     },
     "answer": {
-      "en": "Talkoot is the tradition of communal work — neighbours and community members gathering to help each other with large tasks (harvesting, building). It reflects Finland's deeply communal, egalitarian values and practical mutual-aid ethic.",
-      "ar": "التالكوت تقليد العمل الجماعي — تجمّع الجيران وأفراد المجتمع لمساعدة بعضهم في المهام الكبيرة (الحصاد، البناء). يعكس القيم المجتمعية والمساواتية العميقة في فنلندا وأخلاقيات المساعدة المتبادلة العملية."
+      "en": "Talkoot",
+      "ar": "تالكوت"
     },
     "acceptedAnswers": {
       "en": [
-        "Voluntary communal work based on equality and mutual aid.",
-        "Talkoot is neighbors working together on large shared tasks.",
-        "It expresses Finnish cooperation, egalitarianism, and practical mutual help."
+        "Talkoot",
+        "Talkoo"
       ],
       "ar": [
-        "عمل مجتمعي تطوعي قائم على المساواة والمساعدة المتبادلة.",
-        "التالكوت تعاون الجيران في إنجاز المهام الكبيرة.",
-        "يجسد التعاون الفنلندي والمساواة والمساعدة العملية المتبادلة."
+        "تالكوت",
+        "التالكوت"
       ]
     },
     "review": {
@@ -416,12 +414,12 @@
       "ar": "آداب المائدة"
     },
     "question": {
-      "en": "In India, why do many Hindus avoid eating beef and why do many Muslims avoid pork?",
-      "ar": "في الهند، ليش كثير من الهندوس ما ياكلون لحم البقر، وليش كثير من المسلمين ما ياكلون لحم الخنزير؟"
+      "en": "Why do many Hindus in India avoid eating beef?",
+      "ar": "ليش كثير من الهندوس بالهند ما ياكلون لحم البقر؟"
     },
     "answer": {
-      "en": "Hinduism venerates the cow as sacred — a symbol of motherhood, abundance, and non-violence (ahimsa). Islam prohibits pork as haram (forbidden) based on Quranic dietary laws.",
-      "ar": "الهندوسية تُبجّل البقرة بوصفها مقدسة — رمزاً للأمومة والوفرة وعدم العنف (أهيمسا). الإسلام يُحرّم لحم الخنزير باعتباره حراماً استناداً إلى الأحكام الغذائية القرآنية."
+      "en": "The cow is regarded as sacred in Hinduism",
+      "ar": "لأن البقرة تعتبر مقدّسة بالهندوسية"
     },
     "review": {
       "status": "pending"
@@ -492,12 +490,12 @@
       "ar": "آداب المائدة"
     },
     "question": {
-      "en": "A host offers an alcoholic drink, but you do not drink alcohol. Give a courteous refusal that maintains your boundary.",
-      "ar": "المضيف عرض عليك مشروب كحولي، وإنت ما تشرب كحول. اذكر رفض مهذّب يحافظ على قرارك."
+      "en": "In Arab and many South Asian cultures, which hand is traditionally used for eating?",
+      "ar": "عند العرب وكثير من شعوب جنوب آسيا، أي إيد تنستخدم تقليديًا للأكل؟"
     },
     "answer": {
-      "en": "For example: 'Thank you, but I don't drink alcohol. May I have water instead?'",
-      "ar": "مثلاً: «شكراً، لكنني لا أشرب الكحول. هل يمكنني الحصول على ماء بدلاً منه؟»."
+      "en": "The right hand",
+      "ar": "اليد اليمنى"
     },
     "review": {
       "status": "pending"
@@ -530,23 +528,21 @@
       "ar": "العادات الاجتماعية"
     },
     "question": {
-      "en": "What is the Norwegian concept of 'Janteloven' and how does it shape social norms in Scandinavian societies?",
-      "ar": "شو فكرة «يانتيلوفين» النرويجية، وكيف تشكّل أعراف المجتمع في الدول الإسكندنافية؟"
+      "en": "Which Scandinavian social code, named after a fictional town, discourages boasting and standing out?",
+      "ar": "شو اسم القانون الاجتماعي الإسكندنافي، المسمّى على اسم بلدة خيالية، اللي يرفض التفاخر والتميّز عن الناس؟"
     },
     "answer": {
-      "en": "Janteloven (coined by Aksel Sandemose) is a social code that discourages standing out, boasting, or considering yourself better than others. Its core: 'You are not to think you are anything special.' It promotes egalitarianism and collective modesty but can also suppress individual achievement and open ambition.",
-      "ar": "يانتيلوفين (ابتكره أكسل سانديموس) قانون اجتماعي يُثبّط التميز أو التفاخر أو اعتبار النفس أفضل من الآخرين. جوهره: 'لا تظن أنك شيء مميز.' يُعزز المساواة والتواضع الجماعي لكن يمكنه أيضاً قمع التميز الفردي والطموح الصريح."
+      "en": "Janteloven (the Law of Jante)",
+      "ar": "قانون يانتي (يانتيلوفين)"
     },
     "acceptedAnswers": {
       "en": [
-        "A norm against boasting or seeing yourself as superior.",
-        "Janteloven discourages standing out and promotes collective modesty.",
-        "It favors equality and modesty over individual self-importance."
+        "Janteloven",
+        "Law of Jante"
       ],
       "ar": [
-        "قاعدة ترفض التفاخر واعتبار النفس أفضل من الآخرين.",
-        "يثبط يانتيلوفين البروز ويعزز التواضع الجماعي.",
-        "يفضل المساواة والتواضع على الشعور الفردي بالتفوق."
+        "يانتيلوفين",
+        "قانون يانتي"
       ]
     },
     "review": {
@@ -555,18 +551,18 @@
   },
   {
     "id": "world-habits-and-etiquette-027",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Greetings & Gestures",
       "ar": "التحيات والإيماءات"
     },
     "question": {
-      "en": "Before using a gesture that a local guide says may be insulting in that setting, what simple alternative can make your approval clearer?",
-      "ar": "قبل ما تستخدم حركة قال الدليل المحلي إنها ممكن تكون مسيئة بهالموقف، شو البديل البسيط اللي يوضح إنك موافق؟"
+      "en": "What do many Arabs say to someone who has just had a haircut or a bath?",
+      "ar": "شو يقولون كثير من العرب لواحد توّه حالق شعره أو متحمّم؟"
     },
     "answer": {
-      "en": "Express approval in words, such as 'That is good, thank you.'",
-      "ar": "عبّر بالكلمات، مثل: «هذا جيد، شكراً»."
+      "en": "Na'iman (roughly: 'may it be refreshing')",
+      "ar": "نعيمًا"
     },
     "review": {
       "status": "pending"
@@ -580,12 +576,12 @@
       "ar": "آداب المائدة"
     },
     "question": {
-      "en": "Is slurping noodles in an informal Japanese ramen shop always required to show appreciation?",
-      "ar": "في محل رامن ياباني عادي، لازم دايمًا تطلّع صوت وإنت تاكل النودلز عشان تبيّن إنك مستمتع؟"
+      "en": "In a Japanese ramen shop, what does slurping your noodles usually signal?",
+      "ar": "بمحل رامن ياباني، شو يعني عادةً إنك تشفط النودلز بصوت؟"
     },
     "answer": {
-      "en": "No. It can be acceptable in that setting, but it is not an obligation or a rule for every meal.",
-      "ar": "لا. قد يكون مقبولاً في ذلك المكان، لكنه ليس واجباً ولا قاعدة لكل وجبة."
+      "en": "That you are enjoying the food (it is considered acceptable there)",
+      "ar": "إنك مستمتع بالأكل (وهو شي مقبول هناك)"
     },
     "review": {
       "status": "pending"
@@ -618,12 +614,12 @@
       "ar": "الديني والاحتفالي"
     },
     "question": {
-      "en": "When entering a home for the first time, how can a visitor find out whether outdoor shoes should be removed?",
-      "ar": "لما تدخل بيت لأول مرة، كيف تعرف إذا لازم تشيل حذاءك؟"
+      "en": "What is the gift of money traditionally given to Arab children on the first morning after Ramadan ends?",
+      "ar": "شو اسم الفلوس اللي يعطونها للأطفال هدية صباح أول يوم بعد رمضان؟"
     },
     "answer": {
-      "en": "Ask the host politely and follow their guidance, mentioning any practical needs.",
-      "ar": "يسأل المضيف بلطف ويتبع إرشاده، مع توضيح أي احتياجات عملية."
+      "en": "Eidiya",
+      "ar": "العيدية"
     },
     "review": {
       "status": "pending"
@@ -637,12 +633,12 @@
       "ar": "التحيات والإيماءات"
     },
     "question": {
-      "en": "What does the Gulf greeting known as a nose-touch greeting involve?",
-      "ar": "شو هي التحية الخليجية اللي فيها تلامس الأنوف؟"
+      "en": "In a traditional Gulf greeting between men, which part of the face may be touched together?",
+      "ar": "بالتحية الخليجية التقليدية بين الرجال، أي جزء من الوجه ممكن يتلامس؟"
     },
     "answer": {
-      "en": "A brief touching of noses between willing participants; its use depends on local custom, relationship and personal preference.",
-      "ar": "ملامسة قصيرة بين أنفَي المشاركين الراغبين فيها؛ ويتوقف استخدامها على العرف المحلي والعلاقة والتفضيل الشخصي."
+      "en": "The nose",
+      "ar": "الخشم (الأنف)"
     },
     "review": {
       "status": "pending"
@@ -694,12 +690,12 @@
       "ar": "الديني والاحتفالي"
     },
     "question": {
-      "en": "In some West African cultures, what is 'libation pouring' and what purpose does it serve?",
-      "ar": "في بعض ثقافات غرب إفريقيا، شو هو «السكب الطقسي» للسوائل، وشو الهدف منه؟"
+      "en": "In many West African ceremonies, what is libation pouring?",
+      "ar": "بكثير من المناسبات بغرب إفريقيا، شو هو «السكب الطقسي»؟"
     },
     "answer": {
-      "en": "Libation is the ritual pouring of liquid (water, palm wine, alcohol) onto the ground to honour ancestors and spiritual forces. It opens ceremonies and gatherings by inviting ancestral spirits to attend and bless the event. The act maintains the link between the living and the dead.",
-      "ar": "السكب الطقسي هو سكب سائل (ماء، نبيذ النخيل، كحول) على الأرض بشكل طقسي لتكريم الأجداد والقوى الروحية. يُفتح به الاحتفالات والتجمعات بدعوة أرواح الأجداد للحضور وتبريك الحدث. يُحافظ هذا الفعل على الرابط بين الأحياء والأموات."
+      "en": "Ritually pouring a drink, such as water, onto the ground to honour ancestors",
+      "ar": "سكب مشروب، مثل الماء، على الأرض تكريمًا للأجداد"
     },
     "acceptedAnswers": {
       "en": [
@@ -820,12 +816,12 @@
       "ar": "الديني والاحتفالي"
     },
     "question": {
-      "en": "What is the Balinese concept of 'Tri Hita Karana' and how does it manifest in everyday life and ritual?",
-      "ar": "شو فكرة «تري هيتا كارانا» البالية، وكيف تبان في الحياة اليومية والطقوس؟"
+      "en": "What three relationships does the Balinese philosophy Tri Hita Karana seek to keep in harmony?",
+      "ar": "شو العلاقات الثلاث اللي تحاول فلسفة «تري هيتا كارانا» البالية تحافظ على توازنها؟"
     },
     "answer": {
-      "en": "Tri Hita Karana ('three causes of well-being') is the Balinese Hindu philosophy of harmonious relationships between humans and God (Parahyangan), humans and other humans (Pawongan), and humans and nature (Palemahan). It manifests in daily offerings (canang sari), community temple worship, environmental conservation, and the integration of ritual into agricultural cycles.",
-      "ar": "تري هيتا كارانا ('الأسباب الثلاثة للرفاهية') هي فلسفة هندوسية بالية للعلاقات المتناسقة بين الإنسان والإله (باراهيانغان)، والإنسان والإنسان (باوونغان)، والإنسان والطبيعة (باليماهان). تتجلى في التقدمات اليومية (كاناغ ساري) وعبادة معبد المجتمع والحفاظ على البيئة ودمج الطقوس في الدورات الزراعية."
+      "en": "People with God, people with each other, and people with nature",
+      "ar": "الإنسان مع الإله، والإنسان مع الإنسان، والإنسان مع الطبيعة"
     },
     "acceptedAnswers": {
       "en": [
@@ -908,12 +904,12 @@
       "ar": "الديني والاحتفالي"
     },
     "question": {
-      "en": "What is the Javanese concept of 'slametan' and how does it function as a communal ritual?",
-      "ar": "شو فكرة «سلاماتان» الجاوية، وكيف تشتغل كطقس جماعي؟"
+      "en": "What is the Javanese 'slametan'?",
+      "ar": "شو هي «السلاماتان» عند أهل جاوة؟"
     },
     "answer": {
-      "en": "Slametan is a communal feast-prayer meal held to mark life transitions (births, deaths, marriages, moving house) and to invoke spiritual safety (slamet = safe/well). Neighbours and community gather, a religious leader recites prayers, and food is shared. Anthropologist Clifford Geertz analysed it as the core ritual of Javanese social and spiritual life in 'The Religion of Java' (1960).",
-      "ar": "السلاماتان وليمة-صلاة مجتمعية تُقام لإحياء انتقالات الحياة (الولادات، الوفيات، الزيجات، الانتقال للمنزل) ولاستدعاء الأمان الروحي (سلاميت = آمن/بخير). يجتمع الجيران والمجتمع ويتلو زعيم ديني الصلوات ويُتشارك الطعام. حلّل عالم الأنثروبولوجيا كليفورد غيرتز السلاماتان باعتبارها الطقس الجوهري للحياة الاجتماعية والروحية الجاوية في 'دين جاوة' (1960)."
+      "en": "A communal ritual meal with prayers, held to mark life events and wish for safety",
+      "ar": "وجبة جماعية مع أدعية، تنقام بالمناسبات المهمة طلبًا للسلامة"
     },
     "acceptedAnswers": {
       "en": [
@@ -992,16 +988,16 @@
     "id": "world-habits-and-etiquette-048",
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Religious & Ceremonial",
-      "ar": "الديني والاحتفالي"
+      "en": "Social Customs",
+      "ar": "العادات الاجتماعية"
     },
     "question": {
-      "en": "What is the concept of 'ritual pollution' in many world cultures and how does it shape social behaviour?",
-      "ar": "شو فكرة «النجاسة الطقسية» في ثقافات كثيرة بالعالم، وكيف تشكّل سلوك الناس؟"
+      "en": "In traditional Bedouin hospitality, for how many days may a guest stay before the host asks the purpose of the visit?",
+      "ar": "بالضيافة البدوية التقليدية، كم يوم يقعد الضيف قبل ما يسأله المضيف عن سبب زيارته؟"
     },
     "answer": {
-      "en": "Ritual pollution (discussed by Mary Douglas in 'Purity and Danger') refers to states of impurity that require purification rituals before resuming social/religious participation — e.g., contact with the dead, menstruation, childbirth, or eating forbidden substances. These systems enforce social boundaries, signal category distinctions, and maintain group identity through purification practices.",
-      "ar": "النجاسة الطقسية (ناقشتها ماري دوغلاس في 'النقاء والخطر') تُشير إلى حالات نجاسة تستلزم طقوس تطهير قبل استئناف المشاركة الاجتماعية/الدينية — مثلاً ملامسة الميت أو الحيض أو الولادة أو تناول مواد محظورة. تُعزز هذه الأنظمة الحدود الاجتماعية وتُشير إلى الفوارق التصنيفية وتُحافظ على هوية المجموعة من خلال ممارسات التطهير."
+      "en": "Three days (often said as 'three days and a third')",
+      "ar": "ثلاثة أيام (ويقال «ثلاثة أيام وثلث»)"
     },
     "review": {
       "status": "pending"

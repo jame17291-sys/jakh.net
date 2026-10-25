@@ -98,12 +98,12 @@
     "id": "inv-6",
     "difficulty": "easy",
     "question": {
-      "en": "Which navigation instrument uses a magnetized needle to indicate direction?",
-      "ar": "أي أداة ملاحة تستخدم إبرة ممغنطة عشان تعرف الاتجاه؟"
+      "en": "Which instrument, refined by medieval Muslim astronomers, measured the height of the Sun or stars to tell the time and find direction?",
+      "ar": "أي أداة طوّرها الفلكيون المسلمون بالعصور الوسطى، وكانت تقيس ارتفاع الشمس والنجوم عشان يعرفون الوقت والاتجاه؟"
     },
     "answer": {
-      "en": "A compass",
-      "ar": "البوصلة"
+      "en": "The astrolabe",
+      "ar": "الأسطرلاب"
     },
     "subcategory": {
       "en": "Navigation",
@@ -553,17 +553,17 @@
   {
     "id": "inv-30",
     "subcategory": {
-      "en": "Science & Medicine",
-      "ar": "العلوم والطب"
+      "en": "Energy & Engineering",
+      "ar": "الطاقة والهندسة"
     },
     "difficulty": "hard",
     "question": {
-      "en": "What preservation process named after Louis Pasteur uses controlled heating to reduce harmful microorganisms in food or drink?",
-      "ar": "شو طريقة الحفظ اللي على اسم لويس باستور، وتعتمد على تسخين مضبوط عشان تقلّل الجراثيم الضارة بالأكل أو الشرب؟"
+      "en": "Which engineer wrote the 1206 'Book of Knowledge of Ingenious Mechanical Devices', famous for its elephant water clock?",
+      "ar": "مين المهندس اللي ألّف سنة 1206 «الجامع بين العلم والعمل النافع في صناعة الحيل»، المشهور بساعة الفيل المائية؟"
     },
     "answer": {
-      "en": "Pasteurization.",
-      "ar": "البسترة."
+      "en": "Al-Jazari (Ismail al-Jazari).",
+      "ar": "بديع الزمان إسماعيل الجزري."
     },
     "review": {
       "status": "pending"
@@ -577,12 +577,12 @@
     },
     "difficulty": "very-advanced",
     "question": {
-      "en": "Who explained the photoelectric effect using light quanta in 1905?",
-      "ar": "مين فسّر التأثير الكهروضوئي سنة 1905 باستخدام «كمّات» الضوء؟"
+      "en": "Which Basra-born scholar's 'Book of Optics' argued that we see because light enters the eye, and described the camera obscura?",
+      "ar": "أي عالم من مواليد البصرة قال في «كتاب المناظر» إننا نشوف لأن الضوء يدخل العين، ووصف الغرفة المظلمة (الكاميرا المظلمة)؟"
     },
     "answer": {
-      "en": "Albert Einstein. Heinrich Hertz had observed the effect earlier.",
-      "ar": "ألبرت أينشتاين. وكان هاينريش هرتز قد رصد الظاهرة من قبل."
+      "en": "Ibn al-Haytham (Alhazen).",
+      "ar": "ابن الهيثم."
     },
     "review": {
       "status": "pending"
@@ -748,12 +748,12 @@
     },
     "difficulty": "very-advanced",
     "question": {
-      "en": "Who developed the first web browser, named 'WorldWideWeb' (later Nexus)?",
-      "ar": "مين طوّر أول متصفح إنترنت، اللي كان اسمه «WorldWideWeb» (وبعدين Nexus)؟"
+      "en": "Who published notes in 1843 on Babbage's Analytical Engine that included what is often called the first computer program?",
+      "ar": "مين نشرت سنة 1843 ملاحظات عن «المحرك التحليلي» لباباج، فيها اللي يعتبرونه أول برنامج كمبيوتر؟"
     },
     "answer": {
-      "en": "Tim Berners-Lee",
-      "ar": "تيم بيرنرز لي"
+      "en": "Ada Lovelace.",
+      "ar": "آدا لوفليس."
     },
     "review": {
       "status": "pending"

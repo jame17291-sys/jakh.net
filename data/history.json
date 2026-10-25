@@ -26,8 +26,8 @@
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
     },
     "question": {
-      "en": "Which queen's long nineteenth-century reign gave its name to the Victorian era?",
-      "ar": "أي ملكة حكمت فترة طويلة بالقرن التاسع عشر وانسمّى «العصر الفيكتوري» على اسمها؟"
+      "en": "Which British monarch reigned the longest before Elizabeth II overtook the record?",
+      "ar": "مين أطول ملك أو ملكة حكم بريطانيا قبل ما تكسر إليزابيث الثانية الرقم؟"
     },
     "answer": {
       "en": "Queen Victoria",
@@ -178,12 +178,12 @@
       "ar": "الاستكشاف والعلوم والصناعة"
     },
     "question": {
-      "en": "What aviation milestone did the Wright brothers achieve in 1903?",
-      "ar": "شو الإنجاز اللي حققه الأخوين رايت بتاريخ الطيران سنة 1903؟"
+      "en": "Who was the first person to walk on the Moon, in 1969?",
+      "ar": "مين أول إنسان مشى على القمر، سنة 1969؟"
     },
     "answer": {
-      "en": "The first sustained, controlled, powered flight of a heavier-than-air aircraft.",
-      "ar": "أول رحلة طيران مستمرة ومتحكَّم بها لطائرة أثقل من الهواء تعمل بمحرك."
+      "en": "Neil Armstrong",
+      "ar": "نيل آرمسترونغ"
     },
     "review": {
       "status": "pending"
@@ -311,12 +311,12 @@
       "ar": "الحضارات القديمة وعلم الآثار"
     },
     "question": {
-      "en": "Which Babylonian king is famous for his set of 282 laws?",
-      "ar": "أي ملك بابلي اشتهر بمجموعة من 282 قانون؟"
+      "en": "Which British archaeologist uncovered the tomb of Tutankhamun in 1922?",
+      "ar": "أي عالم آثار بريطاني اكتشف قبر توت عنخ آمون سنة 1922؟"
     },
     "answer": {
-      "en": "Hammurabi",
-      "ar": "حمورابي"
+      "en": "Howard Carter",
+      "ar": "هوارد كارتر"
     },
     "review": {
       "status": "pending"
@@ -440,16 +440,16 @@
     "id": "history-024",
     "difficulty": "hard",
     "subcategory": {
-      "en": "Ancient Civilizations & Archaeology",
-      "ar": "الحضارات القديمة وعلم الآثار"
+      "en": "Empires, States & Historical Figures",
+      "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
     },
     "question": {
-      "en": "Why was the discovery of the Rosetta Stone so important?",
-      "ar": "ليش اكتشاف حجر رشيد كان مهم كثير؟"
+      "en": "Mansa Musa, famous for his lavish pilgrimage to Mecca in 1324, ruled which West African empire?",
+      "ar": "منسا موسى، المشهور برحلة حجّه الفخمة سنة 1324، كان يحكم أي إمبراطورية بغرب إفريقيا؟"
     },
     "answer": {
-      "en": "It allowed historians to decipher Ancient Egyptian hieroglyphs",
-      "ar": "لأنه سمح للمؤرخين بفك رموز الهيروغليفية المصرية القديمة"
+      "en": "The Mali Empire",
+      "ar": "إمبراطورية مالي"
     },
     "review": {
       "status": "pending"
@@ -520,12 +520,12 @@
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
     },
     "question": {
-      "en": "Which empire was founded by Genghis Khan?",
-      "ar": "أي إمبراطورية أسّسها جنكيز خان؟"
+      "en": "Who founded the Mughal Empire in India after winning the First Battle of Panipat in 1526?",
+      "ar": "مين أسّس إمبراطورية المغول بالهند بعد ما انتصر بمعركة بانيبات الأولى سنة 1526؟"
     },
     "answer": {
-      "en": "The Mongol Empire",
-      "ar": "الإمبراطورية المغولية"
+      "en": "Babur",
+      "ar": "ظهير الدين بابر"
     },
     "review": {
       "status": "pending"
@@ -573,16 +573,16 @@
     "id": "history-031",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Ancient Civilizations & Archaeology",
-      "ar": "الحضارات القديمة وعلم الآثار"
+      "en": "Medieval & Early Modern History",
+      "ar": "تاريخ العصور الوسطى وبدايات العصر الحديث"
     },
     "question": {
-      "en": "In which country were the ancient Olympic Games first held?",
-      "ar": "بأي دولة انقامت الألعاب الأولمبية القديمة أول مرة؟"
+      "en": "Which Muslim commander led the army that crossed from North Africa into Spain in 711 CE?",
+      "ar": "مين القائد المسلم اللي عبر بالجيش من شمال إفريقيا للأندلس سنة 711 م؟"
     },
     "answer": {
-      "en": "Greece",
-      "ar": "اليونان"
+      "en": "Tariq ibn Ziyad",
+      "ar": "طارق بن زياد"
     },
     "review": {
       "status": "pending"
@@ -966,12 +966,12 @@
       "ar": "الحرب الباردة والسياسة الحديثة"
     },
     "question": {
-      "en": "In which year did the Berlin Wall fall?",
-      "ar": "بأي سنة سقط جدار برلين؟"
+      "en": "Which territory did Britain hand back to China in 1997?",
+      "ar": "أي إقليم رجّعته بريطانيا للصين سنة 1997؟"
     },
     "answer": {
-      "en": "1989",
-      "ar": "1989"
+      "en": "Hong Kong",
+      "ar": "هونغ كونغ"
     },
     "review": {
       "status": "pending"
@@ -1247,16 +1247,16 @@
     "id": "history-066",
     "difficulty": "hard",
     "subcategory": {
-      "en": "Ancient Civilizations & Archaeology",
-      "ar": "الحضارات القديمة وعلم الآثار"
+      "en": "Cold War & Modern Politics",
+      "ar": "الحرب الباردة والسياسة الحديثة"
     },
     "question": {
-      "en": "Does the biblical Book of Exodus name the pharaoh who opposed Moses?",
-      "ar": "هل سفر الخروج في الكتاب المقدس يذكر اسم الفرعون اللي واجه موسى؟"
+      "en": "Which 1955 conference in Indonesia brought together newly independent Asian and African states?",
+      "ar": "أي مؤتمر سنة 1955 في إندونيسيا جمع دول آسيوية وإفريقية مستقلة حديثًا؟"
     },
     "answer": {
-      "en": "No. Identifications with particular Egyptian rulers are hypotheses, not names stated in that text.",
-      "ar": "لا. ربطه بحاكم مصري بعينه فرضية، وليس اسماً مذكوراً في ذلك النص."
+      "en": "The Bandung Conference",
+      "ar": "مؤتمر باندونغ"
     },
     "review": {
       "status": "pending"
@@ -1274,8 +1274,8 @@
       "ar": "شو اسم السياسة الأمريكية اللي هدفها توقّف توسّع الاتحاد السوفيتي بعد الحرب العالمية الثانية؟"
     },
     "answer": {
-      "en": "The Truman Doctrine",
-      "ar": "مبدأ ترومان"
+      "en": "Containment, set out in the Truman Doctrine (1947)",
+      "ar": "سياسة الاحتواء، اللي أعلنها مبدأ ترومان (1947)"
     },
     "review": {
       "status": "pending"
@@ -1397,18 +1397,18 @@
   },
   {
     "id": "history-074",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Revolutions & Independence",
       "ar": "الثورات والاستقلال"
     },
     "question": {
-      "en": "What was the name of the South African policy of racial segregation?",
-      "ar": "شو اسم سياسة الفصل العنصري في جنوب إفريقيا؟"
+      "en": "What was the name of South Africa's official policy of racial segregation?",
+      "ar": "شو الاسم الأفريكاني لسياسة التفرقة العنصرية الرسمية اللي طبّقتها جنوب إفريقيا؟"
     },
     "answer": {
       "en": "Apartheid",
-      "ar": "الفصل العنصري (أبارتهايد)"
+      "ar": "الأبارتهايد"
     },
     "review": {
       "status": "pending"
@@ -1663,18 +1663,18 @@
   },
   {
     "id": "history-088",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Revolutions & Independence",
       "ar": "الثورات والاستقلال"
     },
     "question": {
-      "en": "Which revolution led to the creation of the People's Republic of China?",
-      "ar": "أي ثورة أدّت لتأسيس جمهورية الصين الشعبية؟"
+      "en": "In which year was the People's Republic of China proclaimed?",
+      "ar": "بأي سنة انعلنت جمهورية الصين الشعبية؟"
     },
     "answer": {
-      "en": "The Chinese Communist Revolution (1949)",
-      "ar": "الثورة الشيوعية الصينية (1949)"
+      "en": "1949",
+      "ar": "1949"
     },
     "review": {
       "status": "pending"
@@ -1897,12 +1897,12 @@
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
     },
     "question": {
-      "en": "Which Egyptian city housed the famous library associated with the Ptolemaic rulers?",
-      "ar": "أي مدينة مصرية كان فيها المكتبة المشهورة المرتبطة بالحكام البطالمة؟"
+      "en": "Which city was the capital of the Umayyads in al-Andalus?",
+      "ar": "شو كانت عاصمة الأمويين بالأندلس؟"
     },
     "answer": {
-      "en": "Alexandria.",
-      "ar": "الإسكندرية."
+      "en": "Córdoba",
+      "ar": "قرطبة"
     },
     "review": {
       "status": "pending"

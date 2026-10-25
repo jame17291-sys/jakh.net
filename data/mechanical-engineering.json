@@ -254,7 +254,7 @@
       "ar": "الآلات والتروس والآليات"
     },
     "question": {
-      "en": "A20-tooth driving gear meshes with a 60-tooth driven gear. What is the driving-speed to driven-speed ratio?",
+      "en": "A 20-tooth driving gear meshes with a 60-tooth driven gear. What is the driving-speed to driven-speed ratio?",
       "ar": "ترس قائد فيه 20 سن معشّق مع ترس مقاد فيه 60 سن. كم نسبة سرعة القائد لسرعة المقاد؟"
     },
     "answer": {
@@ -311,12 +311,12 @@
       "ar": "الميكانيكا والتحليل الإنشائي"
     },
     "question": {
-      "en": "What is the magnitude of torque produced by force F acting at radius r and angleθ to the radius vector?",
+      "en": "What is the magnitude of torque produced by force F acting at radius r and angle θ to the radius vector?",
       "ar": "كم عزم القوة F اللي تأثر على بعد r وبزاوية θ مع متجه نصف القطر؟"
     },
     "answer": {
-      "en": "τ=rF sinθ. Equivalently, force multiplied by the perpendicular moment arm.",
-      "ar": "τ=rF sinθ. ويكافئ القوة مضروبة في ذراعها العمودي."
+      "en": "τ = rF sin θ, which equals the force multiplied by its perpendicular moment arm.",
+      "ar": "τ = rF sin θ، ويكافئ القوة مضروبة في ذراعها العمودي."
     },
     "review": {
       "status": "pending"
@@ -330,12 +330,12 @@
       "ar": "الديناميكا الحرارية والحرارة والطاقة"
     },
     "question": {
-      "en": "What are the three modes of heat transfer?",
-      "ar": "شو الطرق الثلاث لانتقال الحرارة؟"
+      "en": "Why do car radiators have many thin metal fins?",
+      "ar": "ليش مشعاع السيارة (الرادياتير) فيه زعانف معدنية رقيقة كثيرة؟"
     },
     "answer": {
-      "en": "Conduction, Convection, Radiation",
-      "ar": "التوصيل والحمل والإشعاع"
+      "en": "To increase the surface area, so heat passes into the air faster",
+      "ar": "لزيادة مساحة السطح، فتنتقل الحرارة إلى الهواء أسرع"
     },
     "review": {
       "status": "pending"

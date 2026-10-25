@@ -197,12 +197,12 @@
     },
     "difficulty": "medium",
     "question": {
-      "en": "What is 'Blockchain' technology primarily known for supporting?",
-      "ar": "شو الشي الأساسي اللي معروف إن تقنية «البلوك تشين» تدعمه؟"
+      "en": "At its simplest, what kind of record does a blockchain keep?",
+      "ar": "بأبسط شكل، شو نوع السجل اللي تحفظه تقنية «البلوك تشين»؟"
     },
     "answer": {
-      "en": "Cryptocurrencies like Bitcoin",
-      "ar": "العملات الرقمية مثل البيتكوين"
+      "en": "A shared digital ledger, copied across many computers, that is very hard to alter",
+      "ar": "سجل رقمي مشترك منسوخ على أجهزة كثيرة ويصعب تعديله"
     },
     "review": {
       "status": "pending"
@@ -268,17 +268,17 @@
   {
     "id": "fut-15",
     "subcategory": {
-      "en": "Biotechnology & Human Enhancement",
-      "ar": "التقنية الحيوية وتعزيز الإنسان"
+      "en": "Energy & Power Systems",
+      "ar": "الطاقة وأنظمة القدرة"
     },
     "difficulty": "medium",
     "question": {
-      "en": "What is 'CRISPR' in the context of future biotechnology?",
-      "ar": "في التكنولوجيا الحيوية المستقبلية، شو هو «كريسبر» (CRISPR)؟"
+      "en": "What makes hydrogen 'green' hydrogen?",
+      "ar": "شو اللي يخلّي الهيدروجين «أخضر»؟"
     },
     "answer": {
-      "en": "A tool for gene editing",
-      "ar": "أداة لتحرير الجينات"
+      "en": "It is made by splitting water with electricity from renewable sources (electrolysis), so producing it emits almost no CO₂.",
+      "ar": "يُنتج بتحليل الماء كهربائياً بطاقة متجددة، فلا يكاد إنتاجه يطلق ثاني أكسيد الكربون."
     },
     "review": {
       "status": "pending"
@@ -306,17 +306,17 @@
   {
     "id": "fut-17",
     "subcategory": {
-      "en": "Connected & Immersive Tech",
-      "ar": "التقنيات المتصلة والغامرة"
+      "en": "Energy & Power Systems",
+      "ar": "الطاقة وأنظمة القدرة"
     },
     "difficulty": "medium",
     "question": {
-      "en": "What does the term metaverse commonly refer to?",
-      "ar": "شو المقصود عادةً بكلمة «الميتافيرس»؟"
+      "en": "Which UAE power station, whose first reactor began commercial operation in 2021, was the Arab world's first nuclear power plant?",
+      "ar": "أي محطة كهربا في الإمارات، بدأ أول مفاعل فيها تشغيله التجاري سنة 2021، كانت أول محطة طاقة نووية بالعالم العربي؟"
     },
     "answer": {
-      "en": "A proposed network of shared virtual environments for interaction. There is no single agreed definition, and access need not require a VR headset.",
-      "ar": "تصوّر لشبكة بيئات افتراضية مشتركة للتفاعل. ولا يوجد تعريف واحد متفق عليه، ولا يشترط الدخول دائماً نظارة واقع افتراضي."
+      "en": "Barakah nuclear power plant (Abu Dhabi).",
+      "ar": "محطة براكة للطاقة النووية في أبوظبي."
     },
     "review": {
       "status": "pending"
@@ -634,12 +634,12 @@
     },
     "difficulty": "very-advanced",
     "question": {
-      "en": "What is 'Von Neumann Probe'?",
+      "en": "What is a von Neumann probe?",
       "ar": "شو هو «مسبار فون نيومان»؟"
     },
     "answer": {
-      "en": "A hypothetical self-replicating spacecraft for interstellar exploration",
-      "ar": "مركبة فضائية افتراضية ذاتية التكرار للاستكشاف بين النجوم"
+      "en": "A hypothetical self-replicating spacecraft for interstellar exploration.",
+      "ar": "مركبة فضائية افتراضية ذاتية التكرار للاستكشاف بين النجوم."
     },
     "review": {
       "status": "pending"

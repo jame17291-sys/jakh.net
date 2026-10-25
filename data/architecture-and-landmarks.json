@@ -387,12 +387,12 @@
     },
     "difficulty": "hard",
     "question": {
-      "en": "What is the 'Golden Ratio' often used in architecture for aesthetic proportions?",
-      "ar": "شو هي «النسبة الذهبية» اللي تنستخدم كثير بالعمارة عشان تعطي تناسب جميل؟"
+      "en": "Which modernist architect is famous for the motto 'Less is more'?",
+      "ar": "أي معماري حداثي اشتهر بشعار «الأقل هو الأكثر» (Less is more)؟"
     },
     "answer": {
-      "en": "1.618 (approx.)",
-      "ar": "1.618 (تقريباً)"
+      "en": "Ludwig Mies van der Rohe",
+      "ar": "لودفيغ ميس فان دير روه"
     },
     "review": {
       "status": "pending"
@@ -615,12 +615,12 @@
     },
     "difficulty": "very-advanced",
     "question": {
-      "en": "Which two architects designed the Shrine of the Book in Jerusalem?",
-      "ar": "أي معماريين صمّموا «مزار الكتاب» في القدس؟"
+      "en": "Which Egyptian architect championed affordable mud-brick building, notably in the village of New Gourna near Luxor?",
+      "ar": "أي معماري مصري دافع عن البناء الرخيص بالطوب اللبن، وأشهر مشاريعه قرية القرنة الجديدة قرب الأقصر؟"
     },
     "answer": {
-      "en": "Frederick Kiesler and Armand Bartos.",
-      "ar": "فريدريك كيسلر وأرماند بارتوس."
+      "en": "Hassan Fathy",
+      "ar": "حسن فتحي"
     },
     "review": {
       "status": "pending"

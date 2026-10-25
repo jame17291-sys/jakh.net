@@ -862,12 +862,12 @@
       "ar": "دفتر الموت"
     },
     "question": {
-      "en": "Which supernatural notebook kills a named person when its user also pictures that person's face?",
-      "ar": "شو الدفتر الخارق اللي يقتل الشخص اللي ينكتب اسمه فيه، إذا اللي يكتب تخيّل وجهه كمان؟"
+      "en": "In Death Note, besides writing a person's name, what must the user picture for the notebook to work?",
+      "ar": "في «مذكرة الموت»، غير إنك تكتب الاسم، شو لازم تتخيّل عشان الدفتر يشتغل؟"
     },
     "answer": {
-      "en": "The Death Note",
-      "ar": "دفتر الموت"
+      "en": "The person's face",
+      "ar": "وجه الشخص"
     },
     "review": {
       "status": "pending"
@@ -1280,8 +1280,8 @@
       "ar": "هجوم العمالقة"
     },
     "question": {
-      "en": "What is Levi Ackerman's rank in the Survey Corps?",
-      "ar": "شو رتبة ليفاي أكرمان في فيلق الاستطلاع؟"
+      "en": "What is Levi's rank in the Survey Corps?",
+      "ar": "شو رتبة ليفاي في فيلق الاستطلاع؟"
     },
     "answer": {
       "en": "Captain",
@@ -1736,12 +1736,12 @@
       "ar": "قاتل الشياطين"
     },
     "question": {
-      "en": "What happened to Tanjiro's family at the beginning of the story?",
-      "ar": "شو اللي صار لعيلة تانجيرو ببداية القصة؟"
+      "en": "In Demon Slayer, what does Nezuko keep in her mouth to stop herself from biting anyone?",
+      "ar": "في «قاتل الشياطين»، شو اللي تحطّه نيزوكو بتمّها عشان ما تعضّ أحد؟"
     },
     "answer": {
-      "en": "They were slaughtered by Muzan Kibutsuji; his sister Nezuko was turned into a demon",
-      "ar": "قتلهم موزان كيبوتسوجي، وتحوّلت أخته نيزوكو إلى شيطانة"
+      "en": "A bamboo muzzle",
+      "ar": "قطعة خيزران (كمامة خيزران)"
     },
     "review": {
       "status": "pending"
@@ -2178,7 +2178,7 @@
     },
     "answer": {
       "en": "His ability to perform alchemy (his own Gate of Truth)",
-      "ar": "قدرته على ممارسة الكيمياء (بوابته الخاصة للحقيقة)"
+      "ar": "قدرته على ممارسة الخيمياء (بوابة الحقيقة الخاصة به)"
     },
     "review": {
       "status": "pending"
@@ -2192,8 +2192,8 @@
       "ar": "المحوّل الكيميائي المدرّع: الأخوّة"
     },
     "question": {
-      "en": "What is the name of the Xingese prince who seeks immortality through alkahestry?",
-      "ar": "شو اسم الأمير الزينغي اللي يدوّر على الخلود عن طريق «الألكاهيستري»؟"
+      "en": "What is the name of the Xingese prince who travels to Amestris seeking the secret of immortality?",
+      "ar": "شو اسم الأمير من زينغ اللي يجي أمستريس يدوّر على سر الخلود؟"
     },
     "answer": {
       "en": "Ling Yao",
@@ -2509,7 +2509,7 @@
   },
   {
     "id": "anime-133",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "My Hero Academia",
       "ar": "أكاديمية بطلي"
@@ -2520,7 +2520,7 @@
     },
     "answer": {
       "en": "Tomura Shigaraki (Tenko Shimura)",
-      "ar": "توموراشيغاراكي (تينكو شيمورا)"
+      "ar": "تومورا شيغاراكي (تينكو شيمورا)"
     },
     "review": {
       "status": "pending"
@@ -2553,8 +2553,8 @@
       "ar": "أكاديمية بطلي"
     },
     "question": {
-      "en": "Which U.A. rescue-training facility is attacked by the League of Villains early in My Hero Academia?",
-      "ar": "شو منشأة التدريب على الإنقاذ في يو.إيه اللي تهجم عليها «رابطة الأشرار» ببداية «أكاديمية بطلي»؟"
+      "en": "Which U.A. rescue-training facility is attacked by villains early in My Hero Academia?",
+      "ar": "شو منشأة التدريب على الإنقاذ في يو.إيه اللي يهجم عليها الأشرار ببداية «أكاديمية بطلي»؟"
     },
     "answer": {
       "en": "USJ (Unforeseen Simulation Joint)",

@@ -11,8 +11,8 @@
       "ar": "مين صاحب عدنان اللي يحب ياكل الضفادع؟"
     },
     "answer": {
-      "en": "Issa",
-      "ar": "عيسى"
+      "en": "Absi (Jimsy in the original)",
+      "ar": "عبسي"
     },
     "review": {
       "status": "pending"
@@ -159,8 +159,8 @@
       "ar": "عدنان ولينا"
     },
     "question": {
-      "en": "What animal did Issa keep in the Land of Hope?",
-      "ar": "شو الحيوان اللي كان يربّيه عيسى في «أرض الأمل»؟"
+      "en": "What animal did Absi keep in the Land of Hope?",
+      "ar": "شو الحيوان اللي كان يربّيه عبسي في «أرض الأمل»؟"
     },
     "answer": {
       "en": "A small pig",
@@ -748,12 +748,12 @@
       "ar": "الكابتن ماجد"
     },
     "question": {
-      "en": "What fictional Japanese town gives Tsubasa's school team its name?",
-      "ar": "شو البلدة اليابانية الخيالية اللي فريق مدرسة تسوباسا على اسمها؟"
+      "en": "After middle school, which country does Majid move to so he can play football professionally?",
+      "ar": "بعد المرحلة الإعدادية، لأي بلد سافر ماجد عشان يلعب كرة قدم احترافية؟"
     },
     "answer": {
-      "en": "Nankatsu",
-      "ar": "نانكاتسو"
+      "en": "Brazil",
+      "ar": "البرازيل"
     },
     "review": {
       "status": "pending"
@@ -1094,8 +1094,8 @@
       "ar": "شو صار لبيلي بونز قبل ما تقلع السفينة؟"
     },
     "answer": {
-      "en": "He died after receiving the Black Spot and suffering a stroke",
-      "ar": "مات بعد تلقيه ورقة السوداء وأصيب بجلطة"
+      "en": "He died of a stroke after receiving the Black Spot",
+      "ar": "مات بجلطة بعد أن تسلّم الورقة السوداء"
     },
     "review": {
       "status": "pending"
@@ -1204,8 +1204,8 @@
       "ar": "غرندايزر"
     },
     "question": {
-      "en": "What is the name of the girl who helped the hero?",
-      "ar": "شو اسم البنت اللي كانت تساعد البطل؟"
+      "en": "What is the name of the girl who falls for Duke Fleed and later fights beside him?",
+      "ar": "شو اسم البنت اللي حبّت دوق فليد وصارت بعدين تقاتل معه؟"
     },
     "answer": {
       "en": "Hikaru",
@@ -1261,12 +1261,12 @@
       "ar": "غرندايزر"
     },
     "question": {
-      "en": "Who is the main commander of the Vega Army?",
-      "ar": "مين القائد الأساسي لجيش فيغا؟"
+      "en": "While hiding his identity on Earth, where does Duke Fleed work?",
+      "ar": "وهو مخبّي هويته على الأرض، وين كان يشتغل دوق فليد؟"
     },
     "answer": {
-      "en": "King Vega (Khan Vega)",
-      "ar": "خان فيغا"
+      "en": "On a farm (ranch)",
+      "ar": "في مزرعة"
     },
     "review": {
       "status": "pending"
@@ -1508,12 +1508,12 @@
       "ar": "غرندايزر"
     },
     "question": {
-      "en": "How did Duke Fleed come to be in hiding on Earth?",
-      "ar": "كيف وصل دوق فليد وتخبّى على الأرض؟"
+      "en": "Under what name did Grendizer become a huge hit in France in the late 1970s?",
+      "ar": "باسم شو اشتهر «غرندايزر» في فرنسا آخر السبعينيات؟"
     },
     "answer": {
-      "en": "He fled Planet Fleed in Grendizer when it was destroyed by the Vega Army",
-      "ar": "فرّ من كوكب فليد على متن غرندايزر حين دمره جيش فيغا"
+      "en": "Goldorak",
+      "ar": "غولدوراك"
     },
     "review": {
       "status": "pending"
@@ -1527,8 +1527,8 @@
       "ar": "سالي"
     },
     "question": {
-      "en": "From which country does Sara arrive in London at the beginning of Princess Sara, known in Arabic as Sally?",
-      "ar": "ببداية مسلسل «الأميرة سارة»، من أي بلد وصلت سالي للندن؟"
+      "en": "From which country does Sally come to her boarding school at the start of the series?",
+      "ar": "ببداية المسلسل، من أي بلد جات سالي لمدرستها الداخلية؟"
     },
     "answer": {
       "en": "India",
@@ -1622,8 +1622,8 @@
       "ar": "سالي"
     },
     "question": {
-      "en": "What is the original name of the young servant who becomes Sara's close friend in Princess Sara?",
-      "ar": "في «الأميرة سارة»، شو الاسم الأصلي للخادمة الصغيرة اللي تصير أقرب صديقة لسالي؟"
+      "en": "What is the name of the young maid who becomes Sally's closest friend?",
+      "ar": "شو اسم الخادمة الصغيرة اللي صارت أقرب صديقة لسالي؟"
     },
     "answer": {
       "en": "Becky",
@@ -2957,7 +2957,7 @@
     },
     "answer": {
       "en": "Sandybell Leslie",
-      "ar": "ساندييبيل ليزلي"
+      "ar": "ساندي بيل ليزلي"
     },
     "review": {
       "status": "pending"
@@ -3737,25 +3737,6 @@
     "answer": {
       "en": "The Yankee Doodle Mouse (1943)",
       "ar": "ذا يانكي دودل ماوس (1943)"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-198",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Tom and Jerry",
-      "ar": "توم وجيري"
-    },
-    "question": {
-      "en": "What is the title of the 1956 Tom and Jerry short in which both characters become dejected after romantic disappointments?",
-      "ar": "شو عنوان فيلم «توم وجيري» القصير سنة 1956 اللي ينصابون فيه الاثنين بالإحباط بعد خيبات حب؟"
-    },
-    "answer": {
-      "en": "Blue Cat Blues",
-      "ar": "Blue Cat Blues"
     },
     "review": {
       "status": "pending"

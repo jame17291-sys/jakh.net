@@ -7,6 +7,7 @@ import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import { beforeArabicRewrite } from './arabic-everyday-ledger.mjs';
 import { CARD_POLISH_LEDGER, beforeCardPolish } from './card-polish-ledger.mjs';
+import { CARD_AUDIT_LEDGER, beforeCardAudit, idsBeforeAudit } from './card-audit-ledger.mjs';
 const read = filename => JSON.parse(fs.readFileSync(new URL(`../${filename}`,import.meta.url),'utf8'));
 const plan = read('docs/content-review/mindlab-remediation-2026-09-23.json');
 const tvAmendment = read('docs/content-review/tv-trivia-2026-09-30.json');
@@ -15,21 +16,26 @@ const tvFollowup = read('docs/content-review/tv-trivia-followup-2026-09-30.json'
 const gameChoiceAmendment = read('docs/content-review/game-choice-availability-2026-10-05.json');
 const arabicRewrite = read('docs/content-review/arabic-everyday-2026-10-21.json');
 const cardPolish = read(CARD_POLISH_LEDGER);
+const cardAudit = read(CARD_AUDIT_LEDGER);
+const auditRemoved = new Map(cardAudit.removed.map(entry => [entry.id, entry]));
 const cards = new Map(plan.scope.flatMap(topic => read(`data/${topic.slug}.json`)).map(card=>[card.id,card]));
 const hash = card => crypto.createHash('sha256').update(JSON.stringify(card)).digest('hex');
 
-test('all 1,241 audit findings are repaired without deleting or renumbering the 3,275 public questions',()=>{
+test('all 1,241 audit findings are repaired without deleting or renumbering the 3,275 public questions (later removals are recorded in the 2026-10-25 card audit)',()=>{
   assert.equal(plan.scope.length,51);
   assert.equal(plan.counts.publicQuestions,3275);
-  assert.equal(cards.size,3825);
+  assert.equal(cards.size,3798);
+  assert.equal(cards.size + cardAudit.removed.length, 3825);
   assert.equal(plan.counts.auditFindings,1241);
   assert.equal(plan.changes.filter(c=>c.finding).length,1241);
   assert.equal(new Set(plan.changes.map(c=>c.id)).size,plan.changes.length);
   for (const topic of plan.scope) {
     const actual = read(`data/${topic.slug}.json`);
     const added = topic.slug === 'tv-shows-trivia' ? tvExpansion.additions.map(c => c.id) : [];
-    assert.equal(actual.length,topic.count + added.length,topic.slug);
-    assert.deepEqual(actual.map(c=>c.id),[...topic.ids, ...added],topic.slug);
+    // Cards removed by the 2026-10-25 audit are put back at their recorded positions.
+    const ids = idsBeforeAudit(cardAudit, topic.slug, actual.map(c=>c.id));
+    assert.equal(ids.length,topic.count + added.length,topic.slug);
+    assert.deepEqual(ids,[...topic.ids, ...added],topic.slug);
   }
   for (const change of plan.changes) {
     assert.notEqual(change.beforeHash,change.afterHash,`${change.id}: not a real change`);
@@ -63,7 +69,12 @@ test('all 1,241 audit findings are repaired without deleting or renumbering the 
     if (rewrite) assert.equal(rewrite.beforeHash, settled, `${change.id}: Arabic rewrite preserves the repair chain`);
     const polish = cardPolish.changes.find(c => c.id === change.id);
     if (polish) assert.equal(polish.beforeHash, rewrite?.afterHash || settled, `${change.id}: card polish preserves the repair chain`);
-    assert.equal(hash(cards.get(change.id)),polish?.afterHash || rewrite?.afterHash || settled,`${change.id}: patch not applied`);
+    const beforeAudit = polish?.afterHash || rewrite?.afterHash || settled;
+    const audited = cardAudit.changes.find(c => c.id === change.id);
+    if (audited) assert.equal(audited.beforeHash, beforeAudit, `${change.id}: card audit preserves the repair chain`);
+    const removed = auditRemoved.get(change.id);
+    if (removed) assert.equal(removed.beforeHash, beforeAudit, `${change.id}: the audit removal recorded the repaired card`);
+    else assert.equal(hash(cards.get(change.id)),audited?.afterHash || beforeAudit,`${change.id}: patch not applied`);
     assert.ok(change.reason?.trim(),change.id);
     assert.notEqual(change.patch.review?.status,'reviewed',`${change.id}: must not manufacture certification`);
   }
@@ -98,8 +109,10 @@ test('game-choice amendment records all thirty additions while preserving each o
     assert.notEqual(change.beforeHash, change.afterHash, `${change.id}: not a real amendment`);
     // Later Arabic-wording edits are reversed from their own ledger before checking this amendment.
     const rewrite = arabicRewrite.changes.find(c => c.id === change.id);
+    const audited = cardAudit.changes.find(c => c.id === change.id);
+    const unaudited = audited ? beforeCardAudit(card, audited) : card;
     const polish = cardPolish.changes.find(c => c.id === change.id);
-    const unpolished = polish ? beforeCardPolish(card, polish) : card;
+    const unpolished = polish ? beforeCardPolish(unaudited, polish) : unaudited;
     const amended = rewrite ? beforeArabicRewrite(unpolished, rewrite) : unpolished;
     assert.equal(hash(amended), change.afterHash, `${change.id}: current card must match documented amendment`);
     const fields = aliasCards.has(change.id) ? ['acceptedAnswers', 'quickFire'] : ['quickFire'];
@@ -119,7 +132,8 @@ test('game-choice amendment records all thirty additions while preserving each o
 
 test('every repaired question has complete bilingual content and valid difficulty',()=>{
   for (const change of plan.changes) {
-    const card = cards.get(change.id);
+    // A card later removed by the 2026-10-25 audit is checked as recorded there.
+    const card = cards.get(change.id) || auditRemoved.get(change.id)?.card;
     for (const field of ['question','answer','subcategory']) {
       for (const lang of ['en','ar']) assert.ok(card[field]?.[lang]?.trim(),`${card.id}/${field}/${lang}`);
     }

@@ -148,12 +148,12 @@
       "ar": "الحياة اليومية والعائلة"
     },
     "question": {
-      "en": "Fictional yes/no mystery: A surgeon looks at a child awaiting an operation and says, “That is my daughter.” The child's father is waiting outside, and the surgeon is not him or a step-parent. What ordinary family relationship explains this?",
-      "ar": "لغز خيالي (أسئلة نعم/لا): جرّاح شاف بنت صغيرة تستنى عملية وقال: «هذي بنتي». أبو البنت كان يستنى برّا، والجرّاح مش هو الأب ولا زوج الأم ولا زوجة الأب. شو صلة القرابة العادية اللي تفسّر هالشي؟"
+      "en": "A girl is waiting for her operation while her father waits outside. Someone from the surgical team looks at her and says, 'That's my daughter!' The speaker is not a step-parent. Who is it?",
+      "ar": "بنت صغيرة تستنى عمليتها، وأبوها يستنى برّا. فجأة انسمع صوت من فريق الجراحة: «هذي بنتي!». واللي حكى مش زوج أمها ولا زوجة أبوها. مين اللي حكى؟"
     },
     "answer": {
-      "en": "In this story, the surgeon is the child's mother.",
-      "ar": "في هذه القصة، كانت الجرّاحة أم الطفلة."
+      "en": "The surgeon: the girl's mother.",
+      "ar": "الجرّاحة، أم البنت."
     },
     "review": {
       "status": "pending"
@@ -332,26 +332,6 @@
     }
   },
   {
-    "id": "story-mysteries-015",
-    "difficulty": "medium",
-    "mode": "story",
-    "subcategory": {
-      "en": "Crime & Investigation",
-      "ar": "الجريمة والتحقيق"
-    },
-    "question": {
-      "en": "Fictional yes/no mystery: While away, a woman receives a photograph of her living room showing a parcel delivered that morning. The image appears to have been taken from inside her wardrobe. She asks the building manager to investigate, but does not claim the photograph proves a crime. What worries her?",
-      "ar": "لغز خيالي (أسئلة نعم/لا): امرأة برّا البيت جاتها صورة لصالتها، وفيها طرد انوصل هذاك الصبح. زاوية التصوير كانت تبان من داخل خزانتها. طلبت من مدير المبنى يتأكد، من غير ما تقول إن الصورة تثبت جريمة. شو اللي قلقها؟"
-    },
-    "answer": {
-      "en": "In the intended story, an unauthorized person entered and took the photograph. Its recent contents and unusual viewpoint make her suspect entry; the manager must still verify what happened.",
-      "ar": "في القصة المقصودة دخل شخص دون إذن والتقط الصورة. أثارت محتوياتها الحديثة وزاويتها الغريبة شكها في دخول أحد، لكن على المدير التحقق مما حدث."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "story-mysteries-016",
     "difficulty": "easy",
     "mode": "story",
@@ -380,12 +360,12 @@
       "ar": "الألعاب والمنافسة"
     },
     "question": {
-      "en": "Fictional yes/no mystery: Sami scores the winning baseball run without leaving his chair. He is not injured, and nobody carries him. The cheers come from speakers, and his hands stay on a controller. How did he score?",
-      "ar": "لغز خيالي (أسئلة نعم/لا): سامي جاب نقطة الفوز بالبيسبول من غير ما يقوم من كرسيه. ما كان مصاب ولا أحد شاله. التشجيع كان يطلع من السمّاعات، وإيديه على يد تحكم. كيف سجّل؟"
+      "en": "Sami scored the winning goal in a World Cup final, yet he never left his living room. How?",
+      "ar": "سامي سجّل هدف الفوز بنهائي كأس العالم، ومع هذا ما طلع من صالة بيته. كيف؟"
     },
     "answer": {
-      "en": "He was playing a baseball video game; his on-screen player completed the run.",
-      "ar": "كان يلعب لعبة بيسبول إلكترونية؛ فأكمل لاعبه على الشاشة الجولة."
+      "en": "He was playing a football video game.",
+      "ar": "كان يلعب لعبة كرة قدم إلكترونية."
     },
     "review": {
       "status": "pending"
@@ -492,12 +472,12 @@
       "ar": "الجريمة والتحقيق"
     },
     "question": {
-      "en": "Fictional yes/no mystery: A detective announces only that a sealed envelope is missing. A caller replies, “I never touched the blue envelope.” Its color was not in the announcement, and it had been kept out of public view. Why does the detective ask how the caller knows its color rather than immediately declare guilt?",
-      "ar": "لغز خيالي (أسئلة نعم/لا): محقق أعلن بس إن ظرف مقفول ضاع. واحد اتصل وقال: «أنا ما لمست الظرف الأزرق». الإعلان ما ذكر لونه، وكان محفوظ بعيد عن العيون. ليش سأل المحقق من وين عرف اللون بدل ما يحكم عليه بالإدانة على طول؟"
+      "en": "A detective announces only that a sealed envelope has gone missing. A caller says, 'I never touched the blue envelope.' Why does the detective suddenly suspect him?",
+      "ar": "محقق أعلن بس إن ظرف مختوم ضاع. واحد اتصل وقال: «أنا ما لمست الظرف الأزرق». ليش المحقق صار يشك فيه؟"
     },
     "answer": {
-      "en": "The caller revealed information not supplied publicly. That warrants checking their source of knowledge, but they may have an innocent explanation; it is not proof of theft by itself.",
-      "ar": "كشف المتصل معرفة لم تُقدم علناً. يستدعي ذلك التحقق من مصدرها، لكنه قد يملك تفسيراً بريئاً؛ فالمعرفة وحدها لا تثبت السرقة."
+      "en": "The envelope's colour was never made public, so how did the caller know it was blue?",
+      "ar": "لون الظرف ما انذكر لأحد، فمن وين عرف إنه أزرق؟"
     },
     "review": {
       "status": "pending"
@@ -556,8 +536,8 @@
       "ar": "رجل يموت كل ليلة ويرجع للحياة كل صبح. وعنده شغلة عادية تمامًا. شو يشتغل؟"
     },
     "answer": {
-      "en": "He is an actor in a nightly play where his character dies. Each morning he wakes for another performance.",
-      "ar": "هو ممثل في مسرحية تُعرض ليلًا يموت فيها شخصيته. كل صباح يستيقظ لعرض جديد."
+      "en": "He is an actor in a nightly play in which his character dies; he is back for the next show.",
+      "ar": "ممثل في مسرحية تُعرض كل ليلة وتموت فيها شخصيته، ثم يعود في اليوم التالي لعرض جديد."
     },
     "review": {
       "status": "pending"
@@ -692,12 +672,12 @@
       "ar": "العلوم والطب"
     },
     "question": {
-      "en": "Fictional yes/no mystery: During a lesson, a doctor's patient stops breathing. The instructor pauses the exercise, changes a setting, and says, “Reset for the next group.” No real person has been harmed. What was the patient?",
-      "ar": "لغز خيالي (أسئلة نعم/لا): خلال درس، مريض عند طبيب وقّف يتنفس. المدرّب وقّف التمرين، غيّر إعداد وقال: «رجّعوا الضبط للمجموعة الجاية». ولا إنسان حقيقي تضرّر. شو هالمريض؟"
+      "en": "During a class, a patient suddenly stops breathing. The instructor calmly says, 'Good. Now what do you do?' and nobody calls an ambulance. Why?",
+      "ar": "وقت حصة، مريض فجأة وقّف يتنفس. المدرّب قال بكل هدوء: «زين، شو تسوون الحين؟» وما أحد اتصل بالإسعاف. ليش؟"
     },
     "answer": {
-      "en": "A medical training simulator or mannequin. The breathing change was a programmed feature of the exercise.",
-      "ar": "محاكي أو دمية تدريب طبي. كان تغير التنفس جزءاً مبرمجاً من التمرين."
+      "en": "The 'patient' was a training mannequin programmed to simulate the emergency.",
+      "ar": "«المريض» كان دمية تدريب مبرمجة تمثّل الحالة الطارئة."
     },
     "review": {
       "status": "pending"
@@ -932,12 +912,12 @@
       "ar": "المنطق والمفارقات"
     },
     "question": {
-      "en": "Fictional yes/no mystery: A river city celebrates the permanent closure of its only bridge to traffic. No replacement bridge has opened, yet cars now cross the river faster without using boats. The mayor cuts a ribbon at the mouth of a road descending below river level. What opened?",
-      "ar": "لغز خيالي (أسئلة نعم/لا): مدينة على نهر احتفلت بإنها سكّرت جسرها الوحيد للمرور نهائيًا. ما انفتح جسر بديل، ومع هذا صارت السيارات تقطع النهر أسرع ومن غير قوارب. العمدة قص شريط عند مدخل طريق ينزل تحت مستوى النهر. شو اللي افتتح؟"
+      "en": "A river city closes its only bridge forever and throws a party. There's no new bridge and no ferry, yet cars now cross the river faster than before. How?",
+      "ar": "مدينة على نهر سكّرت جسرها الوحيد للأبد وسوّت حفلة. ما في جسر جديد ولا عبّارة، ومع هذا السيارات صارت تقطع النهر أسرع من قبل. كيف؟"
     },
     "answer": {
-      "en": "A road tunnel beneath the river, replacing the bridge's transport function.",
-      "ar": "نفق طريق تحت النهر حل محل الجسر في نقل المرور."
+      "en": "A new road tunnel under the river opened.",
+      "ar": "انفتح نفق طريق تحت النهر."
     },
     "review": {
       "status": "pending"
@@ -948,27 +928,25 @@
     "difficulty": "very-advanced",
     "mode": "story",
     "subcategory": {
-      "en": "Society, Money & Power",
-      "ar": "المجتمع والمال والسلطة"
+      "en": "Logic & Paradoxes",
+      "ar": "المنطق والمفارقات"
     },
     "question": {
-      "en": "A banker is delighted when the vault opens at the wrong time. Why?",
-      "ar": "موظف بنك انبسط لما الخزنة انفتحت بوقت غلط. ليش؟"
+      "en": "A prisoner in a tower has a rope only half as long as he needs to reach the ground. He cuts it in half, ties the two pieces together, and climbs down safely. How?",
+      "ar": "سجين ببرج عنده حبل طوله نص اللي يحتاجه عشان يوصل الأرض. قصّه نصين، وربطهم ببعض، ونزل بأمان. كيف؟"
     },
     "answer": {
-      "en": "The early opening exposed a timing defect in the vault mechanism. By discovering it in a routine check before anyone was harmed, the bank could fix a flaw that criminals might have exploited.",
-      "ar": "الفتح المبكر كشف عن خلل في توقيت آلية الخزينة. باكتشافه في فحص روتيني قبل أن يتضرر أحد، تمكّن البنك من إصلاح ثغرة كان المجرمون يستطيعون استغلالها."
+      "en": "He split the rope lengthwise into two thinner strands, then tied them end to end, doubling its length.",
+      "ar": "قسم الحبل بالطول لخيطين أرفع، وربطهم طرف بطرف، فصار طوله الضعف."
     },
     "acceptedAnswers": {
       "en": [
-        "The early opening exposed a fault in the vault timer.",
-        "A routine check revealed the time-lock defect before criminals could exploit it.",
-        "The mistimed opening let the bank fix the vault safely."
+        "He split the rope lengthwise",
+        "He cut it along its length"
       ],
       "ar": [
-        "كشف الفتح المبكر خللًا في مؤقت الخزنة.",
-        "كشف فحص روتيني عيب القفل الزمني قبل استغلاله.",
-        "أتاح الفتح في غير موعده إصلاح الخزنة بأمان."
+        "قسم الحبل بالطول",
+        "قصّه بالطول"
       ]
     },
     "review": {
@@ -1004,12 +982,12 @@
       "ar": "الفنون واللغة والعروض"
     },
     "question": {
-      "en": "Fictional yes/no mystery: A writer who cannot speak composes a speech that the audience hears in full. Nobody else reads it aloud. Before each passage, he types, and an electronic voice follows. How is the speech delivered?",
-      "ar": "لغز خيالي (أسئلة نعم/لا): كاتب ما يقدر يحكي ألّف خطاب سمعه الجمهور كامل، وما في شخص ثاني قراه بصوت عالي. قبل كل مقطع كان يكتب، وبعدين يطلع صوت إلكتروني. كيف انلقى الخطاب؟"
+      "en": "A writer who cannot speak gives a full speech to a packed hall, and nobody reads it out for him. How?",
+      "ar": "كاتب ما يقدر يتكلم ألقى خطاب كامل قدام قاعة مليانة، وما أحد قراه عنه. كيف؟"
     },
     "answer": {
-      "en": "A text-to-speech device vocalizes his typed words. The ideas and words are his, while the device supplies the audible voice.",
-      "ar": "يحوّل جهاز النص إلى كلام الكلمات التي يكتبها إلى صوت. الأفكار والكلمات له، والجهاز يصدر الصوت المسموع."
+      "en": "He typed it into a text-to-speech device that spoke his words aloud.",
+      "ar": "كتبه بجهاز يحوّل الكتابة لصوت، والجهاز نطق كلامه."
     },
     "review": {
       "status": "pending"
@@ -1040,16 +1018,16 @@
     "difficulty": "very-advanced",
     "mode": "story",
     "subcategory": {
-      "en": "Society, Money & Power",
-      "ar": "المجتمع والمال والسلطة"
+      "en": "Crime & Investigation",
+      "ar": "الجريمة والتحقيق"
     },
     "question": {
-      "en": "A city tears down its most beloved historic monument and within a year its tourism doubles. What happened?",
-      "ar": "مدينة هدمت أغلى آثارها التاريخية، وخلال سنة تضاعفت السياحة فيها. شو اللي صار؟"
+      "en": "A woman in her hotel room hears a knock. She opens the door to a stranger, who says, 'Sorry, I thought this was my room,' and walks off. She calls security at once. Why?",
+      "ar": "امرأة بغرفتها بالفندق سمعت طق على الباب. فتحت ولقت واحد غريب قال: «آسف، حسبتها غرفتي»، وراح. اتصلت بالأمن على طول. ليش؟"
     },
     "answer": {
-      "en": "While excavating the monument's foundation, archaeologists discovered a far older and more significant site beneath it. The original monument was overshadowing a vastly more important treasure.",
-      "ar": "أثناء حفر أساس الأثر، اكتشف علماء الآثار موقعًا أقدم بكثير وأكثر أهمية تحته. كان الأثر الأصلي يحجب كنزًا أكثر أهمية بكثير."
+      "en": "Nobody knocks on the door of their own room. He was checking whether anyone was inside.",
+      "ar": "ما أحد يطق باب غرفته. كان يتأكد إذا في أحد جوّا."
     },
     "review": {
       "status": "pending"

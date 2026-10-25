@@ -201,8 +201,8 @@
       "ar": "شو اللي يقيسه «معامل يونغ» في المادة؟"
     },
     "answer": {
-      "en": "Axial elastic stiffness of a material: the ratio of normal stress to strain in the linear-elastic range.",
-      "ar": "الجساءة المرنة المحورية للمادة: نسبة الإجهاد العمودي إلى الانفعال في المجال المرن الخطي."
+      "en": "Its stiffness: how strongly it resists being stretched or squashed (stress divided by strain in the elastic range).",
+      "ar": "جساءة المادة: مدى مقاومتها للشد أو الضغط (الإجهاد مقسوماً على الانفعال في المجال المرن)."
     },
     "review": {
       "status": "pending"
@@ -381,18 +381,18 @@
   },
   {
     "id": "civil-engineering-021",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Structures & Bridges",
       "ar": "المنشآت والجسور"
     },
     "question": {
       "en": "What geometric cross-section property I appears in the flexural rigidity EI of a beam?",
-      "ar": "في المقطع I، أي خاصية هندسية تظهر في جساءة انحناء الكمرة EI؟"
+      "ar": "شو الخاصية الهندسية للمقطع، اللي رمزها I، وتظهر في جساءة الانحناء EI للكمرة؟"
     },
     "answer": {
-      "en": "The second moment of area about the bending axis. It describes the distribution of cross-sectional area relative to that axis.",
-      "ar": "العزم الثاني للمساحة حول محور الانحناء. وهو يصف توزيع مساحة المقطع بالنسبة إلى ذلك المحور."
+      "en": "The second moment of area about the bending axis. It describes how the cross-section's area is distributed around that axis.",
+      "ar": "العزم الثاني للمساحة حول محور الانحناء، وهو يصف توزيع مساحة المقطع حول ذلك المحور."
     },
     "review": {
       "status": "pending"
@@ -486,7 +486,7 @@
       "ar": "لو افترضنا خصائص الفيضانات ثابتة كل سنة، شو معنى «فترة عودة 100 سنة»؟"
     },
     "answer": {
-      "en": "A1% chance of exceeding that flood magnitude in any given year. It does not mean floods occur exactly 100 years apart.",
+      "en": "A 1% chance of exceeding that flood magnitude in any given year. It does not mean floods occur exactly 100 years apart.",
       "ar": "احتمال 1% لتجاوز مقدار الفيضان في أي سنة معينة. ولا يعني أن الفيضانات تقع بفواصل 100 سنة بالضبط."
     },
     "review": {

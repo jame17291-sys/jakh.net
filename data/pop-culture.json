@@ -40,17 +40,17 @@
   {
     "id": "pop-culture-3",
     "question": {
-      "en": "What video sharing platform was launched in 2005 and bought by Google?",
-      "ar": "شو اسم منصة الفيديو اللي انطلقت سنة 2005 واشترتها جوجل بعدها؟"
+      "en": "Which Korean boy band's fans call themselves the 'ARMY'?",
+      "ar": "أي فرقة كورية معجبينها يسمّون نفسهم «ARMY»؟"
     },
     "answer": {
-      "en": "YouTube",
-      "ar": "يوتيوب"
+      "en": "BTS",
+      "ar": "BTS (بي تي إس)"
     },
     "difficulty": "easy",
     "subcategory": {
-      "en": "Internet Culture",
-      "ar": "ثقافة الإنترنت"
+      "en": "Fan Culture",
+      "ar": "ثقافة المعجبين"
     },
     "review": {
       "status": "pending"
@@ -59,12 +59,12 @@
   {
     "id": "pop-culture-4",
     "question": {
-      "en": "Which TV show follows a group of six friends living in New York City?",
-      "ar": "شو اسم المسلسل اللي بيحكي عن ستة أصحاب عايشين في نيويورك؟"
+      "en": "Which almost-silent British comedy character, played by Rowan Atkinson, drives a small green Mini?",
+      "ar": "أي شخصية كوميدية بريطانية ما تكاد تتكلم، يلعبها روان أتكينسون، وتسوق سيارة ميني خضرا صغيرة؟"
     },
     "answer": {
-      "en": "Friends",
-      "ar": "فريندز (أصدقاء)"
+      "en": "Mr. Bean",
+      "ar": "مستر بين"
     },
     "difficulty": "easy",
     "subcategory": {
@@ -192,12 +192,12 @@
   {
     "id": "pop-culture-11",
     "question": {
-      "en": "Which sci-fi franchise features Jedi, Sith, and the Force?",
-      "ar": "أي سلسلة خيال علمي فيها فرسان الجيداي والسيث و«القوة»؟"
+      "en": "Which Egyptian actor became an international star with 'Lawrence of Arabia' (1962) and 'Doctor Zhivago' (1965)?",
+      "ar": "أي ممثل مصري صار نجم عالمي بفيلمي «لورنس العرب» (1962) و«دكتور زيفاغو» (1965)؟"
     },
     "answer": {
-      "en": "Star Wars",
-      "ar": "حرب النجوم"
+      "en": "Omar Sharif",
+      "ar": "عمر الشريف"
     },
     "difficulty": "medium",
     "subcategory": {
@@ -363,12 +363,12 @@
   {
     "id": "pop-culture-20",
     "question": {
-      "en": "Who is the creator of the TV show 'Breaking Bad'?",
-      "ar": "مين مبتكر المسلسل الأمريكي «اختلال ضال» (Breaking Bad)؟"
+      "en": "Which Syrian-born director made 'The Message' (1976) and 'Lion of the Desert' (1981), the epic about Omar Mukhtar?",
+      "ar": "مين المخرج السوري الأصل اللي أخرج «الرسالة» (1976) و«عمر المختار» (أسد الصحراء، 1981)؟"
     },
     "answer": {
-      "en": "Vince Gilligan",
-      "ar": "فينس غيليغان"
+      "en": "Moustapha Akkad",
+      "ar": "مصطفى العقاد"
     },
     "difficulty": "medium",
     "subcategory": {
@@ -387,7 +387,7 @@
     },
     "answer": {
       "en": "Video Killed the Radio Star (The Buggles)",
-      "ar": "الفيديو قتل نجم الراديو"
+      "ar": "«Video Killed the Radio Star» لفرقة ذا باغلز"
     },
     "difficulty": "hard",
     "subcategory": {
@@ -439,12 +439,12 @@
   {
     "id": "pop-culture-24",
     "question": {
-      "en": "Which author created the fictional detective Sherlock Holmes?",
-      "ar": "مين الكاتب اللي ابتكر شخصية المحقق شيرلوك هولمز؟"
+      "en": "Which annual San Diego fan convention, first held in 1970, is the world's best-known comics and pop-culture event?",
+      "ar": "أي معرض سنوي للمعجبين في سان دييغو، بدأ سنة 1970، هو أشهر حدث للقصص المصورة وثقافة البوب بالعالم؟"
     },
     "answer": {
-      "en": "Arthur Conan Doyle",
-      "ar": "آرثر كونان دويل"
+      "en": "Comic-Con (San Diego Comic-Con)",
+      "ar": "كوميك كون (Comic-Con)"
     },
     "difficulty": "hard",
     "subcategory": {
@@ -458,12 +458,12 @@
   {
     "id": "pop-culture-25",
     "question": {
-      "en": "Which street artist created the Girl with Balloon image?",
-      "ar": "مين فنان الشارع اللي رسم لوحة «الفتاة والبالون»؟"
+      "en": "Which Japanese word is used around the world for a devoted, sometimes obsessive fan of anime and manga?",
+      "ar": "أي كلمة يابانية تنستخدم بالعالم للمعجب المهووس بالأنمي والمانغا؟"
     },
     "answer": {
-      "en": "Banksy",
-      "ar": "بانكسي"
+      "en": "Otaku",
+      "ar": "أوتاكو"
     },
     "difficulty": "hard",
     "subcategory": {
@@ -477,12 +477,12 @@
   {
     "id": "pop-culture-26",
     "question": {
-      "en": "Which hip-hop artist released the critically acclaimed album 'To Pimp a Butterfly'?",
-      "ar": "أي مغني هيب هوب أصدر ألبوم «To Pimp a Butterfly» اللي أشاد فيه النقاد؟"
+      "en": "Which Algerian singer, known as the 'King of Raï', had a worldwide hit with 'Didi' in 1992?",
+      "ar": "مين المغني الجزائري الملقّب بـ«ملك الراي» اللي اشتهرت أغنيته «ديدي» عالميًا سنة 1992؟"
     },
     "answer": {
-      "en": "Kendrick Lamar",
-      "ar": "كيندريك لامار"
+      "en": "Khaled (Cheb Khaled)",
+      "ar": "الشاب خالد"
     },
     "difficulty": "hard",
     "subcategory": {
@@ -629,12 +629,12 @@
   {
     "id": "pop-culture-34",
     "question": {
-      "en": "Which imageboard launched on October 1, 2003 and became associated with the early Anonymous movement?",
-      "ar": "شو موقع لوحات الصور اللي انطلق في 1 أكتوبر 2003، وارتبط ببدايات حركة «أنونيموس»؟"
+      "en": "What does the internet abbreviation 'FOMO' stand for?",
+      "ar": "شو معنى اختصار «FOMO» المنتشر على الإنترنت؟"
     },
     "answer": {
-      "en": "4chan",
-      "ar": "فورتشان"
+      "en": "Fear of missing out",
+      "ar": "الخوف من تفويت الشيء (Fear Of Missing Out)"
     },
     "difficulty": "medium",
     "subcategory": {
@@ -686,7 +686,7 @@
   {
     "id": "pop-culture-37",
     "question": {
-      "en": "What highly specific internet aesthetic revolves around retro-futurism, neon colors, and slow-jamized 1980s elevator music?",
+      "en": "What internet aesthetic combines retro-futurism, neon colours and slowed-down 1980s elevator music?",
       "ar": "شو اسم الطابع الفني على الإنترنت اللي يعتمد على المستقبل بعيون الماضي، وألوان النيون، وموسيقى المصاعد البطيئة من الثمانينيات؟"
     },
     "answer": {

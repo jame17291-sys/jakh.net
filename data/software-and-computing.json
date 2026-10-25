@@ -55,12 +55,12 @@
       "ar": "علوم الحاسب"
     },
     "question": {
-      "en": "Why do digital computers commonly represent information using binary digits 0 and 1?",
-      "ar": "ليش الكمبيوترات الرقمية تمثّل المعلومات عادةً بالرقمين 0 و1؟"
+      "en": "Why do computers store information as 0s and 1s?",
+      "ar": "ليش الكمبيوتر يخزّن المعلومات على شكل 0 و1؟"
     },
     "answer": {
-      "en": "Digital circuits reliably distinguish two defined signal ranges, which represent 0 and 1. This is an engineering use of transistors, not a claim that transistors have only two possible physical states.",
-      "ar": "تميز الدوائر الرقمية بموثوقية بين نطاقين محددين للإشارة يمثلان 0 و 1. وهذا توظيف هندسي للترانزستورات، لا يعني أن لها حالتين فيزيائيتين ممكنتين فقط."
+      "en": "Because electronic circuits can reliably tell two states apart, such as low and high voltage, which stand for 0 and 1.",
+      "ar": "لأن الدوائر الإلكترونية تميّز بسهولة وموثوقية بين حالتين، مثل جهد منخفض وجهد مرتفع، تمثّلان 0 و1."
     },
     "acceptedAnswers": {
       "en": [
@@ -288,21 +288,21 @@
       "ar": "الخوارزميات وهياكل البيانات"
     },
     "question": {
-      "en": "What is a stack data structure and what is its primary operation order?",
-      "ar": "شو هو «المكدّس» (Stack)، وشو ترتيب عملياته الأساسي؟"
+      "en": "Which data structure works like a line at a bakery, where the first item added is the first one taken out?",
+      "ar": "أي بنية بيانات تشتغل مثل طابور المخبز، أول عنصر يدخل هو أول عنصر يطلع؟"
     },
     "answer": {
-      "en": "A stack is a LIFO (Last In, First Out) data structure — the most recently added element is the first removed. Operations: push (add to top), pop (remove from top).",
-      "ar": "المكدس هيكل بيانات LIFO (آخر داخل أول خارج) — العنصر المضاف مؤخراً هو الأول في الإزالة. العمليات: push (إضافة للقمة)، وpop (إزالة من القمة)."
+      "en": "A queue (first in, first out)",
+      "ar": "الطابور (Queue): الداخل أولًا يخرج أولًا"
     },
     "acceptedAnswers": {
       "en": [
-        "A LIFO structure: push adds to top; pop removes the newest item first.",
-        "Last in, first out—items are pushed and popped at the top."
+        "Queue",
+        "FIFO queue"
       ],
       "ar": [
-        "هيكل آخر داخل أول خارج؛ push يضيف للقمة وpop يزيل الأحدث أولاً.",
-        "مكدس LIFO تُضاف عناصره وتُزال من القمة، والأحدث يخرج أولاً."
+        "طابور",
+        "طابور FIFO"
       ]
     },
     "review": {
@@ -548,7 +548,7 @@
   },
   {
     "id": "software-and-computing-024",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Software Engineering",
       "ar": "هندسة البرمجيات"
@@ -558,8 +558,8 @@
       "ar": "حسب مبرهنة CAP، لما تنقسم الشبكة، شو الضمانين اللي ما يقدر نظام البيانات الموزّع يوفّرهم مع بعض؟"
     },
     "answer": {
-      "en": "Linearizable consistency and availability: every operation at a nonfailed node cannot always both complete and behave as part of a single up-to-date order.",
-      "ar": "الاتساق الخطي والتوافر؛ فلا يمكن ضمان أن تكتمل كل عملية لدى عقدة سليمة، وأن تتصرف في الوقت نفسه ضمن ترتيب واحد محدّث للعمليات دائماً."
+      "en": "Consistency and availability: while the network is split, the system must give up one of them.",
+      "ar": "الاتساق والتوافر؛ فأثناء انقسام الشبكة لا بد من التضحية بأحدهما."
     },
     "review": {
       "status": "pending"
@@ -804,7 +804,7 @@
   },
   {
     "id": "software-and-computing-036",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Computer Science",
       "ar": "علوم الحاسب"
@@ -814,8 +814,8 @@
       "ar": "شو الفرق بين مسائل P وNP وNP-complete؟"
     },
     "answer": {
-      "en": "P: problems solvable in polynomial time. NP: problems where a proposed solution can be verified in polynomial time (but may not be solvable that fast). NP-complete: the hardest NP problems — every NP problem reduces to them in polynomial time. Whether P = NP is the most famous unsolved problem in computer science.",
-      "ar": "P: مسائل قابلة للحل في وقت كثيرحدي. NP: مسائل يمكن التحقق من حل مقترح لها في وقت كثيرحدي (لكن قد لا تُحلّ بهذه السرعة). NP-complete: أصعب مسائل NP — كل مسألة NP تُختزل إليها في وقت كثيرحدي. هل P = NP؟ هي أشهر مسألة غير محلولة في علوم الحاسب."
+      "en": "P: problems solvable in polynomial time. NP: problems whose proposed solution can be verified in polynomial time. NP-complete: the hardest NP problems; every NP problem reduces to them. Whether P = NP is unsolved.",
+      "ar": "P: مسائل تُحل في زمن كثير حدود. NP: مسائل يمكن التحقق من الحل المقترح لها في زمن كثير حدود. NP-complete: أصعب مسائل NP، وكل مسألة NP تُختزل إليها. وسؤال هل P = NP ما زال بلا حل."
     },
     "review": {
       "status": "pending"
@@ -1088,8 +1088,8 @@
       "ar": "ليش الإضافة بآخر مصفوفة ديناميكية تضاعف سعتها لما تمتلي تكلّف O(1) بالتكلفة الموزّعة؟"
     },
     "answer": {
-      "en": "Across n appends, resize-copy costs form a geometric sum 1+2+4+...=O(n). Including ordinary appends gives total O(n), hence O(1) amortized per append.",
-      "ar": "عبر n إضافات، تشكل تكاليف النسخ عند التوسيع مجموعاً هندسياً1+2+4+...=O(n). وبإضافة الكلفة المعتادة يبقى المجموع O(n)، أي O(1) موزعة لكل إضافة."
+      "en": "Across n appends, resize-copy costs form a geometric sum 1+2+4+... = O(n). Including ordinary appends gives total O(n), hence O(1) amortized per append.",
+      "ar": "عبر n إضافة، تشكّل تكاليف النسخ عند التوسيع مجموعاً هندسياً 1+2+4+... = O(n). ومع الكلفة المعتادة للإضافات يبقى المجموع O(n)، أي O(1) موزّعة لكل إضافة."
     },
     "review": {
       "status": "pending"
@@ -1097,7 +1097,7 @@
   },
   {
     "id": "software-and-computing-049",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Systems & Networking",
       "ar": "الأنظمة والشبكات"
@@ -1107,7 +1107,7 @@
       "ar": "في مخزن دائري سعته ثابتة، شو يصير للفهرس اللي بعده منطقيًا بعد آخر مكان بالمصفوفة؟"
     },
     "answer": {
-      "en": "It wraps to index 0, commonly computed as(next index) mod capacity. Full and empty states must be tracked separately.",
+      "en": "It wraps around to index 0, usually computed as (index + 1) mod capacity. Full and empty states must be tracked separately.",
       "ar": "يعود إلى الفهرس 0، ويُحسب عادةً بباقي قسمة الفهرس التالي على السعة. ويجب تتبع حالتي الامتلاء والفراغ بصورة منفصلة."
     },
     "review": {

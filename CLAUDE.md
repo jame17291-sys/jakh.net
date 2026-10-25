@@ -45,7 +45,7 @@ Riddle Arabia is unrelated to the owner's JAKH ERP/Odoo project.
 - All public practice questions and difficulty levels are free to guests. Accounts are optional.
   Do not add guest question limits, difficulty paywalls, paid services, paid tiers or external
   speech APIs without an owner decision. Hosting stays zero-cost.
-- Already built (do not re-propose as new): 51 public categories, Quick Fire, server-checked
+- Already built (do not re-propose as new): 48 public topics (merged from 51 on 25 Oct 2026), Quick Fire, server-checked
   scoring, leaderboard, Battle rooms, Kids Learning & Play (480 activities), Akshifha, puzzle and
   word games, board games, Most Likely To, How Well Do You Know Me, Friendship Court, Panic Mode,
   Secret Word Impostor, accounts/privacy, admin workspace with Content Studio and Autopilot.

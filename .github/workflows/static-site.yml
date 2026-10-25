@@ -239,6 +239,9 @@ jobs:
           JAKH_SITE_ROOT: ${{ github.workspace }}/site-worker/dist
           JAKH_SITE_MANIFEST: ${{ github.workspace }}/site-worker/generated/site-manifest.json
           JAKH_BROWSER_MATRIX_DIAGNOSTICS: ${{ runner.temp }}/jakh-site-release/browser-matrix-diagnostics.json
+          # Raise each failing engine/suite as a check-run annotation, readable
+          # through the API when the job log and artifacts are not.
+          JAKH_BROWSER_ANNOTATE: "1"
         run: npm run test:browser:matrix
 
       - name: Print browser matrix diagnostics

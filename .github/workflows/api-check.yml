@@ -198,6 +198,10 @@ jobs:
           done
           node scripts/validate-game-responsive.mjs
       - name: Run browser regression suite
+        env:
+          # Raise a failing suite as a check-run annotation (readable through
+          # the API without downloading the job log).
+          JAKH_BROWSER_ANNOTATE: "1"
         run: npm run test:browser
       - name: Validate the bilingual admin workspace with isolated test data
         run: |

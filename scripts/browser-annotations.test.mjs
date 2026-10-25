@@ -5,8 +5,9 @@ import test from "node:test";
 import { pathToFileURL } from "node:url";
 
 import {
+  ANNOTATION_HEAD_LINES,
   ANNOTATION_MESSAGE_LIMIT,
-  ANNOTATION_MESSAGE_LINES,
+  ANNOTATION_TAIL_LINES,
   browserAnnotationsEnabled,
   describeBrowserError,
   escapeAnnotationData,
@@ -87,7 +88,7 @@ test("long messages are cut by whole characters and stay within the annotation l
   assert.ok(properties.title.endsWith("…"));
 });
 
-test("only the first lines of a message are kept", () => {
+test("long messages keep their first and last lines", () => {
   const lines = Array.from({ length: 20 }, (_, index) => `line ${index + 1}`);
   const { message } = parse(formatBrowserFailureAnnotation({
     engine: "chromium",
@@ -95,9 +96,34 @@ test("only the first lines of a message are kept", () => {
     failure: { name: "TimeoutError", message: lines.join("\n") },
   }));
   const kept = unescapeData(message).split("\n");
-  assert.equal(kept.length, 1 + ANNOTATION_MESSAGE_LINES);
-  assert.equal(kept[1], "TimeoutError: line 1");
-  assert.equal(kept.at(-1), `line ${ANNOTATION_MESSAGE_LINES}`);
+  assert.deepEqual(kept.slice(1), [
+    "TimeoutError: line 1",
+    ...lines.slice(1, ANNOTATION_HEAD_LINES),
+    `[${20 - ANNOTATION_HEAD_LINES - ANNOTATION_TAIL_LINES} more lines]`,
+    ...lines.slice(-ANNOTATION_TAIL_LINES),
+  ]);
+  const short = Array.from({ length: ANNOTATION_HEAD_LINES + ANNOTATION_TAIL_LINES }, (_, index) => `step ${index + 1}`);
+  assert.deepEqual(unescapeData(parse(formatBrowserFailureAnnotation({ engine: "webkit", suite: "s", failure: { name: "Error", message: short.join("\n") } })).message).split("\n").slice(1), short);
+});
+
+test("a long head never pushes the call-log tail or expected/actual out of the limit", () => {
+  const callLog = [
+    "locator.click: Timeout 60000ms exceeded.",
+    "Call log:",
+    ...Array.from({ length: 30 }, () => `  - ${"waiting for element to be visible, enabled and stable ".repeat(4)}`),
+    "  - element is not stable",
+    "  - retrying click action, attempt #57",
+  ];
+  const timeout = parse(formatBrowserFailureAnnotation({ engine: "webkit", suite: "S".repeat(150), failure: { name: "TimeoutError", message: callLog.join("\n") } }));
+  assert.ok(timeout.message.length <= ANNOTATION_MESSAGE_LIMIT, String(timeout.message.length));
+  assert.match(unescapeData(timeout.message), /- element is not stable\n {2}- retrying click action, attempt #57$/u);
+  const assertion = parse(formatBrowserFailureAnnotation({
+    engine: "firefox",
+    suite: "s",
+    failure: { name: "AssertionError", assertion: true, generatedMessage: false, operator: "deepStrictEqual", message: "x".repeat(3_000), expected: '"wanted"', actual: '"got"' },
+  }));
+  assert.ok(assertion.message.length <= ANNOTATION_MESSAGE_LIMIT);
+  assert.match(unescapeData(assertion.message), /…\nExpected: "wanted"\nActual: "got"$/u);
 });
 
 test("assertion failures report the source line, expected and actual values", () => {

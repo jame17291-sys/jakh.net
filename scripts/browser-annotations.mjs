@@ -12,7 +12,8 @@ import { fileURLToPath } from "node:url";
 
 export const ANNOTATION_MESSAGE_LIMIT = 900;
 export const ANNOTATION_TITLE_LIMIT = 200;
-export const ANNOTATION_MESSAGE_LINES = 6;
+export const ANNOTATION_HEAD_LINES = 5;
+export const ANNOTATION_TAIL_LINES = 3;
 const VALUE_LIMIT = 240;
 const ELLIPSIS = "…";
 
@@ -109,7 +110,9 @@ export function describeBrowserError(error, { repositoryRoot } = {}) {
   return record;
 }
 
-function errorLines(failure) {
+// A long error (such as a Playwright call log) keeps its first lines and its
+// last lines: the action that failed and the latest retry reason.
+function errorParts(failure) {
   const all = String(failure?.message || "").split(/\r?\n/u).map((line) => line.trimEnd());
   let lines = all.filter((line) => line.trim());
   if (failure?.assertion && failure.operator !== "==") {
@@ -119,27 +122,44 @@ function errorLines(failure) {
     const end = all.findIndex((line) => !line.trim() || /^\+ actual - expected\b/u.test(line));
     lines = (end < 0 ? all : all.slice(0, end)).filter((line) => line.trim());
   }
-  const kept = lines.slice(0, ANNOTATION_MESSAGE_LINES);
-  if (kept.length && failure?.name && !kept[0].startsWith(failure.name) && failure.name !== "Error") {
-    kept[0] = `${failure.name}: ${kept[0]}`;
+  if (lines.length && failure?.name && !lines[0].startsWith(failure.name) && failure.name !== "Error") {
+    lines[0] = `${failure.name}: ${lines[0]}`;
   }
-  if (!kept.length) kept.push(failure?.name || "Unknown failure");
-  if (failure?.assertion) {
-    kept.push(`Expected: ${failure.expected}`, `Actual: ${failure.actual}`);
+  if (!lines.length) lines.push(failure?.name || "Unknown failure");
+  let head = lines;
+  const tail = [];
+  if (lines.length > ANNOTATION_HEAD_LINES + ANNOTATION_TAIL_LINES) {
+    head = lines.slice(0, ANNOTATION_HEAD_LINES);
+    tail.push(`[${lines.length - ANNOTATION_HEAD_LINES - ANNOTATION_TAIL_LINES} more lines]`, ...lines.slice(-ANNOTATION_TAIL_LINES));
   }
-  return kept;
+  if (failure?.assertion) tail.push(`Expected: ${failure.expected}`, `Actual: ${failure.actual}`);
+  return { head, tail };
+}
+
+// Fits head and tail into the limit together, so a long head never pushes
+// the latest retry reason or the expected/actual values out of the message.
+function fitMessage(head, tail, limit = ANNOTATION_MESSAGE_LIMIT) {
+  const headText = head.join("\n");
+  if (!tail.length) return fitEscaped(headText, limit);
+  const separator = escapeAnnotationData("\n");
+  const tailText = tail.join("\n");
+  const headLength = escapeAnnotationData(headText).length;
+  const tailLength = escapeAnnotationData(tailText).length;
+  const tailBudget = Math.min(tailLength, Math.max(Math.floor(limit / 2), limit - separator.length - headLength));
+  const fittedTail = fitEscaped(tailText, tailBudget);
+  return `${fitEscaped(headText, limit - separator.length - fittedTail.length)}${separator}${fittedTail}`;
 }
 
 function attemptLabel(attempt, attempts) {
   return `attempt ${attempt}/${attempts}`;
 }
 
-function workflowCommand(level, { title, file, line }, message) {
+function workflowCommand(level, { title, file, line }, escapedMessage) {
   const properties = [];
   if (file) properties.push(`file=${escapeAnnotationProperty(file)}`);
   if (file && Number.isInteger(line) && line > 0) properties.push(`line=${line}`);
   properties.push(`title=${fitEscaped(title, ANNOTATION_TITLE_LIMIT, escapeAnnotationProperty)}`);
-  return `::${level} ${properties.join(",")}::${fitEscaped(message, ANNOTATION_MESSAGE_LIMIT)}`;
+  return `::${level} ${properties.join(",")}::${escapedMessage}`;
 }
 
 export function suiteLabel(suite) {
@@ -159,11 +179,12 @@ export function formatBrowserFailureAnnotation({
 } = {}) {
   const where = failure.location ? ` (${failure.location.file}:${failure.location.line})` : "";
   const headline = `${engine} ${attemptLabel(attempt, attempts)} failed in "${suiteLabel(suite)}"${where}.${note ? ` ${note}` : ""}`;
+  const { head, tail } = errorParts(failure);
   return workflowCommand(level, {
     title: `${prefix} - ${engine} - ${suiteLabel(suite)}`,
     file: failure.location?.file,
     line: failure.location?.line,
-  }, [headline, ...errorLines(failure)].join("\n"));
+  }, fitMessage([headline, ...head], tail));
 }
 
 // WebKit's transport restarts are bounded. When every restart still ends in a
@@ -171,10 +192,10 @@ export function formatBrowserFailureAnnotation({
 export function formatTransportRetryAnnotation({ prefix = "Browser matrix", engine, attempts = [] } = {}) {
   const lines = [`${engine} failed after ${attempts.length} attempts; earlier attempts lost the browser connection and were restarted.`];
   for (const result of attempts) {
-    const first = errorLines(result.failure || {})[0];
+    const first = errorParts(result.failure || {}).head[0];
     lines.push(`Attempt ${result.attempt}: "${suiteLabel(result.suite)}" - ${shorten(first, 200)}`);
   }
-  return workflowCommand("error", { title: `${prefix} - ${engine} - transport retries exhausted` }, lines.join("\n"));
+  return workflowCommand("error", { title: `${prefix} - ${engine} - transport retries exhausted` }, fitMessage(lines, []));
 }
 
 // Used when the child process ended without writing its failure record (for
@@ -186,7 +207,7 @@ export function failureFromOutput(output, { exitCode = null, signal = null } = {
     const match = /^FAIL (.+?)(?: \(\d+ms\))?$/u.exec(line);
     if (match) suite = match[1];
   }
-  const tail = lines.filter((line) => !/^\s+at /u.test(line)).slice(-ANNOTATION_MESSAGE_LINES);
+  const tail = lines.filter((line) => !/^\s+at /u.test(line)).slice(-(ANNOTATION_HEAD_LINES + ANNOTATION_TAIL_LINES));
   const ending = signal ? `Process ended by signal ${signal}.` : `Process exited with code ${exitCode ?? "unknown"}.`;
   return {
     suite,

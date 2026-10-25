@@ -245,6 +245,13 @@ jobs:
         run: npm run build:site
       - name: Install Playwright browser matrix
         run: ./node_modules/.bin/playwright install --with-deps chromium firefox webkit
+      - name: Run WebKit alone first (fast diagnosis)
+        env:
+          JAKH_SITE_ROOT: ${{ github.workspace }}/site-worker/dist
+          JAKH_SITE_MANIFEST: ${{ github.workspace }}/site-worker/generated/site-manifest.json
+          JAKH_BROWSER_ENGINE: webkit
+          JAKH_BROWSER_ANNOTATE: "1"
+        run: npm run test:browser
       - name: Validate browser matrix
         env:
           JAKH_SITE_ROOT: ${{ github.workspace }}/site-worker/dist

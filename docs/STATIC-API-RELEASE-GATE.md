@@ -32,6 +32,10 @@ The static workflow runs three jobs in order:
    the exact candidate (static assets, generated Worker manifest, candidate
    receipts and the inventoried API dry-run bundle) into one deterministic archive.
    It publishes the archive's SHA-256, the build ID and the inventory SHA as job outputs.
+   A failing browser engine is raised as a check-run annotation titled
+   `Browser matrix - <engine> - <suite>` (engine, attempt, source line, the
+   first and last lines of the error, expected/actual). Read it without the job
+   log with `gh api repos/<owner>/<repo>/check-runs/<job id>/annotations`.
 3. `release` is the only job in the `production` (or reserved
    `autopilot-production`) environment, so a manual release needs one approval.
    The approval is requested after the build has passed. Before any credential

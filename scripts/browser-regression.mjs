@@ -1,10 +1,11 @@
 import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
-import { readFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium, firefox, webkit } from "playwright";
 
+import { browserAnnotationsEnabled, describeBrowserError, formatBrowserFailureAnnotation } from "./browser-annotations.mjs";
 import { startBrowserSite } from "./local-browser-site.mjs";
 import { CASES as AKSHIFHA_CASES } from "../akshifha-cases.js";
 import { AKSHIFHA_UI } from "../akshifha-copy.js";
@@ -378,11 +379,33 @@ function assertInsideViewport(rect, viewport, label) {
 }
 
 let completedSuites = 0;
+let failedSuite = null;
 async function runTest(name, callback) {
   const started = performance.now();
-  await callback();
+  try {
+    await callback();
+  } catch (error) {
+    // Name the failing suite in the log and in the failure record; the run
+    // still stops at the first failure.
+    failedSuite = name;
+    console.error(`FAIL ${name} (${Math.round(performance.now() - started)}ms)`);
+    throw error;
+  }
   completedSuites++;
   console.log(`PASS ${name} (${Math.round(performance.now() - started)}ms)`);
+}
+
+// The matrix runner passes JAKH_BROWSER_FAILURE_REPORT and decides whether a
+// failed attempt is retried or annotated. A direct run annotates by itself.
+async function recordFailure(error) {
+  const suite = failedSuite || (completedSuites === 0 ? "setup" : "teardown");
+  const failure = describeBrowserError(error, { repositoryRoot: REPOSITORY_ROOT });
+  const reportPath = process.env.JAKH_BROWSER_FAILURE_REPORT;
+  if (reportPath) {
+    await writeFile(reportPath, `${JSON.stringify({ engine: BROWSER_ENGINE, suite, completedSuites, failure }, null, 2)}\n`);
+  } else if (browserAnnotationsEnabled()) {
+    console.log(formatBrowserFailureAnnotation({ prefix: "Browser regression", engine: BROWSER_ENGINE, suite, failure }));
+  }
 }
 
 async function main() {
@@ -401,7 +424,15 @@ async function main() {
   const executablePath = BROWSER_ENGINE === "chromium"
     ? configuredExecutable || (existsSync(macChrome) ? macChrome : undefined)
     : undefined;
-  const browser = await BROWSER_ENGINES[BROWSER_ENGINE].launch({ headless: true, executablePath });
+  let browser;
+  try {
+    browser = await BROWSER_ENGINES[BROWSER_ENGINE].launch({ headless: true, executablePath });
+  } catch (error) {
+    // The listening site server would otherwise keep a failed run alive
+    // until the job timeout instead of reporting the launch failure.
+    await server.close();
+    throw error;
+  }
 
   try {
     await runTest("topic and game directories retain exclusive artwork after interactive rendering", async () => {
@@ -1455,7 +1486,7 @@ async function main() {
 try {
   await main();
 } catch (error) {
-  console.error("\nBrowser regression failed");
+  console.error(`\nBrowser regression failed${failedSuite ? ` in suite: ${failedSuite}` : ""}`);
   console.error(error?.stack || error);
   for (const [label, value] of [["Actual", error?.actual], ["Expected", error?.expected]]) {
     if (value === undefined) continue;
@@ -1466,4 +1497,9 @@ try {
     }
   }
   process.exitCode = 1;
+  try {
+    await recordFailure(error);
+  } catch (reportError) {
+    console.error(`Could not record the browser failure: ${reportError?.message || reportError}`);
+  }
 }

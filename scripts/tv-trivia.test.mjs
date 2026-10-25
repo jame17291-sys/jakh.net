@@ -52,7 +52,7 @@ test('every show keeps a flexible bank of 30 to 80 unique, bilingual, playable q
 });
 test('authored content is complete and never fabricates formal editorial signoff', () => {
   assert.equal(cards.filter(isPrepared).length, cards.length);
-  assert.equal(eligibleCards(cards).length, 452);
+  assert.equal(eligibleCards(cards).length, 212);
   for (const c of cards.filter(isPrepared)) {
     assert.equal(c.review.status, 'pending');
     assert.ok(c.tvQuiz.explanation.en.length > 20);
@@ -85,7 +85,11 @@ test('each show plays floor(n/10) complete rounds without repeating any of its n
 
 test('any bank of 30 to 80 questions never repeats a question within floor(n/10) consecutive rounds', () => {
   const show = SHOWS.find(s => s.id === 'maraya');
-  const full = bankOf(show);
+  // No show holds 80 questions any more, so banks larger than Maraya's are
+  // synthesised from its prepared cards under fresh ids.
+  const source = bankOf(show);
+  const full = Array.from({ length: MAX_SHOW_BANK }, (_, i) => ({ ...structuredClone(source[i % source.length]), id: `synthetic-${String(i + 1).padStart(3, '0')}` }));
+  assert.ok(full.every(isPrepared));
   for (const size of [30, 34, 35, 40, 41, 55, 59, 79, 80]) {
     const bank = full.slice(0, size);
     const window = roundsFor(size);
@@ -292,7 +296,7 @@ test('practice preserves the reader’s place through pagination and filtered ca
       document = { body, activeElement: body, getElementById: id => id === 'tvTrivia' ? root : null,
         createElement: () => node(), querySelector: () => null, addEventListener() {} };
       Object.assign(globalThis, { document, window: { addEventListener() {} },
-        location: new URL('https://riddlearabia.com/tv-shows-trivia?sub=Friends#practice'),
+        location: new URL('https://riddlearabia.com/tv-shows-trivia?sub=Maraya#practice'),
         history: { replaceState() {} }, matchMedia: () => ({ matches: false }), CSS: { escape: value => value } });
       let markup = '';
       Object.defineProperty(root, 'innerHTML', { get: () => markup, set(value) {
@@ -323,7 +327,9 @@ test('practice preserves the reader’s place through pagination and filtered ca
       };
       const filter = value => root.listeners.change({ target: { id: 'tvProgress', value } });
       assert.equal(root.articles.length, 12);
-      const pool = eligibleCards(cards, 'friends');
+      // Maraya's spoiler-free pool (30 cards) spans two full pages and a partial third.
+      const pool = eligibleCards(cards, 'maraya');
+      assert.ok(pool.length > 24 && pool.length < 36);
       await click('more-practice');
       assert.equal(root.articles.length, 24);
       assert.equal(document.activeElement, root.articles[12].heading, `${lang}: first newly added question receives focus`);

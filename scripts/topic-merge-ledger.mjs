@@ -73,10 +73,13 @@ export function cardBeforeMerge(ledger, id, current) {
 // progress, favourites and Content Studio rows keep the topic recorded when
 // they were written, so the API uses this to recognise them after a move; the
 // static edge uses it to send a shared card link to the card's current topic.
-export function cardMoveHistory(ledger) {
+// Cards a later pass removed (`laterRemoved`, a set of ids) have no current
+// topic and are left out.
+export function cardMoveHistory(ledger, laterRemoved = new Set()) {
   const formerCategories = {};
   const currentCategories = {};
   for (const move of [...ledger.moved].sort((left, right) => left.id.localeCompare(right.id))) {
+    if (laterRemoved.has(move.id)) continue;
     formerCategories[move.id] = [...new Set([...(formerCategories[move.id] || []), move.from])];
     currentCategories[move.id] = move.to;
   }

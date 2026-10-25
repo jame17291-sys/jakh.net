@@ -2,17 +2,17 @@
   {
     "id": "fut-1",
     "subcategory": {
-      "en": "AI & Machine Learning",
-      "ar": "الذكاء الاصطناعي وتعلم الآلة"
+      "en": "Energy & Power Systems",
+      "ar": "الطاقة وأنظمة القدرة"
     },
     "difficulty": "easy",
     "question": {
-      "en": "What does 'AI' stand for in technology?",
-      "ar": "إلى ماذا يرمز اختصار «AI» في التكنولوجيا؟"
+      "en": "A hydrogen fuel-cell car gives off only one thing from its exhaust pipe. What is it?",
+      "ar": "لا يخرج من عادم سيارة خلايا الوقود الهيدروجينية إلا شيء واحد. ما هو؟"
     },
     "answer": {
-      "en": "Artificial Intelligence",
-      "ar": "الذكاء الاصطناعي"
+      "en": "Water (as vapour).",
+      "ar": "الماء (على شكل بخار)."
     },
     "review": {
       "status": "pending"
@@ -26,12 +26,12 @@
     },
     "difficulty": "easy",
     "question": {
-      "en": "What is a programmable machine that performs physical tasks, often using sensors and actuators, commonly called?",
-      "ar": "ماذا تُسمّى عادةً الآلة القابلة للبرمجة التي تؤدي مهام مادية، وغالباً تستخدم حساسات ومشغّلات؟"
+      "en": "Which word, first used for artificial workers in Karel Čapek's 1920 Czech play R.U.R., now names machines that do physical tasks?",
+      "ar": "أي كلمة ظهرت أول مرة لوصف العمال الصناعيين في مسرحية «R.U.R.» التشيكية لكارل تشابيك عام 1920، وأصبحت اليوم اسمًا للآلات التي تؤدي مهام حركية؟"
     },
     "answer": {
-      "en": "A robot.",
-      "ar": "روبوت."
+      "en": "Robot (from Czech 'robota', forced labour).",
+      "ar": "روبوت (من الكلمة التشيكية robota، أي السخرة)."
     },
     "review": {
       "status": "pending"
@@ -97,17 +97,17 @@
   {
     "id": "fut-6",
     "subcategory": {
-      "en": "Computing & Security",
-      "ar": "الحوسبة والأمن"
+      "en": "Energy & Power Systems",
+      "ar": "الطاقة وأنظمة القدرة"
     },
     "difficulty": "easy",
     "question": {
-      "en": "What is cloud computing?",
-      "ar": "ما الحوسبة السحابية؟"
+      "en": "Why do solar farms in desert countries like the UAE clean their panels so often, sometimes with robots?",
+      "ar": "لماذا تنظّف محطات الطاقة الشمسية في الدول الصحراوية مثل الإمارات ألواحها كثيرًا، وأحيانًا بالروبوتات؟"
     },
     "answer": {
-      "en": "On-demand access to shared computing resources, such as processing, storage and applications, delivered over a network.",
-      "ar": "الوصول عند الطلب إلى موارد حوسبة مشتركة، مثل المعالجة والتخزين والتطبيقات، عبر شبكة."
+      "en": "Dust and sand block sunlight and cut power output.",
+      "ar": "لأن الغبار والرمل يحجبان ضوء الشمس ويقللان إنتاج الكهرباء."
     },
     "review": {
       "status": "pending"
@@ -135,17 +135,17 @@
   {
     "id": "fut-8",
     "subcategory": {
-      "en": "Connected & Immersive Tech",
-      "ar": "التقنيات المتصلة والغامرة"
+      "en": "Energy & Power Systems",
+      "ar": "الطاقة وأنظمة القدرة"
     },
-    "difficulty": "easy",
+    "difficulty": "hard",
     "question": {
-      "en": "Name one type of wrist-worn device that can count steps and measure heart rate.",
-      "ar": "اذكر نوعاً واحداً من الأجهزة التي تُلبس على المعصم ويمكنها عدّ الخطوات وقياس معدل ضربات القلب."
+      "en": "Morocco's huge Noor solar complex near Ouarzazate keeps making electricity after sunset. What does it store the Sun's heat in?",
+      "ar": "يواصل مجمّع «نور» الشمسي الضخم قرب ورزازات في المغرب إنتاج الكهرباء بعد غروب الشمس. في أيّ مادة يخزّن حرارة الشمس؟"
     },
     "answer": {
-      "en": "A smartwatch or a fitness tracker.",
-      "ar": "ساعة ذكية أو سوار لتتبّع اللياقة."
+      "en": "Molten salt.",
+      "ar": "الملح المنصهر."
     },
     "review": {
       "status": "pending"
@@ -230,17 +230,17 @@
   {
     "id": "fut-13",
     "subcategory": {
-      "en": "Connected & Immersive Tech",
-      "ar": "التقنيات المتصلة والغامرة"
+      "en": "Energy & Power Systems",
+      "ar": "الطاقة وأنظمة القدرة"
     },
-    "difficulty": "medium",
+    "difficulty": "hard",
     "question": {
-      "en": "What does the 'Internet of Things' (IoT) refer to?",
-      "ar": "إلى ماذا يشير «إنترنت الأشياء» (IoT)؟"
+      "en": "What is it called when farmers grow crops in the shade of raised solar panels on the same land?",
+      "ar": "ما اسم الطريقة التي يزرع فيها المزارعون المحاصيل في ظل ألواح شمسية مرفوعة، على الأرض نفسها؟"
     },
     "answer": {
-      "en": "The network of physical objects connected to the internet",
-      "ar": "شبكة الأشياء المادية المتصلة بالإنترنت"
+      "en": "Agrivoltaics.",
+      "ar": "الزراعة الكهروضوئية (Agrivoltaics)."
     },
     "review": {
       "status": "pending"
@@ -518,14 +518,14 @@
       "en": "Energy & Power Systems",
       "ar": "الطاقة وأنظمة القدرة"
     },
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "question": {
       "en": "What distinguishes a solid-state transformer from a conventional power-frequency transformer?",
       "ar": "ما الذي يميز محول الحالة الصلبة عن محول تردد القدرة التقليدي؟"
     },
     "answer": {
-      "en": "It uses power-electronic switching and a high-frequency transformer to provide controlled voltage conversion, often with bidirectional power flow and grid-support functions.",
-      "ar": "يستخدم مفاتيح إلكترونيات القدرة ومحولاً عالي التردد للتحكم في تحويل الجهد، وغالباً يتيح تدفق القدرة ثنائي الاتجاه ووظائف دعم الشبكة."
+      "en": "It uses power electronics and a high-frequency transformer for controlled, two-way power flow.",
+      "ar": "يستخدم إلكترونيات القدرة ومحولاً عالي التردد، فيتيح التحكم في الجهد وتدفق القدرة في الاتجاهين."
     },
     "review": {
       "status": "pending"
@@ -534,17 +534,17 @@
   {
     "id": "fut-29",
     "subcategory": {
-      "en": "AI & Machine Learning",
-      "ar": "الذكاء الاصطناعي وتعلم الآلة"
+      "en": "Energy & Power Systems",
+      "ar": "الطاقة وأنظمة القدرة"
     },
     "difficulty": "hard",
     "question": {
-      "en": "In Turing's imitation game, what does a judge try to distinguish through written conversation?",
-      "ar": "في لعبة التقليد عند تورنغ، ماذا يحاول الحكم التمييز بينه عبر محادثة مكتوبة؟"
+      "en": "The 2019 Nobel Prize in Chemistry honoured the development of which rechargeable battery found in phones and electric cars?",
+      "ar": "كرّمت جائزة نوبل للكيمياء عام 2019 تطوير أيّ بطارية قابلة للشحن موجودة في الهواتف والسيارات الكهربائية؟"
     },
     "answer": {
-      "en": "A human respondent and a machine. Success in the game does not by itself prove every form of intelligence.",
-      "ar": "مجيب بشري وآلة. ولا يثبت النجاح في اللعبة وحده امتلاك جميع أشكال الذكاء."
+      "en": "The lithium-ion battery.",
+      "ar": "بطارية أيونات الليثيوم."
     },
     "review": {
       "status": "pending"
@@ -710,12 +710,12 @@
     },
     "difficulty": "very-advanced",
     "question": {
-      "en": "What is transferred in somatic cell nuclear transfer (SCNT)?",
-      "ar": "ما الذي يُنقل في تقنية نقل نواة الخلية الجسدية؟"
+      "en": "Dolly the sheep, born in 1996, was the first mammal cloned from an adult cell. Which technique was used?",
+      "ar": "كانت النعجة دولي، التي وُلدت عام 1996، أول حيوان ثديي يُستنسخ من خلية بالغة. ما التقنية التي استُخدمت؟"
     },
     "answer": {
-      "en": "A somatic-cell nucleus is placed into an egg whose nucleus has been removed; successful embryo development is not guaranteed.",
-      "ar": "تُوضع نواة خلية جسدية في بويضة أُزيلت نواتها؛ ولا يُضمن نجاح تطور الجنين."
+      "en": "Somatic cell nuclear transfer.",
+      "ar": "نقل نواة الخلية الجسدية."
     },
     "review": {
       "status": "pending"
@@ -724,17 +724,17 @@
   {
     "id": "fut-39",
     "subcategory": {
-      "en": "Computing & Security",
-      "ar": "الحوسبة والأمن"
+      "en": "Energy & Power Systems",
+      "ar": "الطاقة وأنظمة القدرة"
     },
     "difficulty": "very-advanced",
     "question": {
-      "en": "What carries information in optical computing?",
-      "ar": "ما الذي يحمل المعلومات في الحوسبة الضوئية؟"
+      "en": "In tokamak fusion reactors such as ITER, what keeps plasma at about 150 million °C from touching the walls?",
+      "ar": "في مفاعلات الاندماج من نوع توكاماك مثل ITER، ما الذي يمنع البلازما التي تبلغ حرارتها نحو 150 مليون درجة من ملامسة الجدران؟"
     },
     "answer": {
-      "en": "Light, through photons. Systems may be digital, analog or hybrid.",
-      "ar": "الضوء عبر الفوتونات. وقد تكون الأنظمة رقمية أو تماثلية أو هجينة."
+      "en": "Powerful magnetic fields.",
+      "ar": "مجالات مغناطيسية قوية."
     },
     "review": {
       "status": "pending"

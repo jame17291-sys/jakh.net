@@ -11,8 +11,8 @@
     },
     "difficulty": "easy",
     "subcategory": {
-      "en": "Serial Killers & Unsolved Cases",
-      "ar": "القتلة المتسلسلون والقضايا الغامضة"
+      "en": "Unsolved Cases & Mysteries",
+      "ar": "القضايا الغامضة والألغاز"
     },
     "review": {
       "status": "pending"
@@ -87,8 +87,8 @@
     },
     "difficulty": "easy",
     "subcategory": {
-      "en": "Serial Killers & Unsolved Cases",
-      "ar": "القتلة المتسلسلون والقضايا الغامضة"
+      "en": "Unsolved Cases & Mysteries",
+      "ar": "القضايا الغامضة والألغاز"
     },
     "review": {
       "status": "pending"
@@ -144,8 +144,8 @@
     },
     "difficulty": "easy",
     "subcategory": {
-      "en": "Cults & Mass Crimes",
-      "ar": "الطوائف والجرائم الجماعية"
+      "en": "Famous Trials & Frauds",
+      "ar": "محاكمات شهيرة واحتيال"
     },
     "review": {
       "status": "pending"
@@ -154,17 +154,17 @@
   {
     "id": "true-crime-9",
     "question": {
-      "en": "Which Colombian drug trafficker led the Medellín cartel?",
-      "ar": "أي تاجر مخدرات كولومبي قاد كارتل ميديلين؟"
+      "en": "Which con man 'sold' the Eiffel Tower to a scrap-metal dealer in 1925?",
+      "ar": "مَن المحتال الذي «باع» برج إيفل لتاجر خردة عام 1925؟"
     },
     "answer": {
-      "en": "Pablo Escobar.",
-      "ar": "بابلو إسكوبار."
+      "en": "Victor Lustig.",
+      "ar": "فيكتور لوستيغ."
     },
-    "difficulty": "easy",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "Organized Crime & Outlaws",
-      "ar": "الجريمة المنظمة والخارجون عن القانون"
+      "en": "Famous Trials & Frauds",
+      "ar": "محاكمات شهيرة واحتيال"
     },
     "review": {
       "status": "pending"
@@ -211,17 +211,17 @@
   {
     "id": "true-crime-12",
     "question": {
-      "en": "What cipher-using killer terrorized Northern California in the late 1960s?",
-      "ar": "ما هو القاتل الذي استخدم الشفرات وأرهب شمال كاليفورنيا في أواخر الستينيات؟"
+      "en": "In 1892, Argentine police officer Juan Vucetich helped solve a murder using which kind of evidence, in one of the world's first such cases?",
+      "ar": "عام 1892، ساعد الشرطي الأرجنتيني خوان فوسيتيتش في حل جريمة قتل باستخدام أيّ نوع من الأدلة، في واحدة من أوائل القضايا من نوعها في العالم؟"
     },
     "answer": {
-      "en": "The Zodiac Killer",
-      "ar": "زودياك السفاح"
+      "en": "Fingerprints.",
+      "ar": "البصمات."
     },
     "difficulty": "medium",
     "subcategory": {
-      "en": "Serial Killers & Unsolved Cases",
-      "ar": "القتلة المتسلسلون والقضايا الغامضة"
+      "en": "Forensic Science",
+      "ar": "علوم الأدلة الجنائية"
     },
     "review": {
       "status": "pending"
@@ -237,7 +237,7 @@
       "en": "Luminol",
       "ar": "اللومينول"
     },
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Forensic Science",
       "ar": "علوم الأدلة الجنائية"
@@ -256,7 +256,7 @@
       "en": "Lindbergh kidnapping",
       "ar": "اختطاف ليندبيرغ"
     },
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Heists, Kidnappings & Prisons",
       "ar": "السرقات والخطف والسجون"
@@ -268,17 +268,17 @@
   {
     "id": "true-crime-15",
     "question": {
-      "en": "Which Italian-American Mafia family was John Gotti the boss of?",
-      "ar": "أي عائلة مافيا إيطالية أمريكية كان جون جوتي زعيماً لها؟"
+      "en": "Ancient Egyptian papyri record an official investigation into robbed royal tombs at Thebes in the reign of which pharaoh?",
+      "ar": "توثّق برديات مصرية قديمة تحقيقًا رسميًا في سرقة مقابر ملكية في طيبة. في عهد أيّ فرعون جرى هذا التحقيق؟"
     },
     "answer": {
-      "en": "The Gambino family",
-      "ar": "عائلة غامبينو"
+      "en": "Ramesses IX.",
+      "ar": "رمسيس التاسع."
     },
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Organized Crime & Outlaws",
-      "ar": "الجريمة المنظمة والخارجون عن القانون"
+      "en": "Famous Trials & Frauds",
+      "ar": "محاكمات شهيرة واحتيال"
     },
     "review": {
       "status": "pending"
@@ -372,8 +372,8 @@
     },
     "difficulty": "medium",
     "subcategory": {
-      "en": "Cults & Mass Crimes",
-      "ar": "الطوائف والجرائم الجماعية"
+      "en": "Unsolved Cases & Mysteries",
+      "ar": "القضايا الغامضة والألغاز"
     },
     "review": {
       "status": "pending"
@@ -439,17 +439,17 @@
   {
     "id": "true-crime-24",
     "question": {
-      "en": "Which field analyzes drugs and poisons in biological samples for legal investigations?",
-      "ar": "ما المجال الذي يحلّل الأدوية والسموم في العينات البيولوجية لأغراض التحقيقات القانونية؟"
+      "en": "Which Van Gogh painting was stolen twice from the same Cairo museum, in 1977 and again in 2010?",
+      "ar": "أيّ لوحة لفان غوخ سُرقت مرتين من المتحف نفسه في القاهرة، عام 1977 ثم عام 2010؟"
     },
     "answer": {
-      "en": "Forensic toxicology.",
-      "ar": "علم السموم الشرعي."
+      "en": "'Poppy Flowers' (also called 'Vase with Viscaria').",
+      "ar": "«زهرة الخشخاش» (Poppy Flowers)."
     },
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Forensic Science",
-      "ar": "علوم الأدلة الجنائية"
+      "en": "Heists, Kidnappings & Prisons",
+      "ar": "السرقات والخطف والسجون"
     },
     "review": {
       "status": "pending"
@@ -600,8 +600,8 @@
     },
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Serial Killers & Unsolved Cases",
-      "ar": "القتلة المتسلسلون والقضايا الغامضة"
+      "en": "Unsolved Cases & Mysteries",
+      "ar": "القضايا الغامضة والألغاز"
     },
     "review": {
       "status": "pending"

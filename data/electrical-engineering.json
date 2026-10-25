@@ -7,12 +7,12 @@
       "ar": "أساسيات الكهرباء"
     },
     "question": {
-      "en": "Which terminal of a battery is usually marked with a plus sign?",
-      "ar": "أي طرف في البطارية يُعلَّم عادةً بعلامة الجمع؟"
+      "en": "Why can a bird sit safely on a single live power line?",
+      "ar": "لماذا يستطيع الطائر أن يقف على سلك كهربائي واحد مكهرب من دون أن يصيبه أذى؟"
     },
     "answer": {
-      "en": "Positive",
-      "ar": "الموجب"
+      "en": "Both its feet are at the same voltage, so no current flows through it.",
+      "ar": "لأن قدميه على الجهد نفسه، فلا يمر تيار عبر جسمه."
     },
     "review": {
       "status": "pending"
@@ -64,12 +64,12 @@
       "ar": "أساسيات الكهرباء"
     },
     "question": {
-      "en": "What is the unit of electrical potential?",
-      "ar": "ما وحدة الجهد الكهربائي؟"
+      "en": "Which unit of electric potential is named after the Italian who built the first battery in 1800?",
+      "ar": "أي وحدة لقياس الجهد الكهربائي تحمل اسم العالم الإيطالي الذي صنع أول بطارية عام 1800؟"
     },
     "answer": {
-      "en": "Volt",
-      "ar": "الفولت"
+      "en": "The volt (after Alessandro Volta).",
+      "ar": "الفولت، نسبةً إلى أليساندرو فولتا."
     },
     "review": {
       "status": "pending"
@@ -140,12 +140,12 @@
       "ar": "أساسيات الكهرباء"
     },
     "question": {
-      "en": "What is the unit of electrical power?",
-      "ar": "ما وحدة القدرة الكهربائية؟"
+      "en": "The three-flat-pin plug used in the UAE, Qatar and Bahrain comes from which country's standard?",
+      "ar": "القابس ذو الأطراف الثلاثة المسطحة المستخدم في الإمارات وقطر والبحرين، أصله معيار أي دولة؟"
     },
     "answer": {
-      "en": "Watt",
-      "ar": "الواط"
+      "en": "The United Kingdom (British Standard BS 1363).",
+      "ar": "بريطانيا (المعيار البريطاني BS 1363)."
     },
     "review": {
       "status": "pending"
@@ -400,7 +400,7 @@
   },
   {
     "id": "electrical-engineering-022",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Components & Electronics",
       "ar": "المكونات والإلكترونيات"
@@ -438,7 +438,7 @@
   },
   {
     "id": "electrical-engineering-024",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "AC Power Systems",
       "ar": "أنظمة القدرة المتناوبة"
@@ -514,7 +514,7 @@
   },
   {
     "id": "electrical-engineering-028",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Signals & Communications",
       "ar": "الإشارات والاتصالات"
@@ -524,8 +524,8 @@
       "ar": "ما الحد الذي تحدده مبرهنة شانون لترميز القناة المشوشة؟"
     },
     "answer": {
-      "en": "Channel capacity: the highest communication rate below which suitably designed codes can make error probability arbitrarily small under the model's assumptions.",
-      "ar": "سعة القناة: الحد الأعلى للمعدل الذي يمكن دونه للترميز المناسب جعل احتمال الخطأ صغيراً كيفما نشاء، وفق افتراضات النموذج."
+      "en": "Channel capacity: the top data rate achievable with arbitrarily few errors.",
+      "ar": "سعة القناة: أعلى معدل نقل يمكن بلوغه مع أخطاء قليلة كما نشاء."
     },
     "review": {
       "status": "pending"
@@ -533,7 +533,7 @@
   },
   {
     "id": "electrical-engineering-029",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Components & Electronics",
       "ar": "المكونات والإلكترونيات"
@@ -554,16 +554,206 @@
     "id": "electrical-engineering-030",
     "difficulty": "hard",
     "subcategory": {
+      "en": "AC Power Systems",
+      "ar": "أنظمة القدرة المتناوبة"
+    },
+    "question": {
+      "en": "What name was given to the 1880s–90s battle between Edison's direct current and the alternating current backed by Westinghouse and Tesla?",
+      "ar": "ما الاسم الذي أُطلق على المعركة في أواخر القرن التاسع عشر بين التيار المستمر الذي دعمه إديسون والتيار المتردد الذي دعمه وستنغهاوس وتسلا؟"
+    },
+    "answer": {
+      "en": "The War of the Currents.",
+      "ar": "حرب التيارات."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "electrical-engineering-031",
+    "difficulty": "hard",
+    "subcategory": {
       "en": "Components & Electronics",
       "ar": "المكونات والإلكترونيات"
     },
     "question": {
-      "en": "What is the SI unit of inductance?",
-      "ar": "ما وحدة المحاثة في النظام الدولي؟"
+      "en": "Your phone charger turns the wall's AC into the DC a battery needs. What is the circuit stage that does this called?",
+      "ar": "يحوّل شاحن الهاتف التيار المتردد القادم من المقبس إلى التيار المستمر الذي تحتاج إليه البطارية. ما اسم الجزء من الدائرة الذي يقوم بذلك؟"
     },
     "answer": {
-      "en": "Henry",
-      "ar": "هنري"
+      "en": "A rectifier.",
+      "ar": "المقوّم (Rectifier)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "electrical-engineering-032",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "AC Power Systems",
+      "ar": "أنظمة القدرة المتناوبة"
+    },
+    "question": {
+      "en": "In three-phase power, how many degrees apart are the three voltage waves?",
+      "ar": "في الكهرباء ثلاثية الطور، كم درجة تفصل بين كل موجة جهد والتي تليها؟"
+    },
+    "answer": {
+      "en": "120 degrees.",
+      "ar": "120 درجة."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "electrical-engineering-033",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Electrical Fundamentals",
+      "ar": "أساسيات الكهرباء"
+    },
+    "question": {
+      "en": "Why are you usually safe inside a metal-roofed car when lightning strikes it?",
+      "ar": "لماذا تكون غالبًا في أمان داخل سيارة سقفها معدني إذا ضربتها صاعقة؟"
+    },
+    "answer": {
+      "en": "Its metal shell carries the current around you into the ground; tyres don't matter.",
+      "ar": "لأن الهيكل المعدني يمرّر التيار حولك إلى الأرض؛ وليس للإطارات دور."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "electrical-engineering-034",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "AC Power Systems",
+      "ar": "أنظمة القدرة المتناوبة"
+    },
+    "question": {
+      "en": "Saudi Arabia's grid runs at 60 Hz while its Gulf neighbours use 50 Hz. What kind of link lets them share power?",
+      "ar": "تعمل شبكة الكهرباء السعودية بتردد 60 هرتز، وشبكات جيرانها في الخليج بتردد 50 هرتز. أيّ نوع من الوصلات يتيح لها تبادل الكهرباء؟"
+    },
+    "answer": {
+      "en": "A back-to-back HVDC converter station (at Al-Fadhili).",
+      "ar": "محطة تحويل تيار مستمر عالي الجهد HVDC من نوع «ظهراً لظهر»، في الفاضلي."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "electrical-engineering-035",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Signals & Communications",
+      "ar": "الإشارات والاتصالات"
+    },
+    "question": {
+      "en": "At high frequencies, alternating current crowds near a wire's surface instead of using its whole thickness. What is this called?",
+      "ar": "عند الترددات العالية، يتجمع التيار المتردد قرب سطح السلك بدل أن يستخدم سماكته كلها. ما اسم هذه الظاهرة؟"
+    },
+    "answer": {
+      "en": "The skin effect.",
+      "ar": "التأثير القشري (Skin effect)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "electrical-engineering-036",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Electromagnetism",
+      "ar": "الكهرومغناطيسية"
+    },
+    "question": {
+      "en": "On a 50 Hz grid, transformers hum at 100 Hz. What makes their iron core vibrate twice per cycle?",
+      "ar": "على شبكة 50 هرتز، تطنّ المحوّلات بتردد 100 هرتز. ما الذي يجعل قلبها الحديدي يهتز مرتين في كل دورة؟"
+    },
+    "answer": {
+      "en": "Magnetostriction: the iron changes shape slightly as it is magnetised.",
+      "ar": "التقبّض المغناطيسي (Magnetostriction): يتغير شكل الحديد قليلاً كلما تمغنط."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "electrical-engineering-037",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "AC Power Systems",
+      "ar": "أنظمة القدرة المتناوبة"
+    },
+    "question": {
+      "en": "What causes the crackling buzz you can hear near high-voltage power lines, especially in damp weather?",
+      "ar": "ما سبب الطقطقة والأزيز اللذين تسمعهما قرب خطوط الضغط العالي، خصوصًا في الجو الرطب؟"
+    },
+    "answer": {
+      "en": "Corona discharge: the air around the wire becomes ionised.",
+      "ar": "التفريغ الإكليلي (الكورونا): يتأيّن الهواء حول السلك."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "electrical-engineering-038",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "AC Power Systems",
+      "ar": "أنظمة القدرة المتناوبة"
+    },
+    "question": {
+      "en": "Why do long undersea power cables usually carry direct current rather than alternating current?",
+      "ar": "لماذا تنقل كابلات الكهرباء الطويلة تحت البحر غالبًا تيارًا مستمرًا بدل المتردد؟"
+    },
+    "answer": {
+      "en": "With AC, the cable's capacitance draws large charging currents that waste its capacity.",
+      "ar": "لأن سعة الكابل مع التيار المتردد تسحب تيارات شحن كبيرة تهدر قدرته."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "electrical-engineering-039",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Electromagnetism",
+      "ar": "الكهرومغناطيسية"
+    },
+    "question": {
+      "en": "Drop a strong magnet down a copper pipe and it falls in slow motion. Which law explains this?",
+      "ar": "إذا أسقطت مغناطيسًا قويًا داخل أنبوب نحاسي، فإنه ينزل ببطء كأنه في تصوير بطيء. أيّ قانون يفسّر ذلك؟"
+    },
+    "answer": {
+      "en": "Lenz's law: induced currents oppose the magnet's motion.",
+      "ar": "قانون لنز: التيارات المستحثة تعاكس حركة المغناطيس."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "electrical-engineering-040",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Circuits & Measurement",
+      "ar": "الدوائر والقياس"
+    },
+    "question": {
+      "en": "What does a power factor of 1 mean in an AC circuit?",
+      "ar": "في دائرة التيار المتردد، ماذا يعني أن «معامل القدرة» يساوي 1؟"
+    },
+    "answer": {
+      "en": "Voltage and current are perfectly in step, so all the power does useful work.",
+      "ar": "الجهد والتيار متوافقان تماماً في الطور، فكل القدرة تؤدي عملاً مفيداً."
     },
     "review": {
       "status": "pending"

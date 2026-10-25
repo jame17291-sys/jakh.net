@@ -77,18 +77,18 @@
   },
   {
     "id": "business-and-management-005",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Marketing & Branding",
-      "ar": "التسويق وبناء العلامة"
+      "en": "Strategy & Competition",
+      "ar": "الاستراتيجية والمنافسة"
     },
     "question": {
-      "en": "What do you call a recognizable sign or emblem used to identify a company?",
-      "ar": "ما الاسم الذي يُطلق على الرمز المميز المستخدم للتعريف بالشركة؟"
+      "en": "Which Dubai-founded ride-hailing app did Uber agree to buy in 2019 for about US$3.1 billion?",
+      "ar": "أيّ تطبيق لتوصيل الركّاب انطلق من دبي، اتفقت أوبر عام 2019 على شرائه بنحو 3.1 مليار دولار؟"
     },
     "answer": {
-      "en": "A logo",
-      "ar": "الشعار"
+      "en": "Careem.",
+      "ar": "كريم."
     },
     "review": {
       "status": "pending"
@@ -140,12 +140,12 @@
       "ar": "العمليات والنمو"
     },
     "question": {
-      "en": "What is the common term for a newly emerged business venture?",
-      "ar": "ما المصطلح الشائع لمشروع تجاري ناشئ حديثاً؟"
+      "en": "What mythical creature is the nickname for a startup valued at over US$1 billion?",
+      "ar": "ما الكائن الأسطوري الذي أصبح لقبًا للشركة الناشئة التي تتجاوز قيمتها مليار دولار؟"
     },
     "answer": {
-      "en": "A startup",
-      "ar": "الشركة الناشئة"
+      "en": "A unicorn.",
+      "ar": "اليونيكورن (الحصان الأسطوري ذو القرن الواحد)."
     },
     "review": {
       "status": "pending"
@@ -174,16 +174,16 @@
     "id": "business-and-management-010",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Management & Organization",
-      "ar": "الإدارة والتنظيم"
+      "en": "Finance & Accounting",
+      "ar": "المالية والمحاسبة"
     },
     "question": {
-      "en": "What is the term for the latest time or date by which something must be completed?",
-      "ar": "ما المصطلح الذي يعني آخر موعد لإنجاز شيء ما؟"
+      "en": "If a company is 'in the red', is it making a profit or a loss?",
+      "ar": "حين يُقال إن شركة «في الأحمر» (in the red)، فهل تحقق ربحًا أم خسارة؟"
     },
     "answer": {
-      "en": "Deadline",
-      "ar": "الموعد النهائي"
+      "en": "A loss (losses were once written in red ink).",
+      "ar": "خسارة؛ فقد كانت الخسائر تُكتب قديمًا بالحبر الأحمر."
     },
     "review": {
       "status": "pending"
@@ -210,18 +210,18 @@
   },
   {
     "id": "business-and-management-012",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Finance & Accounting",
       "ar": "المالية والمحاسبة"
     },
     "question": {
-      "en": "What is the formula for Return on Investment (ROI)?",
-      "ar": "ما صيغة حساب العائد على الاستثمار (ROI)؟"
+      "en": "Which company's December 2019 listing on the Saudi stock exchange raised US$25.6 billion, a world-record IPO?",
+      "ar": "أيّ شركة جمعت 25.6 مليار دولار حين طرحت أسهمها في السوق السعودية في ديسمبر 2019، في أكبر اكتتاب عام أولي في العالم آنذاك؟"
     },
     "answer": {
-      "en": "Net Profit / Cost of Investment × 100",
-      "ar": "صافي الربح ÷ تكلفة الاستثمار × 100"
+      "en": "Saudi Aramco.",
+      "ar": "أرامكو السعودية."
     },
     "review": {
       "status": "pending"
@@ -343,18 +343,18 @@
   },
   {
     "id": "business-and-management-019",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Operations & Growth",
-      "ar": "العمليات والنمو"
+      "en": "Strategy & Competition",
+      "ar": "الاستراتيجية والمنافسة"
     },
     "question": {
-      "en": "What is the ability of a business to handle a growing amount of work?",
-      "ar": "ما القدرة على استيعاب حجم عمل متنامٍ في الأعمال التجارية؟"
+      "en": "Which Dubai-based online marketplace did Amazon buy in 2017, later relaunching it as Amazon.ae?",
+      "ar": "أيّ سوق إلكتروني مقرّه دبي اشترته أمازون عام 2017، ثم أصبح اسمه Amazon.ae؟"
     },
     "answer": {
-      "en": "Scalability",
-      "ar": "قابلية التوسع"
+      "en": "Souq.com.",
+      "ar": "سوق دوت كوم (Souq.com)."
     },
     "review": {
       "status": "pending"
@@ -438,18 +438,18 @@
   },
   {
     "id": "business-and-management-024",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Operations & Growth",
       "ar": "العمليات والنمو"
     },
     "question": {
-      "en": "Which Japanese carmaker developed a production system associated with Kiichiro Toyoda, Taiichi Ohno and Just-in-Time manufacturing?",
-      "ar": "أي شركة سيارات يابانية طوّرت نظام الإنتاج المرتبط بكيتشيرو تويودا وتاييتشي أونو وبالتصنيع في الوقت المناسب؟"
+      "en": "In the Toyota Production System, what is the Japanese name for the card signal that tells a workstation when to make or restock parts?",
+      "ar": "في نظام إنتاج تويوتا، ما الاسم الياباني للبطاقة التي تُعطي محطة العمل إشارة بموعد صنع القطع أو إعادة تعبئتها؟"
     },
     "answer": {
-      "en": "Toyota.",
-      "ar": "تويوتا."
+      "en": "Kanban.",
+      "ar": "كانبان."
     },
     "review": {
       "status": "pending"
@@ -516,16 +516,16 @@
     "id": "business-and-management-028",
     "difficulty": "hard",
     "subcategory": {
-      "en": "Finance & Accounting",
-      "ar": "المالية والمحاسبة"
+      "en": "Strategy & Competition",
+      "ar": "الاستراتيجية والمنافسة"
     },
     "question": {
-      "en": "Which ratio measures a company's ability to pay off short-term liabilities with current assets?",
-      "ar": "أي نسبة تقيس قدرة الشركة على سداد التزاماتها قصيرة الأجل بالأصول المتداولة؟"
+      "en": "In 2000, which video-rental giant turned down the chance to buy Netflix for about US$50 million?",
+      "ar": "عام 2000، أيّ شركة عملاقة لتأجير الأفلام رفضت فرصة شراء نتفليكس بنحو 50 مليون دولار؟"
     },
     "answer": {
-      "en": "Current Ratio",
-      "ar": "نسبة السيولة الجارية"
+      "en": "Blockbuster.",
+      "ar": "بلوكباستر."
     },
     "review": {
       "status": "pending"
@@ -564,6 +564,196 @@
     "answer": {
       "en": "Opportunity Cost",
       "ar": "تكلفة الفرصة البديلة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "business-and-management-031",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Marketing & Branding",
+      "ar": "التسويق وبناء العلامة"
+    },
+    "question": {
+      "en": "Why do so many shops price things at 9.99 instead of 10?",
+      "ar": "لماذا تضع متاجر كثيرة السعر 9.99 بدل 10؟"
+    },
+    "answer": {
+      "en": "It feels noticeably cheaper to shoppers ('charm pricing').",
+      "ar": "لأنه يبدو للزبون أرخص بكثير، ويُسمّى «التسعير النفسي»."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "business-and-management-032",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Strategy & Competition",
+      "ar": "الاستراتيجية والمنافسة"
+    },
+    "question": {
+      "en": "Which Arabic web portal, founded in Jordan, did Yahoo! buy in 2009?",
+      "ar": "أي بوابة إنترنت عربية تأسست في الأردن، اشترتها ياهو سنة 2009؟"
+    },
+    "answer": {
+      "en": "Maktoob.",
+      "ar": "مكتوب."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "business-and-management-033",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Operations & Growth",
+      "ar": "العمليات والنمو"
+    },
+    "question": {
+      "en": "In 2022, which music-streaming app became the first Arab tech company to list on the Nasdaq?",
+      "ar": "عام 2022، أيّ تطبيق لبث الموسيقى أصبح أول شركة تقنية عربية تُدرج أسهمها في بورصة ناسداك؟"
+    },
+    "answer": {
+      "en": "Anghami.",
+      "ar": "أنغامي."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "business-and-management-034",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Operations & Growth",
+      "ar": "العمليات والنمو"
+    },
+    "question": {
+      "en": "Emirates airline's very first flight, EK600 in October 1985, flew from Dubai to which city?",
+      "ar": "إلى أيّ مدينة طارت أول رحلة لطيران الإمارات، EK600، من دبي في أكتوبر 1985؟"
+    },
+    "answer": {
+      "en": "Karachi, Pakistan.",
+      "ar": "كراتشي في باكستان."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "business-and-management-035",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Markets & Economics",
+      "ar": "الأسواق والاقتصاد"
+    },
+    "question": {
+      "en": "The English trade word 'tariff' comes originally from which language?",
+      "ar": "من أيّ لغة جاءت في الأصل كلمة «tariff» الإنجليزية، أي الرسوم الجمركية؟"
+    },
+    "answer": {
+      "en": "Arabic (taʿrīf, 'notification'), via Italian.",
+      "ar": "العربية (تعريف أو تعريفة)، عن طريق الإيطالية."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "business-and-management-036",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Finance & Accounting",
+      "ar": "المالية والمحاسبة"
+    },
+    "question": {
+      "en": "Which Italian friar wrote the first printed explanation of double-entry bookkeeping, in 1494?",
+      "ar": "أي راهب إيطالي كتب أول شرح مطبوع لنظام القيد المزدوج في المحاسبة، سنة 1494؟"
+    },
+    "answer": {
+      "en": "Luca Pacioli.",
+      "ar": "لوكا باتشولي."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "business-and-management-037",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Marketing & Branding",
+      "ar": "التسويق وبناء العلامة"
+    },
+    "question": {
+      "en": "How much was design student Carolyn Davidson first paid in 1971 for creating Nike's 'swoosh' logo?",
+      "ar": "كم تقاضت طالبة التصميم كارولين ديفيدسون أول مرة عام 1971 مقابل تصميم شعار «سووش» لنايكي؟"
+    },
+    "answer": {
+      "en": "US$35 (Nike later gave her shares).",
+      "ar": "35 دولاراً (وأعطتها نايكي أسهماً لاحقاً)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "business-and-management-038",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Operations & Growth",
+      "ar": "العمليات والنمو"
+    },
+    "question": {
+      "en": "Long before phones, Nokia began in Finland in 1865 as what kind of business?",
+      "ar": "قبل الهواتف المحمولة بزمن طويل، بدأت نوكيا في فنلندا عام 1865. أيّ نوع من المشاريع كانت؟"
+    },
+    "answer": {
+      "en": "A paper (wood-pulp) mill.",
+      "ar": "مصنع لعجينة الورق."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "business-and-management-039",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Operations & Growth",
+      "ar": "العمليات والنمو"
+    },
+    "question": {
+      "en": "The food-delivery app Talabat was founded in 2004 in which Gulf country?",
+      "ar": "تأسس تطبيق توصيل الطعام «طلبات» عام 2004 في أيّ دولة خليجية؟"
+    },
+    "answer": {
+      "en": "Kuwait.",
+      "ar": "الكويت."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "business-and-management-040",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Management & Organization",
+      "ar": "الإدارة والتنظيم"
+    },
+    "question": {
+      "en": "How did Bill Hewlett and David Packard decide whose name would come first in their company's name?",
+      "ar": "كيف قرر بيل هيوليت وديفيد باكارد أيّ الاسمين يأتي أولًا في اسم شركتهما؟"
+    },
+    "answer": {
+      "en": "They tossed a coin.",
+      "ar": "رميا قطعة نقدية (قرعة)."
     },
     "review": {
       "status": "pending"

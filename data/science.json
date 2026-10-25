@@ -19,25 +19,6 @@
     }
   },
   {
-    "id": "science-002",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Waves, Light & Sound",
-      "ar": "الموجات والضوء والصوت"
-    },
-    "question": {
-      "en": "What letter represents the speed of light in physics?",
-      "ar": "أي حرف يُمثّل سرعة الضوء في الفيزياء؟"
-    },
-    "answer": {
-      "en": "c",
-      "ar": "c"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "science-003",
     "difficulty": "easy",
     "subcategory": {
@@ -438,7 +419,7 @@
   },
   {
     "id": "science-024",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Quantum, Relativity & Cosmology",
       "ar": "الكم والنسبية وعلم الكون"
@@ -564,25 +545,6 @@
     "answer": {
       "en": "Superconductivity",
       "ar": "الموصلية الفائقة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-031",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Mechanics & Classical Physics",
-      "ar": "الميكانيكا والفيزياء الكلاسيكية"
-    },
-    "question": {
-      "en": "Which instrument measures the mass of an object by comparing it with known masses?",
-      "ar": "ما الأداة التي تقيس كتلة جسم بمقارنتها بكتل معلومة؟"
-    },
-    "answer": {
-      "en": "A balance.",
-      "ar": "الميزان ذو الكفتين."
     },
     "review": {
       "status": "pending"
@@ -741,63 +703,6 @@
     }
   },
   {
-    "id": "science-041",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Biology & Life Sciences",
-      "ar": "الأحياء وعلوم الحياة"
-    },
-    "question": {
-      "en": "Which part of a flower produces pollen grains?",
-      "ar": "أي جزء من الزهرة ينتج حبوب اللقاح؟"
-    },
-    "answer": {
-      "en": "The anther, which is part of the stamen.",
-      "ar": "المتك، وهو جزء من السداة."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-042",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Chemistry & Materials",
-      "ar": "الكيمياء والمواد"
-    },
-    "question": {
-      "en": "What is the atomic number of carbon?",
-      "ar": "ما العدد الذري للكربون؟"
-    },
-    "answer": {
-      "en": "6",
-      "ar": "6"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-043",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Mechanics & Classical Physics",
-      "ar": "الميكانيكا والفيزياء الكلاسيكية"
-    },
-    "question": {
-      "en": "How do you calculate average speed from total distance and elapsed time?",
-      "ar": "كيف تحسب السرعة المتوسطة من المسافة الكلية والزمن المستغرق؟"
-    },
-    "answer": {
-      "en": "Average speed = total distance ÷ elapsed time.",
-      "ar": "السرعة المتوسطة = المسافة الكلية ÷ الزمن المستغرق."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "science-044",
     "difficulty": "easy",
     "subcategory": {
@@ -836,44 +741,6 @@
     }
   },
   {
-    "id": "science-046",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Mechanics & Classical Physics",
-      "ar": "الميكانيكا والفيزياء الكلاسيكية"
-    },
-    "question": {
-      "en": "What is Newton's Second Law of Motion?",
-      "ar": "ما قانون نيوتن الثاني للحركة؟"
-    },
-    "answer": {
-      "en": "Force = Mass × Acceleration (F = ma)",
-      "ar": "القوة = الكتلة × التسارع (F = ma)"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-047",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Biology & Life Sciences",
-      "ar": "الأحياء وعلوم الحياة"
-    },
-    "question": {
-      "en": "What is a codon?",
-      "ar": "ما الكودون؟"
-    },
-    "answer": {
-      "en": "A sequence of three nucleotides in messenger RNA that specifies an amino acid or a stop signal during translation.",
-      "ar": "تتابع من ثلاث نيوكليوتيدات في الحمض النووي الريبي الرسول يحدد حمضاً أمينياً أو إشارة توقف أثناء الترجمة."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "science-049",
     "difficulty": "medium",
     "subcategory": {
@@ -887,25 +754,6 @@
     "answer": {
       "en": "About 400–700 nanometres; the limits of human vision vary and are not sharp cutoffs.",
       "ar": "نحو 400–700 نانومتر؛ حدود الرؤية البشرية متغيرة وليست فواصل حادة."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-051",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Chemistry & Materials",
-      "ar": "الكيمياء والمواد"
-    },
-    "question": {
-      "en": "What is the chemical formula for table salt?",
-      "ar": "ما الصيغة الكيميائية لملح الطعام؟"
-    },
-    "answer": {
-      "en": "NaCl",
-      "ar": "NaCl"
     },
     "review": {
       "status": "pending"
@@ -932,7 +780,7 @@
   },
   {
     "id": "science-053",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Biology & Life Sciences",
       "ar": "الأحياء وعلوم الحياة"
@@ -1014,31 +862,12 @@
       "ar": "الكيمياء والمواد"
     },
     "question": {
-      "en": "What is the direct change of state from a gas to a solid called?",
-      "ar": "ماذا يسمى التحول المباشر من غاز إلى صلب؟"
+      "en": "On a freezing night, water vapour turns straight into frost on a window without becoming liquid first. What is this change of state called?",
+      "ar": "في ليلة شديدة البرودة، يتحول بخار الماء مباشرة إلى صقيع على النافذة من دون أن يصير سائلًا أولًا. ما اسم هذا التحول؟"
     },
     "answer": {
-      "en": "Deposition, also called desublimation.",
-      "ar": "الترسّب، ويُسمى أيضاً التسامي العكسي."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-061",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Quantum, Relativity & Cosmology",
-      "ar": "الكم والنسبية وعلم الكون"
-    },
-    "question": {
-      "en": "What is the exact SI value of Planck's constant h?",
-      "ar": "ما القيمة الدقيقة لثابت بلانك h في النظام الدولي؟"
-    },
-    "answer": {
-      "en": "6.62607015×10⁻³⁴ joule seconds (J·s).",
-      "ar": "6.62607015×10⁻³⁴ جول·ثانية (J·s)."
+      "en": "Deposition (the reverse of sublimation).",
+      "ar": "الترسّب (عكس التسامي)."
     },
     "review": {
       "status": "pending"
@@ -1046,7 +875,7 @@
   },
   {
     "id": "science-064",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Mechanics & Classical Physics",
       "ar": "الميكانيكا والفيزياء الكلاسيكية"
@@ -1058,82 +887,6 @@
     "answer": {
       "en": "Every continuous symmetry of a system's action corresponds to a conservation law; for example, time-translation symmetry gives conservation of energy.",
       "ar": "كل تناظر مستمر لفعل النظام يقابله قانون حفظ؛ فمثلاً تناظر الإزاحة الزمنية يقابل حفظ الطاقة."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-067",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Quantum, Relativity & Cosmology",
-      "ar": "الكم والنسبية وعلم الكون"
-    },
-    "question": {
-      "en": "What is the name of the particle responsible for electromagnetic force?",
-      "ar": "ما اسم الجسيم المسؤول عن القوة الكهرومغناطيسية؟"
-    },
-    "answer": {
-      "en": "Photon",
-      "ar": "الفوتون"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-070",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Quantum, Relativity & Cosmology",
-      "ar": "الكم والنسبية وعلم الكون"
-    },
-    "question": {
-      "en": "In Schrödinger's cat thought experiment, what conceptual problem arises when quantum superposition is applied to a macroscopic cat?",
-      "ar": "في تجربة قطة شرودنغر الفكرية، ما المشكلة المفاهيمية التي تظهر عند تطبيق التراكب الكمي على قطة كبيرة الحجم؟"
-    },
-    "answer": {
-      "en": "The measurement problem: how a quantum description containing alternative outcomes relates to the single definite outcome observed.",
-      "ar": "مشكلة القياس: كيف يرتبط الوصف الكمي الذي يتضمن نتائج بديلة بالنتيجة الواحدة المحددة التي نرصدها؟"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-071",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Biology & Life Sciences",
-      "ar": "الأحياء وعلوم الحياة"
-    },
-    "question": {
-      "en": "Which enzyme seals the gaps between Okazaki fragments during DNA replication?",
-      "ar": "أي إنزيم يغلق الفجوات بين قطع أوكازاكي أثناء تضاعف الحمض النووي؟"
-    },
-    "answer": {
-      "en": "DNA ligase.",
-      "ar": "إنزيم ربط الحمض النووي (DNA ligase)."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-072",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Chemistry & Materials",
-      "ar": "الكيمياء والمواد"
-    },
-    "question": {
-      "en": "What is the hybridization of carbon in methane, CH₄?",
-      "ar": "ما نوع تهجين ذرة الكربون في الميثان CH₄؟"
-    },
-    "answer": {
-      "en": "sp³",
-      "ar": "sp³"
     },
     "review": {
       "status": "pending"
@@ -1159,25 +912,6 @@
     }
   },
   {
-    "id": "science-074",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Biology & Life Sciences",
-      "ar": "الأحياء وعلوم الحياة"
-    },
-    "question": {
-      "en": "What is the name of the protein complex that breaks down damaged proteins in cells?",
-      "ar": "ما اسم المركّب البروتيني الذي يحلّل البروتينات التالفة في الخلايا؟"
-    },
-    "answer": {
-      "en": "The proteasome",
-      "ar": "البروتيازوم"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "science-076",
     "difficulty": "very-advanced",
     "subcategory": {
@@ -1191,44 +925,6 @@
     "answer": {
       "en": "SU(3)C × SU(2)L × U(1)Y, corresponding to the strong and electroweak interactions before symmetry breaking.",
       "ar": "SU(3)C × SU(2)L × U(1)Y، وتقابل التآثر القوي والتآثر الكهروضعيف قبل كسر التناظر."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-077",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Biology & Life Sciences",
-      "ar": "الأحياء وعلوم الحياة"
-    },
-    "question": {
-      "en": "Which protein causes prion diseases when it adopts a disease-associated misfolded form?",
-      "ar": "أي بروتين يسبب أمراض البريون عندما يتخذ شكلاً مطوياً على نحو خاطئ مرتبطاً بالمرض؟"
-    },
-    "answer": {
-      "en": "PrP (Prion Protein)",
-      "ar": "PrP (بروتين البريون)"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-078",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Chemistry & Materials",
-      "ar": "الكيمياء والمواد"
-    },
-    "question": {
-      "en": "What is the Gibbs free energy equation?",
-      "ar": "ما معادلة طاقة غيبس الحرة؟"
-    },
-    "answer": {
-      "en": "ΔG = ΔH − TΔS",
-      "ar": "ΔG = ΔH − TΔS"
     },
     "review": {
       "status": "pending"
@@ -1267,25 +963,6 @@
     "answer": {
       "en": "Total momentum. Individual objects can change speed while exchanging momentum internally.",
       "ar": "الزخم الكلي. يمكن أن تتغير سرعات الأجسام منفردة أثناء تبادل الزخم داخل النظام."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-084",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Chemistry & Materials",
-      "ar": "الكيمياء والمواد"
-    },
-    "question": {
-      "en": "What is Heisenberg's contribution to quantum chemistry?",
-      "ar": "ما إسهام هايزنبرغ في الكيمياء الكمية؟"
-    },
-    "answer": {
-      "en": "Matrix mechanics formulation of quantum mechanics and uncertainty principle",
-      "ar": "صياغة ميكانيكا المصفوفات لميكانيكا الكم ومبدأ الشك"
     },
     "review": {
       "status": "pending"
@@ -1571,6 +1248,272 @@
     "answer": {
       "en": "A macroscopic fraction of the bosons occupies the same lowest-energy quantum state. Bosons have integer spin.",
       "ar": "تشغل نسبة عيانية من البوزونات الحالة الكمية نفسها ذات أقل طاقة. والبوزونات جسيمات ذات لف مغزلي عدد صحيح."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-101",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Waves, Light & Sound",
+      "ar": "الموجات والضوء والصوت"
+    },
+    "question": {
+      "en": "On a hot desert road, a mirage looks just like a shimmering pool of water. What are you really seeing in that 'pool'?",
+      "ar": "على طريق صحراوي حار، يبدو السراب كأنه بركة ماء لامعة. ما الذي تراه فعليًا في هذه البركة؟"
+    },
+    "answer": {
+      "en": "An image of the sky: hot air near the ground bends (refracts) light from the sky up towards your eyes.",
+      "ar": "صورة للسماء؛ فالهواء الساخن قرب الأرض يحني ضوء السماء باتجاه عينك (انكسار الضوء)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-102",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Heat & Energy",
+      "ar": "الحرارة والطاقة"
+    },
+    "question": {
+      "en": "A plain clay water jar keeps water cool, but a glazed one doesn't. Why?",
+      "ar": "تبرّد الجرة الفخارية العادية الماء، لكنها لا تبرّده إذا كانت مطلية بطبقة لامعة (مزججة). لماذا؟"
+    },
+    "answer": {
+      "en": "The glaze seals the pores, so no water seeps out to evaporate, and evaporation is what carries the heat away.",
+      "ar": "لأن الطلاء يسدّ المسام فلا يرشح الماء إلى السطح ليتبخر، والتبخر هو ما يسحب الحرارة."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-103",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Waves, Light & Sound",
+      "ar": "الموجات والضوء والصوت"
+    },
+    "question": {
+      "en": "You see a lightning flash and count the seconds until the thunder. Roughly how many seconds of delay mean the storm is 1 km away?",
+      "ar": "ترى البرق وتعدّ الثواني حتى تسمع الرعد. كم ثانية من التأخير تعني تقريبًا أن العاصفة على بعد كيلومتر واحد؟"
+    },
+    "answer": {
+      "en": "About 3 seconds: sound travels roughly 340 metres per second, while the light arrives almost instantly.",
+      "ar": "نحو 3 ثوانٍ؛ فالصوت يقطع قرابة 340 متراً في الثانية، بينما يصل الضوء فوراً تقريباً."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-104",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Mechanics & Classical Physics",
+      "ar": "الميكانيكا والفيزياء الكلاسيكية"
+    },
+    "question": {
+      "en": "On the Moon in 1971, Apollo 15 astronaut David Scott dropped a hammer and a falcon feather at the same moment. Which hit the ground first?",
+      "ar": "على سطح القمر عام 1971، أسقط رائد الفضاء ديفيد سكوت من «أبولو 15» مطرقةً وريشة صقر في اللحظة نفسها. أيّهما وصل إلى السطح أولًا؟"
+    },
+    "answer": {
+      "en": "Neither: they landed together, because there is no air resistance on the Moon.",
+      "ar": "لم يسبق أيٌّ منهما الآخر؛ وصلا معًا، لعدم وجود مقاومة للهواء على القمر."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-105",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Mechanics & Classical Physics",
+      "ar": "الميكانيكا والفيزياء الكلاسيكية"
+    },
+    "question": {
+      "en": "A spinning figure skater pulls in her arms and suddenly spins much faster. Which conservation law explains this?",
+      "ar": "متزلّجة تدور على الجليد، تضمّ ذراعيها إلى جسمها فتدور أسرع بكثير. أيّ قانون حفظ يفسّر ذلك؟"
+    },
+    "answer": {
+      "en": "Conservation of angular momentum.",
+      "ar": "حفظ الزخم الزاوي."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-106",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Heat & Energy",
+      "ar": "الحرارة والطاقة"
+    },
+    "question": {
+      "en": "Why do rice and pasta take longer to cook high up in the mountains?",
+      "ar": "لماذا يستغرق الأرز والمعكرونة وقتًا أطول لينضجا في الجبال العالية؟"
+    },
+    "answer": {
+      "en": "Lower air pressure lowers water's boiling point, so the water boils at a cooler temperature.",
+      "ar": "لأن انخفاض الضغط الجوي يخفض درجة غليان الماء، فيغلي عند حرارة أقل."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-107",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Mechanics & Classical Physics",
+      "ar": "الميكانيكا والفيزياء الكلاسيكية"
+    },
+    "question": {
+      "en": "Gravity at the height of the International Space Station is still about 90% as strong as on the ground. So why do astronauts such as the UAE's Sultan Al Neyadi float there?",
+      "ar": "ما زالت الجاذبية على ارتفاع محطة الفضاء الدولية نحو 90% من قوتها على الأرض. فلماذا يطفو رواد الفضاء هناك، مثل الإماراتي سلطان النيادي؟"
+    },
+    "answer": {
+      "en": "The station and everyone in it are in continuous free fall around Earth.",
+      "ar": "لأن المحطة ومن فيها في حالة سقوط حر مستمر حول الأرض."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-108",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Quantum, Relativity & Cosmology",
+      "ar": "الكم والنسبية وعلم الكون"
+    },
+    "question": {
+      "en": "Clocks on GPS satellites gain about 38 microseconds a day compared with clocks on the ground. Which theory predicts this drift, which must be corrected for GPS to work?",
+      "ar": "تسبق ساعات أقمار GPS ساعات الأرض بنحو 38 ميكروثانية كل يوم. أي نظرية تتنبأ بهذا الفرق الذي يجب تصحيحه ليعمل نظام GPS بدقة؟"
+    },
+    "answer": {
+      "en": "Einstein's relativity (mostly general relativity: clocks tick faster where gravity is weaker).",
+      "ar": "نظرية النسبية لأينشتاين (خصوصاً النسبية العامة: تدق الساعات أسرع حيث الجاذبية أضعف)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-109",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Quantum, Relativity & Cosmology",
+      "ar": "الكم والنسبية وعلم الكون"
+    },
+    "question": {
+      "en": "The water around some nuclear reactor cores glows an eerie blue. What is this light called?",
+      "ar": "يتوهج الماء المحيط بقلب بعض المفاعلات النووية بلون أزرق غريب. ما اسم هذا الضوء؟"
+    },
+    "answer": {
+      "en": "Cherenkov radiation, given off when charged particles move faster than light can travel in water.",
+      "ar": "إشعاع تشيرينكوف، وينبعث عندما تتحرك جسيمات مشحونة أسرع من سرعة الضوء في الماء."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-110",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Quantum, Relativity & Cosmology",
+      "ar": "الكم والنسبية وعلم الكون"
+    },
+    "question": {
+      "en": "In the Sun's core, protons rarely have enough energy to overcome their mutual repulsion, yet they still fuse. Which quantum effect makes this possible?",
+      "ar": "في قلب الشمس، نادرًا ما تملك البروتونات طاقة كافية للتغلّب على تنافرها، ومع ذلك تندمج. أيّ ظاهرة كمّية تجعل ذلك ممكنًا؟"
+    },
+    "answer": {
+      "en": "Quantum tunnelling.",
+      "ar": "النفق الكمّي (الاختراق النفقي)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-111",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Heat & Energy",
+      "ar": "الحرارة والطاقة"
+    },
+    "question": {
+      "en": "Drops of water flicked onto a very hot pan skate around for a long time instead of boiling away at once, riding on a cushion of their own vapour. What is this called?",
+      "ar": "حين ترش قطرات ماء على مقلاة شديدة السخونة، تنزلق وتدور مدة طويلة بدل أن تتبخر فورًا، لأنها تطفو على وسادة من بخارها. ما اسم هذه الظاهرة؟"
+    },
+    "answer": {
+      "en": "The Leidenfrost effect.",
+      "ar": "ظاهرة لايدنفروست."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-112",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Heat & Energy",
+      "ar": "الحرارة والطاقة"
+    },
+    "question": {
+      "en": "Cooled below about 2.17 K (−271 °C), liquid helium-4 flows with no friction at all and can even creep up and over the walls of its container. What is this state called?",
+      "ar": "حين يُبرَّد الهيليوم-4 السائل إلى ما دون نحو 2.17 كلفن (−271 درجة مئوية)، يسيل دون أي احتكاك، ويستطيع أن يتسلق جدران الإناء ويخرج منه. ما اسم هذه الحالة؟"
+    },
+    "answer": {
+      "en": "Superfluidity (it becomes a superfluid).",
+      "ar": "الميوعة الفائقة (يصبح مائعاً فائقاً)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-113",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Waves, Light & Sound",
+      "ar": "الموجات والضوء والصوت"
+    },
+    "question": {
+      "en": "Which 10th-century scholar at the Baghdad court described the law of refraction in his treatise 'On Burning Mirrors and Lenses', more than six centuries before Snell?",
+      "ar": "مَن العالم الذي كان في بلاط بغداد في القرن العاشر، ووصف قانون انكسار الضوء في كتابه «الحرّاقات» عن المرايا والعدسات المحرقة، قبل سنيل بأكثر من ستة قرون؟"
+    },
+    "answer": {
+      "en": "Ibn Sahl.",
+      "ar": "ابن سهل."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "science-114",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Waves, Light & Sound",
+      "ar": "الموجات والضوء والصوت"
+    },
+    "question": {
+      "en": "In 1676, by timing the eclipses of Jupiter's moon Io, which Danish astronomer showed that light does not travel instantly?",
+      "ar": "عام 1676، عندما قاس توقيت كسوفات «آيو» قمر المشتري، أيّ فلكي دنماركي أثبت أن الضوء لا ينتقل لحظيًا؟"
+    },
+    "answer": {
+      "en": "Ole Rømer.",
+      "ar": "أولي رومر."
     },
     "review": {
       "status": "pending"

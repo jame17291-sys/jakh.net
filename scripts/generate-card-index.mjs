@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { cardMoveHistory, readTopicMergeLedger } from "./topic-merge-ledger.mjs";
+import { removedByPhase2 } from "./content-phase2-ledger.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dataDir = path.join(root, "data");
@@ -32,7 +33,7 @@ const targets = [
 for (const target of targets) fs.writeFileSync(target, serialized);
 // Cards keep their ids when a topic is merged or a card moves topic; the API
 // recognises progress and edits saved under a card's former topic.
-const moves = cardMoveHistory(readTopicMergeLedger());
+const moves = cardMoveHistory(readTopicMergeLedger(), removedByPhase2());
 for (const [cardId, formerCategories] of Object.entries(moves.formerCategories)) {
   if (!index[cardId]) throw new Error(`Moved card is missing from the card index: ${cardId}`);
   if (formerCategories.includes(index[cardId][0])) throw new Error(`Moved card still lists its current topic as former: ${cardId}`);

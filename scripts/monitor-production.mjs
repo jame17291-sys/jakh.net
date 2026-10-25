@@ -34,13 +34,15 @@ const DEFAULT_RETRY_DELAY_MS = 0;
 const WORKER_VERSION_ID = /^[0-9A-Za-z][0-9A-Za-z._-]{5,127}$/u;
 const RETIRED_SEO_REDIRECT_QUERY = "retired_seo_redirect_probe=riddlearabia";
 const RENAMED_GAME_REDIRECT_QUERY = "renamed_game_redirect_probe=riddlearabia";
-// Public inventories of the live releases before the 2026-10-25 topic merges:
-// 51 topics with 3,825 cards before the card audit (PR #175), then 3,798 cards
-// after it. Only the exact-version release baseline may still serve one of
-// these inventories, and only as a coherent pair.
+// Public inventories of earlier releases: 51 topics with 3,825 cards before
+// the 2026-10-25 card audit (PR #175) and 3,798 cards after it, then 48 topics
+// with 3,704 cards after the topic merges (PR #177), before the phase-2 content
+// pass. Only the exact-version release baseline may still serve one of these
+// inventories, and only as a coherent pair.
 const PREDECESSOR_INVENTORIES = Object.freeze([
   Object.freeze({ publicQuestions: 3_825, publicCategories: 51 }),
   Object.freeze({ publicQuestions: 3_798, publicCategories: 51 }),
+  Object.freeze({ publicQuestions: 3_704, publicCategories: 48 }),
 ]);
 export const PUBLIC_CATEGORY_TOTAL = 48;
 const FRIENDSHIP_ARCADE_SLUGS = new Set(["secret-word-impostor", "panic-mode", "friendship-court"]);
@@ -55,7 +57,7 @@ export const CONTENT_PUBLICATION_CONTRACT = Object.freeze({
   state: "safety-quarantine-active",
   quarantinedCategories: Object.freeze([...checkedPublicationQuarantine.categorySlugs]),
   quarantinedQuestions: checkedPublicationQuarantine.manifest.totalCards,
-  publicQuestions: 3_704,
+  publicQuestions: 3_286,
   manifestSha256: checkedPublicationQuarantine.policySha256,
 });
 

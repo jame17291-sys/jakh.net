@@ -159,12 +159,12 @@
       "ar": "أدوار الإنتاج والتخطيط"
     },
     "question": {
-      "en": "What do we call the person who oversees the entire creative vision of a film?",
-      "ar": "ماذا نسمي الشخص الذي يشرف على الرؤية الإبداعية الكاملة للفيلم؟"
+      "en": "On a film set, what word does the director call out to start the actors performing?",
+      "ar": "في موقع التصوير، ما الكلمة التي ينادي بها المخرج ليبدأ الممثلون الأداء؟"
     },
     "answer": {
-      "en": "Director",
-      "ar": "المخرج"
+      "en": "'Action!'",
+      "ar": "«أكشن!»"
     },
     "review": {
       "status": "pending"
@@ -362,7 +362,7 @@
   },
   {
     "id": "cin-20",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Awards, Festivals & Industry",
       "ar": "الجوائز والمهرجانات والصناعة"
@@ -495,7 +495,7 @@
   },
   {
     "id": "cin-27",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Awards, Festivals & Industry",
       "ar": "الجوائز والمهرجانات والصناعة"
@@ -554,16 +554,16 @@
     "id": "cin-30",
     "difficulty": "hard",
     "subcategory": {
-      "en": "Cinematography & Camera",
-      "ar": "التصوير السينمائي والكاميرا"
+      "en": "Filmmakers & Performers",
+      "ar": "صنّاع الأفلام والممثلون"
     },
     "question": {
-      "en": "What aspect ratio is commonly used for modern anamorphic theatrical releases?",
-      "ar": "ما نسبة العرض إلى الارتفاع الشائعة في العروض السينمائية الحديثة بتقنية الأنمورفيك؟"
+      "en": "Which Lebanese director's film 'Capernaum' won the Jury Prize at Cannes in 2018?",
+      "ar": "مَن المخرجة اللبنانية التي فاز فيلمها «كفرناحوم» بجائزة لجنة التحكيم في مهرجان كان عام 2018؟"
     },
     "answer": {
-      "en": "Approximately 2.39:1",
-      "ar": "نحو 2.39:1"
+      "en": "Nadine Labaki",
+      "ar": "نادين لبكي"
     },
     "review": {
       "status": "pending"
@@ -590,14 +590,14 @@
   },
   {
     "id": "cin-32",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Filmmakers & Performers",
       "ar": "صنّاع الأفلام والممثلون"
     },
     "question": {
-      "en": "Who won the Best Actress Oscar for Two Women at the 1962 Academy Awards?",
-      "ar": "من فازت بأوسكار أفضل ممثلة عن فيلم امرأتان في حفل عام 1962؟"
+      "en": "Which Italian actress won the 1962 Best Actress Oscar for 'Two Women', the first acting Oscar for a non-English-language performance?",
+      "ar": "مَن الممثلة الإيطالية التي فازت بأوسكار أفضل ممثلة عام 1962 عن فيلم «امرأتان»، في أول أوسكار تمثيل يُمنح عن أداء بغير الإنجليزية؟"
     },
     "answer": {
       "en": "Sophia Loren",
@@ -647,7 +647,7 @@
   },
   {
     "id": "cin-35",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Film History & Milestones",
       "ar": "تاريخ السينما ومحطاتها"
@@ -668,16 +668,16 @@
     "id": "cin-36",
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Editing, Sound & Visual Effects",
-      "ar": "المونتاج والصوت والمؤثرات البصرية"
+      "en": "Awards, Festivals & Industry",
+      "ar": "الجوائز والمهرجانات والصناعة"
     },
     "question": {
-      "en": "What is the term for a transition where one shot is replaced by another along a moving line?",
-      "ar": "ما هو المصطلح الذي يطلق على انتقال حيث يتم استبدال لقطة بأخرى على طول خط متحرك؟"
+      "en": "Which Algerian film by Mohammed Lakhdar-Hamina won the Palme d'Or at Cannes in 1975, the first Arab film to do so?",
+      "ar": "أيّ فيلم جزائري للمخرج محمد الأخضر حامينا فاز بالسعفة الذهبية في مهرجان كان عام 1975، ليكون أول فيلم عربي يفوز بها؟"
     },
     "answer": {
-      "en": "Wipe",
-      "ar": "المسح (Wipe)"
+      "en": "Chronicle of the Years of Fire",
+      "ar": "«وقائع سنين الجمر»"
     },
     "review": {
       "status": "pending"
@@ -737,7 +737,7 @@
   },
   {
     "id": "cin-39",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Movements & Genres",
       "ar": "الحركات والأنواع السينمائية"
@@ -758,16 +758,206 @@
     "id": "cin-40",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Cinematography & Camera",
-      "ar": "التصوير السينمائي والكاميرا"
+      "en": "Awards, Festivals & Industry",
+      "ar": "الجوائز والمهرجانات والصناعة"
     },
     "question": {
-      "en": "Which light is used to soften shadows created by the key light?",
-      "ar": "ما الضوء الذي يُستخدم لتخفيف الظلال التي يُحدثها الضوء الرئيسي؟"
+      "en": "Which Saudi city hosts the Red Sea International Film Festival?",
+      "ar": "في أيّ مدينة سعودية يُقام مهرجان البحر الأحمر السينمائي الدولي؟"
     },
     "answer": {
-      "en": "Fill light",
-      "ar": "ضوء الملء"
+      "en": "Jeddah",
+      "ar": "جدة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "cin-41",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Film History & Milestones",
+      "ar": "تاريخ السينما ومحطاتها"
+    },
+    "question": {
+      "en": "In the original book, Dorothy's magic shoes are silver. What colour are they in the 1939 film 'The Wizard of Oz'?",
+      "ar": "في الكتاب الأصلي، كان حذاء دوروثي السحري فضيًا. ما لونه في فيلم «ساحر أوز» عام 1939؟"
+    },
+    "answer": {
+      "en": "Ruby red",
+      "ar": "أحمر ياقوتي"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "cin-42",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Filmmakers & Performers",
+      "ar": "صنّاع الأفلام والممثلون"
+    },
+    "question": {
+      "en": "Which Egyptian actress was known as 'the Lady of the Arab Screen'?",
+      "ar": "مَن الممثلة المصرية الملقبة بـ«سيدة الشاشة العربية»؟"
+    },
+    "answer": {
+      "en": "Faten Hamama",
+      "ar": "فاتن حمامة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "cin-43",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Awards, Festivals & Industry",
+      "ar": "الجوائز والمهرجانات والصناعة"
+    },
+    "question": {
+      "en": "At the Oscars, who goes up to collect the Best Picture award?",
+      "ar": "في حفل الأوسكار، مَن يصعد لتسلّم جائزة أفضل فيلم؟"
+    },
+    "answer": {
+      "en": "The film's producers",
+      "ar": "منتجو الفيلم"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "cin-44",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Film History & Milestones",
+      "ar": "تاريخ السينما ومحطاتها"
+    },
+    "question": {
+      "en": "Which Marvel film was the first to be screened when cinemas reopened in Saudi Arabia in 2018?",
+      "ar": "ما فيلم مارفل الذي كان أول فيلم يُعرض حين أُعيد افتتاح دور السينما في السعودية عام 2018؟"
+    },
+    "answer": {
+      "en": "Black Panther",
+      "ar": "«بلاك بانثر» (النمر الأسود)"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "cin-45",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Film History & Milestones",
+      "ar": "تاريخ السينما ومحطاتها"
+    },
+    "question": {
+      "en": "Which 2012 film by Haifaa al-Mansour was the first feature film shot entirely in Saudi Arabia?",
+      "ar": "أيّ فيلم للمخرجة هيفاء المنصور عام 2012 كان أول فيلم روائي طويل يُصوَّر بالكامل في السعودية؟"
+    },
+    "answer": {
+      "en": "Wadjda",
+      "ar": "«وجدة»"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "cin-46",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Filmmakers & Performers",
+      "ar": "صنّاع الأفلام والممثلون"
+    },
+    "question": {
+      "en": "Which Egyptian director received a special 50th-anniversary prize for his life's work at Cannes in 1997?",
+      "ar": "أيّ مخرج مصري نال جائزة خاصة بمناسبة الذكرى الخمسين لمهرجان كان عام 1997 عن مجمل أعماله؟"
+    },
+    "answer": {
+      "en": "Youssef Chahine",
+      "ar": "يوسف شاهين"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "cin-47",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Awards, Festivals & Industry",
+      "ar": "الجوائز والمهرجانات والصناعة"
+    },
+    "question": {
+      "en": "Costa-Gavras's thriller 'Z' won the Oscar for Best Foreign Language Film in 1970 as the entry of which Arab country?",
+      "ar": "فاز فيلم «زد» (Z) للمخرج كوستا غافراس بأوسكار أفضل فيلم أجنبي عام 1970 باسم أيّ دولة عربية؟"
+    },
+    "answer": {
+      "en": "Algeria",
+      "ar": "الجزائر"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "cin-48",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Awards, Festivals & Industry",
+      "ar": "الجوائز والمهرجانات والصناعة"
+    },
+    "question": {
+      "en": "Which Bedouin adventure film by Naji Abu Nowar became Jordan's first Oscar nominee, in 2016?",
+      "ar": "أيّ فيلم مغامرات بدوي للمخرج ناجي أبو نوار أصبح أول فيلم أردني يُرشَّح للأوسكار، عام 2016؟"
+    },
+    "answer": {
+      "en": "Theeb",
+      "ar": "«ذيب»"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "cin-49",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Film History & Milestones",
+      "ar": "تاريخ السينما ومحطاتها"
+    },
+    "question": {
+      "en": "Which Cairo film studio, founded in 1935 by the economist Talaat Harb, became the heart of Egypt's golden age of cinema?",
+      "ar": "ما اسم الاستوديو الذي أسسه الاقتصادي طلعت حرب في القاهرة عام 1935، وأصبح قلب العصر الذهبي للسينما المصرية؟"
+    },
+    "answer": {
+      "en": "Studio Misr",
+      "ar": "استوديو مصر"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "cin-50",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Filmmakers & Performers",
+      "ar": "صنّاع الأفلام والممثلون"
+    },
+    "question": {
+      "en": "Which French stage magician directed 'A Trip to the Moon' (1902), with its famous rocket in the Moon's eye?",
+      "ar": "مَن الساحر المسرحي الفرنسي الذي أخرج فيلم «رحلة إلى القمر» عام 1902، بمشهد الصاروخ الذي ينغرس في عين القمر؟"
+    },
+    "answer": {
+      "en": "Georges Méliès",
+      "ar": "جورج ميلييس"
     },
     "review": {
       "status": "pending"

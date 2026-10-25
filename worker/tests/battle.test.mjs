@@ -5,8 +5,12 @@ import vm from "node:vm";
 import { buildBattleQuestions, connectBattle, createBattle, generateBattleCode } from "../dist/battle.js";
 import { QUARANTINED_CATEGORY_IDS } from "../dist/content-safety.js";
 
+// Synthetic Quick Fire cards borrow the ids of real public Science cards,
+// because battle creation binds every fetched card to the public card index.
+const scienceIds = JSON.parse(readFileSync(new URL("../../data/science.json", import.meta.url), "utf8"))
+  .map((card) => card.id).filter((id) => /^science-\d+$/u.test(id)).slice(0, 8);
 const cards = Array.from({ length: 8 }, (_, index) => ({
-  id: `science-${String(index + 1).padStart(3, "0")}`,
+  id: scienceIds[index],
   difficulty: index < 4 ? "easy" : "hard",
   question: { en: `Question ${index}`, ar: `سؤال ${index}` },
   answer: { en: `Answer ${index}`, ar: `جواب ${index}` },
@@ -40,7 +44,7 @@ test("battle questions preserve bilingual answer alignment", () => {
   const questions = buildBattleQuestions(cards, "hard", 3);
   assert.equal(questions.length, 3);
   for (const question of questions) {
-    assert.match(question.id, /^science-00[5-8]$/u);
+    assert.ok(cards.slice(4).some((card) => card.id === question.id), `${question.id}: one of the hard cards`);
     assert.equal(question.options.en.length, 4);
     assert.equal(question.options.ar.length, 4);
     assert.equal(question.options.en[question.correctIndex], question.answer.en);

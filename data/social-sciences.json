@@ -26,12 +26,12 @@
       "ar": "الاقتصاد"
     },
     "question": {
-      "en": "What does gross domestic product (GDP) measure?",
-      "ar": "ماذا يقيس الناتج المحلي الإجمالي؟"
+      "en": "Which measure adds up the value of all final goods and services a country produces in a year?",
+      "ar": "ما المقياس الذي يجمع قيمة جميع السلع والخدمات النهائية التي ينتجها البلد خلال عام؟"
     },
     "answer": {
-      "en": "The monetary value of final goods and services produced within an economy during a specified period, avoiding double-counting intermediate production.",
-      "ar": "القيمة النقدية للسلع والخدمات النهائية المنتجة داخل اقتصاد خلال فترة محددة، مع تجنّب احتساب الإنتاج الوسيط مرتين."
+      "en": "Gross domestic product (GDP).",
+      "ar": "الناتج المحلي الإجمالي."
     },
     "review": {
       "status": "pending"
@@ -45,12 +45,12 @@
       "ar": "العلوم السياسية"
     },
     "question": {
-      "en": "What is the basic distinction between democracy and autocracy?",
-      "ar": "ما الفرق الأساسي بين الديمقراطية والأوتوقراطية؟"
+      "en": "The word 'democracy' comes from two Greek words. What does it literally mean?",
+      "ar": "أصل كلمة «ديمقراطية» كلمتان يونانيتان. ما معناها الحرفي؟"
     },
     "answer": {
-      "en": "Democracy places authority with the people, directly or through representatives; autocracy concentrates power in a single ruler with limited accountability.",
-      "ar": "تجعل الديمقراطية السلطة بيد الشعب مباشرةً أو عبر ممثلين؛ وتركّز الأوتوقراطية السلطة في حاكم واحد ذي مساءلة محدودة."
+      "en": "Rule by the people.",
+      "ar": "حكم الشعب."
     },
     "review": {
       "status": "pending"
@@ -60,25 +60,25 @@
     "id": "social-sciences-004",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Anthropology",
-      "ar": "الأنثروبولوجيا"
+      "en": "Economics",
+      "ar": "الاقتصاد"
     },
     "question": {
-      "en": "What is culture in anthropological terms?",
-      "ar": "ما المقصود بالثقافة في المصطلح الأنثروبولوجي؟"
+      "en": "Which oil organisation was founded in Baghdad in 1960 by Iran, Iraq, Kuwait, Saudi Arabia and Venezuela?",
+      "ar": "أي منظمة نفطية تأسست في بغداد سنة 1960 على يد إيران والعراق والكويت والسعودية وفنزويلا؟"
     },
     "answer": {
-      "en": "The shared beliefs, values, norms, practices, symbols, and knowledge transmitted across generations within a human group.",
-      "ar": "المعتقدات والقيم والأعراف والممارسات والرموز والمعرفة المشتركة التي تنتقل عبر الأجيال داخل مجموعة بشرية."
+      "en": "OPEC.",
+      "ar": "أوبك (منظمة الدول المصدّرة للنفط)."
     },
     "acceptedAnswers": {
       "en": [
-        "Shared beliefs, values, norms, practices, symbols, and knowledge transmitted across generations.",
-        "A group's inherited system of beliefs, norms, symbols, practices, values, and knowledge."
+        "OPEC",
+        "Organization of the Petroleum Exporting Countries"
       ],
       "ar": [
-        "معتقدات وقيم وأعراف وممارسات ورموز ومعرفة مشتركة تنتقل عبر الأجيال.",
-        "منظومة الجماعة الموروثة من المعتقدات والقيم والأعراف والممارسات والرموز والمعرفة."
+        "أوبك",
+        "منظمة الدول المصدرة للنفط"
       ]
     },
     "review": {
@@ -87,27 +87,28 @@
   },
   {
     "id": "social-sciences-005",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Sociology",
       "ar": "علم الاجتماع"
     },
     "question": {
-      "en": "What is social stratification?",
-      "ar": "ما التطبق الاجتماعي؟"
+      "en": "What do sociologists call the layering of society into ranks by wealth, power and prestige?",
+      "ar": "ماذا يسمّي علماء الاجتماع ترتيب المجتمع في طبقات ومراتب بحسب الثروة والسلطة والمكانة؟"
     },
     "answer": {
-      "en": "The hierarchical arrangement of individuals or groups in society based on wealth, power, prestige, or other criteria.",
-      "ar": "الترتيب الهرمي للأفراد أو المجموعات في المجتمع بناءً على الثروة أو السلطة أو المكانة أو معايير أخرى."
+      "en": "Social stratification.",
+      "ar": "التدرّج الاجتماعي (التقسيم الطبقي)."
     },
     "acceptedAnswers": {
       "en": [
-        "Society's hierarchy by wealth, power, prestige, or other criteria.",
-        "Hierarchical ranking of people and groups by resources, power, and status."
+        "Social stratification",
+        "Stratification"
       ],
       "ar": [
-        "الترتيب الهرمي للمجتمع حسب الثروة والسلطة والمكانة أو معايير أخرى.",
-        "ترتيب الأفراد والجماعات هرمياً وفق الموارد والسلطة والمكانة."
+        "التدرج الاجتماعي",
+        "التقسيم الطبقي",
+        "التطبق الاجتماعي"
       ]
     },
     "review": {
@@ -122,21 +123,21 @@
       "ar": "الاقتصاد"
     },
     "question": {
-      "en": "What is inflation?",
-      "ar": "ما التضخم؟"
+      "en": "When prices across an economy keep rising and the same money buys less, what is it called?",
+      "ar": "حين تواصل الأسعار في الاقتصاد كله الارتفاع ويشتري المال نفسه أقل، ماذا نسمّي ذلك؟"
     },
     "answer": {
-      "en": "The rate at which the general level of prices for goods and services rises, reducing the purchasing power of money.",
-      "ar": "المعدل الذي يرتفع به المستوى العام لأسعار السلع والخدمات، مما يُقلل من القوة الشرائية للنقود."
+      "en": "Inflation.",
+      "ar": "التضخّم."
     },
     "acceptedAnswers": {
       "en": [
-        "Rising general prices that reduce money's purchasing power.",
-        "A sustained general price increase that erodes purchasing power."
+        "Inflation",
+        "Price inflation"
       ],
       "ar": [
-        "ارتفاع المستوى العام للأسعار بما يخفض القوة الشرائية للنقود.",
-        "ارتفاع عام ومستمر للأسعار يضعف القدرة الشرائية."
+        "التضخم",
+        "التضخم النقدي"
       ]
     },
     "review": {
@@ -151,12 +152,12 @@
       "ar": "العلوم السياسية"
     },
     "question": {
-      "en": "What is the separation of powers in government?",
-      "ar": "ما مبدأ الفصل بين السلطات في الحكم؟"
+      "en": "Montesquieu argued for splitting government power into legislative, executive and which third branch?",
+      "ar": "دعا مونتسكيو إلى تقسيم سلطة الحكم إلى تشريعية وتنفيذية، فما السلطة الثالثة؟"
     },
     "answer": {
-      "en": "The division of government authority into three branches — legislative (makes laws), executive (enforces laws), and judicial (interprets laws) — to prevent any one branch from becoming too powerful.",
-      "ar": "تقسيم سلطة الحكومة إلى ثلاثة فروع — التشريعية (تسنّ القوانين)، والتنفيذية (تُنفّذ القوانين)، والقضائية (تُفسّر القوانين) — لمنع أي فرع من الحصول على سلطة مفرطة."
+      "en": "The judiciary (judicial power).",
+      "ar": "السلطة القضائية."
     },
     "review": {
       "status": "pending"
@@ -164,18 +165,18 @@
   },
   {
     "id": "social-sciences-008",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Anthropology",
       "ar": "الأنثروبولوجيا"
     },
     "question": {
-      "en": "What is ethnography?",
-      "ar": "ما الإثنوغرافيا؟"
+      "en": "What is the research method in which an anthropologist lives with a community for months to observe and record its way of life?",
+      "ar": "ما اسم منهج البحث الذي يعيش فيه عالم الأنثروبولوجيا مع مجتمع شهورًا ليراقب نمط حياته ويوثقه؟"
     },
     "answer": {
-      "en": "A qualitative research method in which an anthropologist immerses themselves in a community over an extended period to observe and document its way of life.",
-      "ar": "منهج بحثي نوعي يندمج فيه الأنثروبولوجي مع مجتمع ما لفترة ممتدة لمراقبة نمط حياته وتوثيقه."
+      "en": "Ethnography (fieldwork).",
+      "ar": "الإثنوغرافيا (العمل الميداني)."
     },
     "review": {
       "status": "pending"
@@ -189,12 +190,12 @@
       "ar": "علم الاجتماع"
     },
     "question": {
-      "en": "What does the term 'social norms' mean?",
-      "ar": "ماذا يعني مصطلح «المعايير الاجتماعية»؟"
+      "en": "Queuing in line or shaking hands when you meet someone are examples of unwritten rules called what?",
+      "ar": "الوقوف في الطابور أو المصافحة عند لقاء أحد أمثلة على قواعد غير مكتوبة، فما اسمها؟"
     },
     "answer": {
-      "en": "Shared rules and expectations within a group or society that guide behaviour — e.g., shaking hands when greeting, queuing in line.",
-      "ar": "القواعد والتوقعات المشتركة داخل مجموعة أو مجتمع توجّه السلوك — مثلاً: المصافحة عند التحية، والوقوف في طابور."
+      "en": "Social norms.",
+      "ar": "المعايير الاجتماعية (الأعراف)."
     },
     "review": {
       "status": "pending"
@@ -202,18 +203,18 @@
   },
   {
     "id": "social-sciences-010",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Economics",
       "ar": "الاقتصاد"
     },
     "question": {
-      "en": "In a standard competitive-market model, what is the equilibrium price?",
-      "ar": "ما سعر التوازن في نموذج السوق التنافسية المعتاد؟"
+      "en": "In a competitive market, what do economists call the price at which supply equals demand?",
+      "ar": "في السوق التنافسية، ماذا يسمّي الاقتصاديون السعر الذي يتساوى عنده العرض والطلب؟"
     },
     "answer": {
-      "en": "The price at which the quantity buyers are willing and able to purchase equals the quantity sellers are willing to supply.",
-      "ar": "السعر الذي تتساوى عنده الكمية التي يرغب المشترون ويستطيعون شراءها مع الكمية التي يرغب البائعون في عرضها."
+      "en": "The equilibrium price.",
+      "ar": "سعر التوازن."
     },
     "review": {
       "status": "pending"
@@ -246,12 +247,12 @@
       "ar": "علم الاجتماع"
     },
     "question": {
-      "en": "What is socialisation in sociology?",
-      "ar": "ما التنشئة الاجتماعية في علم الاجتماع؟"
+      "en": "Children learn their society's values, customs and roles from family, school and friends. What is this lifelong process called?",
+      "ar": "يتعلم الأطفال قيم مجتمعهم وعاداته وأدواره من الأهل والمدرسة والأصدقاء. ما اسم هذه العملية التي تستمر طوال الحياة؟"
     },
     "answer": {
-      "en": "The lifelong process by which individuals learn and internalise the values, norms, and behaviours appropriate to their culture and social positions.",
-      "ar": "العملية مدى الحياة التي يتعلم من خلالها الأفراد ويستوعبون القيم والمعايير والسلوكيات المناسبة لثقافتهم ومواقعهم الاجتماعية."
+      "en": "Socialisation.",
+      "ar": "التنشئة الاجتماعية."
     },
     "review": {
       "status": "pending"
@@ -259,27 +260,25 @@
   },
   {
     "id": "social-sciences-013",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Anthropology",
       "ar": "الأنثروبولوجيا"
     },
     "question": {
-      "en": "What is cultural relativism?",
-      "ar": "ما النسبية الثقافية؟"
+      "en": "What is the principle of understanding a culture by its own standards, rather than judging it by yours, called?",
+      "ar": "ما اسم المبدأ الذي يدعو إلى فهم الثقافة بحسب معاييرها هي، لا الحكم عليها بمعاييرك أنت؟"
     },
     "answer": {
-      "en": "The principle of understanding a culture on its own terms rather than judging it by the standards of another culture.",
-      "ar": "مبدأ فهم الثقافة بمصطلحاتها الخاصة بدلاً من الحكم عليها وفق معايير ثقافة أخرى."
+      "en": "Cultural relativism.",
+      "ar": "النسبية الثقافية."
     },
     "acceptedAnswers": {
       "en": [
-        "Understanding each culture by its own standards, not another culture's.",
-        "Judging cultural practices within their own context rather than external norms."
+        "Cultural relativism"
       ],
       "ar": [
-        "فهم كل ثقافة وفق معاييرها لا معايير ثقافة أخرى.",
-        "تقييم الممارسات الثقافية ضمن سياقها الخاص لا بأعراف خارجية."
+        "النسبية الثقافية"
       ]
     },
     "review": {
@@ -298,8 +297,8 @@
       "ar": "هل النمط المثالي في علم اجتماع ماكس فيبر نموذج للكمال الأخلاقي أم أداة للمقارنة التحليلية؟"
     },
     "answer": {
-      "en": "An analytical tool that emphasizes selected features to compare with real cases; it is not a moral ideal.",
-      "ar": "أداة تحليلية تُبرز سمات مختارة لمقارنتها بالحالات الواقعية؛ وليست مثالاً للكمال الأخلاقي."
+      "en": "An analytical comparison tool, not a moral ideal.",
+      "ar": "أداة تحليلية للمقارنة، لا مثال للكمال الأخلاقي."
     },
     "review": {
       "status": "pending"
@@ -307,27 +306,26 @@
   },
   {
     "id": "social-sciences-015",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Economics",
       "ar": "الاقتصاد"
     },
     "question": {
-      "en": "What is the difference between microeconomics and macroeconomics?",
-      "ar": "ما الفرق بين الاقتصاد الجزئي والاقتصاد الكلي؟"
+      "en": "Which branch of economics studies the economy as a whole: national output, unemployment and the overall price level?",
+      "ar": "أي فرع من الاقتصاد يدرس الاقتصاد ككل: الناتج الوطني والبطالة والمستوى العام للأسعار؟"
     },
     "answer": {
-      "en": "Microeconomics studies individual economic agents (firms, households) and their decisions. Macroeconomics studies the economy as a whole — national output, unemployment, inflation, monetary policy.",
-      "ar": "الاقتصاد الجزئي يدرس الوحدات الاقتصادية الفردية (الشركات، الأسر) وقراراتها. الاقتصاد الكلي يدرس الاقتصاد بأكمله — الناتج الوطني، والبطالة، والتضخم، والسياسة النقدية."
+      "en": "Macroeconomics.",
+      "ar": "الاقتصاد الكلي."
     },
     "acceptedAnswers": {
       "en": [
-        "Microeconomics studies individual agents; macroeconomics studies the whole economy and aggregates.",
-        "Micro examines households and firms; macro examines economy-wide output, jobs, prices, and policy."
+        "Macroeconomics",
+        "Macro"
       ],
       "ar": [
-        "الاقتصاد الجزئي يدرس الوحدات الفردية؛ والكلي يدرس الاقتصاد ومجاميعه.",
-        "الجزئي يدرس الأسر والشركات؛ والكلي يدرس الناتج والوظائف والأسعار والسياسة على مستوى الاقتصاد."
+        "الاقتصاد الكلي"
       ]
     },
     "review": {
@@ -336,7 +334,7 @@
   },
   {
     "id": "social-sciences-016",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Political Science",
       "ar": "العلوم السياسية"
@@ -355,7 +353,7 @@
   },
   {
     "id": "social-sciences-017",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Sociology",
       "ar": "علم الاجتماع"
@@ -374,18 +372,18 @@
   },
   {
     "id": "social-sciences-018",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Anthropology",
       "ar": "الأنثروبولوجيا"
     },
     "question": {
-      "en": "How does the weak version of linguistic relativity differ from linguistic determinism?",
-      "ar": "كيف تختلف الصيغة الضعيفة للنسبية اللغوية عن الحتمية اللغوية؟"
+      "en": "Which hypothesis, named after two American linguists, proposes that the language you speak can shape how you think?",
+      "ar": "أي فرضية، تحمل اسم لغويَّين أمريكيَّين، تقول إن اللغة التي تتحدثها قد تشكّل طريقة تفكيرك؟"
     },
     "answer": {
-      "en": "Linguistic relativity proposes that language can influence thought; determinism claims it determines or limits thought. Evidence for particular influences does not establish total determination.",
-      "ar": "تقترح النسبية أن اللغة قد تؤثر في التفكير؛ وتزعم الحتمية أنها تحدّده أو تقيّده. ولا تثبت الأدلة على تأثيرات معينة تحكماً كاملاً بالفكر."
+      "en": "The Sapir–Whorf hypothesis (linguistic relativity).",
+      "ar": "فرضية سابير-وورف (النسبية اللغوية)."
     },
     "review": {
       "status": "pending"
@@ -403,8 +401,8 @@
       "ar": "ما الفكرة المرتبطة عادةً باستعارة اليد الخفية لدى آدم سميث؟"
     },
     "answer": {
-      "en": "Individuals pursuing their own interests can unintentionally benefit society under suitable conditions; this is not a guarantee that every market outcome benefits everyone.",
-      "ar": "قد ينفع سعي الأفراد لمصالحهم المجتمع دون قصد في ظروف مناسبة؛ وليس ذلك ضماناً بأن كل نتيجة سوقية تفيد الجميع."
+      "en": "Self-interest in markets can unintentionally benefit society.",
+      "ar": "أن سعي الأفراد لمصالحهم في السوق قد ينفع المجتمع دون قصد."
     },
     "review": {
       "status": "pending"
@@ -412,27 +410,29 @@
   },
   {
     "id": "social-sciences-020",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Political Science",
       "ar": "العلوم السياسية"
     },
     "question": {
-      "en": "What is the difference between a federal and a unitary state?",
-      "ar": "ما الفرق بين الدولة الفيدرالية والدولة الموحدة؟"
+      "en": "In which kind of state is power shared between a national government and regions, as in the USA or Germany?",
+      "ar": "في أيّ نوع من الدول تتقاسم الحكومة الوطنية السلطة مع الأقاليم أو الولايات، مثل الولايات المتحدة وألمانيا؟"
     },
     "answer": {
-      "en": "In a federal state, power is divided between a central government and regional/state governments (e.g., USA, Germany). In a unitary state, the central government holds supreme authority and sub-national governments operate under its delegation (e.g., France, UK).",
-      "ar": "في الدولة الفيدرالية، تتقاسم السلطة حكومة مركزية وحكومات إقليمية/ولائية (مثل الولايات المتحدة وألمانيا). في الدولة الموحدة، تمتلك الحكومة المركزية السلطة العليا وتعمل الحكومات دون الوطنية بموجب تفويض منها (مثل فرنسا والمملكة المتحدة)."
+      "en": "A federal state (federation).",
+      "ar": "الدولة الفيدرالية (الاتحادية)."
     },
     "acceptedAnswers": {
       "en": [
-        "Federal states divide power centrally and regionally; unitary states place supremacy centrally.",
-        "Federalism shares authority with regions; a unitary state delegates from one supreme centre."
+        "Federal state",
+        "Federation",
+        "Federal"
       ],
       "ar": [
-        "الفيدرالية تقسم السلطة بين المركز والأقاليم؛ والموحدة تجعل السلطة العليا للمركز.",
-        "الدولة الفيدرالية تشارك الأقاليم السلطة؛ والموحدة تفوضها من حكومة مركزية عليا."
+        "الدولة الفيدرالية",
+        "الدولة الاتحادية",
+        "فيدرالية"
       ]
     },
     "review": {
@@ -441,7 +441,7 @@
   },
   {
     "id": "social-sciences-021",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Sociology",
       "ar": "علم الاجتماع"
@@ -485,12 +485,12 @@
       "ar": "الاقتصاد"
     },
     "question": {
-      "en": "What is the difference between monetary policy and fiscal policy?",
-      "ar": "ما الفرق بين السياسة النقدية والسياسة المالية؟"
+      "en": "Raising or cutting interest rates to steer the economy is which kind of policy, usually run by a central bank?",
+      "ar": "رفع أسعار الفائدة أو خفضها لتوجيه الاقتصاد، أي نوع من السياسات هو، ويديره عادةً البنك المركزي؟"
     },
     "answer": {
-      "en": "Monetary policy is managed by central banks (interest rates, money supply) to control inflation and growth. Fiscal policy is managed by governments (taxation and spending) to influence the economy.",
-      "ar": "السياسة النقدية تديرها البنوك المركزية (أسعار الفائدة، عرض النقود) للسيطرة على التضخم والنمو. السياسة المالية تديرها الحكومات (الضرائب والإنفاق) للتأثير على الاقتصاد."
+      "en": "Monetary policy.",
+      "ar": "السياسة النقدية."
     },
     "review": {
       "status": "pending"
@@ -504,12 +504,12 @@
       "ar": "العلوم السياسية"
     },
     "question": {
-      "en": "What is 'soft power' in international relations, as defined by Joseph Nye?",
-      "ar": "ما «القوة الناعمة» في العلاقات الدولية كما عرّفها جوزيف ناي؟"
+      "en": "What did Joseph Nye call a country's power to persuade through its culture and values rather than force or money?",
+      "ar": "ماذا سمّى جوزيف ناي قدرة الدولة على الإقناع بثقافتها وقيمها بدل القوة أو المال؟"
     },
     "answer": {
-      "en": "The ability to shape the preferences of others through appeal and attraction rather than coercion or payment ('hard power'). It relies on culture, political values, and foreign policy legitimacy. E.g., the global appeal of American pop culture.",
-      "ar": "القدرة على تشكيل تفضيلات الآخرين من خلال الجاذبية والاستقطاب بدلاً من الإكراه أو الدفع ('القوة الصلبة'). تعتمد على الثقافة والقيم السياسية وشرعية السياسة الخارجية. مثلاً: الجاذبية العالمية للثقافة الشعبية الأمريكية."
+      "en": "Soft power.",
+      "ar": "القوة الناعمة."
     },
     "review": {
       "status": "pending"
@@ -517,18 +517,18 @@
   },
   {
     "id": "social-sciences-025",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Sociology",
       "ar": "علم الاجتماع"
     },
     "question": {
-      "en": "What is 'labelling theory' in criminology and sociology?",
-      "ar": "ما «نظرية الوصم» في علم الجريمة وعلم الاجتماع؟"
+      "en": "Which sociological theory says that branding someone 'deviant' can push them into further deviance?",
+      "ar": "أيّ نظرية اجتماعية تقول إن وصف شخص بأنه «منحرف» قد يدفعه إلى مزيد من الانحراف؟"
     },
     "answer": {
-      "en": "The theory (associated with Howard Becker) that deviance is not inherent in an act but is constructed when society labels a person as deviant. Being labelled criminal can become a self-fulfilling prophecy, pushing individuals into further deviance.",
-      "ar": "النظرية (المرتبطة بهاورد بيكر) التي تقول إن الانحراف ليس متأصلاً في الفعل بل يُبنى حين يصف المجتمع شخصاً ما بالانحراف. قد يصبح وسم الفرد بالإجرام نبوءة تتحقق ذاتياً تدفعه نحو مزيد من الانحراف."
+      "en": "Labelling theory.",
+      "ar": "نظرية الوصم."
     },
     "review": {
       "status": "pending"
@@ -542,12 +542,12 @@
       "ar": "الأنثروبولوجيا"
     },
     "question": {
-      "en": "What is a rite of passage in anthropology?",
-      "ar": "ما طقس العبور في الأنثروبولوجيا؟"
+      "en": "What do anthropologists call a ritual that marks a move to a new stage of life, such as a coming-of-age ceremony or a wedding?",
+      "ar": "ماذا يسمّي علماء الأنثروبولوجيا الطقس الذي يعلن الانتقال إلى مرحلة جديدة في الحياة، مثل حفل البلوغ أو العرس؟"
     },
     "answer": {
-      "en": "A ritual marking a transition between social statuses, such as a coming-of-age or marriage ceremony.",
-      "ar": "طقس يُعلن الانتقال بين مكانتين اجتماعيتين، مثل الاحتفال بالبلوغ أو الزواج."
+      "en": "A rite of passage.",
+      "ar": "طقس العبور."
     },
     "review": {
       "status": "pending"
@@ -555,27 +555,28 @@
   },
   {
     "id": "social-sciences-027",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Sociology",
       "ar": "علم الاجتماع"
     },
     "question": {
-      "en": "What is intersectionality and who developed the concept?",
-      "ar": "ما التقاطعية ومن طوّر المفهوم؟"
+      "en": "Which American legal scholar coined the term 'intersectionality' in 1989?",
+      "ar": "أي باحثة قانونية أمريكية صاغت مصطلح «التقاطعية» سنة 1989؟"
     },
     "answer": {
-      "en": "A framework developed by Kimberlé Crenshaw (1989) for understanding how overlapping parts of a person's identity, such as race, gender and class, combine to shape experiences of discrimination or privilege.",
-      "ar": "إطار طوّرته كيمبرلي كرينشو (1989) لفهم كيف تتداخل جوانب هوية الشخص، مثل العرق والجنس والطبقة، فتشكّل تجاربه مع التمييز أو الامتياز."
+      "en": "Kimberlé Crenshaw.",
+      "ar": "كيمبرلي كرينشو."
     },
     "acceptedAnswers": {
       "en": [
-        "Crenshaw's framework for intersecting identities and overlapping discrimination or privilege.",
-        "Crenshaw: intersecting identities create overlapping privilege and discrimination."
+        "Kimberlé Crenshaw",
+        "Kimberle Crenshaw",
+        "Crenshaw"
       ],
       "ar": [
-        "إطار كيمبرلي كرينشو لتداخل أنظمة التمييز أو الامتياز القائمة على الهويات.",
-        "مفهوم كرينشو لتقاطع الهويات وإنتاج امتيازات وأشكال تمييز متداخلة."
+        "كيمبرلي كرينشو",
+        "كرينشو"
       ]
     },
     "review": {
@@ -590,12 +591,12 @@
       "ar": "الاقتصاد"
     },
     "question": {
-      "en": "What distinction separates an open-access resource from a community-governed commons?",
-      "ar": "ما الفرق بين مورد مفتوح الوصول ومورد مشترك تديره جماعة؟"
+      "en": "Which political economist became the first woman to win the Nobel economics prize (2009), for showing that communities can manage shared pastures and fisheries without privatisation?",
+      "ar": "أيّ باحثة أصبحت أول امرأة تفوز بجائزة نوبل للاقتصاد (2009)، لأنها بيّنت أن المجتمعات تستطيع إدارة المراعي ومصايد الأسماك المشتركة دون خصخصة؟"
     },
     "answer": {
-      "en": "Open access lacks effective exclusion or management; a governed commons has rules about access and use. Shared ownership does not necessarily mean unmanaged use.",
-      "ar": "يفتقر الوصول المفتوح إلى قيود أو إدارة فعّالة؛ أما المورد المشترك المُدار فله قواعد للدخول والاستخدام. ولا تعني الملكية المشتركة غياب الإدارة."
+      "en": "Elinor Ostrom.",
+      "ar": "إلينور أوستروم."
     },
     "review": {
       "status": "pending"
@@ -628,12 +629,12 @@
       "ar": "علم الاجتماع"
     },
     "question": {
-      "en": "In Goffman's dramaturgical model, how do frontstage and backstage behaviour differ?",
-      "ar": "كيف يختلف السلوك أمام الجمهور وخلف الكواليس في نموذج غوفمان المسرحي؟"
+      "en": "Which sociologist compared everyday life to a theatre, with a 'frontstage' for others and a 'backstage' to relax?",
+      "ar": "أيّ عالم اجتماع شبّه الحياة اليومية بالمسرح، ففيها «خشبة أمامية» أمام الناس و«كواليس» نرتاح فيها؟"
     },
     "answer": {
-      "en": "Frontstage behaviour manages impressions for an audience; backstage settings allow people to relax or prepare that performance.",
-      "ar": "يدير السلوك أمام الجمهور الانطباعات؛ وتتيح البيئات خلف الكواليس تخفيف الأداء الاجتماعي أو الاستعداد له."
+      "en": "Erving Goffman.",
+      "ar": "إرفنغ غوفمان."
     },
     "review": {
       "status": "pending"
@@ -647,21 +648,23 @@
       "ar": "الاقتصاد"
     },
     "question": {
-      "en": "What is 'market failure' and what are its main causes?",
-      "ar": "ما «فشل السوق» وما أسبابه الرئيسية؟"
+      "en": "What do economists call a side effect, like factory pollution, that falls on people outside the deal?",
+      "ar": "ماذا يسمّي الاقتصاديون الأثر الجانبي، مثل تلوث المصانع، الذي يتحمله أناس لا علاقة لهم بالصفقة؟"
     },
     "answer": {
-      "en": "Market failure occurs when free markets fail to allocate resources efficiently. Main causes: externalities (spillover costs/benefits not priced, e.g., pollution), public goods (non-rival, non-excludable), information asymmetry, and monopoly power.",
-      "ar": "يحدث فشل السوق عندما لا تُوزّع الأسواق الحرة الموارد بكفاءة. الأسباب الرئيسية: الخارجيات (تكاليف/فوائد جانبية غير مُسعَّرة، كالتلوث)، والسلع العامة (غير التنافسية وغير القابلة للإقصاء)، وعدم تماثل المعلومات، وسلطة الاحتكار."
+      "en": "An externality (a negative externality).",
+      "ar": "الأثر الخارجي (الأثر الخارجي السلبي)."
     },
     "acceptedAnswers": {
       "en": [
-        "Inefficient allocation caused by externalities, public goods, information asymmetry, or monopoly.",
-        "Misallocation from externalities, public goods, information asymmetry, and monopoly power."
+        "Externality",
+        "Negative externality",
+        "External cost"
       ],
       "ar": [
-        "تخصيص سوقي غير كفؤ بسبب الخارجيات والسلع العامة وعدم تماثل المعلومات والاحتكار.",
-        "تفشل الأسواق في تخصيص الموارد بسبب الخارجيات والسلع العامة وتفاوت المعلومات وقوة الاحتكار."
+        "الأثر الخارجي",
+        "العوامل الخارجية",
+        "الأثر الخارجي السلبي"
       ]
     },
     "review": {
@@ -670,18 +673,18 @@
   },
   {
     "id": "social-sciences-032",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Anthropology",
       "ar": "الأنثروبولوجيا"
     },
     "question": {
-      "en": "What is Marcel Mauss's concept of 'the gift' and how does it challenge economic rationality?",
-      "ar": "ما مفهوم مارسيل موس عن «الهدية» وكيف يتحدى العقلانية الاقتصادية؟"
+      "en": "Which French anthropologist argued in 'The Gift' (1925) that gifts create obligations to give, receive and repay?",
+      "ar": "أي عالم أنثروبولوجيا فرنسي قال في كتابه «الهبة» (1925) إن الهدايا تخلق التزامات بالعطاء والقبول والردّ؟"
     },
     "answer": {
-      "en": "In 'The Gift' (1925), Mauss argued that gift exchange in many societies is not voluntary or free — it creates binding obligations to receive, reciprocate, and give again (the 'spirit of the gift'). This challenges rational self-interest models by showing social bonds are built through obligated generosity, not market transactions.",
-      "ar": "في 'الهدية' (1925)، جادل موس بأن تبادل الهدايا في كثير من المجتمعات ليس طوعياً أو مجانياً — بل يخلق التزامات ملزمة بالاستقبال والمعاملة بالمثل والعطاء مجدداً ('روح الهدية'). يتحدى هذا نماذج المصلحة الذاتية العقلانية بإظهار أن الروابط الاجتماعية تُبنى بالكرم الملزم لا بالمعاملات السوقية."
+      "en": "Marcel Mauss.",
+      "ar": "مارسيل موس."
     },
     "review": {
       "status": "pending"
@@ -689,7 +692,7 @@
   },
   {
     "id": "social-sciences-033",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Political Science",
       "ar": "العلوم السياسية"
@@ -699,8 +702,8 @@
       "ar": "ما العلاقة التي تقترحها نظرية السلام الديمقراطي بين الديمقراطيات الليبرالية الراسخة؟"
     },
     "answer": {
-      "en": "That they rarely fight wars against one another. Definitions of democracy and war, and explanations for the pattern, remain debated.",
-      "ar": "أنها نادراً ما تخوض حروباً ضد بعضها. وتظل تعريفات الديمقراطية والحرب وتفسيرات هذا النمط محل نقاش."
+      "en": "That they rarely, if ever, go to war with each other.",
+      "ar": "أنها نادراً ما تخوض حروباً ضد بعضها."
     },
     "review": {
       "status": "pending"
@@ -733,12 +736,12 @@
       "ar": "الاقتصاد"
     },
     "question": {
-      "en": "What is behavioural economics and how does it challenge classical economic theory?",
-      "ar": "ما الاقتصاد السلوكي وكيف يتحدى النظرية الاقتصادية الكلاسيكية؟"
+      "en": "Which field, linked to Kahneman and Tversky, uses psychology to explain why people's economic choices are often not 'rational'?",
+      "ar": "أي مجال، يرتبط بكانيمان وتفيرسكي، يستعين بعلم النفس ليفسر لماذا لا تكون اختيارات الناس الاقتصادية «عقلانية» في كثير من الأحيان؟"
     },
     "answer": {
-      "en": "Behavioural economics incorporates psychological insights to model real human decision-making. It challenges the 'rational economic man' assumption by demonstrating systematic biases: loss aversion (losses hurt more than equivalent gains), anchoring, present bias, and framing effects (Kahneman & Tversky).",
-      "ar": "الاقتصاد السلوكي يدمج رؤى علم النفس لنمذجة صنع القرار البشري الحقيقي. يتحدى افتراض 'الإنسان الاقتصادي العقلاني' بإثبات انحيازات منهجية: النفور من الخسارة (الخسائر تؤلم أكثر من المكاسب المعادلة)، والإرساء، والتحيز للحاضر، وتأثيرات الإطار (كانيمان وتفيرسكي)."
+      "en": "Behavioural economics.",
+      "ar": "الاقتصاد السلوكي."
     },
     "review": {
       "status": "pending"
@@ -746,18 +749,18 @@
   },
   {
     "id": "social-sciences-036",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Anthropology",
       "ar": "الأنثروبولوجيا"
     },
     "question": {
-      "en": "What is the central claim of the recent African origin model of modern humans?",
-      "ar": "ما الفكرة الأساسية لنموذج الأصل الأفريقي الحديث للإنسان المعاصر؟"
+      "en": "According to the most widely accepted model, on which continent did modern humans (Homo sapiens) first evolve?",
+      "ar": "بحسب النموذج الأكثر قبولًا لدى العلماء، في أيّ قارة ظهر الإنسان العاقل (Homo sapiens) أول مرة؟"
     },
     "answer": {
-      "en": "Homo sapiens originated in Africa, and later migrations contributed much of the ancestry of populations outside Africa, with some interbreeding with archaic humans.",
-      "ar": "نشأ الإنسان العاقل في أفريقيا، وأسهمت هجرات لاحقة في جانب كبير من أصول السكان خارجها، مع تزاوج محدود مع جماعات بشرية قديمة."
+      "en": "Africa.",
+      "ar": "أفريقيا."
     },
     "review": {
       "status": "pending"
@@ -765,7 +768,7 @@
   },
   {
     "id": "social-sciences-037",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Political Science",
       "ar": "العلوم السياسية"
@@ -775,8 +778,8 @@
       "ar": "كيف تساعد الهيمنة الفئات المسيطرة على الاحتفاظ بالسلطة في نظرية غرامشي؟"
     },
     "answer": {
-      "en": "By securing consent through culture and ideas as well as using coercion; a dominant worldview can come to seem like common sense.",
-      "ar": "بكسب القبول عبر الثقافة والأفكار إلى جانب الإكراه؛ فقد تبدو الرؤية المهيمنة كأنها من المسلّمات."
+      "en": "By winning consent through culture and ideas, not just force.",
+      "ar": "بكسب القبول عبر الثقافة والأفكار، لا بالقوة وحدها."
     },
     "review": {
       "status": "pending"
@@ -784,18 +787,18 @@
   },
   {
     "id": "social-sciences-038",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Sociology",
       "ar": "علم الاجتماع"
     },
     "question": {
-      "en": "What is Michel Foucault's concept of 'biopower'?",
-      "ar": "ما مفهوم «السلطة الحيوية» عند ميشيل فوكو؟"
+      "en": "Which French thinker coined 'biopower' for the way modern states manage their populations' health, births and lives?",
+      "ar": "أي مفكّر فرنسي صاغ مصطلح «السلطة الحيوية» لوصف إدارة الدول الحديثة لصحة سكانها وولاداتهم وحياتهم؟"
     },
     "answer": {
-      "en": "Biopower is Foucault's term for the way modern states regulate populations by controlling biological life — through medicine, public health, demographics, sexuality, and reproduction. It operates at two levels: disciplining individual bodies (anatomo-politics) and managing the population as a whole (biopolitics).",
-      "ar": "السلطة الحيوية هو مصطلح فوكو للطريقة التي تُنظّم بها الدول الحديثة السكان عبر التحكم في الحياة البيولوجية — من خلال الطب والصحة العامة والديموغرافيا والجنسانية والتكاثر. تعمل على مستويين: ضبط الأجساد الفردية (التشريح السياسي) وإدارة السكان ككل (السياسة الحيوية)."
+      "en": "Michel Foucault.",
+      "ar": "ميشيل فوكو."
     },
     "review": {
       "status": "pending"
@@ -813,8 +816,8 @@
       "ar": "ما التحذير الأساسي الذي يقدّمه نقد لوكاس عند تقييم السياسة الاقتصادية؟"
     },
     "answer": {
-      "en": "Historical statistical relationships may change when a new policy changes people's expectations and behaviour.",
-      "ar": "قد تتغير العلاقات الإحصائية التاريخية عندما تغيّر سياسة جديدة توقعات الناس وسلوكهم."
+      "en": "Past statistical patterns may break when a new policy changes expectations.",
+      "ar": "قد تتغير الأنماط الإحصائية السابقة حين تغيّر السياسة الجديدة توقعات الناس."
     },
     "review": {
       "status": "pending"
@@ -828,21 +831,21 @@
       "ar": "علم الاجتماع"
     },
     "question": {
-      "en": "What is 'structuration theory' (Anthony Giddens) and how does it resolve the agency-structure debate?",
-      "ar": "ما «نظرية التهيكل» (أنتوني غيدنز) وكيف تحل جدل الفاعلية والبنية؟"
+      "en": "Which British sociologist's 'structuration theory' says social structures and individual actions constantly shape each other?",
+      "ar": "أي عالم اجتماع بريطاني طرح «نظرية التهيكل» القائلة إن البنى الاجتماعية وأفعال الأفراد يشكّل بعضها بعضًا باستمرار؟"
     },
     "answer": {
-      "en": "Giddens argued that structure and agency are mutually constitutive, not opposed — he called this the 'duality of structure'. Social structures (rules and resources) are both the medium of action and its outcome: agents draw on structures to act, and in doing so reproduce or transform those structures. Neither pure structuralism nor pure voluntarism is sufficient.",
-      "ar": "جادل غيدنز بأن البنية والفاعلية متكوّنتان بشكل متبادل لا متعارضتان — وأسمى ذلك 'ازدواجية البنية'. البنى الاجتماعية (القواعد والموارد) هي وسيلة الفعل ونتيجته في آنٍ: يستمد الفاعلون من البنى للتصرف، ومن ثمّ يُعيدون إنتاج تلك البنى أو تحويلها. لا البنيوية المحضة ولا الإرادوية المحضة كافيتان."
+      "en": "Anthony Giddens.",
+      "ar": "أنتوني غيدنز."
     },
     "acceptedAnswers": {
       "en": [
-        "Structure and agency co-create: action uses, reproduces, or transforms structure.",
-        "Agents draw on structures while reproducing or changing them; each constitutes the other."
+        "Anthony Giddens",
+        "Giddens"
       ],
       "ar": [
-        "البنية والفاعلية تكوّنان بعضهما؛ يستخدم الفعل البنية ويعيد إنتاجها أو يحولها.",
-        "يستخدم الفاعلون البنى ويعيدون إنتاجها أو تغييرها؛ وكل منهما يشكل الآخر."
+        "أنتوني غيدنز",
+        "غيدنز"
       ]
     },
     "review": {
@@ -857,12 +860,12 @@
       "ar": "العلوم السياسية"
     },
     "question": {
-      "en": "What is 'principal-agent theory' and how does it explain problems of democratic governance?",
-      "ar": "ما «نظرية الموكّل والوكيل» وكيف تُفسّر مشكلات الحوكمة الديمقراطية؟"
+      "en": "Voters hand power to politicians who may then pursue their own interests. Which 'problem' from economics and political science describes this?",
+      "ar": "يفوّض الناخبون السلطة إلى سياسيين قد يسعون لاحقًا وراء مصالحهم الخاصة. أي «مشكلة» من الاقتصاد والعلوم السياسية تصف ذلك؟"
     },
     "answer": {
-      "en": "Principal-agent theory analyses situations where one party (principal, e.g., voters) delegates work to another (agent, e.g., elected officials) but faces information asymmetry and misaligned incentives. In democratic governance, agents may act in self-interest rather than the principal's interest (moral hazard). Solutions: monitoring, transparency, electoral accountability, and institutional design.",
-      "ar": "تحلل نظرية الموكّل والوكيل الحالات التي تُفوّض فيها جهة (الموكّل، مثلاً الناخبون) عملاً إلى جهة أخرى (الوكيل، مثلاً المنتخبون) لكنها تواجه عدم تماثل المعلومات وحوافز غير متوافقة. في الحوكمة الديمقراطية، قد يتصرف الوكلاء لصالح أنفسهم لا الموكّل (الخطر الأخلاقي). الحلول: الرقابة والشفافية والمساءلة الانتخابية والتصميم المؤسسي."
+      "en": "The principal–agent problem.",
+      "ar": "مشكلة الموكِّل والوكيل."
     },
     "review": {
       "status": "pending"
@@ -876,12 +879,12 @@
       "ar": "الأنثروبولوجيا"
     },
     "question": {
-      "en": "What distinguishes thick description from a brief record of an observed action?",
-      "ar": "ما الذي يميّز الوصف الكثيف عن تسجيل سطحي لفعل ملاحظ؟"
+      "en": "Which American anthropologist popularised 'thick description' in 1973, using the difference between a wink and an involuntary twitch?",
+      "ar": "أيّ عالم أنثروبولوجيا أمريكي نشر مفهوم «الوصف الكثيف» عام 1973، ومثّل له بالفرق بين الغمزة والرفّة اللاإرادية في العين؟"
     },
     "answer": {
-      "en": "Thick description explains the cultural context and meanings of the action, not merely what happened.",
-      "ar": "يشرح الوصف الكثيف السياق الثقافي ومعاني الفعل، ولا يكتفي بذكر ما حدث."
+      "en": "Clifford Geertz.",
+      "ar": "كليفورد غيرتز."
     },
     "review": {
       "status": "pending"
@@ -895,12 +898,12 @@
       "ar": "علم الاجتماع"
     },
     "question": {
-      "en": "What is 'world-systems theory' (Immanuel Wallerstein) and how does it critique modernisation theory?",
-      "ar": "ما «نظرية النظم العالمية» (إيمانويل والرشتاين) وكيف تنتقد نظرية التحديث؟"
+      "en": "Which sociologist's world-systems theory divides countries into a core, a semi-periphery and a periphery?",
+      "ar": "أي عالم اجتماع قسّمت «نظرية النظم العالمية» عنده الدول إلى مركز وشبه هامش وهامش؟"
     },
     "answer": {
-      "en": "Wallerstein argued that the capitalist world-economy is structured around core (wealthy, industrialised) and periphery (poor, raw-material exporting) nations linked by unequal exchange — with a semi-periphery in between. Contra modernisation theory, peripheral nations are not 'behind' on a developmental ladder; they are structurally underdeveloped by their role in the system.",
-      "ar": "جادل والرشتاين بأن الاقتصاد العالمي الرأسمالي مهيكل حول دول المركز (الغنية المصنّعة) ودول الهامش (الفقيرة المُصدِّرة للمواد الخام) المرتبطة بتبادل غير متكافئ — مع شبه هامش بينهما. خلافاً لنظرية التحديث، دول الهامش ليست 'متأخرة' على سلم تنموي؛ بل هي تنمية ناقصة بشكل هيكلي بسبب دورها في النظام."
+      "en": "Immanuel Wallerstein.",
+      "ar": "إيمانويل والرشتاين."
     },
     "review": {
       "status": "pending"
@@ -908,27 +911,27 @@
   },
   {
     "id": "social-sciences-044",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Economics",
       "ar": "الاقتصاد"
     },
     "question": {
-      "en": "What is 'comparative advantage' (Ricardo) and how does it differ from absolute advantage?",
-      "ar": "ما «الميزة النسبية» (ريكاردو) وكيف تختلف عن الميزة المطلقة؟"
+      "en": "Which economist's 1817 theory of 'comparative advantage' explains why countries gain by specialising and trading?",
+      "ar": "أي اقتصادي طرح عام 1817 نظرية «الميزة النسبية» التي تفسر لماذا تستفيد الدول حين تتخصص وتتاجر؟"
     },
     "answer": {
-      "en": "Absolute advantage: producing more of a good using the same resources. Comparative advantage: producing a good at a lower opportunity cost — even if a country is worse at everything in absolute terms, it gains by specialising in what it does relatively best and trading. This underpins the economic case for free trade.",
-      "ar": "الميزة المطلقة: إنتاج سلعة أكثر باستخدام الموارد ذاتها. الميزة النسبية: إنتاج سلعة بتكلفة فرصة أقل — حتى لو كان بلد ما أسوأ في كل شيء من الناحية المطلقة، يكسب بالتخصص فيما يُتقنه نسبياً والتجارة. هذا يُشكّل الحجة الاقتصادية للتجارة الحرة."
+      "en": "David Ricardo.",
+      "ar": "ديفيد ريكاردو."
     },
     "acceptedAnswers": {
       "en": [
-        "Absolute: more output; comparative: lower opportunity cost, enabling specialisation and trade.",
-        "Absolute advantage uses fewer resources; comparative advantage has lower opportunity cost."
+        "David Ricardo",
+        "Ricardo"
       ],
       "ar": [
-        "المطلقة إنتاج أكبر؛ النسبية تكلفة فرصة أقل تتيح التخصص والتجارة.",
-        "المطلقة تنتج أكثر بالموارد نفسها؛ النسبية تتحمل تكلفة فرصة أقل."
+        "ديفيد ريكاردو",
+        "ريكاردو"
       ]
     },
     "review": {
@@ -937,18 +940,18 @@
   },
   {
     "id": "social-sciences-045",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Political Science",
       "ar": "العلوم السياسية"
     },
     "question": {
-      "en": "What is path dependence in political science?",
-      "ar": "ما الاعتماد على المسار في العلوم السياسية؟"
+      "en": "The QWERTY keyboard layout outlived the typewriters it was designed for. Which 'history matters' concept is it a classic example of?",
+      "ar": "عاش ترتيب لوحة المفاتيح QWERTY أطول من الآلات الكاتبة التي صُمّم لها. أي مفهوم يقول إن «التاريخ مهم» يُعدّ هذا مثالًا كلاسيكيًا عليه؟"
     },
     "answer": {
-      "en": "Earlier decisions shape later options, for example when established institutions persist because rules, expectations and switching costs make alternatives difficult.",
-      "ar": "تؤثر القرارات السابقة في الخيارات اللاحقة؛ فقد تستمر مؤسسات قائمة لأن قواعدها والتوقعات المحيطة بها وتكاليف تغييرها تجعل البدائل صعبة."
+      "en": "Path dependence.",
+      "ar": "الاعتماد على المسار."
     },
     "review": {
       "status": "pending"
@@ -975,7 +978,7 @@
   },
   {
     "id": "social-sciences-047",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Economics",
       "ar": "الاقتصاد"
@@ -985,8 +988,8 @@
       "ar": "ما دور الطلب الكلي في التفسير الكينزي للركود؟"
     },
     "answer": {
-      "en": "Insufficient aggregate demand can reduce short-run output and employment; public spending may help when private demand is weak.",
-      "ar": "قد يخفض نقص الطلب الكلي الإنتاج والتوظيف في الأجل القصير؛ وقد يساعد الإنفاق العام عندما يضعف الطلب الخاص."
+      "en": "Too little total spending, which cuts output and jobs.",
+      "ar": "نقص الإنفاق الكلي، فينخفض الإنتاج والتوظيف."
     },
     "review": {
       "status": "pending"
@@ -996,16 +999,16 @@
     "id": "social-sciences-048",
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Anthropology",
-      "ar": "الأنثروبولوجيا"
+      "en": "Sociology",
+      "ar": "علم الاجتماع"
     },
     "question": {
-      "en": "What is 'structural functionalism' (Radcliffe-Brown, Parsons) and what are its main criticisms?",
-      "ar": "ما «البنيوية الوظيفية» (رادكليف-براون، بارسونز) وما أبرز انتقاداتها؟"
+      "en": "Which Iraqi sociologist (1913–1995) wrote 'A Study into the Nature of Iraqi Society', contrasting Bedouin and urban ways of life?",
+      "ar": "أي عالم اجتماع عراقي (1913–1995) ألّف «دراسة في طبيعة المجتمع العراقي»، وقارن فيه بين البداوة والحضارة؟"
     },
     "answer": {
-      "en": "Structural functionalism views society as a system of interrelated parts (institutions) each fulfilling functions that maintain social stability. Criticisms: (1) it is teleological (explaining institutions by their effects, not causes); (2) it overstates consensus and ignores conflict; (3) it has a conservative bias, treating change as disruptive; (4) it cannot explain social change well (Merton's critique).",
-      "ar": "البنيوية الوظيفية ترى المجتمع كنظام من الأجزاء المترابطة (المؤسسات) كل منها يُؤدي وظائف تُحافظ على الاستقرار الاجتماعي. الانتقادات: (1) غائية (تُفسّر المؤسسات بآثارها لا أسبابها)؛ (2) تُبالغ في التوافق وتتجاهل الصراع؛ (3) لها تحيز محافظ يعدّ التغيير تدميرياً؛ (4) لا تستطيع تفسير التغيير الاجتماعي جيداً (انتقاد ميرتون)."
+      "en": "Ali al-Wardi.",
+      "ar": "علي الوردي."
     },
     "review": {
       "status": "pending"
@@ -1019,21 +1022,21 @@
       "ar": "العلوم السياسية"
     },
     "question": {
-      "en": "What is 'deliberative democracy' and how does it differ from aggregative (majoritarian) democracy?",
-      "ar": "ما «الديمقراطية التداولية» وكيف تختلف عن الديمقراطية التجميعية (الأغلبية)؟"
+      "en": "Which model of democracy holds that decisions gain legitimacy through reasoned public debate, not just by counting votes?",
+      "ar": "أي نموذج للديمقراطية يرى أن القرارات تستمد شرعيتها من النقاش العام العقلاني، لا من عدّ الأصوات وحده؟"
     },
     "answer": {
-      "en": "Aggregative democracy collects and tallies pre-formed preferences (voting). Deliberative democracy (Habermas, Rawls) holds that legitimate political decisions emerge from reasoned public debate among free and equal citizens, allowing preferences to be transformed through rational discourse — not just counted.",
-      "ar": "الديمقراطية التجميعية تجمع التفضيلات المُشكَّلة مسبقاً وتحصيها (التصويت). الديمقراطية التداولية (هابرماس، رولز) تقول إن القرارات السياسية المشروعة تنبع من نقاش عام معلل بين مواطنين أحرار ومتساوين، مما يُتيح تحوّل التفضيلات عبر الخطاب العقلاني — لا مجرد إحصائها."
+      "en": "Deliberative democracy.",
+      "ar": "الديمقراطية التداولية."
     },
     "acceptedAnswers": {
       "en": [
-        "Aggregative counts fixed preferences; deliberative shapes them through reasoned public debate.",
-        "Majoritarian tallies prior choices; deliberative transforms them through rational debate."
+        "Deliberative democracy",
+        "Deliberative"
       ],
       "ar": [
-        "الديمقراطية التجميعية تعد التفضيلات؛ التداولية تشكلها عبر نقاش عام عقلاني ومتساو.",
-        "الأغلبية تحصي خيارات مسبقة؛ التداولية تحولها بالنقاش العقلاني بين مواطنين متساوين."
+        "الديمقراطية التداولية",
+        "التداولية"
       ]
     },
     "review": {
@@ -1048,69 +1051,12 @@
       "ar": "علم الاجتماع"
     },
     "question": {
-      "en": "What does Ulrich Beck's concept of a risk society emphasize?",
-      "ar": "على ماذا يركّز مفهوم مجتمع المخاطرة لدى أولريش بيك؟"
+      "en": "Which German sociologist published 'Risk Society' in 1986, the year of the Chernobyl disaster?",
+      "ar": "أي عالم اجتماع ألماني نشر كتاب «مجتمع المخاطر» سنة 1986، سنة كارثة تشيرنوبل؟"
     },
     "answer": {
-      "en": "Modern societies must manage risks produced by technological and industrial activity, such as nuclear accidents, alongside natural hazards.",
-      "ar": "ضرورة إدارة المجتمعات الحديثة للمخاطر الناتجة عن النشاط التقني والصناعي، مثل الحوادث النووية، إلى جانب الأخطار الطبيعية."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "world-habits-and-etiquette-042",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Anthropology",
-      "ar": "الأنثروبولوجيا"
-    },
-    "question": {
-      "en": "In studying food taboos, how does a materialist explanation differ from a symbolic explanation?",
-      "ar": "كيف يختلف التفسير المادي عن التفسير الرمزي عند دراسة محظورات الطعام؟"
-    },
-    "answer": {
-      "en": "A materialist account emphasizes ecological or economic conditions; a symbolic account emphasizes meanings and cultural classifications. Both are interpretive approaches, not universal explanations.",
-      "ar": "يركّز التفسير المادي على الظروف البيئية أو الاقتصادية؛ ويركّز الرمزي على المعاني والتصنيفات الثقافية. وكلاهما منهج تفسيري، لا شرح شامل لكل الحالات."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "world-habits-and-etiquette-045",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Sociology",
-      "ar": "علم الاجتماع"
-    },
-    "question": {
-      "en": "In Hofstede's framework, what does the individualism–collectivism dimension compare?",
-      "ar": "ماذا يقارن بُعد الفردية والجماعية في إطار هوفشتيد؟"
-    },
-    "answer": {
-      "en": "The relative emphasis on individual autonomy and group obligations. National averages do not determine an individual person's preferences or manners.",
-      "ar": "التركيز النسبي على الاستقلال الفردي والالتزامات تجاه الجماعة. ولا تحدد المتوسطات الوطنية تفضيلات الفرد أو آدابه."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "world-habits-and-etiquette-046",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Anthropology",
-      "ar": "الأنثروبولوجيا"
-    },
-    "question": {
-      "en": "What does kinesics study in communication?",
-      "ar": "ماذا يدرس علم الحركات الجسدية في التواصل؟"
-    },
-    "answer": {
-      "en": "Body movements, gestures and facial expressions as forms of communication, interpreted in context.",
-      "ar": "حركات الجسم والإيماءات وتعابير الوجه بوصفها وسائل للتواصل تُفسَّر ضمن سياقها."
+      "en": "Ulrich Beck.",
+      "ar": "أولريش بيك."
     },
     "review": {
       "status": "pending"

@@ -2,17 +2,17 @@
   {
     "id": "currencies-1",
     "question": {
-      "en": "What is a piece of paper or polymer money issued for circulation called?",
-      "ar": "ماذا تُسمّى قطعة المال الورقية أو المصنوعة من البوليمر والمصدرة للتداول؟"
+      "en": "In 1988, which country issued the world's first polymer (plastic) banknote?",
+      "ar": "عام 1988، أيّ دولة أصدرت أول ورقة نقدية في العالم مصنوعة من البوليمر (البلاستيك)؟"
     },
     "answer": {
-      "en": "A banknote",
-      "ar": "ورقة نقدية"
+      "en": "Australia",
+      "ar": "أستراليا"
     },
-    "difficulty": "easy",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "Money Basics",
-      "ar": "أساسيات المال"
+      "en": "Monetary History",
+      "ar": "تاريخ النقود"
     },
     "review": {
       "status": "pending"
@@ -97,17 +97,17 @@
   {
     "id": "currencies-6",
     "question": {
-      "en": "What is the currency of China?",
-      "ar": "ما هي عملة الصين؟"
+      "en": "Which Umayyad caliph introduced Islamic gold dinars bearing only Arabic inscriptions, around 696–697 CE?",
+      "ar": "أي خليفة أموي أصدر دنانير ذهبية إسلامية لا تحمل إلا نقوشًا عربية، نحو عامَي 696–697م؟"
     },
     "answer": {
-      "en": "Yuan (Renminbi)",
-      "ar": "اليوان (الرنمينبي)"
+      "en": "Abd al-Malik ibn Marwan",
+      "ar": "عبد الملك بن مروان"
     },
-    "difficulty": "easy",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "National Currencies",
-      "ar": "العملات الوطنية"
+      "en": "Monetary History",
+      "ar": "تاريخ النقود"
     },
     "review": {
       "status": "pending"
@@ -116,17 +116,17 @@
   {
     "id": "currencies-7",
     "question": {
-      "en": "What term means the stated face-value category of a coin or banknote, such as 5, 10, or 20?",
-      "ar": "ما المصطلح الذي يعني فئة القيمة الاسمية لعملة معدنية أو ورقة نقدية، مثل 5 أو 10 أو 20؟"
+      "en": "Since 1986, the Saudi riyal has been pegged to the US dollar at what fixed rate?",
+      "ar": "منذ عام 1986، يرتبط الريال السعودي بالدولار الأمريكي بسعر ثابت. كم يبلغ هذا السعر؟"
     },
     "answer": {
-      "en": "Denomination",
-      "ar": "الفئة النقدية"
+      "en": "3.75 riyals per dollar",
+      "ar": "3.75 ريال لكل دولار"
     },
-    "difficulty": "easy",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Money Basics",
-      "ar": "أساسيات المال"
+      "en": "Foreign Exchange",
+      "ar": "الصرف الأجنبي"
     },
     "review": {
       "status": "pending"
@@ -154,17 +154,17 @@
   {
     "id": "currencies-9",
     "question": {
-      "en": "What is the currency of India?",
-      "ar": "ما هي عملة الهند؟"
+      "en": "In 2021, which country became the first to adopt Bitcoin as legal tender?",
+      "ar": "عام 2021، أيّ دولة أصبحت أول دولة تعتمد البيتكوين عملة قانونية؟"
     },
     "answer": {
-      "en": "Indian Rupee",
-      "ar": "الروبية الهندية"
+      "en": "El Salvador",
+      "ar": "السلفادور"
     },
-    "difficulty": "easy",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "National Currencies",
-      "ar": "العملات الوطنية"
+      "en": "Digital Currency",
+      "ar": "العملات الرقمية"
     },
     "review": {
       "status": "pending"
@@ -230,17 +230,17 @@
   {
     "id": "currencies-13",
     "question": {
-      "en": "Which institution is responsible for printing paper currency in the US?",
-      "ar": "أي مؤسسة مسؤولة عن طباعة العملات الورقية في الولايات المتحدة؟"
+      "en": "In currency trading, which exchange rate is nicknamed 'Cable', after the old transatlantic telegraph line?",
+      "ar": "في تداول العملات، أيّ سعر صرف يُلقَّب «الكيبل» (Cable)، نسبةً إلى خط التلغراف القديم عبر المحيط الأطلسي؟"
     },
     "answer": {
-      "en": "Bureau of Engraving and Printing",
-      "ar": "مكتب النقش والطباعة"
+      "en": "The British pound against the US dollar (GBP/USD)",
+      "ar": "الجنيه الإسترليني مقابل الدولار الأمريكي (GBP/USD)"
     },
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Money Basics",
-      "ar": "أساسيات المال"
+      "en": "Foreign Exchange",
+      "ar": "الصرف الأجنبي"
     },
     "review": {
       "status": "pending"
@@ -294,7 +294,7 @@
       "en": "The exchange rate",
       "ar": "سعر الصرف"
     },
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Foreign Exchange",
       "ar": "الصرف الأجنبي"
@@ -306,14 +306,14 @@
   {
     "id": "currencies-17",
     "question": {
-      "en": "What is the currency of Mexico?",
-      "ar": "ما هي عملة المكسيك؟"
+      "en": "Which Arab country's currency is the ouguiya?",
+      "ar": "أيّ دولة عربية تُسمّى عملتها الأوقية؟"
     },
     "answer": {
-      "en": "Mexican Peso",
-      "ar": "البيزو المكسيكي"
+      "en": "Mauritania",
+      "ar": "موريتانيا"
     },
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "National Currencies",
       "ar": "العملات الوطنية"
@@ -363,17 +363,17 @@
   {
     "id": "currencies-20",
     "question": {
-      "en": "What is the currency of Russia?",
-      "ar": "ما هي عملة روسيا؟"
+      "en": "The word 'dinar' comes from the name of which ancient Roman silver coin?",
+      "ar": "من اسم أيّ عملة فضية رومانية قديمة جاءت كلمة «دينار»؟"
     },
     "answer": {
-      "en": "Russian Ruble",
-      "ar": "الروبل الروسي"
+      "en": "The denarius",
+      "ar": "الديناريوس (denarius)"
     },
     "difficulty": "medium",
     "subcategory": {
-      "en": "National Currencies",
-      "ar": "العملات الوطنية"
+      "en": "Monetary History",
+      "ar": "تاريخ النقود"
     },
     "review": {
       "status": "pending"
@@ -420,17 +420,17 @@
   {
     "id": "currencies-23",
     "question": {
-      "en": "In a hypothetical exchange with no fees, 1 unit of currency A buys 4 units of currency B. How many B units do you receive for 25 A units?",
-      "ar": "في عملية صرف افتراضية دون رسوم، تشتري وحدة واحدة من العملة A أربع وحدات من B. كم وحدة B تحصل عليها مقابل 25 وحدة A؟"
+      "en": "Besides the UAE, which North African Arab country calls its currency the dirham?",
+      "ar": "غير الإمارات، أيّ دولة عربية في شمال إفريقيا تُسمّى عملتها الدرهم؟"
     },
     "answer": {
-      "en": "100 units of B: 25 × 4 = 100.",
-      "ar": "100 وحدة من B؛ لأن 25 × 4 = 100."
+      "en": "Morocco",
+      "ar": "المغرب"
     },
     "difficulty": "easy",
     "subcategory": {
-      "en": "Foreign Exchange",
-      "ar": "الصرف الأجنبي"
+      "en": "National Currencies",
+      "ar": "العملات الوطنية"
     },
     "review": {
       "status": "pending"
@@ -522,7 +522,7 @@
       "en": "Silver.",
       "ar": "الفضة."
     },
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Monetary History",
       "ar": "تاريخ النقود"
@@ -693,7 +693,7 @@
       "en": "An informal value-transfer arrangement in which trusted intermediaries arrange payment to a recipient and settle obligations between themselves separately.",
       "ar": "ترتيب غير رسمي لنقل القيمة، ينظّم فيه وسطاء موثوقون الدفع للمستلم، ثم يسوّون الالتزامات فيما بينهم بصورة منفصلة."
     },
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Money Basics",
       "ar": "أساسيات المال"
@@ -731,7 +731,7 @@
       "en": "Purchasing power parity (PPP) between two currencies",
       "ar": "تعادل القوة الشرائية بين عملتين"
     },
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Foreign Exchange",
       "ar": "الصرف الأجنبي"

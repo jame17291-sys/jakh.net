@@ -153,7 +153,7 @@
   },
   {
     "id": "anc-9",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "question": {
       "en": "Which Mesoamerican civilization used a shell-shaped sign for zero in its numerical notation?",
       "ar": "أي حضارة في أمريكا الوسطى استخدمت علامة تشبه الصدفة للدلالة على الصفر في تدوين الأعداد؟"
@@ -288,12 +288,12 @@
     "id": "anc-16",
     "difficulty": "medium",
     "question": {
-      "en": "In which present-day country is the Valley of the Kings burial site?",
-      "ar": "في أي دولة حالية يقع موقع الدفن المعروف بوادي الملوك؟"
+      "en": "The Valley of the Kings lies across the Nile from which ancient Egyptian city, today's Luxor?",
+      "ar": "يقع وادي الملوك على الضفة الأخرى من النيل مقابل أي مدينة مصرية قديمة تُعرف اليوم بالأقصر؟"
     },
     "answer": {
-      "en": "Egypt.",
-      "ar": "مصر."
+      "en": "Thebes",
+      "ar": "طيبة"
     },
     "subcategory": {
       "en": "Ancient Egypt",
@@ -495,7 +495,7 @@
   },
   {
     "id": "anc-27",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "question": {
       "en": "Which famous philosopher was the tutor of Alexander the Great?",
       "ar": "من هو الفيلسوف الشهير الذي كان معلماً للإسكندر الأكبر؟"
@@ -516,12 +516,12 @@
     "id": "anc-28",
     "difficulty": "hard",
     "question": {
-      "en": "The 'Terracotta Army' was buried with which emperor?",
-      "ar": "مع أي إمبراطور دفن «جيش التراكوتا»؟"
+      "en": "Near which Chinese city did farmers digging a well discover the Terracotta Army in 1974?",
+      "ar": "قرب أيّ مدينة صينية اكتشف فلاحون «جيش التيراكوتا» وهم يحفرون بئرًا عام 1974؟"
     },
     "answer": {
-      "en": "Qin Shi Huang",
-      "ar": "تشين شي هوانغ"
+      "en": "Xi'an",
+      "ar": "شيان"
     },
     "subcategory": {
       "en": "Asian Civilizations",
@@ -592,12 +592,12 @@
     "id": "anc-32",
     "difficulty": "very-advanced",
     "question": {
-      "en": "Which two ancient powers later concluded a peace treaty after fighting at Kadesh?",
-      "ar": "ما القوتان القديمتان اللتان عقدتا معاهدة سلام بعد سنوات من قتالهما في قادش؟"
+      "en": "A copy of one of the oldest known peace treaties hangs at UN headquarters in New York. It ended the long conflict that included which famous chariot battle in Syria?",
+      "ar": "نسخة من إحدى أقدم معاهدات السلام المعروفة معلّقة في مقر الأمم المتحدة في نيويورك. أنهت هذه المعاهدة الصراع الطويل الذي شهد أي معركة عربات شهيرة في سوريا؟"
     },
     "answer": {
-      "en": "Egypt and the Hittite Empire.",
-      "ar": "مصر والإمبراطورية الحيثية."
+      "en": "The Battle of Kadesh",
+      "ar": "معركة قادش"
     },
     "subcategory": {
       "en": "Ancient Egypt",
@@ -754,6 +754,196 @@
     "subcategory": {
       "en": "Mesopotamia",
       "ar": "بلاد الرافدين"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "anc-41",
+    "difficulty": "easy",
+    "question": {
+      "en": "What is the name of the giant limestone statue with a lion's body and a human head beside the Giza pyramids?",
+      "ar": "ما اسم التمثال الحجري الضخم ذي جسم الأسد ورأس الإنسان، بجوار أهرامات الجيزة؟"
+    },
+    "answer": {
+      "en": "The Great Sphinx",
+      "ar": "أبو الهول"
+    },
+    "subcategory": {
+      "en": "Ancient Egypt",
+      "ar": "مصر القديمة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "anc-42",
+    "difficulty": "easy",
+    "question": {
+      "en": "Which pet animal was sacred in ancient Egypt, linked to the goddess Bastet, and often mummified?",
+      "ar": "أيّ حيوان أليف كان مقدّسًا في مصر القديمة، وارتبط بالإلهة باستت، وكثيرًا ما كان يُحنَّط؟"
+    },
+    "answer": {
+      "en": "The cat",
+      "ar": "القطة"
+    },
+    "subcategory": {
+      "en": "Ancient Egypt",
+      "ar": "مصر القديمة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "anc-43",
+    "difficulty": "easy",
+    "question": {
+      "en": "What were the trained fighters who battled in Roman arenas to entertain the crowds called?",
+      "ar": "ما اسم المقاتلين المدرّبين الذين كانوا يتقاتلون في ساحات روما لتسلية الجمهور؟"
+    },
+    "answer": {
+      "en": "Gladiators",
+      "ar": "المجالدون (الغلادياتور)"
+    },
+    "subcategory": {
+      "en": "Greece & Rome",
+      "ar": "اليونان وروما"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "anc-44",
+    "difficulty": "easy",
+    "question": {
+      "en": "The Carthaginian general Hannibal famously crossed the Alps with which animals?",
+      "ar": "عبر القائد القرطاجي هانيبال جبال الألب ومعه أيّ حيوانات مشهورة؟"
+    },
+    "answer": {
+      "en": "Elephants",
+      "ar": "الفيلة"
+    },
+    "subcategory": {
+      "en": "Greece & Rome",
+      "ar": "اليونان وروما"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "anc-45",
+    "difficulty": "easy",
+    "question": {
+      "en": "Besides myrrh, which fragrant tree resin gathered in ancient southern Arabia became one of the most valuable goods of the ancient world?",
+      "ar": "غير المُرّ، ما الصمغ العطري الآخر الذي كان يُجمع قديمًا من أشجار جنوب الجزيرة العربية، وأصبح من أغلى السلع في العالم القديم؟"
+    },
+    "answer": {
+      "en": "Frankincense",
+      "ar": "اللبان (الكُندُر)"
+    },
+    "subcategory": {
+      "en": "Africa & Near East",
+      "ar": "أفريقيا والشرق الأدنى"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "anc-46",
+    "difficulty": "hard",
+    "question": {
+      "en": "The 'Black Pharaohs' who ruled Egypt as its 25th Dynasty came from which kingdom to the south?",
+      "ar": "من أي مملكة في الجنوب جاء «الفراعنة السود» الذين حكموا مصر بوصفهم الأسرة الخامسة والعشرين؟"
+    },
+    "answer": {
+      "en": "The Kingdom of Kush (Nubia)",
+      "ar": "مملكة كوش (النوبة)"
+    },
+    "subcategory": {
+      "en": "Africa & Near East",
+      "ar": "أفريقيا والشرق الأدنى"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "anc-47",
+    "difficulty": "hard",
+    "question": {
+      "en": "The ancient trading civilization of Dilmun was centred on which present-day island country?",
+      "ar": "في أيّ دولة جزرية حالية كان مركز حضارة دلمون التجارية القديمة؟"
+    },
+    "answer": {
+      "en": "Bahrain",
+      "ar": "البحرين"
+    },
+    "subcategory": {
+      "en": "Africa & Near East",
+      "ar": "أفريقيا والشرق الأدنى"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "anc-48",
+    "difficulty": "hard",
+    "question": {
+      "en": "Which Mauryan emperor of India turned to Buddhism after the devastating Kalinga War?",
+      "ar": "أيّ إمبراطور موري في الهند اعتنق البوذية بعد حرب كالينغا المدمّرة؟"
+    },
+    "answer": {
+      "en": "Ashoka",
+      "ar": "أشوكا"
+    },
+    "subcategory": {
+      "en": "Asian Civilizations",
+      "ar": "حضارات آسيا"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "anc-49",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is the name of the ancient city of rock-cut tombs near AlUla that became Saudi Arabia's first UNESCO World Heritage Site?",
+      "ar": "ما اسم المدينة القديمة ذات المقابر المنحوتة في الصخر قرب العلا، التي أصبحت أول موقع سعودي في قائمة التراث العالمي لليونسكو؟"
+    },
+    "answer": {
+      "en": "Hegra (al-Hijr, Mada'in Salih)",
+      "ar": "الحِجر (مدائن صالح)"
+    },
+    "subcategory": {
+      "en": "Africa & Near East",
+      "ar": "أفريقيا والشرق الأدنى"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "anc-50",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "Which South Arabian kingdom, with its capital at Zafar, was the last great Yemeni kingdom before Islam?",
+      "ar": "أيّ مملكة في جنوب الجزيرة العربية، عاصمتها ظفار، كانت آخر مملكة يمنية كبرى قبل الإسلام؟"
+    },
+    "answer": {
+      "en": "Himyar",
+      "ar": "مملكة حِمْيَر"
+    },
+    "subcategory": {
+      "en": "Africa & Near East",
+      "ar": "أفريقيا والشرق الأدنى"
     },
     "review": {
       "status": "pending"

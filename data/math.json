@@ -54,48 +54,48 @@
     "difficulty": "easy",
     "mode": "quiz",
     "question": {
-      "en": "If you are driving at 60 mph, how long does it take to travel 60 miles?",
-      "ar": "إذا كنت تقود بسرعة 60 ميلاً في الساعة، كم يستغرق قطع 60 ميلاً؟"
+      "en": "Divide 30 by a half, then add 10. What do you get?",
+      "ar": "اقسم 30 على نصف، ثم أضف 10. ما الناتج؟"
     },
     "answer": {
-      "en": "1 hour. Distance ÷ Speed = 60 ÷ 60 = 1 hour.",
-      "ar": "ساعة واحدة. المسافة ÷ السرعة = 60 ÷ 60 = 1."
+      "en": "70. Dividing by a half doubles the number: 30 ÷ ½ = 60, and 60 + 10 = 70.",
+      "ar": "70. القسمة على نصف تضاعف العدد: 30 ÷ ½ = 60، و60 + 10 = 70."
     },
     "subcategory": {
-      "en": "Patterns, Sequences & Word Problems",
-      "ar": "الأنماط والمتتاليات والمسائل اللفظية"
+      "en": "Arithmetic, Fractions & Percentages",
+      "ar": "الحساب والكسور والنسب المئوية"
     },
     "review": {
       "status": "pending"
     },
     "acceptedAnswers": {
       "en": [
-        "1 hour"
+        "70"
       ],
       "ar": [
-        "ساعة واحدة"
+        "70"
       ]
     },
     "quickFire": {
       "answer": {
-        "en": "1 hour",
-        "ar": "ساعة واحدة"
+        "en": "70",
+        "ar": "70"
       },
       "distractors": {
         "en": [
-          "30 minutes",
-          "2 hours",
-          "60 hours"
+          "25",
+          "40",
+          "50"
         ],
         "ar": [
-          "30 دقيقة",
-          "ساعتان",
-          "60 ساعة"
+          "25",
+          "40",
+          "50"
         ]
       },
       "explanation": {
-        "en": "Time equals distance divided by speed: 60 miles ÷ 60 miles per hour = 1 hour.",
-        "ar": "الزمن يساوي المسافة مقسومة على السرعة: 60 ميلاً ÷ 60 ميلاً في الساعة = ساعة واحدة."
+        "en": "Dividing by ½ is the same as multiplying by 2, so 30 ÷ ½ = 60; adding 10 gives 70.",
+        "ar": "القسمة على ½ تساوي الضرب في 2، فيكون 30 ÷ ½ = 60، وبإضافة 10 يصبح الناتج 70."
       }
     }
   },
@@ -147,46 +147,6 @@
         "en": "Each map centimeter represents 5 km, so 7 × 5 = 35 km.",
         "ar": "كل سنتيمتر على الخريطة يمثل 5 كم؛ إذن 7 × 5 = 35 كم."
       }
-    }
-  },
-  {
-    "id": "math-004",
-    "difficulty": "easy",
-    "mode": "quiz",
-    "question": {
-      "en": "Which is greater: 5/8 or 3/5?",
-      "ar": "أيهما أكبر: 5/8 أم 3/5؟"
-    },
-    "answer": {
-      "en": "5/8. Using a common denominator, 5/8 = 25/40 while 3/5 = 24/40.",
-      "ar": "5/8. بتوحيد المقام نجد أن 5/8 = 25/40، بينما 3/5 = 24/40."
-    },
-    "subcategory": {
-      "en": "Number Theory & Number Riddles",
-      "ar": "نظرية الأعداد وألغازها"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-005",
-    "difficulty": "easy",
-    "mode": "quiz",
-    "question": {
-      "en": "A farm has 10 cows and 10 chickens. How many legs do these animals have altogether?",
-      "ar": "في مزرعة 10 بقرات و 10 دجاجات. كم عدد أرجل هذه الحيوانات مجتمعة؟"
-    },
-    "answer": {
-      "en": "60 legs. Cows: 4×10=40; chickens: 2×10=20. Total = 60.",
-      "ar": "60 رجلاً. البقرات 4×10=40؛ الدجاجات 2×10=20. المجموع 60."
-    },
-    "subcategory": {
-      "en": "Patterns, Sequences & Word Problems",
-      "ar": "الأنماط والمتتاليات والمسائل اللفظية"
-    },
-    "review": {
-      "status": "pending"
     }
   },
   {
@@ -244,48 +204,48 @@
     "difficulty": "easy",
     "mode": "quiz",
     "question": {
-      "en": "What is (-1)⁴?",
-      "ar": "ما قيمة (-1)⁴؟"
+      "en": "A 'googol' is the number 1 followed by how many zeros?",
+      "ar": "كم صفرًا تتبع الرقم 1 في العدد «غوغول» (googol)؟"
     },
     "answer": {
-      "en": "1. Negative × Negative = Positive, applied twice: (-1)(-1)(-1)(-1) = 1.",
-      "ar": "1. سالب × سالب = موجب، مطبقاً مرتين: (-1)(-1)(-1)(-1) = 1."
+      "en": "100 zeros (10¹⁰⁰). A nine-year-old boy suggested the name in 1920.",
+      "ar": "100 صفر (10¹⁰⁰). اقترح الاسم طفل عمره تسع سنوات سنة 1920."
     },
     "subcategory": {
-      "en": "Algebra & Functions",
-      "ar": "الجبر والدوال"
+      "en": "Number Theory & Number Riddles",
+      "ar": "نظرية الأعداد وألغازها"
     },
     "review": {
       "status": "pending"
     },
     "acceptedAnswers": {
       "en": [
-        "1"
+        "100"
       ],
       "ar": [
-        "1"
+        "100"
       ]
     },
     "quickFire": {
       "answer": {
-        "en": "1",
-        "ar": "1"
+        "en": "100",
+        "ar": "100"
       },
       "distractors": {
         "en": [
-          "0",
-          "2",
-          "4"
+          "10",
+          "1,000",
+          "1,000,000"
         ],
         "ar": [
-          "0",
-          "2",
-          "4"
+          "10",
+          "1,000",
+          "1,000,000"
         ]
       },
       "explanation": {
-        "en": "Pair the factors: (-1 × -1) × (-1 × -1) = 1 × 1 = 1.",
-        "ar": "نجمع العوامل في زوجين: (-1 × -1) × (-1 × -1) = 1 × 1 = 1."
+        "en": "A googol is 10¹⁰⁰: a 1 followed by 100 zeros. Milton Sirotta, the nine-year-old nephew of mathematician Edward Kasner, named it in 1920.",
+        "ar": "الغوغول هو 10¹⁰⁰، أي 1 وبعده 100 صفر. سمّاه ميلتون سيروتا، وهو طفل في التاسعة من أقارب عالم الرياضيات إدوارد كاسنر، سنة 1920."
       }
     }
   },
@@ -390,26 +350,6 @@
     }
   },
   {
-    "id": "math-010",
-    "difficulty": "easy",
-    "mode": "quiz",
-    "question": {
-      "en": "How many years are in a millennium?",
-      "ar": "كم سنة في الألفية الواحدة؟"
-    },
-    "answer": {
-      "en": "1,000 years. Millennium derives from Latin words for thousand and year.",
-      "ar": "1,000 سنة. أصل كلمة Millennium لاتيني ويجمع معنى ألف ومعنى سنة."
-    },
-    "subcategory": {
-      "en": "Number Theory & Number Riddles",
-      "ar": "نظرية الأعداد وألغازها"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "math-011",
     "difficulty": "easy",
     "mode": "quiz",
@@ -434,12 +374,12 @@
     "difficulty": "easy",
     "mode": "quiz",
     "question": {
-      "en": "What is the square root of 144?",
-      "ar": "ما هو الجذر التربيعي للعدد 144؟"
+      "en": "The year 2002 reads the same backwards. What is the next year that does?",
+      "ar": "سنة 2002 تُقرأ بالطريقة نفسها من الجهتين. ما أول سنة بعدها تُقرأ كذلك؟"
     },
     "answer": {
-      "en": "12. Because 12 × 12 = 144.",
-      "ar": "12. لأن 12 × 12 = 144."
+      "en": "2112.",
+      "ar": "2112."
     },
     "subcategory": {
       "en": "Number Theory & Number Riddles",
@@ -450,32 +390,32 @@
     },
     "acceptedAnswers": {
       "en": [
-        "12"
+        "2112"
       ],
       "ar": [
-        "12"
+        "2112"
       ]
     },
     "quickFire": {
       "answer": {
-        "en": "12",
-        "ar": "12"
+        "en": "2112",
+        "ar": "2112"
       },
       "distractors": {
         "en": [
-          "6",
-          "14",
-          "24"
+          "2020",
+          "2102",
+          "2222"
         ],
         "ar": [
-          "6",
-          "14",
-          "24"
+          "2020",
+          "2102",
+          "2222"
         ]
       },
       "explanation": {
-        "en": "The square root is 12 because 12 × 12 = 144.",
-        "ar": "الجذر التربيعي هو 12، لأن 12 × 12 = 144."
+        "en": "A four-digit year that starts with 2 must end with 2, and its two middle digits must match. The first such year after 2002 is 2112.",
+        "ar": "السنة المكوّنة من أربعة أرقام وتبدأ بـ2 يجب أن تنتهي بـ2 وأن يتطابق رقماها الأوسطان، وأول سنة كهذه بعد 2002 هي 2112."
       }
     }
   },
@@ -584,12 +524,12 @@
     "difficulty": "easy",
     "mode": "quiz",
     "question": {
-      "en": "What is the mean (average) of 10, 20, and 60?",
-      "ar": "ما هو المتوسط الحسابي للأعداد 10 و20 و60؟"
+      "en": "A fair coin lands heads five times in a row. What is the chance that the next flip is heads?",
+      "ar": "رُميت عملة عادلة فظهرت الصورة خمس مرات متتالية. ما احتمال ظهور الصورة في الرمية التالية؟"
     },
     "answer": {
-      "en": "30. Add them: 10+20+60=90, then divide by 3: 90÷3=30.",
-      "ar": "30. مجموعها 10+20+60=90، ثم نقسم على 3: 90÷3=30."
+      "en": "1/2. The coin has no memory: every flip is still 50–50.",
+      "ar": "1/2. العملة لا ذاكرة لها: احتمال كل رمية 50% كما كان من قبل."
     },
     "subcategory": {
       "en": "Probability, Combinatorics & Statistics",
@@ -600,32 +540,32 @@
     },
     "acceptedAnswers": {
       "en": [
-        "30"
+        "1/2"
       ],
       "ar": [
-        "30"
+        "1/2"
       ]
     },
     "quickFire": {
       "answer": {
-        "en": "30",
-        "ar": "30"
+        "en": "1/2",
+        "ar": "1/2"
       },
       "distractors": {
         "en": [
-          "20",
-          "40",
-          "45"
+          "1/32",
+          "1/64",
+          "0"
         ],
         "ar": [
-          "20",
-          "40",
-          "45"
+          "1/32",
+          "1/64",
+          "0"
         ]
       },
       "explanation": {
-        "en": "Add the three values and divide by three: (10 + 20 + 60) ÷ 3 = 90 ÷ 3 = 30.",
-        "ar": "نجمع القيم الثلاث ونقسم على عددها: (10 + 20 + 60) ÷ 3 = 90 ÷ 3 = 30."
+        "en": "Flips of a fair coin are independent, so earlier results don't change the next one: the chance stays 1/2. Expecting a change is a common thinking trap.",
+        "ar": "رميات العملة العادلة مستقلة، فالنتائج السابقة لا تغيّر الرمية التالية ويبقى الاحتمال 1/2. توقّع التغيّر خطأ شائع في التفكير."
       }
     }
   },
@@ -654,12 +594,12 @@
     "difficulty": "easy",
     "mode": "quiz",
     "question": {
-      "en": "Three notebooks cost $4 each. If you pay with $20, how much change should you receive?",
-      "ar": "ثمن كل دفتر 4 دولارات. إذا اشتريت ثلاثة دفاتر ودفعت 20 دولاراً، فكم تسترد؟"
+      "en": "In a queue, Sara is 8th from the front and 8th from the back. How many people are in the queue?",
+      "ar": "في طابور، سارة هي الثامنة من الأمام والثامنة من الخلف. كم شخصًا في الطابور؟"
     },
     "answer": {
-      "en": "$8. The notebooks cost 3 × $4 = $12, so the change is $20 − $12 = $8.",
-      "ar": "8 دولارات. ثمن الدفاتر 3 × 4 = 12 دولاراً، والباقي 20 − 12 = 8 دولارات."
+      "en": "15. Seven people stand ahead of her and seven behind: 7 + 1 + 7.",
+      "ar": "15. أمامها 7 وخلفها 7: 7 + 1 + 7."
     },
     "subcategory": {
       "en": "Patterns, Sequences & Word Problems",
@@ -670,113 +610,33 @@
     },
     "acceptedAnswers": {
       "en": [
-        "$8"
+        "15"
       ],
       "ar": [
-        "8 دولارات"
+        "15"
       ]
     },
     "quickFire": {
       "answer": {
-        "en": "$8",
-        "ar": "8 دولارات"
+        "en": "15",
+        "ar": "15"
       },
       "distractors": {
         "en": [
-          "$4",
-          "$12",
-          "$16"
+          "14",
+          "16",
+          "17"
         ],
         "ar": [
-          "4 دولارات",
-          "12 دولارًا",
-          "16 دولارًا"
+          "14",
+          "16",
+          "17"
         ]
       },
       "explanation": {
-        "en": "The notebooks cost 3 × $4 = $12. The change from $20 is $20 − $12 = $8.",
-        "ar": "ثمن الدفاتر 3 × 4 = 12 دولارًا، والباقي من 20 دولارًا هو 20 − 12 = 8 دولارات."
+        "en": "Counting 8 from each end counts Sara twice, so the queue has 8 + 8 − 1 = 15 people.",
+        "ar": "العدّ 8 من كل طرف يحسب سارة مرتين، فيكون في الطابور 8 + 8 − 1 = 15 شخصًا."
       }
-    }
-  },
-  {
-    "id": "math-021",
-    "difficulty": "easy",
-    "mode": "quiz",
-    "question": {
-      "en": "What is x⁰ for any x ≠ 0?",
-      "ar": "ما قيمة x⁰ لأي x لا يساوي صفراً؟"
-    },
-    "answer": {
-      "en": "1. Any non-zero number raised to the power 0 equals 1.",
-      "ar": "1. أي عدد غير صفري مرفوع للقوة صفر يساوي 1."
-    },
-    "subcategory": {
-      "en": "Algebra & Functions",
-      "ar": "الجبر والدوال"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-022",
-    "difficulty": "easy",
-    "mode": "quiz",
-    "question": {
-      "en": "How many faces does a cube have?",
-      "ar": "كم عدد أوجه المكعب؟"
-    },
-    "answer": {
-      "en": "6 faces — top, bottom, and four sides.",
-      "ar": "6 أوجه — أعلى وأسفل وأربعة جوانب."
-    },
-    "subcategory": {
-      "en": "Geometry & Trigonometry",
-      "ar": "الهندسة وعلم المثلثات"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-023",
-    "difficulty": "easy",
-    "mode": "quiz",
-    "question": {
-      "en": "How many months are in 25 years?",
-      "ar": "كم شهراً في 25 سنة؟"
-    },
-    "answer": {
-      "en": "300 months. 25 × 12 = 300.",
-      "ar": "300 شهر. 25 × 12 = 300."
-    },
-    "subcategory": {
-      "en": "Number Theory & Number Riddles",
-      "ar": "نظرية الأعداد وألغازها"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-024",
-    "difficulty": "easy",
-    "mode": "quiz",
-    "question": {
-      "en": "What is 0.5 × 0.5?",
-      "ar": "ما ناتج 0.5 × 0.5؟"
-    },
-    "answer": {
-      "en": "0.25. Half of a half is a quarter.",
-      "ar": "0.25. نصف النصف هو الربع."
-    },
-    "subcategory": {
-      "en": "Number Theory & Number Riddles",
-      "ar": "نظرية الأعداد وألغازها"
-    },
-    "review": {
-      "status": "pending"
     }
   },
   {
@@ -860,26 +720,6 @@
     }
   },
   {
-    "id": "math-029",
-    "difficulty": "easy",
-    "mode": "quiz",
-    "question": {
-      "en": "What is 3! (3 factorial)?",
-      "ar": "ما قيمة 3! (مضروب 3)؟"
-    },
-    "answer": {
-      "en": "6. 3! = 3 × 2 × 1 = 6.",
-      "ar": "6. مضروب 3 = 3 × 2 × 1 = 6."
-    },
-    "subcategory": {
-      "en": "Number Theory & Number Riddles",
-      "ar": "نظرية الأعداد وألغازها"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "math-030",
     "difficulty": "easy",
     "mode": "quiz",
@@ -914,66 +754,6 @@
     "subcategory": {
       "en": "Logic, Foundations & Unsolved Problems",
       "ar": "المنطق والأسس والمسائل غير المحلولة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-032",
-    "difficulty": "easy",
-    "mode": "quiz",
-    "question": {
-      "en": "How many sides does a decagon have?",
-      "ar": "كم ضلعاً للشكل العشاري (Decagon)؟"
-    },
-    "answer": {
-      "en": "10 sides. 'Deca-' means ten.",
-      "ar": "10 أضلاع. 'ديكا' تعني عشرة."
-    },
-    "subcategory": {
-      "en": "Geometry & Trigonometry",
-      "ar": "الهندسة وعلم المثلثات"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-033",
-    "difficulty": "easy",
-    "mode": "quiz",
-    "question": {
-      "en": "What is 15% of 200?",
-      "ar": "ما هي قيمة 15% من 200؟"
-    },
-    "answer": {
-      "en": "30. 10% of 200 = 20, and 5% = 10, so 15% = 30.",
-      "ar": "30. 10% من 200 = 20، و5% = 10، إذن 15% = 30."
-    },
-    "subcategory": {
-      "en": "Algebra & Functions",
-      "ar": "الجبر والدوال"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-034",
-    "difficulty": "easy",
-    "mode": "quiz",
-    "question": {
-      "en": "What is the reciprocal of 0.25?",
-      "ar": "ما هو مقلوب العدد 0.25؟"
-    },
-    "answer": {
-      "en": "4. The reciprocal of 0.25 = 1/0.25 = 4.",
-      "ar": "4. مقلوب 0.25 = 1 ÷ 0.25 = 4."
-    },
-    "subcategory": {
-      "en": "Number Theory & Number Riddles",
-      "ar": "نظرية الأعداد وألغازها"
     },
     "review": {
       "status": "pending"
@@ -1040,28 +820,8 @@
     }
   },
   {
-    "id": "math-038",
-    "difficulty": "medium",
-    "mode": "quiz",
-    "question": {
-      "en": "In a right triangle, the two legs are 5 and 12. What is the hypotenuse?",
-      "ar": "في مثلث قائم، طول الضلعين 5 و12. ما طول الوتر؟"
-    },
-    "answer": {
-      "en": "13. Pythagoras: √(5²+12²) = √(25+144) = √169 = 13.",
-      "ar": "13. فيثاغورس: √(5²+12²) = √(25+144) = √169 = 13."
-    },
-    "subcategory": {
-      "en": "Geometry & Trigonometry",
-      "ar": "الهندسة وعلم المثلثات"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "math-039",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "mode": "quiz",
     "question": {
       "en": "How many times do the hour and minute hands of a clock overlap in 24 hours?",
@@ -1081,7 +841,7 @@
   },
   {
     "id": "math-040",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "mode": "quiz",
     "question": {
       "en": "Assuming independent birthdays uniformly distributed over 365 days, approximately what is the probability that at least two of 23 people share a birthday?",
@@ -1094,26 +854,6 @@
     "subcategory": {
       "en": "Probability, Combinatorics & Statistics",
       "ar": "الاحتمالات والتوافقيات والإحصاء"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-041",
-    "difficulty": "medium",
-    "mode": "quiz",
-    "question": {
-      "en": "What are twin primes?",
-      "ar": "ما هي الأعداد الأولية التوأم؟"
-    },
-    "answer": {
-      "en": "Twin primes are pairs of prime numbers that differ by 2, such as (3,5), (11,13), and (17,19).",
-      "ar": "الأعداد الأولية التوأم هي أزواج أعداد أولية الفرق بينها 2، مثل (3,5) و(11,13) و(17,19)."
-    },
-    "subcategory": {
-      "en": "Number Theory & Number Riddles",
-      "ar": "نظرية الأعداد وألغازها"
     },
     "review": {
       "status": "pending"
@@ -1160,46 +900,6 @@
     }
   },
   {
-    "id": "math-044",
-    "difficulty": "medium",
-    "mode": "quiz",
-    "question": {
-      "en": "What is the sum of the digits of all integers from 1 to 10?",
-      "ar": "ما هو مجموع أرقام كل الأعداد الصحيحة من 1 إلى 10؟"
-    },
-    "answer": {
-      "en": "46. Digit sums: 1+2+3+4+5+6+7+8+9+(1+0) = 45+1 = 46.",
-      "ar": "46. مجموع الأرقام: 1+2+3+4+5+6+7+8+9+(1+0) = 45+1 = 46."
-    },
-    "subcategory": {
-      "en": "Number Theory & Number Riddles",
-      "ar": "نظرية الأعداد وألغازها"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-045",
-    "difficulty": "medium",
-    "mode": "quiz",
-    "question": {
-      "en": "Solve for x: 2x + 7 = 3x − 5",
-      "ar": "حل المعادلة لإيجاد x: 2x + 7 = 3x − 5"
-    },
-    "answer": {
-      "en": "x = 12. Rearranging: 7+5 = 3x−2x → 12 = x.",
-      "ar": "x = 12. بإعادة الترتيب: 7+5 = 3x−2x → 12 = x."
-    },
-    "subcategory": {
-      "en": "Algebra & Functions",
-      "ar": "الجبر والدوال"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "math-046",
     "difficulty": "medium",
     "mode": "quiz",
@@ -1221,7 +921,7 @@
   },
   {
     "id": "math-047",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "mode": "quiz",
     "question": {
       "en": "What is the next number in the Fibonacci sequence: 1, 1, 2, 3, 5, 8, 13, ...?",
@@ -1280,46 +980,6 @@
     }
   },
   {
-    "id": "math-050",
-    "difficulty": "medium",
-    "mode": "quiz",
-    "question": {
-      "en": "Name a Pythagorean triple other than 3-4-5.",
-      "ar": "اذكر ثلاثية فيثاغورس غير 3-4-5."
-    },
-    "answer": {
-      "en": "Examples: 5-12-13, 8-15-17, 7-24-25. All satisfy a²+b²=c².",
-      "ar": "أمثلة: 5-12-13، أو 8-15-17، أو 7-24-25. كلها تحقق a²+b²=c²."
-    },
-    "subcategory": {
-      "en": "Number Theory & Number Riddles",
-      "ar": "نظرية الأعداد وألغازها"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-051",
-    "difficulty": "medium",
-    "mode": "quiz",
-    "question": {
-      "en": "What is 2⁻³?",
-      "ar": "ما قيمة 2⁻³؟"
-    },
-    "answer": {
-      "en": "1/8. Negative exponents are reciprocals: 2⁻³ = 1/2³ = 1/8.",
-      "ar": "1/8. الأسس السالبة تعني المقلوب: 2⁻³ = 1/2³ = 1/8."
-    },
-    "subcategory": {
-      "en": "Algebra & Functions",
-      "ar": "الجبر والدوال"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "math-052",
     "difficulty": "medium",
     "mode": "quiz",
@@ -1334,26 +994,6 @@
     "subcategory": {
       "en": "Logic, Foundations & Unsolved Problems",
       "ar": "المنطق والأسس والمسائل غير المحلولة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-053",
-    "difficulty": "medium",
-    "mode": "quiz",
-    "question": {
-      "en": "Solve the system x + y = 17 and x − y = 5.",
-      "ar": "حل نظام المعادلتين x + y = 17 وx − y = 5."
-    },
-    "answer": {
-      "en": "x = 11 and y = 6. Adding the equations gives 2x = 22, so x = 11; then y = 6.",
-      "ar": "x = 11 وy = 6. بجمع المعادلتين نحصل على 2x = 22، إذن x = 11، ومنه y = 6."
-    },
-    "subcategory": {
-      "en": "Algebra & Functions",
-      "ar": "الجبر والدوال"
     },
     "review": {
       "status": "pending"
@@ -1384,36 +1024,16 @@
     "difficulty": "medium",
     "mode": "quiz",
     "question": {
-      "en": "Using exactly four 4s and any standard operators, how can you make 0?",
-      "ar": "باستخدام الرقم 4 أربع مرات بالضبط وأي عمليات قياسية، كيف تحصل على الناتج 0؟"
+      "en": "Using exactly four 4s and any basic operations, how can you make 7?",
+      "ar": "باستخدام الرقم 4 أربع مرات بالضبط وأيّ عمليات حسابية أساسية، كيف تحصل على 7؟"
     },
     "answer": {
-      "en": "4+4−4−4 = 0. (Many solutions exist, e.g. 44−44 = 0.)",
-      "ar": "4+4−4−4 = 0. (حلول أخرى ممكنة، مثل 44−44 = 0.)"
+      "en": "44 ÷ 4 − 4 = 7 (another way: 4 + 4 − 4 ÷ 4 = 7).",
+      "ar": "44 ÷ 4 − 4 = 7 (أو: 4 + 4 − 4 ÷ 4 = 7)."
     },
     "subcategory": {
       "en": "Logic, Foundations & Unsolved Problems",
       "ar": "المنطق والأسس والمسائل غير المحلولة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-056",
-    "difficulty": "medium",
-    "mode": "quiz",
-    "question": {
-      "en": "Solve 10ˣ=1000 for x.",
-      "ar": "حل المعادلة 10ˣ=1000 لإيجاد x."
-    },
-    "answer": {
-      "en": "x=3, because 10³=1000.",
-      "ar": "x=3، لأن 10³=1000."
-    },
-    "subcategory": {
-      "en": "Algebra & Functions",
-      "ar": "الجبر والدوال"
     },
     "review": {
       "status": "pending"
@@ -1460,26 +1080,6 @@
     }
   },
   {
-    "id": "math-059",
-    "difficulty": "medium",
-    "mode": "quiz",
-    "question": {
-      "en": "What is the sum of the first six terms of the arithmetic sequence 4, 7, 10, 13, ...?",
-      "ar": "ما مجموع الحدود الستة الأولى من المتتالية الحسابية 4، 7، 10، 13، ...؟"
-    },
-    "answer": {
-      "en": "69. The first six terms are 4, 7, 10, 13, 16, and 19; their sum is 69.",
-      "ar": "69. الحدود الستة الأولى هي 4 و7 و10 و13 و16 و19، ومجموعها 69."
-    },
-    "subcategory": {
-      "en": "Patterns, Sequences & Word Problems",
-      "ar": "الأنماط والمتتاليات والمسائل اللفظية"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "math-060",
     "difficulty": "medium",
     "mode": "quiz",
@@ -1490,26 +1090,6 @@
     "answer": {
       "en": "2. Count factors of 5: only 5 and 10 contribute, giving 2 trailing zeros.",
       "ar": "2. نحصي عوامل 5: فقط 5 و10 يعطيان عاملاً من 5 لكل منهما، مما يعطي صفرين."
-    },
-    "subcategory": {
-      "en": "Number Theory & Number Riddles",
-      "ar": "نظرية الأعداد وألغازها"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-061",
-    "difficulty": "medium",
-    "mode": "quiz",
-    "question": {
-      "en": "What letter represents 10 in hexadecimal (base 16)?",
-      "ar": "ما الحرف الذي يمثل الرقم 10 في النظام السادس عشري (Base 16)؟"
-    },
-    "answer": {
-      "en": "A. In hex: A=10, B=11, C=12, D=13, E=14, F=15.",
-      "ar": "A. في النظام السادس عشري: A=10، B=11، C=12، D=13، E=14، F=15."
     },
     "subcategory": {
       "en": "Number Theory & Number Riddles",
@@ -1580,46 +1160,6 @@
     }
   },
   {
-    "id": "math-065",
-    "difficulty": "medium",
-    "mode": "quiz",
-    "question": {
-      "en": "What is the smallest positive integer that is divisible by 3 and leaves a remainder of 2 when divided by 5?",
-      "ar": "ما أصغر عدد صحيح موجب يقبل القسمة على 3 ويترك باقي 2 عند قسمته على 5؟"
-    },
-    "answer": {
-      "en": "12. The positive multiples of 3 are 3, 6, 9, 12, ...; 12 is the first with remainder 2 modulo 5.",
-      "ar": "12. مضاعفات 3 الموجبة هي 3، 6، 9، 12، ...؛ والعدد 12 هو أولها الذي يترك باقي 2 عند القسمة على 5."
-    },
-    "subcategory": {
-      "en": "Number Theory & Number Riddles",
-      "ar": "نظرية الأعداد وألغازها"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-066",
-    "difficulty": "medium",
-    "mode": "quiz",
-    "question": {
-      "en": "What is the complement of a 30° angle?",
-      "ar": "ما هي الزاوية المتممة لزاوية قياسها 30 درجة؟"
-    },
-    "answer": {
-      "en": "60°. Complementary angles sum to 90°: 90°−30° = 60°.",
-      "ar": "60 درجة. الزاويتان المتتامتان مجموعهما 90°: 90°−30° = 60°."
-    },
-    "subcategory": {
-      "en": "Geometry & Trigonometry",
-      "ar": "الهندسة وعلم المثلثات"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "math-067",
     "difficulty": "medium",
     "mode": "quiz",
@@ -1654,26 +1194,6 @@
     "subcategory": {
       "en": "Probability, Combinatorics & Statistics",
       "ar": "الاحتمالات والتوافقيات والإحصاء"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-069",
-    "difficulty": "medium",
-    "mode": "quiz",
-    "question": {
-      "en": "What is i², where i is the imaginary unit?",
-      "ar": "ما قيمة i²، حيث i هي الوحدة التخيلية؟"
-    },
-    "answer": {
-      "en": "−1. The imaginary unit is defined as i = √(−1), so i² = −1.",
-      "ar": "−1. الوحدة التخيلية تُعرَّف بأن i = √(−1)، إذن i² = −1."
-    },
-    "subcategory": {
-      "en": "Algebra & Functions",
-      "ar": "الجبر والدوال"
     },
     "review": {
       "status": "pending"
@@ -1741,7 +1261,7 @@
   },
   {
     "id": "math-073",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "mode": "quiz",
     "question": {
       "en": "What is the Golden Ratio φ to three decimal places?",
@@ -1841,7 +1361,7 @@
   },
   {
     "id": "math-078",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "mode": "quiz",
     "question": {
       "en": "What did Eratosthenes use his famous sieve for?",
@@ -1920,26 +1440,6 @@
     }
   },
   {
-    "id": "math-082",
-    "difficulty": "easy",
-    "mode": "quiz",
-    "question": {
-      "en": "What is 17 mod 5?",
-      "ar": "ما قيمة 17 mod 5؟"
-    },
-    "answer": {
-      "en": "2. 17 = 3×5 + 2, so the remainder is 2.",
-      "ar": "2. 17 = 3×5 + 2، إذن الباقي هو 2."
-    },
-    "subcategory": {
-      "en": "Number Theory & Number Riddles",
-      "ar": "نظرية الأعداد وألغازها"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "math-083",
     "difficulty": "hard",
     "mode": "quiz",
@@ -1950,86 +1450,6 @@
     "answer": {
       "en": "2^p−1, where p is prime and the resulting number is also prime. Prime p alone is not sufficient:2^11−1=2047=23×89.",
       "ar": "2^p−1، حيث p عدد أولي والناتج أيضاً أولي. أولية p وحدها لا تكفي؛ فمثلاً2^11−1=2047=23×89."
-    },
-    "subcategory": {
-      "en": "Number Theory & Number Riddles",
-      "ar": "نظرية الأعداد وألغازها"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-084",
-    "difficulty": "hard",
-    "mode": "quiz",
-    "question": {
-      "en": "How many ways can you choose 2 people from a group of 5?",
-      "ar": "كم عدد طرق اختيار شخصين من مجموعة من 5 أشخاص؟"
-    },
-    "answer": {
-      "en": "10. C(5,2) = 5!/(2!×3!) = 10.",
-      "ar": "10. C(5,2) = 5!/(2!×3!) = 10."
-    },
-    "subcategory": {
-      "en": "Probability, Combinatorics & Statistics",
-      "ar": "الاحتمالات والتوافقيات والإحصاء"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-085",
-    "difficulty": "medium",
-    "mode": "quiz",
-    "question": {
-      "en": "What is the harmonic mean of 2 and 4?",
-      "ar": "ما هو المتوسط التوافقي للعددين 2 و4؟"
-    },
-    "answer": {
-      "en": "8/3 ≈ 2.67. Harmonic mean = 2÷(1/2+1/4) = 2÷(3/4) = 8/3.",
-      "ar": "8/3 ≈ 2.67. المتوسط التوافقي = 2÷(1/2+1/4) = 2÷(3/4) = 8/3."
-    },
-    "subcategory": {
-      "en": "Probability, Combinatorics & Statistics",
-      "ar": "الاحتمالات والتوافقيات والإحصاء"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-086",
-    "difficulty": "medium",
-    "mode": "quiz",
-    "question": {
-      "en": "What is the determinant of the 2×2 matrix [[a, b], [c, d]]?",
-      "ar": "ما هو محدد (Determinant) المصفوفة 2×2 [[a, b], [c, d]]؟"
-    },
-    "answer": {
-      "en": "ad−bc. Its absolute value is the area-scaling factor; its sign records whether orientation is reversed.",
-      "ar": "ad−bc. تمثل قيمته المطلقة معامل تغير المساحة، وتشير إشارته إلى ما إذا كان الاتجاه الهندسي قد انعكس."
-    },
-    "subcategory": {
-      "en": "Algebra & Functions",
-      "ar": "الجبر والدوال"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-087",
-    "difficulty": "medium",
-    "mode": "quiz",
-    "question": {
-      "en": "Convert 25 from decimal to base 3.",
-      "ar": "حوّل العدد 25 من النظام العشري إلى النظام الثلاثي (Base 3)."
-    },
-    "answer": {
-      "en": "221₃. Because 25 = 2×9 + 2×3 + 1×1 = 18+6+1.",
-      "ar": "221 في النظام الثلاثي. لأن 25 = 2×9 + 2×3 + 1×1 = 18+6+1."
     },
     "subcategory": {
       "en": "Number Theory & Number Riddles",
@@ -2060,28 +1480,8 @@
     }
   },
   {
-    "id": "math-089",
-    "difficulty": "medium",
-    "mode": "quiz",
-    "question": {
-      "en": "What is the formula for the volume of a sphere of radius r?",
-      "ar": "ما هو قانون حجم الكرة ذات نصف القطر r؟"
-    },
-    "answer": {
-      "en": "(4/3)πr³. First derived by Archimedes.",
-      "ar": "(4/3)πr³. استنبطها أرشميدس لأول مرة."
-    },
-    "subcategory": {
-      "en": "Geometry & Trigonometry",
-      "ar": "الهندسة وعلم المثلثات"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "math-090",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "mode": "quiz",
     "question": {
       "en": "Two cards are dealt from a standard shuffled 52-card deck. What is the probability that they have the same rank?",
@@ -2094,26 +1494,6 @@
     "subcategory": {
       "en": "Probability, Combinatorics & Statistics",
       "ar": "الاحتمالات والتوافقيات والإحصاء"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-091",
-    "difficulty": "medium",
-    "mode": "quiz",
-    "question": {
-      "en": "What is the absolute value (magnitude) of the complex number 3 + 4i?",
-      "ar": "ما هي القيمة المطلقة (المقياس) للعدد المركب 3 + 4i؟"
-    },
-    "answer": {
-      "en": "5. |3+4i| = √(3²+4²) = √(9+16) = √25 = 5.",
-      "ar": "5. |3+4i| = √(3²+4²) = √(9+16) = √25 = 5."
-    },
-    "subcategory": {
-      "en": "Algebra & Functions",
-      "ar": "الجبر والدوال"
     },
     "review": {
       "status": "pending"
@@ -2181,7 +1561,7 @@
   },
   {
     "id": "math-095",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "mode": "quiz",
     "question": {
       "en": "Fermat's Last Theorem says aⁿ+bⁿ=cⁿ has no positive-integer solutions when the integer exponent n is greater than what?",
@@ -2194,26 +1574,6 @@
     "subcategory": {
       "en": "Logic, Foundations & Unsolved Problems",
       "ar": "المنطق والأسس والمسائل غير المحلولة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-096",
-    "difficulty": "medium",
-    "mode": "quiz",
-    "question": {
-      "en": "What is sin(30°)?",
-      "ar": "ما قيمة sin(30°)؟"
-    },
-    "answer": {
-      "en": "0.5 (or 1/2). In a 30-60-90 triangle, the side opposite 30° is half the hypotenuse.",
-      "ar": "0.5 (أو 1/2). في مثلث 30-60-90، الضلع المقابل لزاوية 30° هو نصف الوتر."
-    },
-    "subcategory": {
-      "en": "Geometry & Trigonometry",
-      "ar": "الهندسة وعلم المثلثات"
     },
     "review": {
       "status": "pending"
@@ -2307,12 +1667,12 @@
       "ar": "الحساب والكسور والنسب المئوية"
     },
     "question": {
-      "en": "What is 7 × 8?",
-      "ar": "ما هو حاصل 7 × 8؟"
+      "en": "How many times can you subtract 10 from 100?",
+      "ar": "كم مرة يمكنك أن تطرح 10 من 100؟"
     },
     "answer": {
-      "en": "56",
-      "ar": "56"
+      "en": "Once. After that, you're subtracting from 90, not 100.",
+      "ar": "مرة واحدة فقط؛ بعدها يصبح الطرح من 90 لا من 100."
     },
     "review": {
       "status": "pending"
@@ -2322,16 +1682,16 @@
     "id": "math-102",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Geometry & Trigonometry",
-      "ar": "الهندسة وعلم المثلثات"
+      "en": "Number Theory & Number Riddles",
+      "ar": "نظرية الأعداد وألغازها"
     },
     "question": {
-      "en": "How many degrees are in a right angle?",
-      "ar": "كم درجة في الزاوية القائمة؟"
+      "en": "Is zero even, odd, or neither?",
+      "ar": "هل الصفر عدد زوجي أم فردي، أم ليس هذا ولا ذاك؟"
     },
     "answer": {
-      "en": "90 degrees",
-      "ar": "90 درجة"
+      "en": "Even. It divides by 2 with no remainder, and it sits between the odd numbers −1 and 1.",
+      "ar": "زوجي. ينقسم على 2 بلا باقٍ، ويقع بين العددين الفرديين −1 و1."
     },
     "review": {
       "status": "pending"
@@ -2345,12 +1705,12 @@
       "ar": "الحساب والكسور والنسب المئوية"
     },
     "question": {
-      "en": "What is 25% of 80?",
-      "ar": "ما هو 25% من 80؟"
+      "en": "If you multiply together all the digits on a phone keypad, what do you get?",
+      "ar": "إذا ضربت جميع الأرقام الموجودة على لوحة أرقام الهاتف بعضها في بعض، فما الناتج؟"
     },
     "answer": {
-      "en": "20",
-      "ar": "20"
+      "en": "0, because one of the keys is 0.",
+      "ar": "صفر، لأن أحد الأزرار هو 0."
     },
     "review": {
       "status": "pending"
@@ -2360,16 +1720,16 @@
     "id": "math-104",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Number Theory & Number Riddles",
-      "ar": "نظرية الأعداد وألغازها"
+      "en": "Patterns, Sequences & Word Problems",
+      "ar": "الأنماط والمتتاليات والمسائل اللفظية"
     },
     "question": {
-      "en": "What is the next prime number after 11?",
-      "ar": "ما العدد الأولي الذي يلي 11؟"
+      "en": "Fold a sheet of paper in half, then in half again, and once more. How many layers thick is it now?",
+      "ar": "طويت ورقة إلى نصفين، ثم إلى نصفين مرة ثانية، ثم مرة ثالثة. كم طبقة أصبح سُمكها؟"
     },
     "answer": {
-      "en": "13",
-      "ar": "13"
+      "en": "8 layers. Each fold doubles the thickness: 2 × 2 × 2.",
+      "ar": "8 طبقات. كل طيّة تضاعف السماكة: 2 × 2 × 2."
     },
     "review": {
       "status": "pending"
@@ -2379,92 +1739,44 @@
     "id": "math-105",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Geometry & Trigonometry",
-      "ar": "الهندسة وعلم المثلثات"
+      "en": "Number Theory & Number Riddles",
+      "ar": "نظرية الأعداد وألغازها"
     },
     "question": {
-      "en": "What is the area of a rectangle with length 8 and width 5?",
-      "ar": "ما مساحة مستطيل طوله 8 وعرضه 5؟"
+      "en": "The English word 'zero' comes from the Arabic word ṣifr. What did ṣifr originally mean?",
+      "ar": "كلمة zero الإنجليزية مأخوذة من الكلمة العربية «صِفر». ما معناها الأصلي؟"
     },
     "answer": {
-      "en": "40 square units",
-      "ar": "40 وحدة مربعة"
+      "en": "Empty. Arab mathematicians used it for the 'empty' place in a number, and it passed into Europe as 'zero' and 'cipher'.",
+      "ar": "الفارغ (الخالي). استعملها علماء الرياضيات العرب للخانة «الفارغة» في العدد، ومنها انتقلت إلى أوروبا كلمتا zero وcipher."
     },
     "review": {
       "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Empty"
+      ],
+      "ar": [
+        "الفارغ",
+        "الخالي"
+      ]
     }
   },
   {
     "id": "math-106",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Algebra & Functions",
-      "ar": "الجبر والدوال"
-    },
-    "question": {
-      "en": "What is 2⁴?",
-      "ar": "ما هو 2⁴؟"
-    },
-    "answer": {
-      "en": "16",
-      "ar": "16"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-107",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Geometry & Trigonometry",
       "ar": "الهندسة وعلم المثلثات"
     },
     "question": {
-      "en": "How many vertices does a cube have?",
-      "ar": "كم رأساً للمكعب؟"
+      "en": "Give a strip of paper a half-twist and tape its ends together. How many sides does the loop have?",
+      "ar": "خذ شريطًا من الورق، ولُفّه نصف لفّة، ثم ألصق طرفيه معًا. كم وجهًا أصبح للحلقة؟"
     },
     "answer": {
-      "en": "8",
-      "ar": "8"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-108",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Arithmetic, Fractions & Percentages",
-      "ar": "الحساب والكسور والنسب المئوية"
-    },
-    "question": {
-      "en": "What is the sum of all whole numbers from 1 to 9?",
-      "ar": "ما مجموع الأعداد الصحيحة من 1 إلى 9؟"
-    },
-    "answer": {
-      "en": "45",
-      "ar": "45"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-109",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Geometry & Trigonometry",
-      "ar": "الهندسة وعلم المثلثات"
-    },
-    "question": {
-      "en": "A square has a perimeter of 36 cm. What is its area?",
-      "ar": "مربع محيطه 36 سم. ما مساحته؟"
-    },
-    "answer": {
-      "en": "81 cm²",
-      "ar": "81 سم²"
+      "en": "One. It's a Möbius strip: draw a line along it and you'll cover 'both' sides without lifting your pen.",
+      "ar": "وجه واحد. هذا «شريط موبيوس»: لو رسمت خطًا عليه لغطّيت «الوجهين» من غير أن ترفع القلم."
     },
     "review": {
       "status": "pending"
@@ -2472,37 +1784,18 @@
   },
   {
     "id": "math-110",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Number Theory & Number Riddles",
-      "ar": "نظرية الأعداد وألغازها"
+      "en": "Patterns, Sequences & Word Problems",
+      "ar": "الأنماط والمتتاليات والمسائل اللفظية"
     },
     "question": {
-      "en": "What is the greatest common divisor (GCD) of 12 and 18?",
-      "ar": "ما القاسم المشترك الأكبر لـ 12 و18؟"
+      "en": "A clock takes 5 seconds to strike 6 o'clock. How long does it take to strike 12?",
+      "ar": "تستغرق ساعة 5 ثوانٍ لتدق السادسة. كم تستغرق لتدق الثانية عشرة؟"
     },
     "answer": {
-      "en": "6",
-      "ar": "6"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-111",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Geometry & Trigonometry",
-      "ar": "الهندسة وعلم المثلثات"
-    },
-    "question": {
-      "en": "How many degrees make a full rotation?",
-      "ar": "كم درجة في الدوران الكامل؟"
-    },
-    "answer": {
-      "en": "360 degrees",
-      "ar": "360 درجة"
+      "en": "11 seconds. Six strikes have 5 gaps of 1 second; twelve strikes have 11 gaps.",
+      "ar": "11 ثانية. الدقات الست بينها 5 فواصل مدة كل منها ثانية، والدقات الاثنتا عشرة بينها 11 فاصلًا."
     },
     "review": {
       "status": "pending"
@@ -2510,18 +1803,18 @@
   },
   {
     "id": "math-112",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Arithmetic, Fractions & Percentages",
-      "ar": "الحساب والكسور والنسب المئوية"
+      "en": "Number Theory & Number Riddles",
+      "ar": "نظرية الأعداد وألغازها"
     },
     "question": {
-      "en": "What is 3/5 written as a decimal?",
-      "ar": "ما هو 3/5 بالصيغة العشرية؟"
+      "en": "Which positive whole number is exactly twice the sum of its own digits?",
+      "ar": "أي عدد صحيح موجب يساوي بالضبط ضعف مجموع أرقامه؟"
     },
     "answer": {
-      "en": "0.6",
-      "ar": "0.6"
+      "en": "18, because 1 + 8 = 9 and 2 × 9 = 18. It's the only one.",
+      "ar": "18، لأن 1 + 8 = 9 و2 × 9 = 18. وهو العدد الوحيد."
     },
     "review": {
       "status": "pending"
@@ -2529,56 +1822,18 @@
   },
   {
     "id": "math-113",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Arithmetic, Fractions & Percentages",
-      "ar": "الحساب والكسور والنسب المئوية"
+      "en": "Geometry & Trigonometry",
+      "ar": "الهندسة وعلم المثلثات"
     },
     "question": {
-      "en": "If 4 apples cost $2, how much do 10 apples cost?",
-      "ar": "إذا كانت 4 تفاحات بدولارَين، بكم تكون 10 تفاحات؟"
+      "en": "With three straight cuts, what is the greatest number of pieces you can cut a pizza into, without moving or stacking the pieces?",
+      "ar": "بثلاث قطعات مستقيمة، ما أكبر عدد من القطع يمكن تقسيم البيتزا إليه، من دون تحريك القطع أو وضع بعضها فوق بعض؟"
     },
     "answer": {
-      "en": "$5",
-      "ar": "5 دولارات"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-114",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Arithmetic, Fractions & Percentages",
-      "ar": "الحساب والكسور والنسب المئوية"
-    },
-    "question": {
-      "en": "What is the remainder when 17 is divided by 4?",
-      "ar": "ما باقي قسمة 17 على 4؟"
-    },
-    "answer": {
-      "en": "1",
-      "ar": "1"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-115",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Number Theory & Number Riddles",
-      "ar": "نظرية الأعداد وألغازها"
-    },
-    "question": {
-      "en": "How many zeros are in one million?",
-      "ar": "كم صفراً في مليون؟"
-    },
-    "answer": {
-      "en": "6",
-      "ar": "6"
+      "en": "7, if every cut crosses both of the others inside the pizza.",
+      "ar": "7 قطع، إذا قطعت كل قصّة القصّتين الأخريين داخل البيتزا."
     },
     "review": {
       "status": "pending"
@@ -2611,12 +1866,12 @@
       "ar": "الجبر والدوال"
     },
     "question": {
-      "en": "What is the slope of the line y = 3x + 5?",
-      "ar": "ما ميل الخط y = 3x + 5؟"
+      "en": "Think of a number. Double it, add 6, halve the result, then subtract the number you started with. What do you get?",
+      "ar": "فكّر في عدد. ضاعفه، وأضف إليه 6، ثم خذ نصف الناتج، ثم اطرح منه العدد الذي بدأت به. ما الناتج؟"
     },
     "answer": {
-      "en": "3",
-      "ar": "3"
+      "en": "Always 3: (2x + 6) ÷ 2 − x = 3, whatever number you chose.",
+      "ar": "دائمًا 3: (2x + 6) ÷ 2 − x = 3، مهما كان الرقم."
     },
     "review": {
       "status": "pending"
@@ -2628,20 +1883,28 @@
       },
       "distractors": {
         "en": [
-          "5",
-          "8",
-          "−3"
+          "0",
+          "6",
+          "It depends on the number"
         ],
         "ar": [
-          "5",
-          "8",
-          "−3"
+          "0",
+          "6",
+          "يعتمد على الرقم"
         ]
       },
       "explanation": {
-        "en": "In y = mx + b, the coefficient m is the slope, here 3.",
-        "ar": "في العلاقة y = mx + b يمثل المعامل m الميل، وهو هنا 3."
+        "en": "Call the number x: doubling and adding 6 gives 2x + 6, halving gives x + 3, and subtracting x leaves 3.",
+        "ar": "لنسمِّ العدد x: الضعف مع 6 يعطي 2x + 6، ونصفه x + 3، وبطرح x يبقى 3."
       }
+    },
+    "acceptedAnswers": {
+      "en": [
+        "3"
+      ],
+      "ar": [
+        "3"
+      ]
     }
   },
   {
@@ -2743,62 +2006,43 @@
     }
   },
   {
-    "id": "math-120",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Geometry & Trigonometry",
-      "ar": "الهندسة وعلم المثلثات"
-    },
-    "question": {
-      "en": "What is the area of a circle with radius 7?",
-      "ar": "ما مساحة دائرة نصف قطرها 7؟"
-    },
-    "answer": {
-      "en": "49π ≈ 153.94 square units",
-      "ar": "49π ≈ 153.94 وحدة مربعة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "math-121",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Algebra & Functions",
-      "ar": "الجبر والدوال"
+      "en": "Patterns, Sequences & Word Problems",
+      "ar": "الأنماط والمتتاليات والمسائل اللفظية"
     },
     "question": {
-      "en": "Solve for x: x² − 5x + 6 = 0",
-      "ar": "أوجد x: x² − 5x + 6 = 0"
+      "en": "What is 111,111,111 × 111,111,111?",
+      "ar": "ما ناتج 111,111,111 × 111,111,111؟"
     },
     "answer": {
-      "en": "x = 2 or x = 3",
-      "ar": "x = 2 أو x = 3"
+      "en": "12,345,678,987,654,321",
+      "ar": "12,345,678,987,654,321"
     },
     "review": {
       "status": "pending"
     },
     "quickFire": {
       "answer": {
-        "en": "x = 2 or x = 3",
-        "ar": "x = 2 أو x = 3"
+        "en": "12,345,678,987,654,321",
+        "ar": "12,345,678,987,654,321"
       },
       "distractors": {
         "en": [
-          "x = 1 or x = 6",
-          "x = −2 or x = −3",
-          "x = 2 or x = −3"
+          "123,456,789,987,654,321",
+          "11,111,111,111,111,111",
+          "12,345,678,900,000,000"
         ],
         "ar": [
-          "x = 1 أو x = 6",
-          "x = −2 أو x = −3",
-          "x = 2 أو x = −3"
+          "123,456,789,987,654,321",
+          "11,111,111,111,111,111",
+          "12,345,678,900,000,000"
         ]
       },
       "explanation": {
-        "en": "The equation factors as (x − 2)(x − 3) = 0.",
-        "ar": "تتحلل المعادلة إلى (x − 2)(x − 3) = 0."
+        "en": "Squaring a string of ones (up to nine of them) gives digits that climb from 1 and fall back: 11² = 121, 111² = 12,321, and so on up to 12,345,678,987,654,321.",
+        "ar": "مربع عدد مكوّن من آحاد متتالية (حتى تسعة) يعطي أرقامًا تصعد من 1 ثم تنزل: 11² = 121، و111² = 12,321، وهكذا حتى 12,345,678,987,654,321."
       }
     }
   },
@@ -2810,37 +2054,45 @@
       "ar": "الاحتمالات والتوافقيات والإحصاء"
     },
     "question": {
-      "en": "What is the median of the set {2, 3, 5, 7, 9}?",
-      "ar": "ما الوسيط في المجموعة {2، 3، 5، 7، 9}؟"
+      "en": "A billionaire walks into a small café. Which average of the customers' wealth jumps the most: the mean or the median?",
+      "ar": "دخل ملياردير مقهى صغيرًا. أيّ مقياس لمتوسط ثروة الزبائن يقفز أكثر: المتوسط الحسابي أم الوسيط؟"
     },
     "answer": {
-      "en": "5",
-      "ar": "5"
+      "en": "The mean. One huge value drags it up, while the median barely moves.",
+      "ar": "المتوسط الحسابي. قيمة واحدة ضخمة ترفعه كثيرًا، بينما بالكاد يتحرك الوسيط."
     },
     "review": {
       "status": "pending"
     },
     "quickFire": {
       "answer": {
-        "en": "5",
-        "ar": "5"
+        "en": "The mean",
+        "ar": "المتوسط الحسابي"
       },
       "distractors": {
         "en": [
-          "3",
-          "7",
-          "9"
+          "The median",
+          "Both jump equally",
+          "Neither changes"
         ],
         "ar": [
-          "3",
-          "7",
-          "9"
+          "الوسيط",
+          "يقفزان بالقدر نفسه",
+          "لا يتغيّر أيٌّ منهما"
         ]
       },
       "explanation": {
-        "en": "The sorted set has five numbers, and its middle number is 5.",
-        "ar": "تتضمن المجموعة المرتبة خمسة أعداد، والعدد الأوسط هو 5."
+        "en": "The mean adds up everyone's wealth, so one extreme value pulls it far up. The median is the middle value and shifts by at most one place.",
+        "ar": "يجمع المتوسط الحسابي ثروات الجميع، فترفعه قيمة متطرفة واحدة كثيرًا. أما الوسيط فهو القيمة الوسطى ولا يتحرك إلا قليلًا."
       }
+    },
+    "acceptedAnswers": {
+      "en": [
+        "The mean"
+      ],
+      "ar": [
+        "المتوسط الحسابي"
+      ]
     }
   },
   {
@@ -2893,25 +2145,6 @@
     }
   },
   {
-    "id": "math-124",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Geometry & Trigonometry",
-      "ar": "الهندسة وعلم المثلثات"
-    },
-    "question": {
-      "en": "What is the exact value of sin(45°)?",
-      "ar": "ما القيمة الدقيقة لـ sin(45°)؟"
-    },
-    "answer": {
-      "en": "√2 / 2 (≈ 0.707)",
-      "ar": "√2 / 2 (≈ 0.707)"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "math-125",
     "difficulty": "medium",
     "subcategory": {
@@ -2919,37 +2152,47 @@
       "ar": "الحساب والكسور والنسب المئوية"
     },
     "question": {
-      "en": "Express the repeating decimal 0.333... as a fraction.",
-      "ar": "عبِّر عن العشري المتكرر 0.333... في صورة كسر اعتيادي."
+      "en": "What does 0.999… (with the 9s repeating forever) equal exactly?",
+      "ar": "كم يساوي العدد 0.999… بالضبط (والتسعات تتكرر إلى ما لا نهاية)؟"
     },
     "answer": {
-      "en": "1/3",
-      "ar": "1/3"
+      "en": "Exactly 1. Since 0.333… = 1/3, multiplying both sides by 3 gives 0.999… = 1.",
+      "ar": "1 بالضبط. لأن 0.333… = 1/3، وبضرب الطرفين في 3 نحصل على 0.999… = 1."
     },
     "review": {
       "status": "pending"
     },
     "quickFire": {
       "answer": {
-        "en": "1/3",
-        "ar": "1/3"
+        "en": "1",
+        "ar": "1"
       },
       "distractors": {
         "en": [
-          "3/10",
-          "1/4",
-          "2/3"
+          "0.9",
+          "0.99",
+          "Just under 1"
         ],
         "ar": [
-          "3/10",
-          "1/4",
-          "2/3"
+          "0.9",
+          "0.99",
+          "أقل من 1 بقليل"
         ]
       },
       "explanation": {
-        "en": "If x = 0.333..., then 10x − x = 3, giving x = 1/3.",
-        "ar": "إذا كان x = 0.333... فإن 10x − x = 3، ومنه x = 1/3."
+        "en": "0.333… equals 1/3 exactly; multiplying both sides by 3 gives 0.999… = 3/3 = 1. There is no number between them.",
+        "ar": "0.333… تساوي 1/3 تمامًا؛ وبضرب الطرفين في 3 نحصل على 0.999… = 3/3 = 1، ولا يوجد أي عدد بينهما."
       }
+    },
+    "acceptedAnswers": {
+      "en": [
+        "1",
+        "Exactly 1"
+      ],
+      "ar": [
+        "1",
+        "1 بالضبط"
+      ]
     }
   },
   {
@@ -2960,36 +2203,36 @@
       "ar": "نظرية الأعداد وألغازها"
     },
     "question": {
-      "en": "What is the lowest common multiple (LCM) of 4 and 6?",
-      "ar": "ما المضاعف المشترك الأصغر لـ 4 و6؟"
+      "en": "What is the smallest number that divides exactly by every whole number from 1 to 10?",
+      "ar": "ما أصغر عدد يقبل القسمة دون باقٍ على جميع الأعداد الصحيحة من 1 إلى 10؟"
     },
     "answer": {
-      "en": "12",
-      "ar": "12"
+      "en": "2,520",
+      "ar": "2,520"
     },
     "review": {
       "status": "pending"
     },
     "quickFire": {
       "answer": {
-        "en": "12",
-        "ar": "12"
+        "en": "2,520",
+        "ar": "2,520"
       },
       "distractors": {
         "en": [
-          "6",
-          "24",
-          "10"
+          "1,260",
+          "5,040",
+          "3,628,800"
         ],
         "ar": [
-          "6",
-          "24",
-          "10"
+          "1,260",
+          "5,040",
+          "3,628,800"
         ]
       },
       "explanation": {
-        "en": "The first positive multiple shared by 4 and 6 is 12.",
-        "ar": "أول مضاعف موجب مشترك للعددين 4 و6 هو 12."
+        "en": "It must contain 8, 9, 5 and 7 as factors: 8 × 9 × 5 × 7 = 2,520. 5,040 also works but is twice as big, and 1,260 isn't divisible by 8.",
+        "ar": "يجب أن يحتوي على العوامل 8 و9 و5 و7: 8 × 9 × 5 × 7 = 2,520. العدد 5,040 يصلح أيضًا لكنه الضعف، و1,260 لا يقبل القسمة على 8."
       }
     }
   },
@@ -2997,60 +2240,49 @@
     "id": "math-127",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Arithmetic, Fractions & Percentages",
-      "ar": "الحساب والكسور والنسب المئوية"
+      "en": "Patterns, Sequences & Word Problems",
+      "ar": "الأنماط والمتتاليات والمسائل اللفظية"
     },
     "question": {
-      "en": "In a class of 30 students, 60% are girls. How many are boys?",
-      "ar": "في فصل من 30 طالباً، 60% إناث. كم عدد الذكور؟"
+      "en": "Counting squares of every size, how many squares are there on a standard 8 × 8 chessboard?",
+      "ar": "إذا عددت المربعات بجميع أحجامها، فكم مربعًا توجد على رقعة شطرنج عادية 8 × 8؟"
     },
     "answer": {
-      "en": "12",
-      "ar": "12"
+      "en": "204: 64 + 49 + 36 + 25 + 16 + 9 + 4 + 1.",
+      "ar": "204: 64 + 49 + 36 + 25 + 16 + 9 + 4 + 1."
     },
     "review": {
       "status": "pending"
     },
     "quickFire": {
       "answer": {
-        "en": "12",
-        "ar": "12"
+        "en": "204",
+        "ar": "204"
       },
       "distractors": {
         "en": [
-          "18",
-          "20",
-          "10"
+          "64",
+          "128",
+          "256"
         ],
         "ar": [
-          "18",
-          "20",
-          "10"
+          "64",
+          "128",
+          "256"
         ]
       },
       "explanation": {
-        "en": "Boys make up 40% of the class: 30 × 0.4 = 12.",
-        "ar": "يمثل الذكور 40% من الفصل: 30 × 0.4 = 12."
+        "en": "There are 64 squares of size 1×1, 49 of 2×2, 36 of 3×3 and so on down to one 8×8 square. The first eight square numbers add up to 204.",
+        "ar": "فيها 64 مربعًا بحجم 1×1، و49 بحجم 2×2، و36 بحجم 3×3، وهكذا حتى مربع واحد 8×8؛ ومجموع أول ثمانية أعداد مربعة 204."
       }
-    }
-  },
-  {
-    "id": "math-128",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Number Theory & Number Riddles",
-      "ar": "نظرية الأعداد وألغازها"
     },
-    "question": {
-      "en": "How many prime numbers are there between 10 and 30?",
-      "ar": "كم عدداً أولياً بين 10 و30؟"
-    },
-    "answer": {
-      "en": "6 — they are 11, 13, 17, 19, 23, and 29",
-      "ar": "6 — وهي 11 و13 و17 و19 و23 و29"
-    },
-    "review": {
-      "status": "pending"
+    "acceptedAnswers": {
+      "en": [
+        "204"
+      ],
+      "ar": [
+        "204"
+      ]
     }
   },
   {
@@ -3061,113 +2293,45 @@
       "ar": "الهندسة وعلم المثلثات"
     },
     "question": {
-      "en": "What is the sum of the interior angles of any quadrilateral?",
-      "ar": "ما مجموع الزوايا الداخلية لأي رباعي الأضلاع؟"
+      "en": "A classic black-and-white football is stitched from 12 black pentagons and how many white hexagons?",
+      "ar": "تُخاط كرة القدم الكلاسيكية ذات اللونين الأبيض والأسود من 12 قطعة خماسية سوداء، وكم قطعة سداسية بيضاء؟"
     },
     "answer": {
-      "en": "360°",
-      "ar": "360°"
+      "en": "20 hexagons, making 32 panels in all.",
+      "ar": "20 سداسيًا، فيصبح المجموع 32 قطعة."
     },
     "review": {
       "status": "pending"
     },
     "quickFire": {
       "answer": {
-        "en": "360°",
-        "ar": "360°"
+        "en": "20",
+        "ar": "20"
       },
       "distractors": {
         "en": [
-          "180°",
-          "270°",
-          "540°"
+          "12",
+          "24",
+          "30"
         ],
         "ar": [
-          "180°",
-          "270°",
-          "540°"
+          "12",
+          "24",
+          "30"
         ]
       },
       "explanation": {
-        "en": "A simple quadrilateral can be divided into two triangles, giving 2 × 180° = 360°.",
-        "ar": "يمكن تقسيم رباعي أضلاع بسيط إلى مثلثين، فيكون المجموع 2 × 180° = 360°."
+        "en": "The classic ball is a truncated icosahedron: 12 pentagons and 20 hexagons, 32 faces in total.",
+        "ar": "يتكوّن هذا الشكل الهندسي من 12 وجهًا خماسيًا و20 وجهًا سداسيًا، أي 32 وجهًا."
       }
-    }
-  },
-  {
-    "id": "math-130",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Arithmetic, Fractions & Percentages",
-      "ar": "الحساب والكسور والنسب المئوية"
     },
-    "question": {
-      "en": "A car worth $10,000 depreciates by 20% each year. What is it worth after 2 years?",
-      "ar": "سيارة قيمتها 10,000 دولار تنخفض 20% سنوياً. ما قيمتها بعد سنتَين؟"
-    },
-    "answer": {
-      "en": "$6,400 (10,000 × 0.8 × 0.8 = 6,400)",
-      "ar": "6,400 دولار (10,000 × 0.8 × 0.8 = 6,400)"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-131",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Algebra & Functions",
-      "ar": "الجبر والدوال"
-    },
-    "question": {
-      "en": "What is the value of (2 + 3i)(2 − 3i)?",
-      "ar": "ما قيمة (2 + 3i)(2 − 3i)؟"
-    },
-    "answer": {
-      "en": "13 (difference of squares: 4 + 9 = 13)",
-      "ar": "13 (فرق المربعات: 4 + 9 = 13)"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-132",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Probability, Combinatorics & Statistics",
-      "ar": "الاحتمالات والتوافقيات والإحصاء"
-    },
-    "question": {
-      "en": "How many ways can you choose 3 items from a group of 6? (order does not matter)",
-      "ar": "بكم طريقة يمكن اختيار 3 عناصر من 6؟ (الترتيب لا يهم)"
-    },
-    "answer": {
-      "en": "20 — C(6,3) = 6! ÷ (3! × 3!) = 20",
-      "ar": "20 — C(6,3) = 20"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-133",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Geometry & Trigonometry",
-      "ar": "الهندسة وعلم المثلثات"
-    },
-    "question": {
-      "en": "What is the ratio of a circle's circumference to its diameter?",
-      "ar": "ما نسبة محيط الدائرة إلى قطرها؟"
-    },
-    "answer": {
-      "en": "π (pi), approximately 3.14159",
-      "ar": "π (باي)، حوالي 3.14159"
-    },
-    "review": {
-      "status": "pending"
+    "acceptedAnswers": {
+      "en": [
+        "20"
+      ],
+      "ar": [
+        "20"
+      ]
     }
   },
   {
@@ -3184,25 +2348,6 @@
     "answer": {
       "en": "1",
       "ar": "1"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-135",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Calculus & Analysis",
-      "ar": "التفاضل والتكامل والتحليل"
-    },
-    "question": {
-      "en": "What is the derivative of f(x) = x³ − 2x²?",
-      "ar": "ما مشتقة f(x) = x³ − 2x²؟"
-    },
-    "answer": {
-      "en": "3x² − 4x",
-      "ar": "3x² − 4x"
     },
     "review": {
       "status": "pending"
@@ -3247,65 +2392,8 @@
     }
   },
   {
-    "id": "math-138",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Algebra & Functions",
-      "ar": "الجبر والدوال"
-    },
-    "question": {
-      "en": "What is 2¹⁰?",
-      "ar": "ما هو 2¹⁰؟"
-    },
-    "answer": {
-      "en": "1024",
-      "ar": "1024"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-139",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Calculus & Analysis",
-      "ar": "التفاضل والتكامل والتحليل"
-    },
-    "question": {
-      "en": "Evaluate the definite integral: ∫₀¹ 2x dx",
-      "ar": "أوجد التكامل المحدد: ∫₀¹ 2x dx"
-    },
-    "answer": {
-      "en": "1 — anti-derivative is x², evaluated from 0 to 1: 1² − 0² = 1",
-      "ar": "1 — التكامل هو x²، من 0 إلى 1: 1 − 0 = 1"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-140",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Algebra & Functions",
-      "ar": "الجبر والدوال"
-    },
-    "question": {
-      "en": "If f(x) = x² and g(x) = x + 1, what is f(g(2))?",
-      "ar": "إذا كان f(x) = x² و g(x) = x + 1، ما قيمة f(g(2))؟"
-    },
-    "answer": {
-      "en": "9 — g(2) = 3, then f(3) = 9",
-      "ar": "9 — g(2) = 3، ثم f(3) = 9"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "math-141",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Algebra & Functions",
       "ar": "الجبر والدوال"
@@ -3343,18 +2431,18 @@
   },
   {
     "id": "math-143",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Calculus & Analysis",
-      "ar": "التفاضل والتكامل والتحليل"
+      "en": "Logic, Foundations & Unsolved Problems",
+      "ar": "المنطق والأسس والمسائل غير المحلولة"
     },
     "question": {
-      "en": "What is the indefinite integral of 2x?",
-      "ar": "ما التكامل غير المحدد لـ 2x؟"
+      "en": "A hotel with infinitely many rooms is completely full. A new guest arrives. How can the manager give him a room without sending anyone away?",
+      "ar": "فندق فيه عدد لا نهائي من الغرف، وكلها مشغولة. وصل ضيف جديد. كيف يمنحه المدير غرفة دون أن يُخرج أحدًا؟"
     },
     "answer": {
-      "en": "x² + C",
-      "ar": "x² + C"
+      "en": "Move every guest from room n to room n + 1. Room 1 becomes free (Hilbert's hotel).",
+      "ar": "ينقل كل نزيل من الغرفة n إلى الغرفة n + 1، فتفرغ الغرفة 1 (فندق هيلبرت)."
     },
     "review": {
       "status": "pending"
@@ -3362,59 +2450,31 @@
   },
   {
     "id": "math-144",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Number Theory & Number Riddles",
-      "ar": "نظرية الأعداد وألغازها"
+      "en": "Logic, Foundations & Unsolved Problems",
+      "ar": "المنطق والأسس والمسائل غير المحلولة"
     },
     "question": {
-      "en": "In modular arithmetic, what is 3⁴ mod 5?",
-      "ar": "في الحساب المعياري، ما قيمة 3⁴ mod 5؟"
+      "en": "Which famous puzzle about crossing seven bridges, each exactly once, did Euler prove impossible in 1736, founding graph theory?",
+      "ar": "أيّ لغز مشهور عن عبور سبعة جسور، كلّ جسر مرة واحدة بالضبط، أثبت أويلر عام 1736 أنه مستحيل، فكان بداية نظرية المخططات؟"
     },
     "answer": {
-      "en": "1 — 3⁴ = 81, and 81 = 16 × 5 + 1",
-      "ar": "1 — 3⁴ = 81، و81 = 16 × 5 + 1"
+      "en": "The Seven Bridges of Königsberg.",
+      "ar": "جسور كونيغسبرغ السبعة."
     },
     "review": {
       "status": "pending"
-    }
-  },
-  {
-    "id": "math-145",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Algebra & Functions",
-      "ar": "الجبر والدوال"
     },
-    "question": {
-      "en": "What is log₂(32)?",
-      "ar": "ما قيمة log₂(32)؟"
-    },
-    "answer": {
-      "en": "5 — because 2⁵ = 32",
-      "ar": "5 — لأن 2⁵ = 32"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "math-146",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Patterns, Sequences & Word Problems",
-      "ar": "الأنماط والمتتاليات والمسائل اللفظية"
-    },
-    "question": {
-      "en": "What is the 10th term of the arithmetic sequence 3, 7, 11, 15, ...?",
-      "ar": "ما الحد العاشر للمتتالية الحسابية 3، 7، 11، 15، ...؟"
-    },
-    "answer": {
-      "en": "39 — a₁₀ = 3 + (10−1) × 4 = 39",
-      "ar": "39 — a₁₀ = 3 + (10−1) × 4 = 39"
-    },
-    "review": {
-      "status": "pending"
+    "acceptedAnswers": {
+      "en": [
+        "The Seven Bridges of Königsberg",
+        "Königsberg bridges"
+      ],
+      "ar": [
+        "جسور كونيغسبرغ السبعة",
+        "جسور كونيغسبرغ"
+      ]
     }
   },
   {
@@ -3491,6 +2551,597 @@
     },
     "review": {
       "status": "pending"
+    }
+  },
+  {
+    "id": "math-151",
+    "difficulty": "medium",
+    "question": {
+      "en": "Europeans call the digits 0–9 'Arabic numerals', but the system began somewhere else. Where?",
+      "ar": "يسمّي الأوروبيون الأرقام من 0 إلى 9 «الأرقام العربية»، لكن أصل هذا النظام من مكان آخر. من أين؟"
+    },
+    "answer": {
+      "en": "India. Europe learned the system from Arabic books, hence the name.",
+      "ar": "من الهند. تعلّمت أوروبا هذا النظام من الكتب العربية، ومن هنا جاءت التسمية."
+    },
+    "subcategory": {
+      "en": "Number Theory & Number Riddles",
+      "ar": "نظرية الأعداد وألغازها"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "India"
+      ],
+      "ar": [
+        "الهند"
+      ]
+    }
+  },
+  {
+    "id": "math-152",
+    "difficulty": "hard",
+    "question": {
+      "en": "Three ants sit at the corners of a triangle. Each picks one of its two edges at random and walks along it at the same speed. What is the chance that no two ants meet?",
+      "ar": "ثلاث نملات على رؤوس مثلث. تختار كل نملة عشوائيًا أحد الضلعين المجاورين لها وتسير عليه بالسرعة نفسها. ما احتمال ألا تلتقي أي نملتين؟"
+    },
+    "answer": {
+      "en": "1/4. They avoid each other only if all go clockwise or all go anticlockwise: 2 of the 8 equally likely choices.",
+      "ar": "1/4. لا تلتقي النملات إلا إذا سارت كلها مع عقارب الساعة أو كلها عكسها: حالتان من 8 حالات متساوية الاحتمال."
+    },
+    "subcategory": {
+      "en": "Probability, Combinatorics & Statistics",
+      "ar": "الاحتمالات والتوافقيات والإحصاء"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "1/4"
+      ],
+      "ar": [
+        "1/4"
+      ]
+    }
+  },
+  {
+    "id": "math-153",
+    "difficulty": "hard",
+    "question": {
+      "en": "If a hen and a half lays an egg and a half in a day and a half, how many eggs does one hen lay in one day?",
+      "ar": "إذا كانت دجاجة ونصف تبيض بيضة ونصفًا في يوم ونصف، فكم بيضة تبيض الدجاجة الواحدة في يوم واحد؟"
+    },
+    "answer": {
+      "en": "2/3 of an egg. One and a half hens lay 1.5 eggs in 1.5 days, so one hen lays 1 egg in 1.5 days.",
+      "ar": "ثلثا بيضة (2/3). دجاجة ونصف تبيض 1.5 بيضة في 1.5 يوم، أي إن الدجاجة الواحدة تبيض بيضة في 1.5 يوم."
+    },
+    "subcategory": {
+      "en": "Patterns, Sequences & Word Problems",
+      "ar": "الأنماط والمتتاليات والمسائل اللفظية"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "2/3"
+      ],
+      "ar": [
+        "2/3"
+      ]
+    }
+  },
+  {
+    "id": "math-154",
+    "difficulty": "hard",
+    "question": {
+      "en": "The proper divisors of 220 add up to 284, and the proper divisors of 284 add up to 220. What are such pairs of numbers called?",
+      "ar": "مجموع قواسم العدد 220 (من دون العدد نفسه) يساوي 284، ومجموع قواسم 284 يساوي 220. ما اسم هذه الأزواج من الأعداد؟"
+    },
+    "answer": {
+      "en": "Amicable numbers. In 9th-century Baghdad, Thabit ibn Qurra found a rule for generating such pairs.",
+      "ar": "الأعداد المتحابّة. في القرن التاسع ببغداد وضع ثابت بن قرة قاعدة لتوليد أزواج منها."
+    },
+    "subcategory": {
+      "en": "Number Theory & Number Riddles",
+      "ar": "نظرية الأعداد وألغازها"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Amicable numbers"
+      ],
+      "ar": [
+        "الأعداد المتحابة",
+        "أعداد متحابة"
+      ]
+    }
+  },
+  {
+    "id": "math-155",
+    "difficulty": "hard",
+    "question": {
+      "en": "In a 3 × 3 magic square that uses each number from 1 to 9 once, every row, column and diagonal has the same total. Which number must go in the centre?",
+      "ar": "في مربع سحري 3 × 3 يضم الأرقام من 1 إلى 9 كلًّا منها مرة واحدة، ولكل صف وعمود وقطر المجموع نفسه. أي رقم يجب أن يوضع في المنتصف؟"
+    },
+    "answer": {
+      "en": "5. Every line adds up to 15, and the four lines through the centre force it to be 5.",
+      "ar": "5. مجموع كل خط 15، والخطوط الأربعة التي تمر بالمركز تفرض أن يكون 5."
+    },
+    "subcategory": {
+      "en": "Number Theory & Number Riddles",
+      "ar": "نظرية الأعداد وألغازها"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "5"
+      ],
+      "ar": [
+        "5"
+      ]
+    }
+  },
+  {
+    "id": "math-156",
+    "difficulty": "hard",
+    "question": {
+      "en": "Draw a five-pointed star without lifting your pen. What do the angles at its five points add up to?",
+      "ar": "رسمت نجمة خماسية دون أن ترفع القلم. كم مجموع زوايا رؤوسها الخمسة؟"
+    },
+    "answer": {
+      "en": "180°. In a regular star each point is 36°, and the total is 180° for any star drawn this way.",
+      "ar": "180 درجة. في النجمة المنتظمة كل رأس 36 درجة، والمجموع 180 درجة لأي نجمة تُرسم بهذه الطريقة."
+    },
+    "subcategory": {
+      "en": "Geometry & Trigonometry",
+      "ar": "الهندسة وعلم المثلثات"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "180°"
+      ],
+      "ar": [
+        "180 درجة"
+      ]
+    }
+  },
+  {
+    "id": "math-157",
+    "difficulty": "hard",
+    "question": {
+      "en": "A rope fits snugly around the Earth's equator. If you add just 1 metre to its length and lift it evenly all the way round, roughly how high will it float above the ground?",
+      "ar": "حبل مربوط حول خط استواء الأرض تمامًا. إذا زدت طوله مترًا واحدًا فقط ورفعته بالتساوي على طول الدائرة، فكم سيرتفع عن الأرض تقريبًا؟"
+    },
+    "answer": {
+      "en": "About 16 cm. The radius grows by 1 ÷ 2π metres, whatever the size of the circle.",
+      "ar": "حوالي 16 سم. يزيد نصف القطر بمقدار 1 ÷ 2π متر مهما كان حجم الدائرة."
+    },
+    "subcategory": {
+      "en": "Geometry & Trigonometry",
+      "ar": "الهندسة وعلم المثلثات"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "About 16 cm",
+        "16 cm"
+      ],
+      "ar": [
+        "حوالي 16 سم",
+        "16 سم"
+      ]
+    }
+  },
+  {
+    "id": "math-158",
+    "difficulty": "hard",
+    "question": {
+      "en": "Legend says Queen Dido founded Carthage on as much land as an ox-hide could enclose, so she cut the hide into one long strip. On open ground, which shape encloses the most area with a strip of fixed length?",
+      "ar": "تقول الأسطورة إن الملكة ديدو أسّست قرطاج على أرض بقدر ما يحيط بها جلد ثور، فقصّت الجلد شريطًا طويلًا واحدًا. على أرض مفتوحة، أيّ شكل يحيط بأكبر مساحة بشريط طوله ثابت؟"
+    },
+    "answer": {
+      "en": "A circle. Of all closed curves with the same length, the circle encloses the most area.",
+      "ar": "الدائرة. من بين كل المنحنيات المغلقة المتساوية في الطول، تحيط الدائرة بأكبر مساحة."
+    },
+    "subcategory": {
+      "en": "Geometry & Trigonometry",
+      "ar": "الهندسة وعلم المثلثات"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "A circle",
+        "Circle"
+      ],
+      "ar": [
+        "الدائرة",
+        "دائرة"
+      ]
+    }
+  },
+  {
+    "id": "math-159",
+    "difficulty": "hard",
+    "question": {
+      "en": "On average, how many times do you need to roll a fair die to get your first six?",
+      "ar": "في المتوسط، كم مرة يجب أن ترمي حجر نرد عادلًا حتى يظهر لك أول 6؟"
+    },
+    "answer": {
+      "en": "6 rolls. When something has a 1-in-6 chance on each try, you expect to wait 6 tries.",
+      "ar": "6 رميات. إذا كان احتمال الشيء 1 من 6 في كل محاولة، فالمتوقع أن تنتظر 6 محاولات."
+    },
+    "subcategory": {
+      "en": "Probability, Combinatorics & Statistics",
+      "ar": "الاحتمالات والتوافقيات والإحصاء"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "6",
+        "6 rolls"
+      ],
+      "ar": [
+        "6",
+        "6 رميات"
+      ]
+    }
+  },
+  {
+    "id": "math-160",
+    "difficulty": "hard",
+    "question": {
+      "en": "What is the smallest number of colours that is always enough to colour any flat map so that no two neighbouring countries share a colour?",
+      "ar": "ما أقل عدد من الألوان يكفي دائمًا لتلوين أي خريطة مستوية، بحيث لا تحمل دولتان متجاورتان اللون نفسه؟"
+    },
+    "answer": {
+      "en": "4. This is the four colour theorem, proved in 1976 with the help of a computer.",
+      "ar": "4. هذه «مبرهنة الألوان الأربعة»، وقد بُرهنت سنة 1976 بمساعدة الحاسوب."
+    },
+    "subcategory": {
+      "en": "Logic, Foundations & Unsolved Problems",
+      "ar": "المنطق والأسس والمسائل غير المحلولة"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "4",
+        "Four"
+      ],
+      "ar": [
+        "4",
+        "أربعة"
+      ]
+    }
+  },
+  {
+    "id": "math-161",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "Take any four-digit number whose digits aren't all the same. Arrange its digits from largest to smallest and from smallest to largest, subtract, and repeat with the result (writing 999 as 0999). Which number do you always reach?",
+      "ar": "خذ أي عدد من أربع خانات، ليست أرقامه كلها متماثلة. رتّب أرقامه من الأكبر إلى الأصغر ومن الأصغر إلى الأكبر، واطرح، ثم كرّر العملية على الناتج (واكتب الناتج 999 على صورة 0999). إلى أي عدد ستصل دائمًا؟"
+    },
+    "answer": {
+      "en": "6174, known as Kaprekar's constant. It takes at most seven steps.",
+      "ar": "6174، ويسمّى «ثابت كابريكار»، ونصل إليه في سبع خطوات على الأكثر."
+    },
+    "subcategory": {
+      "en": "Number Theory & Number Riddles",
+      "ar": "نظرية الأعداد وألغازها"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "6174"
+      ],
+      "ar": [
+        "6174"
+      ]
+    }
+  },
+  {
+    "id": "math-162",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is the smallest number that can be written as the sum of two positive cubes in two different ways?",
+      "ar": "ما أصغر عدد يمكن كتابته مجموعًا لمكعبين موجبين بطريقتين مختلفتين؟"
+    },
+    "answer": {
+      "en": "1729 = 1³ + 12³ = 9³ + 10³, the famous 'taxicab number' Ramanujan pointed out.",
+      "ar": "1729 = 1³ + 12³ = 9³ + 10³، وهو «عدد سيارة الأجرة» المشهور الذي نبّه إليه رامانوجان."
+    },
+    "subcategory": {
+      "en": "Number Theory & Number Riddles",
+      "ar": "نظرية الأعداد وألغازها"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "1729"
+      ],
+      "ar": [
+        "1729"
+      ]
+    }
+  },
+  {
+    "id": "math-163",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "Which famous unproven conjecture says that every even number greater than 2 is the sum of two primes?",
+      "ar": "أيّ حدسية مشهورة لم تُبرهَن بعدُ تقول إن كل عدد زوجي أكبر من 2 هو مجموع عددين أوليين؟"
+    },
+    "answer": {
+      "en": "Goldbach's conjecture (1742).",
+      "ar": "حدسية غولدباخ (1742)."
+    },
+    "subcategory": {
+      "en": "Logic, Foundations & Unsolved Problems",
+      "ar": "المنطق والأسس والمسائل غير المحلولة"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Goldbach's conjecture",
+        "Goldbach"
+      ],
+      "ar": [
+        "حدسية غولدباخ",
+        "غولدباخ"
+      ]
+    }
+  },
+  {
+    "id": "math-164",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "Start with any positive whole number. If it's even, halve it; if it's odd, triple it and add 1. Which unsolved problem claims you will always reach 1?",
+      "ar": "ابدأ بأي عدد صحيح موجب. إن كان زوجيًا فاقسمه على 2، وإن كان فرديًا فاضربه في 3 وأضف 1. أي مسألة لم تُحلّ بعد تقول إنك ستصل دائمًا إلى 1؟"
+    },
+    "answer": {
+      "en": "The Collatz conjecture (the 3n + 1 problem).",
+      "ar": "حدسية كولاتز (مسألة 3n + 1)."
+    },
+    "subcategory": {
+      "en": "Logic, Foundations & Unsolved Problems",
+      "ar": "المنطق والأسس والمسائل غير المحلولة"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "The Collatz conjecture",
+        "Collatz",
+        "The 3n + 1 problem"
+      ],
+      "ar": [
+        "حدسية كولاتز",
+        "كولاتز"
+      ]
+    }
+  },
+  {
+    "id": "math-165",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "Of the seven Millennium Prize Problems, each worth a million dollars, which is the only one solved so far?",
+      "ar": "من مسائل الألفية السبع، التي رُصدت لكل منها جائزة قدرها مليون دولار، ما المسألة الوحيدة التي حُلّت حتى الآن؟"
+    },
+    "answer": {
+      "en": "The Poincaré conjecture, proved by Grigori Perelman, who turned down the prize.",
+      "ar": "حدسية بوانكاريه، وقد برهنها غريغوري بيرلمان ورفض الجائزة."
+    },
+    "subcategory": {
+      "en": "Logic, Foundations & Unsolved Problems",
+      "ar": "المنطق والأسس والمسائل غير المحلولة"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "The Poincaré conjecture",
+        "Poincaré conjecture"
+      ],
+      "ar": [
+        "حدسية بوانكاريه",
+        "بوانكاريه"
+      ]
+    }
+  },
+  {
+    "id": "math-166",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "Which mathematician proved that there are more real numbers than whole numbers, showing that some infinities are bigger than others?",
+      "ar": "أيّ عالم رياضيات أثبت أن الأعداد الحقيقية أكثر من الأعداد الصحيحة، أي أن هناك لانهايات أكبر من لانهايات أخرى؟"
+    },
+    "answer": {
+      "en": "Georg Cantor.",
+      "ar": "جورج كانتور."
+    },
+    "subcategory": {
+      "en": "Logic, Foundations & Unsolved Problems",
+      "ar": "المنطق والأسس والمسائل غير المحلولة"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Georg Cantor",
+        "Cantor"
+      ],
+      "ar": [
+        "جورج كانتور",
+        "كانتور"
+      ]
+    }
+  },
+  {
+    "id": "math-167",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "In many real-life lists of numbers, such as town populations or house prices, which first digit turns up most often?",
+      "ar": "في كثير من قوائم الأرقام الحقيقية، مثل عدد سكان المدن أو أسعار البيوت، أيّ رقم يظهر في الخانة الأولى أكثر من غيره؟"
+    },
+    "answer": {
+      "en": "1, which leads about 30% of the time (Benford's law).",
+      "ar": "1، إذ يأتي في البداية في نحو 30% من المرات (قانون بنفورد)."
+    },
+    "subcategory": {
+      "en": "Probability, Combinatorics & Statistics",
+      "ar": "الاحتمالات والتوافقيات والإحصاء"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "1"
+      ],
+      "ar": [
+        "1"
+      ]
+    }
+  },
+  {
+    "id": "math-168",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "School A has a higher pass rate than School B for boys and for girls separately, yet a lower pass rate overall. What is this statistical effect called?",
+      "ar": "نسبة النجاح في المدرسة (أ) أعلى منها في المدرسة (ب) لدى البنين ولدى البنات كلٍّ على حدة، لكن نسبتها الإجمالية أقل. ما اسم هذه الظاهرة الإحصائية؟"
+    },
+    "answer": {
+      "en": "Simpson's paradox.",
+      "ar": "مفارقة سيمبسون."
+    },
+    "subcategory": {
+      "en": "Probability, Combinatorics & Statistics",
+      "ar": "الاحتمالات والتوافقيات والإحصاء"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Simpson's paradox"
+      ],
+      "ar": [
+        "مفارقة سيمبسون"
+      ]
+    }
+  },
+  {
+    "id": "math-169",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "In 2014, which Iranian mathematician became the first woman to win the Fields Medal?",
+      "ar": "عام 2014، أيّ عالمة رياضيات إيرانية أصبحت أول امرأة تفوز بميدالية فيلدز؟"
+    },
+    "answer": {
+      "en": "Maryam Mirzakhani.",
+      "ar": "مريم ميرزاخاني."
+    },
+    "subcategory": {
+      "en": "Geometry & Trigonometry",
+      "ar": "الهندسة وعلم المثلثات"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Maryam Mirzakhani",
+        "Mirzakhani"
+      ],
+      "ar": [
+        "مريم ميرزاخاني",
+        "ميرزاخاني"
+      ]
+    }
+  },
+  {
+    "id": "math-170",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "In 1424, which astronomer working in Samarkand calculated π correctly to 16 decimal places, a record that stood for about 180 years?",
+      "ar": "عام 1424، أيّ فلكي كان يعمل في سمرقند حسب قيمة π بدقة حتى 16 خانة عشرية، وصمد رقمه القياسي نحو 180 عامًا؟"
+    },
+    "answer": {
+      "en": "Jamshid al-Kashi.",
+      "ar": "جمشيد الكاشي (غياث الدين الكاشي)."
+    },
+    "subcategory": {
+      "en": "Number Theory & Number Riddles",
+      "ar": "نظرية الأعداد وألغازها"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "al-Kashi",
+        "Jamshid al-Kashi"
+      ],
+      "ar": [
+        "الكاشي",
+        "جمشيد الكاشي"
+      ]
+    }
+  },
+  {
+    "id": "math-171",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "A 2007 study found that the tile patterns on a shrine in Isfahan, dated 1453, are almost identical to a non-repeating tiling that a British mathematician described only in the 1970s. Which tiling?",
+      "ar": "وجدت دراسة عام 2007 أن زخارف البلاط على ضريح في أصفهان يعود إلى عام 1453 تكاد تطابق نوعًا من التبليط الذي لا يتكرر أبدًا، وصفه عالم رياضيات بريطاني في السبعينيات. أي تبليط هو؟"
+    },
+    "answer": {
+      "en": "The Penrose tiling (seen in the girih tiles of the Darb-i Imam shrine).",
+      "ar": "تبليط بنروز (في زخارف ضريح درب الإمام)."
+    },
+    "subcategory": {
+      "en": "Geometry & Trigonometry",
+      "ar": "الهندسة وعلم المثلثات"
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Penrose tiling",
+        "Penrose"
+      ],
+      "ar": [
+        "تبليط بنروز",
+        "بنروز"
+      ]
     }
   }
 ]

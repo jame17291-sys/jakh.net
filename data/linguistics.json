@@ -116,12 +116,12 @@
   {
     "id": "linguistics-7",
     "question": {
-      "en": "What does 'bilingual' mean?",
-      "ar": "ماذا يعني مصطلح «ثنائي اللغة»؟"
+      "en": "Which language has the most native speakers in the world?",
+      "ar": "أي لغة لها أكبر عدد من الناطقين بها لغةً أمًّا في العالم؟"
     },
     "answer": {
-      "en": "Speaking two languages",
-      "ar": "يتحدث لغتين"
+      "en": "Mandarin Chinese",
+      "ar": "الصينية الماندرينية"
     },
     "difficulty": "easy",
     "subcategory": {
@@ -173,12 +173,12 @@
   {
     "id": "linguistics-10",
     "question": {
-      "en": "What is the official language of Egypt?",
-      "ar": "ما هي اللغة الرسمية لمصر؟"
+      "en": "Arabic is one of the six official languages of which world organization?",
+      "ar": "العربية واحدة من ست لغات رسمية في أيّ منظمة عالمية؟"
     },
     "answer": {
-      "en": "Arabic",
-      "ar": "العربية"
+      "en": "The United Nations",
+      "ar": "الأمم المتحدة"
     },
     "difficulty": "easy",
     "subcategory": {
@@ -192,17 +192,17 @@
   {
     "id": "linguistics-11",
     "question": {
-      "en": "What is the study of language structure and sounds called?",
-      "ar": "ماذا تسمى دراسة بنية اللغة وأصواتها؟"
+      "en": "In Arabizi, Arabic typed in Latin letters, which number usually stands for the Arabic letter ʿayn?",
+      "ar": "في «العربيزي»، أي العربية المكتوبة بحروف لاتينية، أيّ رقم يُستخدم عادةً مكان حرف «ع»؟"
     },
     "answer": {
-      "en": "Linguistics",
-      "ar": "علم اللغويات"
+      "en": "3",
+      "ar": "3"
     },
     "difficulty": "easy",
     "subcategory": {
-      "en": "Grammar & Structure",
-      "ar": "القواعد والبنية"
+      "en": "Writing Systems",
+      "ar": "أنظمة الكتابة"
     },
     "review": {
       "status": "pending"
@@ -230,12 +230,12 @@
   {
     "id": "linguistics-13",
     "question": {
-      "en": "What is a palindrome?",
-      "ar": "ما هو القلب المستوي (Palindrome)؟"
+      "en": "Like 'level' and 'racecar', some words and sentences read the same backwards, letter by letter. What are they called?",
+      "ar": "جملة «مودّته تدوم لكل هول، وهل كل مودّته تدوم» تُقرأ من آخرها إلى أولها حرفًا حرفًا بالشكل نفسه. ماذا نسمّي هذا النوع من الكلمات والجمل؟"
     },
     "answer": {
-      "en": "A word or phrase that reads the same backward as forward",
-      "ar": "كلمة أو عبارة تُقرأ من الخلف للأمام كما تُقرأ من الأمام للخلف"
+      "en": "Palindromes",
+      "ar": "القلب المستوي (Palindrome)"
     },
     "difficulty": "medium",
     "subcategory": {
@@ -249,14 +249,14 @@
   {
     "id": "linguistics-14",
     "question": {
-      "en": "What is the term for a local variation of a language?",
-      "ar": "ما هو مصطلح التباين المحلي للغة؟"
+      "en": "What is the term for a community using two varieties of one language for different purposes, like Modern Standard Arabic for the news and a dialect at home?",
+      "ar": "ما المصطلح الذي يصف استخدام مجتمع لشكلين من لغة واحدة لأغراض مختلفة، مثل الفصحى في الأخبار واللهجة في البيت؟"
     },
     "answer": {
-      "en": "Dialect",
-      "ar": "لهجة"
+      "en": "Diglossia",
+      "ar": "الازدواجية اللغوية (Diglossia)"
     },
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Language Use & Diversity",
       "ar": "استخدام اللغة وتنوعها"
@@ -275,7 +275,7 @@
       "en": "An abjad",
       "ar": "الأبجد"
     },
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Writing Systems",
       "ar": "أنظمة الكتابة"
@@ -287,14 +287,14 @@
   {
     "id": "linguistics-16",
     "question": {
-      "en": "What is semantics the study of?",
-      "ar": "ما الذي يدرسه علم الدلالة (Semantics)؟"
+      "en": "Which 8th-century Basra scholar compiled «Kitab al-Ayn», the first Arabic dictionary, ordering letters by where they are pronounced?",
+      "ar": "مَن عالم البصرة في القرن الثامن الذي ألّف «كتاب العين»، أول معجم عربي، ورتّب الحروف بحسب مخارجها؟"
     },
     "answer": {
-      "en": "Meaning in language",
-      "ar": "المعنى في اللغة"
+      "en": "Al-Khalil ibn Ahmad al-Farahidi",
+      "ar": "الخليل بن أحمد الفراهيدي"
     },
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Words & Meaning",
       "ar": "الكلمات والمعاني"
@@ -325,12 +325,12 @@
   {
     "id": "linguistics-18",
     "question": {
-      "en": "What is a portmanteau?",
-      "ar": "ما هو النحت اللغوي (Portmanteau)؟"
+      "en": "'Brunch' blends 'breakfast' and 'lunch' into one word. What is a blended word like this called?",
+      "ar": "كلمة «برمائي» صيغت بدمج كلمتين: «برّ» و«ماء». ماذا نسمّي الكلمة التي تُصاغ بهذه الطريقة؟"
     },
     "answer": {
-      "en": "A word blending the sounds and combining the meanings of two others",
-      "ar": "كلمة تمزج بين أصوات كلمتين وتجمع بين معانيهما"
+      "en": "A portmanteau (blend)",
+      "ar": "كلمة منحوتة (النحت)"
     },
     "difficulty": "medium",
     "subcategory": {
@@ -363,12 +363,12 @@
   {
     "id": "linguistics-20",
     "question": {
-      "en": "What is syntax?",
-      "ar": "ما هو بناء الجملة (Syntax)؟"
+      "en": "'Dog bites man' and 'Man bites dog' use the same words but mean different things. Which branch of linguistics studies word order in sentences?",
+      "ar": "«الكلب عضّ الرجل» و«الرجل عضّ الكلب»: الكلمات نفسها لكن المعنى تغيّر. ما اسم فرع علم اللغة الذي يدرس ترتيب الكلمات في الجملة؟"
     },
     "answer": {
-      "en": "The arrangement of words and phrases to create well-formed sentences",
-      "ar": "ترتيب الكلمات والعبارات لإنشاء جمل جيدة التكوين"
+      "en": "Syntax",
+      "ar": "علم التركيب أو النحو (Syntax)"
     },
     "difficulty": "medium",
     "subcategory": {
@@ -427,7 +427,7 @@
       "en": "Hebrew",
       "ar": "العبرية"
     },
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Historical Linguistics",
       "ar": "اللسانيات التاريخية"
@@ -439,12 +439,12 @@
   {
     "id": "linguistics-24",
     "question": {
-      "en": "What is 'morphology' in linguistics?",
-      "ar": "ما هو «علم الصرف» (Morphology) في اللغويات؟"
+      "en": "Kataba, kātib, maktab and maktaba all grow from the Arabic root k-t-b. Which branch of linguistics studies how words are built like this?",
+      "ar": "«كَتَب» و«كاتب» و«مكتب» و«مكتبة» كلها مشتقة من جذر واحد (ك-ت-ب). ما اسم العلم الذي يدرس كيفية بناء الكلمات على هذا النحو؟"
     },
     "answer": {
-      "en": "The study of words, how they are formed, and their relationship to other words",
-      "ar": "دراسة الكلمات وكيفية تكوينها وعلاقتها بالكلمات الأخرى"
+      "en": "Morphology",
+      "ar": "علم الصرف"
     },
     "difficulty": "hard",
     "subcategory": {
@@ -465,7 +465,7 @@
       "en": "Cyrillic",
       "ar": "السيريلية"
     },
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Writing Systems",
       "ar": "أنظمة الكتابة"
@@ -496,12 +496,12 @@
   {
     "id": "linguistics-27",
     "question": {
-      "en": "What class of consonants includes the dental sound represented by the IPA symbol ǀ?",
-      "ar": "ما فئة الأصوات الصامتة التي تضم الصوت الأسناني الذي يمثله الرمز ǀ في الأبجدية الصوتية الدولية؟"
+      "en": "Xhosa and Zulu in southern Africa are famous for which unusual type of consonant?",
+      "ar": "تشتهر لغتا الكوسا والزولو في جنوب إفريقيا بنوع غير مألوف من الأصوات الساكنة. ما هو؟"
     },
     "answer": {
       "en": "Click consonants",
-      "ar": "الصوامت النقرية"
+      "ar": "الأصوات النقرية (الطقطقة)"
     },
     "difficulty": "hard",
     "subcategory": {
@@ -515,12 +515,12 @@
   {
     "id": "linguistics-28",
     "question": {
-      "en": "What does 'pragmatics' study?",
-      "ar": "ماذا تدرس «التداولية» (Pragmatics)؟"
+      "en": "Someone asks 'Can you pass the salt?' and you just say 'Yes' without passing it. Which branch of linguistics studies meaning in context like this?",
+      "ar": "سألك أحدهم: «هل تستطيع أن تناولني الملح؟» فأجبت: «نعم» ولم تناوله إياه. أيّ فرع من علم اللغة يدرس المعنى بحسب السياق على هذا النحو؟"
     },
     "answer": {
-      "en": "How context contributes to meaning",
-      "ar": "كيف يساهم السياق في المعنى"
+      "en": "Pragmatics",
+      "ar": "التداولية"
     },
     "difficulty": "hard",
     "subcategory": {
@@ -610,12 +610,12 @@
   {
     "id": "linguistics-33",
     "question": {
-      "en": "What is 'Grimm's Law' primarily about?",
-      "ar": "ما هو المحور الأساسي لـ «قانون جريم»؟"
+      "en": "Jacob Grimm, of fairy-tale fame, also has a law in linguistics named after him. What does Grimm's Law describe?",
+      "ar": "ياكوب غريم، صاحب الحكايات الخرافية الشهيرة، يحمل اسمه أيضًا قانون في علم اللغة. ماذا يصف «قانون غريم»؟"
     },
     "answer": {
-      "en": "The set of sound laws describing the Proto-Indo-European stop consonants as they developed in Proto-Germanic",
-      "ar": "مجموعة القوانين الصوتية التي تصف الحروف الساكنة الهندو-أوروبية البدائية كما تطورت في الجرمانية البدائية"
+      "en": "Regular consonant shifts from Proto-Indo-European into the Germanic languages (e.g. p became f: Latin pater, English father)",
+      "ar": "تحوّلات منتظمة في الحروف الساكنة من الهندو-أوروبية الأم إلى اللغات الجرمانية (مثل تحوّل p إلى f: اللاتينية pater والإنجليزية father)"
     },
     "difficulty": "very-advanced",
     "subcategory": {
@@ -629,17 +629,17 @@
   {
     "id": "linguistics-34",
     "question": {
-      "en": "A speech sound is articulated using both lips, as with [b]. What is this place of articulation called?",
-      "ar": "يُنطق صوت باستخدام الشفتين معًا، كما في [b]. ماذا يُسمّى هذا المخرج؟"
+      "en": "Scholars trace the shapes of the Arabic letters mainly back to which earlier script?",
+      "ar": "إلى أيّ خط أقدم يُرجع العلماء أشكال الحروف العربية في الأساس؟"
     },
     "answer": {
-      "en": "Bilabial",
-      "ar": "ثنائي الشفتين"
+      "en": "The Nabataean script",
+      "ar": "الخط النبطي"
     },
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Sounds & Pronunciation",
-      "ar": "الأصوات والنطق"
+      "en": "Writing Systems",
+      "ar": "أنظمة الكتابة"
     },
     "review": {
       "status": "pending"
@@ -693,7 +693,7 @@
       "en": "A tendency for people to associate sounds such as “bouba” with rounded shapes and “kiki” with angular shapes. It illustrates an association between speech sounds and visual form.",
       "ar": "ميل إلى ربط أصوات مثل «بوبا» بأشكال مستديرة و«كيكي» بأشكال ذات زوايا؛ وهو يوضح ارتباطًا بين أصوات الكلام والشكل البصري."
     },
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Sounds & Pronunciation",
       "ar": "الأصوات والنطق"
@@ -705,12 +705,12 @@
   {
     "id": "linguistics-38",
     "question": {
-      "en": "In syntax, what does Chomsky's 'X-bar theory' seek to explain?",
-      "ar": "في بناء الجملة، ما الذي تسعى «نظرية X-bar» لتشومسكي إلى شرحه؟"
+      "en": "Sibawayh's 8th-century founding work of Arabic grammar is known by a simple one-word title. What is it?",
+      "ar": "يُعرف كتاب سيبويه، العمل المؤسس للنحو العربي في القرن الثامن الميلادي، بعنوان بسيط من كلمة واحدة. ما هو؟"
     },
     "answer": {
-      "en": "A syntactic model describing shared patterns of phrase structure organized around a head, with intermediate and phrase-level projections. It is a theoretical model rather than proof that all languages are identical.",
-      "ar": "نموذج نحوي يصف أنماطًا مشتركة لبنية العبارات حول رأس، مع مستويات إسقاط وسطية وعبارية. وهو نموذج نظري لا إثبات لتطابق جميع اللغات."
+      "en": "Al-Kitāb ('The Book')",
+      "ar": "«الكتاب»"
     },
     "difficulty": "very-advanced",
     "subcategory": {

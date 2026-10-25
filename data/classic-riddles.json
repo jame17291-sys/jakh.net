@@ -26,37 +26,47 @@
       "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
-      "en": "I am a curved mark with a dot below, placed at the end of a written question. What am I?",
-      "ar": "أنا علامة منحنية تحتها نقطة، وأوضع في نهاية السؤال المكتوب. ما أنا؟"
+      "en": "What disappears every time you stand up?",
+      "ar": "ما الشيء الذي يختفي كلما وقفت؟"
     },
     "answer": {
-      "en": "A question mark",
-      "ar": "علامة الاستفهام"
+      "en": "Your lap.",
+      "ar": "حضنك."
     },
     "review": {
       "status": "pending"
     },
     "quickFire": {
       "answer": {
-        "en": "A question mark",
-        "ar": "علامة الاستفهام"
+        "en": "Your lap",
+        "ar": "حضنك"
       },
       "distractors": {
         "en": [
-          "An exclamation mark",
-          "A comma",
-          "A full stop"
+          "Your shadow",
+          "Your shoes",
+          "Your voice"
         ],
         "ar": [
-          "علامة التعجب",
-          "الفاصلة",
-          "النقطة"
+          "ظلك",
+          "حذاؤك",
+          "صوتك"
         ]
       },
       "explanation": {
-        "en": "A question mark is curved with a dot below and marks a direct question.",
-        "ar": "علامة الاستفهام منحنية وتحتها نقطة، وتوضع في نهاية السؤال المباشر."
+        "en": "Your lap only exists while you're sitting down; stand up and it's gone.",
+        "ar": "الحضن (الحِجر) لا يوجد إلا وأنت جالس، فإذا وقفت اختفى."
       }
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Your lap",
+        "Lap"
+      ],
+      "ar": [
+        "حضنك",
+        "حجرك"
+      ]
     }
   },
   {
@@ -183,25 +193,6 @@
     }
   },
   {
-    "id": "classic-riddles-006",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "My keys write letters instead of opening locks, and my longest key inserts a gap between words. What am I?",
-      "ar": "مفاتيحي تكتب الحروف بدلًا من فتح الأقفال، وأطولها يُدخل فراغًا بين الكلمات. ما أنا؟"
-    },
-    "answer": {
-      "en": "A keyboard",
-      "ar": "لوحة المفاتيح"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "classic-riddles-007",
     "difficulty": "easy",
     "subcategory": {
@@ -209,37 +200,49 @@
       "ar": "الأشياء والحياة اليومية"
     },
     "question": {
-      "en": "I am the number a bank app shows for the money in your account. Deposits increase me and payments decrease me. What am I?",
-      "ar": "أنا الرقم الذي يعرضه تطبيق البنك لمقدار المال في حسابك. تزيدني الإيداعات وتقللني المدفوعات. ما أنا؟"
+      "en": "What goes all the way around a house but never moves?",
+      "ar": "ما الشيء الذي يلتف حول البيت كله وهو لا يتحرك؟"
     },
     "answer": {
-      "en": "Your account balance",
-      "ar": "رصيد حسابك"
+      "en": "A fence (or a wall).",
+      "ar": "السور."
     },
     "review": {
       "status": "pending"
     },
     "quickFire": {
       "answer": {
-        "en": "Your account balance",
-        "ar": "رصيد حسابك"
+        "en": "A fence",
+        "ar": "السور"
       },
       "distractors": {
         "en": [
-          "Your account number",
-          "Your card number",
-          "Your PIN"
+          "A dog",
+          "The wind",
+          "A car"
         ],
         "ar": [
-          "رقم حسابك",
-          "رقم بطاقتك",
-          "رقمك السري"
+          "الكلب",
+          "الريح",
+          "السيارة"
         ]
       },
       "explanation": {
-        "en": "An account balance is the amount recorded in the account; deposits increase it and payments decrease it.",
-        "ar": "رصيد الحساب هو المبلغ المسجل فيه؛ تزيده الإيداعات وتقلله المدفوعات."
+        "en": "A fence or wall surrounds the whole house while staying fixed in place.",
+        "ar": "يحيط السور بالبيت كله وهو ثابت في مكانه."
       }
+    },
+    "acceptedAnswers": {
+      "en": [
+        "A fence",
+        "A wall",
+        "Fence"
+      ],
+      "ar": [
+        "السور",
+        "الجدار",
+        "الحائط"
+      ]
     }
   },
   {
@@ -275,25 +278,6 @@
     "answer": {
       "en": "A candle",
       "ar": "الشمعة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-010",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Wordplay & Language",
-      "ar": "التلاعب بالكلمات واللغة"
-    },
-    "question": {
-      "en": "We are two curved marks that hug extra words inside a sentence. What are we?",
-      "ar": "نحن علامتان منحنيتان تعانقان الكلمات الإضافية داخل الجملة. ما نحن؟"
-    },
-    "answer": {
-      "en": "Parentheses",
-      "ar": "القوسان"
     },
     "review": {
       "status": "pending"
@@ -341,27 +325,8 @@
     }
   },
   {
-    "id": "classic-riddles-012",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "I flow through a long channel, pass towns without walking, and may empty into a sea. What am I?",
-      "ar": "أجري في مجرى طويل، وأمرّ بالمدن بلا قدمين، وقد أصبّ في بحر. ما أنا؟"
-    },
-    "answer": {
-      "en": "A river",
-      "ar": "نهر"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "classic-riddles-013",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Nature & the World",
       "ar": "الطبيعة والعالم"
@@ -398,100 +363,43 @@
     }
   },
   {
-    "id": "classic-riddles-015",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "I show pictures made from tiny colored pixels. Press a button drawn on my surface with your fingertip, and the device can respond. What am I?",
-      "ar": "أعرض صوراً تتكون من بكسلات ملوّنة صغيرة. إذا ضغطت بإصبعك زراً مرسوماً على سطحي، يستجيب الجهاز. ما أنا؟"
-    },
-    "answer": {
-      "en": "A touchscreen",
-      "ar": "شاشة لمس"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-016",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "I rest between pages so you can find where you stopped reading. I never read a word myself. What am I?",
-      "ar": "أستريح بين الصفحات كي تعرف موضع توقفك عن القراءة، مع أنني لا أقرأ كلمة. ما أنا؟"
-    },
-    "answer": {
-      "en": "A bookmark",
-      "ar": "فاصل كتاب"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-017",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "My rocky slopes rise above the land around me. Climbers may reach my summit, but I have no stairs of my own. What am I?",
-      "ar": "ترتفع سفوحي الصخرية فوق الأرض المحيطة بي. قد يبلغ المتسلقون قمتي، لكن ليس لي درج. ما أنا؟"
-    },
-    "answer": {
-      "en": "A mountain",
-      "ar": "جبل"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "classic-riddles-018",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Numbers & Codes",
-      "ar": "الأرقام والرموز"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "Three consecutive whole numbers have a total of 72. What are the numbers?",
-      "ar": "مجموع ثلاثة أعداد صحيحة متتالية يساوي 72. ما هذه الأعداد؟"
+      "en": "Who is your maternal uncle's sister but not your aunt?",
+      "ar": "مَن أخت خالك وليست خالتك؟"
     },
     "answer": {
-      "en": "23, 24, and 25",
-      "ar": "23 و24 و25"
+      "en": "Your mother.",
+      "ar": "أمك."
     },
     "review": {
       "status": "pending"
     },
     "quickFire": {
       "answer": {
-        "en": "23, 24, and 25",
-        "ar": "23 و24 و25"
+        "en": "Your mother",
+        "ar": "أمك"
       },
       "distractors": {
         "en": [
-          "22, 23, and 24",
-          "24, 25, and 26",
-          "22, 24, and 26"
+          "Your grandmother",
+          "Your cousin",
+          "Your sister"
         ],
         "ar": [
-          "22 و23 و24",
-          "24 و25 و26",
-          "22 و24 و26"
+          "جدتك",
+          "بنت خالك",
+          "أختك"
         ]
       },
       "explanation": {
-        "en": "The middle number is 72 ÷ 3 = 24, so its consecutive neighbors are 23 and 25. The trio 22, 24, 26 also totals 72 but is not consecutive.",
-        "ar": "العدد الأوسط هو 72 ÷ 3 = 24، فيكون العددان المجاوران له 23 و25. أما 22 و24 و26 فمجموعها 72 لكنها ليست متتالية."
+        "en": "Your maternal uncle is your mother's brother, so his sisters are your mother and your maternal aunts. The one who isn't your aunt is your mother.",
+        "ar": "خالك أخو أمك، فأخواته هنّ أمك وخالاتك؛ والتي ليست خالتك هي أمك."
       }
     }
   },
@@ -557,7 +465,7 @@
   },
   {
     "id": "classic-riddles-021",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Logic & Deduction",
       "ar": "المنطق والاستنتاج"
@@ -569,25 +477,6 @@
     "answer": {
       "en": "Man (baby, adult, elder with cane)",
       "ar": "الإنسان (طفل، بالغ، عجوز يتكئ على عصا)"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-022",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "My needle turns while I stay in your hand. It points toward magnetic north to help you find your way. What am I?",
-      "ar": "تدور إبرتي وأنا في يدك، وتشير نحو الشمال المغناطيسي لتساعدك على معرفة الاتجاه. ما أنا؟"
-    },
-    "answer": {
-      "en": "A compass",
-      "ar": "بوصلة"
     },
     "review": {
       "status": "pending"
@@ -636,7 +525,7 @@
   },
   {
     "id": "classic-riddles-024",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Logic & Deduction",
       "ar": "المنطق والاستنتاج"
@@ -648,44 +537,6 @@
     "answer": {
       "en": "Darkness",
       "ar": "الظلام"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-025",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "Two rows of teeth join when you pull my slider up, closing a jacket without biting anyone. What am I?",
-      "ar": "يلتحم صفّان من أسناني عندما تسحب منزلقِي إلى أعلى، فأغلق السترة دون أن أعضّ أحدًا. ما أنا؟"
-    },
-    "answer": {
-      "en": "A zipper",
-      "ar": "سحّاب ملابس"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-026",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "I am a past experience held in your mind. Recalling me may make you smile or cry, though the moment itself is over. What am I?",
-      "ar": "أنا تجربة ماضية تحتفظ بها في ذهنك. قد يجعلك استرجاعي تبتسم أو تبكي، مع أن اللحظة نفسها انتهت. ما أنا؟"
-    },
-    "answer": {
-      "en": "A memory",
-      "ar": "ذكرى"
     },
     "review": {
       "status": "pending"
@@ -724,25 +575,6 @@
     "answer": {
       "en": "An egg",
       "ar": "البيضة."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-029",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Numbers & Codes",
-      "ar": "الأرقام والرموز"
-    },
-    "question": {
-      "en": "I am a four-digit number. My first digit is twice my last, my second is one more than my last, my third is two more than my last, and all my digits add to 18. What number am I?",
-      "ar": "أنا عدد من أربعة أرقام. رقمي الأول ضعف الأخير، والثاني أكبر من الأخير بواحد، والثالث أكبر منه باثنين، ومجموع أرقامي 18. ما العدد؟"
-    },
-    "answer": {
-      "en": "6453",
-      "ar": "6453"
     },
     "review": {
       "status": "pending"
@@ -847,25 +679,6 @@
     }
   },
   {
-    "id": "classic-riddles-034",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "I have two blades that cross, two finger holes, and I open and close to cut paper. What am I?",
-      "ar": "لي شفرتان متقاطعتان وفتحتان للأصابع، وأفتح وأغلق لأقص الورق. ما أنا؟"
-    },
-    "answer": {
-      "en": "Scissors",
-      "ar": "المقص"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "classic-riddles-035",
     "difficulty": "easy",
     "subcategory": {
@@ -879,25 +692,6 @@
     "answer": {
       "en": "Footsteps",
       "ar": "الخطوات."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-036",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "On a musical staff I am a symbol; when sung or played I become a sound with a pitch. What am I?",
-      "ar": "أكون رمزًا على المدرّج الموسيقي، وعندما أُغنّى أو أُعزف أصبح صوتًا ذا طبقة. ما أنا؟"
-    },
-    "answer": {
-      "en": "A musical note",
-      "ar": "نغمة موسيقية"
     },
     "review": {
       "status": "pending"
@@ -942,25 +736,6 @@
     }
   },
   {
-    "id": "classic-riddles-039",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Nature & the World",
-      "ar": "الطبيعة والعالم"
-    },
-    "question": {
-      "en": "I fall as tiny crystals, rest as a white blanket, and leave as water when the air warms. What am I?",
-      "ar": "أسقط على هيئة بلورات صغيرة، وأستقر كغطاء أبيض، وأرحل ماءً عندما يدفأ الجو. ما أنا؟"
-    },
-    "answer": {
-      "en": "Snow",
-      "ar": "الثلج"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "classic-riddles-040",
     "difficulty": "easy",
     "subcategory": {
@@ -981,7 +756,7 @@
   },
   {
     "id": "classic-riddles-041",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Wordplay & Language",
       "ar": "التلاعب بالكلمات واللغة"
@@ -993,25 +768,6 @@
     "answer": {
       "en": "The future",
       "ar": "المستقبل"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-042",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "I am a small opening in a door lock. A key can enter me, but I never move through the doorway. What am I?",
-      "ar": "أنا فتحة صغيرة في قفل باب. يدخل المفتاح فيّ، لكنني لا أعبر الباب أبدًا. ما أنا؟"
-    },
-    "answer": {
-      "en": "A keyhole",
-      "ar": "ثقب المفتاح"
     },
     "review": {
       "status": "pending"
@@ -1113,27 +869,8 @@
     }
   },
   {
-    "id": "classic-riddles-048",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Numbers & Codes",
-      "ar": "الأرقام والرموز"
-    },
-    "question": {
-      "en": "A three-digit code uses 0, 4, and 7 exactly once. Zero is not first, 7 is left of 4, and 0 is right of 4. What is the code?",
-      "ar": "رمز من ثلاثة أرقام يستخدم 0 و4 و7 مرة واحدة لكل منها. الصفر ليس أولاً، و7 يقع يسار 4، و0 يقع يمين 4. ما الرمز؟"
-    },
-    "answer": {
-      "en": "740",
-      "ar": "740"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "classic-riddles-049",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Objects & Everyday Life",
       "ar": "الأشياء والحياة اليومية"
@@ -1154,16 +891,16 @@
     "id": "classic-riddles-050",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Wordplay & Language",
-      "ar": "التلاعب بالكلمات واللغة"
+      "en": "Nature & the World",
+      "ar": "الطبيعة والعالم"
     },
     "question": {
-      "en": "Which five-letter English word is still pronounced the same after four of its letters are removed?",
-      "ar": "ما الكلمة الإنجليزية المكوّنة من خمسة أحرف التي يبقى نطقها كما هو بعد حذف أربعة من أحرفها؟"
+      "en": "A little girl wears seventy dresses, and whoever peels them off ends up in tears. What is she?",
+      "ar": "بنت صغيرة تلبس سبعين فستانًا، ومن يقشّرها يبكي. ما هي؟"
     },
     "answer": {
-      "en": "Queue — remove 'ueue' and the remaining Q is still pronounced 'queue'",
-      "ar": "Queue — عند حذف ueue يبقى الحرف Q ويُنطق بالطريقة نفسها"
+      "en": "An onion.",
+      "ar": "البصلة."
     },
     "review": {
       "status": "pending"
@@ -1208,25 +945,6 @@
     }
   },
   {
-    "id": "classic-riddles-053",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Logic & Deduction",
-      "ar": "المنطق والاستنتاج"
-    },
-    "question": {
-      "en": "Every tulip in a vase has only yellow petals. A flower with red petals is taken from that same vase. Can it be a tulip, if the rule is true?",
-      "ar": "في مزهرية، كل زهرة توليب بتلاتها صفراء فقط. أُخذت من المزهرية نفسها زهرة ذات بتلات حمراء. هل يمكن أن تكون توليب إذا كانت القاعدة صحيحة؟"
-    },
-    "answer": {
-      "en": "No — it would contradict the given rule",
-      "ar": "لا — فهذا يناقض القاعدة المعطاة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "classic-riddles-054",
     "difficulty": "medium",
     "subcategory": {
@@ -1265,57 +983,19 @@
     }
   },
   {
-    "id": "classic-riddles-056",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "I open above your head to keep rain off, then fold into a narrow bundle when the sky clears. What am I?",
-      "ar": "أُفتح فوق رأسك لأحجب المطر، ثم أُطوى في حزمة ضيقة عندما تصحو السماء. ما أنا؟"
-    },
-    "answer": {
-      "en": "An umbrella",
-      "ar": "مظلة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "classic-riddles-057",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
+      "en": "Time, Space & Measurement",
+      "ar": "الزمن والمكان والقياس"
     },
     "question": {
-      "en": "I am the only month that can have 28 days in one year and 29 in another in the Gregorian calendar. Who am I?",
-      "ar": "أنا الشهر الوحيد الذي قد يكون 28 يومًا في سنة و29 يومًا في أخرى في التقويم الميلادي. مَن أنا؟"
+      "en": "Some months have 30 days and some have 31. How many have 28?",
+      "ar": "بعض الشهور فيها 30 يومًا وبعضها فيها 31. كم شهرًا فيه 28 يومًا؟"
     },
     "answer": {
-      "en": "February",
-      "ar": "فبراير"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-058",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "You put a written message inside me, seal my flap, and write an address on my outside. What am I?",
-      "ar": "تضع رسالة مكتوبة داخلي، وتغلق لساني، وتكتب عنوانًا على وجهي الخارجي. ما أنا؟"
-    },
-    "answer": {
-      "en": "An envelope",
-      "ar": "ظرف رسالة"
+      "en": "All 12: every month has at least 28 days.",
+      "ar": "كلها (12 شهرًا)؛ فكل شهر فيه 28 يومًا على الأقل."
     },
     "review": {
       "status": "pending"
@@ -1325,54 +1005,16 @@
     "id": "classic-riddles-059",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
+      "en": "Nature & the World",
+      "ar": "الطبيعة والعالم"
     },
     "question": {
-      "en": "I am a short funny story told to make people laugh. My ending often contains a surprise. What am I?",
-      "ar": "أنا حكاية قصيرة مضحكة تُروى لإضحاك الناس، وغالبًا ما تحمل نهايتي مفاجأة. ما أنا؟"
+      "en": "There's a green house. Inside it is a white house, inside that a red house, and inside the red house live lots of little black babies. What is it?",
+      "ar": "بيت أخضر، في داخله بيت أبيض، وفي داخل الأبيض بيت أحمر، وفي داخل الأحمر أطفال سود صغار كثيرون. ما هو؟"
     },
     "answer": {
-      "en": "A joke",
-      "ar": "نكتة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-060",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Numbers & Codes",
-      "ar": "الأرقام والرموز"
-    },
-    "question": {
-      "en": "Cards numbered 1 through 9 are in a box. How many different unordered pairs of distinct cards add to 10?",
-      "ar": "في صندوق بطاقات مرقّمة من 1 إلى 9. كم زوجاً مختلفاً غير مرتّب من بطاقتين مختلفتين مجموعه 10؟"
-    },
-    "answer": {
-      "en": "4 pairs: 1+9, 2+8, 3+7, and 4+6",
-      "ar": "4 أزواج: 1+9 و2+8 و3+7 و4+6"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-061",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "I am a small shallow dish with a raised rim and a hollow in the middle that fits the base of a teacup. I catch its drips. What am I?",
-      "ar": "أنا صحن صغير ضحل له حافة مرتفعة وتجويف في الوسط يلائم قاعدة فنجان الشاي. ألتقط قطراته. ما أنا؟"
-    },
-    "answer": {
-      "en": "A saucer",
-      "ar": "صحن فنجان"
+      "en": "A watermelon.",
+      "ar": "البطيخ (الجح)."
     },
     "review": {
       "status": "pending"
@@ -1399,7 +1041,7 @@
   },
   {
     "id": "classic-riddles-063",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Objects & Everyday Life",
       "ar": "الأشياء والحياة اليومية"
@@ -1411,25 +1053,6 @@
     "answer": {
       "en": "A bank",
       "ar": "بنك"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-064",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "I divide two rooms but can let you walk between them when opened. I turn on hinges rather than wheels. What am I?",
-      "ar": "أفصل بين غرفتين، وأسمح لك بالمرور بينهما عند فتحي. أدور على مفصلات لا على عجلات. ما أنا؟"
-    },
-    "answer": {
-      "en": "A door",
-      "ar": "باب"
     },
     "review": {
       "status": "pending"
@@ -1493,44 +1116,6 @@
     }
   },
   {
-    "id": "classic-riddles-068",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "I am a small round piece of metal used as money. I have two faces, but neither can smile. What am I?",
-      "ar": "أنا قطعة معدنية صغيرة مستديرة تُستخدم نقودًا. لي وجهان، لكن لا يبتسم أيّ منهما. ما أنا؟"
-    },
-    "answer": {
-      "en": "A coin",
-      "ar": "عملة معدنية"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-069",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Logic & Deduction",
-      "ar": "المنطق والاستنتاج"
-    },
-    "question": {
-      "en": "Five tiles numbered 1 through 5 stand in a row. Tile 3 is at the far right, 2 is immediately left of 3, 5 is immediately left of 1, and 4 is left of 5. What is the order?",
-      "ar": "خمس قطع مرقّمة من 1 إلى 5 مصطفّة. القطعة 3 في أقصى اليمين، و2 يسار 3 مباشرة، و5 يسار 1 مباشرة، و4 يسار 5. ما الترتيب؟"
-    },
-    "answer": {
-      "en": "4, 5, 1, 2, 3",
-      "ar": "4، 5، 1، 2، 3"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "classic-riddles-070",
     "difficulty": "hard",
     "subcategory": {
@@ -1588,44 +1173,6 @@
     }
   },
   {
-    "id": "classic-riddles-073",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "I have a narrow neck and a wide body, and I hold flowers in water instead of taking a drink myself. What am I?",
-      "ar": "لي عنق ضيق وجسم واسع، وأحمل الأزهار في الماء بدلًا من أن أشربه. ما أنا؟"
-    },
-    "answer": {
-      "en": "A flower vase",
-      "ar": "مزهرية"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-074",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "I span part of the sky in colored bands when sunlight and raindrops meet. You cannot walk across me like a bridge. What am I?",
-      "ar": "أمتد في جزء من السماء بأشرطة ملوّنة عندما يلتقي ضوء الشمس بقطرات المطر. لا يمكنك المشي فوقي مثل الجسر. ما أنا؟"
-    },
-    "answer": {
-      "en": "A rainbow",
-      "ar": "قوس قزح"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "classic-riddles-075",
     "difficulty": "hard",
     "subcategory": {
@@ -1639,25 +1186,6 @@
     "answer": {
       "en": "Thursday",
       "ar": "الخميس"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-076",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "I carry people vertically inside a building, stopping at floors when my buttons are pressed. What am I?",
-      "ar": "أنقل الناس رأسيًا داخل المبنى، وأتوقف عند الطوابق عند ضغط أزراري. ما أنا؟"
-    },
-    "answer": {
-      "en": "An elevator",
-      "ar": "مصعد"
     },
     "review": {
       "status": "pending"
@@ -1684,18 +1212,18 @@
   },
   {
     "id": "classic-riddles-078",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "Numbers & Codes",
-      "ar": "الأرقام والرموز"
+      "en": "Nature & the World",
+      "ar": "الطبيعة والعالم"
     },
     "question": {
-      "en": "I am a 3-digit number. My tens digit is five more than my ones digit. My hundreds digit is eight less than my tens digit. What number am I?",
-      "ar": "أنا رقم مكوّن من 3 أرقام. رقم العشرات أكبر بخمسة من رقم الآحاد. رقم المئات أصغر بثمانية من رقم العشرات. ما أنا؟"
+      "en": "The sun gives birth to me from the sea, and the sea kills me if I go back to it. What am I?",
+      "ar": "تلدني الشمس من البحر، ويقتلني البحر إذا عدت إليه. ما أنا؟"
     },
     "answer": {
-      "en": "194 (tens=9, ones=4, hundreds=1)",
-      "ar": "194 (العشرات=9، الآحاد=4، المئات=1)"
+      "en": "Salt: the sun dries seawater to leave it behind, and it dissolves when it goes back into water.",
+      "ar": "الملح: تبخّر الشمس ماء البحر فيبقى، ويذوب إذا عاد إلى الماء."
     },
     "review": {
       "status": "pending"
@@ -1715,25 +1243,6 @@
     "answer": {
       "en": "401",
       "ar": "401"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-080",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "I travel inside a camera as stored information. You can copy me without removing the original and print me without moving the scene I show. What am I?",
-      "ar": "أُخزَّن معلوماتٍ داخل كاميرا. يمكنك نسخي دون حذف الأصل وطباعتي دون تحريك المشهد الذي أعرضه. ما أنا؟"
-    },
-    "answer": {
-      "en": "A digital photograph",
-      "ar": "صورة رقمية"
     },
     "review": {
       "status": "pending"
@@ -1779,7 +1288,7 @@
   },
   {
     "id": "classic-riddles-083",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Logic & Deduction",
       "ar": "المنطق والاستنتاج"
@@ -1791,25 +1300,6 @@
     "answer": {
       "en": "Amal, Dana, Lina, Basel, Hadi",
       "ar": "أمل، دانا، لينا، باسل، هادي"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-084",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "I have a handle and a row of stiff bristles. I sweep crumbs into a pile but never eat them. What am I?",
-      "ar": "لي مقبض وصفّ من شعيرات صلبة. أجمع الفتات في كومة دون أن آكله. ما أنا؟"
-    },
-    "answer": {
-      "en": "A hand brush",
-      "ar": "فرشاة كنس يدوية"
     },
     "review": {
       "status": "pending"
@@ -1836,7 +1326,7 @@
   },
   {
     "id": "classic-riddles-086",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Numbers & Codes",
       "ar": "الأرقام والرموز"
@@ -1848,25 +1338,6 @@
     "answer": {
       "en": "357",
       "ar": "357"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-087",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "You measure me with clocks, spend me on work or play, and cannot return to a moment of me that has passed. What am I?",
-      "ar": "تقيسني بالساعات وتقضيني في العمل أو اللعب، ولا تستطيع العودة إلى لحظة مضت مني. ما أنا؟"
-    },
-    "answer": {
-      "en": "Time",
-      "ar": "الوقت"
     },
     "review": {
       "status": "pending"
@@ -1892,46 +1363,8 @@
     }
   },
   {
-    "id": "classic-riddles-089",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "I am made of many pieces that fit together. When you finish arranging me, one picture appears instead of a scattered collection. What am I?",
-      "ar": "أتكوّن من قطع كثيرة تتداخل معًا. عند إكمال ترتيبي تظهر صورة واحدة بدلًا من قطع مبعثرة. ما أنا؟"
-    },
-    "answer": {
-      "en": "A jigsaw puzzle",
-      "ar": "أحجية تركيب صور"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-090",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "I look like a cat, but I am sewn from fabric and stuffing. I never eat or breathe. What am I?",
-      "ar": "أشبه القطة، لكنني مخيط من قماش ومحشوّ. لا آكل ولا أتنفس. ما أنا؟"
-    },
-    "answer": {
-      "en": "A stuffed toy cat",
-      "ar": "دمية قطة محشوّة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "classic-riddles-091",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Logic & Deduction",
       "ar": "المنطق والاستنتاج"
@@ -1950,56 +1383,18 @@
   },
   {
     "id": "classic-riddles-092",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "Numbers & Codes",
-      "ar": "الأرقام والرموز"
+      "en": "Time, Space & Measurement",
+      "ar": "الزمن والمكان والقياس"
     },
     "question": {
-      "en": "In 8,549,176,320, each digit occurs once. What ordering rule do the English names of those digits follow?",
-      "ar": "في العدد 8,549,176,320 يظهر كل رقم مرة واحدة. ما قاعدة ترتيب أسماء هذه الأرقام باللغة الإنجليزية؟"
+      "en": "There are two sisters: one gives birth to the other, who in turn gives birth to the first. Who are they?",
+      "ar": "أختان: إحداهما تلد الأخرى، والأخرى تعود فتلد الأولى. ما هما؟"
     },
     "answer": {
-      "en": "It contains each digit (0–9) exactly once and the digits are in alphabetical order (eight, five, four, nine, one, seven, six, three, two, zero)",
-      "ar": "يحتوي كل رقم من 0 إلى 9 مرة واحدة بالضبط، والأرقام مرتّبة أبجدياً بالإنجليزية"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-093",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "I keep rain out of a house from above, yet I am not an umbrella. Chimneys may rise through me. What am I?",
-      "ar": "أمنع المطر من دخول المنزل من أعلى، ولست مظلة. قد تخترقني مداخن. ما أنا؟"
-    },
-    "answer": {
-      "en": "A roof",
-      "ar": "سقف المنزل"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "classic-riddles-094",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Objects & Everyday Life",
-      "ar": "الأشياء والحياة اليومية"
-    },
-    "question": {
-      "en": "I show your face without drawing it. Move closer and the face you see moves closer too. What am I?",
-      "ar": "أُظهر وجهك دون أن أرسمه. إذا اقتربت اقترب الوجه الذي تراه أيضًا. ما أنا؟"
-    },
-    "answer": {
-      "en": "A mirror",
-      "ar": "مرآة"
+      "en": "Day and night.",
+      "ar": "الليل والنهار."
     },
     "review": {
       "status": "pending"
@@ -2047,16 +1442,16 @@
     "id": "classic-riddles-097",
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Numbers & Codes",
-      "ar": "الأرقام والرموز"
+      "en": "Nature & the World",
+      "ar": "الطبيعة والعالم"
     },
     "question": {
-      "en": "I am a two-digit number equal to four times the sum of my digits. Reversing my digits makes me 9 larger. What number am I?",
-      "ar": "أنا عدد من رقمين أساوي أربعة أضعاف مجموع رقميّ. عند عكس رقميّ يصبح العدد أكبر مني بـ9. ما العدد؟"
+      "en": "Thirty white horses on a red hill: first they champ, then they stamp, then they stand still. What are they?",
+      "ar": "ثلاثون حصانًا أبيض على تلة حمراء: تعضّ أولًا، ثم تدوس، ثم تقف ساكنة. ما هي؟"
     },
     "answer": {
-      "en": "12",
-      "ar": "12"
+      "en": "Teeth (on the gums).",
+      "ar": "الأسنان (على اللثة)."
     },
     "review": {
       "status": "pending"
@@ -2064,18 +1459,18 @@
   },
   {
     "id": "classic-riddles-098",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Wordplay & Language",
-      "ar": "التلاعب بالكلمات واللغة"
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
     },
     "question": {
-      "en": "What English word has three consecutive double letters?",
-      "ar": "ما الكلمة الإنجليزية التي تحتوي على ثلاثة أزواج متتالية من الأحرف المزدوجة؟"
+      "en": "I'm black when you buy me, red when you use me, and grey when you throw me away. What am I?",
+      "ar": "أكون أسود حين تشتريني، وأحمر حين تستعملني، ورماديًا حين ترميني. ما أنا؟"
     },
     "answer": {
-      "en": "Bookkeeper (oo, kk, ee)",
-      "ar": "bookkeeper (oo، kk، ee)"
+      "en": "Charcoal.",
+      "ar": "الفحم."
     },
     "review": {
       "status": "pending"
@@ -2114,6 +1509,63 @@
     "answer": {
       "en": "4 — you took 4, so you have 4",
       "ar": "4 — أخذت 4، إذن لديك 4"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "classic-riddles-101",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Nature & the World",
+      "ar": "الطبيعة والعالم"
+    },
+    "question": {
+      "en": "I run but never walk, I have a mouth but never talk, a head but never weep, and a bed but never sleep. What am I?",
+      "ar": "أجري ولا أمشي أبدًا، ولي فم ولا أتكلم، ورأس ولا أبكي، وسرير ولا أنام. ما أنا؟"
+    },
+    "answer": {
+      "en": "A river.",
+      "ar": "النهر."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "classic-riddles-102",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
+    },
+    "question": {
+      "en": "What letter comes next: O, T, T, F, F, S, S, E, …?",
+      "ar": "ما الحرف التالي: و، ا، ث، أ، خ، س، س، ث، …؟"
+    },
+    "answer": {
+      "en": "N, for Nine: these are the first letters of One, Two, Three… Eight.",
+      "ar": "ت، من «تسعة»: هذه أوائل حروف واحد، اثنان، ثلاثة… ثمانية."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "classic-riddles-103",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
+    },
+    "question": {
+      "en": "What moves forward only when it's hit on the head?",
+      "ar": "ما الشيء الذي لا يتقدم إلا إذا ضُرب على رأسه؟"
+    },
+    "answer": {
+      "en": "A nail.",
+      "ar": "المسمار."
     },
     "review": {
       "status": "pending"

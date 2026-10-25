@@ -96,7 +96,7 @@
   },
   {
     "id": "flag-questions-006",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Asia & Oceania",
       "ar": "آسيا وأوقيانوسيا"
@@ -115,7 +115,7 @@
   },
   {
     "id": "flag-questions-007",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Asia & Oceania",
       "ar": "آسيا وأوقيانوسيا"
@@ -210,7 +210,7 @@
   },
   {
     "id": "flag-questions-012",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Africa & Middle East",
       "ar": "أفريقيا والشرق الأوسط"
@@ -305,7 +305,7 @@
   },
   {
     "id": "flag-questions-017",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Africa & Middle East",
       "ar": "أفريقيا والشرق الأوسط"
@@ -362,7 +362,7 @@
   },
   {
     "id": "flag-questions-020",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Africa & Middle East",
       "ar": "أفريقيا والشرق الأوسط"
@@ -381,18 +381,18 @@
   },
   {
     "id": "flag-questions-021",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Flag History & Identity",
       "ar": "تاريخ الأعلام والهوية"
     },
     "question": {
-      "en": "The red flag with a white Nordic cross known as the Dannebrog belongs to which country?",
-      "ar": "لأيّ دولة ينتمي العلم الأحمر ذو الصليب الإسكندنافي الأبيض المعروف باسم «دانيبروغ»؟"
+      "en": "Denmark's flag, the Dannebrog, holds which record among national flags?",
+      "ar": "أيّ رقم قياسي يحمله علم الدنمارك «دانيبروغ» بين أعلام الدول؟"
     },
     "answer": {
-      "en": "Denmark",
-      "ar": "الدنمارك"
+      "en": "The oldest national flag still in continuous use",
+      "ar": "أقدم علم وطني ما زال مستخدمًا بلا انقطاع"
     },
     "review": {
       "status": "pending"
@@ -419,7 +419,7 @@
   },
   {
     "id": "flag-questions-023",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Flag Design & Vexillology",
       "ar": "تصميم الأعلام وعلم الأعلام"
@@ -457,7 +457,7 @@
   },
   {
     "id": "flag-questions-025",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Flag Design & Vexillology",
       "ar": "تصميم الأعلام وعلم الأعلام"
@@ -476,7 +476,7 @@
   },
   {
     "id": "flag-questions-026",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Flag History & Identity",
       "ar": "تاريخ الأعلام والهوية"
@@ -514,7 +514,7 @@
   },
   {
     "id": "flag-questions-028",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Flag Design & Vexillology",
       "ar": "تصميم الأعلام وعلم الأعلام"
@@ -564,6 +564,196 @@
     "answer": {
       "en": "Black, White, Green, Red",
       "ar": "الأسود والأبيض والأخضر والأحمر"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "flag-questions-031",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Africa & Middle East",
+      "ar": "أفريقيا والشرق الأوسط"
+    },
+    "question": {
+      "en": "Which country's green flag shows the Shahada in white Arabic script above a sword?",
+      "ar": "أيّ دولة علمها أخضر، كُتبت عليه الشهادة باللون الأبيض وتحتها سيف؟"
+    },
+    "answer": {
+      "en": "Saudi Arabia",
+      "ar": "السعودية"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "flag-questions-032",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Africa & Middle East",
+      "ar": "أفريقيا والشرق الأوسط"
+    },
+    "question": {
+      "en": "Which Gulf country's flag has green, white and red horizontal stripes with a black trapezoid at the hoist?",
+      "ar": "أيّ دولة خليجية يتكوّن علمها من خطوط أفقية خضراء وبيضاء وحمراء، مع شكل شبه منحرف أسود جهة السارية؟"
+    },
+    "answer": {
+      "en": "Kuwait",
+      "ar": "الكويت"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "flag-questions-033",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Africa & Middle East",
+      "ar": "أفريقيا والشرق الأوسط"
+    },
+    "question": {
+      "en": "Which country's flag bears a khanjar dagger together with two crossed swords?",
+      "ar": "أيّ دولة يحمل علمها خنجرًا مع سيفين متقاطعين؟"
+    },
+    "answer": {
+      "en": "Oman",
+      "ar": "عُمان"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "flag-questions-034",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Africa & Middle East",
+      "ar": "أفريقيا والشرق الأوسط"
+    },
+    "question": {
+      "en": "Which Gulf country's maroon flag has a white band with a nine-point serrated edge?",
+      "ar": "أيّ دولة خليجية علمها عنابي، وفيه شريط أبيض حافته مسنّنة بتسعة رؤوس؟"
+    },
+    "answer": {
+      "en": "Qatar",
+      "ar": "قطر"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "flag-questions-035",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Flag History & Identity",
+      "ar": "تاريخ الأعلام والهوية"
+    },
+    "question": {
+      "en": "Bahrain's red-and-white flag has five white points. What do they represent?",
+      "ar": "في علم البحرين الأحمر والأبيض خمسة رؤوس بيضاء. إلامَ ترمز؟"
+    },
+    "answer": {
+      "en": "The Five Pillars of Islam",
+      "ar": "أركان الإسلام الخمسة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "flag-questions-036",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Africa & Middle East",
+      "ar": "أفريقيا والشرق الأوسط"
+    },
+    "question": {
+      "en": "How many points does the white star on Jordan's flag have?",
+      "ar": "كم رأسًا للنجمة البيضاء على علم الأردن؟"
+    },
+    "answer": {
+      "en": "Seven",
+      "ar": "سبعة"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "flag-questions-037",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Africa & Middle East",
+      "ar": "أفريقيا والشرق الأوسط"
+    },
+    "question": {
+      "en": "What phrase is written in green Kufic script on the white band of Iraq's flag?",
+      "ar": "ما العبارة المكتوبة بالخط الكوفي الأخضر على الشريط الأبيض في علم العراق؟"
+    },
+    "answer": {
+      "en": "Allahu Akbar ('God is Greatest')",
+      "ar": "الله أكبر"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "flag-questions-038",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Africa & Middle East",
+      "ar": "أفريقيا والشرق الأوسط"
+    },
+    "question": {
+      "en": "Which Arab country's flag is a plain red, white and black horizontal tricolour with no emblem at all?",
+      "ar": "أيّ دولة عربية يتكوّن علمها من ثلاثة خطوط أفقية: أحمر وأبيض وأسود، دون أي شعار؟"
+    },
+    "answer": {
+      "en": "Yemen",
+      "ar": "اليمن"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "flag-questions-039",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Flag History & Identity",
+      "ar": "تاريخ الأعلام والهوية"
+    },
+    "question": {
+      "en": "In 2017, Mauritania changed its green flag with a gold crescent and star. What did it add?",
+      "ar": "في عام 2017، عدّلت موريتانيا علمها الأخضر الذي يحمل هلالًا ونجمة ذهبية. ماذا أضافت إليه؟"
+    },
+    "answer": {
+      "en": "Two red stripes, at the top and bottom",
+      "ar": "خطّين أحمرين، أحدهما في الأعلى والآخر في الأسفل"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "flag-questions-040",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Asia & Oceania",
+      "ar": "آسيا وأوقيانوسيا"
+    },
+    "question": {
+      "en": "What is the red-and-blue circle at the centre of South Korea's flag called?",
+      "ar": "ما اسم الدائرة الحمراء والزرقاء في وسط علم كوريا الجنوبية؟"
+    },
+    "answer": {
+      "en": "The Taegeuk",
+      "ar": "التايغوك (Taegeuk)"
     },
     "review": {
       "status": "pending"

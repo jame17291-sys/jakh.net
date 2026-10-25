@@ -153,18 +153,18 @@
   },
   {
     "id": "foo-9",
-    "difficulty": "easy",
+    "difficulty": "very-advanced",
     "question": {
-      "en": "Which long green vegetable is commonly pickled whole to make dill pickles?",
-      "ar": "ما الخضار الأخضر الطويل الذي يُخلّل كاملاً عادةً مع الشبت؟"
+      "en": "Which Moroccan spice blend's name means 'the best of the shop' (literally 'head of the shop')?",
+      "ar": "ما اسم خلطة البهارات المغربية التي يعني اسمها «أفضل ما في الدكان»؟"
     },
     "answer": {
-      "en": "Cucumber",
-      "ar": "الخيار"
+      "en": "Ras el hanout",
+      "ar": "رأس الحانوت"
     },
     "subcategory": {
-      "en": "Ingredients",
-      "ar": "المكونات"
+      "en": "Drinks & Spices",
+      "ar": "المشروبات والتوابل"
     },
     "review": {
       "status": "pending"
@@ -400,14 +400,14 @@
   },
   {
     "id": "foo-22",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "question": {
-      "en": "Which unit expresses a chilli pepper's pungency on the Scoville scale?",
-      "ar": "ما الوحدة التي تعبّر عن شدة لذع الفلفل على مقياس سكوفيل؟"
+      "en": "Which Tunisian chilli paste was added to UNESCO's intangible heritage list in 2022?",
+      "ar": "ما معجون الفلفل الحار التونسي الذي أُدرج في قائمة اليونسكو للتراث غير المادي عام 2022؟"
     },
     "answer": {
-      "en": "Scoville Heat Units (SHU)",
-      "ar": "وحدات سكوفيل للحرارة (SHU)"
+      "en": "Harissa",
+      "ar": "الهريسة"
     },
     "subcategory": {
       "en": "Ingredients",
@@ -419,18 +419,18 @@
   },
   {
     "id": "foo-23",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "question": {
-      "en": "What is 'Molecular Gastronomy'?",
-      "ar": "ما هي «فن الطهي الجزيئي»؟"
+      "en": "Which 10th-century Baghdad author compiled 'Kitab al-Tabikh', one of the oldest surviving Arabic cookbooks?",
+      "ar": "مَن المؤلف البغدادي في القرن العاشر الذي جمع «كتاب الطبيخ»، أحد أقدم كتب الطبخ العربية الباقية؟"
     },
     "answer": {
-      "en": "A subdiscipline of food science that explores the physical and chemical transformations of ingredients",
-      "ar": "فرع من علوم الأغذية يستكشف التحولات الفيزيائية والكيميائية للمكونات"
+      "en": "Ibn Sayyar al-Warraq",
+      "ar": "ابن سيّار الورّاق"
     },
     "subcategory": {
-      "en": "Food Science",
-      "ar": "علوم الغذاء"
+      "en": "Food Culture",
+      "ar": "ثقافة الطعام"
     },
     "review": {
       "status": "pending"
@@ -459,12 +459,12 @@
     "id": "foo-25",
     "difficulty": "hard",
     "question": {
-      "en": "What is the term for a Japanese style of multi-course dining?",
-      "ar": "ما هو المصطلح الذي يطلق على نمط ياباني من العشاء المكون من عدة أطباق؟"
+      "en": "What is the dried, salted yogurt that is cooked into the sauce of Jordanian mansaf?",
+      "ar": "ما اسم اللبن المجفف المملّح الذي تُصنع منه صلصة المنسف الأردني؟"
     },
     "answer": {
-      "en": "Kaiseki",
-      "ar": "كايسيكي (Kaiseki)"
+      "en": "Jameed",
+      "ar": "الجميد"
     },
     "subcategory": {
       "en": "World Cuisines",
@@ -630,16 +630,16 @@
     "id": "foo-34",
     "difficulty": "easy",
     "question": {
-      "en": "Does the Scoville scale measure physical temperature or the pungency of chilli peppers?",
-      "ar": "هل يقيس مقياس سكوفيل درجة الحرارة الفيزيائية أم شدة لذع الفلفل؟"
+      "en": "Which spiced rice dish, usually cooked with chicken or lamb, is often called Saudi Arabia's national dish?",
+      "ar": "ما طبق الأرز المتبّل الذي يُطبخ عادةً مع الدجاج أو اللحم، ويُعد الطبق الوطني في السعودية؟"
     },
     "answer": {
-      "en": "Pungency",
-      "ar": "شدة اللذع"
+      "en": "Kabsa",
+      "ar": "الكبسة"
     },
     "subcategory": {
-      "en": "Food Science",
-      "ar": "علوم الغذاء"
+      "en": "World Cuisines",
+      "ar": "مطابخ العالم"
     },
     "review": {
       "status": "pending"
@@ -723,18 +723,18 @@
   },
   {
     "id": "foo-39",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "question": {
-      "en": "Which French mother sauce is made by thickening milk with a white roux?",
-      "ar": "ما الصلصة الفرنسية الأم التي تُحضّر بتكثيف الحليب بمزيج أبيض من الزبدة والدقيق؟"
+      "en": "Which tree resin from the Greek island of Chios gives Levantine booza ice cream its stretchy chew, along with salep?",
+      "ar": "ما الصمغ المستخرج من شجرة في جزيرة خيوس اليونانية، الذي يمنح البوظة العربية قوامها المطاطي مع السحلب؟"
     },
     "answer": {
-      "en": "Béchamel",
-      "ar": "بشاميل"
+      "en": "Mastic",
+      "ar": "المستكة"
     },
     "subcategory": {
-      "en": "Food Culture",
-      "ar": "ثقافة الطعام"
+      "en": "Ingredients",
+      "ar": "المكونات"
     },
     "review": {
       "status": "pending"
@@ -754,6 +754,101 @@
     "subcategory": {
       "en": "World Cuisines",
       "ar": "مطابخ العالم"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "foo-41",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is the double pot used across the Maghreb to steam couscous over a simmering stew called?",
+      "ar": "ما اسم القدر ذات الطبقتين التي يُطهى فيها الكسكس على البخار فوق المرق في المغرب العربي؟"
+    },
+    "answer": {
+      "en": "The couscoussier (keskes)",
+      "ar": "الكسكاس"
+    },
+    "subcategory": {
+      "en": "World Cuisines",
+      "ar": "مطابخ العالم"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "foo-42",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "Which ancient Roman sauce was made from fermented fish?",
+      "ar": "ما اسم الصلصة الرومانية القديمة التي كانت تُصنع من السمك المخمر؟"
+    },
+    "answer": {
+      "en": "Garum",
+      "ar": "الغاروم"
+    },
+    "subcategory": {
+      "en": "Food Culture",
+      "ar": "ثقافة الطعام"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "foo-43",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "Which Chinese tea is aged, often pressed into cakes, and named after a town in Yunnan?",
+      "ar": "أيّ شاي صيني يُعتَّق، وكثيرًا ما يُكبس على شكل أقراص، ويحمل اسم بلدة في مقاطعة يونان؟"
+    },
+    "answer": {
+      "en": "Pu-erh",
+      "ar": "شاي بو-إير"
+    },
+    "subcategory": {
+      "en": "Drinks & Spices",
+      "ar": "المشروبات والتوابل"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "foo-44",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What do Iranians call the prized crispy layer of rice at the bottom of the pot?",
+      "ar": "ماذا يسمّي الإيرانيون طبقة الأرز المقرمشة التي تلتصق بقاع القدر؟"
+    },
+    "answer": {
+      "en": "Tahdig",
+      "ar": "تَهديغ"
+    },
+    "subcategory": {
+      "en": "World Cuisines",
+      "ar": "مطابخ العالم"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "foo-45",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "Which spice is made from the lacy red covering around the nutmeg seed?",
+      "ar": "ما التابل الذي يُصنع من الغلاف الأحمر الشبكي المحيط ببذرة جوزة الطيب؟"
+    },
+    "answer": {
+      "en": "Mace",
+      "ar": "البسباسة"
+    },
+    "subcategory": {
+      "en": "Drinks & Spices",
+      "ar": "المشروبات والتوابل"
     },
     "review": {
       "status": "pending"

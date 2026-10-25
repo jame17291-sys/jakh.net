@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import * as speech from '../speech-quality.js';
+import { readContentPhase2Ledger } from './content-phase2-ledger.mjs';
 
 function question(category, id) {
   const cards = JSON.parse(readFileSync(new URL(`../data/${category}.json`, import.meta.url), 'utf8'));
@@ -31,7 +32,10 @@ test('dates, times, standalone decimals and symbolic division retain their actua
 });
 
 test('the actual Arabic C++ question uses the language name rather than two arithmetic operators', () => {
-  assert.equal(speech.prepareSpeechText(question('software-and-computing', 'coding-and-design-025'), 'ar'),
+  // coding-and-design-025 asked about C++ until the 2026-10-25 phase-2 pass gave
+  // it a new fact; the bank has no other C++ card, so its recorded question is used.
+  const cpp = readContentPhase2Ledger().changes.find(change => change.id === 'coding-and-design-025').previous['question.ar'];
+  assert.equal(speech.prepareSpeechText(cpp, 'ar'),
     'في بناء سي بلس بلس المعتاد بالترجمة المسبقة، هل يُترجم المصدر قبل تشغيل الملف التنفيذي الناتج؟');
   assert.equal(speech.prepareSpeechText('هل تستخدم C# أم C++؟', 'ar'), 'هل تستخدم سي شارب أم سي بلس بلس؟');
   assert.equal(speech.prepareSpeechText('ما حاصل 2+3=5 و7−3=4؟', 'ar'),
@@ -115,7 +119,11 @@ test('invisible direction marks, quotes, joined prefixes, dashes and blanks are 
   // Dashes become a pause or a space instead of a spoken symbol.
   assert.equal(speech.prepareSpeechText(question('books-and-quotes', 'books-and-quotes-027'), 'ar'),
     'لقد صرت الموت، مدمّر العوالم، من أي نص ديني قديم أُخذت هذه العبارة؟');
-  assert.match(speech.prepareSpeechText(question('chemistry', 'chemistry-079'), 'ar'), /قواعد وودورد هوفمان/u);
+  // chemistry-079 (the Woodward–Hoffmann rules) left the bank in the 2026-10-25
+  // phase-2 pass; its recorded question still exercises the dash between names.
+  const woodwardHoffmann = readContentPhase2Ledger().removed.find(entry => entry.id === 'chemistry-079').card.question.ar;
+  assert.match(woodwardHoffmann, /وودورد–هوفمان/u);
+  assert.match(speech.prepareSpeechText(woodwardHoffmann, 'ar'), /قواعد وودورد هوفمان/u);
   assert.equal(speech.prepareSpeechText('682—رقم واحد صحيح', 'ar'), '682، رقم واحد صحيح');
   // A fill-in blank is a pause; its dangling بـ is not read as a letter name.
   assert.equal(speech.prepareSpeechText(question('tv-shows-trivia', 'tv-shows-trivia-281'), 'ar'),

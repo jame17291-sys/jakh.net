@@ -32,7 +32,7 @@
   },
   {
     "id": "world-habits-and-etiquette-002",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Dining Etiquette",
       "ar": "آداب المائدة"
@@ -130,8 +130,8 @@
       "ar": "لماذا يُتجنّب عادةً لمس رأس شخص آخر بصورة عفوية في الإتيكيت التايلندي التقليدي؟"
     },
     "answer": {
-      "en": "The head is traditionally accorded special respect; permission and the person's own preferences matter.",
-      "ar": "يُمنح الرأس احتراماً خاصاً تقليدياً؛ ويظل الإذن وتفضيل الشخص نفسه مهمّين."
+      "en": "The head is traditionally seen as the most respected part of the body",
+      "ar": "لأن الرأس يُعدّ تقليديًا أكثر أجزاء الجسم احترامًا"
     },
     "review": {
       "status": "pending"
@@ -149,8 +149,8 @@
       "ar": "لماذا يُتجنّب عادةً في اليابان تمرير الطعام مباشرةً من عودَي شخص إلى عودَي شخص آخر؟"
     },
     "answer": {
-      "en": "It resembles a funeral practice of passing cremated bones. Place food on a serving plate instead.",
-      "ar": "لأنه يشبه طقساً جنائزياً تُمرّر فيه عظام المتوفى بعد حرق الجثمان. ويمكن وضع الطعام على طبق للتقديم بدلاً من ذلك."
+      "en": "It resembles a funeral rite in which cremated bones are passed between chopsticks",
+      "ar": "لأنه يشبه طقسًا جنائزيًا تُمرَّر فيه عظام المتوفى بالعيدان بعد حرق الجثمان"
     },
     "review": {
       "status": "pending"
@@ -158,18 +158,18 @@
   },
   {
     "id": "world-habits-and-etiquette-008",
-    "difficulty": "easy",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Religious & Ceremonial",
-      "ar": "الديني والاحتفالي"
+      "en": "Social Customs",
+      "ar": "العادات الاجتماعية"
     },
     "question": {
-      "en": "What do visitors normally remove before entering a mosque's carpeted prayer area?",
-      "ar": "ماذا يخلع الزوار عادةً قبل دخول منطقة الصلاة المفروشة في المسجد؟"
+      "en": "Ghana's Akan people name children after the weekday they were born. On which day was a boy called Kofi born?",
+      "ar": "يسمّي شعب الأكان في غانا الأطفال باسم اليوم الذي وُلدوا فيه. في أي يوم وُلد الصبي الذي يُدعى «كوفي»؟"
     },
     "answer": {
-      "en": "Remove their shoes and leave them in the designated place.",
-      "ar": "يخلع حذاءه ويضعه في المكان المخصص."
+      "en": "Friday",
+      "ar": "يوم الجمعة"
     },
     "review": {
       "status": "pending"
@@ -206,8 +206,8 @@
       "ar": "إلى ماذا يشير مصطلح التحية الفرنسي «لا بيز»؟"
     },
     "answer": {
-      "en": "A cheek-kissing greeting. Number of kisses and when it is welcome depend on the people and setting.",
-      "ar": "تحية بتقبيل الخد؛ ويختلف عدد القبلات ومدى ملاءمتها بحسب الأشخاص والموقف."
+      "en": "A greeting with light kisses on the cheeks",
+      "ar": "تحية بقبلات خفيفة على الخدّين"
     },
     "review": {
       "status": "pending"
@@ -284,7 +284,7 @@
   },
   {
     "id": "world-habits-and-etiquette-014",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Dining Etiquette",
       "ar": "آداب المائدة"
@@ -294,8 +294,8 @@
       "ar": "ما إيماءة المائدة الإثيوبية التي تُسمّى غورشا؟"
     },
     "answer": {
-      "en": "Offering another person a bite of food by hand as a gesture of care or friendship; participation is voluntary.",
-      "ar": "تقديم لقمة باليد لشخص آخر تعبيراً عن الاهتمام أو الصداقة؛ والمشاركة اختيارية."
+      "en": "Feeding someone a bite of food by hand as a sign of affection",
+      "ar": "إطعام شخص آخر لقمة باليد تعبيرًا عن المودة"
     },
     "review": {
       "status": "pending"
@@ -303,7 +303,7 @@
   },
   {
     "id": "world-habits-and-etiquette-015",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Social Customs",
       "ar": "العادات الاجتماعية"
@@ -313,8 +313,8 @@
       "ar": "ما التمييز الذي يصفه المصطلحان اليابانيان «هونيه» و«تاتيمايي»؟"
     },
     "answer": {
-      "en": "Honne refers to inner feelings; tatemae refers to a public-facing position or presentation. They do not describe every Japanese person's behaviour.",
-      "ar": "يشير هونيه إلى المشاعر الداخلية، وتاتيمايي إلى الموقف أو الصورة المقدّمة للآخرين. ولا يصفان سلوك كل شخص ياباني."
+      "en": "True inner feelings versus the face shown in public",
+      "ar": "المشاعر الحقيقية مقابل الموقف الذي يُظهره الشخص أمام الناس"
     },
     "review": {
       "status": "pending"
@@ -341,18 +341,18 @@
   },
   {
     "id": "world-habits-and-etiquette-017",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "Religious & Ceremonial",
-      "ar": "الديني والاحتفالي"
+      "en": "Social Customs",
+      "ar": "العادات الاجتماعية"
     },
     "question": {
-      "en": "In Mexico's Day of the Dead traditions, what is an ofrenda?",
-      "ar": "ما الأوفريندا في تقاليد يوم الموتى بالمكسيك؟"
+      "en": "In Gulf hospitality, what is passed around to guests near the end of a visit, as a polite sign that it is time to leave?",
+      "ar": "في الضيافة الخليجية، ما الذي يُدار على الضيوف في آخر الزيارة إشارةً لطيفة إلى أن وقت الانصراف قد حان؟"
     },
     "answer": {
-      "en": "A commemorative altar with offerings such as photographs, flowers and food to honour deceased loved ones.",
-      "ar": "مذبح تذكاري تُوضع عليه قرابين مثل الصور والزهور والطعام لتكريم الأحبة المتوفين."
+      "en": "Incense (bukhoor or oud)",
+      "ar": "البخور (العود)"
     },
     "review": {
       "status": "pending"
@@ -408,18 +408,18 @@
   },
   {
     "id": "world-habits-and-etiquette-020",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "Dining Etiquette",
-      "ar": "آداب المائدة"
+      "en": "Social Customs",
+      "ar": "العادات الاجتماعية"
     },
     "question": {
-      "en": "Why do many Hindus in India avoid eating beef?",
-      "ar": "لماذا يتجنب كثير من الهندوس في الهند أكل لحم البقر؟"
+      "en": "In Jordan and Palestine, what is the delegation of respected elders that formally asks a family for a bride's hand called?",
+      "ar": "في الأردن وفلسطين، ما اسم وفد الوجهاء الذي يذهب رسميًا لطلب يد العروس من أهلها؟"
     },
     "answer": {
-      "en": "The cow is regarded as sacred in Hinduism",
-      "ar": "لأن البقرة تُعد مقدّسة في الهندوسية"
+      "en": "Al-Jaha",
+      "ar": "الجاهة"
     },
     "review": {
       "status": "pending"
@@ -427,18 +427,18 @@
   },
   {
     "id": "world-habits-and-etiquette-021",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Religious & Ceremonial",
-      "ar": "الديني والاحتفالي"
+      "en": "Social Customs",
+      "ar": "العادات الاجتماعية"
     },
     "question": {
-      "en": "Why is the number four avoided in some Chinese- and Japanese-speaking settings?",
-      "ar": "لماذا يُتجنّب الرقم أربعة في بعض البيئات الناطقة بالصينية أو اليابانية؟"
+      "en": "What is the Persian code of ritual politeness in which people refuse an offer several times before accepting?",
+      "ar": "ما اسم آداب المجاملة الإيرانية التي يرفض فيها المرء العرض عدة مرات قبل أن يقبله؟"
     },
     "answer": {
-      "en": "Some pronunciations resemble the word for death. The association does not mean everyone avoids the number.",
-      "ar": "لأن بعض طرق نطقه تشبه كلمة الموت. ولا يعني هذا الارتباط أن الجميع يتجنبونه."
+      "en": "Taarof",
+      "ar": "تَعارُف (Taarof)"
     },
     "review": {
       "status": "pending"
@@ -446,37 +446,18 @@
   },
   {
     "id": "world-habits-and-etiquette-022",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Social Customs",
-      "ar": "العادات الاجتماعية"
+      "en": "Greetings & Gestures",
+      "ar": "التحيات والإيماءات"
     },
     "question": {
-      "en": "What is the concept of 'ubuntu' in southern African cultures?",
-      "ar": "ما مفهوم «أوبونتو» في ثقافات جنوب أفريقيا؟"
+      "en": "In the Philippines, what is the gesture of pressing an elder's hand to your forehead as a sign of respect called?",
+      "ar": "في الفلبين، ما اسم الإيماءة التي تأخذ فيها يد كبير السن وتضعها على جبينك احترامًا؟"
     },
     "answer": {
-      "en": "Ubuntu (often translated as 'I am because we are') is a philosophy of human interconnectedness and community — the idea that a person's humanity is expressed through their relationships with others and their contribution to community well-being.",
-      "ar": "أوبونتو (يُترجم غالباً بـ'أنا موجود لأننا موجودون') فلسفة للترابط الإنساني والمجتمع — فكرة أن إنسانية الشخص تتجلى عبر علاقاته بالآخرين ومساهمته في رفاهية المجتمع."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "world-habits-and-etiquette-023",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Social Customs",
-      "ar": "العادات الاجتماعية"
-    },
-    "question": {
-      "en": "In a business meeting, what does allowing someone to 'save face' mean?",
-      "ar": "ماذا يعني الحفاظ على ماء وجه شخص في اجتماع عمل؟"
-    },
-    "answer": {
-      "en": "Preserving their dignity, for example by discussing a correctable mistake privately rather than humiliating them publicly.",
-      "ar": "صون كرامته، مثل مناقشة خطأ قابل للتصحيح معه على انفراد بدلاً من إحراجه أمام الآخرين."
+      "en": "Mano (pagmamano)",
+      "ar": "مانو (باغمامانو)"
     },
     "review": {
       "status": "pending"
@@ -513,8 +494,8 @@
       "ar": "من يحيي مهرجان أوبون البوذي الياباني ذكراهم؟"
     },
     "answer": {
-      "en": "Deceased ancestors. Dates and practices vary by locality, often falling in July or August.",
-      "ar": "الأسلاف المتوفين. وتختلف مواعيده وممارساته محلياً، وغالباً يقع في يوليو أو أغسطس."
+      "en": "Deceased ancestors",
+      "ar": "الأسلاف المتوفَّون"
     },
     "review": {
       "status": "pending"
@@ -570,18 +551,18 @@
   },
   {
     "id": "world-habits-and-etiquette-028",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Dining Etiquette",
-      "ar": "آداب المائدة"
+      "en": "Religious & Ceremonial",
+      "ar": "الديني والاحتفالي"
     },
     "question": {
-      "en": "In a Japanese ramen shop, what does slurping your noodles usually signal?",
-      "ar": "في محل رامن ياباني، ماذا يعني عادةً أن تشفط النودلز بصوت مسموع؟"
+      "en": "At a Korean baby's first-birthday party, what is the custom of letting the baby pick an object that is said to predict its future?",
+      "ar": "في حفل عيد الميلاد الأول للطفل في كوريا، ما اسم العادة التي يُترك فيها الطفل ليختار غرضًا يُقال إنه يتنبأ بمستقبله؟"
     },
     "answer": {
-      "en": "That you are enjoying the food (it is considered acceptable there)",
-      "ar": "أنك تستمتع بالطعام (وهو أمر مقبول هناك)"
+      "en": "Doljabi",
+      "ar": "دولجابي"
     },
     "review": {
       "status": "pending"
@@ -646,7 +627,7 @@
   },
   {
     "id": "world-habits-and-etiquette-032",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Social Customs",
       "ar": "العادات الاجتماعية"
@@ -656,8 +637,8 @@
       "ar": "ماذا يصف المفهوم الدنماركي هيغه عموماً؟"
     },
     "answer": {
-      "en": "A sense of cosiness and comfortable togetherness, often associated with simple, pleasant surroundings and company.",
-      "ar": "إحساس بالدفء والراحة والألفة، يرتبط غالباً بمحيط بسيط ومريح وصحبة طيبة."
+      "en": "Cosiness and comfortable togetherness",
+      "ar": "الدفء والراحة والألفة"
     },
     "review": {
       "status": "pending"
@@ -725,8 +706,8 @@
       "ar": "كيف توضع اليدان عادةً في تحية الواي التايلندية؟"
     },
     "answer": {
-      "en": "The palms are pressed together, often accompanied by a slight bow. Hand height varies with the context.",
-      "ar": "تُضمّ راحتا اليدين معاً، غالباً مع انحناءة خفيفة. ويختلف ارتفاع اليدين بحسب السياق."
+      "en": "Palms pressed together, usually with a slight bow",
+      "ar": "ضمّ الكفّين معًا، غالبًا مع انحناءة خفيفة"
     },
     "review": {
       "status": "pending"
@@ -753,7 +734,7 @@
   },
   {
     "id": "world-habits-and-etiquette-037",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Dining Etiquette",
       "ar": "آداب المائدة"
@@ -771,38 +752,19 @@
     }
   },
   {
-    "id": "world-habits-and-etiquette-038",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Religious & Ceremonial",
-      "ar": "الديني والاحتفالي"
-    },
-    "question": {
-      "en": "What is puja in Hindu religious practice?",
-      "ar": "ما البوجا في الممارسة الدينية الهندوسية؟"
-    },
-    "answer": {
-      "en": "A devotional act of worship that may include offerings such as flowers, incense, light, water or food.",
-      "ar": "ممارسة تعبّدية قد تتضمن تقدمات مثل الزهور أو البخور أو النور أو الماء أو الطعام."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "world-habits-and-etiquette-039",
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Social Customs",
-      "ar": "العادات الاجتماعية"
+      "en": "Greetings & Gestures",
+      "ar": "التحيات والإيماءات"
     },
     "question": {
-      "en": "What kind of interpersonal dependence did Takeo Doi analyze using the Japanese term amae?",
-      "ar": "ما نوع الاعتماد بين الأشخاص الذي حلّله تاكيو دوي باستخدام المصطلح الياباني أماي؟"
+      "en": "In Mongolia, what is the blue silk scarf offered with both hands as a respectful greeting or gift called?",
+      "ar": "في منغوليا، ما اسم الوشاح الحريري الأزرق الذي يُقدَّم باليدين معًا تحيةً أو هديةً احترامًا؟"
     },
     "answer": {
-      "en": "Reliance on another person's benevolence, with an expectation that they will accommodate one's needs.",
-      "ar": "الاعتماد على حسن نية الآخر مع توقع أن يستوعب احتياجات الشخص."
+      "en": "Khadag",
+      "ar": "الخاداغ"
     },
     "review": {
       "status": "pending"
@@ -840,27 +802,8 @@
     }
   },
   {
-    "id": "world-habits-and-etiquette-041",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Social Customs",
-      "ar": "العادات الاجتماعية"
-    },
-    "question": {
-      "en": "What does proxemics study?",
-      "ar": "ماذا يدرس علم المسافات في التواصل، أو البروكسيميكس؟"
-    },
-    "answer": {
-      "en": "How people use and interpret interpersonal space. Preferred distance varies with the person, relationship and situation as well as culture.",
-      "ar": "كيفية استخدام المسافة بين الأشخاص وتفسيرها. وتختلف المسافة المفضلة بحسب الشخص والعلاقة والموقف، إلى جانب الثقافة."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "world-habits-and-etiquette-043",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Social Customs",
       "ar": "العادات الاجتماعية"
@@ -870,8 +813,8 @@
       "ar": "إلى ماذا تشير الواسطة في مناقشة العلاقات الاجتماعية بالمجتمعات العربية؟"
     },
     "answer": {
-      "en": "Using personal connections or intermediaries to obtain assistance or access. Its effects vary and may include unfair advantages.",
-      "ar": "استخدام الصلات الشخصية أو الوسطاء للحصول على مساعدة أو تسهيلات. وتختلف آثارها وقد تشمل مزايا غير عادلة."
+      "en": "Using personal connections to get things done",
+      "ar": "استخدام المعارف والعلاقات الشخصية لقضاء الأمور"
     },
     "review": {
       "status": "pending"
@@ -939,8 +882,8 @@
       "ar": "كيف يختلف التواصل عالي السياق عن منخفض السياق في إطار إدوارد هول؟"
     },
     "answer": {
-      "en": "High-context communication relies more on shared context and implicit cues; low-context communication makes more meaning explicit in words. These are tendencies, not fixed rules for individuals.",
-      "ar": "يعتمد عالي السياق أكثر على المعرفة المشتركة والإشارات الضمنية؛ ويصرّح منخفض السياق بمعانٍ أكثر بالكلمات. وهما اتجاهان، لا قاعدتان ثابتتان للأفراد."
+      "en": "High-context relies on shared context and unspoken cues; low-context spells the meaning out in words",
+      "ar": "عالي السياق يعتمد على السياق المشترك والإشارات الضمنية، ومنخفض السياق يصرّح بالمعنى بالكلمات"
     },
     "review": {
       "status": "pending"
@@ -948,18 +891,37 @@
   },
   {
     "id": "world-habits-and-etiquette-050",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Social Customs",
-      "ar": "العادات الاجتماعية"
+      "en": "Greetings & Gestures",
+      "ar": "التحيات والإيماءات"
     },
     "question": {
-      "en": "What does the term phubbing describe?",
-      "ar": "ماذا يصف مصطلح «فَبِنغ» المرتبط باستخدام الهواتف؟"
+      "en": "In traditional Tibetan culture, what do people stick out as a polite greeting?",
+      "ar": "في الثقافة التبتية التقليدية، ما الذي يُخرجه الناس تحيةً مهذبة؟"
     },
     "answer": {
-      "en": "Ignoring a person who is present by focusing on a phone instead.",
-      "ar": "تجاهل شخص حاضر بسبب التركيز على الهاتف بدلاً من التفاعل معه."
+      "en": "Their tongue",
+      "ar": "اللسان"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "world-habits-and-etiquette-051",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Greetings & Gestures",
+      "ar": "التحيات والإيماءات"
+    },
+    "question": {
+      "en": "Which everyday Zulu greeting literally means 'we see you'?",
+      "ar": "ما التحية اليومية بلغة الزولو التي معناها الحرفي «نحن نراك»؟"
+    },
+    "answer": {
+      "en": "Sawubona",
+      "ar": "ساوبونا"
     },
     "review": {
       "status": "pending"

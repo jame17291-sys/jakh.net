@@ -6,6 +6,7 @@ import {
   TOPIC_MERGE_LEDGER, bankBeforeMerge, beforeTopicMove, cardBeforeMerge, cardMoveHistory, readCurrentBank, readTopicMergeLedger,
 } from './topic-merge-ledger.mjs';
 import { bankBeforeMsaRestore } from './arabic-msa-restore-ledger.mjs';
+import { removedByPhase2 } from './content-phase2-ledger.mjs';
 import { RETIRED_TOPIC_REDIRECTS, RETIRED_TV_SHOWS, retiredTopicRouteTarget } from '../site-worker/src/topic-route-migrations.js';
 import { SHOWS } from '../tv-trivia-engine.js';
 import { TOPIC_ILLUSTRATIONS } from '../site-illustrations.js';
@@ -23,7 +24,11 @@ const retired = new Map(ledger.retiredTopics.map(topic => [topic.slug, topic]));
 const LEVELS = new Set(['easy', 'medium', 'hard', 'very-advanced']);
 // Topic files as they stood before the 2026-10-25 return to Modern Standard
 // Arabic, which changed only Arabic wording and is recorded in its own ledger.
+// The later 2026-10-25 phase-2 content pass edited, removed and added cards;
+// it is reversed first, and the card index only lists cards that pass kept.
 const beforeMsa = bankBeforeMsaRestore;
+const laterRemoved = removedByPhase2();
+const indexedTopic = id => (laterRemoved.has(id) ? undefined : index[id]?.[0]);
 
 test('the 2026-10-25 topic merges are recorded, pending review, and leave held topics alone', () => {
   assert.equal(TOPIC_MERGE_LEDGER, 'docs/content-review/topic-merge-2026-10-25.json');
@@ -57,8 +62,9 @@ test('every moved card keeps its id and content, changes only topic and subtopic
     const target = beforeMsa(move.to);
     const matches = target.filter(card => card.id === move.id);
     assert.equal(matches.length, 1, `${move.id}: present once in ${move.to}`);
-    assert.ok(!readCurrentBank(move.from).some(card => card.id === move.id), `${move.id}: gone from ${move.from}`);
-    assert.deepEqual(index[move.id]?.[0], move.to, `${move.id}: the card index places it in ${move.to}`);
+    assert.ok(!beforeMsa(move.from).some(card => card.id === move.id), `${move.id}: gone from ${move.from}`);
+    assert.deepEqual(index[move.id]?.[0], indexedTopic(move.id) && move.to, `${move.id}: the card index places it in ${move.to} unless phase 2 removed it`);
+    if (laterRemoved.has(move.id)) assert.ok(!Object.hasOwn(index, move.id), `${move.id}: removed later, absent from the card index`);
     const [card] = matches;
     assert.equal(hash(card), move.afterHash, `${move.id}: current card matches the ledger`);
     assert.ok(Number.isInteger(move.position) && move.position >= 0, `${move.id}: original position`);
@@ -123,7 +129,7 @@ test('retired topics leave the catalog, data, pages and art, and redirect to the
     RETIRED_TOPIC_REDIRECTS.map(({ slug, successor }) => [slug, successor]),
     ledger.retiredTopics.map(topic => [topic.slug, topic.successor]),
   );
-  assert.deepEqual(cardMoveHistory(ledger).retiredCategories, Object.fromEntries(
+  assert.deepEqual(cardMoveHistory(ledger, laterRemoved).retiredCategories, Object.fromEntries(
     [...ledger.retiredTopics].sort((left, right) => left.slug.localeCompare(right.slug)).map(topic => [topic.slug, topic.successor]),
   ));
   for (const topic of ledger.retiredTopics) {
@@ -175,12 +181,20 @@ test('card ids are opaque: moved cards keep ids that name their former topic', (
   const prefixed = ledger.moved.filter(move => move.id.startsWith(`${move.from}-`));
   assert.ok(prefixed.length > 0);
   for (const move of prefixed) {
-    assert.equal(index[move.id][0], move.to);
+    assert.equal(indexedTopic(move.id), laterRemoved.has(move.id) ? undefined : move.to);
     assert.ok(!move.id.startsWith(`${move.to}-`), `${move.id}: the id prefix differs from its topic`);
   }
   const history = read('worker/src/card-moves.json');
-  assert.deepEqual(history, cardMoveHistory(ledger));
-  for (const move of ledger.moved) assert.deepEqual(history.formerCategories[move.id], [move.from]);
+  assert.deepEqual(history, cardMoveHistory(ledger, laterRemoved));
+  for (const move of ledger.moved) {
+    if (laterRemoved.has(move.id)) {
+      assert.ok(!Object.hasOwn(history.formerCategories, move.id) && !Object.hasOwn(history.currentCategories, move.id), `${move.id}: a card removed later has no move history`);
+    } else {
+      assert.deepEqual(history.formerCategories[move.id], [move.from]);
+      assert.equal(history.currentCategories[move.id], move.to);
+    }
+  }
+  assert.ok(ledger.moved.some(move => laterRemoved.has(move.id)) && ledger.moved.some(move => !laterRemoved.has(move.id)));
 });
 
 test('merged topics hold no exact repeated prompt', () => {

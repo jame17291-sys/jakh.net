@@ -164,25 +164,6 @@
     }
   },
   {
-    "id": "chemistry-005",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Atoms, Elements & Periodicity",
-      "ar": "الذرات والعناصر والجدول الدوري"
-    },
-    "question": {
-      "en": "What element do humans need from the air to survive?",
-      "ar": "ما العنصر الذي يحتاجه الإنسان من الهواء للبقاء حياً؟"
-    },
-    "answer": {
-      "en": "Oxygen",
-      "ar": "الأكسجين"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "chemistry-006",
     "difficulty": "easy",
     "subcategory": {
@@ -505,25 +486,6 @@
     }
   },
   {
-    "id": "chemistry-016",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Reactions & Stoichiometry",
-      "ar": "التفاعلات والحسابات الكيميائية"
-    },
-    "question": {
-      "en": "What is the limiting reactant in a chemical reaction?",
-      "ar": "ما المتفاعل المحدِّد في التفاعل الكيميائي؟"
-    },
-    "answer": {
-      "en": "The reactant consumed first; it sets the maximum amount of product that can form.",
-      "ar": "المتفاعل الذي يُستهلك أولاً، وهو الذي يحدد أكبر كمية ممكنة من النواتج."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "chemistry-017",
     "difficulty": "medium",
     "subcategory": {
@@ -781,7 +743,7 @@
   },
   {
     "id": "chemistry-027",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Thermodynamics & Physical Chemistry",
       "ar": "الديناميكا الحرارية والكيمياء الفيزيائية"
@@ -904,8 +866,8 @@
       "ar": "الذرات والعناصر والجدول الدوري"
     },
     "question": {
-      "en": "What is the chemical symbol for silver?",
-      "ar": "ما الرمز الكيميائي للفضة؟"
+      "en": "Argentina takes its name from argentum, the Latin word for silver. What is silver's chemical symbol?",
+      "ar": "اسم الأرجنتين مأخوذ من argentum، الكلمة اللاتينية للفضة. ما الرمز الكيميائي للفضة؟"
     },
     "answer": {
       "en": "Ag",
@@ -1062,31 +1024,12 @@
       "ar": "الذرات والعناصر والجدول الدوري"
     },
     "question": {
-      "en": "What element has atomic number 79?",
-      "ar": "أي عنصر عدده الذري 79؟"
+      "en": "Which is the only metal that is liquid at ordinary room temperature?",
+      "ar": "ما المعدن الوحيد الذي يكون سائلًا في درجة حرارة الغرفة العادية؟"
     },
     "answer": {
-      "en": "Gold (Au)",
-      "ar": "الذهب (Au)"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "chemistry-039",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Matter, Mixtures & Nuclear Chemistry",
-      "ar": "المادة والمخاليط والكيمياء النووية"
-    },
-    "question": {
-      "en": "What is a solution?",
-      "ar": "ما المحلول؟"
-    },
-    "answer": {
-      "en": "A homogeneous mixture where one substance dissolves in another",
-      "ar": "خليط متجانس تذوب فيه مادة في أخرى"
+      "en": "Mercury (Hg).",
+      "ar": "الزئبق (Hg)."
     },
     "review": {
       "status": "pending"
@@ -1113,7 +1056,7 @@
   },
   {
     "id": "chemistry-041",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Reactions & Stoichiometry",
       "ar": "التفاعلات والحسابات الكيميائية"
@@ -1173,18 +1116,18 @@
   },
   {
     "id": "chemistry-043",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Matter, Mixtures & Nuclear Chemistry",
       "ar": "المادة والمخاليط والكيمياء النووية"
     },
     "question": {
-      "en": "What is the freezing point of water?",
-      "ar": "ما نقطة تجمّد الماء؟"
+      "en": "Why do cities spread salt on icy roads in winter?",
+      "ar": "لماذا ترش المدن الملح على الطرق المتجمدة في الشتاء؟"
     },
     "answer": {
-      "en": "0°C (32°F)",
-      "ar": "0°م"
+      "en": "Dissolved salt lowers water's freezing point, so the ice melts and new ice forms less easily.",
+      "ar": "لأن الملح الذائب يخفض درجة تجمّد الماء، فيذوب الجليد ويصعب تكوّن جليد جديد."
     },
     "review": {
       "status": "pending"
@@ -1236,36 +1179,36 @@
       "ar": "الروابط والبنية الجزيئية"
     },
     "question": {
-      "en": "What is an ionic bond?",
-      "ar": "ما الرابطة الأيونية؟"
+      "en": "What type of bond holds the sodium and chloride ions together in table salt?",
+      "ar": "ما نوع الرابطة التي تربط أيونات الصوديوم والكلوريد بعضها ببعض في ملح الطعام؟"
     },
     "answer": {
-      "en": "A bond formed by the electrostatic attraction between oppositely charged ions",
-      "ar": "رابطة تتكوّن بالتجاذب الكهروستاتيكي بين أيونات مشحونة بشحنات متعاكسة"
+      "en": "Ionic bond",
+      "ar": "رابطة أيونية"
     },
     "review": {
       "status": "pending"
     },
     "quickFire": {
       "answer": {
-        "en": "A bond formed by the electrostatic attraction between oppositely charged ions",
-        "ar": "رابطة تتكوّن بالتجاذب الكهروستاتيكي بين أيونات مشحونة بشحنات متعاكسة"
+        "en": "Ionic bond",
+        "ar": "رابطة أيونية"
       },
       "distractors": {
         "en": [
-          "A bond formed by sharing electron pairs",
-          "A bond binding only neutrons",
-          "A bond formed by gravity"
+          "Covalent bond",
+          "Metallic bond",
+          "Hydrogen bond"
         ],
         "ar": [
-          "رابطة تتكون بمشاركة أزواج الإلكترونات",
-          "رابطة تربط النيوترونات فقط",
-          "رابطة تتكون بفعل الجاذبية"
+          "رابطة تساهمية",
+          "رابطة فلزية",
+          "رابطة هيدروجينية"
         ]
       },
       "explanation": {
-        "en": "Oppositely charged ions attract each other electrostatically in an ionic bond.",
-        "ar": "تتجاذب الأيونات ذات الشحنات المتعاكسة كهربائياً في الرابطة الأيونية."
+        "en": "Table salt is held together by the attraction between positive sodium ions and negative chloride ions.",
+        "ar": "يتماسك ملح الطعام بالتجاذب بين أيونات الصوديوم الموجبة وأيونات الكلوريد السالبة."
       }
     }
   },
@@ -1315,31 +1258,12 @@
       "ar": "الروابط والبنية الجزيئية"
     },
     "question": {
-      "en": "What is hydrogen bonding?",
-      "ar": "ما الرابطة الهيدروجينية؟"
+      "en": "Unlike most substances, water is less dense as a solid, so ice floats. Which attractions between water molecules hold ice in its open, roomy structure?",
+      "ar": "على خلاف معظم المواد، تكون كثافة الماء في حالته الصلبة أقل منها في حالته السائلة، ولهذا يطفو الجليد. ما التجاذبات بين جزيئات الماء التي تُبقي الجليد في بنيته المفتوحة الواسعة؟"
     },
     "answer": {
-      "en": "An attractive interaction involving a hydrogen bonded to an electronegative atom, commonly N, O, or F, and an electron-rich site on another atom.",
-      "ar": "تجاذب يتضمن هيدروجيناً مرتبطاً بذرة كهروسالبة، غالباً N أو O أو F، وموقعاً غنياً بالإلكترونات على ذرة أخرى."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "chemistry-051",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Reactions & Stoichiometry",
-      "ar": "التفاعلات والحسابات الكيميائية"
-    },
-    "question": {
-      "en": "What is the law of conservation of mass?",
-      "ar": "ما قانون حفظ الكتلة؟"
-    },
-    "answer": {
-      "en": "Matter cannot be created or destroyed in a chemical reaction — the total mass of reactants equals products",
-      "ar": "لا يمكن خلق المادة أو تدميرها في تفاعل كيميائي — مجموع كتلة المتفاعلات يساوي كتلة النواتج"
+      "en": "Hydrogen bonds.",
+      "ar": "الروابط الهيدروجينية."
     },
     "review": {
       "status": "pending"
@@ -1425,44 +1349,6 @@
     }
   },
   {
-    "id": "chemistry-055",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Reactions & Stoichiometry",
-      "ar": "التفاعلات والحسابات الكيميائية"
-    },
-    "question": {
-      "en": "What is electrolysis?",
-      "ar": "ما التحليل الكهربائي؟"
-    },
-    "answer": {
-      "en": "Using electrical energy to drive a non-spontaneous chemical reaction, typically decomposing a compound",
-      "ar": "استخدام الطاقة الكهربائية لإطلاق تفاعل كيميائي غير تلقائي، عادةً لتحليل مركّب"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "chemistry-057",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Organic Chemistry",
-      "ar": "الكيمياء العضوية"
-    },
-    "question": {
-      "en": "What is a hydrocarbon?",
-      "ar": "ما الهيدروكربون؟"
-    },
-    "answer": {
-      "en": "An organic compound containing only hydrogen and carbon atoms",
-      "ar": "مركّب عضوي يحتوي فقط على ذرات هيدروجين وكربون"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "chemistry-058",
     "difficulty": "medium",
     "subcategory": {
@@ -1504,44 +1390,6 @@
     }
   },
   {
-    "id": "chemistry-059",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Reactions & Stoichiometry",
-      "ar": "التفاعلات والحسابات الكيميائية"
-    },
-    "question": {
-      "en": "What is a redox reaction?",
-      "ar": "ما تفاعل الأكسدة والاختزال (ريدوكس)؟"
-    },
-    "answer": {
-      "en": "A reaction involving both oxidation (loss of electrons) and reduction (gain of electrons)",
-      "ar": "تفاعل يتضمّن الأكسدة (فقدان الإلكترونات) والاختزال (اكتساب الإلكترونات) معاً"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "chemistry-060",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Bonding & Molecular Structure",
-      "ar": "الروابط والبنية الجزيئية"
-    },
-    "question": {
-      "en": "What is electronegativity?",
-      "ar": "ما السالبية الكهربائية؟"
-    },
-    "answer": {
-      "en": "The tendency of an atom to attract shared electrons towards itself in a bond",
-      "ar": "ميل الذرة لاستقطاب الإلكترونات المشتركة نحوها في رابطة كيميائية"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "chemistry-061",
     "difficulty": "hard",
     "subcategory": {
@@ -1580,63 +1428,6 @@
     }
   },
   {
-    "id": "chemistry-063",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Acids, Bases & Equilibrium",
-      "ar": "الأحماض والقواعد والاتزان"
-    },
-    "question": {
-      "en": "What does the equilibrium constant (Kc) indicate?",
-      "ar": "ما الذي يشير إليه ثابت التوازن (Kc)؟"
-    },
-    "answer": {
-      "en": "The ratio of product concentrations to reactant concentrations at equilibrium (each raised to stoichiometric power)",
-      "ar": "نسبة تركيزات النواتج إلى تركيزات المتفاعلات عند التوازن (كل منها مرفوع للقوة الستوكيومترية)"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "chemistry-064",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Bonding & Molecular Structure",
-      "ar": "الروابط والبنية الجزيئية"
-    },
-    "question": {
-      "en": "What is a coordinate (dative) bond?",
-      "ar": "ما الرابطة التنسيقية (الإهدائية)؟"
-    },
-    "answer": {
-      "en": "A covalent bond where both electrons come from the same atom (the donor)",
-      "ar": "رابطة تساهمية يأتي فيها كلا الإلكترونين من نفس الذرة (المانحة)"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "chemistry-065",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Thermodynamics & Physical Chemistry",
-      "ar": "الديناميكا الحرارية والكيمياء الفيزيائية"
-    },
-    "question": {
-      "en": "What is entropy in thermodynamics?",
-      "ar": "ما الإنتروبيا في الديناميكا الحرارية؟"
-    },
-    "answer": {
-      "en": "A measure of the disorder or randomness of a system",
-      "ar": "مقياس لعدم انتظام النظام أو عشوائيته"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "chemistry-066",
     "difficulty": "hard",
     "subcategory": {
@@ -1650,25 +1441,6 @@
     "answer": {
       "en": "Structural isomers differ in connectivity; geometric isomers (cis/trans) differ in arrangement around a double bond",
       "ar": "تختلف المتماكبات البنيوية في الاتصال؛ أما الهندسية (سيس/ترانس) فتختلف في الترتيب حول رابطة مزدوجة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "chemistry-067",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Atoms, Elements & Periodicity",
-      "ar": "الذرات والعناصر والجدول الدوري"
-    },
-    "question": {
-      "en": "What is lanthanide contraction?",
-      "ar": "ما انكماش اللانثانيدات؟"
-    },
-    "answer": {
-      "en": "The decrease in atomic radius across the lanthanide series due to poor shielding by 4f electrons",
-      "ar": "انخفاض نصف القطر الذري عبر سلسلة اللانثانيدات بسبب ضعف حجب إلكترونات 4f"
     },
     "review": {
       "status": "pending"
@@ -1732,25 +1504,6 @@
     }
   },
   {
-    "id": "chemistry-071",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Bonding & Molecular Structure",
-      "ar": "الروابط والبنية الجزيئية"
-    },
-    "question": {
-      "en": "What is the VSEPR theory used for?",
-      "ar": "لماذا تُستخدم نظرية VSEPR؟"
-    },
-    "answer": {
-      "en": "To predict molecular geometry based on electron pair repulsion",
-      "ar": "للتنبؤ بالشكل الهندسي للجزيء بناءً على تنافر أزواج الإلكترونات"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "chemistry-072",
     "difficulty": "hard",
     "subcategory": {
@@ -1802,25 +1555,6 @@
     "answer": {
       "en": "The forward reaction is thermodynamically favorable (spontaneous) under those conditions.",
       "ar": "يكون التفاعل في الاتجاه الأمامي مفضّلًا ديناميكيًا حراريًا (تلقائيًا) تحت تلك الظروف."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "chemistry-075",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Atoms, Elements & Periodicity",
-      "ar": "الذرات والعناصر والجدول الدوري"
-    },
-    "question": {
-      "en": "Why do noble gases rarely form compounds?",
-      "ar": "لماذا نادراً ما يكوّن الغازات النبيلة مركّبات؟"
-    },
-    "answer": {
-      "en": "They have full valence electron shells, making them extremely stable and unreactive",
-      "ar": "لديها مدارات إلكترونية تكافؤ ممتلئة تماماً مما يجعلها مستقرة للغاية وغير تفاعلية"
     },
     "review": {
       "status": "pending"
@@ -1884,25 +1618,6 @@
     }
   },
   {
-    "id": "chemistry-079",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Organic Chemistry",
-      "ar": "الكيمياء العضوية"
-    },
-    "question": {
-      "en": "What do the Woodward–Hoffmann rules use to predict whether pericyclic reactions are symmetry-allowed?",
-      "ar": "على ماذا تعتمد قواعد وودورد–هوفمان للتنبؤ بما إذا كانت التفاعلات حول الحلقية مسموحة من حيث التناظر؟"
-    },
-    "answer": {
-      "en": "Conservation of orbital symmetry under the specified thermal or photochemical conditions.",
-      "ar": "حفظ تناظر المدارات تحت الظروف الحرارية أو الضوئية المحددة."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "chemistry-080",
     "difficulty": "very-advanced",
     "subcategory": {
@@ -1910,12 +1625,12 @@
       "ar": "الروابط والبنية الجزيئية"
     },
     "question": {
-      "en": "What is molecular orbital (MO) theory?",
-      "ar": "ما نظرية المدار الجزيئي (MO)؟"
+      "en": "Pour liquid oxygen between the poles of a strong magnet and it clings there. Which bonding theory explains this, when simple Lewis structures can't?",
+      "ar": "إذا صببت أكسجينًا سائلًا بين قطبَي مغناطيس قوي، فإنه يعلق بينهما. أيّ نظرية في الترابط الكيميائي تفسّر ذلك، بينما تعجز عنه تراكيب لويس البسيطة؟"
     },
     "answer": {
-      "en": "A method for describing electronic structure where atomic orbitals combine to form molecular orbitals spanning the entire molecule",
-      "ar": "طريقة لوصف البنية الإلكترونية تتحد فيها المدارات الذرية لتكوين مدارات جزيئية تمتد على الجزيء بالكامل"
+      "en": "Molecular orbital (MO) theory: O₂ has two unpaired electrons, so it is paramagnetic.",
+      "ar": "نظرية المدار الجزيئي (MO): في جزيء O₂ إلكترونان منفردان، لذلك هو مغناطيسي مساير (بارامغناطيسي)."
     },
     "review": {
       "status": "pending"
@@ -1941,38 +1656,19 @@
     }
   },
   {
-    "id": "chemistry-082",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Organic Chemistry",
-      "ar": "الكيمياء العضوية"
-    },
-    "question": {
-      "en": "What do Baldwin's rules help predict in organic synthesis?",
-      "ar": "بماذا تساعد قواعد بالدوين على التنبؤ في التخليق العضوي؟"
-    },
-    "answer": {
-      "en": "Guidelines for predicting the feasibility of ring-closure reactions based on ring size and bond type at the closure site",
-      "ar": "إرشادات للتنبؤ بجدوى تفاعلات إغلاق الحلقة بناءً على حجم الحلقة ونوع الرابطة في موضع الإغلاق"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "chemistry-083",
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Thermodynamics & Physical Chemistry",
-      "ar": "الديناميكا الحرارية والكيمياء الفيزيائية"
+      "en": "History of Chemistry",
+      "ar": "تاريخ الكيمياء"
     },
     "question": {
-      "en": "What is the Born-Oppenheimer approximation?",
-      "ar": "ما تقريب بورن-أوبنهايمر؟"
+      "en": "Which small Swedish village gave its name to four chemical elements?",
+      "ar": "أيّ قرية سويدية صغيرة سُمّيت باسمها أربعة عناصر كيميائية؟"
     },
     "answer": {
-      "en": "Nuclear motion and electronic motion can be treated separately because nuclei are much heavier and move slower than electrons",
-      "ar": "يمكن معالجة حركة النوى وحركة الإلكترونات بشكل منفصل لأن النوى أثقل بكثير وتتحرك أبطأ من الإلكترونات"
+      "en": "Ytterby: yttrium, ytterbium, terbium and erbium are all named after it.",
+      "ar": "إتربي (Ytterby)، ومنها جاءت أسماء الإتريوم والإتربيوم والتربيوم والإربيوم."
     },
     "review": {
       "status": "pending"
@@ -2018,18 +1714,18 @@
   },
   {
     "id": "chemistry-086",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "Bonding & Molecular Structure",
-      "ar": "الروابط والبنية الجزيئية"
+      "en": "Atoms, Elements & Periodicity",
+      "ar": "الذرات والعناصر والجدول الدوري"
     },
     "question": {
-      "en": "What is hyperconjugation?",
-      "ar": "ما الاقتران الزائد (فرط الاقتران)؟"
+      "en": "Which element was first spotted in sunlight in 1868, almost 30 years before it was found on Earth?",
+      "ar": "أيّ عنصر رُصد أول مرة في ضوء الشمس عام 1868، قبل العثور عليه على الأرض بنحو 30 عامًا؟"
     },
     "answer": {
-      "en": "The stabilising interaction between σ-bonding electrons and an adjacent empty or partially filled p-orbital or π-system",
-      "ar": "التفاعل المستقرّ بين إلكترونات الرابطة σ ومدار p فارغ أو ممتلئ جزئياً مجاور أو نظام π"
+      "en": "Helium, named after helios, Greek for the Sun.",
+      "ar": "الهيليوم، واسمه من «هيليوس» وتعني الشمس باليونانية."
     },
     "review": {
       "status": "pending"
@@ -2037,18 +1733,18 @@
   },
   {
     "id": "chemistry-087",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Thermodynamics & Physical Chemistry",
-      "ar": "الديناميكا الحرارية والكيمياء الفيزيائية"
+      "en": "History of Chemistry",
+      "ar": "تاريخ الكيمياء"
     },
     "question": {
-      "en": "What is the Hammett equation used for?",
-      "ar": "لماذا تُستخدم معادلة هاميت؟"
+      "en": "Which 8th-century scholar, known in medieval Europe as Geber, is often called the father of Arab chemistry?",
+      "ar": "مَن العالم الذي عاش في القرن الثامن الميلادي، وعرفته أوروبا في العصور الوسطى باسم «جيبر»، ويُلقَّب غالبًا بـ«أبي الكيمياء» عند العرب؟"
     },
     "answer": {
-      "en": "To predict the effect of substituents on the rate and equilibrium of organic reactions at an aromatic ring",
-      "ar": "للتنبؤ بتأثير المجموعات الجانبية على معدل وتوازن التفاعلات العضوية عند حلقة أروماتية"
+      "en": "Jabir ibn Hayyan.",
+      "ar": "جابر بن حيّان."
     },
     "review": {
       "status": "pending"
@@ -2068,25 +1764,6 @@
     "answer": {
       "en": "Kinetic control favours the fastest-forming product; thermodynamic control favours the most stable product",
       "ar": "يُفضّل التحكّم الحركي المنتج الأسرع تكوّناً؛ بينما يُفضّل التحكّم الثيرموديناميكي المنتج الأكثر استقراراً"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "chemistry-089",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Thermodynamics & Physical Chemistry",
-      "ar": "الديناميكا الحرارية والكيمياء الفيزيائية"
-    },
-    "question": {
-      "en": "What is the Franck-Condon principle?",
-      "ar": "ما مبدأ فرانك-كوندون؟"
-    },
-    "answer": {
-      "en": "Electronic transitions occur so quickly that nuclei do not move during the transition — the most probable transition preserves nuclear geometry",
-      "ar": "تحدث الانتقالات الإلكترونية بسرعة كبيرة لدرجة أن النوى لا تتحرك خلال الانتقال — الانتقال الأرجح يحافظ على الهندسة النووية"
     },
     "review": {
       "status": "pending"
@@ -2115,35 +1792,16 @@
     "id": "chemistry-091",
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Organic Chemistry",
-      "ar": "الكيمياء العضوية"
+      "en": "Acids, Bases & Equilibrium",
+      "ar": "الأحماض والقواعد والاتزان"
     },
     "question": {
-      "en": "What is the Mitsunobu reaction?",
-      "ar": "ما تفاعل ميتسونوبو؟"
+      "en": "The chemistry word 'alkali' comes from the Arabic al-qily. What was al-qily originally?",
+      "ar": "كلمة alkali (القلوي) في الكيمياء مأخوذة من الكلمة العربية «القِلي». ما القِلي في الأصل؟"
     },
     "answer": {
-      "en": "A reaction coupling an alcohol with an acidic pronucleophile (e.g. carboxylic acid) with inversion of stereochemistry",
-      "ar": "تفاعل يقرن كحولاً بنيوكليوفيل حمضي (مثل الحمض الكربوكسيلي) مع انعكاس في التجسيمية"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "chemistry-092",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Thermodynamics & Physical Chemistry",
-      "ar": "الديناميكا الحرارية والكيمياء الفيزيائية"
-    },
-    "question": {
-      "en": "What is the meaning of a pre-exponential factor (A) in the Arrhenius equation?",
-      "ar": "ما معنى العامل السابق للأُسّي (A) في معادلة أرينيوس؟"
-    },
-    "answer": {
-      "en": "It represents the frequency of molecular collisions and the probability that they are correctly oriented for reaction",
-      "ar": "يمثّل تكرار تصادمات الجزيئات واحتمال أن تكون موجّهة بشكل صحيح للتفاعل"
+      "en": "Plant ash, especially from saltwort, which was used to make soap.",
+      "ar": "رماد النباتات، خصوصاً نبات الأشنان وأشباهه، وكان يُستعمل في صناعة الصابون."
     },
     "review": {
       "status": "pending"
@@ -2169,44 +1827,6 @@
     }
   },
   {
-    "id": "chemistry-094",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Bonding & Molecular Structure",
-      "ar": "الروابط والبنية الجزيئية"
-    },
-    "question": {
-      "en": "What is a three-centre two-electron (3c2e) bond?",
-      "ar": "ما الرابطة ثلاثية المركز ثنائية الإلكترون (3c2e)؟"
-    },
-    "answer": {
-      "en": "A bond where two electrons are shared over three atoms — found in boranes (e.g. B₂H₆)",
-      "ar": "رابطة يتشارك فيها إلكترونان على ثلاث ذرات — توجد في البورانات (مثل B₂H₆)"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "chemistry-095",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Organic Chemistry",
-      "ar": "الكيمياء العضوية"
-    },
-    "question": {
-      "en": "What transformation is achieved by the Sharpless asymmetric epoxidation?",
-      "ar": "ما التحول الذي تحققه إبوكسدة شاربلس غير المتماثلة؟"
-    },
-    "answer": {
-      "en": "It converts allylic alcohols into enantioenriched epoxy alcohols using a chiral titanium–tartrate catalyst system and an oxidant.",
-      "ar": "تحول كحولات الأليل إلى كحولات إيبوكسيدية غنية بأحد المتماكبات المرآوية، باستخدام نظام محفز كيرالي من التيتانيوم والطرطرات وعامل مؤكسد."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "chemistry-096",
     "difficulty": "very-advanced",
     "subcategory": {
@@ -2226,38 +1846,19 @@
     }
   },
   {
-    "id": "chemistry-097",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Organic Chemistry",
-      "ar": "الكيمياء العضوية"
-    },
-    "question": {
-      "en": "What is the principle behind chromatographic separation by polarity?",
-      "ar": "ما المبدأ الكامن وراء الفصل الكروماتوغرافي بالقطبية؟"
-    },
-    "answer": {
-      "en": "In normal-phase HPLC, polar compounds elute later; in reverse-phase, non-polar compounds elute later",
-      "ar": "في HPLC الطور الطبيعي، تنزل المركّبات القطبية لاحقاً؛ في الطور العكسي، تنزل غير القطبية لاحقاً"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "chemistry-098",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "Thermodynamics & Physical Chemistry",
-      "ar": "الديناميكا الحرارية والكيمياء الفيزيائية"
+      "en": "Matter, Mixtures & Nuclear Chemistry",
+      "ar": "المادة والمخاليط والكيمياء النووية"
     },
     "question": {
-      "en": "What is fugacity in thermodynamics?",
-      "ar": "ما التطايرية (الفوغاسيتي) في الديناميكا الحرارية؟"
+      "en": "Which radioactive element did Marie Curie name after her homeland?",
+      "ar": "أي عنصر مشعّ سمّته ماري كوري على اسم بلدها الأصلي؟"
     },
     "answer": {
-      "en": "An effective pressure that accounts for non-ideal gas behaviour, used in the chemical potential of real gases",
-      "ar": "ضغط فعّال يأخذ في الاعتبار سلوك الغاز غير المثالي، يُستخدم في الجهد الكيميائي للغازات الحقيقية"
+      "en": "Polonium, after Poland (1898).",
+      "ar": "البولونيوم، نسبةً إلى بولندا (1898)."
     },
     "review": {
       "status": "pending"
@@ -2265,7 +1866,7 @@
   },
   {
     "id": "chemistry-099",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Bonding & Molecular Structure",
       "ar": "الروابط والبنية الجزيئية"
@@ -2277,25 +1878,6 @@
     "answer": {
       "en": "A temporary attractive force arising from instantaneous dipoles induced in adjacent atoms or molecules",
       "ar": "قوة جاذبة مؤقتة تنشأ من ثنائيات الأقطاب الآنية المستحثّة في الذرات أو الجزيئات المتجاورة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "chemistry-100",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Organic Chemistry",
-      "ar": "الكيمياء العضوية"
-    },
-    "question": {
-      "en": "What is the Grubbs catalyst used for?",
-      "ar": "لماذا يُستخدم محفّز غروبس؟"
-    },
-    "answer": {
-      "en": "Olefin metathesis — rearranging the substituents around double bonds to form new alkene products",
-      "ar": "تبادل الأولفين — إعادة ترتيب المجموعات الجانبية حول الروابط المزدوجة لتكوين نواتج ألكين جديدة"
     },
     "review": {
       "status": "pending"
@@ -2359,120 +1941,6 @@
     }
   },
   {
-    "id": "science-048",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Reactions & Stoichiometry",
-      "ar": "التفاعلات والحسابات الكيميائية"
-    },
-    "question": {
-      "en": "How is the molarity of a solution defined?",
-      "ar": "كيف يُعرَّف التركيز المولاري للمحلول؟"
-    },
-    "answer": {
-      "en": "Moles of solute per litre of solution.",
-      "ar": "عدد مولات المذاب في كل لتر من المحلول."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-054",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Reactions & Stoichiometry",
-      "ar": "التفاعلات والحسابات الكيميائية"
-    },
-    "question": {
-      "en": "What is the usual oxidation number of oxygen in compounds?",
-      "ar": "ما عدد التأكسد المعتاد للأكسجين في المركبات؟"
-    },
-    "answer": {
-      "en": "−2. Important exceptions include peroxides, superoxides, and compounds bonded to fluorine.",
-      "ar": "−2. ومن الاستثناءات المهمة فوق الأكاسيد والأكاسيد الفائقة ومركبات الأكسجين مع الفلور."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-057",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Reactions & Stoichiometry",
-      "ar": "التفاعلات والحسابات الكيميائية"
-    },
-    "question": {
-      "en": "What does an empirical formula show?",
-      "ar": "ماذا تُظهر الصيغة الأولية للمركب؟"
-    },
-    "answer": {
-      "en": "The simplest whole-number ratio of atoms of each element in a compound.",
-      "ar": "أبسط نسبة عددية صحيحة بين ذرات كل عنصر في المركب."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-063",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Bonding & Molecular Structure",
-      "ar": "الروابط والبنية الجزيئية"
-    },
-    "question": {
-      "en": "What is the hybridization of each carbon atom in ethene, C₂H₄?",
-      "ar": "ما نوع تهجين كل ذرة كربون في الإيثين C₂H₄؟"
-    },
-    "answer": {
-      "en": "sp². Each carbon forms three sigma bonds and contributes one unhybridized p orbital to the pi bond.",
-      "ar": "sp². تكوّن كل ذرة كربون ثلاث روابط سيغما، ويسهم مدار p غير مهجّن في رابطة باي."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-066",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Atoms, Elements & Periodicity",
-      "ar": "الذرات والعناصر والجدول الدوري"
-    },
-    "question": {
-      "en": "What is the Aufbau principle?",
-      "ar": "ما مبدأ أوفباو؟"
-    },
-    "answer": {
-      "en": "Electrons fill orbitals in order of increasing energy levels",
-      "ar": "تملأ الإلكترونات المدارات بترتيب تصاعدي لمستويات الطاقة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-075",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Acids, Bases & Equilibrium",
-      "ar": "الأحماض والقواعد والاتزان"
-    },
-    "question": {
-      "en": "What is the common-ion effect?",
-      "ar": "ما تأثير الأيون المشترك؟"
-    },
-    "answer": {
-      "en": "Adding an ion already present in an equilibrium suppresses the ionization of a weak electrolyte or reduces the solubility of a sparingly soluble salt.",
-      "ar": "إضافة أيون موجود أصلاً في الاتزان تقلل تأين إلكتروليت ضعيف أو تقلل ذوبانية ملح قليل الذوبان."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "science-081",
     "difficulty": "very-advanced",
     "subcategory": {
@@ -2484,8 +1952,8 @@
       "ar": "ما الذي تُستخدم دورة بورن–هابر لحسابه؟"
     },
     "answer": {
-      "en": "To calculate lattice energy of ionic compounds using Hess's Law",
-      "ar": "لحساب طاقة الشبكة البلورية للمركبات الأيونية باستخدام قانون هيس"
+      "en": "The lattice energy of an ionic compound, using Hess's law.",
+      "ar": "طاقة الشبكة البلورية للمركّب الأيوني، باستخدام قانون هس."
     },
     "review": {
       "status": "pending"
@@ -2499,31 +1967,12 @@
       "ar": "الكيمياء العضوية"
     },
     "question": {
-      "en": "What is the difference between S_N1 and S_N2 reactions?",
+      "en": "What is the difference between SN1 and SN2 reactions?",
       "ar": "ما الفرق بين تفاعلات SN1 وSN2؟"
     },
     "answer": {
-      "en": "SN1 is unimolecular (two steps, carbocation intermediate); SN2 is bimolecular (one step, inversion)",
-      "ar": "SN1 أحادية الجزيء (خطوتان، وسيط الكربوكاتيون)؛ SN2 ثنائية الجزيء (خطوة واحدة، انعكاس)"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "science-090",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Organic Chemistry",
-      "ar": "الكيمياء العضوية"
-    },
-    "question": {
-      "en": "What is a zwitterion?",
-      "ar": "ما الأيون الثنائي القطب (زويتريون)؟"
-    },
-    "answer": {
-      "en": "A molecule with both positive and negative charges in different regions, with no net charge overall",
-      "ar": "جزيء يحمل شحنات موجبة وسالبة في مناطق مختلفة مع عدم وجود شحنة كلية"
+      "en": "SN1 is unimolecular (two steps, via a carbocation); SN2 is bimolecular (one step, with inversion).",
+      "ar": "SN1 أحادي الجزيء (خطوتان عبر كربوكاتيون)؛ وSN2 ثنائي الجزيء (خطوة واحدة مع انقلاب في التجسيم)."
     },
     "review": {
       "status": "pending"
@@ -2537,12 +1986,164 @@
       "ar": "الروابط والبنية الجزيئية"
     },
     "question": {
-      "en": "What is the molecular geometry of water (H₂O)?",
-      "ar": "ما شكل الجزيء الهندسي للماء (H₂O)؟"
+      "en": "What is the shape of a water molecule (H₂O)?",
+      "ar": "ما الشكل الهندسي لجزيء الماء (H₂O)؟"
     },
     "answer": {
-      "en": "Bent (angular), with a bond angle of approximately 104.5°",
-      "ar": "منحنٍ (زاوي)، بزاوية رابطة تبلغ نحو 104.5°"
+      "en": "Bent (V-shaped), with a bond angle of about 104.5°.",
+      "ar": "منحنٍ (على شكل V)، وزاوية الرابطة فيه نحو 104.5°."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "chemistry-101",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Reactions & Stoichiometry",
+      "ar": "التفاعلات والحسابات الكيميائية"
+    },
+    "question": {
+      "en": "The Statue of Liberty was a shiny reddish-brown when it was built. What turned it green?",
+      "ar": "كان تمثال الحرية بنيًا محمرًا لامعًا حين شُيّد. فما الذي جعله أخضر؟"
+    },
+    "answer": {
+      "en": "Its copper skin reacted with air and moisture, forming a green coating called patina.",
+      "ar": "تفاعل غلافه النحاسي مع الهواء والرطوبة، فتكوّنت عليه طبقة خضراء اسمها الباتينا (صدأ النحاس)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "chemistry-102",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Matter, Mixtures & Nuclear Chemistry",
+      "ar": "المادة والمخاليط والكيمياء النووية"
+    },
+    "question": {
+      "en": "Rose water, used in many Arab sweets and perfumes, is traditionally made from rose petals by which separation process?",
+      "ar": "يُستخرج ماء الورد، الذي يدخل في كثير من الحلويات والعطور العربية، تقليديًا من بتلات الورد بأي طريقة فصل؟"
+    },
+    "answer": {
+      "en": "Distillation: steam carries off the rose oils, then cools and condenses into rose water.",
+      "ar": "التقطير: يحمل البخار زيوت الورد، ثم يبرد ويتكثّف فيصير ماء ورد."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "chemistry-103",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "History of Chemistry",
+      "ar": "تاريخ الكيمياء"
+    },
+    "question": {
+      "en": "In 1940, to hide two Nobel Prize gold medals from the Nazis, chemist George de Hevesy dissolved them in which liquid?",
+      "ar": "في عام 1940، أذاب الكيميائي جورج دي هيفيشي ميداليتين ذهبيتين من ميداليات جائزة نوبل ليخفيهما عن النازيين. بأي سائل أذابهما؟"
+    },
+    "answer": {
+      "en": "Aqua regia, a mixture of nitric and hydrochloric acids.",
+      "ar": "الماء الملكي، وهو خليط من حمض النيتريك وحمض الهيدروكلوريك."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "chemistry-104",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Atoms, Elements & Periodicity",
+      "ar": "الذرات والعناصر والجدول الدوري"
+    },
+    "question": {
+      "en": "Most metals look silvery, but gold is yellow. Which famous physics theory is needed to explain its colour?",
+      "ar": "معظم المعادن فضية اللون، لكن الذهب أصفر. أي نظرية فيزيائية شهيرة نحتاج إليها لتفسير لونه؟"
+    },
+    "answer": {
+      "en": "Einstein's relativity: relativistic effects on gold's fast-moving electrons make it absorb blue light.",
+      "ar": "نظرية النسبية لأينشتاين: التأثيرات النسبية على إلكترونات الذهب السريعة تجعله يمتص الضوء الأزرق."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "chemistry-105",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "History of Chemistry",
+      "ar": "تاريخ الكيمياء"
+    },
+    "question": {
+      "en": "Selenium is named after the Greek word for the Moon. Which element directly below it in the periodic table is named after the Earth?",
+      "ar": "اسم السيلينيوم مأخوذ من الكلمة اليونانية للقمر. أيّ عنصر يقع تحته مباشرة في الجدول الدوري اسمه مأخوذ من الأرض؟"
+    },
+    "answer": {
+      "en": "Tellurium, from the Latin tellus, 'Earth'.",
+      "ar": "التيلوريوم، من الكلمة اللاتينية tellus وتعني الأرض."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "chemistry-106",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "History of Chemistry",
+      "ar": "تاريخ الكيمياء"
+    },
+    "question": {
+      "en": "The word 'ammonia' goes back to an ancient Egyptian god, because ammonium salt was collected near his temple in the Libyan desert. Which god?",
+      "ar": "تعود كلمة «أمونيا» إلى اسم إله مصري قديم، لأن ملح النشادر كان يُجمع قرب معبده في الصحراء الليبية. مَن هو؟"
+    },
+    "answer": {
+      "en": "Amun (Ammon).",
+      "ar": "آمون."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "chemistry-107",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Organic Chemistry",
+      "ar": "الكيمياء العضوية"
+    },
+    "question": {
+      "en": "Which orange-red molecule in henna leaves stains skin and hair by binding to their keratin?",
+      "ar": "ما اسم الجزيء البرتقالي المحمر الموجود في أوراق الحناء، الذي يصبغ الجلد والشعر حين يرتبط بالكيراتين؟"
+    },
+    "answer": {
+      "en": "Lawsone.",
+      "ar": "اللوسون (Lawsone)."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "chemistry-108",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "History of Chemistry",
+      "ar": "تاريخ الكيمياء"
+    },
+    "question": {
+      "en": "Amman-born chemist Omar Yaghi shared the 2025 Nobel Prize in Chemistry for building porous crystals that can even pull drinking water from desert air. What are these materials called?",
+      "ar": "تقاسم الكيميائي عمر ياغي، ابن عمّان، جائزة نوبل للكيمياء 2025 لأنه بنى بلورات مسامية يمكنها حتى استخراج ماء الشرب من هواء الصحراء. ما اسم هذه المواد؟"
+    },
+    "answer": {
+      "en": "Metal–organic frameworks (MOFs).",
+      "ar": "الأطر الفلزية العضوية (MOFs)."
     },
     "review": {
       "status": "pending"

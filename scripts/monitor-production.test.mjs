@@ -81,10 +81,12 @@ function apiHeaders(origin, cacheControl = "no-store") {
   return headers;
 }
 
-// Public inventories: the current release serves 48 topics with 3,704 cards;
-// the releases before the 2026-10-25 topic merges served 51 topics.
-const CURRENT_PUBLIC_QUESTIONS = 3_704;
-const fixtureCategories = (publicQuestions) => (publicQuestions === CURRENT_PUBLIC_QUESTIONS ? 48 : 51);
+// Public inventories: the current release serves 48 topics with 3,286 cards;
+// the release after the 2026-10-25 topic merges served 48 topics with 3,704
+// cards, and the releases before the merges served 51 topics.
+const CURRENT_PUBLIC_QUESTIONS = 3_286;
+const POST_MERGE_PUBLIC_QUESTIONS = 3_704;
+const fixtureCategories = (publicQuestions) => ([CURRENT_PUBLIC_QUESTIONS, POST_MERGE_PUBLIC_QUESTIONS].includes(publicQuestions) ? 48 : 51);
 
 function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false, preNavigation = false, builtHtml = false, publicQuestions = CURRENT_PUBLIC_QUESTIONS, publicCategories = fixtureCategories(publicQuestions) }) {
   if (legacySite && ["/riddles", "/ar/alghaz/", "/brain-games"].includes(pathname)) return null;
@@ -406,7 +408,7 @@ const PUBLIC_DISCOVERY_PROBES = [
 ];
 
 test("only the exact-version production release baseline accepts a coherent pre-merge predecessor", async () => {
-  for (const publicQuestions of [3_825, 3_798, CURRENT_PUBLIC_QUESTIONS]) {
+  for (const publicQuestions of [3_825, 3_798, POST_MERGE_PUBLIC_QUESTIONS, CURRENT_PUBLIC_QUESTIONS]) {
     await withFixture({ productionSite: true, publicQuestions }, async (fixtureOrigin) => {
       const options = productionFixtureOptions(fixtureOrigin);
       const baseline = await runProductionMonitor(options);
@@ -426,7 +428,7 @@ test("only the exact-version production release baseline accepts a coherent pre-
 });
 
 test("the release baseline rejects mixed discovery inventories in either direction", async () => {
-  const inventories = [3_825, 3_798, CURRENT_PUBLIC_QUESTIONS];
+  const inventories = [3_825, 3_798, POST_MERGE_PUBLIC_QUESTIONS, CURRENT_PUBLIC_QUESTIONS];
   for (const [position, publicQuestions] of inventories.entries()) {
     await withFixture({ productionSite: true, publicQuestions }, async (fixtureOrigin) => {
       const options = productionFixtureOptions(fixtureOrigin);
@@ -449,7 +451,7 @@ test("the release baseline rejects mixed discovery inventories in either directi
 });
 
 test("a coherent but unknown card count is never a recognized release baseline", async () => {
-  for (const publicQuestions of [3_703, 3_705, 3_797, 3_799, 3_824, 3_826]) {
+  for (const publicQuestions of [3_285, 3_287, 3_703, 3_705, 3_797, 3_799, 3_824, 3_826]) {
     await withFixture({ productionSite: true, publicQuestions }, async (fixtureOrigin) => {
       const summary = await runProductionMonitor(productionFixtureOptions(fixtureOrigin));
       for (const [, name] of PUBLIC_DISCOVERY_PROBES) {
@@ -460,7 +462,7 @@ test("a coherent but unknown card count is never a recognized release baseline",
 });
 
 test("a known card total served with the wrong number of topics is never a recognized release baseline", async () => {
-  for (const [publicQuestions, publicCategories] of [[3_798, 48], [3_825, 48], [CURRENT_PUBLIC_QUESTIONS, 51], [CURRENT_PUBLIC_QUESTIONS, 47]]) {
+  for (const [publicQuestions, publicCategories] of [[3_798, 48], [3_825, 48], [POST_MERGE_PUBLIC_QUESTIONS, 51], [POST_MERGE_PUBLIC_QUESTIONS, 47], [CURRENT_PUBLIC_QUESTIONS, 51], [CURRENT_PUBLIC_QUESTIONS, 47]]) {
     await withFixture({ productionSite: true, publicQuestions, publicCategories }, async (fixtureOrigin) => {
       const summary = await runProductionMonitor(productionFixtureOptions(fixtureOrigin));
       assert.match(summary.failures.find((failure) => failure.name === "Site: catalog data")?.message || "", /categories and/u,

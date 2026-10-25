@@ -22,7 +22,7 @@ const EXPECTED_CONTENT_PUBLICATION = Object.freeze({
   state: "safety-quarantine-active",
   quarantinedCategories: [...QUARANTINED_CATEGORY_IDS],
   quarantinedQuestions: 278,
-  publicQuestions: 3_704,
+  publicQuestions: 3_286,
   manifestSha256: PRODUCTION_QUARANTINE_MANIFEST_SHA256,
 });
 
@@ -238,8 +238,9 @@ test("profile reports cards moved by a topic merge under their current topic", a
   const { env } = syncEnv({
     progressRows: [
       { cardId: "coding-and-design-001", categoryId: "coding-and-design", status: "easy", createdAt: "retired topic" },
-      { cardId: "science-048", categoryId: "science", status: "medium", createdAt: "moved card" },
-      { cardId: "science-048", categoryId: "biology", status: "medium", createdAt: "never its topic" },
+      { cardId: "science-093", categoryId: "science", status: "medium", createdAt: "moved card" },
+      { cardId: "science-093", categoryId: "biology", status: "medium", createdAt: "never its topic" },
+      { cardId: "science-048", categoryId: "science", status: "medium", createdAt: "moved, then removed in phase 2" },
       { cardId: "physical-and-life-sciences-003", categoryId: "physical-and-life-sciences", status: "easy", createdAt: "removed" },
     ],
     favoriteRows: [
@@ -250,7 +251,7 @@ test("profile reports cards moved by a topic merge under their current topic", a
   const payload = await (await profile(userRequest("/api/user/profile", undefined, "GET"), env)).json();
   assert.deepEqual(payload.progress.map(({ cardId, categoryId }) => [cardId, categoryId]), [
     ["coding-and-design-001", "software-and-computing"],
-    ["science-048", "chemistry"],
+    ["science-093", "chemistry"],
   ]);
   assert.deepEqual(payload.favorites.map(({ cardId, categoryId }) => [cardId, categoryId]), [
     ["civil-engineering-001", "infrastructure-systems"],
@@ -271,24 +272,24 @@ test("writes that still name a moved card's former topic are stored under its cu
   {
     const { env, captured } = syncEnv();
     await favorite(userRequest("/api/user/favorites", {
-      cardId: "science-048", categoryId: "science", action: "add",
+      cardId: "science-093", categoryId: "science", action: "add",
     }), env);
     const insert = captured.statements.find(({ sql }) => sql.includes("INSERT INTO favorites"));
-    assert.deepEqual(insert.values.slice(1, 3), ["science-048", "chemistry"]);
+    assert.deepEqual(insert.values.slice(1, 3), ["science-093", "chemistry"]);
   }
   {
     const { env, captured } = syncEnv();
     await syncUserData(syncRequest({
       progress: [{ cardId: "biology-033", categoryId: "biology", status: "correct" }],
-      favorites: [{ cardId: "world-habits-and-etiquette-047", categoryId: "world-habits-and-etiquette" }],
+      favorites: [{ cardId: "science-065", categoryId: "science" }],
     }), env);
     assert.deepEqual(captured.batch[0].values.slice(1, 4), ["biology-033", "animal-kingdom", "easy"]);
-    assert.deepEqual(captured.batch[1].values.slice(1, 3), ["world-habits-and-etiquette-047", "psychology"]);
+    assert.deepEqual(captured.batch[1].values.slice(1, 3), ["science-065", "biology"]);
   }
   {
     const { env, captured } = syncEnv();
     await assert.rejects(
-      saveProgress(userRequest("/api/user/progress", { cardId: "science-048", categoryId: "biology", status: "correct" }), env),
+      saveProgress(userRequest("/api/user/progress", { cardId: "science-093", categoryId: "biology", status: "correct" }), env),
       (error) => error?.status === 400,
     );
     assert.equal(captured.statements.some(({ sql }) => sql.includes("INSERT INTO progress")), false);
@@ -374,7 +375,7 @@ test("bulk sync validates real cards and batches bounded writes", async () => {
   const { env, captured } = syncEnv();
   const response = await syncUserData(syncRequest({
     progress: [{
-      cardId: "currencies-1",
+      cardId: "currencies-3",
       categoryId: "currencies",
       status: "correct",
     }],

@@ -28,12 +28,12 @@ const EXPECTED_QUARANTINED_COUNTS = Object.freeze({
 
 test("generated card index contains the complete validated catalog", async () => {
   const index = await getCardIndex({});
-  assert.equal(Object.keys(index).length, 3_982);
-  assert.deepEqual(index["currencies-1"], ["currencies", "easy"]);
+  assert.equal(Object.keys(index).length, 3_564);
+  assert.deepEqual(index["currencies-3"], ["currencies", "easy"]);
 });
 
 test("card validation binds ids, categories, and scoring difficulty", async () => {
-  const card = await validateCard({}, "currencies-1", "currencies");
+  const card = await validateCard({}, "currencies-3", "currencies");
   assert.deepEqual(card, { categoryId: "currencies", difficulty: "easy" });
   assert.equal(canonicalStatus("correct", card.difficulty), "easy");
   assert.equal(canonicalStatus("wrong-easy", card.difficulty), "wrong-easy");
@@ -43,15 +43,27 @@ test("card validation binds ids, categories, and scoring difficulty", async () =
     (error) => error?.status === 400,
   );
   await assert.rejects(
-    validateCard({}, "currencies-1", "science"),
+    validateCard({}, "currencies-3", "science"),
     (error) => error?.status === 400,
   );
 });
 
 test("cards moved by the 2026-10-25 topic merges keep their ids and follow saved rows to their new topic", async () => {
   const merge = JSON.parse(await readFile(new URL("../../docs/content-review/topic-merge-2026-10-25.json", import.meta.url), "utf8"));
+  // The later 2026-10-25 phase-2 content pass removed some moved cards; they
+  // leave the index and the move history, and saved rows for them stay hidden.
+  const phase2 = JSON.parse(await readFile(new URL("../../docs/content-review/content-phase2-2026-10-25.json", import.meta.url), "utf8"));
+  const laterRemoved = new Set(phase2.removed.map((entry) => entry.id));
   const index = await getCardIndex({});
-  for (const move of merge.moved) {
+  assert.ok(merge.moved.some((move) => laterRemoved.has(move.id)));
+  for (const move of merge.moved.filter((item) => laterRemoved.has(item.id))) {
+    assert.equal(index[move.id], undefined, move.id);
+    assert.equal(wasCardCategory(move.id, move.from), false, move.id);
+    await assert.rejects(validateCard({}, move.id, move.from), (error) => error?.status === 400);
+    assert.equal(publicCardCategory(move.id, move.from), null);
+    assert.equal(publicCardCategory(move.id, move.to), null);
+  }
+  for (const move of merge.moved.filter((item) => !laterRemoved.has(item.id))) {
     assert.deepEqual(index[move.id]?.[0], move.to, move.id);
     assert.equal(wasCardCategory(move.id, move.from), true, move.id);
     assert.equal(wasCardCategory(move.id, move.to), false, move.id);
@@ -65,8 +77,8 @@ test("cards moved by the 2026-10-25 topic merges keep their ids and follow saved
     assert.equal(isPublicCard(move.id, move.from), false, move.id);
     assert.equal(isPublicCard(move.id, move.to), true, move.id);
   }
-  await assert.rejects(validateCard({}, "science-048", "biology"), (error) => error?.status === 400);
-  assert.equal(publicCardCategory("science-048", "biology"), null);
+  await assert.rejects(validateCard({}, "science-093", "biology"), (error) => error?.status === 400);
+  assert.equal(publicCardCategory("science-093", "biology"), null);
   assert.equal(publicCardCategory("science-001", "science"), "science");
   assert.equal(publicCardCategory("currencies-1", "science"), null);
   assert.equal(publicCardCategory("survival-1", "survival"), null);

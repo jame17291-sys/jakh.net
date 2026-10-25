@@ -188,48 +188,49 @@
     "id": "logic-puzzles-006",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Constraints & Ordering",
-      "ar": "القيود والترتيب"
+      "en": "Lateral Thinking",
+      "ar": "التفكير الجانبي"
     },
     "question": {
-      "en": "Three books—red, green, and blue—stand in a row. The red book is to the left of the green book, and the blue book is to the right of the green book. What is their order from left to right?",
-      "ar": "ثلاثة كتب، أحمر وأخضر وأزرق، مصطفّة في صف. الكتاب الأحمر إلى يسار الأخضر، والأزرق إلى يمين الأخضر. ما ترتيبها من اليسار إلى اليمين؟"
+      "en": "A doctor gives you three pills and tells you to take one every half hour. How long until you have taken them all?",
+      "ar": "أعطاك الطبيب 3 حبوب وقال لك: خذ واحدة كل نصف ساعة. بعد كم من الوقت تنتهي منها كلها؟"
     },
     "answer": {
-      "en": "Red, green, blue.",
-      "ar": "الأحمر، ثم الأخضر، ثم الأزرق."
+      "en": "One hour: the first now, the second after 30 minutes and the third after 60 minutes.",
+      "ar": "ساعة واحدة: الأولى فورًا، والثانية بعد نصف ساعة، والثالثة بعد ساعة."
     },
     "review": {
       "status": "pending"
     },
     "acceptedAnswers": {
       "en": [
-        "Red, green, blue"
+        "1 hour",
+        "One hour"
       ],
       "ar": [
-        "الأحمر، الأخضر، الأزرق"
+        "ساعة واحدة"
       ]
     },
     "quickFire": {
       "answer": {
-        "en": "Red, green, blue",
-        "ar": "الأحمر، الأخضر، الأزرق"
+        "en": "1 hour",
+        "ar": "ساعة واحدة"
       },
       "distractors": {
         "en": [
-          "Green, red, blue",
-          "Red, blue, green",
-          "Blue, green, red"
+          "30 minutes",
+          "1 hour 30 minutes",
+          "2 hours"
         ],
         "ar": [
-          "الأخضر، الأحمر، الأزرق",
-          "الأحمر، الأزرق، الأخضر",
-          "الأزرق، الأخضر، الأحمر"
+          "30 دقيقة",
+          "ساعة ونصف",
+          "ساعتان"
         ]
       },
       "explanation": {
-        "en": "Red must be left of green and blue must be right of green, so green is in the middle. The list names the books from left to right.",
-        "ar": "الأحمر يسار الأخضر والأزرق يمينه، فيكون الأخضر في الوسط. يذكر الترتيب الكتب من اليسار إلى اليمين."
+        "en": "Three pills leave only two half-hour gaps: you take them at 0, 30 and 60 minutes.",
+        "ar": "بين الحبوب الثلاث فاصلان فقط مدة كل منهما نصف ساعة: عند الدقيقة 0 و30 و60."
       }
     }
   },
@@ -237,16 +238,16 @@
     "id": "logic-puzzles-007",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Logic & Deduction",
-      "ar": "المنطق والاستنتاج"
+      "en": "Lateral Thinking",
+      "ar": "التفكير الجانبي"
     },
     "question": {
-      "en": "Three umbrellas are red, blue and green. Amal does not own the red or blue one. Sami owns the blue one. Which color is Amal’s umbrella?",
-      "ar": "ثلاث مظلات: حمراء وزرقاء وخضراء. لا تملك أمل الحمراء ولا الزرقاء، ويملك سامي الزرقاء. ما لون مظلة أمل؟"
+      "en": "A rider arrives in town on Friday, stays three days, and leaves on Friday. How?",
+      "ar": "وصل فارس إلى البلدة على جمعة، وأقام ثلاثة أيام، ثم غادر على جمعة. كيف؟"
     },
     "answer": {
-      "en": "Green. Red and blue are excluded for Amal.",
-      "ar": "خضراء؛ فقد استُبعد اللونان الأحمر والأزرق لأمل."
+      "en": "His horse is called Friday.",
+      "ar": "اسم حصانه «جمعة»."
     },
     "review": {
       "status": "pending"
@@ -256,48 +257,50 @@
     "id": "logic-puzzles-008",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Logic & Deduction",
-      "ar": "المنطق والاستنتاج"
+      "en": "Lateral Thinking",
+      "ar": "التفكير الجانبي"
     },
     "question": {
-      "en": "A towel, a comb and a key are on a table. The item Noor used absorbed water from her wet hands. Which item did she use?",
-      "ar": "على طاولة منشفة ومشط ومفتاح. امتصّ الشيء الذي استخدمته نور الماء من يديها المبللتين. أيّ شيء استخدمت؟"
+      "en": "An electric train is travelling north and the wind is blowing west. Which way does its smoke blow?",
+      "ar": "قطار كهربائي يسير نحو الشمال، والريح تهبّ نحو الغرب. في أيّ اتجاه يذهب دخانه؟"
     },
     "answer": {
-      "en": "A towel.",
-      "ar": "منشفة."
+      "en": "Nowhere: an electric train gives off no smoke.",
+      "ar": "لا جهة؛ القطار الكهربائي لا يخرج منه دخان."
     },
     "review": {
       "status": "pending"
     },
     "quickFire": {
       "answer": {
-        "en": "A towel",
-        "ar": "منشفة"
+        "en": "There is no smoke",
+        "ar": "لا يوجد دخان"
       },
       "distractors": {
         "en": [
-          "A comb",
-          "A key",
-          "None of these"
+          "North",
+          "West",
+          "South"
         ],
         "ar": [
-          "مشط",
-          "مفتاح",
-          "لا شيء مما سبق"
+          "الشمال",
+          "الغرب",
+          "الجنوب"
         ]
       },
       "explanation": {
-        "en": "Of the three named objects, the towel is the one used to absorb water from hands.",
-        "ar": "من بين الأشياء الثلاثة المذكورة، تُستخدم المنشفة لامتصاص الماء من اليدين."
+        "en": "Electric trains run on electricity, not burning fuel, so they make no smoke at all.",
+        "ar": "يعمل القطار الكهربائي بالكهرباء لا بحرق الوقود، فلا يخرج منه دخان أصلًا."
       }
     },
     "acceptedAnswers": {
       "en": [
-        "A towel"
+        "There is no smoke",
+        "No smoke"
       ],
       "ar": [
-        "منشفة"
+        "لا يوجد دخان",
+        "لا دخان"
       ]
     }
   },
@@ -324,35 +327,16 @@
     "id": "logic-puzzles-010",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Logic & Deduction",
-      "ar": "المنطق والاستنتاج"
+      "en": "Lateral Thinking",
+      "ar": "التفكير الجانبي"
     },
     "question": {
-      "en": "A library has four floors numbered 1–4. History is above Science, Science is on floor 2, and History is not on floor 4. Which floor holds History?",
-      "ar": "مكتبة من أربعة طوابق مرقمة من 1 إلى 4. قسم التاريخ أعلى من قسم العلوم الموجود في الطابق 2، والتاريخ ليس في الطابق 4. في أي طابق يقع التاريخ؟"
+      "en": "Mona's father has five daughters: Nana, Nene, Nini and Nono. What is the fifth daughter's name?",
+      "ar": "لوالد منى خمس بنات: نانا ونينا ونيني ونونو. ما اسم البنت الخامسة؟"
     },
     "answer": {
-      "en": "Floor 3. It is the only floor above 2 other than 4.",
-      "ar": "الطابق 3؛ فهو الطابق الوحيد فوق 2 بعد استبعاد 4."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "logic-puzzles-011",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Logic & Deduction",
-      "ar": "المنطق والاستنتاج"
-    },
-    "question": {
-      "en": "Ali, Badr and Huda have different pets: a cat, a dog and a bird. Ali has the bird. Badr does not have the dog. Who has the cat?",
-      "ar": "لدى علي وبدر وهدى حيوانات مختلفة: قطة وكلب وطائر. لدى علي الطائر، وليس لدى بدر الكلب. مَن لديه القطة؟"
-    },
-    "answer": {
-      "en": "Badr. The bird belongs to Ali, so excluding the dog leaves the cat for Badr.",
-      "ar": "بدر؛ فالطائر لعلي، واستبعاد الكلب يترك القطة لبدر."
+      "en": "Mona.",
+      "ar": "منى."
     },
     "review": {
       "status": "pending"
@@ -604,48 +588,50 @@
     "id": "logic-puzzles-020",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Numbers & Patterns",
-      "ar": "الأرقام والأنماط"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "A mix contains 3 parts water and 1 part juice. How much juice is in a 12-litre mix?",
-      "ar": "خليط يحتوي 3 أجزاء ماء وجزء عصير. كم لتراً من العصير في 12 لتر من الخليط؟"
+      "en": "Three boxes are labelled 'Apples', 'Oranges' and 'Mixed', but every label is wrong. You may take one fruit from one box without looking inside. Which box should you pick from to fix all the labels?",
+      "ar": "ثلاثة صناديق كُتب عليها «تفاح» و«برتقال» و«مخلوط»، لكن جميع الملصقات خاطئة. يمكنك أن تُخرج ثمرة واحدة من صندوق واحد دون أن تنظر داخله. من أي صندوق تسحب لتصحح جميع الملصقات؟"
     },
     "answer": {
-      "en": "3 litres. Juice is 1/4 of total: 12 × 1/4 = 3.",
-      "ar": "3 لتر. العصير هو 1/4 من الإجمالي: 12 × 1/4 = 3."
+      "en": "The box labelled 'Mixed'. It must hold only one kind of fruit, so whatever you pull out tells you what it holds, and the other two labels follow.",
+      "ar": "الصندوق المكتوب عليه «مخلوط». لا بد أن فيه نوعًا واحدًا فقط، فالفاكهة التي تسحبها تكشف محتواه، ثم يتحدد الصندوقان الآخران."
     },
     "review": {
       "status": "pending"
     },
     "acceptedAnswers": {
       "en": [
-        "3 litres"
+        "The box labelled 'Mixed'",
+        "The 'Mixed' box"
       ],
       "ar": [
-        "3 لترات"
+        "الصندوق المكتوب عليه «مخلوط»",
+        "صندوق «مخلوط»"
       ]
     },
     "quickFire": {
       "answer": {
-        "en": "3 litres",
-        "ar": "3 لترات"
+        "en": "The box labelled 'Mixed'",
+        "ar": "الصندوق المكتوب عليه «مخلوط»"
       },
       "distractors": {
         "en": [
-          "1 litre",
-          "4 litres",
-          "9 litres"
+          "The box labelled 'Apples'",
+          "The box labelled 'Oranges'",
+          "It can't be done with one fruit"
         ],
         "ar": [
-          "لتر واحد",
-          "4 لترات",
-          "9 لترات"
+          "الصندوق المكتوب عليه «تفاح»",
+          "الصندوق المكتوب عليه «برتقال»",
+          "لا يمكن بفاكهة واحدة"
         ]
       },
       "explanation": {
-        "en": "There are four parts in total, and one is juice. One quarter of 12 litres is 3 litres.",
-        "ar": "يتكون الخليط من أربعة أجزاء، أحدها عصير. ربع 12 لترًا يساوي 3 لترات."
+        "en": "The 'Mixed' box can't be mixed, so one fruit reveals its contents. If it's an apple, the box labelled 'Oranges' holds neither oranges nor apples, so it is the mixed one, and the 'Apples' box holds oranges.",
+        "ar": "صندوق «مخلوط» ليس مخلوطًا، ففاكهة واحدة تكشف محتواه. فإن كانت تفاحة، فصندوق «برتقال» لا يحوي برتقالًا ولا تفاحًا فهو المخلوط، ويبقى البرتقال في صندوق «تفاح»."
       }
     }
   },
@@ -727,21 +713,29 @@
   },
   {
     "id": "logic-puzzles-025",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Logic & Deduction",
-      "ar": "المنطق والاستنتاج"
+      "en": "Lateral Thinking",
+      "ar": "التفكير الجانبي"
     },
     "question": {
-      "en": "A boat carries 12 passengers. At the only stop, five passengers leave and nobody boards. How many passengers remain?",
-      "ar": "على قارب 12 راكبًا. في المحطة الوحيدة ينزل خمسة ركاب ولا يصعد أحد. كم راكبًا يبقى؟"
+      "en": "A man builds a house with all four walls facing south. A bear walks past. What colour is the bear?",
+      "ar": "بنى رجل بيتًا تطل جدرانه الأربعة كلها على الجنوب. مرّ دبٌّ بجوار البيت. ما لون الدب؟"
     },
     "answer": {
-      "en": "7 passengers: 12 − 5 = 7.",
-      "ar": "7 ركاب؛ لأن 12 − 5 = 7."
+      "en": "White. Only at the North Pole can every wall face south, so it's a polar bear.",
+      "ar": "أبيض. لا يوجد مكان تطل فيه كل الجدران على الجنوب إلا القطب الشمالي، فهو دب قطبي."
     },
     "review": {
       "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "White"
+      ],
+      "ar": [
+        "أبيض"
+      ]
     }
   },
   {
@@ -813,27 +807,8 @@
     }
   },
   {
-    "id": "logic-puzzles-028",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Logic & Deduction",
-      "ar": "المنطق والاستنتاج"
-    },
-    "question": {
-      "en": "Three deliveries are made on Monday, Tuesday and Wednesday. Food arrives before books; books arrive before clothes. On which day do the books arrive?",
-      "ar": "تصل ثلاث شحنات أيام الاثنين والثلاثاء والأربعاء. يصل الطعام قبل الكتب، وتصل الكتب قبل الملابس. في أي يوم تصل الكتب؟"
-    },
-    "answer": {
-      "en": "Tuesday. The order must be food, books, clothes.",
-      "ar": "الثلاثاء؛ إذ يجب أن يكون الترتيب: الطعام ثم الكتب ثم الملابس."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "logic-puzzles-029",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Logic & Deduction",
       "ar": "المنطق والاستنتاج"
@@ -1004,7 +979,7 @@
   },
   {
     "id": "logic-puzzles-039",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Numbers & Patterns",
       "ar": "الأرقام والأنماط"
@@ -1136,25 +1111,6 @@
     }
   },
   {
-    "id": "logic-puzzles-046",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Logic & Deduction",
-      "ar": "المنطق والاستنتاج"
-    },
-    "question": {
-      "en": "An elevator is on floor 8. It goes down 3 floors, up twice that distance, then down 4 floors. On which floor does it stop?",
-      "ar": "مصعد في الطابق 8. يهبط 3 طوابق، ثم يصعد ضعف هذه المسافة، ثم يهبط 4 طوابق. عند أي طابق يتوقف؟"
-    },
-    "answer": {
-      "en": "Floor 7: 8 − 3 + 6 − 4 = 7.",
-      "ar": "الطابق 7؛ لأن 8 − 3 + 6 − 4 = 7."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "logic-puzzles-047",
     "difficulty": "hard",
     "subcategory": {
@@ -1174,27 +1130,8 @@
     }
   },
   {
-    "id": "logic-puzzles-048",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Logic & Deduction",
-      "ar": "المنطق والاستنتاج"
-    },
-    "question": {
-      "en": "Every red token in a bag is round. Some tokens in the bag are red. Must at least one token in the bag be round?",
-      "ar": "كل قطعة حمراء في كيس مستديرة، وتوجد في الكيس بعض القطع الحمراء. هل يلزم وجود قطعة مستديرة واحدة على الأقل؟"
-    },
-    "answer": {
-      "en": "Yes. At least one red token exists, and every red token is round.",
-      "ar": "نعم؛ توجد قطعة حمراء واحدة على الأقل، وكل قطعة حمراء مستديرة."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "logic-puzzles-049",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Numbers & Patterns",
       "ar": "الأرقام والأنماط"
@@ -1206,25 +1143,6 @@
     "answer": {
       "en": "8 days. After seven full days and nights, the snail is at 7 m. On day 8 it climbs to 10 m and escapes, so it does not slide back that night.",
       "ar": "8 أيام. بعد سبعة أيام ولياليها، يكون الحلزون على ارتفاع 7 أمتار. وفي اليوم الثامن يصل إلى ارتفاع 10 أمتار ويخرج، فلا ينزلق في تلك الليلة."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "logic-puzzles-050",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Logic & Deduction",
-      "ar": "المنطق والاستنتاج"
-    },
-    "question": {
-      "en": "A photo session starts at 18:10 and lasts 35 minutes. Dinner starts 20 minutes after the session ends. When does dinner start?",
-      "ar": "تبدأ جلسة تصوير الساعة 18:10 وتستغرق 35 دقيقة. يبدأ العشاء بعد انتهاء الجلسة بعشرين دقيقة. متى يبدأ العشاء؟"
-    },
-    "answer": {
-      "en": "19:05. The session ends at 18:45; adding 20 minutes gives 19:05.",
-      "ar": "19:05؛ تنتهي الجلسة عند 18:45، وبعد عشرين دقيقة تصبح الساعة 19:05."
     },
     "review": {
       "status": "pending"
@@ -1364,44 +1282,6 @@
     }
   },
   {
-    "id": "logic-puzzles-058",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Numbers & Patterns",
-      "ar": "الأرقام والأنماط"
-    },
-    "question": {
-      "en": "A convex polygon has n vertices. From each vertex, exclude that vertex and its two neighbors. Derive the number of diagonals, making sure not to count each diagonal twice.",
-      "ar": "لمضلع محدب n رؤوس. من كل رأس استبعد الرأس نفسه وجاريه. اشتق عدد الأقطار، مع تجنّب عدّ كل قطر مرتين."
-    },
-    "answer": {
-      "en": "Each vertex connects diagonally to n−3 vertices, giving n(n−3) endpoint counts. Each diagonal has two endpoints, so the number is n(n−3)/2.",
-      "ar": "يتصل كل رأس قطريًا بـn−3 رؤوس، فنحصل على n(n−3) طرفًا محسوبًا. لكل قطر طرفان، ولذلك عدد الأقطار n(n−3)/2."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "logic-puzzles-059",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Logic & Deduction",
-      "ar": "المنطق والاستنتاج"
-    },
-    "question": {
-      "en": "Every object in a collection has property P. Every object with P has Q. An object lacks Q. Can it belong to that collection?",
-      "ar": "كل عنصر في مجموعة يتصف بـP، وكل ما يتصف بـP يتصف بـQ. عنصر ما لا يتصف بـQ. هل يمكن أن ينتمي إلى المجموعة؟"
-    },
-    "answer": {
-      "en": "No. Membership would imply P and therefore Q, contradicting the stated absence of Q.",
-      "ar": "لا؛ فانتماؤه يقتضي P ثم Q، وهذا يناقض عدم اتصافه بـQ."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "logic-puzzles-060",
     "difficulty": "very-advanced",
     "subcategory": {
@@ -1418,6 +1298,218 @@
     },
     "review": {
       "status": "pending"
+    }
+  },
+  {
+    "id": "logic-puzzles-061",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Constraints & Ordering",
+      "ar": "القيود والترتيب"
+    },
+    "question": {
+      "en": "Four people must cross a narrow bridge at night with one torch. At most two can cross at a time, and anyone crossing must have the torch. They take 1, 2, 5 and 10 minutes, and a pair walks at the slower person's pace. What is the shortest total time?",
+      "ar": "يجب أن يعبر أربعة أشخاص جسرًا ضيقًا ليلًا ومعهم مصباح يدوي واحد فقط. لا يعبر أكثر من اثنين في المرة الواحدة، ويجب أن يكون المصباح مع من يعبر. يحتاجون إلى 1 و2 و5 و10 دقائق، ويسير الاثنان معًا بسرعة الأبطأ. ما أقصر وقت إجمالي؟"
+    },
+    "answer": {
+      "en": "17 minutes: 1 and 2 cross (2), 1 returns (1), 5 and 10 cross (10), 2 returns (2), 1 and 2 cross (2).",
+      "ar": "17 دقيقة: يعبر 1 و2 (2)، يرجع 1 (1)، يعبر 5 و10 (10)، يرجع 2 (2)، يعبر 1 و2 (2)."
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "17 minutes",
+        "17"
+      ],
+      "ar": [
+        "17 دقيقة",
+        "17"
+      ]
+    }
+  },
+  {
+    "id": "logic-puzzles-062",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Constraints & Ordering",
+      "ar": "القيود والترتيب"
+    },
+    "question": {
+      "en": "You have a 4-minute hourglass and a 7-minute hourglass. How can you measure exactly 9 minutes?",
+      "ar": "لديك ساعة رملية مدتها 4 دقائق وأخرى مدتها 7 دقائق. كيف تقيس 9 دقائق بالضبط؟"
+    },
+    "answer": {
+      "en": "Start both; turn the 4 over at minute 4 and the 7 at minute 7. When the 4 empties again (minute 8), turn the 7 over: its last minute of sand ends at minute 9.",
+      "ar": "ابدأ الساعتين معًا؛ اقلب الـ4 عند الدقيقة 4 والـ7 عند الدقيقة 7. عندما تنفد الـ4 مرة ثانية (الدقيقة 8) اقلب الـ7، فينفد رملها المتبقي عند الدقيقة 9."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "logic-puzzles-063",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
+    },
+    "question": {
+      "en": "A lion lies on Mondays, Tuesdays and Wednesdays and tells the truth on other days. A unicorn lies on Thursdays, Fridays and Saturdays and tells the truth on other days. One day both say, 'Yesterday was one of my lying days.' What day is it?",
+      "ar": "أسد يكذب أيام الاثنين والثلاثاء والأربعاء ويصدق في بقية الأيام. وحصان وحيد القرن يكذب أيام الخميس والجمعة والسبت ويصدق في بقية الأيام. في أحد الأيام قال كلاهما: «كان أمس من أيام كذبي». ما هذا اليوم؟"
+    },
+    "answer": {
+      "en": "Thursday. The lion could only say it on Monday or Thursday, and the unicorn only on Thursday or Sunday.",
+      "ar": "الخميس. لا يستطيع الأسد قولها إلا يوم الاثنين أو الخميس، ولا يستطيع وحيد القرن إلا يوم الخميس أو الأحد."
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Thursday"
+      ],
+      "ar": [
+        "الخميس"
+      ]
+    }
+  },
+  {
+    "id": "logic-puzzles-064",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
+    },
+    "question": {
+      "en": "A census taker asks a mother the ages of her three children. 'Their ages multiply to 36,' she says, 'and add up to our house number.' He looks at the number and says he still can't tell. She adds, 'My oldest child loves dates.' What are the ages?",
+      "ar": "سأل موظف تعداد أمًّا عن أعمار أبنائها الثلاثة، فقالت: «حاصل ضرب أعمارهم 36، ومجموعها يساوي رقم بيتنا». نظر إلى رقم البيت وقال إنه ما زال لا يستطيع أن يعرف. فقالت: «وابني الأكبر يحب التمر». كم أعمارهم؟"
+    },
+    "answer": {
+      "en": "2, 2 and 9. Only 1 + 6 + 6 and 2 + 2 + 9 share a sum (13), and 'my oldest' rules out twins aged 6.",
+      "ar": "2 و2 و9. فقط 1 + 6 + 6 و2 + 2 + 9 لهما المجموع نفسه (13)، وعبارة «الأكبر» تستبعد التوأم ذوي الست سنوات."
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "2, 2 and 9"
+      ],
+      "ar": [
+        "2 و2 و9"
+      ]
+    }
+  },
+  {
+    "id": "logic-puzzles-065",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Constraints & Ordering",
+      "ar": "القيود والترتيب"
+    },
+    "question": {
+      "en": "You have 25 horses and a track that races 5 at a time. There's no stopwatch, only the finishing order. What is the fewest races needed to find the three fastest horses?",
+      "ar": "لديك 25 حصانًا ومضمار يتسابق فيه 5 في المرة الواحدة. لا توجد ساعة توقيت، لكنك تعرف ترتيب الوصول. ما أقل عدد من السباقات تحتاج إليه لتعرف أسرع ثلاثة خيول؟"
+    },
+    "answer": {
+      "en": "7: five heats, one race of the five heat winners, then a final race of the five horses still in contention for 2nd and 3rd.",
+      "ar": "7: خمسة سباقات للمجموعات، وسباق للفائزين الخمسة، ثم سباق أخير للخيول الخمسة التي ما زالت مرشحة للمركزين الثاني والثالث."
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "7",
+        "7 races"
+      ],
+      "ar": [
+        "7",
+        "7 سباقات"
+      ]
+    }
+  },
+  {
+    "id": "logic-puzzles-066",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Numbers & Patterns",
+      "ar": "الأرقام والأنماط"
+    },
+    "question": {
+      "en": "With two identical eggs and a 100-storey building, you must find the highest floor from which an egg survives a drop. A broken egg can't be reused. What is the fewest drops that guarantees the answer?",
+      "ar": "لديك بيضتان متطابقتان وبناية من 100 طابق، وعليك أن تعرف أعلى طابق يمكن أن تُلقى منه البيضة دون أن تنكسر. البيضة التي تنكسر لا يمكن استخدامها مرة أخرى. ما أقل عدد من الرميات يضمن لك الجواب؟"
+    },
+    "answer": {
+      "en": "14. Drop the first egg from floors 14, 27, 39, 50 and so on (each jump one floor shorter), then test floor by floor with the second.",
+      "ar": "14. ارمِ البيضة الأولى من الطوابق 14 ثم 27 ثم 39 ثم 50 وهكذا (كل قفزة أقصر بطابق)، ثم جرّب طابقًا طابقًا بالبيضة الثانية."
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "14"
+      ],
+      "ar": [
+        "14"
+      ]
+    }
+  },
+  {
+    "id": "logic-puzzles-067",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Numbers & Patterns",
+      "ar": "الأرقام والأنماط"
+    },
+    "question": {
+      "en": "One of 1,000 juice bottles has gone bad. A test strip changes colour a day after touching even a drop of the bad juice, and one strip can take drops from many bottles. With just one day, what is the fewest strips you need to find the bad bottle?",
+      "ar": "إحدى 1000 قنينة عصير فاسدة. يتغير لون شريط الفحص بعد يوم إذا لامسته ولو قطرة من العصير الفاسد، ويمكن أن يأخذ الشريط الواحد قطرات من قنانٍ كثيرة. لديك يوم واحد فقط، فما أقل عدد من الأشرطة تحتاج إليه لتعرف القنينة الفاسدة؟"
+    },
+    "answer": {
+      "en": "10. Number the bottles in binary and give strip k a drop from every bottle whose k-th binary digit is 1. The strips that change spell out the bad bottle's number (2¹⁰ = 1,024).",
+      "ar": "10. رقّم القناني بالنظام الثنائي، وأعطِ الشريط رقم k نقطة من كل قنينة خانتها رقم k تساوي 1. الأشرطة التي يتغيّر لونها تكتب رقم القنينة الفاسدة (2¹⁰ = 1,024)."
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "10"
+      ],
+      "ar": [
+        "10"
+      ]
+    }
+  },
+  {
+    "id": "logic-puzzles-068",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
+    },
+    "question": {
+      "en": "Ten people stand in a line, each wearing a red or black hat, and each can see only the hats in front. Starting from the back, each says one colour, trying to name their own hat. If they agree on a plan beforehand, how many can be sure of being right?",
+      "ar": "عشرة أشخاص يقفون في صف، يلبس كل منهم قبعة حمراء أو سوداء، ولا يرى كلٌّ منهم إلا القبعات التي أمامه. بدءًا من الأخير، يقول كل شخص لونًا واحدًا محاولًا معرفة لون قبعته. إذا اتفقوا على خطة مسبقًا، فكم منهم يستطيع أن يضمن أن إجابته صحيحة؟"
+    },
+    "answer": {
+      "en": "9. The person at the back says 'red' if he sees an odd number of red hats, otherwise 'black'. Everyone else can then work out their own colour; only he takes a 50–50 chance.",
+      "ar": "9. يقول الأخير «أحمر» إذا رأى عددًا فرديًا من القبعات الحمراء، وإلا قال «أسود». بعدها يستطيع كل الباقين استنتاج ألوانهم، ويبقى هو وحده باحتمال 50%."
+    },
+    "review": {
+      "status": "pending"
+    },
+    "acceptedAnswers": {
+      "en": [
+        "9"
+      ],
+      "ar": [
+        "9"
+      ]
     }
   }
 ]

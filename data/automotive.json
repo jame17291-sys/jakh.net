@@ -97,8 +97,8 @@
   {
     "id": "automotive-6",
     "subcategory": {
-      "en": "Electric Vehicles",
-      "ar": "المركبات الكهربائية"
+      "en": "Brands & Models",
+      "ar": "العلامات والطرازات"
     },
     "question": {
       "en": "Which Tesla electric sedan was introduced in 2012?",
@@ -116,18 +116,18 @@
   {
     "id": "automotive-7",
     "subcategory": {
-      "en": "Brands & Models",
-      "ar": "العلامات والطرازات"
+      "en": "Automotive History",
+      "ar": "تاريخ السيارات"
     },
     "question": {
-      "en": "Which American company built the Mustang?",
-      "ar": "أي شركة أمريكية صنعت الموستانج؟"
+      "en": "The Mercedes car brand is named after a real girl. Who was she?",
+      "ar": "تحمل علامة السيارات «مرسيدس» اسم فتاة حقيقية. مَن كانت؟"
     },
     "answer": {
-      "en": "Ford",
-      "ar": "فورد"
+      "en": "Mercédès Jellinek, daughter of Daimler dealer Emil Jellinek.",
+      "ar": "مرسيدس يلينك، ابنة إميل يلينك، تاجر سيارات دايملر."
     },
-    "difficulty": "easy",
+    "difficulty": "very-advanced",
     "review": {
       "status": "pending"
     }
@@ -173,16 +173,16 @@
   {
     "id": "automotive-10",
     "subcategory": {
-      "en": "Brands & Models",
-      "ar": "العلامات والطرازات"
+      "en": "Components & Maintenance",
+      "ar": "المكونات والصيانة"
     },
     "question": {
-      "en": "Which German brand manufactures the 911 sports car?",
-      "ar": "أي علامة تجارية ألمانية تصنع سيارة 911 الرياضية؟"
+      "en": "Before driving onto soft desert sand, why do 4×4 drivers let some air out of their tyres?",
+      "ar": "لماذا يُنقص سائقو سيارات الدفع الرباعي قليلًا من هواء الإطارات قبل دخول الرمال الناعمة في البر؟"
     },
     "answer": {
-      "en": "Porsche",
-      "ar": "بورشه"
+      "en": "A wider, flatter tyre spreads the weight, so the car floats instead of sinking.",
+      "ar": "يصير الإطار أعرض فيتوزع الوزن، فتطفو السيارة على الرمل بدل أن تغوص."
     },
     "difficulty": "easy",
     "review": {
@@ -249,16 +249,16 @@
   {
     "id": "automotive-14",
     "subcategory": {
-      "en": "Components & Maintenance",
-      "ar": "المكونات والصيانة"
+      "en": "Engines & Drivetrains",
+      "ar": "المحركات وأنظمة الدفع"
     },
     "question": {
-      "en": "Which component connects the engine to the transmission?",
-      "ar": "أي مكون يربط المحرك بناقل الحركة؟"
+      "en": "Petrol engines ignite their fuel with spark plugs. What ignites the fuel in a diesel engine?",
+      "ar": "تُشعل محركات البنزين الوقود بشمعات الإشعال. فما الذي يُشعل الوقود في محرك الديزل؟"
     },
     "answer": {
-      "en": "The clutch or torque converter",
-      "ar": "القابض أو محول عزم الدوران"
+      "en": "The heat of tightly squeezed air (compression ignition).",
+      "ar": "حرارة الهواء المضغوط بشدة (الاشتعال بالضغط)."
     },
     "difficulty": "medium",
     "review": {
@@ -287,16 +287,16 @@
   {
     "id": "automotive-16",
     "subcategory": {
-      "en": "Brands & Models",
-      "ar": "العلامات والطرازات"
+      "en": "Motorsport",
+      "ar": "رياضة المحركات"
     },
     "question": {
-      "en": "Which car manufacturer produces the Corolla?",
-      "ar": "ما اسم شركة السيارات التي تصنّع طراز كورولا؟"
+      "en": "Which country hosted the Middle East's first Formula 1 Grand Prix, in 2004?",
+      "ar": "أي دولة استضافت أول سباق جائزة كبرى للفورمولا 1 في الشرق الأوسط، سنة 2004؟"
     },
     "answer": {
-      "en": "Toyota.",
-      "ar": "تويوتا."
+      "en": "Bahrain.",
+      "ar": "البحرين."
     },
     "difficulty": "easy",
     "review": {
@@ -329,14 +329,14 @@
       "ar": "العلامات والطرازات"
     },
     "question": {
-      "en": "What does 'GT' typically stand for in car models?",
-      "ar": "ماذا يعني «GT» عادة في طرازات السيارات؟"
+      "en": "In Furious 7, which supercar from the Lebanese-founded firm W Motors leaps between Abu Dhabi's Etihad Towers?",
+      "ar": "في فيلم «سريع وغاضب 7» (Furious 7)، أي سيارة خارقة من شركة W Motors التي تأسست في لبنان تقفز بين أبراج الاتحاد في أبوظبي؟"
     },
     "answer": {
-      "en": "Grand Touring (Gran Turismo)",
-      "ar": "جراند تورينج"
+      "en": "The Lykan HyperSport.",
+      "ar": "لايكان هايبرسبورت."
     },
-    "difficulty": "medium",
+    "difficulty": "hard",
     "review": {
       "status": "pending"
     }
@@ -363,18 +363,18 @@
   {
     "id": "automotive-20",
     "subcategory": {
-      "en": "Electric Vehicles",
-      "ar": "المركبات الكهربائية"
+      "en": "Automotive History",
+      "ar": "تاريخ السيارات"
     },
     "question": {
-      "en": "What does the 'EV' in EV cars stand for?",
-      "ar": "ماذا يعني «EV» في سيارات EV؟"
+      "en": "Long before it built cars, the Peugeot family firm made a kitchen gadget that still carries its name. What is it?",
+      "ar": "قبل أن تصنع السيارات بزمن طويل، كانت شركة عائلة بيجو تصنع أداة مطبخ ما زالت تحمل اسمها حتى اليوم. ما هي؟"
     },
     "answer": {
-      "en": "Electric Vehicle",
-      "ar": "مركبة كهربائية"
+      "en": "The pepper mill.",
+      "ar": "مطحنة الفلفل."
     },
-    "difficulty": "easy",
+    "difficulty": "hard",
     "review": {
       "status": "pending"
     }
@@ -412,7 +412,7 @@
       "en": "24 Hours of Le Mans",
       "ar": "24 ساعة في لومان"
     },
-    "difficulty": "hard",
+    "difficulty": "medium",
     "review": {
       "status": "pending"
     }
@@ -420,16 +420,16 @@
   {
     "id": "automotive-23",
     "subcategory": {
-      "en": "Brands & Models",
-      "ar": "العلامات والطرازات"
+      "en": "Components & Maintenance",
+      "ar": "المكونات والصيانة"
     },
     "question": {
-      "en": "What is the term for a vehicle's resistance to motion caused by air flowing around it?",
-      "ar": "ما المصطلح الذي يصف مقاومة حركة المركبة الناتجة عن تدفق الهواء حولها؟"
+      "en": "Many car fuel gauges show a small arrow next to the pump symbol. What does it tell you?",
+      "ar": "في عدّاد الوقود في كثير من السيارات، يوجد سهم صغير بجانب رمز المضخة. ماذا يخبرك؟"
     },
     "answer": {
-      "en": "Aerodynamic drag.",
-      "ar": "المقاومة الهوائية."
+      "en": "Which side of the car the fuel cap is on.",
+      "ar": "في أي جهة من السيارة فتحة تعبئة الوقود."
     },
     "difficulty": "medium",
     "review": {
@@ -496,18 +496,18 @@
   {
     "id": "automotive-27",
     "subcategory": {
-      "en": "Brands & Models",
-      "ar": "العلامات والطرازات"
+      "en": "Motorsport",
+      "ar": "رياضة المحركات"
     },
     "question": {
-      "en": "Which British luxury car brand produces the Continental GT?",
-      "ar": "أي علامة بريطانية للسيارات الفاخرة تنتج كونتيننتال جي تي؟"
+      "en": "Which Saudi driver won the car category of the Dakar Rally on home soil in January 2025?",
+      "ar": "مَن السائق السعودي الذي فاز بفئة السيارات في رالي داكار على أرض بلاده في يناير 2025؟"
     },
     "answer": {
-      "en": "Bentley.",
-      "ar": "بنتلي."
+      "en": "Yazeed Al-Rajhi.",
+      "ar": "يزيد الراجحي."
     },
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "review": {
       "status": "pending"
     }
@@ -564,7 +564,7 @@
       "en": "Back to the Future",
       "ar": "العودة إلى المستقبل"
     },
-    "difficulty": "hard",
+    "difficulty": "medium",
     "review": {
       "status": "pending"
     }
@@ -618,8 +618,8 @@
       "ar": "ما الذي صُممت «هندسة التوجيه أكرمان» لحله؟"
     },
     "answer": {
-      "en": "The problem of wheels on the inside and outside of a turn needing to trace out circles of different radii",
-      "ar": "مشكلة العجلات الداخلية والخارجية في المنعطف التي تحتاج إلى رسم دوائر بأنصاف أقطار مختلفة"
+      "en": "Letting the inner wheel steer more sharply, since it follows a tighter circle.",
+      "ar": "جعل العجلة الداخلية تنعطف أكثر، لأنها ترسم دائرة أصغر."
     },
     "difficulty": "very-advanced",
     "review": {
@@ -705,16 +705,16 @@
   {
     "id": "automotive-38",
     "subcategory": {
-      "en": "Engines & Drivetrains",
-      "ar": "المحركات وأنظمة الدفع"
+      "en": "Motorsport",
+      "ar": "رياضة المحركات"
     },
     "question": {
-      "en": "What engine layout has two cylinder banks at 180 degrees, with each opposing pair of connecting rods sharing a crankpin?",
-      "ar": "ما تصميم المحرك الذي تتقابل فيه مجموعتا الأسطوانات بزاوية 180 درجة، ويشترك فيه ذراعا التوصيل لكل زوج متقابل في مسمار مرفق واحد؟"
+      "en": "Which British circuit hosted the very first Formula 1 World Championship race, in 1950?",
+      "ar": "أي حلبة بريطانية استضافت أول سباق في بطولة العالم للفورمولا 1، سنة 1950؟"
     },
     "answer": {
-      "en": "A 180-degree V engine, unlike a boxer engine with separate crankpins.",
-      "ar": "محرك على شكل V بزاوية 180 درجة، بخلاف محرك البوكسر الذي يستخدم مسامير مرفق منفصلة."
+      "en": "Silverstone.",
+      "ar": "سيلفرستون."
     },
     "difficulty": "very-advanced",
     "review": {

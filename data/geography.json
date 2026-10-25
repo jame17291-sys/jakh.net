@@ -26,12 +26,12 @@
       "ar": "الأنهار والبحيرات والدلتا"
     },
     "question": {
-      "en": "On which continent is the Nile River located?",
-      "ar": "في أي قارة يقع نهر النيل؟"
+      "en": "Which river flows through the heart of Baghdad?",
+      "ar": "أيّ نهر يمرّ في قلب بغداد؟"
     },
     "answer": {
-      "en": "Africa",
-      "ar": "أفريقيا"
+      "en": "The Tigris",
+      "ar": "نهر دجلة"
     },
     "review": {
       "status": "pending"
@@ -58,18 +58,18 @@
   },
   {
     "id": "geography-004",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Oceans, Seas & Straits",
-      "ar": "المحيطات والبحار والمضائق"
+      "en": "Countries, Capitals & Borders",
+      "ar": "الدول والعواصم والحدود"
     },
     "question": {
-      "en": "What is the deepest ocean on Earth?",
-      "ar": "ما أعمق محيط على الأرض؟"
+      "en": "What is the largest Arab country by area?",
+      "ar": "ما أكبر دولة عربية مساحةً؟"
     },
     "answer": {
-      "en": "The Pacific Ocean",
-      "ar": "المحيط الهادئ"
+      "en": "Algeria",
+      "ar": "الجزائر"
     },
     "review": {
       "status": "pending"
@@ -96,18 +96,18 @@
   },
   {
     "id": "geography-006",
-    "difficulty": "easy",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Countries, Capitals & Borders",
       "ar": "الدول والعواصم والحدود"
     },
     "question": {
-      "en": "Which country includes the island state of Tasmania?",
-      "ar": "أي دولة تضم الولاية الجزرية تسمانيا؟"
+      "en": "Which is the only country whose entire territory lies above 1,000 metres?",
+      "ar": "ما الدولة الوحيدة التي تقع أراضيها كلها فوق 1,000 متر؟"
     },
     "answer": {
-      "en": "Australia.",
-      "ar": "أستراليا."
+      "en": "Lesotho",
+      "ar": "ليسوتو"
     },
     "review": {
       "status": "pending"
@@ -191,7 +191,7 @@
   },
   {
     "id": "geography-011",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Countries, Capitals & Borders",
       "ar": "الدول والعواصم والحدود"
@@ -229,7 +229,7 @@
   },
   {
     "id": "geography-013",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Mountains & Elevation",
       "ar": "الجبال والارتفاعات"
@@ -305,18 +305,18 @@
   },
   {
     "id": "geography-017",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Continents, Islands & Regions",
-      "ar": "القارات والجزر والمناطق"
+      "en": "Rivers, Lakes & Deltas",
+      "ar": "الأنهار والبحيرات والدلتا"
     },
     "question": {
-      "en": "Which Southeast Asian archipelagic country has Manila as its capital?",
-      "ar": "ما الدولة الأرخبيلية في جنوب شرق آسيا التي عاصمتها مانيلا؟"
+      "en": "What is the longest river that flows entirely within a single country?",
+      "ar": "ما أطول نهر يجري بالكامل داخل دولة واحدة؟"
     },
     "answer": {
-      "en": "The Philippines.",
-      "ar": "الفلبين."
+      "en": "The Yangtze (China)",
+      "ar": "نهر اليانغتسي (الصين)"
     },
     "review": {
       "status": "pending"
@@ -324,7 +324,7 @@
   },
   {
     "id": "geography-018",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Rivers, Lakes & Deltas",
       "ar": "الأنهار والبحيرات والدلتا"
@@ -383,16 +383,16 @@
     "id": "geography-021",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Countries, Capitals & Borders",
-      "ar": "الدول والعواصم والحدود"
+      "en": "Mountains & Elevation",
+      "ar": "الجبال والارتفاعات"
     },
     "question": {
-      "en": "What is the tiny country entirely surrounded by the city of Rome?",
-      "ar": "ما الدولة الصغيرة المحاطة بالكامل بمدينة روما؟"
+      "en": "Which mountain range stretches across Morocco, Algeria and Tunisia?",
+      "ar": "أيّ سلسلة جبال تمتد عبر المغرب والجزائر وتونس؟"
     },
     "answer": {
-      "en": "Vatican City",
-      "ar": "مدينة الفاتيكان"
+      "en": "The Atlas Mountains",
+      "ar": "جبال الأطلس"
     },
     "review": {
       "status": "pending"
@@ -457,7 +457,7 @@
   },
   {
     "id": "geography-025",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Countries, Capitals & Borders",
       "ar": "الدول والعواصم والحدود"
@@ -495,7 +495,7 @@
   },
   {
     "id": "geography-027",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Continents, Islands & Regions",
       "ar": "القارات والجزر والمناطق"
@@ -571,18 +571,18 @@
   },
   {
     "id": "geography-031",
-    "difficulty": "easy",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Countries, Capitals & Borders",
-      "ar": "الدول والعواصم والحدود"
+      "en": "Rivers, Lakes & Deltas",
+      "ar": "الأنهار والبحيرات والدلتا"
     },
     "question": {
-      "en": "What is the capital of Japan?",
-      "ar": "ما عاصمة اليابان؟"
+      "en": "What is the largest country in the world with no permanent rivers?",
+      "ar": "ما أكبر دولة في العالم لا يوجد فيها أي نهر دائم؟"
     },
     "answer": {
-      "en": "Tokyo",
-      "ar": "طوكيو"
+      "en": "Saudi Arabia",
+      "ar": "السعودية"
     },
     "review": {
       "status": "pending"
@@ -628,7 +628,7 @@
   },
   {
     "id": "geography-034",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Countries, Capitals & Borders",
       "ar": "الدول والعواصم والحدود"
@@ -666,7 +666,7 @@
   },
   {
     "id": "geography-036",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Countries, Capitals & Borders",
       "ar": "الدول والعواصم والحدود"
@@ -723,18 +723,18 @@
   },
   {
     "id": "geography-039",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Countries, Capitals & Borders",
-      "ar": "الدول والعواصم والحدود"
+      "en": "Oceans, Seas & Straits",
+      "ar": "المحيطات والبحار والمضائق"
     },
     "question": {
-      "en": "Which South Asian country has New Delhi as its capital?",
-      "ar": "أي دولة في جنوب آسيا عاصمتها نيودلهي؟"
+      "en": "The Sinai Peninsula lies between the Gulf of Suez and which other gulf?",
+      "ar": "تقع شبه جزيرة سيناء بين خليج السويس وأيّ خليج آخر؟"
     },
     "answer": {
-      "en": "India.",
-      "ar": "الهند."
+      "en": "The Gulf of Aqaba",
+      "ar": "خليج العقبة"
     },
     "review": {
       "status": "pending"
@@ -742,18 +742,18 @@
   },
   {
     "id": "geography-040",
-    "difficulty": "easy",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Countries, Capitals & Borders",
-      "ar": "الدول والعواصم والحدود"
+      "en": "Rivers, Lakes & Deltas",
+      "ar": "الأنهار والبحيرات والدلتا"
     },
     "question": {
-      "en": "What is the capital of Germany?",
-      "ar": "ما عاصمة ألمانيا؟"
+      "en": "Which major African river crosses the equator twice?",
+      "ar": "أي نهر إفريقي كبير يقطع خط الاستواء مرتين؟"
     },
     "answer": {
-      "en": "Berlin",
-      "ar": "برلين"
+      "en": "The Congo River",
+      "ar": "نهر الكونغو"
     },
     "review": {
       "status": "pending"
@@ -915,16 +915,16 @@
     "id": "geography-049",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Countries, Capitals & Borders",
-      "ar": "الدول والعواصم والحدود"
+      "en": "Landforms, Deserts & Climate",
+      "ar": "التضاريس والصحاري والمناخ"
     },
     "question": {
-      "en": "What is the capital of New Zealand?",
-      "ar": "ما عاصمة نيوزيلندا؟"
+      "en": "Which desert in the southern Arabian Peninsula is the world's largest continuous sand desert?",
+      "ar": "أيّ صحراء في جنوب الجزيرة العربية هي أكبر صحراء رملية متصلة في العالم؟"
     },
     "answer": {
-      "en": "Wellington",
-      "ar": "ولينغتون"
+      "en": "The Rub' al Khali (Empty Quarter)",
+      "ar": "الربع الخالي"
     },
     "review": {
       "status": "pending"
@@ -932,18 +932,18 @@
   },
   {
     "id": "geography-050",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Rivers, Lakes & Deltas",
-      "ar": "الأنهار والبحيرات والدلتا"
+      "en": "Oceans, Seas & Straits",
+      "ar": "المحيطات والبحار والمضائق"
     },
     "question": {
-      "en": "Why can people float particularly easily in the Dead Sea?",
-      "ar": "لماذا يسهل الطفو على نحو خاص في البحر الميت؟"
+      "en": "Which sea has no land coastline at all and is bounded only by ocean currents?",
+      "ar": "أيّ بحر ليس له أي ساحل على اليابسة، وحدوده كلها تيارات محيطية؟"
     },
     "answer": {
-      "en": "Its high salt content makes its water dense, increasing buoyancy.",
-      "ar": "ترفع ملوحته العالية كثافة الماء، فتزداد قوة الطفو."
+      "en": "The Sargasso Sea",
+      "ar": "بحر سارغاسو"
     },
     "review": {
       "status": "pending"
@@ -951,18 +951,18 @@
   },
   {
     "id": "geography-051",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Countries, Capitals & Borders",
-      "ar": "الدول والعواصم والحدود"
+      "en": "Mountains & Elevation",
+      "ar": "الجبال والارتفاعات"
     },
     "question": {
-      "en": "What is the capital of Argentina?",
-      "ar": "ما عاصمة الأرجنتين؟"
+      "en": "What is the highest mountain in the Arab world, rising to 4,167 metres in Morocco?",
+      "ar": "ما أعلى جبل في العالم العربي، ويبلغ ارتفاعه 4,167 مترًا في المغرب؟"
     },
     "answer": {
-      "en": "Buenos Aires",
-      "ar": "بوينس آيرس"
+      "en": "Jebel Toubkal",
+      "ar": "جبل توبقال"
     },
     "review": {
       "status": "pending"
@@ -970,18 +970,18 @@
   },
   {
     "id": "geography-052",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Countries, Capitals & Borders",
-      "ar": "الدول والعواصم والحدود"
+      "en": "Continents, Islands & Regions",
+      "ar": "القارات والجزر والمناطق"
     },
     "question": {
-      "en": "What is the capital of South Korea?",
-      "ar": "ما عاصمة كوريا الجنوبية؟"
+      "en": "Which Arab League member is an island nation between Mozambique and Madagascar?",
+      "ar": "أيّ دولة عضو في جامعة الدول العربية هي دولة جزرية بين موزمبيق ومدغشقر؟"
     },
     "answer": {
-      "en": "Seoul",
-      "ar": "سيول"
+      "en": "Comoros",
+      "ar": "جزر القمر"
     },
     "review": {
       "status": "pending"
@@ -1027,7 +1027,7 @@
   },
   {
     "id": "geography-055",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Oceans, Seas & Straits",
       "ar": "المحيطات والبحار والمضائق"
@@ -1048,16 +1048,16 @@
     "id": "geography-056",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Countries, Capitals & Borders",
-      "ar": "الدول والعواصم والحدود"
+      "en": "Oceans, Seas & Straits",
+      "ar": "المحيطات والبحار والمضائق"
     },
     "question": {
-      "en": "What is the capital of Mexico?",
-      "ar": "ما عاصمة المكسيك؟"
+      "en": "Which strait links the Red Sea with the Gulf of Aden?",
+      "ar": "أيّ مضيق يصل البحر الأحمر بخليج عدن؟"
     },
     "answer": {
-      "en": "Mexico City",
-      "ar": "مكسيكو سيتي"
+      "en": "Bab el-Mandeb",
+      "ar": "مضيق باب المندب"
     },
     "review": {
       "status": "pending"
@@ -1065,18 +1065,18 @@
   },
   {
     "id": "geography-057",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Countries, Capitals & Borders",
-      "ar": "الدول والعواصم والحدود"
+      "en": "Maps & Coordinates",
+      "ar": "الخرائط والإحداثيات"
     },
     "question": {
-      "en": "Which East Asian country includes the islands Honshu, Hokkaido, Kyushu and Shikoku?",
-      "ar": "أي دولة في شرق آسيا تضم جزر هونشو وهوكايدو وكيوشو وشيكوكو؟"
+      "en": "Which is the only country crossed by both the Equator and the Tropic of Capricorn?",
+      "ar": "ما الدولة الوحيدة التي يمر بها خط الاستواء ومدار الجدي معًا؟"
     },
     "answer": {
-      "en": "Japan.",
-      "ar": "اليابان."
+      "en": "Brazil",
+      "ar": "البرازيل"
     },
     "review": {
       "status": "pending"
@@ -1084,7 +1084,7 @@
   },
   {
     "id": "geography-058",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Rivers, Lakes & Deltas",
       "ar": "الأنهار والبحيرات والدلتا"
@@ -1105,16 +1105,16 @@
     "id": "geography-059",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Mountains & Elevation",
-      "ar": "الجبال والارتفاعات"
+      "en": "Oceans, Seas & Straits",
+      "ar": "المحيطات والبحار والمضائق"
     },
     "question": {
-      "en": "What is the highest mountain in Europe (excluding Caucasus)?",
-      "ar": "ما أعلى جبل في أوروبا (باستثناء القوقاز)؟"
+      "en": "Which narrow strait links the Gulf with the Gulf of Oman?",
+      "ar": "أيّ مضيق ضيق يصل الخليج بخليج عُمان؟"
     },
     "answer": {
-      "en": "Mont Blanc",
-      "ar": "مونت بلان"
+      "en": "The Strait of Hormuz",
+      "ar": "مضيق هرمز"
     },
     "review": {
       "status": "pending"
@@ -1160,7 +1160,7 @@
   },
   {
     "id": "geography-062",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Oceans, Seas & Straits",
       "ar": "المحيطات والبحار والمضائق"
@@ -1293,7 +1293,7 @@
   },
   {
     "id": "geography-069",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Countries, Capitals & Borders",
       "ar": "الدول والعواصم والحدود"
@@ -1331,18 +1331,18 @@
   },
   {
     "id": "geography-071",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Countries, Capitals & Borders",
       "ar": "الدول والعواصم والحدود"
     },
     "question": {
-      "en": "What is the capital of Eritrea?",
-      "ar": "ما عاصمة إريتريا؟"
+      "en": "The Musandam Peninsula is cut off from the rest of its country by UAE territory. Which country does it belong to?",
+      "ar": "شبه جزيرة مسندم مفصولة عن بقية دولتها بأراضٍ إماراتية. إلى أيّ دولة تتبع؟"
     },
     "answer": {
-      "en": "Asmara",
-      "ar": "أسمرة"
+      "en": "Oman",
+      "ar": "عُمان"
     },
     "review": {
       "status": "pending"
@@ -1352,16 +1352,16 @@
     "id": "geography-072",
     "difficulty": "hard",
     "subcategory": {
-      "en": "Countries, Capitals & Borders",
-      "ar": "الدول والعواصم والحدود"
+      "en": "Rivers, Lakes & Deltas",
+      "ar": "الأنهار والبحيرات والدلتا"
     },
     "question": {
-      "en": "What is the capital of Laos?",
-      "ar": "ما عاصمة لاوس؟"
+      "en": "In which capital city do the White Nile and the Blue Nile meet?",
+      "ar": "في أيّ عاصمة يلتقي النيل الأبيض بالنيل الأزرق؟"
     },
     "answer": {
-      "en": "Vientiane",
-      "ar": "فيينتيان"
+      "en": "Khartoum",
+      "ar": "الخرطوم"
     },
     "review": {
       "status": "pending"
@@ -1464,7 +1464,7 @@
   },
   {
     "id": "geography-078",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Oceans, Seas & Straits",
       "ar": "المحيطات والبحار والمضائق"
@@ -1502,7 +1502,7 @@
   },
   {
     "id": "geography-080",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Oceans, Seas & Straits",
       "ar": "المحيطات والبحار والمضائق"
@@ -1597,7 +1597,7 @@
   },
   {
     "id": "geography-085",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Landforms, Deserts & Climate",
       "ar": "التضاريس والصحاري والمناخ"
@@ -1622,12 +1622,12 @@
       "ar": "الدول والعواصم والحدود"
     },
     "question": {
-      "en": "What is the capital of the Maldives?",
-      "ar": "ما عاصمة جزر المالديف؟"
+      "en": "Which country has the longest coastline on mainland Africa?",
+      "ar": "أيّ دولة لها أطول ساحل على البر الإفريقي؟"
     },
     "answer": {
-      "en": "Malé",
-      "ar": "ماليه"
+      "en": "Somalia",
+      "ar": "الصومال"
     },
     "review": {
       "status": "pending"
@@ -1673,18 +1673,18 @@
   },
   {
     "id": "geography-089",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Mountains & Elevation",
       "ar": "الجبال والارتفاعات"
     },
     "question": {
-      "en": "What is a pass in a mountain range?",
-      "ar": "ما الممر الجبلي؟"
+      "en": "Which continent has the highest average elevation?",
+      "ar": "أيّ قارة لها أعلى متوسط ارتفاع؟"
     },
     "answer": {
-      "en": "A relatively low route through or across a mountain range.",
-      "ar": "طريق منخفض نسبياً يعبر سلسلة جبلية أو يمر بينها."
+      "en": "Antarctica",
+      "ar": "القارة القطبية الجنوبية (أنتاركتيكا)"
     },
     "review": {
       "status": "pending"
@@ -1698,12 +1698,12 @@
       "ar": "المحيطات والبحار والمضائق"
     },
     "question": {
-      "en": "In which sea off northeastern Australia is the Great Barrier Reef located?",
-      "ar": "في أي بحر قبالة شمال شرقي أستراليا يقع الحاجز المرجاني العظيم؟"
+      "en": "What is the name of the spot in the ocean that lies farthest from any land?",
+      "ar": "ما اسم النقطة في المحيط الأبعد عن أي يابسة؟"
     },
     "answer": {
-      "en": "The Coral Sea.",
-      "ar": "بحر الكورال."
+      "en": "Point Nemo",
+      "ar": "نقطة نيمو (Point Nemo)"
     },
     "review": {
       "status": "pending"
@@ -1711,18 +1711,18 @@
   },
   {
     "id": "geography-091",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "Countries, Capitals & Borders",
-      "ar": "الدول والعواصم والحدود"
+      "en": "Landforms, Deserts & Climate",
+      "ar": "التضاريس والصحاري والمناخ"
     },
     "question": {
-      "en": "Which UN organization maintains the World Heritage List?",
-      "ar": "ما منظمة الأمم المتحدة المسؤولة عن قائمة التراث العالمي؟"
+      "en": "Which desert in Chile is the driest non-polar desert on Earth?",
+      "ar": "أيّ صحراء في تشيلي هي أجفّ صحراء غير قطبية على الأرض؟"
     },
     "answer": {
-      "en": "UNESCO.",
-      "ar": "اليونسكو."
+      "en": "The Atacama Desert",
+      "ar": "صحراء أتاكاما"
     },
     "review": {
       "status": "pending"
@@ -1732,16 +1732,16 @@
     "id": "geography-092",
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Oceans, Seas & Straits",
-      "ar": "المحيطات والبحار والمضائق"
+      "en": "Rivers, Lakes & Deltas",
+      "ar": "الأنهار والبحيرات والدلتا"
     },
     "question": {
-      "en": "Approximately how deep is the Mariana Trench?",
-      "ar": "ما العمق التقريبي لخندق ماريانا؟"
+      "en": "In which country is Lake Assal, the lowest point in Africa?",
+      "ar": "في أيّ دولة تقع بحيرة عسل، أخفض نقطة في قارة إفريقيا؟"
     },
     "answer": {
-      "en": "About 11,000 metres (36,000 feet)",
-      "ar": "حوالي 11,000 متر"
+      "en": "Djibouti",
+      "ar": "جيبوتي"
     },
     "review": {
       "status": "pending"
@@ -1770,16 +1770,16 @@
     "id": "geography-094",
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Countries, Capitals & Borders",
-      "ar": "الدول والعواصم والحدود"
+      "en": "Mountains & Elevation",
+      "ar": "الجبال والارتفاعات"
     },
     "question": {
-      "en": "What is the capital of Burkina Faso?",
-      "ar": "ما عاصمة بوركينا فاسو؟"
+      "en": "Which Arab capital stands highest above sea level, at more than 2,200 metres?",
+      "ar": "أي عاصمة عربية هي الأعلى فوق سطح البحر، على ارتفاع أكثر من 2,200 متر؟"
     },
     "answer": {
-      "en": "Ouagadougou",
-      "ar": "واغادوغو"
+      "en": "Sana'a",
+      "ar": "صنعاء"
     },
     "review": {
       "status": "pending"
@@ -1808,16 +1808,16 @@
     "id": "geography-096",
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Countries, Capitals & Borders",
-      "ar": "الدول والعواصم والحدود"
+      "en": "Rivers, Lakes & Deltas",
+      "ar": "الأنهار والبحيرات والدلتا"
     },
     "question": {
-      "en": "What Portuguese short name does the country commonly called Cape Verde use internationally?",
-      "ar": "ما الاسم المختصر بالبرتغالية الذي تستخدمه دولياً الدولة المعروفة بالرأس الأخضر؟"
+      "en": "The Blue Nile flows out of which lake in Ethiopia?",
+      "ar": "من أيّ بحيرة في إثيوبيا ينبع النيل الأزرق؟"
     },
     "answer": {
-      "en": "Cabo Verde.",
-      "ar": "كابو فيردي."
+      "en": "Lake Tana",
+      "ar": "بحيرة تانا"
     },
     "review": {
       "status": "pending"
@@ -1844,7 +1844,7 @@
   },
   {
     "id": "geography-098",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Maps & Coordinates",
       "ar": "الخرائط والإحداثيات"
@@ -1884,16 +1884,16 @@
     "id": "geography-100",
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Countries, Capitals & Borders",
-      "ar": "الدول والعواصم والحدود"
+      "en": "Maps & Coordinates",
+      "ar": "الخرائط والإحداثيات"
     },
     "question": {
-      "en": "What is the capital of Kyrgyzstan?",
-      "ar": "ما عاصمة قيرغيزستان؟"
+      "en": "Counting its overseas territories, which country spans the most time zones?",
+      "ar": "إذا احتُسبت الأقاليم فيما وراء البحار، فأي دولة تمتد على أكبر عدد من المناطق الزمنية؟"
     },
     "answer": {
-      "en": "Bishkek",
-      "ar": "بيشكيك"
+      "en": "France",
+      "ar": "فرنسا"
     },
     "review": {
       "status": "pending"

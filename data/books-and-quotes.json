@@ -115,7 +115,7 @@
   },
   {
     "id": "books-and-quotes-007",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Literary History, Terms & Awards",
       "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
@@ -210,7 +210,7 @@
   },
   {
     "id": "books-and-quotes-012",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Authors & Identities",
       "ar": "المؤلفون وهوياتهم"
@@ -267,7 +267,7 @@
   },
   {
     "id": "books-and-quotes-015",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Works & Characters",
       "ar": "الأعمال والشخصيات"
@@ -345,16 +345,16 @@
     "id": "books-and-quotes-019",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Authors & Identities",
-      "ar": "المؤلفون وهوياتهم"
+      "en": "Literary History, Terms & Awards",
+      "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
     },
     "question": {
-      "en": "Who wrote the massive historical novel 'War and Peace'?",
-      "ar": "من كتب الرواية التاريخية الضخمة «الحرب والسلام»؟"
+      "en": "Which Egyptian novelist became the first Arab to win the Nobel Prize in Literature, in 1988?",
+      "ar": "مَن الروائي المصري الذي أصبح أول عربي يفوز بجائزة نوبل للأدب عام 1988؟"
     },
     "answer": {
-      "en": "Leo Tolstoy",
-      "ar": "ليو تولستوي"
+      "en": "Naguib Mahfouz",
+      "ar": "نجيب محفوظ"
     },
     "review": {
       "status": "pending"
@@ -402,16 +402,16 @@
     "id": "books-and-quotes-022",
     "difficulty": "hard",
     "subcategory": {
-      "en": "Literary History, Terms & Awards",
-      "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
+      "en": "Authors & Identities",
+      "ar": "المؤلفون وهوياتهم"
     },
     "question": {
-      "en": "Who was the first American to win the Nobel Prize in Literature?",
-      "ar": "من كان أول أمريكي يفوز بجائزة نوبل في الأدب؟"
+      "en": "Which Sudanese novelist wrote 'Season of Migration to the North'?",
+      "ar": "مَن الروائي السوداني الذي كتب «موسم الهجرة إلى الشمال»؟"
     },
     "answer": {
-      "en": "Sinclair Lewis",
-      "ar": "سينكلير لويس"
+      "en": "Tayeb Salih",
+      "ar": "الطيب صالح"
     },
     "review": {
       "status": "pending"
@@ -440,16 +440,16 @@
     "id": "books-and-quotes-024",
     "difficulty": "hard",
     "subcategory": {
-      "en": "Quotes & Opening Lines",
-      "ar": "الاقتباسات والمطالع"
+      "en": "Authors & Identities",
+      "ar": "المؤلفون وهوياتهم"
     },
     "question": {
-      "en": "'More weight' were the famous last words of which man during the Salem Witch Trials (in Miller's The Crucible)?",
-      "ar": "«مزيد من الوزن» كانت الكلمات الأخيرة لأي رجل في محاكم السحر في سالم كما في مسرحية ميلر؟"
+      "en": "Who translated the animal fables 'Kalila wa Dimna' into Arabic in the 8th century?",
+      "ar": "مَن الذي ترجم حكايات الحيوان «كليلة ودمنة» إلى العربية في القرن الثامن؟"
     },
     "answer": {
-      "en": "Giles Corey",
-      "ar": "جايلز كوري"
+      "en": "Ibn al-Muqaffa'",
+      "ar": "ابن المقفّع"
     },
     "review": {
       "status": "pending"
@@ -457,7 +457,7 @@
   },
   {
     "id": "books-and-quotes-025",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Literary History, Terms & Awards",
       "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
@@ -533,7 +533,7 @@
   },
   {
     "id": "books-and-quotes-029",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Quotes & Opening Lines",
       "ar": "الاقتباسات والمطالع"
@@ -564,6 +564,196 @@
     "answer": {
       "en": "Emily Brontë",
       "ar": "إيميلي برونتي"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "books-and-quotes-031",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Works & Characters",
+      "ar": "الأعمال والشخصيات"
+    },
+    "question": {
+      "en": "In 'One Thousand and One Nights', who tells the king a new story every night?",
+      "ar": "في «ألف ليلة وليلة»، مَن التي تروي للملك قصة جديدة كل ليلة؟"
+    },
+    "answer": {
+      "en": "Scheherazade",
+      "ar": "شهرزاد"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "books-and-quotes-032",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Authors & Identities",
+      "ar": "المؤلفون وهوياتهم"
+    },
+    "question": {
+      "en": "Which Lebanese-American writer wrote 'The Prophet' (1923), one of the best-selling poetry books ever?",
+      "ar": "مَن الكاتب اللبناني الأمريكي الذي كتب «النبي» عام 1923، وهو من أكثر كتب الشعر مبيعًا في العالم؟"
+    },
+    "answer": {
+      "en": "Khalil Gibran",
+      "ar": "جبران خليل جبران"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "books-and-quotes-033",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Quotes & Opening Lines",
+      "ar": "الاقتباسات والمطالع"
+    },
+    "question": {
+      "en": "'Halt, friends, and let us weep...' (Qifa nabki) opens the famous ode of which pre-Islamic poet?",
+      "ar": "«قِفا نبكِ من ذكرى حبيبٍ ومنزلِ» مطلع معلّقة أي شاعر جاهلي؟"
+    },
+    "answer": {
+      "en": "Imru' al-Qais",
+      "ar": "امرؤ القيس"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "books-and-quotes-034",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Authors & Identities",
+      "ar": "المؤلفون وهوياتهم"
+    },
+    "question": {
+      "en": "Which 9th-century Basra writer wrote 'Kitab al-Hayawan' (The Book of Animals)?",
+      "ar": "مَن الكاتب البصري في القرن التاسع الذي ألّف «كتاب الحيوان»؟"
+    },
+    "answer": {
+      "en": "Al-Jahiz",
+      "ar": "الجاحظ"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "books-and-quotes-035",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Works & Characters",
+      "ar": "الأعمال والشخصيات"
+    },
+    "question": {
+      "en": "Which novelist wrote the 'Cities of Salt' series about oil transforming a desert society?",
+      "ar": "مَن الروائي الذي كتب خماسية «مدن الملح» عن تحوّل مجتمع صحراوي بعد اكتشاف النفط؟"
+    },
+    "answer": {
+      "en": "Abdul Rahman Munif",
+      "ar": "عبد الرحمن منيف"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "books-and-quotes-036",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Literary History, Terms & Awards",
+      "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
+    },
+    "question": {
+      "en": "Which Abu Dhabi-supported literary prize is widely nicknamed the 'Arabic Booker'?",
+      "ar": "ما اسم الجائزة الأدبية المدعومة من أبوظبي التي تُسمّى «البوكر العربية»؟"
+    },
+    "answer": {
+      "en": "The International Prize for Arabic Fiction",
+      "ar": "الجائزة العالمية للرواية العربية"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "books-and-quotes-037",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Authors & Identities",
+      "ar": "المؤلفون وهوياتهم"
+    },
+    "question": {
+      "en": "Which early Arab poetess is famous for her elegies for her brother Sakhr?",
+      "ar": "مَن الشاعرة العربية القديمة المشهورة برثائها لأخيها صخر؟"
+    },
+    "answer": {
+      "en": "Al-Khansa",
+      "ar": "الخنساء"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "books-and-quotes-038",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Works & Characters",
+      "ar": "الأعمال والشخصيات"
+    },
+    "question": {
+      "en": "Which Palestinian writer's novella 'Men in the Sun' follows three refugees crossing the desert hidden inside a water tank?",
+      "ar": "أيّ كاتب فلسطيني كتب رواية «رجال في الشمس» عن ثلاثة لاجئين يعبرون الصحراء مختبئين داخل خزان ماء؟"
+    },
+    "answer": {
+      "en": "Ghassan Kanafani",
+      "ar": "غسان كنفاني"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "books-and-quotes-039",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Works & Characters",
+      "ar": "الأعمال والشخصيات"
+    },
+    "question": {
+      "en": "What is the name of Don Quixote's old horse?",
+      "ar": "ما اسم حصان دون كيخوته العجوز؟"
+    },
+    "answer": {
+      "en": "Rocinante",
+      "ar": "روسينانتي"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "books-and-quotes-040",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Works & Characters",
+      "ar": "الأعمال والشخصيات"
+    },
+    "question": {
+      "en": "In which autobiography did Taha Hussein, blind from early childhood, describe growing up in an Egyptian village and studying at al-Azhar?",
+      "ar": "في أي سيرة ذاتية روى طه حسين، الذي فقد بصره في طفولته المبكرة، نشأته في قرية مصرية ودراسته في الأزهر؟"
+    },
+    "answer": {
+      "en": "The Days (al-Ayyam)",
+      "ar": "الأيام"
     },
     "review": {
       "status": "pending"

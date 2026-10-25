@@ -178,12 +178,12 @@
       "ar": "الإدراك والذاكرة والإحساس"
     },
     "question": {
-      "en": "Which traditional sense lets you distinguish a sweet solution from a bitter one when it reaches your tongue?",
-      "ar": "ما الحاسة التقليدية التي تتيح لك التمييز بين محلول حلو وآخر مُرّ عندما يصلان إلى لسانك؟"
+      "en": "Which French term names the eerie feeling that you have already lived through a brand-new moment?",
+      "ar": "ما الكلمة الفرنسية التي تُطلق على الإحساس الغريب بأنك عشت لحظة جديدة من قبل؟"
     },
     "answer": {
-      "en": "Taste.",
-      "ar": "التذوق."
+      "en": "Déjà vu ('already seen').",
+      "ar": "ديجا فو (Déjà vu)، أي «سبقت رؤيته»."
     },
     "review": {
       "status": "pending"
@@ -191,7 +191,7 @@
   },
   {
     "id": "psychology-011",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Foundations, Learning & Motivation",
       "ar": "الأسس والتعلم والدافعية"
@@ -229,7 +229,7 @@
   },
   {
     "id": "psychology-013",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Clinical & Mental Health",
       "ar": "علم النفس السريري والصحة النفسية"
@@ -362,7 +362,7 @@
   },
   {
     "id": "psychology-020",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Personality & Emotion",
       "ar": "الشخصية والانفعال"
@@ -514,18 +514,18 @@
   },
   {
     "id": "psychology-028",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Clinical & Mental Health",
       "ar": "علم النفس السريري والصحة النفسية"
     },
     "question": {
-      "en": "What is the 'DSM' used for in psychology?",
-      "ar": "لماذا يُستخدم «DSM» في علم النفس؟"
+      "en": "Which 9th-century Muslim scholar wrote 'Sustenance of the Body and Soul', describing depression, phobias and obsessive thoughts and how to treat them?",
+      "ar": "أيّ عالم مسلم في القرن التاسع ألّف «مصالح الأبدان والأنفس»، ووصف فيه الاكتئاب والرهاب والوساوس وطرق علاجها؟"
     },
     "answer": {
-      "en": "Diagnosing mental disorders",
-      "ar": "تشخيص الاضطرابات النفسية"
+      "en": "Abu Zayd al-Balkhi.",
+      "ar": "أبو زيد البلخي."
     },
     "review": {
       "status": "pending"
@@ -571,7 +571,7 @@
   },
   {
     "id": "psychology-031",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Foundations, Learning & Motivation",
       "ar": "الأسس والتعلم والدافعية"
@@ -592,16 +592,16 @@
     "id": "psychology-032",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Cognition, Memory & Perception",
-      "ar": "الإدراك والذاكرة والإحساس"
+      "en": "Developmental Psychology",
+      "ar": "علم نفس النمو"
     },
     "question": {
-      "en": "What is classical conditioning?",
-      "ar": "ما التكييف الكلاسيكي؟"
+      "en": "At about what age do most babies start giving a 'social smile' to people: 6 weeks, 6 months or 1 year?",
+      "ar": "في أيّ عمر تقريبًا يبدأ معظم الرضّع بإظهار «الابتسامة الاجتماعية» للناس: 6 أسابيع، أم 6 أشهر، أم سنة؟"
     },
     "answer": {
-      "en": "Learning through association — pairing a neutral stimulus with one that produces a response",
-      "ar": "التعلّم عبر التداعي — ربط محفّز محايد بآخر يُحدث استجابة"
+      "en": "Around 6 weeks (about 6–8 weeks).",
+      "ar": "حوالي 6 أسابيع (بين 6 و8 أسابيع تقريباً)."
     },
     "review": {
       "status": "pending"
@@ -647,7 +647,7 @@
   },
   {
     "id": "psychology-035",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Personality & Emotion",
       "ar": "الشخصية والانفعال"
@@ -666,18 +666,18 @@
   },
   {
     "id": "psychology-036",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Cognition, Memory & Perception",
       "ar": "الإدراك والذاكرة والإحساس"
     },
     "question": {
-      "en": "What is operant conditioning?",
-      "ar": "ما الاشتراط الإجرائي؟"
+      "en": "What is it called when you see faces in clouds, car fronts or plug sockets?",
+      "ar": "ما اسم الظاهرة التي ترى فيها وجوهًا في الغيوم أو في مقدمة السيارة أو في مقبس الكهرباء؟"
     },
     "answer": {
-      "en": "Learning through consequences — behaviour is shaped by rewards and punishments",
-      "ar": "التعلّم من خلال النتائج — يتشكّل السلوك بالمكافآت والعقوبات"
+      "en": "Pareidolia.",
+      "ar": "الباريدوليا (توهّم رؤية الوجوه)."
     },
     "review": {
       "status": "pending"
@@ -761,7 +761,7 @@
   },
   {
     "id": "psychology-041",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Cognition, Memory & Perception",
       "ar": "الإدراك والذاكرة والإحساس"
@@ -801,16 +801,16 @@
     "id": "psychology-043",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Foundations, Learning & Motivation",
-      "ar": "الأسس والتعلم والدافعية"
+      "en": "Neuroscience",
+      "ar": "علم الأعصاب"
     },
     "question": {
-      "en": "What is the unconscious mind?",
-      "ar": "ما العقل الباطن؟"
+      "en": "Are some people 'left-brained' (logical) and others 'right-brained' (creative), according to brain-scan research?",
+      "ar": "هل صحيح، بحسب أبحاث تصوير الدماغ، أن بعض الناس يغلب عليهم «الدماغ الأيسر» فيكونون منطقيين، وبعضهم يغلب عليهم «الدماغ الأيمن» فيكونون مبدعين؟"
     },
     "answer": {
-      "en": "The part of the mind that contains thoughts, feelings, and memories outside of conscious awareness",
-      "ar": "الجزء من العقل الذي يحتوي على أفكار ومشاعر وذكريات خارج نطاق الوعي الواعي"
+      "en": "No. A 2013 study of over 1,000 brain scans found no such types; both halves work together.",
+      "ar": "لا. دراسة سنة 2013 على أكثر من ألف صورة دماغ لم تجد هذين النمطين؛ النصفان يعملان معاً."
     },
     "review": {
       "status": "pending"
@@ -953,16 +953,16 @@
     "id": "psychology-051",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Personality & Emotion",
-      "ar": "الشخصية والانفعال"
+      "en": "Foundations, Learning & Motivation",
+      "ar": "الأسس والتعلم والدافعية"
     },
     "question": {
-      "en": "What is Carl Jung's concept of the collective unconscious?",
-      "ar": "ما مفهوم كارل يونغ للاشعور الجمعي؟"
+      "en": "In Albert Bandura's 1961 experiment, children copied an adult's aggression towards which toy?",
+      "ar": "في تجربة ألبرت باندورا عام 1961، قلّد الأطفال عدوانية شخص بالغ تجاه أيّ لعبة؟"
     },
     "answer": {
-      "en": "A layer of the unconscious shared across humanity, containing archetypes and universal symbols",
-      "ar": "طبقة من اللاشعور مشتركة بين البشرية جمعاء، تحتوي على النماذج الأصلية والرموز الكونية"
+      "en": "An inflatable 'Bobo' doll.",
+      "ar": "دمية «بوبو» المنفوخة."
     },
     "review": {
       "status": "pending"
@@ -972,16 +972,16 @@
     "id": "psychology-052",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Developmental Psychology",
-      "ar": "علم نفس النمو"
+      "en": "Social Psychology",
+      "ar": "علم النفس الاجتماعي"
     },
     "question": {
-      "en": "What is Erikson's theory of psychosocial development?",
-      "ar": "ما نظرية إريكسون للنمو النفسي الاجتماعي؟"
+      "en": "Students wearing an embarrassing T-shirt guessed that about half the room noticed it; in fact far fewer did. What is this bias called?",
+      "ar": "ارتدى طلاب قمصانًا محرجة وتوقعوا أن نصف الحاضرين لاحظوها، لكن العدد في الحقيقة كان أقل بكثير. ما اسم هذا الانحياز؟"
     },
     "answer": {
-      "en": "Eight stages of development across the lifespan, each with a central conflict to resolve",
-      "ar": "ثماني مراحل من النمو عبر مراحل الحياة، لكل منها صراع محوري يجب حلّه"
+      "en": "The spotlight effect.",
+      "ar": "أثر الضوء المسلّط (Spotlight effect)."
     },
     "review": {
       "status": "pending"
@@ -1008,7 +1008,7 @@
   },
   {
     "id": "psychology-054",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Personality & Emotion",
       "ar": "الشخصية والانفعال"
@@ -1046,7 +1046,7 @@
   },
   {
     "id": "psychology-056",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Cognition, Memory & Perception",
       "ar": "الإدراك والذاكرة والإحساس"
@@ -1065,7 +1065,7 @@
   },
   {
     "id": "psychology-057",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Developmental Psychology",
       "ar": "علم نفس النمو"
@@ -1084,18 +1084,18 @@
   },
   {
     "id": "psychology-058",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Social Psychology",
-      "ar": "علم النفس الاجتماعي"
+      "en": "Personality & Emotion",
+      "ar": "الشخصية والانفعال"
     },
     "question": {
-      "en": "What is social comparison theory?",
-      "ar": "ما نظرية المقارنة الاجتماعية؟"
+      "en": "In 1948, Bertram Forer gave every student the same vague 'personality profile', and most rated it as highly accurate. What is this effect called?",
+      "ar": "في عام 1948، أعطى بيرترام فورر جميع طلابه «تحليل الشخصية» العام والمبهم نفسه، فقيّمه معظمهم بأنه دقيق جدًا. ما اسم هذا الأثر؟"
     },
     "answer": {
-      "en": "People evaluate their own opinions and abilities by comparing themselves to others",
-      "ar": "يقيّم الناس آراءهم وقدراتهم بمقارنة أنفسهم بالآخرين"
+      "en": "The Forer effect (Barnum effect).",
+      "ar": "أثر فورر (أثر بارنوم)."
     },
     "review": {
       "status": "pending"
@@ -1141,7 +1141,7 @@
   },
   {
     "id": "psychology-061",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Clinical & Mental Health",
       "ar": "علم النفس السريري والصحة النفسية"
@@ -1160,7 +1160,7 @@
   },
   {
     "id": "psychology-062",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Neuroscience",
       "ar": "علم الأعصاب"
@@ -1236,7 +1236,7 @@
   },
   {
     "id": "psychology-066",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Neuroscience",
       "ar": "علم الأعصاب"
@@ -1255,7 +1255,7 @@
   },
   {
     "id": "psychology-067",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Developmental Psychology",
       "ar": "علم نفس النمو"
@@ -1280,12 +1280,12 @@
       "ar": "علم النفس الاجتماعي"
     },
     "question": {
-      "en": "What was the Stanford Prison Experiment?",
-      "ar": "ما تجربة سجن ستانفورد؟"
+      "en": "Why is the 1971 Stanford Prison Experiment no longer seen as solid proof that roles alone make people cruel?",
+      "ar": "لماذا لم تعد تجربة «سجن ستانفورد» عام 1971 تُعدّ دليلًا قويًا على أن الأدوار وحدها تجعل الناس قساة؟"
     },
     "answer": {
-      "en": "A 1971 simulated-prison study led by Philip Zimbardo. It is historically influential, but methodological and ethical criticisms mean it should not be presented as conclusive proof of a universal effect of social roles.",
-      "ar": "دراسة محاكاة سجن قادها فيليب زيمباردو عام 1971. لها أثر تاريخي، لكن انتقاداتها المنهجية والأخلاقية تمنع تقديمها دليلًا قاطعًا على تأثير عام للأدوار الاجتماعية."
+      "en": "Guards were coached to be tough, there was no control group, and volunteers may have acted out expected roles.",
+      "ar": "لأن الحرّاس وُجّهوا نحو القسوة، ولم تكن هناك مجموعة ضابطة، وربما أدّى المتطوعون الأدوار المتوقعة منهم."
     },
     "review": {
       "status": "pending"
@@ -1293,7 +1293,7 @@
   },
   {
     "id": "psychology-069",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Clinical & Mental Health",
       "ar": "علم النفس السريري والصحة النفسية"
@@ -1318,12 +1318,12 @@
       "ar": "علم الأعصاب"
     },
     "question": {
-      "en": "What does the term neurogenesis mean?",
-      "ar": "ماذا يعني مصطلح تكوّن العصبونات؟"
+      "en": "Which seahorse-shaped part of the brain is key to forming new long-term memories?",
+      "ar": "أيّ جزء من الدماغ يشبه شكله حصان البحر، وهو أساسي لتكوين ذكريات جديدة طويلة المدى؟"
     },
     "answer": {
-      "en": "The formation of new neurons.",
-      "ar": "تكوّن خلايا عصبية جديدة."
+      "en": "The hippocampus (Greek for 'seahorse').",
+      "ar": "الحُصين (Hippocampus)، واسمه يعني «حصان البحر» باليونانية."
     },
     "review": {
       "status": "pending"
@@ -1333,16 +1333,16 @@
     "id": "psychology-071",
     "difficulty": "hard",
     "subcategory": {
-      "en": "Cognition, Memory & Perception",
-      "ar": "الإدراك والذاكرة والإحساس"
+      "en": "Social Psychology",
+      "ar": "علم النفس الاجتماعي"
     },
     "question": {
-      "en": "What is the difference between classical and operant conditioning?",
-      "ar": "ما الفرق بين التكييف الكلاسيكي والإجرائي؟"
+      "en": "In Solomon Asch's 1950s experiments, people often gave obviously wrong answers to match a group. What were they judging?",
+      "ar": "في تجارب سولومون آش في الخمسينيات، أعطى كثير من الناس إجابات خاطئة بوضوح ليتماشوا مع المجموعة. ماذا كانوا يقارنون؟"
     },
     "answer": {
-      "en": "Classical conditioning pairs stimuli to create involuntary responses; operant conditioning shapes voluntary behaviour through consequences",
-      "ar": "يقرن التكييف الكلاسيكي المحفّزات لإحداث استجابات لاإرادية؛ بينما يُشكّل الإجرائي السلوك الإرادي من خلال النتائج"
+      "en": "The lengths of lines.",
+      "ar": "أطوال خطوط."
     },
     "review": {
       "status": "pending"
@@ -1635,7 +1635,7 @@
   },
   {
     "id": "psychology-087",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Cognition, Memory & Perception",
       "ar": "الإدراك والذاكرة والإحساس"
@@ -1694,16 +1694,16 @@
     "id": "psychology-090",
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Clinical & Mental Health",
-      "ar": "علم النفس السريري والصحة النفسية"
+      "en": "Developmental Psychology",
+      "ar": "علم نفس النمو"
     },
     "question": {
-      "en": "What is mentalization-based therapy (MBT)?",
-      "ar": "ما العلاج القائم على فهم الحالات الذهنية، المعروف بـMBT؟"
+      "en": "A 2018 replication of the 'marshmallow test' found what about the link between a child's waiting time and later achievement?",
+      "ar": "ماذا وجدت إعادة لتجربة «اختبار المارشميلو» عام 2018 بشأن العلاقة بين مدة انتظار الطفل وتحصيله لاحقًا؟"
     },
     "answer": {
-      "en": "Mentalization-based therapy, which focuses on understanding one’s own and others’ behavior in terms of thoughts, feelings and intentions. Mentalization is not simply mindfulness meditation.",
-      "ar": "العلاج القائم على فهم الحالات الذهنية، ويركز على تفسير سلوك الذات والآخرين من خلال الأفكار والمشاعر والنوايا. وهو ليس مجرد تأمل يقظ."
+      "en": "It was much weaker than first claimed, and shrank further once family background was considered.",
+      "ar": "أنها أضعف بكثير مما قيل أولاً، وتصغر أكثر بعد احتساب خلفية الأسرة."
     },
     "review": {
       "status": "pending"
@@ -1749,7 +1749,7 @@
   },
   {
     "id": "psychology-093",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Cognition, Memory & Perception",
       "ar": "الإدراك والذاكرة والإحساس"
@@ -1844,18 +1844,18 @@
   },
   {
     "id": "psychology-098",
-    "difficulty": "medium",
+    "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Developmental Psychology",
-      "ar": "علم نفس النمو"
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
     },
     "question": {
-      "en": "What is resilience in developmental psychology?",
-      "ar": "ما المرونة النفسية في علم نفس النمو؟"
+      "en": "Which German psychologist memorised lists of nonsense syllables to chart the 'forgetting curve' in 1885?",
+      "ar": "أي عالم نفس ألماني حفظ قوائم من المقاطع عديمة المعنى ليرسم «منحنى النسيان» عام 1885؟"
     },
     "answer": {
-      "en": "The capacity to recover from adversity, trauma, or stress, often supported by protective factors like social support and self-efficacy",
-      "ar": "القدرة على التعافي من الشدائد والصدمات والضغوط، يدعمها عوامل وقائية كالدعم الاجتماعي والكفاءة الذاتية"
+      "en": "Hermann Ebbinghaus.",
+      "ar": "هيرمان إبنغهاوس."
     },
     "review": {
       "status": "pending"
@@ -1894,25 +1894,6 @@
     "answer": {
       "en": "Correlation is an association between variables. Causation means a change in one can produce a change in another, directly or indirectly. An observed correlation alone does not establish causation.",
       "ar": "الارتباط علاقة إحصائية بين متغيرات. والسببية تعني أن تغيير أحدها يمكن أن يُحدث تغييرًا في آخر مباشرة أو بصورة غير مباشرة. ولا يثبت الارتباط المرصود وحده السببية."
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "world-habits-and-etiquette-047",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Personality & Emotion",
-      "ar": "الشخصية والانفعال"
-    },
-    "question": {
-      "en": "What are emotional display rules?",
-      "ar": "ما قواعد إظهار المشاعر؟"
-    },
-    "answer": {
-      "en": "Social expectations about when, where and how emotions are expressed. They can differ between settings within the same society.",
-      "ar": "توقعات اجتماعية تحدد متى وأين وكيف تُظهر المشاعر. وقد تختلف بين المواقف داخل المجتمع نفسه."
     },
     "review": {
       "status": "pending"

@@ -5,7 +5,7 @@ import test from 'node:test';
 import {
   ARABIC_MSA_RESTORE_LEDGER, TYPOGRAPHY_STEPS, arabicTypography, bankBeforeMsaRestore, beforeMsaRestore, readArabicMsaRestoreLedger,
 } from './arabic-msa-restore-ledger.mjs';
-import { readCurrentBank } from './topic-merge-ledger.mjs';
+import { readTopicFileBeforePhase2 } from './content-phase2-ledger.mjs';
 import { contentKey, isPrepared } from '../tv-trivia-engine.js';
 
 const read = relative => JSON.parse(fs.readFileSync(new URL(`../${relative}`, import.meta.url), 'utf8'));
@@ -18,6 +18,9 @@ const held = new Set(read('docs/content-review/production-quarantine.json').cate
 const publicTopics = catalog.categories.map(category => category.slug).filter(slug => !held.has(slug));
 // Only Arabic wording (and the TV quiz key calculated over it) may change.
 const EDITABLE = /^(?:question\.ar|answer\.ar|tvQuiz\.(?:distractors\.ar|explanation\.ar|contentKey)|quickFire\.(?:answer|distractors|explanation)\.ar|acceptedAnswers(?:\.ar)?)$/u;
+// Topic files as this restore left them: the later 2026-10-25 phase-2 content
+// pass is reversed from its own ledger first.
+const readCurrentBank = readTopicFileBeforePhase2;
 const banks = new Map();
 const bank = category => {
   if (!banks.has(category)) banks.set(category, new Map(readCurrentBank(category).map(card => [card.id, card])));

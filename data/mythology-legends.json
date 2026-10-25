@@ -344,17 +344,17 @@
   {
     "id": "mythology-legends-19",
     "question": {
-      "en": "Who is the Greek god of the underworld?",
-      "ar": "من هو إله العالم السفلي اليوناني؟"
+      "en": "In the tales of Sinbad the Sailor, what giant bird is strong enough to carry off elephants?",
+      "ar": "في حكايات السندباد البحري، ما اسم الطائر العملاق القادر على حمل الفيلة؟"
     },
     "answer": {
-      "en": "Hades",
-      "ar": "هاديس"
+      "en": "The Roc",
+      "ar": "الرُّخ"
     },
     "difficulty": "medium",
     "subcategory": {
-      "en": "Greek & Roman",
-      "ar": "الأساطير اليونانية والرومانية"
+      "en": "Middle Eastern",
+      "ar": "أساطير الشرق الأوسط"
     },
     "review": {
       "status": "pending"
@@ -370,7 +370,7 @@
       "en": "Sir Galahad",
       "ar": "السير غلاهاد"
     },
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Celtic & Arthurian",
       "ar": "الأساطير السلتية والآرثرية"
@@ -401,17 +401,17 @@
   {
     "id": "mythology-legends-22",
     "question": {
-      "en": "Which sea god in Irish mythology is traditionally associated with the Isle of Man?",
-      "ar": "أيّ إله للبحر في الأساطير الأيرلندية يرتبط تقليدياً بجزيرة مان؟"
+      "en": "In the Epic of Gilgamesh, what is the name of the wild man who becomes Gilgamesh's closest friend?",
+      "ar": "في ملحمة جلجامش، ما اسم الرجل المتوحش الذي أصبح أقرب أصدقاء جلجامش؟"
     },
     "answer": {
-      "en": "Manannán mac Lir",
-      "ar": "مانانان ماك لير"
+      "en": "Enkidu",
+      "ar": "إنكيدو"
     },
     "difficulty": "hard",
     "subcategory": {
-      "en": "Celtic & Arthurian",
-      "ar": "الأساطير السلتية والآرثرية"
+      "en": "Middle Eastern",
+      "ar": "أساطير الشرق الأوسط"
     },
     "review": {
       "status": "pending"
@@ -522,7 +522,7 @@
       "en": "El Dorado",
       "ar": "إل دورادو"
     },
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Indigenous Traditions",
       "ar": "التقاليد الأسطورية الأصلية"
@@ -541,7 +541,7 @@
       "en": "Achilles",
       "ar": "أخيل"
     },
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Greek & Roman",
       "ar": "الأساطير اليونانية والرومانية"
@@ -712,7 +712,7 @@
       "en": "Pandora",
       "ar": "باندورا"
     },
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Greek & Roman",
       "ar": "الأساطير اليونانية والرومانية"
@@ -754,6 +754,101 @@
     "subcategory": {
       "en": "Heroes & Creatures",
       "ar": "الأبطال والمخلوقات"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mythology-legends-41",
+    "question": {
+      "en": "Which creature of Arab folklore is one of the 'three impossibles', alongside the 'anqa' bird and the faithful friend?",
+      "ar": "ما المخلوق الخرافي الذي يعدّه العرب من «المستحيلات الثلاثة» مع العنقاء والخِلّ الوفي؟"
+    },
+    "answer": {
+      "en": "The ghoul",
+      "ar": "الغول"
+    },
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Middle Eastern",
+      "ar": "أساطير الشرق الأوسط"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mythology-legends-42",
+    "question": {
+      "en": "In the Babylonian creation epic Enuma Elish, which god defeats the sea goddess Tiamat?",
+      "ar": "في ملحمة الخلق البابلية «إينوما إيليش»، أيّ إله ينتصر على إلهة البحر تيامات؟"
+    },
+    "answer": {
+      "en": "Marduk",
+      "ar": "مردوخ"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Middle Eastern",
+      "ar": "أساطير الشرق الأوسط"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mythology-legends-43",
+    "question": {
+      "en": "In ancient Egyptian belief, the heart of the dead was weighed against the feather of which goddess?",
+      "ar": "في معتقدات المصريين القدماء، كان قلب الميت يوزن مقابل ريشة أيّ إلهة؟"
+    },
+    "answer": {
+      "en": "Ma'at",
+      "ar": "ماعت"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Egyptian",
+      "ar": "الأساطير المصرية"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mythology-legends-44",
+    "question": {
+      "en": "In Persian legend, which giant, wise bird raised the hero Zal in Ferdowsi's Shahnameh?",
+      "ar": "في الأساطير الفارسية، ما اسم الطائر العملاق الحكيم الذي ربّى البطل زال في «الشاهنامة» للفردوسي؟"
+    },
+    "answer": {
+      "en": "The Simurgh",
+      "ar": "السيمرغ"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Middle Eastern",
+      "ar": "أساطير الشرق الأوسط"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "mythology-legends-45",
+    "question": {
+      "en": "What were the human-headed winged bulls that guarded the gates of Assyrian palaces called?",
+      "ar": "ما اسم الثيران المجنحة ذات الرؤوس البشرية التي كانت تحرس بوابات القصور الآشورية؟"
+    },
+    "answer": {
+      "en": "Lamassu",
+      "ar": "اللاماسو"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Middle Eastern",
+      "ar": "أساطير الشرق الأوسط"
     },
     "review": {
       "status": "pending"

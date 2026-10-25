@@ -371,7 +371,10 @@ export async function runSpeechRegressions({ browser, createContext, runTest, tr
     await installSpeech(context);
     const page = await context.newPage(), noErrors = trackPageErrors(page);
     const cases = [
-      ['software-and-computing', 'coding-and-design-025', 'في بناء سي بلس بلس المعتاد بالترجمة المسبقة، هل يُترجم المصدر قبل تشغيل الملف التنفيذي الناتج؟'],
+      // The bank's only C++ card (coding-and-design-025) asks a new fact since the
+      // 2026-10-25 phase-2 pass; C++ and C# stay covered by the unit test, and this
+      // real card checks two more technical names on the button.
+      ['biology', 'biology-061', 'في الخلية حقيقية النواة، ما دور آر إن إيه الرسول بين دي إن إيه النووي والريبوسومات؟'],
       ['math', 'math-062', 'خزان ممتلئ إلى 3 على 5 من سعته. بعد إضافة 24 لتراً أصبح ممتلئاً إلى 9 على 10. ما سعة الخزان؟'],
       ['biology', 'biology-003', 'ماذا يعني اختصار دي إن إيه؟'],
       ['chemistry', 'chemistry-049', 'عند 25 درجة مئوية، ماذا تعني قيمة بي إتش تساوي 7 لمحلول مائي، وهل يقتصر بي إتش حتمًا على المدى 0–14؟'],

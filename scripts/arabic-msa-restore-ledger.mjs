@@ -8,7 +8,7 @@
 // every field it touched under a dotted path (for example "question.ar" or
 // "tvQuiz.contentKey"). Card order, ids and every other field are unchanged.
 import fs from 'node:fs';
-import { readCurrentBank } from './topic-merge-ledger.mjs';
+import { readTopicFileBeforePhase2 } from './content-phase2-ledger.mjs';
 
 export const ARABIC_MSA_RESTORE_LEDGER = 'docs/content-review/arabic-msa-restore-2026-10-25.json';
 
@@ -36,10 +36,11 @@ export function beforeMsaRestore(card, change) {
 
 // A topic file's cards exactly as they stood before the Modern Standard Arabic
 // restore (same cards, same order). Pass it as the `readBank` argument of
-// bankBeforeMerge() to walk further back through the older ledgers.
+// bankBeforeMerge() to walk further back through the older ledgers. The later
+// 2026-10-25 phase-2 content pass is reversed first, from its own ledger.
 export function bankBeforeMsaRestore(category, ledger = readArabicMsaRestoreLedger()) {
   const changes = new Map(ledger.changes.filter(change => change.category === category).map(change => [change.id, change]));
-  return readCurrentBank(category).map(card => (changes.has(card.id) ? beforeMsaRestore(card, changes.get(card.id)) : card));
+  return readTopicFileBeforePhase2(category).map(card => (changes.has(card.id) ? beforeMsaRestore(card, changes.get(card.id)) : card));
 }
 
 // Typography applied to a restored question so it follows the current style

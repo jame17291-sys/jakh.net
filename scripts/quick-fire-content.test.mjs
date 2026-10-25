@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import vm from 'node:vm';
 import { normalizeScorableAnswer } from './content-review-lib.mjs';
+import { readContentPhase2Ledger } from './content-phase2-ledger.mjs';
 
 const categoryIds = {
   'classic-riddles': [2, 3, 4, 5, 7, 11, 18, 19, 23, 32],
@@ -80,15 +81,18 @@ test('authored arithmetic answers and numerical distractors satisfy exactly one 
     ['math-001', (1.10 - 1.00) / 2],
     ['math-003', 7 * 5],
     ['math-006', 360 / 4],
-    ['math-007', (-1) ** 4],
+    // A googol is 10^100: a 1 followed by 100 zeros.
+    ['math-007', String(10n ** 100n).length - 1],
     ['math-008', 60 * 60],
-    ['math-012', Math.sqrt(144)],
-    ['math-018', (10 + 20 + 60) / 3],
-    ['math-020', 20 - 3 * 4],
+    // The first palindromic year after 2002.
+    ['math-012', Array.from({ length: 200 }, (_, i) => 2003 + i).find(year => String(year) === [...String(year)].reverse().join(''))],
+    // A fair coin has no memory.
+    ['math-018', 1 / 2],
+    // Eighth from the front and eighth from the back.
+    ['math-020', 8 + 8 - 1],
     ['logic-puzzles-001', 48 - 1],
     ['logic-puzzles-003', 2],
     ['logic-puzzles-013', 70 - (6 - 3)],
-    ['logic-puzzles-020', 12 / (3 + 1)],
   ]);
   for (const [id, result] of expected) {
     const card = cards.get(id);
@@ -101,22 +105,39 @@ test('authored arithmetic answers and numerical distractors satisfy exactly one 
         'المركز الثالث': 3,
         'المركز الرابع': 4,
       };
-      const value = text => arabicNumberWords[text] ?? numbers(text)[0];
+      const fraction = text => text.match(/^\s*(-?\d+)\s*\/\s*(\d+)\s*$/u);
+      const value = text => arabicNumberWords[text]
+        ?? (fraction(text) ? Number(fraction(text)[1]) / Number(fraction(text)[2]) : numbers(text.replace(/(\d),(\d{3})/gu, '$1$2'))[0]);
       assert.ok(Math.abs(value(options[0]) - result) < 1e-9, `${id}: correct/${language}`);
       assert.ok(options.slice(1).every(option => Math.abs(value(option) - result) > 1e-9), `${id}: distractors/${language}`);
     }
   }
-  const speed = cards.get('math-002');
-  assert.equal(60 / 60, 1);
-  assert.equal(speed.quickFire.answer.en, '1 hour');
-  assert.deepEqual(speed.quickFire.distractors.en, ['30 minutes', '2 hours', '60 hours']);
-  assert.ok([0.5, 2, 60].every(hours => hours !== 60 / 60));
+  // Dividing by a half doubles: 30 ÷ ½ + 10 = 70; halving instead gives the trap answer 25.
+  const half = cards.get('math-002');
+  assert.equal(30 / (1 / 2) + 10, 70);
+  assert.equal(half.quickFire.answer.en, '70');
+  assert.deepEqual(half.quickFire.distractors.en, ['25', '40', '50']);
+  assert.ok(half.quickFire.distractors.en.includes(String(30 * (1 / 2) + 10)));
+  assert.ok(half.quickFire.distractors.en.every(option => Number(option) !== 30 / (1 / 2) + 10));
+  // Mislabelled boxes: only a pick from the box labelled 'Mixed' fixes every label.
+  const labels = ['Apples', 'Oranges', 'Mixed'];
+  const arrangements = [];
+  for (const a of labels) for (const b of labels) for (const c of labels) {
+    const contents = [a, b, c];
+    if (new Set(contents).size === 3 && contents.every((content, index) => content !== labels[index])) arrangements.push(contents);
+  }
+  const fruits = content => (content === 'Mixed' ? ['Apples', 'Oranges'] : [content]);
+  const solves = pick => arrangements.every(contents => fruits(contents[pick]).every(fruit => (
+    arrangements.filter(other => fruits(other[pick]).includes(fruit)).length === 1
+  )));
+  assert.deepEqual(labels.map((_, pick) => solves(pick)), [false, false, true]);
+  const boxes = cards.get('logic-puzzles-020');
+  assert.deepEqual(allOptions(boxes, 'en').map(option => option === "The box labelled 'Mixed'"), [true, false, false, false]);
 });
 
 test('coordinate reflection and constraint puzzles have only one valid authored option', () => {
   const checks = [
     ['math-009', values => values.length === 2 && values[0] === 3 && values[1] === 2],
-    ['classic-riddles-018', values => values.length === 3 && values[1] === values[0] + 1 && values[2] === values[1] + 1 && values.reduce((a, b) => a + b, 0) === 72],
     ['logic-puzzles-016', ([value]) => {
       const tens = Math.floor(value / 10), ones = value % 10;
       return tens + ones === 11 && ones * 10 + tens - value === 27;
@@ -143,11 +164,16 @@ test('coordinate reflection and constraint puzzles have only one valid authored 
   for (const language of ['en', 'ar']) {
     assert.deepEqual(allOptions(cards.get('logic-puzzles-002'), language).map(option => numbers(option)[0] === 7), [true, false, false, false]);
   }
-  const order = cards.get('logic-puzzles-006');
-  for (const [index, option] of allOptions(order, 'en').entries()) {
-    const positions = option.toLowerCase().split(',').map(value => value.trim());
-    assert.equal(positions.indexOf('red') < positions.indexOf('green') && positions.indexOf('green') < positions.indexOf('blue'), index === 0);
-  }
+  // Three pills, one every half hour: the first is taken at once, so they last (3 - 1) × 30 minutes.
+  const pills = cards.get('logic-puzzles-006');
+  const minutes = option => [...option.matchAll(/(\d+)\s*(hours?|minutes?)/gu)]
+    .reduce((total, [, amount, unit]) => total + Number(amount) * (unit.startsWith('hour') ? 60 : 1), 0);
+  assert.deepEqual(allOptions(pills, 'en').map(option => minutes(option) === (3 - 1) * 30), [true, false, false, false]);
+  // Your maternal uncle's sister is your mother or your maternal aunt; the riddle rules out the aunt.
+  const uncle = cards.get('classic-riddles-018');
+  assert.deepEqual(allOptions(uncle, 'en').map(option => option === 'Your mother'), [true, false, false, false]);
+  assert.deepEqual(allOptions(uncle, 'ar').map(option => option === 'أمك'), [true, false, false, false]);
+  assert.ok(!allOptions(uncle, 'en').some(option => /aunt/iu.test(option)) && !allOptions(uncle, 'ar').some(option => /خالت/u.test(option)));
 });
 
 test('repaired bilingual puzzles no longer rely on T/tea or unexplained bicycles and retain pending status', () => {
@@ -155,7 +181,10 @@ test('repaired bilingual puzzles no longer rely on T/tea or unexplained bicycles
   assert.deepEqual(teapot.answer, { en: 'A teapot', ar: 'إبريق الشاي' });
   assert.doesNotMatch(teapot.question.en, /begins with T|has T in it/u);
   assert.doesNotMatch(teapot.question.ar, /\bT\b/u);
-  const story = cards.get('story-mysteries-003');
+  // story-mysteries-003 was removed in the 2026-10-25 phase-2 pass; its repaired
+  // text is checked as that ledger recorded it.
+  const story = cards.get('story-mysteries-003')
+    || readContentPhase2Ledger().removed.find(entry => entry.id === 'story-mysteries-003')?.card;
   assert.equal(story.mode, 'story');
   assert.equal(story.quickFire, undefined);
   assert.deepEqual(story.review, { status: 'pending' });

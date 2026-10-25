@@ -140,10 +140,10 @@ test("topics retired by the 2026-10-25 merges redirect once to their successor a
   const cases = [
     [`${PRIMARY_ORIGIN}/physical-and-life-sciences?card=physical-and-life-sciences-002`, `${PRIMARY_ORIGIN}/biology?card=physical-and-life-sciences-002`],
     [`${PRIMARY_ORIGIN}/physical-and-life-sciences?card=physical-and-life-sciences-003`, `${PRIMARY_ORIGIN}/science?card=physical-and-life-sciences-003`],
-    [`${PRIMARY_ORIGIN}/science?card=science-048&utm_source=share`, `${PRIMARY_ORIGIN}/chemistry?card=science-048&utm_source=share`],
-    [`${PRIMARY_ORIGIN}/science.html?card=science-048`, `${PRIMARY_ORIGIN}/chemistry?card=science-048`],
+    [`${PRIMARY_ORIGIN}/science?card=science-081&utm_source=share`, `${PRIMARY_ORIGIN}/chemistry?card=science-081&utm_source=share`],
+    [`${PRIMARY_ORIGIN}/science.html?card=science-081`, `${PRIMARY_ORIGIN}/chemistry?card=science-081`],
     [`${PRIMARY_ORIGIN}/ar/topics/biology/?card=biology-033`, `${PRIMARY_ORIGIN}/ar/topics/animal-kingdom/?card=biology-033`],
-    [`${PRIMARY_ORIGIN}/ar/topics/world-habits-and-etiquette?card=world-habits-and-etiquette-047`, `${PRIMARY_ORIGIN}/ar/topics/psychology/?card=world-habits-and-etiquette-047`],
+    [`${PRIMARY_ORIGIN}/ar/topics/science?card=science-065`, `${PRIMARY_ORIGIN}/ar/topics/biology/?card=science-065`],
     [`${PRIMARY_ORIGIN}/physical-and-life-sciences.html?card=x`, `${PRIMARY_ORIGIN}/science?card=x`],
     [`${PRIMARY_ORIGIN}/physical-and-life-sciences/page/2/`, `${PRIMARY_ORIGIN}/science`],
     [`${PRIMARY_ORIGIN}/ar/topics/physical-and-life-sciences/?card=physical-and-life-sciences-001`, `${PRIMARY_ORIGIN}/ar/topics/science/?card=physical-and-life-sciences-001`],
@@ -168,9 +168,11 @@ test("topics retired by the 2026-10-25 merges redirect once to their successor a
     assert.equal(siteManifest.routes[`/ar/topics/${slug}/`], undefined);
     assert.equal(siteManifest.files[`/data/${slug}.json`], undefined);
   }
-  // Cards that never moved, or a topic the card never left, are served as they are.
-  for (const kept of [`${PRIMARY_ORIGIN}/science?card=science-001`, `${PRIMARY_ORIGIN}/biology?card=science-048`,
-    `${PRIMARY_ORIGIN}/chemistry?card=science-048`, `${PRIMARY_ORIGIN}/ar/topics/science/?card=unknown-card`]) {
+  // Cards that never moved, a topic the card never left, and moved cards that
+  // the later phase-2 content pass removed are served as they are.
+  for (const kept of [`${PRIMARY_ORIGIN}/science?card=science-001`, `${PRIMARY_ORIGIN}/biology?card=science-081`,
+    `${PRIMARY_ORIGIN}/chemistry?card=science-081`, `${PRIMARY_ORIGIN}/ar/topics/science/?card=unknown-card`,
+    `${PRIMARY_ORIGIN}/science?card=science-048`, `${PRIMARY_ORIGIN}/ar/topics/world-habits-and-etiquette/?card=world-habits-and-etiquette-047`]) {
     assert.equal(canonicalRedirect(siteManifest, new URL(kept)), null, kept);
   }
   assert.equal(retiredSeoRedirectTarget(siteManifest, "/science"), null);

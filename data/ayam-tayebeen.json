@@ -95,25 +95,6 @@
     }
   },
   {
-    "id": "ayt-006",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Adnan and Lina",
-      "ar": "عدنان ولينا"
-    },
-    "question": {
-      "en": "What is the English name of Lina's peaceful home settlement in Future Boy Conan, known in Arabic as Adnan and Lina?",
-      "ar": "ما الاسم الإنجليزي لموطن لينا المسالم في النسخة الأصلية من عدنان ولينا؟"
-    },
-    "answer": {
-      "en": "High Harbor",
-      "ar": "هاي هاربور"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "ayt-007",
     "difficulty": "easy",
     "subcategory": {
@@ -134,7 +115,7 @@
   },
   {
     "id": "ayt-008",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Adnan and Lina",
       "ar": "عدنان ولينا"
@@ -210,7 +191,7 @@
   },
   {
     "id": "ayt-012",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Adnan and Lina",
       "ar": "عدنان ولينا"
@@ -241,25 +222,6 @@
     "answer": {
       "en": "Samira",
       "ar": "سميرة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-014",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Adnan and Lina",
-      "ar": "عدنان ولينا"
-    },
-    "question": {
-      "en": "What is the original-version name of the island where Conan first meets Jimsy?",
-      "ar": "ما اسم الجزيرة في النسخة الأصلية التي يلتقي فيها كونان بجيمسي للمرة الأولى؟"
-    },
-    "answer": {
-      "en": "Plastic Island",
-      "ar": "جزيرة البلاستيك"
     },
     "review": {
       "status": "pending"
@@ -362,18 +324,18 @@
   },
   {
     "id": "ayt-020",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Adnan and Lina",
       "ar": "عدنان ولينا"
     },
     "question": {
-      "en": "In what year is the main story of the original Future Boy Conan set, twenty years after the great catastrophe?",
-      "ar": "في أي عام تدور القصة الرئيسية للنسخة الأصلية من عدنان ولينا، بعد عشرين عاماً من الكارثة الكبرى؟"
+      "en": "Adnan and Lina is based on a novel by the American writer Alexander Key. What is the novel called?",
+      "ar": "«عدنان ولينا» مأخوذ عن رواية للكاتب الأمريكي ألكسندر كي. ما اسم هذه الرواية؟"
     },
     "answer": {
-      "en": "2028",
-      "ar": "2028"
+      "en": "The Incredible Tide",
+      "ar": "«المدّ الهائل» (The Incredible Tide)"
     },
     "review": {
       "status": "pending"
@@ -400,18 +362,18 @@
   },
   {
     "id": "ayt-022",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Captain Majid",
       "ar": "الكابتن ماجد"
     },
     "question": {
-      "en": "Which Captain Tsubasa goalkeeper is known for his determination to stop every shot from outside the penalty area?",
-      "ar": "أي حارس في النسخة الأصلية من الكابتن ماجد يشتهر بإصراره على صد كل تسديدة من خارج منطقة الجزاء؟"
+      "en": "In Captain Majid, what is the name of the goalkeeper in the cap who vows that no shot from outside the penalty area will ever beat him?",
+      "ar": "في «الكابتن ماجد»، ما اسم الحارس صاحب القبعة الذي يتعهد ألا تهزمه أي تسديدة من خارج منطقة الجزاء؟"
     },
     "answer": {
-      "en": "Genzo Wakabayashi",
-      "ar": "غينزو واكاباياشي"
+      "en": "Waleed (Genzo Wakabayashi in the original)",
+      "ar": "وليد"
     },
     "review": {
       "status": "pending"
@@ -419,18 +381,18 @@
   },
   {
     "id": "ayt-023",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Captain Majid",
       "ar": "الكابتن ماجد"
     },
     "question": {
-      "en": "What is the original name of the Brazilian coach who mentors Tsubasa in Captain Tsubasa?",
-      "ar": "ما الاسم الأصلي للمدرب البرازيلي الذي يرشد تسوباسا في الكابتن ماجد؟"
+      "en": "In Captain Majid, what is the name of the coach, a friend of Majid's father, who becomes like a second father to him?",
+      "ar": "في «الكابتن ماجد»، ما اسم المدرب، صديق والد ماجد، الذي يصبح بمثابة أب ثانٍ له؟"
     },
     "answer": {
-      "en": "Roberto Hongo",
-      "ar": "روبرتو هونغو"
+      "en": "Fawaz (Roberto Hongo in the original)",
+      "ar": "فوّاز"
     },
     "review": {
       "status": "pending"
@@ -444,12 +406,12 @@
       "ar": "الكابتن ماجد"
     },
     "question": {
-      "en": "What sport is the focus of Captain Majid?",
-      "ar": "ما الرياضة التي تتمحور حولها أحداث الكابتن ماجد؟"
+      "en": "What shirt number does Majid wear?",
+      "ar": "ما رقم قميص ماجد؟"
     },
     "answer": {
-      "en": "Football",
-      "ar": "كرة القدم"
+      "en": "10",
+      "ar": "10"
     },
     "review": {
       "status": "pending"
@@ -475,25 +437,6 @@
     }
   },
   {
-    "id": "ayt-026",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Captain Majid",
-      "ar": "الكابتن ماجد"
-    },
-    "question": {
-      "en": "Which team does Kojiro Hyuga lead in the elementary-school arc of the original Captain Tsubasa?",
-      "ar": "ما الفريق الذي يقوده كوجيرو هيوغا في مرحلة المدرسة الابتدائية في النسخة الأصلية من الكابتن ماجد؟"
-    },
-    "answer": {
-      "en": "Meiwa FC",
-      "ar": "ميوا"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "ayt-027",
     "difficulty": "medium",
     "subcategory": {
@@ -501,31 +444,12 @@
       "ar": "الكابتن ماجد"
     },
     "question": {
-      "en": "What is Tsubasa Ozora's familiar motto about the ball?",
-      "ar": "ما مقولة تسوباسا أوزورا المعروفة عن الكرة؟"
+      "en": "What motto about the ball does Majid (Tsubasa in the original) live by?",
+      "ar": "ما العبارة الشهيرة التي يقولها ماجد عن الكرة؟"
     },
     "answer": {
       "en": "The ball is my friend",
       "ar": "الكرة صديقتي"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-028",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Captain Majid",
-      "ar": "الكابتن ماجد"
-    },
-    "question": {
-      "en": "Which goalkeeper plays for Meiwa alongside Kojiro Hyuga in the original Captain Tsubasa?",
-      "ar": "أي حارس يلعب مع كوجيرو هيوغا في فريق ميوا في النسخة الأصلية من الكابتن ماجد؟"
-    },
-    "answer": {
-      "en": "Ken Wakashimazu",
-      "ar": "كين واكاشيمازو"
     },
     "review": {
       "status": "pending"
@@ -539,31 +463,12 @@
       "ar": "الكابتن ماجد"
     },
     "question": {
-      "en": "What health condition limits Jun Misugi's playing time in the early Captain Tsubasa story?",
-      "ar": "ما المشكلة الصحية التي تحد من مدة مشاركة جون ميسوغي في المباريات في بداية الكابتن ماجد؟"
+      "en": "In Captain Majid, what health problem limits how long Mazen (Jun Misugi in the original) can play?",
+      "ar": "في «الكابتن ماجد»، ما المشكلة الصحية التي تحدّ من مدة لعب مازن في المباريات؟"
     },
     "answer": {
       "en": "A heart condition",
       "ar": "مرض في القلب"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-030",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Captain Majid",
-      "ar": "الكابتن ماجد"
-    },
-    "question": {
-      "en": "What is the original family name of the twin brothers Masao and Kazuo, known for acrobatic combination play in Captain Tsubasa?",
-      "ar": "ما اسم عائلة التوأمين ماساو وكازوو المعروفين باللعب البهلواني المشترك في النسخة الأصلية من الكابتن ماجد؟"
-    },
-    "answer": {
-      "en": "Tachibana",
-      "ar": "تاتشيبانا"
     },
     "review": {
       "status": "pending"
@@ -577,50 +482,12 @@
       "ar": "الكابتن ماجد"
     },
     "question": {
-      "en": "What is Taro Misaki's father's profession, which makes the family travel frequently?",
-      "ar": "ما مهنة والد تارو ميساكي التي تجعل الأسرة تتنقل كثيراً في الكابتن ماجد؟"
+      "en": "In Captain Majid, what is the job of Yassin's father, which keeps the family moving from town to town?",
+      "ar": "في «الكابتن ماجد»، ما عمل والد ياسين الذي يجعل الأسرة تنتقل من مدينة إلى أخرى؟"
     },
     "answer": {
       "en": "Painter",
-      "ar": "رسام"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-032",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Captain Majid",
-      "ar": "الكابتن ماجد"
-    },
-    "question": {
-      "en": "Which elementary-school team does goalkeeper Genzo Wakabayashi play for before joining the combined Nankatsu side?",
-      "ar": "ما فريق المدرسة الابتدائية الذي يلعب له غينزو واكاباياشي قبل انضمامه إلى فريق نانكاتسو المشترك؟"
-    },
-    "answer": {
-      "en": "Shutetsu",
-      "ar": "شوتيتسو"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-033",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Captain Majid",
-      "ar": "الكابتن ماجد"
-    },
-    "question": {
-      "en": "What is the original name of Meiwa's younger all-round player who looks up to Kojiro Hyuga?",
-      "ar": "ما الاسم الأصلي للاعب ميوا الأصغر سناً والمتعدد الأدوار الذي يُعجب بكوجيرو هيوغا؟"
-    },
-    "answer": {
-      "en": "Takeshi Sawada",
-      "ar": "تاكيشي ساوادا"
+      "ar": "رسّام"
     },
     "review": {
       "status": "pending"
@@ -647,18 +514,18 @@
   },
   {
     "id": "ayt-035",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Captain Majid",
       "ar": "الكابتن ماجد"
     },
     "question": {
-      "en": "Which school does Kojiro Hyuga captain in Captain Tsubasa's middle-school arc?",
-      "ar": "ما المدرسة التي يقود كوجيرو هيوغا فريقها في مرحلة الإعدادية من الكابتن ماجد؟"
+      "en": "In Captain Majid, what is Bassam's famous power shot called?",
+      "ar": "في «الكابتن ماجد»، ما اسم تسديدة بسّام القوية الشهيرة؟"
     },
     "answer": {
-      "en": "Toho Academy",
-      "ar": "أكاديمية توهو"
+      "en": "The Tiger Shot",
+      "ar": "ضربة النمر"
     },
     "review": {
       "status": "pending"
@@ -672,8 +539,8 @@
       "ar": "الكابتن ماجد"
     },
     "question": {
-      "en": "What is Tsubasa Ozora's father's profession in the original Captain Tsubasa?",
-      "ar": "ما مهنة والد تسوباسا أوزورا في النسخة الأصلية من الكابتن ماجد؟"
+      "en": "In Captain Majid, what is Majid's father's job?",
+      "ar": "في «الكابتن ماجد»، ما عمل والد ماجد؟"
     },
     "answer": {
       "en": "A sea captain",
@@ -697,44 +564,6 @@
     "answer": {
       "en": "Taro Misaki",
       "ar": "تارو ميساكي"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-038",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Captain Majid",
-      "ar": "الكابتن ماجد"
-    },
-    "question": {
-      "en": "Which original Captain Tsubasa character captains Furano's school team?",
-      "ar": "من يقود فريق مدرسة فورانو في النسخة الأصلية من الكابتن ماجد؟"
-    },
-    "answer": {
-      "en": "Hikaru Matsuyama",
-      "ar": "هيكارو ماتسوياما"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-039",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Captain Majid",
-      "ar": "الكابتن ماجد"
-    },
-    "question": {
-      "en": "Which member of the Shutetsu quartet is a fast winger known for his crossing?",
-      "ar": "أي عضو في رباعي شوتيتسو هو جناح سريع معروف برفع الكرات العرضية؟"
-    },
-    "answer": {
-      "en": "Hajime Taki",
-      "ar": "هاجيمي تاكي"
     },
     "review": {
       "status": "pending"
@@ -1014,12 +843,12 @@
       "ar": "جزيرة الكنز"
     },
     "question": {
-      "en": "What did Silver and the pirates want from the island?",
-      "ar": "ماذا أراد سيلفر والقراصنة من الجزيرة؟"
+      "en": "What job does young Jim do on the ship that sails for the treasure?",
+      "ar": "ما العمل الذي قام به جيم الصغير على السفينة التي أبحرت بحثًا عن الكنز؟"
     },
     "answer": {
-      "en": "Captain Flint's buried treasure",
-      "ar": "كنز الكابتن فلينت المدفون"
+      "en": "Cabin boy",
+      "ar": "صبي السفينة"
     },
     "review": {
       "status": "pending"
@@ -1033,12 +862,12 @@
       "ar": "جزيرة الكنز"
     },
     "question": {
-      "en": "What was the nickname Silver used among the pirates?",
-      "ar": "ما اللقب الذي كان يُعرف به سيلفر بين القراصنة؟"
+      "en": "In Treasure Island, what does Silver's parrot keep screeching?",
+      "ar": "في «جزيرة الكنز»، ما العبارة التي يصرخ بها ببغاء سيلفر باستمرار؟"
     },
     "answer": {
-      "en": "Long John (the Long One)",
-      "ar": "لونغ جون (الطويل)"
+      "en": "\"Pieces of eight!\"",
+      "ar": "«قطع الثمانية!» (Pieces of eight)"
     },
     "review": {
       "status": "pending"
@@ -1058,25 +887,6 @@
     "answer": {
       "en": "Robert Louis Stevenson",
       "ar": "روبرت لويس ستيفنسون"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-057",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Treasure Island",
-      "ar": "جزيرة الكنز"
-    },
-    "question": {
-      "en": "Which director helmed the 1978 Treasure Island anime series?",
-      "ar": "من أخرج مسلسل أنمي جزيرة الكنز لعام 1978؟"
-    },
-    "answer": {
-      "en": "Osamu Dezaki",
-      "ar": "أوسامو ديزاكي"
     },
     "review": {
       "status": "pending"
@@ -1141,7 +951,7 @@
   },
   {
     "id": "ayt-061",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Grendizer",
       "ar": "غرندايزر"
@@ -1160,18 +970,18 @@
   },
   {
     "id": "ayt-062",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Grendizer",
       "ar": "غرندايزر"
     },
     "question": {
-      "en": "What is the name of the giant robot?",
-      "ar": "ما هو اسم الروبوت العملاق؟"
+      "en": "Which Lebanese singer performed the famous Arabic theme song of Grendizer?",
+      "ar": "من المغني اللبناني الذي أدى شارة «غرندايزر» العربية الشهيرة؟"
     },
     "answer": {
-      "en": "Grendizer",
-      "ar": "غرندايزر"
+      "en": "Sami Clark",
+      "ar": "سامي كلارك"
     },
     "review": {
       "status": "pending"
@@ -1217,7 +1027,7 @@
   },
   {
     "id": "ayt-065",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Grendizer",
       "ar": "غرندايزر"
@@ -1236,7 +1046,7 @@
   },
   {
     "id": "ayt-066",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Grendizer",
       "ar": "غرندايزر"
@@ -1311,25 +1121,6 @@
     }
   },
   {
-    "id": "ayt-070",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Grendizer",
-      "ar": "غرندايزر"
-    },
-    "question": {
-      "en": "What is the name of Duke Fleed's home planet?",
-      "ar": "ما هو اسم كوكب ديوك فليد الأصلي؟"
-    },
-    "answer": {
-      "en": "Planet Fleed",
-      "ar": "كوكب فليد"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "ayt-071",
     "difficulty": "hard",
     "subcategory": {
@@ -1387,25 +1178,6 @@
     }
   },
   {
-    "id": "ayt-074",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Grendizer",
-      "ar": "غرندايزر"
-    },
-    "question": {
-      "en": "How many episodes were made for the original 1975–77 Grendizer television series?",
-      "ar": "كم حلقة أُنتجت لمسلسل غرندايزر التلفزيوني الأصلي المعروض بين 1975 و1977؟"
-    },
-    "answer": {
-      "en": "74 episodes",
-      "ar": "74 حلقة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "ayt-075",
     "difficulty": "hard",
     "subcategory": {
@@ -1426,7 +1198,7 @@
   },
   {
     "id": "ayt-076",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Grendizer",
       "ar": "غرندايزر"
@@ -1464,7 +1236,7 @@
   },
   {
     "id": "ayt-078",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Grendizer",
       "ar": "غرندايزر"
@@ -1793,12 +1565,12 @@
       "ar": "سالي"
     },
     "question": {
-      "en": "Which animation studio produced the 1985 Princess Sara television series?",
-      "ar": "أي استوديو رسوم متحركة أنتج مسلسل الأميرة سارة (سالي) التلفزيوني عام 1985؟"
+      "en": "What is Sally's family name in the story?",
+      "ar": "ما اسم عائلة سالي؟"
     },
     "answer": {
-      "en": "Nippon Animation",
-      "ar": "نيبون أنيميشن"
+      "en": "Crewe (Sara Crewe)",
+      "ar": "كرو (سارة كرو)"
     },
     "review": {
       "status": "pending"
@@ -1812,12 +1584,12 @@
       "ar": "سالي"
     },
     "question": {
-      "en": "What nickname did Sally's father give her?",
-      "ar": "ما هو اللقب الذي كان يطلقه والد سالي عليها؟"
+      "en": "Who is the wealthy neighbour who turns out to be the friend and business partner of Sally's late father?",
+      "ar": "من الجار الثري الذي يتبيّن أنه صديق والد سالي الراحل وشريكه في العمل؟"
     },
     "answer": {
-      "en": "The Little Princess",
-      "ar": "الأميرة الصغيرة"
+      "en": "Mr Carrisford",
+      "ar": "السيد كاريسفورد"
     },
     "review": {
       "status": "pending"
@@ -1869,12 +1641,12 @@
       "ar": "سالي"
     },
     "question": {
-      "en": "How many episodes are in the original 1985 Princess Sara series?",
-      "ar": "كم حلقة يضم مسلسل الأميرة سارة الأصلي لعام 1985؟"
+      "en": "Which language does Sally speak fluently, surprising everyone in her first lesson at the school?",
+      "ar": "أيّ لغة كانت سالي تتحدثها بطلاقة، فأدهشت الجميع في أول درس لها في المدرسة؟"
     },
     "answer": {
-      "en": "46 episodes",
-      "ar": "46 حلقة"
+      "en": "French",
+      "ar": "الفرنسية"
     },
     "review": {
       "status": "pending"
@@ -1958,7 +1730,7 @@
   },
   {
     "id": "ayt-104",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Chibi Maruko-chan",
       "ar": "ماروكو الصغيرة"
@@ -2033,46 +1805,8 @@
     }
   },
   {
-    "id": "ayt-108",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Chibi Maruko-chan",
-      "ar": "ماروكو الصغيرة"
-    },
-    "question": {
-      "en": "What is Hanawa's elderly butler commonly called in the original Chibi Maruko-chan?",
-      "ar": "بماذا يُنادى خادم هاناوا المسن عادةً في النسخة الأصلية من ماروكو الصغيرة؟"
-    },
-    "answer": {
-      "en": "Hideji",
-      "ar": "هيديجي"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-109",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Chibi Maruko-chan",
-      "ar": "ماروكو الصغيرة"
-    },
-    "question": {
-      "en": "What is Maruko's father's given name in the original Japanese series?",
-      "ar": "ما الاسم الأول لوالد ماروكو في النسخة اليابانية الأصلية؟"
-    },
-    "answer": {
-      "en": "Hiroshi",
-      "ar": "هيروشي"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "ayt-110",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Chibi Maruko-chan",
       "ar": "ماروكو الصغيرة"
@@ -2147,27 +1881,8 @@
     }
   },
   {
-    "id": "ayt-114",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Chibi Maruko-chan",
-      "ar": "ماروكو الصغيرة"
-    },
-    "question": {
-      "en": "What is Maruko's full given name, of which Maruko is a nickname?",
-      "ar": "ما الاسم الأول الكامل لماروكو، الذي يُشتق منه لقبها؟"
-    },
-    "answer": {
-      "en": "Momoko",
-      "ar": "موموكو"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "ayt-115",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Chibi Maruko-chan",
       "ar": "ماروكو الصغيرة"
@@ -2224,7 +1939,7 @@
   },
   {
     "id": "ayt-118",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Chibi Maruko-chan",
       "ar": "ماروكو الصغيرة"
@@ -2413,27 +2128,8 @@
     }
   },
   {
-    "id": "ayt-128",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Remi",
-      "ar": "ريمي"
-    },
-    "question": {
-      "en": "How did Remi earn money with the troupe?",
-      "ar": "كيف كانت ريمي تجني المال مع الفرقة؟"
-    },
-    "answer": {
-      "en": "Travelling performances",
-      "ar": "العروض المتنقلة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "ayt-129",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Remi",
       "ar": "ريمي"
@@ -2445,63 +2141,6 @@
     "answer": {
       "en": "Toulouse",
       "ar": "تولوز"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-130",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Remi",
-      "ar": "ريمي"
-    },
-    "question": {
-      "en": "What are the names of the three dogs with Vitalis?",
-      "ar": "ما هي أسماء الكلاب الثلاثة مع فيتاليس؟"
-    },
-    "answer": {
-      "en": "Capi, Zerbino, Dolce",
-      "ar": "كابي، زيربينو، دولشي"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-131",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Remi",
-      "ar": "ريمي"
-    },
-    "question": {
-      "en": "What is the name of Remi's noble family?",
-      "ar": "ما هو اسم عائلة ريمي النبيلة؟"
-    },
-    "answer": {
-      "en": "Remi Milligan",
-      "ar": "ريمي ميليغان"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-132",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Remi",
-      "ar": "ريمي"
-    },
-    "question": {
-      "en": "Which animation studio produced the 1996 series Remi, Nobody's Girl?",
-      "ar": "أي استوديو أنتج مسلسل ريمي الفتاة لعام 1996؟"
-    },
-    "answer": {
-      "en": "Nippon Animation",
-      "ar": "نيبون أنيميشن"
     },
     "review": {
       "status": "pending"
@@ -2585,7 +2224,7 @@
   },
   {
     "id": "ayt-137",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Remi",
       "ar": "ريمي"
@@ -2635,44 +2274,6 @@
     "answer": {
       "en": "Chavanon",
       "ar": "شيفانون"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-140",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Remi",
-      "ar": "ريمي"
-    },
-    "question": {
-      "en": "How many episodes were produced for the complete 1996 anime Remi, Nobody's Girl?",
-      "ar": "كم حلقة أُنتجت للنسخة الكاملة من أنمي ريمي الفتاة الذي بدأ عام 1996؟"
-    },
-    "answer": {
-      "en": "26 episodes",
-      "ar": "26 حلقة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-141",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Sandybell",
-      "ar": "ساندييبيل"
-    },
-    "question": {
-      "en": "Which studio produced Hello! Sandybell?",
-      "ar": "أي استوديو أنتج مسلسل ساندي بيل؟"
-    },
-    "answer": {
-      "en": "Toei Animation",
-      "ar": "توي أنيميشن"
     },
     "review": {
       "status": "pending"
@@ -2737,7 +2338,7 @@
   },
   {
     "id": "ayt-145",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Sandybell",
       "ar": "ساندييبيل"
@@ -2831,25 +2432,6 @@
     }
   },
   {
-    "id": "ayt-150",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Sandybell",
-      "ar": "ساندييبيل"
-    },
-    "question": {
-      "en": "How many episodes were produced for Hello! Sandybell?",
-      "ar": "كم حلقة أُنتجت لمسلسل ساندي بيل؟"
-    },
-    "answer": {
-      "en": "47 episodes",
-      "ar": "47 حلقة"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "ayt-151",
     "difficulty": "hard",
     "subcategory": {
@@ -2869,65 +2451,8 @@
     }
   },
   {
-    "id": "ayt-152",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Sandybell",
-      "ar": "ساندييبيل"
-    },
-    "question": {
-      "en": "Who is credited as the original creator of Hello! Sandybell?",
-      "ar": "من صاحب الفكرة الأصلية المعتمد في شارة مسلسل ساندي بيل؟"
-    },
-    "answer": {
-      "en": "Shiro Jinbo",
-      "ar": "شيرو جينبو"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-153",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Sandybell",
-      "ar": "ساندييبيل"
-    },
-    "question": {
-      "en": "Which Japanese voice actress made her voice-acting debut as Sandybell?",
-      "ar": "أي ممثلة أصوات يابانية بدأت مسيرتها في الدبلجة بدور ساندي بيل؟"
-    },
-    "answer": {
-      "en": "Yuriko Yamamoto",
-      "ar": "يوريكو ياماموتو"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-154",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Sandybell",
-      "ar": "ساندييبيل"
-    },
-    "question": {
-      "en": "Which city's sewers are featured in episode 32 of the original Hello! Sandybell anime?",
-      "ar": "في مجاري أيّ مدينة تدور أحداث الحلقة 32 من النسخة الأصلية لأنمي «ساندي بل»؟"
-    },
-    "answer": {
-      "en": "Paris",
-      "ar": "باريس"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "ayt-155",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Sandybell",
       "ar": "ساندييبيل"
@@ -2977,63 +2502,6 @@
     "answer": {
       "en": "In a convent (having lost her memory)",
       "ar": "في دير (فاقدة للذاكرة)"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-158",
-    "difficulty": "medium",
-    "subcategory": {
-      "en": "Sandybell",
-      "ar": "ساندييبيل"
-    },
-    "question": {
-      "en": "What is Alec's profession in Hello! Sandybell?",
-      "ar": "ما مهنة أليك في ساندي بيل؟"
-    },
-    "answer": {
-      "en": "Reporter",
-      "ar": "صحفي"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-159",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Sandybell",
-      "ar": "ساندييبيل"
-    },
-    "question": {
-      "en": "Who composed the music for Hello! Sandybell?",
-      "ar": "من ألّف موسيقى مسلسل ساندي بيل؟"
-    },
-    "answer": {
-      "en": "Takeo Watanabe",
-      "ar": "تاكيو واتانابي"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-160",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Sandybell",
-      "ar": "ساندييبيل"
-    },
-    "question": {
-      "en": "Who designed the characters for the original Hello! Sandybell anime?",
-      "ar": "من صمم شخصيات أنمي ساندي بيل الأصلي؟"
-    },
-    "answer": {
-      "en": "Joji Yanase",
-      "ar": "جوجي ياناسي"
     },
     "review": {
       "status": "pending"
@@ -3098,7 +2566,7 @@
   },
   {
     "id": "ayt-164",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Iron Man",
       "ar": "الرجل الحديدي"
@@ -3230,25 +2698,6 @@
     }
   },
   {
-    "id": "ayt-171",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Iron Man",
-      "ar": "الرجل الحديدي"
-    },
-    "question": {
-      "en": "In what year did the original Japanese broadcast of Dinosaur War Izenborg end?",
-      "ar": "في أي عام انتهى العرض الياباني الأصلي لمسلسل الرجل الحديدي؟"
-    },
-    "answer": {
-      "en": "1978",
-      "ar": "1978"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "ayt-172",
     "difficulty": "hard",
     "subcategory": {
@@ -3269,7 +2718,7 @@
   },
   {
     "id": "ayt-173",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Iron Man",
       "ar": "الرجل الحديدي"
@@ -3306,25 +2755,6 @@
     }
   },
   {
-    "id": "ayt-175",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Iron Man",
-      "ar": "الرجل الحديدي"
-    },
-    "question": {
-      "en": "Which planet do the heroes defend in Dinosaur War Izenborg?",
-      "ar": "عن أي كوكب يدافع أبطال الرجل الحديدي؟"
-    },
-    "answer": {
-      "en": "Earth",
-      "ar": "الأرض"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "ayt-176",
     "difficulty": "hard",
     "subcategory": {
@@ -3344,82 +2774,6 @@
     }
   },
   {
-    "id": "ayt-177",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Iron Man",
-      "ar": "الرجل الحديدي"
-    },
-    "question": {
-      "en": "What was the English title of the Izenborg documentary announced for Spacetoon in 2017?",
-      "ar": "ما العنوان الإنجليزي لوثائقي الرجل الحديدي الذي أُعلن عرضه على سبيستون عام 2017؟"
-    },
-    "answer": {
-      "en": "Return of Izenborg",
-      "ar": "Return of Izenborg (عودة آيزنبورغ)"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-178",
-    "difficulty": "hard",
-    "subcategory": {
-      "en": "Iron Man",
-      "ar": "الرجل الحديدي"
-    },
-    "question": {
-      "en": "What family name do Zen and Ai share in the original Japanese Dinosaur War Izenborg?",
-      "ar": "ما اسم العائلة المشترك بين زين وآي في النسخة اليابانية الأصلية من الرجل الحديدي؟"
-    },
-    "answer": {
-      "en": "Tachibana",
-      "ar": "تاتشيبانا"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-179",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Iron Man",
-      "ar": "الرجل الحديدي"
-    },
-    "question": {
-      "en": "Who originally voiced Ai Tachibana in Japanese in Dinosaur War Izenborg?",
-      "ar": "من أدت صوت آي تاتشيبانا باليابانية في الرجل الحديدي الأصلي؟"
-    },
-    "answer": {
-      "en": "Yoko Asagami",
-      "ar": "يوكو أساغامي"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-180",
-    "difficulty": "very-advanced",
-    "subcategory": {
-      "en": "Iron Man",
-      "ar": "الرجل الحديدي"
-    },
-    "question": {
-      "en": "Who originally voiced Zen Tachibana in Japanese in Dinosaur War Izenborg?",
-      "ar": "من أدى صوت زين تاتشيبانا باليابانية في الرجل الحديدي الأصلي؟"
-    },
-    "answer": {
-      "en": "Kyonosuke Kami",
-      "ar": "كيونوسكي كامي"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
     "id": "ayt-181",
     "difficulty": "easy",
     "subcategory": {
@@ -3433,25 +2787,6 @@
     "answer": {
       "en": "Cat",
       "ar": "قط"
-    },
-    "review": {
-      "status": "pending"
-    }
-  },
-  {
-    "id": "ayt-182",
-    "difficulty": "easy",
-    "subcategory": {
-      "en": "Tom and Jerry",
-      "ar": "توم وجيري"
-    },
-    "question": {
-      "en": "What type of animal is Jerry?",
-      "ar": "ما نوع حيوان جيري؟"
-    },
-    "answer": {
-      "en": "Mouse",
-      "ar": "فأر"
     },
     "review": {
       "status": "pending"
@@ -3725,7 +3060,7 @@
   },
   {
     "id": "ayt-197",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Tom and Jerry",
       "ar": "توم وجيري"
@@ -3763,7 +3098,7 @@
   },
   {
     "id": "ayt-200",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Tom and Jerry",
       "ar": "توم وجيري"

@@ -74,7 +74,34 @@ export function existingReleaseRun(runs, sha) {
     && (run.status !== "completed" || run.conclusion === "success")) || null;
 }
 
-export async function releaseMergedMain(gh, { sha, log = () => {}, dispatch = dispatchAndWait, stages = RELEASE_STAGES }) {
+// GitHub occasionally answers a workflow dispatch with a 5xx after creating the
+// run (the 8 Nov release lost its API stage to an HTTP 500). A blind retry could
+// start a second release, so the stage is re-evaluated instead: wait, look for a
+// run of this commit that appeared since the attempt and adopt it, and only
+// dispatch again when nothing appeared. One retry; a second 5xx fails the release.
+export const DISPATCH_RETRY_DELAY_MS = 60_000;
+
+export function isDispatchServerError(error) {
+  return typeof error?.status === "number" && error.status >= 500 && /\/dispatches: HTTP 5\d\d/u.test(error.message || "");
+}
+
+export async function waitForRun(gh, { runId, sha, timeoutMs, now = Date.now, wait = (ms) => new Promise((done) => setTimeout(done, ms)) }) {
+  const started = now();
+  while (now() - started < timeoutMs) {
+    const run = await gh(`${PREFIX}/actions/runs/${runId}`);
+    if (run.id !== runId || run.head_sha !== sha || run.head_branch !== "main" || run.event !== "workflow_dispatch"
+      || run.head_repository?.full_name !== REPOSITORY) throw new Error("Adopted workflow run identity changed.");
+    if (run.status === "completed") {
+      if (run.conclusion !== "success") throw new Error(`run ${run.id} ended with ${run.conclusion}.`);
+      return run;
+    }
+    await wait(10_000);
+  }
+  throw new Error(`run ${runId} did not finish within the release budget. Its status remains available in GitHub.`);
+}
+
+export async function releaseMergedMain(gh, { sha, log = () => {}, dispatch = dispatchAndWait, stages = RELEASE_STAGES,
+  wait = (ms) => new Promise((done) => setTimeout(done, ms)), waitRun = waitForRun }) {
   const branch = await gh(`${PREFIX}/branches/main`);
   if (branch?.commit?.sha !== sha) {
     log(`Commit ${sha} is no longer the tip of main (${branch?.commit?.sha || "unknown"}); the newer push releases instead.`);
@@ -96,8 +123,24 @@ export async function releaseMergedMain(gh, { sha, log = () => {}, dispatch = di
       log(`${stage.workflow} is already ${existing.status} for ${sha} (run ${existing.id}), started outside this workflow; leaving it to finish.`);
       return { status: "in-progress-elsewhere", sha, runs, runId: existing.id };
     }
-    log(`Starting ${stage.workflow} for ${sha}. If the production environment asks for approval, approve it in the Actions tab.`);
-    const run = await dispatch(gh, { workflow: stage.workflow, ref: "main", sha, inputs: stage.inputs, timeoutMs: stage.timeoutMs });
+    const knownIds = new Set((listing.workflow_runs || []).map((run) => run.id));
+    let run;
+    for (let attempt = 0; !run; attempt++) {
+      log(`Starting ${stage.workflow} for ${sha}. If the production environment asks for approval, approve it in the Actions tab.`);
+      try {
+        run = await dispatch(gh, { workflow: stage.workflow, ref: "main", sha, inputs: stage.inputs, timeoutMs: stage.timeoutMs });
+      } catch (error) {
+        if (!isDispatchServerError(error) || attempt >= 1) throw error;
+        log(`GitHub answered the dispatch with ${error.message}; checking whether the run started anyway.`);
+        await wait(DISPATCH_RETRY_DELAY_MS);
+        const after = await gh(`${PREFIX}/actions/workflows/${stage.workflow}/runs?branch=main&event=workflow_dispatch&per_page=30`);
+        const appeared = existingReleaseRun((after.workflow_runs || []).filter((candidate) => !knownIds.has(candidate.id)), sha);
+        if (appeared) {
+          log(`${stage.workflow} run ${appeared.id} did start; waiting for it instead of dispatching again.`);
+          run = await waitRun(gh, { runId: appeared.id, sha, timeoutMs: stage.timeoutMs });
+        }
+      }
+    }
     log(`${stage.workflow} finished: ${run.html_url || run.id}`);
     runs.push({ workflow: stage.workflow, id: run.id, url: run.html_url });
   }

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { existingReleaseRun, isTransientReadError, mergeContext, releaseMergedMain, RELEASE_STAGES, STATIC_CONFIRMATION, withReadRetries } from "./release-on-merge.mjs";
+import { existingReleaseRun, isDispatchServerError, isTransientReadError, mergeContext, releaseMergedMain, RELEASE_STAGES, STATIC_CONFIRMATION, waitForRun, withReadRetries } from "./release-on-merge.mjs";
 import { REPOSITORY, REPOSITORY_ID } from "./autopilot-client.mjs";
 
 const SHA = "a".repeat(40);
@@ -160,4 +160,67 @@ test("transient GitHub read failures are retried; policy errors and writes are n
   // retries are bounded
   const alwaysDown = withReadRetries(async () => { throw new Error("fetch failed"); }, { delays: [1, 1], wait: async () => {} });
   await assert.rejects(alwaysDown("/repos/x/branches/main"), /fetch failed/u);
+});
+
+function serverError(workflow) {
+  return Object.assign(new Error(`GitHub POST /repos/${REPOSITORY}/actions/workflows/${workflow}/dispatches: HTTP 500`), { status: 500 });
+}
+
+test("a 5xx on dispatch adopts the run if it started anyway, and dispatches once more if it did not", async () => {
+  assert.ok(isDispatchServerError(serverError("api-deploy.yml")));
+  assert.equal(isDispatchServerError(Object.assign(new Error("GitHub GET /x: HTTP 500"), { status: 500 })), false, "only dispatches qualify");
+  assert.equal(isDispatchServerError(Object.assign(new Error(`GitHub POST /x/dispatches: HTTP 422`), { status: 422 })), false);
+
+  // Case 1: the run appeared despite the 500. The API stage adopts it; static is dispatched normally.
+  let apiRuns = [];
+  const appeared = fakeGitHub({ apiRuns: [] });
+  const ghAdopt = async (path, options) => {
+    if (path === `${PREFIX}/actions/runs/77`) return releaseRun({ id: 77, status: "completed", conclusion: "success", html_url: "https://example.test/run/77" });
+    if (path.startsWith(`${PREFIX}/actions/workflows/api-deploy.yml/runs?`)) return { workflow_runs: apiRuns };
+    return appeared.gh(path, options);
+  };
+  const dispatched = [];
+  const dispatch = async (client, options) => {
+    dispatched.push(options.workflow);
+    if (options.workflow === "api-deploy.yml") { apiRuns = [releaseRun({ id: 77, status: "in_progress", conclusion: null })]; throw serverError("api-deploy.yml"); }
+    return { id: 78, html_url: "https://example.test/run/78" };
+  };
+  const waits = [];
+  const result = await releaseMergedMain(ghAdopt, { sha: SHA, dispatch, wait: async (ms) => { waits.push(ms); } });
+  assert.equal(result.status, "released");
+  assert.deepEqual(dispatched, ["api-deploy.yml", "static-site.yml"], "the API deploy is not dispatched twice");
+  assert.deepEqual(result.runs.map(({ workflow, id }) => [workflow, id]), [["api-deploy.yml", 77], ["static-site.yml", 78]]);
+  assert.deepEqual(waits, [60_000]);
+
+  // Case 2: nothing appeared. One more dispatch, which succeeds.
+  const { gh } = fakeGitHub();
+  const attempts = [];
+  const flaky = async (client, options) => {
+    attempts.push(options.workflow);
+    if (options.workflow === "api-deploy.yml" && attempts.filter((w) => w === "api-deploy.yml").length === 1) throw serverError("api-deploy.yml");
+    return { id: 90 + attempts.length };
+  };
+  const retried = await releaseMergedMain(gh, { sha: SHA, dispatch: flaky, wait: async () => {} });
+  assert.equal(retried.status, "released");
+  assert.deepEqual(attempts, ["api-deploy.yml", "api-deploy.yml", "static-site.yml"]);
+
+  // Case 3: a second 5xx fails the release; other errors are never retried.
+  const twice = async (client, options) => { throw serverError(options.workflow); };
+  await assert.rejects(releaseMergedMain(gh, { sha: SHA, dispatch: twice, wait: async () => {} }), /HTTP 500/u);
+  const plain = [];
+  const other = async (client, options) => { plain.push(options.workflow); throw new Error("api-deploy.yml run 5 ended with failure."); };
+  await assert.rejects(releaseMergedMain(gh, { sha: SHA, dispatch: other, wait: async () => {} }), /ended with failure/u);
+  assert.deepEqual(plain, ["api-deploy.yml"]);
+});
+
+test("waitForRun follows one adopted run to completion and refuses an identity change", async () => {
+  const states = ["queued", "in_progress", "completed"];
+  let i = 0;
+  const gh = async () => releaseRun({ id: 5, status: states[Math.min(i++, 2)], conclusion: i > 2 ? "success" : null });
+  const run = await waitForRun(gh, { runId: 5, sha: SHA, timeoutMs: 60_000, wait: async () => {} });
+  assert.equal(run.status, "completed");
+  await assert.rejects(waitForRun(async () => releaseRun({ id: 5, head_sha: NEWER }), { runId: 5, sha: SHA, timeoutMs: 60_000, wait: async () => {} }), /identity changed/u);
+  await assert.rejects(waitForRun(async () => releaseRun({ id: 5, conclusion: "failure" }), { runId: 5, sha: SHA, timeoutMs: 60_000, wait: async () => {} }), /ended with failure/u);
+  let t = 0;
+  await assert.rejects(waitForRun(async () => releaseRun({ id: 5, status: "in_progress", conclusion: null }), { runId: 5, sha: SHA, timeoutMs: 25_000, now: () => (t += 10_000), wait: async () => {} }), /did not finish/u);
 });

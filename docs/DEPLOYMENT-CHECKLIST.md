@@ -5,8 +5,15 @@ Use this runbook for releases of **jame17291-sys/jakh.net** to
 It covers release preparation, API compatibility, conditional D1 migration,
 the static site, and monitoring and recovery.
 
+**Normal releases are automatic.** Since 2026-11-08, merging a pull request into protected
+`main` starts `release-on-merge.yml`, which dispatches `api-deploy.yml`
+(`release_phase=compatibility`, `domain_cutover=false`) and then `static-site.yml` (exact
+confirmation, `domain_cutover=false`) for the merged commit. The owner only approves the
+`production` environment when GitHub asks. The workflow-dispatch commands below are the same
+runs that Release on merge starts; use them by hand only when a release needs attention, when
+re-running a stage, or for `migrate-final`, which is never automatic.
+
 This document does not authorize a deployment, migration, rollback, or restore.
-The workflow-dispatch examples are for a separately approved future release.
 Creating or reviewing these documentation PRs requires no manual workflow run.
 
 Commands assume the repository root, Node.js 24, an authenticated GitHub CLI,

@@ -115,7 +115,8 @@ restore proof and approval requirements in the checklist. Worker rollback does n
 
 ## Where to read next
 
-Read only what the task needs: `docs/DEPLOYMENT-CHECKLIST.md`; content: `docs/CONTENT-STUDIO.md`,
+Read only what the task needs. Current state and next steps: `docs/HANDOVER-2026-11-09.md`
+and `docs/ROADMAP-2026-11.md`. Release: `docs/DEPLOYMENT-CHECKLIST.md`; content: `docs/CONTENT-STUDIO.md`,
 `docs/content-review/README.md`, `docs/content-review/ARABIC-STYLE-GUIDE.md`; admin: `docs/ADMIN-WORKSPACE.md`,
 `docs/ADMIN-MFA.md`; autopilot: `docs/AUTOPILOT.md`; kids: `docs/kids-learning.md`; social games:
 `docs/PARTY-GAMES.md`; puzzles: `docs/games/puzzle-room.md`; SEO/performance: `docs/SEO-ARCHITECTURE.md`,

@@ -129,7 +129,9 @@ html[lang="ar"] .shuffle-root:empty::before { content: "تعذّر تحميل ت
 .shuffle-trophy-text { display: flex; flex-direction: column; gap: .1rem; min-width: 0; }
 .shuffle-trophy-name { font-weight: 700; }
 .shuffle-trophy-desc { font-size: .85rem; color: var(--muted); }
-.shuffle-trophy.is-locked { opacity: .72; }
+/* Locked trophies are muted by a dashed border and a dimmed icon only; text keeps full contrast. */
+.shuffle-trophy.is-locked { border-style: dashed; }
+.shuffle-trophy.is-locked .shuffle-trophy-icon { opacity: .6; }
 .shuffle-trophy.is-earned { border-color: color-mix(in srgb, var(--accent-3) 45%, var(--line)); background: color-mix(in srgb, var(--accent-3) 10%, var(--panel)); }
 .shuffle-trophy-flag { display: inline-block; margin-inline-start: .35rem; padding: .05rem .45rem; border-radius: 999px; background: var(--accent); color: #fff; font-size: .7rem; font-weight: 700; vertical-align: middle; }
 .shuffle-trophy.is-new { animation: shuffle-trophy-pop .5s ease-out 1; }

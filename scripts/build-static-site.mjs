@@ -70,7 +70,7 @@ export const STATIC_ASSET_LIMITS = Object.freeze({ files: 20_000, bytesPerFile: 
 
 // Dependency-free modules shared by several entry points. They are fingerprinted
 // first so every importer can pin the exact release it was built with.
-const SHARED_MODULES = Object.freeze(["/arabic-count.js"]);
+const SHARED_MODULES = Object.freeze(["/arabic-count.js", "/achievements.js"]);
 
 const ILLUSTRATION_MODULES = Object.freeze(["/site-illustrations.js", "/directory-ui.js"]);
 

@@ -1,7 +1,7 @@
 # Riddle Arabia roadmap — November 2026
 
 Drafted 2026-11-08 after the search click-through pass (#185, #186) and the move to
-release-on-merge (#188–#190). Baseline: Search Console shows 60 clicks in the 28 days to
+release-on-merge (#188–#190); updated 2026-11-09 (see `docs/HANDOVER-2026-11-09.md`). Baseline: Search Console shows 60 clicks in the 28 days to
 5 Nov and 77 in the last three months. The site has far more product than audience, so this
 plan weights distribution and measurement over new features, and keeps every change
 measurable against that baseline.
@@ -9,7 +9,7 @@ measurable against that baseline.
 Each phase is its own pull request (or a few). Phases 1 and 3 need no owner decision beyond
 merge. Phases 2 and 4 contain decisions only the owner can make; they are marked.
 
-## Phase 1 — Daily return loop (week of 10 Nov)
+## Phase 1 — Daily return loop (shipped 8 Nov, #193)
 
 **Why.** Nothing on the site asks a visitor to come back tomorrow. Shuffle Challenge is already
 a daily format; a streak and a shareable result are the cheapest known retention mechanic and
@@ -30,6 +30,21 @@ fit the free, no-account rule.
 return visits without any identity; streak length is never sent anywhere.
 
 **Checks.** `test:contracts`, `check:performance` (app.js budget), browser matrix in CI.
+
+## Phase 1b — Trophy case (shipped 8 Nov, #195)
+
+**Why.** The owner asked about rewards, rankings and Duolingo-style mechanics. Most of
+Duolingo's engine is already here or does not fit (hearts and gems contradict the free rule;
+leagues need an audience; push notifications are intrusive). The one missing piece that both
+rewards *and* redirects players into more content is a trophy case tied to things on the site.
+
+**Shipped.** Achievements moved to `achievements.js` (out of the app.js budget), six Shuffle
+trophies and a 3-day streak added, guests earn trophies and get the unlock toast, and the
+Shuffle recap shows earned trophies first, then the next four to aim for. All browser-local.
+
+**Not in scope, by decision.** Hearts or lives, gems or any shop, leagues, push
+notifications, ranking changes. Revisit a "you beat X% of players today" line once there are
+a few dozen rounds a day: it needs only aggregate counts and no identity.
 
 ## Phase 2 — Quarantined categories: prepare, do not publish (owner decision)
 
@@ -67,8 +82,9 @@ and few clicks, and whether `/math-riddles` and `/hard-riddles` gained impressio
   five-year-old in Arabic", "riddles that trick adults"), two or three to start.
 - Sitemap resubmitted in Search Console after each release.
 
-**Not before December.** Changing titles again before Google has re-crawled makes the first
-change unmeasurable.
+**Not before December.** Changing *existing* titles again before Google has re-crawled makes
+the 8 Nov change unmeasurable. Adding new collection pages is fine at any time; they do not
+disturb that measurement, so the collections above can start in November.
 
 ## Phase 4 — Knowing what visitors do (owner decision)
 
@@ -93,7 +109,8 @@ request.
 
 | When | Work | Needs owner |
 | --- | --- | --- |
-| Week of 10 Nov | Phase 1; resubmit sitemap; share the two new pages | merge only |
+| 8–9 Nov | Phases 1 and 1b shipped; sitemap resubmitted; social posts drafted | done |
+| Week of 10 Nov | Owner shares the two new pages; next collections (science, geography, football, Islamic knowledge) | merge only |
 | Mid November | Phase 2 pre-review of medical (no public change) | reviewer decision |
 | Early December | Read Search Console; pick Phase 3 items | share the data |
 | December | Phase 3 | merge only |

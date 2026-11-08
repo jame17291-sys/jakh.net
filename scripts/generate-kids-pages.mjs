@@ -64,10 +64,11 @@ function art(name, cls = '', eager = false) {
   if (!fs.existsSync(path.join(root, `assets/illustrations/${name}-480.webp`))) name = 'kids-riddles';
   return `<img class="${cls}" src="/assets/illustrations/${name}-480.webp" srcset="/assets/illustrations/${name}-480.webp 480w, /assets/illustrations/${name}-960.webp 960w" sizes="(max-width: 600px) 160px, 300px" width="960" height="640" alt="" loading="${eager ? 'eager' : 'lazy'}" decoding="async"${eager ? ' fetchpriority="high"' : ''} />`;
 }
-function layout({lang, suffix = '', title: visibleTitle, description: visibleDescription, content, type = 'hub', activity, schema}) {
+function layout({lang, suffix = '', title: visibleTitle, seoTitle, description: visibleDescription, content, type = 'hub', activity, schema}) {
   const canonical = kidsPath(lang, suffix), alternate = kidsPath(lang === 'ar' ? 'en' : 'ar', suffix);
   const title = plainText(visibleTitle, lang), description = plainText(visibleDescription, lang);
-  const name = `${title} | ${ui(lang, 'Riddle Arabia', 'ريدل أرابيا')}`;
+  // seoTitle lets the hub's search result name search phrases (riddles, games, ages) while the visible H1 stays short.
+  const name = `${seoTitle ? plainText(seoTitle, lang) : title} | ${ui(lang, 'Riddle Arabia', 'ريدل أرابيا')}`;
   const structured = plainStructuredData(schema || { '@type': 'CollectionPage', name: title, description }, lang);
   const json = JSON.stringify({ '@context': 'https://schema.org', ...structured, url: origin + canonical, inLanguage: lang, isPartOf: { '@id': origin + '/#website' }, isAccessibleForFree: true }).replaceAll('<', '\\u003c');
   return `<!DOCTYPE html>
@@ -138,12 +139,13 @@ function toolkit(lang, full = true) {
 }
 function hub(content, lang, {age, area, listing = false} = {}) {
   const title = age ? `${loc(age.title,lang)} · ${ageText(age.id,lang)}` : area ? loc(area.title,lang) : listing ? ui(lang,'All kids activities','جميع أنشطة الأطفال') : ui(lang,'Kids Learning & Play','عالم الأطفال: تعلّم والعب');
-  const description = age ? loc(age.description,lang) : area ? loc(area.description,lang) : ui(lang,`Explore ${content.activities.length} questions and playful activities: ${KIDS_INVENTORY.activitiesPerAgeAndArea * KIDS_AGES.length} in each learning area. Find printable packs and easy weekly plans for your family.`, `استكشف ${content.activities.length} سؤالًا ونشاطًا مرحًا: ${KIDS_INVENTORY.activitiesPerAgeAndArea * KIDS_AGES.length} في كلّ مجال تعلّم. اكتشف حزمًا للطباعة وخططًا أسبوعية سهلة لأسرتك.`);
+  const description = age ? loc(age.description,lang) : area ? loc(area.description,lang) : ui(lang,`Explore ${content.activities.length} free questions and playful activities for ages 3–12 in Arabic and English, ${KIDS_INVENTORY.activitiesPerAgeAndArea * KIDS_AGES.length} per learning area, plus kids riddles, printable packs and weekly plans.`, `استكشف ${content.activities.length} سؤالًا ونشاطًا مرحًا مجانًا للأعمار 3–12 بالعربية والإنجليزية، ${KIDS_INVENTORY.activitiesPerAgeAndArea * KIDS_AGES.length} في كلّ مجال تعلّم، مع ألغاز للأطفال وحزم للطباعة وخطط أسبوعية.`);
   const filtered = content.activities.filter(a => (!age || a.age === age.id) && (!area || a.area === area.id));
   const main = !age && !area && !listing;
   const plans = main ? KIDS_AGES.map(a => content.plans.find(p => p.age === a.id)) : content.plans.filter(p => !age || p.age === age.id);
   const packs = main ? KIDS_AGES.map((a, i) => content.packs.find(p => p.age === a.id && p.area === KIDS_AREAS[i].id)) : content.packs.filter(p => (!age || p.age === age.id) && (!area || p.area === area.id));
-  return layout({lang, suffix: age ? `ages/${age.id}` : area ? `areas/${area.id}` : listing ? 'activities' : '', title, description, content:
+  const seoTitle = main ? ui(lang, 'Kids Riddles, Games & Activities for Ages 3–12', 'ألغاز وألعاب وأنشطة للأطفال من 3 إلى 12 سنة') : undefined;
+  return layout({lang, suffix: age ? `ages/${age.id}` : area ? `areas/${area.id}` : listing ? 'activities' : '', title, seoTitle, description, content:
     hero(lang,title,description,{image:area?.image}) + subnav(lang, listing ? 'activities' : '') + (main ? riddlesCallout(content, lang) : '') + finder(lang,{age:age?.id,area:area?.id}) +
     (main ? `<section class="kids-section">${sectionHead(ui(lang,'A starting point for every stage','بداية مناسبة لكلّ مرحلة'),ui(lang,'Age is a guide. Explore nearby ages and use the easier or harder variations.', 'العمر دليل أولي. استكشف الأعمار القريبة واستخدم النسخة الأسهل أو الأصعب.'))}${ageCards(lang)}</section><section class="kids-section">${sectionHead(ui(lang,'Follow their curiosity','اتبع فضولهم'))}${areaCards(lang)}</section>` : '') + library(filtered,lang) +
     resourcesSection(plans,lang,'weekly-plans',ui(lang,'A playful week, ready for you','أسبوع مرح جاهز لكم'),ui(lang,'Five small invitations to explore. No daily pressure.','خمس دعوات صغيرة للاستكشاف، دون ضغط يومي.'),main?4:2) +

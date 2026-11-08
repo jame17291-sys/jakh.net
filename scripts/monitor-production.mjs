@@ -90,7 +90,7 @@ export const PRE_NAVIGATION_HTML_ROUTES = [
   { name: "Home", path: "/", marker: "<title>Riddle Arabia", bilingualMarker: 'id="langSelect"' },
   { name: "Mind Lab", path: "/mind-lab", marker: "<title>Mind Lab", bilingualMarker: 'id="langSelect"' },
   { name: "Collections", path: "/collections", marker: "<title>Discover Riddles &amp; Brain Games", bilingualMarker: 'hreflang="ar"' },
-  { name: "Riddles", path: "/riddles", marker: "<title>Riddles With Answers", bilingualMarker: 'hreflang="ar"' },
+  { name: "Riddles", path: "/riddles", marker: "<title>30 Riddles With Answers", baselineMarker: "<title>Riddles With Answers", bilingualMarker: 'hreflang="ar"' },
   { name: "Arabic riddles", path: "/ar/alghaz/", marker: '<html lang="ar" dir="rtl">', bilingualMarker: 'hreflang="en"' },
   { name: "Brain Games", path: "/brain-games", marker: "<title>Free Brain Games Online", bilingualMarker: 'hreflang="ar"' },
   { name: "Arabic science topic", path: "/ar/topics/science/", marker: '<html lang="ar" dir="rtl">', bilingualMarker: 'hreflang="en"' },
@@ -111,10 +111,10 @@ export const PRE_NAVIGATION_HTML_ROUTES = [
 ];
 
 const NAVIGATION_ROUTE_UPDATES = {
-  "/": { marker: "<title>Arabic Riddles, Trivia &amp; Games | Riddle Arabia", baselineMarker: "<title>Riddle Arabia", bilingualMarker: 'class="language-route-link"' },
+  "/": { marker: "<title>Arabic Riddles With Answers, Trivia &amp; Free Games | Riddle Arabia", baselineMarker: "<title>Riddle Arabia", bilingualMarker: 'class="language-route-link"' },
   "/mind-lab": { name: "Riddles & Quizzes", marker: "<title>Riddles, Trivia &amp; Quizzes in Arabic &amp; English", baselineMarker: "<title>Riddles &amp; Quizzes", bilingualMarker: 'class="language-route-link"' },
   "/collections": { marker: "<title>Short Riddle &amp; Quiz Collections" },
-  "/brain-games": { marker: "<title>Free Brain Games in Arabic &amp; English", baselineMarker: "<title>Free Brain Games Online" },
+  "/brain-games": { marker: "<title>Play Free Brain Games", baselineMarker: "<title>Free Brain Games in Arabic &amp; English" },
   "/play": { name: "Games", marker: "<title>Free Arabic &amp; English Puzzle Games", baselineMarker: "<title>Free Arabic Games Online", bilingualMarker: 'class="language-route-link"' },
   "/science": { bilingualMarker: 'class="language-route-link"' },
 };

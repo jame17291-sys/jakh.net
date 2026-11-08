@@ -111,7 +111,9 @@ export const PRE_NAVIGATION_HTML_ROUTES = [
 ];
 
 const NAVIGATION_ROUTE_UPDATES = {
-  "/": { marker: "<title>Arabic Riddles With Answers, Trivia &amp; Free Games | Riddle Arabia", baselineMarker: "<title>Riddle Arabia", bilingualMarker: 'class="language-route-link"' },
+  // baselineMarker is the title the immediately preceding release served; olderBaselineMarkers
+  // keep earlier exact-version generations (the pre-navigation homepage was titled "Riddle Arabia").
+  "/": { marker: "<title>Arabic Riddles With Answers, Trivia &amp; Free Games | Riddle Arabia", baselineMarker: "<title>Arabic Riddles, Trivia &amp; Games | Riddle Arabia", olderBaselineMarkers: ["<title>Riddle Arabia"], bilingualMarker: 'class="language-route-link"' },
   "/mind-lab": { name: "Riddles & Quizzes", marker: "<title>Riddles, Trivia &amp; Quizzes in Arabic &amp; English", baselineMarker: "<title>Riddles &amp; Quizzes", bilingualMarker: 'class="language-route-link"' },
   "/collections": { marker: "<title>Short Riddle &amp; Quiz Collections" },
   "/brain-games": { marker: "<title>Play Free Brain Games", baselineMarker: "<title>Free Brain Games in Arabic &amp; English" },
@@ -397,6 +399,12 @@ function legacyOrigins(value, fallback) {
     .filter(Boolean)
     .map((candidate) => origin(candidate, "legacy site origin"));
   return [...new Set(normalized)];
+}
+
+// A release baseline may serve any marker a previous exact-version release used.
+export function includesPredecessorMarker(route, text) {
+  return [route?.baselineMarker, ...(route?.olderBaselineMarkers || [])]
+    .some((marker) => typeof marker === "string" && marker.length > 0 && text.includes(marker));
 }
 
 function expect(condition, message) {
@@ -694,7 +702,7 @@ export async function runProductionMonitor(options = {}) {
       expectContentType(resource.response, /^text\/html\b/iu);
       expect(
         resource.text.includes(NAVIGATION_ROUTE_UPDATES["/"].marker)
-          || resource.text.includes(NAVIGATION_ROUTE_UPDATES["/"].baselineMarker),
+          || includesPredecessorMarker(NAVIGATION_ROUTE_UPDATES["/"], resource.text),
         "baseline homepage is not Riddle Arabia",
       );
       if (resource.text.includes('class="primary-navigation"')) {
@@ -822,7 +830,7 @@ export async function runProductionMonitor(options = {}) {
         // An exact-version release baseline may still serve the previous SEO
         // copy. Candidate and routine checks must require the current marker.
         const predecessorMarkerMatches = config.siteContract === "release-baseline"
-          && route.baselineMarker && resource.text.includes(route.baselineMarker);
+          && includesPredecessorMarker(route, resource.text);
         expect(resource.text.includes(route.marker) || predecessorMarkerMatches, `missing page marker "${route.marker}"`);
       }
       if (route.bilingualMarker === "privacy-consent.js") {

@@ -21,6 +21,8 @@ import {
   PRE_PUZZLE_SITEMAP_PATHS,
   PRE_PARTY_SITEMAP_PATHS,
   PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS,
+  PRE_COLLECTION_EXPANSION_SITEMAP_PATHS,
+  COLLECTION_EXPANSION_SITEMAP_PATHS,
   QUARANTINED_CATEGORY_SLUGS,
   QUARANTINED_SITE_ROUTES,
   PRIMARY_SITE_ORIGIN,
@@ -647,7 +649,7 @@ test("only an exact-version release baseline accepts coherent pre-kids navigatio
 
     const candidate = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: predecessor() });
     assert.match(candidate.failures.find(({ name }) => name === "Site: Home")?.message || "", /5 destination links/u);
-    assert.match(candidate.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /78 URLs instead of 1176/u);
+    assert.match(candidate.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /78 URLs instead of 1180/u);
 
     const mixed = await runProductionMonitor({ ...options, fetchImpl: predecessor({ mixedRoute: "/ar/daily/" }) });
     assert.match(mixed.failures.find(({ name }) => name === "Site: Arabic Shuffle Challenge")?.message || "", /4 destination links/u);
@@ -682,7 +684,7 @@ test("only an exact-version release baseline accepts the complete 52-URL pre-puz
     assert.equal(baseline.results.find(({ name }) => name === "Site: sitemap")?.workerVersionId, FIXTURE_WORKER_VERSION);
 
     const candidate = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: fetchPredecessor });
-    assert.match(candidate.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /52 URLs instead of 1176/u);
+    assert.match(candidate.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /52 URLs instead of 1180/u);
 
     for (const paths of [
       [...PRE_PUZZLE_SITEMAP_PATHS.slice(1), "/unexpected-indexable-route"],
@@ -729,7 +731,7 @@ test("the exact-version pre-party release is a rollback target while current che
     assert.equal(proof.safe, true, JSON.stringify(proof));
 
     const current = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: predecessorFetch });
-    assert.match(current.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1166 URLs instead of 1176/u);
+    assert.match(current.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1166 URLs instead of 1180/u);
     for (const route of PARTY_GAME_HTML_ROUTES) {
       assert.ok(current.failures.some(({ name }) => name === `Site: ${route.name}`), `${route.path} must work on the candidate`);
     }
@@ -777,9 +779,45 @@ test("the exact-version pre-friendship-arcade release permits the existing party
     assert.deepEqual(baseline.failures, []);
     assert.deepEqual(requestedNewGames, [], "The verified predecessor predates only the new friendship arcade routes");
     const current = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: predecessor });
-    assert.match(current.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1170 URLs instead of 1176/u);
+    assert.match(current.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1170 URLs instead of 1180/u);
     for (const route of PARTY_GAME_HTML_ROUTES.filter(({ friendshipArcade }) => friendshipArcade)) {
       assert.ok(current.failures.some(({ name }) => name === `Site: ${route.name}`), `${route.path} must work on the candidate`);
+    }
+  });
+});
+
+test("the exact-version pre-collection-expansion release predates only the Math and Hard riddles pairs", async () => {
+  await withFixture({ productionSite: true }, async (fixtureOrigin) => {
+    const options = productionFixtureOptions(fixtureOrigin);
+    const newCollectionPaths = new Set(COLLECTION_EXPANSION_SITEMAP_PATHS);
+    assert.deepEqual([...newCollectionPaths].sort(), ["/ar/alghaz-riyadiyat/", "/ar/alghaz-saaba/", "/hard-riddles", "/math-riddles"]);
+    const requestedNewCollections = [];
+    const predecessor = async (input, init) => {
+      const pathname = new URL(input).pathname;
+      if (pathname === "/sitemap.xml") return new Response(`<urlset>${PRE_COLLECTION_EXPANSION_SITEMAP_PATHS.map(path => `<url><loc>${PRIMARY_SITE_ORIGIN}${path}</loc></url>`).join("")}</urlset>`, {
+        headers: { "content-type": "application/xml", "x-jakh-worker-version": FIXTURE_WORKER_VERSION },
+      });
+      if (newCollectionPaths.has(pathname)) {
+        requestedNewCollections.push(pathname);
+        return new Response("Not found", { status: 404, headers: { "content-type": "text/html", "x-jakh-worker-version": FIXTURE_WORKER_VERSION } });
+      }
+      return options.fetchImpl(input, init);
+    };
+    const baseline = await runProductionMonitor({ ...options, fetchImpl: predecessor });
+    assert.deepEqual(baseline.failures, []);
+    assert.deepEqual(requestedNewCollections, [], "The verified predecessor predates only the new collection routes");
+    const current = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: predecessor });
+    assert.match(current.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1176 URLs instead of 1180/u);
+    for (const paths of [
+      [...PRE_COLLECTION_EXPANSION_SITEMAP_PATHS, "/math-riddles"],
+      [...PRE_COLLECTION_EXPANSION_SITEMAP_PATHS.slice(1), "/hard-riddles"],
+    ]) {
+      const mixed = await runProductionMonitor({ ...options, fetchImpl: async (input, init) => (new URL(input).pathname === "/sitemap.xml"
+        ? new Response(`<urlset>${paths.map(path => `<url><loc>${PRIMARY_SITE_ORIGIN}${path}</loc></url>`).join("")}</urlset>`, {
+          headers: { "content-type": "application/xml", "x-jakh-worker-version": FIXTURE_WORKER_VERSION },
+        })
+        : predecessor(input, init)) });
+      assert.ok(mixed.failures.some(({ name }) => name === "Site: sitemap"), "a partial collection rollout is not an accepted predecessor");
     }
   });
 });
@@ -1237,7 +1275,9 @@ test("the exact-version pre-rename release keeps its former game addresses while
 });
 
 test("production monitor follows the focused sitemap inventory", () => {
-  assert.equal(INDEXABLE_SITEMAP_PATHS.length, 1176);
+  assert.equal(INDEXABLE_SITEMAP_PATHS.length, 1180);
+  assert.equal(PRE_COLLECTION_EXPANSION_SITEMAP_PATHS.length, 1176);
+  assert.equal(COLLECTION_EXPANSION_SITEMAP_PATHS.length, 4);
   assert.equal(PRE_PARTY_SITEMAP_PATHS.length, 1166);
   assert.equal(PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS.length, 1170);
   assert.equal(new Set(INDEXABLE_SITEMAP_PATHS).size, INDEXABLE_SITEMAP_PATHS.length);
@@ -1692,7 +1732,7 @@ test("an incomplete sitemap from the expected Worker fails without a propagation
       logger: quietLogger(),
     });
     assert.equal(sitemapAttempts, 1);
-    assert.match(summary.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1170 URLs instead of 1176/u);
+    assert.match(summary.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1170 URLs instead of 1180/u);
   });
 });
 

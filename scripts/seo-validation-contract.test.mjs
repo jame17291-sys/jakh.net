@@ -64,7 +64,7 @@ test("the complete compact Riddle Arabia fixture satisfies the SEO quality gate"
   const result = runValidator();
   assert.equal(result.status, 0, `${result.stdout}\n${result.stderr}`);
   assert.match(result.stdout, /SEO validation passed/u);
-  assert.match(result.stdout, /8 original bilingual experience pairs/u);
+  assert.match(result.stdout, /10 original bilingual experience pairs/u);
 });
 
 test("the quality gate rejects a curated page that no longer shows its source answer", () => {

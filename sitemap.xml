@@ -254,6 +254,42 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/spacetoon-nostalgia"/>
   </url>
   <url>
+    <loc>https://riddlearabia.com/math-riddles</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/math-riddles"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/alghaz-riyadiyat/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/math-riddles"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/alghaz-riyadiyat/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/math-riddles"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/alghaz-riyadiyat/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/math-riddles"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/hard-riddles</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/hard-riddles"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/alghaz-saaba/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/hard-riddles"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/alghaz-saaba/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/hard-riddles"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/alghaz-saaba/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/hard-riddles"/>
+  </url>
+  <url>
     <loc>https://riddlearabia.com/brain-games</loc>
     <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>

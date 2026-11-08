@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { existingReleaseRun, mergeContext, releaseMergedMain, RELEASE_STAGES, STATIC_CONFIRMATION } from "./release-on-merge.mjs";
+import { existingReleaseRun, isTransientReadError, mergeContext, releaseMergedMain, RELEASE_STAGES, STATIC_CONFIRMATION, withReadRetries } from "./release-on-merge.mjs";
 import { REPOSITORY, REPOSITORY_ID } from "./autopilot-client.mjs";
 
 const SHA = "a".repeat(40);
@@ -133,4 +133,31 @@ test("the release stages are frozen so nothing can rewrite the inputs at run tim
   assert.ok(Object.isFrozen(RELEASE_STAGES));
   assert.ok(RELEASE_STAGES.every((stage) => Object.isFrozen(stage.inputs)));
   assert.ok(RELEASE_STAGES.every((stage) => stage.inputs.domain_cutover === "false"));
+});
+
+test("transient GitHub read failures are retried; policy errors and writes are not", async () => {
+  assert.ok(isTransientReadError(new Error("fetch failed")));
+  assert.ok(isTransientReadError(Object.assign(new Error("GitHub GET x: HTTP 502"), { status: 502 })));
+  assert.ok(isTransientReadError(Object.assign(new Error("GitHub GET x: HTTP 429"), { status: 429 })));
+  assert.equal(isTransientReadError(Object.assign(new Error("GitHub GET x: HTTP 404"), { status: 404 })), false);
+  assert.equal(isTransientReadError(new Error("GitHub requests are restricted to the Riddle Arabia repository.")), false);
+
+  let calls = 0;
+  const flaky = async (path, options = {}) => {
+    calls++;
+    if ((options.method || "GET") === "POST") throw new Error("fetch failed");
+    if (calls < 3) throw new Error("fetch failed");
+    return { ok: true, path };
+  };
+  const waits = [];
+  const gh = withReadRetries(flaky, { delays: [1, 2, 3], wait: async (ms) => { waits.push(ms); } });
+  assert.deepEqual(await gh("/repos/x/branches/main"), { ok: true, path: "/repos/x/branches/main" });
+  assert.deepEqual(waits, [1, 2]);
+  // writes pass straight through and are never repeated
+  calls = 0;
+  await assert.rejects(gh("/repos/x/actions/workflows/a.yml/dispatches", { method: "POST", body: {} }), /fetch failed/u);
+  assert.equal(calls, 1);
+  // retries are bounded
+  const alwaysDown = withReadRetries(async () => { throw new Error("fetch failed"); }, { delays: [1, 1], wait: async () => {} });
+  await assert.rejects(alwaysDown("/repos/x/branches/main"), /fetch failed/u);
 });

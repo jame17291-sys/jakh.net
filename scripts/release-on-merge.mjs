@@ -26,6 +26,35 @@ export const RELEASE_STAGES = Object.freeze([
   { workflow: "static-site.yml", inputs: Object.freeze({ confirmation: STATIC_CONFIRMATION, domain_cutover: "false" }), timeoutMs: 170 * 60_000 },
 ]);
 
+// The watcher polls GitHub for up to a few hours while the release workflows
+// (and their environment approvals) run. A single dropped connection must not
+// abandon a release that is still proceeding, so read requests are retried
+// with a short backoff. Only reads are retried: a dispatch is never repeated,
+// because a repeated POST could start a second release run.
+export const READ_RETRY_DELAYS_MS = Object.freeze([5_000, 15_000, 45_000, 90_000, 180_000]);
+
+export function isTransientReadError(error) {
+  if (!error) return false;
+  if (typeof error.status === "number") return error.status === 429 || error.status >= 500;
+  return /fetch failed|ECONNRESET|ETIMEDOUT|EAI_AGAIN|ENOTFOUND|socket|timeout|aborted|network/iu.test(error.message || "");
+}
+
+export function withReadRetries(gh, { delays = READ_RETRY_DELAYS_MS, wait = (ms) => new Promise((done) => setTimeout(done, ms)), log = () => {} } = {}) {
+  return async (path, options = {}) => {
+    const method = options.method || "GET";
+    if (method !== "GET") return gh(path, options);
+    for (let attempt = 0; ; attempt++) {
+      try {
+        return await gh(path, options);
+      } catch (error) {
+        if (attempt >= delays.length || !isTransientReadError(error)) throw error;
+        log(`GitHub read failed (${error.message}); retrying in ${Math.round(delays[attempt] / 1000)}s.`);
+        await wait(delays[attempt]);
+      }
+    }
+  };
+}
+
 export function mergeContext(env = process.env) {
   if (env.GITHUB_REPOSITORY !== REPOSITORY || env.GITHUB_REF !== "refs/heads/main" || env.GITHUB_REF_PROTECTED !== "true"
     || !SHA.test(env.GITHUB_SHA || "") || !["push", "workflow_dispatch"].includes(env.GITHUB_EVENT_NAME)) {
@@ -77,8 +106,9 @@ export async function releaseMergedMain(gh, { sha, log = () => {}, dispatch = di
 
 async function main(env = process.env) {
   const { sha } = mergeContext(env);
-  const gh = githubClient(env);
-  const result = await releaseMergedMain(gh, { sha, log: (message) => process.stdout.write(`${message}\n`) });
+  const log = (message) => process.stdout.write(`${message}\n`);
+  const gh = withReadRetries(githubClient(env), { log });
+  const result = await releaseMergedMain(gh, { sha, log });
   process.stdout.write(`::notice title=Release on merge::${result.status} for ${sha}\n`);
   return 0;
 }

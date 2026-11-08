@@ -18,6 +18,7 @@ const seoPairs = [
   ['logic-challenges', 'alghaz-mantiq'], ['family-riddles', 'alghaz-atfal'],
   ['general-knowledge', 'malumat-amma'], ['arabia-quiz', 'tarikh-al-arab'],
   ['spacetoon-nostalgia', 'hanin-spacetoon'], ['brain-games', 'alab-al-dimagh'],
+  ['math-riddles', 'alghaz-riyadiyat'], ['hard-riddles', 'alghaz-saaba'],
 ];
 export const GENERATED_OUTPUTS = Object.freeze([
   'data/catalog.json', 'data/search-index.json', 'data/search-index.en.json', 'data/search-index.ar.json',

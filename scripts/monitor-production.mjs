@@ -166,7 +166,7 @@ export const PRE_PUZZLE_SITEMAP_PATHS = Object.freeze([
   "/ar/about/",
   "/privacy",
   "/ar/privacy/",
-  ...RIDDLE_ARABIA_SEO_PAGES.flatMap((page) => [page.paths.en, page.paths.ar]),
+  ...RIDDLE_ARABIA_SEO_PAGES.filter((page) => !page.sitemapGeneration).flatMap((page) => [page.paths.en, page.paths.ar]),
   ...RIDDLE_ARABIA_GAME_CATALOG.filter((game) => !PARTY_GAME_SLUGS.has(game.slug)).flatMap((game) => [
     `/${game.slug}`,
     `/ar/games/${game.slug}/`,
@@ -195,9 +195,22 @@ export const PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS = Object.freeze([
   ...PARTY_GAME_HTML_ROUTES.filter((route) => !route.friendshipArcade).map(({ path }) => path),
 ]);
 
-export const INDEXABLE_SITEMAP_PATHS = Object.freeze([
+// Production before the 2026-11 collection expansion lists every route except the
+// Math riddles and Hard riddles pairs. A release that introduces them must prove
+// that exact predecessor before the four new URLs can be deployed.
+export const PRE_COLLECTION_EXPANSION_SITEMAP_PATHS = Object.freeze([
   ...PRE_PARTY_SITEMAP_PATHS,
   ...PARTY_GAME_HTML_ROUTES.map(({ path }) => path),
+]);
+
+export const COLLECTION_EXPANSION_SITEMAP_PATHS = Object.freeze(
+  RIDDLE_ARABIA_SEO_PAGES.filter((page) => page.sitemapGeneration === "collections-2026-11")
+    .flatMap((page) => [page.paths.en, page.paths.ar]),
+);
+
+export const INDEXABLE_SITEMAP_PATHS = Object.freeze([
+  ...PRE_COLLECTION_EXPANSION_SITEMAP_PATHS,
+  ...COLLECTION_EXPANSION_SITEMAP_PATHS,
 ]);
 
 export const PRE_NAVIGATION_SITEMAP_PATHS = Object.freeze(
@@ -736,11 +749,17 @@ export async function runProductionMonitor(options = {}) {
       && navigationLayout === "current" && includeKidsNavigation
       && urls.length === preFriendshipArcadeUrls.length
       && preFriendshipArcadeUrls.every((url) => urls.includes(url));
+    const preCollectionExpansionUrls = inventoryPaths(PRE_COLLECTION_EXPANSION_SITEMAP_PATHS).map((pathname) => new URL(pathname, config.siteOrigin).href);
+    const isCollectionExpansionPredecessor = config.siteContract === "release-baseline"
+      && navigationLayout === "current" && includeKidsNavigation
+      && urls.length === preCollectionExpansionUrls.length
+      && preCollectionExpansionUrls.every((url) => urls.includes(url));
     const expectedPaths = navigationLayout === "pre-navigation" ? PRE_NAVIGATION_SITEMAP_PATHS
       : isPuzzlePredecessor ? PRE_PUZZLE_SITEMAP_PATHS
         : isPartyPredecessor ? PRE_PARTY_SITEMAP_PATHS
           : isFriendshipArcadePredecessor ? PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS
-            : !includeKidsNavigation ? PRE_KIDS_SITEMAP_PATHS : INDEXABLE_SITEMAP_PATHS;
+            : isCollectionExpansionPredecessor ? PRE_COLLECTION_EXPANSION_SITEMAP_PATHS
+              : !includeKidsNavigation ? PRE_KIDS_SITEMAP_PATHS : INDEXABLE_SITEMAP_PATHS;
     const expectedUrls = inventoryPaths(expectedPaths).map((pathname) => new URL(pathname, config.siteOrigin).href);
     if (legacyBaseline) {
       expect(urls.length > 0, "baseline sitemap is empty");

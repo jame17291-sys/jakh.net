@@ -5,7 +5,7 @@ catalogue dump and it does not publish pagination pages for every topic.
 
 ## Indexable pages
 
-The source of truth is `scripts/riddlearabia-seo.mjs`. It defines eight original
+The source of truth is `scripts/riddlearabia-seo.mjs`. It defines ten original
 bilingual experiences:
 
 - Riddles
@@ -15,14 +15,21 @@ bilingual experiences:
 - General knowledge
 - Arabia & Middle East history
 - Spacetoon nostalgia
+- Math riddles (added 2026-11-08)
+- Hard riddles (added 2026-11-08)
 - Brain games
 
 Each experience has its own bilingual copy, purpose, canonical pair, reciprocal
 `hreflang`, social metadata, and schema. Quiz experiences publish a small,
 curated set of real question cards. The two riddle pairs (`/riddles` with `/ar/alghaz/`, and
 `/arabic-riddles` with `/ar/alghaz-arabiya/`) feature 30 published riddles
-each, ordered from easy to hard. Logic puzzles and general knowledge also
-feature 30, kids riddles 24, and the Arabia history and Spacetoon quizzes eight.
+each, ordered from easy to hard. Logic puzzles, general knowledge, Arabia
+history, Math riddles and Hard riddles also feature 30, kids riddles 24, and the
+Spacetoon quiz eight. Math riddles draws on the Math topic; Hard riddles draws on
+the Classic Riddles and Logic Puzzles cards that the two riddle pairs and the
+logic collection do not already feature. Each collection's "Keep exploring"
+section links the next three collections in list order, so every collection is
+linked from three others.
 `docs/content-review/featured-policy.json` fixes each count, and
 `npm run check:featured` rejects held cards and any card featured on two
 collections, so indexable pages never repeat each other. The brain-games experience publishes a
@@ -32,8 +39,11 @@ current game list rather than copying quiz content.
 Mind Lab, Play, Daily, Privacy, Akshifha, and the ten classic game routes remain
 indexable. Thirteen new bilingual puzzle destinations add twelve playable
 engines and one Bonus collection. With the bilingual Kids Learning & Play
-pages the sitemap lists 1,176 canonical URLs (88 core pages plus 1,088 kids
-pages); `sitemap.xml` contains only indexable canonicals. Search-engine
+pages the sitemap lists 1,180 canonical URLs (92 core pages plus 1,088 kids
+pages); `sitemap.xml` contains only indexable canonicals. Pages added after a
+release carry a `sitemapGeneration` tag (currently `collections-2026-11`) so the
+production monitor can accept the previous sitemap as the exact-version release
+baseline while the candidate must publish the full inventory. Search-engine
 submission is described in `docs/SEARCH-DISCOVERY.md`.
 
 The new destinations use `puzzle-routes.js` for route identity and

@@ -10,6 +10,7 @@ export const COLLECTION_ILLUSTRATIONS = Object.freeze({
   'logic-puzzles': 'logic-puzzles', 'kids-riddles': 'kids-riddles',
   'general-knowledge': 'geography', 'arabia-quiz': 'regional-history',
   'spacetoon-nostalgia': 'nostalgia', 'brain-games': 'shared-play',
+  'math-riddles': 'topic-math', 'hard-riddles': 'topic-logic-puzzles',
 });
 
 export const TOPIC_ILLUSTRATIONS = Object.freeze({

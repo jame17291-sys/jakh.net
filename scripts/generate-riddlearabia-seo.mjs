@@ -296,7 +296,7 @@ function breadcrumbStructuredData(page, lang, canonical) {
 // Plain wa.me links: no script, no tracking, and the CSP is unchanged. A
 // shared question never includes its answer, so friends open the page to
 // check it. Riddle collections say "riddle"; quiz collections say "question".
-const RIDDLE_COLLECTION_KEYS = new Set(["riddles", "arabic-riddles", "logic-puzzles", "kids-riddles"]);
+const RIDDLE_COLLECTION_KEYS = new Set(["riddles", "arabic-riddles", "logic-puzzles", "kids-riddles", "math-riddles", "hard-riddles"]);
 
 function whatsappHref(text) {
   // encodeURIComponent leaves ' unescaped; encode it so the attribute needs no entities.
@@ -339,8 +339,12 @@ function answerCardMarkup(card, index, lang, page, canonical) {
 
 function relatedExperienceMarkup(page, lang) {
   const isAr = lang === "ar";
+  // Rotate from the page's own position so every collection is linked from three
+  // others, instead of the first three always being the only "related" pages.
+  const start = QUESTION_COLLECTIONS.findIndex((candidate) => candidate.key === page.key);
   const alternatives = QUESTION_COLLECTIONS
     .filter((candidate) => candidate.key !== page.key)
+    .map((candidate, index, list) => list[(index + Math.max(start, 0)) % list.length])
     .slice(0, 3);
   return `<section class="shell section-block" aria-labelledby="next-title">
         <div class="section-heading library-head">

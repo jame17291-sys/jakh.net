@@ -45,15 +45,17 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
     // Expanded from 8 to 30 riddles, ordered from easy to hard, on 2026-10-23.
     // Arabic card wording returned to Modern Standard Arabic on 2026-10-25.
     // Cards removed in the 2026-10-25 phase-2 content pass replaced with current cards of the same topic.
-    lastModified: "2026-10-25",
+    // Search titles and descriptions rewritten for click-through on 2026-11-08
+    // (counts, difficulty range and a challenge hook; no new claims).
+    lastModified: "2026-11-08",
     paths: { en: "/riddles", ar: "/ar/alghaz/" },
     titles: {
-      en: "Riddles With Answers | Riddle Arabia",
-      ar: "ألغاز مع الحل | ريدل أرابيا",
+      en: "30 Riddles With Answers, Easy to Hard | Riddle Arabia",
+      ar: "30 لغزاً مع الحل من السهل إلى الصعب | ريدل أرابيا",
     },
     descriptions: {
-      en: "Solve free riddles with answers in English and Arabic, from easy everyday clues to hard number and logic riddles. Make your guess, then reveal each answer when you are ready.",
-      ar: "حلّ ألغازاً مع الحل بالعربية والإنجليزية مجاناً، من ألغاز سهلة عن الأشياء اليومية إلى ألغاز صعبة في الأرقام والمنطق. خمّن أولاً، ثم اكشف إجابة كل لغز.",
+      en: "Can you solve all 30? Free riddles with answers in English and Arabic, from easy everyday clues to hard number and logic riddles. Guess first, then reveal.",
+      ar: "هل تستطيع حل الألغاز الثلاثين كلها؟ ألغاز مجانية مع الحل بالعربية والإنجليزية، من ألغاز سهلة عن الأشياء اليومية إلى ألغاز صعبة في الأرقام والمنطق. خمّن أولاً، ثم اكشف الحل.",
     },
     eyebrow: { en: "From easy to hard", ar: "من السهل إلى الصعب" },
     headings: { en: "Riddles with answers", ar: "ألغاز مع الحل" },
@@ -104,15 +106,16 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
     // Expanded from 8 to 30 riddles whose wording works naturally in Arabic on 2026-10-23.
     // Arabic card wording returned to Modern Standard Arabic on 2026-10-25.
     // Cards removed in the 2026-10-25 phase-2 content pass replaced with current cards of the same topic.
-    lastModified: "2026-10-25",
+    // Search titles and descriptions rewritten for click-through on 2026-11-08.
+    lastModified: "2026-11-08",
     paths: { en: "/arabic-riddles", ar: "/ar/alghaz-arabiya/" },
     titles: {
-      en: "Arabic Riddles With Answers | Riddle Arabia",
-      ar: "ألغاز عربية مع الحل | ريدل أرابيا",
+      en: "30 Arabic Riddles With Answers (English Too) | Riddle Arabia",
+      ar: "30 لغزاً عربياً مع الحل | ريدل أرابيا",
     },
     descriptions: {
-      en: "Try free Arabic riddles with answers and English translations. Solve clues about familiar objects, words, and ideas on your own or with friends.",
-      ar: "جرّب ألغازاً عربية مع الحل وترجمة إنجليزية مجاناً. خمّن إجابات ألغاز عن الأشياء المألوفة والكلمات والأفكار، بمفردك أو مع الأصدقاء.",
+      en: "30 free Arabic riddles with answers, each with an English version. Guess the familiar object, word or idea, then reveal the answer and share it on WhatsApp.",
+      ar: "30 لغزاً عربياً مجاناً مع الحل، ولكل لغز نسخة إنجليزية. خمّن الشيء المألوف أو الكلمة أو الفكرة، ثم اكشف الحل وشارك اللغز على واتساب.",
     },
     eyebrow: { en: "Think across languages", ar: "فكّر بلغتين" },
     headings: { en: "Arabic riddles with answers", ar: "ألغاز عربية مع الحل" },
@@ -163,15 +166,16 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
     // Expanded from 8 to 30 puzzles, easy to hard, on 2026-10-23.
     // Arabic card wording returned to Modern Standard Arabic on 2026-10-25.
     // Cards removed in the 2026-10-25 phase-2 content pass replaced with current cards of the same topic.
-    lastModified: "2026-10-25",
+    // Search titles and descriptions rewritten for click-through on 2026-11-08.
+    lastModified: "2026-11-08",
     paths: { en: "/logic-challenges", ar: "/ar/alghaz-mantiq/" },
     titles: {
-      en: "Logic Puzzles and Brain Teasers With Answers | Riddle Arabia",
-      ar: "ألغاز منطقية وألغاز ذكاء مع الحل | ريدل أرابيا",
+      en: "30 Logic Puzzles & Brain Teasers With Answers | Riddle Arabia",
+      ar: "30 لغزاً منطقياً ولغز ذكاء مع الحل | ريدل أرابيا",
     },
     descriptions: {
-      en: "Logic puzzles and brain teasers with answers in English and Arabic, from easy to hard: deduction, numbers, and lateral thinking that reward careful reading before you reveal the answer.",
-      ar: "ألغاز منطقية وألغاز ذكاء مع الحل بالعربية والإنجليزية، من السهل إلى الصعب: استنتاج وأرقام وتفكير جانبي يكافئ القراءة الدقيقة قبل كشف الحل.",
+      en: "30 logic puzzles and brain teasers with answers in English and Arabic, from easy to hard: deduction, numbers and lateral thinking, up to the three doors puzzle.",
+      ar: "30 لغزاً منطقياً مع الحل بالعربية والإنجليزية، من السهل إلى الصعب: استنتاج وأرقام وتفكير جانبي، وصولاً إلى لغز الأبواب الثلاثة.",
     },
     eyebrow: { en: "Slow down and solve", ar: "تمهّل ثم حل" },
     headings: { en: "Logic puzzles & brain teasers", ar: "ألغاز منطقية وألغاز ذكاء" },
@@ -222,15 +226,16 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
     // Expanded from 8 to 24 riddles, easy to hard, with kids search wording on 2026-10-23.
     // Arabic card wording returned to Modern Standard Arabic on 2026-10-25, and the same day
     // kids-riddles-019 and -021 got new puzzles in both languages.
-    lastModified: "2026-10-25",
+    // Search titles and descriptions rewritten for click-through on 2026-11-08.
+    lastModified: "2026-11-08",
     paths: { en: "/family-riddles", ar: "/ar/alghaz-atfal/" },
     titles: {
-      en: "Riddles for Kids With Answers | Riddle Arabia",
-      ar: "ألغاز للأطفال مع الحل | ريدل أرابيا",
+      en: "24 Easy Riddles for Kids With Answers | Riddle Arabia",
+      ar: "24 لغزاً سهلاً للأطفال مع الحل | ريدل أرابيا",
     },
     descriptions: {
-      en: "Enjoy bilingual riddles for kids with answers: familiar objects, everyday observation, and simple counting and logic puzzles—ideal for families and classrooms.",
-      ar: "ألغاز للأطفال مع الحل بالعربية والإنجليزية: أشياء مألوفة وملاحظات يومية وألغاز عدّ ومنطق بسيطة، مناسبة للعائلة والصف.",
+      en: "24 easy riddles for kids with answers in Arabic and English: a crayon, a lamp, a pair of socks, then simple counting puzzles. Free for families and classrooms.",
+      ar: "24 لغزاً سهلاً للأطفال مع الحل بالعربية والإنجليزية: قلم شمع ومصباح وزوج من الجوارب، ثم ألغاز عدّ بسيطة. مجاناً للعائلة والصف.",
     },
     eyebrow: { en: "Share the guess", ar: "شارك التخمين" },
     headings: { en: "Riddles for kids", ar: "ألغاز للأطفال مع الحل" },
@@ -276,15 +281,16 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
     // Arabic cards briefly used everyday Arabic (2026-10-21, #144) and returned
     // to Modern Standard Arabic on 2026-10-25.
     // Cards removed in the 2026-10-25 phase-2 content pass replaced with current cards of the same topic.
-    lastModified: "2026-10-25",
+    // Search titles and descriptions rewritten for click-through on 2026-11-08.
+    lastModified: "2026-11-08",
     paths: { en: "/general-knowledge", ar: "/ar/malumat-amma/" },
     titles: {
-      en: "Arabic Trivia & General Knowledge Quiz | Riddle Arabia",
-      ar: "أسئلة ثقافية ومعلومات عامة مع الأجوبة | ريدل أرابيا",
+      en: "30 Arabic Trivia Questions & Answers | Riddle Arabia",
+      ar: "30 سؤالاً ثقافياً ومعلومات عامة مع الأجوبة | ريدل أرابيا",
     },
     descriptions: {
-      en: "Test your general knowledge with free trivia questions and answers in Arabic and English: geography, history, science, space, the human body, art, and ancient civilizations. Great for family quiz nights.",
-      ar: "اختبر ثقافتك بأسئلة ثقافية ومعلومات عامة مع الأجوبة بالعربية والإنجليزية مجاناً: الجغرافيا والتاريخ والعلوم والفضاء وجسم الإنسان والفن والحضارات القديمة. مناسبة للمسابقات العائلية.",
+      en: "How many of these 30 can you get right? Free trivia questions and answers in Arabic and English: geography, history, science, art and ancient civilizations.",
+      ar: "كم سؤالاً من الثلاثين ستجيب عنه صحيحاً؟ أسئلة ثقافية مجانية مع الأجوبة بالعربية والإنجليزية في الجغرافيا والتاريخ والعلوم والفن والحضارات القديمة.",
     },
     eyebrow: { en: "A little of everything", ar: "قليل من كل شيء" },
     headings: { en: "Arabic trivia & general knowledge", ar: "أسئلة ثقافية ومعلومات عامة مع الأجوبة" },
@@ -335,21 +341,24 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
     // Arabic cards briefly used everyday Arabic (2026-10-21, #144) and returned
     // to Modern Standard Arabic on 2026-10-25.
     // Card wording updated in the 2026-10-25 phase-2 content pass.
-    lastModified: "2026-10-25",
+    // Expanded from 8 to 30 questions on 2026-11-08, ordered easy to very advanced, keeping the
+    // existing focus on ancient civilizations, Islamic and Ottoman history, cities and scholarship.
+    // Search titles and descriptions rewritten for click-through the same day.
+    lastModified: "2026-11-08",
     paths: { en: "/arabia-quiz", ar: "/ar/tarikh-al-arab/" },
     titles: {
-      en: "Arab & Middle East History Trivia | Riddle Arabia",
-      ar: "أسئلة عن تاريخ العرب والشرق الأوسط | ريدل أرابيا",
+      en: "30 Arab & Middle East History Quiz Questions | Riddle Arabia",
+      ar: "30 سؤالاً عن تاريخ العرب والشرق الأوسط مع الأجوبة | ريدل أرابيا",
     },
     descriptions: {
-      en: "Try Arab and Middle East history trivia with answers in Arabic and English. Explore ancient civilizations, Islamic history, cities, and scholarship.",
-      ar: "جرّب أسئلة عن تاريخ العرب والشرق الأوسط مع الإجابات بالعربية والإنجليزية. اختبر معرفتك بالحضارات القديمة والتاريخ الإسلامي والمدن والعلم.",
+      en: "30 Arab and Middle East history questions with answers in Arabic and English, easy to expert: Mesopotamia, Islamic and Ottoman history, cities and scholarship.",
+      ar: "30 سؤالاً عن تاريخ العرب والشرق الأوسط مع الأجوبة بالعربية والإنجليزية، من السهل إلى المتقدّم: بلاد الرافدين، والتاريخ الإسلامي والعثماني، والمدن والعلم.",
     },
     eyebrow: { en: "History with context", ar: "تاريخ في سياقه" },
     headings: { en: "Arab & Middle East history trivia", ar: "أسئلة عن تاريخ العرب والشرق الأوسط" },
     introductions: {
-      en: "Explore the history of the Arab world and the wider Middle East through a short trivia quiz. The questions move from ancient Egypt, Mesopotamia, and Persia to Islamic history and the translation of scientific works into Arabic. Read in Arabic or English and reveal the answers as you go.",
-      ar: "استكشف تاريخ العالم العربي والشرق الأوسط في مسابقة قصيرة. تنتقل الأسئلة من مصر القديمة وبلاد الرافدين وفارس إلى التاريخ الإسلامي وترجمة الأعمال العلمية إلى العربية. اقرأ بالعربية أو الإنجليزية، واكشف الإجابات أثناء تقدّمك.",
+      en: "Explore the history of the Arab world and the wider Middle East through 30 trivia questions, ordered from easy to very advanced. They move from ancient Mesopotamia, Persia and Palmyra to Islamic history, the great cities of Baghdad, Cairo and Fez, Ottoman reforms, and the founding of modern Gulf states. Read in Arabic or English and reveal the answers as you go.",
+      ar: "استكشف تاريخ العالم العربي والشرق الأوسط عبر 30 سؤالاً مرتّبة من السهل إلى المتقدّم. تنتقل الأسئلة من بلاد الرافدين وفارس وتدمر القديمة إلى التاريخ الإسلامي، ومدن بغداد والقاهرة وفاس، والإصلاحات العثمانية، وقيام دول الخليج الحديثة. اقرأ بالعربية أو الإنجليزية، واكشف الإجابات أثناء تقدّمك.",
     },
     guidance: {
       en: "Use this page for learning and conversation, not as a substitute for a full historical source. Open the answer only after forming your own response.",
@@ -357,14 +366,40 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
     },
     subjects: { en: ["History trivia", "Arab history", "Middle East history", "Ancient civilizations"], ar: ["أسئلة تاريخية", "تاريخ العرب", "تاريخ الشرق الأوسط", "حضارات قديمة"] },
     cards: [
+      // Easy
       ["middle-east-history", "me-hist-001"],
       ["middle-east-history", "me-hist-002"],
-      ["middle-east-history", "me-hist-003"],
       ["middle-east-history", "me-hist-004"],
       ["middle-east-history", "me-hist-005"],
+      ["middle-east-history", "me-hist-006"],
       ["middle-east-history", "me-hist-007"],
+      ["middle-east-history", "me-hist-008"],
       ["middle-east-history", "me-hist-009"],
       ["middle-east-history", "me-hist-010"],
+      // Medium
+      ["middle-east-history", "me-hist-003"],
+      ["middle-east-history", "me-hist-012"],
+      ["middle-east-history", "me-hist-018"],
+      ["middle-east-history", "me-hist-021"],
+      ["middle-east-history", "me-hist-022"],
+      ["middle-east-history", "me-hist-023"],
+      ["middle-east-history", "me-hist-029"],
+      ["middle-east-history", "me-hist-050"],
+      // Hard
+      ["middle-east-history", "me-hist-030"],
+      ["middle-east-history", "me-hist-032"],
+      ["middle-east-history", "me-hist-040"],
+      ["middle-east-history", "me-hist-043"],
+      ["middle-east-history", "me-hist-045"],
+      ["middle-east-history", "me-hist-049"],
+      ["middle-east-history", "me-hist-051"],
+      // Very advanced
+      ["middle-east-history", "me-hist-052"],
+      ["middle-east-history", "me-hist-053"],
+      ["middle-east-history", "me-hist-055"],
+      ["middle-east-history", "me-hist-056"],
+      ["middle-east-history", "me-hist-058"],
+      ["middle-east-history", "me-hist-060"],
     ],
   },
   {
@@ -372,15 +407,16 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
     // Arabic cards briefly used everyday Arabic (2026-10-21, #144) and returned
     // to Modern Standard Arabic on 2026-10-25.
     // Cards removed in the 2026-10-25 phase-2 content pass replaced with current cards of the same topic.
-    lastModified: "2026-10-25",
+    // Search titles and descriptions rewritten for click-through on 2026-11-08.
+    lastModified: "2026-11-08",
     paths: { en: "/spacetoon-nostalgia", ar: "/ar/hanin-spacetoon/" },
     titles: {
-      en: "Spacetoon Nostalgia Quiz | Riddle Arabia",
-      ar: "اختبار حنين سبيستون | ريدل أرابيا",
+      en: "Spacetoon Nostalgia Quiz: 8 Questions | Riddle Arabia",
+      ar: "اختبار حنين سبيستون: 8 أسئلة | ريدل أرابيا",
     },
     descriptions: {
-      en: "Try eight questions for fans of classic Arabic-dubbed animation. Make a guess, reveal the answers, and share memories in this independent bilingual quiz.",
-      ar: "جرّب ثمانية أسئلة لمحبي الرسوم المدبلجة الكلاسيكية. خمّن ثم اكشف الإجابات وشارك ذكرياتك في هذا الاختبار المستقل بالعربية والإنجليزية.",
+      en: "How much do you remember? 8 questions for fans of classic Arabic-dubbed animation, in Arabic and English. Guess, reveal the answers and share with friends.",
+      ar: "كم تتذكر منها؟ 8 أسئلة لمحبي الرسوم المدبلجة الكلاسيكية بالعربية والإنجليزية. خمّن ثم اكشف الإجابات وشارك الاختبار مع أصدقائك.",
     },
     eyebrow: { en: "A shared memory", ar: "ذكرى مشتركة" },
     headings: { en: "Spacetoon nostalgia", ar: "حنين سبيستون" },
@@ -411,16 +447,17 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   {
     key: "brain-games",
     // Game names changed on 2026-10-25 (see site-worker/src/seo-route-migrations.js).
-    lastModified: "2026-10-25",
+    // Search title and description rewritten for click-through on 2026-11-08.
+    lastModified: "2026-11-08",
     paths: { en: "/brain-games", ar: "/ar/alab-al-dimagh/" },
     kind: "games",
     titles: {
-      en: "Free Brain Games in Arabic & English | Riddle Arabia",
-      ar: "ألعاب ذكاء مجانية بالعربية والإنجليزية | ريدل أرابيا",
+      en: "Play Free Brain Games: Crosswords, Sudoku & More | Riddle Arabia",
+      ar: "ألعاب ذكاء مجانية: كلمات متقاطعة وسودوكو والمزيد | ريدل أرابيا",
     },
     descriptions: {
-      en: "Find free word games, crosswords, Sudoku and logic puzzles in Arabic and English. Compare how to play, try a daily selection, or invite a friend to Word Duel.",
-      ar: "اكتشف ألعاب كلمات وكلمات متقاطعة وسودوكو وألغاز منطق مجانية بالعربية والإنجليزية. تعرّف إلى طرق اللعب أو ادعُ صديقاً إلى مبارزة الكلمات.",
+      en: "Free brain games in Arabic and English, no download or sign-up: crosswords, Sudoku, word games and logic puzzles. Try a daily pick or challenge a friend to Word Duel.",
+      ar: "ألعاب ذكاء مجانية بالعربية والإنجليزية من دون تنزيل أو تسجيل: كلمات متقاطعة وسودوكو وألعاب كلمات وألغاز منطق. جرّب اختيار اليوم أو تحدَّ صديقاً في مبارزة الكلمات.",
     },
     eyebrow: { en: "Games", ar: "الألعاب" },
     headings: { en: "Brain games in Arabic and English", ar: "ألعاب ذكاء بالعربية والإنجليزية" },

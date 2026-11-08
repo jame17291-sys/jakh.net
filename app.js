@@ -2009,11 +2009,11 @@ function updateDocumentTitle() {
         : 'Explore riddles and trivia in Arabic and English across 48 topics. Choose science, history, culture or logic, guess the answer, and play at your own pace.';
     } else {
       title = state.lang === 'ar'
-        ? 'ألغاز عربية وأسئلة معلومات عامة وألعاب | ريدل أرابيا'
-        : 'Arabic Riddles, Trivia & Games | Riddle Arabia';
+        ? 'ألغاز عربية مع الحل وأسئلة ثقافية وألعاب مجانية | ريدل أرابيا'
+        : 'Arabic Riddles With Answers, Trivia & Free Games | Riddle Arabia';
       description = state.lang === 'ar'
-        ? 'حلّ ألغازاً عربية مع الحل، واختبر معلوماتك بأسئلة ثقافية، والعب ألعاباً مجانية أونلاين. اكتشف ريدل أرابيا بالعربية والإنجليزية ومن دون تنزيل.'
-        : 'Solve Arabic riddles with answers, test your knowledge with Arabic trivia, and play free games online. Explore Riddle Arabia in Arabic and English.';
+        ? 'أكثر من 100 لغز مجاني مع الحل، وأسئلة ثقافية في 48 موضوعاً، وكلمات متقاطعة وسودوكو وألعاب كلمات. بالعربية والإنجليزية من دون تسجيل.'
+        : '100+ free riddles with answers, Arabic trivia across 48 topics, crosswords, Sudoku and word games, in Arabic and English. No sign-up needed.';
     }
   } else if (state.categoryData) {
     const category = state.categoryData;

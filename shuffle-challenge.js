@@ -1,10 +1,11 @@
 import {
   ROUND_SIZE, LEVELS, normalizeLevel, planRound, replacementId, restoreRound, reveal, answerCard, retopicCurrent,
   replaceCurrent, isFinished, roundScore, rememberSeen, updateBest,
+  restoreStreak, recordStreakDay, currentStreak, localDay, shareText,
 } from './shuffle-challenge-engine.js';
 import { AR_COUNT, arabicCount } from './arabic-count.js';
 
-const KEYS = { round: 'ra-shuffle-round-v1', seen: 'ra-shuffle-seen-v1', best: 'ra-shuffle-best-v1', level: 'ra-shuffle-level-v1' };
+const KEYS = { round: 'ra-shuffle-round-v1', seen: 'ra-shuffle-seen-v1', best: 'ra-shuffle-best-v1', level: 'ra-shuffle-level-v1', streak: 'ra-shuffle-streak-v1' };
 const LONG_QUESTION = 170;
 const LONG_ANSWER = 90;
 const COLOR = /^(?:var\(--[a-z0-9-]+\)|#[0-9a-f]{3,8})$/iu;
@@ -39,6 +40,15 @@ const COPY = {
     recap: 'Topics in this round',
     results: { knew: 'Knew it', missed: 'Not this time', skipped: 'Skipped' },
     explore: 'Open topic',
+    streakLabel: 'Daily streak',
+    streakDays: '{n} in a row',
+    streakOne: 'Started today',
+    streakNone: 'Finish a round today to start a streak.',
+    streakKeep: 'Play again tomorrow to keep it going.',
+    streakBest: 'Best: {n}',
+    share: 'Share result',
+    shareTitle: 'Riddle Arabia Shuffle Challenge',
+    shareCopied: 'Result copied. Paste it anywhere.',
   },
   ar: {
     setupTitle: 'اختر المستوى',
@@ -68,6 +78,15 @@ const COPY = {
     recap: 'موضوعات هذه الجولة',
     results: { knew: 'كنت أعرفها', missed: 'لم أعرفها', skipped: 'تم التخطي' },
     explore: 'افتح الموضوع',
+    streakLabel: 'سلسلة الأيام',
+    streakDays: '{n} على التوالي',
+    streakOne: 'بدأت اليوم',
+    streakNone: 'أنهِ جولة اليوم لتبدأ سلسلتك.',
+    streakKeep: 'العب غدًا مرة أخرى لتحافظ عليها.',
+    streakBest: 'الأفضل: {n}',
+    share: 'شارك النتيجة',
+    shareTitle: 'خلطة ريدل أرابيا',
+    shareCopied: 'تم نسخ النتيجة. الصقها في أي مكان.',
   },
 };
 
@@ -94,6 +113,21 @@ export function createShuffleChallenge(api) {
     ? arabicCount(count, { ...AR_COUNT.topic, two: 'موضوعين' })
     : `${count} ${count === 1 ? 'topic' : 'topics'}`;
   const saveRound = () => api.saveJson(KEYS.round, round);
+  const streakState = () => restoreStreak(api.loadJson(KEYS.streak, null));
+  const dayCount = count => lang === 'ar' ? arabicCount(count, AR_COUNT.day) : `${count} ${count === 1 ? 'day' : 'days'}`;
+  const streakLine = count => count === 1 ? copy.streakOne : fill(copy.streakDays, { n: dayCount(count) });
+
+  // Shown on the level picker and the recap: the live count, or an invitation
+  // when there is none. Never a scolding when a streak has lapsed.
+  function streakMarkup(justFinished = false) {
+    const streak = streakState(), count = currentStreak(streak, localDay());
+    const note = count ? copy.streakKeep : copy.streakNone;
+    const best = streak.best > count ? `<span class="shuffle-streak-best">${e(fill(copy.streakBest, { n: dayCount(streak.best) }))}</span>` : '';
+    return `<p class="shuffle-streak${count ? ' has-streak' : ''}${justFinished ? ' is-fresh' : ''}" aria-live="polite">
+      <span class="shuffle-streak-icon" aria-hidden="true">${count ? '🔥' : '📅'}</span>
+      <span class="shuffle-streak-text"><span class="shuffle-streak-head"><span class="shuffle-streak-label">${e(copy.streakLabel)}</span>${count ? ` <strong>${e(streakLine(count))}</strong>` : ''}</span><span class="shuffle-streak-note">${e(note)}</span>${best}</span>
+    </p>`;
+  }
 
   function loadCards(slug) {
     if (!topicCards.has(slug)) {
@@ -125,6 +159,7 @@ export function createShuffleChallenge(api) {
       <p class="shuffle-setup-note">${e(fill(copy.setupNote, { n: topicCount(count) }))}</p>
       <fieldset class="shuffle-levels"><legend class="sr-only">${e(copy.levelLegend)}</legend>${options}</fieldset>
       <button type="button" class="primary-btn shuffle-start" data-shuffle="start">🔀 ${e(copy.start)}</button>
+      ${streakMarkup()}
       <p class="shuffle-fine-print">${e(copy.savedNote)}</p>
     </section>`;
   }
@@ -187,8 +222,10 @@ export function createShuffleChallenge(api) {
       <p class="shuffle-eyebrow">${e(copy.doneEyebrow)} · ${e(levelLabel(round.level))}</p>
       <h2 id="shuffleSummaryTitle" tabindex="-1">${e(fill(copy.doneTitle, { k: score.knew, n: score.total }))}</h2>
       <p class="shuffle-best">${e(fill(copy.best, { b: best, n: ROUND_SIZE }))}</p>
+      ${streakMarkup(true)}
       <div class="shuffle-summary-actions">
         <button type="button" class="primary-btn" data-shuffle="again">🔀 ${e(copy.playAgain)}</button>
+        ${typeof api.share === 'function' ? `<button type="button" class="ghost-btn shuffle-share" data-shuffle="share">📋 ${e(copy.share)}</button>` : ''}
         <button type="button" class="ghost-btn" data-shuffle="level">${e(copy.changeLevel)}</button>
       </div>
       <h3 class="shuffle-recap-title">${e(copy.recap)}</h3>
@@ -279,9 +316,21 @@ export function createShuffleChallenge(api) {
     const score = roundScore(round);
     api.saveJson(KEYS.best, updateBest(api.loadJson(KEYS.best, {}), round.level, score.knew));
     api.saveJson(KEYS.seen, rememberSeen(api.loadJson(KEYS.seen, []), round.items.map(item => item.id)));
+    api.saveJson(KEYS.streak, recordStreakDay(streakState(), localDay()));
     api.trackEvent('shuffle_round_complete', { level: round.level, known: score.knew });
     view = 'summary';
     focusSoon('#shuffleSummaryTitle');
+  }
+
+  // Friends land on the public Shuffle page in the same language; the ref
+  // parameter only marks the visit as a shared one, never who shared it.
+  async function share() {
+    if (!round || !isFinished(round) || typeof api.share !== 'function') return;
+    const count = currentStreak(streakState(), localDay());
+    const url = new URL(lang === 'ar' ? '/ar/daily/' : '/daily', 'https://riddlearabia.com').href;
+    const text = shareText(round, { lang, levelLabel: levelLabel(round.level), streakLabel: count > 1 ? streakLine(count) : '', url });
+    api.trackEvent('shuffle_share', { level: round.level, known: roundScore(round).knew });
+    await api.share({ title: copy.shareTitle, text, url, copiedMessage: copy.shareCopied });
   }
 
   function act(action) {
@@ -291,6 +340,7 @@ export function createShuffleChallenge(api) {
       view = 'setup'; focusSoon('#shuffleSetupTitle'); render(); return;
     }
     if (action === 'retry') { focusSoon('.shuffle-question'); render(); return; }
+    if (action === 'share') { void share(); return; }
     if (!round || isFinished(round)) return;
     if (action === 'reveal') { round = reveal(round); focusSoon('.shuffle-knew'); }
     else if (['knew', 'missed', 'skip'].includes(action)) {

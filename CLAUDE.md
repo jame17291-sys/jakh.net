@@ -14,8 +14,9 @@ The owner works from different devices. Nothing important may live only on one m
   directly to `main`, never force-push `main`, never hard-reset someone else's work.
 - Decisions, open questions and follow-ups go into the pull request, an issue, or the docs in
   this repository, not into local notes.
-- Production is released only by the protected GitHub Actions workflows (see Release). No ad hoc
-  local `wrangler deploy`, no local migrations against production.
+- Production is released only by the protected GitHub Actions workflows (see Release). Merging a
+  pull request into `main` starts them automatically. No ad hoc local `wrangler deploy`, no local
+  migrations against production.
 - Cloudflare credentials live as GitHub Actions secrets. Never ask for them in chat, print them or
   copy them into files.
 
@@ -90,19 +91,24 @@ Pick checks by what changed (see `package.json` for the full list): `npm run bui
 `npm run test:browser:matrix`, `npm run test:a11y`. Never weaken tests, budgets, coverage or
 review gates to get a green result.
 
-## Release (only when the owner asks)
+## Release
 
-Follow the current `docs/DEPLOYMENT-CHECKLIST.md` and workflow source.
+Merging a pull request into protected `main` is the release. **Release on merge**
+(`.github/workflows/release-on-merge.yml`) then starts **API deploy** (`release_phase=compatibility`,
+`domain_cutover=false`) and, once it succeeds, **Static site** (`domain_cutover=false`, exact
+confirmation) for the merged commit. Nothing else is needed from the owner except approving the
+`production` environment when GitHub asks for it in the Actions tab (once per workflow). Changes that
+touch only `docs/` or Markdown files do not start a release.
 
-1. Merge the pull request into protected `main` with required checks green.
-2. Run **API deploy** (`.github/workflows/api-deploy.yml`) from `main` with
-   `release_phase=compatibility` and `domain_cutover=false`.
-3. Then run **Static site** (`.github/workflows/static-site.yml`) from the same `main` commit with
-   `domain_cutover=false` and confirmation `DEPLOY riddlearabia.com FROM protected main`.
-4. Verify production and keep the commit SHA, Worker versions, build ID and monitor result.
+Claude never runs, re-runs or approves a release workflow itself, and never bypasses Release on merge
+with a manual dispatch unless the owner asks. The release workflows are unchanged: their
+authorization, build, proof, rollback and receipt steps are still the contract, and
+`docs/DEPLOYMENT-CHECKLIST.md` remains the reference when a release needs attention. After a release,
+report the commit SHA and the two workflow run links; do not claim production success from source
+inspection alone.
 
-`migrate-final` (schema changes) is a separate operation with backup, restore proof and approval
-requirements in the checklist. Worker rollback does not undo D1.
+`migrate-final` (schema changes) is never automatic. It is a separate manual operation with backup,
+restore proof and approval requirements in the checklist. Worker rollback does not undo D1.
 
 `production-monitor.yml`, `site-autopilot.yml` and `recovery-verification.yml` run on schedules.
 `pages.yml` is legacy break-glass only.

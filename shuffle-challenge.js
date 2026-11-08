@@ -4,6 +4,7 @@ import {
   restoreStreak, recordStreakDay, currentStreak, localDay, shareText,
 } from './shuffle-challenge-engine.js';
 import { AR_COUNT, arabicCount } from './arabic-count.js';
+import { SHUFFLE_STATS_KEY, recordShuffleRound, recordShuffleShare } from './achievements.js';
 
 const KEYS = { round: 'ra-shuffle-round-v1', seen: 'ra-shuffle-seen-v1', best: 'ra-shuffle-best-v1', level: 'ra-shuffle-level-v1', streak: 'ra-shuffle-streak-v1' };
 const LONG_QUESTION = 170;
@@ -48,6 +49,11 @@ const COPY = {
     streakBest: 'Best: {n}',
     share: 'Share result',
     shareTitle: 'Riddle Arabia Shuffle Challenge',
+    trophies: 'Trophy case',
+    trophiesNote: '{e} of {n} earned · kept on this device',
+    trophyNew: 'New',
+    trophyLocked: 'Locked',
+    trophiesMore: 'All trophies ({n})',
     shareCopied: 'Result copied. Paste it anywhere.',
   },
   ar: {
@@ -86,6 +92,11 @@ const COPY = {
     streakBest: 'الأفضل: {n}',
     share: 'شارك النتيجة',
     shareTitle: 'خلطة ريدل أرابيا',
+    trophies: 'خزانة الجوائز',
+    trophiesNote: 'حصلت على {e} من {n} · تبقى على هذا الجهاز',
+    trophyNew: 'جديد',
+    trophyLocked: 'مقفل',
+    trophiesMore: 'كل الجوائز ({n})',
     shareCopied: 'تم نسخ النتيجة. الصقها في أي مكان.',
   },
 };
@@ -104,6 +115,8 @@ export function createShuffleChallenge(api) {
   let view = !round ? 'setup' : isFinished(round) ? 'summary' : 'play';
   let renderToken = 0;
   let pendingFocus = null;
+  let freshTrophies = new Set();
+  const statsState = () => api.loadJson(SHUFFLE_STATS_KEY, null);
 
   const topics = () => api.topics();
   const topicMeta = slug => topics().find(topic => topic.slug === slug);
@@ -230,7 +243,38 @@ export function createShuffleChallenge(api) {
       </div>
       <h3 class="shuffle-recap-title">${e(copy.recap)}</h3>
       <ol class="shuffle-recap">${recap}</ol>
+      <div class="shuffle-trophy-case" data-shuffle-trophies></div>
     </section>`;
+  }
+
+  // The trophy case fills in after the recap renders: earned first, then the
+  // locked ones with what they need, so each one points at something to try.
+  async function fillTrophyCase(token) {
+    if (typeof api.trophies !== 'function') return;
+    let data;
+    try { data = await api.trophies(); } catch (_) { return; }
+    const mount = root.querySelector('[data-shuffle-trophies]');
+    if (token !== renderToken || !mount || !data?.module) return;
+    const { module, earned } = data;
+    const earnedIds = new Set(earned.map(a => a.id));
+    const all = module.ACHIEVEMENTS;
+    const item = a => {
+      const got = earnedIds.has(a.id), fresh = got && freshTrophies.has(a.id);
+      return `<li class="shuffle-trophy${got ? ' is-earned' : ' is-locked'}${fresh ? ' is-new' : ''}">
+        <span class="shuffle-trophy-icon" aria-hidden="true">${got ? e(a.icon) : '🔒'}</span>
+        <span class="shuffle-trophy-text"><span class="shuffle-trophy-name">${e(module.title(a, lang))}${fresh ? ` <span class="shuffle-trophy-flag">${e(copy.trophyNew)}</span>` : ''}${got ? '' : `<span class="sr-only"> · ${e(copy.trophyLocked)}</span>`}</span><span class="shuffle-trophy-desc">${e(module.description(a, lang))}</span></span>
+      </li>`;
+    };
+    // Earned trophies first, then the next few to aim for (Shuffle and streak
+    // ones before the rest), with everything else behind a native expander.
+    const rank = { shuffle: 0, streak: 1 };
+    const locked = all.filter(a => !earnedIds.has(a.id)).sort((a, b) => (rank[a.group] ?? 2) - (rank[b.group] ?? 2));
+    const shown = [...all.filter(a => earnedIds.has(a.id)), ...locked.slice(0, 4)];
+    const rest = locked.slice(4);
+    mount.innerHTML = `<h3 class="shuffle-recap-title">${e(copy.trophies)}</h3>
+      <p class="shuffle-trophies-note">${e(fill(copy.trophiesNote, { e: earned.length, n: all.length }))}</p>
+      <ul class="shuffle-trophies">${shown.map(item).join('')}</ul>
+      ${rest.length ? `<details class="shuffle-trophies-more"><summary>${e(fill(copy.trophiesMore, { n: all.length }))}</summary><ul class="shuffle-trophies">${rest.map(item).join('')}</ul></details>` : ''}`;
   }
 
   // A card that fails to load can be retried or skipped; a failed start can only be retried.
@@ -291,12 +335,13 @@ export function createShuffleChallenge(api) {
     root.dataset.view = view;
     root.setAttribute('aria-busy', 'false');
     if (view === 'setup') { root.innerHTML = setupMarkup(); applyFocus(); return; }
-    if (view === 'summary' && round) { root.innerHTML = summaryMarkup(); applyFocus(); return; }
+    if (view === 'summary' && round) { root.innerHTML = summaryMarkup(); applyFocus(); void fillTrophyCase(token); return; }
     if (view === 'error') { root.innerHTML = messageMarkup(copy.unavailable, 'start'); applyFocus(); return; }
     void renderPlay(token);
   }
 
   async function start() {
+    freshTrophies = new Set();
     root.setAttribute('aria-busy', 'true');
     root.innerHTML = `<div class="shuffle-card shuffle-message" aria-busy="true"><p>${e(copy.loading)}</p></div>`;
     let index;
@@ -317,7 +362,9 @@ export function createShuffleChallenge(api) {
     api.saveJson(KEYS.best, updateBest(api.loadJson(KEYS.best, {}), round.level, score.knew));
     api.saveJson(KEYS.seen, rememberSeen(api.loadJson(KEYS.seen, []), round.items.map(item => item.id)));
     api.saveJson(KEYS.streak, recordStreakDay(streakState(), localDay()));
+    api.saveJson(SHUFFLE_STATS_KEY, recordShuffleRound(statsState(), round));
     api.trackEvent('shuffle_round_complete', { level: round.level, known: score.knew });
+    announceTrophies();
     view = 'summary';
     focusSoon('#shuffleSummaryTitle');
   }
@@ -330,8 +377,22 @@ export function createShuffleChallenge(api) {
     const url = new URL(lang === 'ar' ? '/ar/daily/' : '/daily', 'https://riddlearabia.com').href;
     const text = shareText(round, { lang, levelLabel: levelLabel(round.level), streakLabel: count > 1 ? streakLine(count) : '', url });
     api.trackEvent('shuffle_share', { level: round.level, known: roundScore(round).knew });
-    await api.share({ title: copy.shareTitle, text, url, copiedMessage: copy.shareCopied });
+    const outcome = await api.share({ title: copy.shareTitle, text, url, copiedMessage: copy.shareCopied });
+    if (outcome && outcome !== 'cancelled') {
+      api.saveJson(SHUFFLE_STATS_KEY, recordShuffleShare(statsState()));
+      api.unlockCheck?.();
+    }
   }
+
+  // Newly earned trophies are flagged on the recap and announced by app.js's
+  // toast; the flagged set is cleared on the next round so "New" means new.
+  function announceTrophies() {
+    if (typeof api.trophies !== 'function') return;
+    const before = new Set(api.loadJson(trophyKey(), []));
+    api.unlockCheck?.();
+    api.trophies().then(({ earned }) => { freshTrophies = new Set(earned.filter(a => !before.has(a.id)).map(a => a.id)); }).catch(() => {});
+  }
+  const trophyKey = () => api.state.dbUser ? `jakh-ach-${api.state.dbUser.id}` : 'jakh-ach-guest';
 
   function act(action) {
     if (action === 'start' || action === 'again') { void start(); return; }

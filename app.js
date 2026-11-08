@@ -1137,20 +1137,13 @@ function isSolvedStatus(status) {
   return typeof status === 'string' && status !== '' && !status.startsWith('wrong-');
 }
 
-const ACHIEVEMENTS = [
-  { id: 'first-solve', icon: '⭐', en: 'First Steps', ar: 'الخطوة الأولى', descEn: 'Answer your first question correctly', descAr: 'أجب إجابة صحيحة عن سؤالك الأول', check: () => getTotalCorrectCount() >= 1 },
-  { id: 'scholar', icon: '🎓', en: 'Scholar', ar: 'المثقف', descEn: 'Answer 100 questions correctly', descAr: 'أجب إجابة صحيحة عن 100 سؤال', check: () => getTotalCorrectCount() >= 100 },
-  { id: 'streak-7', icon: '🔥', en: '7-Day Streak', ar: '٧ أيام متتالية', descEn: '7 consecutive active days', descAr: '٧ أيام نشاط متتالية', check: () => state.streak >= 7 },
-  { id: 'category-master', icon: '👑', en: 'Category Master', ar: 'خبير الموضوع', descEn: 'Complete any category 100%', descAr: 'أكمل أي موضوع بنسبة 100%', check: () => getCategoryMasterCount() >= 1 },
-  { id: 'completionist', icon: '💎', en: 'Completionist', ar: 'المُنجز', descEn: 'Complete 5 categories 100%', descAr: 'أكمل 5 موضوعات بنسبة 100%', check: () => getCategoryMasterCount() >= 5 },
-  { id: 'speed-demon', icon: '⚡', en: 'Speed Demon', ar: 'الرعد', descEn: 'Score 8/10+ in Quick Fire', descAr: 'احصل على 8/10 أو أعلى في الاختبار السريع', check: () => loadJson('jakh-speed-demon', 0) >= 1 },
-  { id: 'bookworm', icon: '📚', en: 'Bookworm', ar: 'نهم القراءة', descEn: 'Add 20 questions to favorites', descAr: 'أضف 20 سؤالًا إلى المفضلة', check: () => getFavoriteSet().size >= 20 },
-  { id: 'bilingual', icon: '🌐', en: 'Bilingual', ar: 'ثنائي اللغة', descEn: 'Use both Arabic and English modes', descAr: 'استخدم العربية والإنجليزية', check: () => !!loadJson('jakh-used-ar', 0) && !!loadJson('jakh-used-en', 0) },
-  { id: 'night-owl', icon: '🦉', en: 'Night Owl', ar: 'بومة الليل', descEn: 'Answer a question after midnight', descAr: 'أجب على سؤال بعد منتصف الليل', check: () => !!loadJson('jakh-night-owl', 0) },
-  { id: 'streak-30', icon: '🏆', en: '30-Day Streak', ar: '٣٠ يومًا متتاليًا', descEn: '30 consecutive active days', descAr: '٣٠ يومًا من النشاط المتواصل', check: () => state.streak >= 30 },
-  { id: 'hard-solver', icon: '💪', en: 'Hard Hitter', ar: 'مواجه الصعاب', descEn: 'Answer 25 hard or difficult questions correctly', descAr: 'أجب إجابة صحيحة عن 25 سؤالًا صعبًا', check: () => getCorrectCountByDifficulty('hard') + getCorrectCountByDifficulty('very-advanced') >= 25 },
-  { id: 'sharer', icon: '🔗', en: 'Sharer', ar: 'المشارك', descEn: 'Share your first question', descAr: 'شارك سؤالك الأول', check: () => !!loadJson('jakh-shared', 0) },
-];
+// Trophy definitions live in achievements.js (loaded once, lazily) so their
+// bilingual copy stays out of this file's budget.
+let achievementsModule = null;
+function loadAchievementsModule() {
+  return achievementsModule ? Promise.resolve(achievementsModule)
+    : import('/achievements.js').then((module) => { achievementsModule = module; return module; });
+}
 
 const completedCategoriesShown = new Set();
 
@@ -2779,7 +2772,7 @@ function renderAccountSummary(mount) {
   if (state.page === 'category') {
     const earned = computeAchievements();
     const achHtml = earned.length
-      ? earned.map(a => `<span class="achievement-badge" title="${escapeHtml(state.lang === 'ar' ? a.descAr : a.descEn)}">${a.icon} ${escapeHtml(state.lang === 'ar' ? a.ar : a.en)}</span>`).join('')
+      ? earned.map(a => `<span class="achievement-badge" title="${escapeHtml(achievementsModule.description(a, state.lang))}">${a.icon} ${escapeHtml(achievementsModule.title(a, state.lang))}</span>`).join('')
       : `<span class="muted" style="font-size:0.82rem">${escapeHtml(t('achNoAchievements'))}</span>`;
     const dc = state.categoryData?.difficultyCounts || {};
     const diffs = [
@@ -2846,7 +2839,7 @@ function renderAccountSummary(mount) {
   const insight = getDashInsight(totalSolved, totalQ, catProgress, state.lang);
   const earned = computeAchievements();
   const achHtml = earned.length
-    ? `<div class="dash-achievements">${earned.map(a => `<span class="achievement-badge" title="${escapeHtml(state.lang === 'ar' ? a.descAr : a.descEn)}">${a.icon} ${escapeHtml(state.lang === 'ar' ? a.ar : a.en)}</span>`).join('')}</div>`
+    ? `<div class="dash-achievements">${earned.map(a => `<span class="achievement-badge" title="${escapeHtml(achievementsModule.description(a, state.lang))}">${a.icon} ${escapeHtml(achievementsModule.title(a, state.lang))}</span>`).join('')}</div>`
     : '';
 
   mount.innerHTML = `
@@ -4385,6 +4378,8 @@ async function startShuffleChallenge() {
     loadTopicCards: loadShuffleTopicCards,
     topicRoute: categoryRouteForLanguage,
     share: shareOrCopy,
+    trophies: () => loadAchievementsModule().then(module => ({ module, earned: computeAchievements() })),
+    unlockCheck: checkNewAchievements,
     levelLabel: level => t(level === 'very-advanced' ? 'veryAdvanced' : level),
     topics: () => (state.catalog?.categories || []).filter(category => !categoryIsQuarantined(category.slug)),
   });
@@ -4868,23 +4863,36 @@ function getCategoryMasterCount() {
   }).length;
 }
 
-function computeAchievements() {
-  return ACHIEVEMENTS.filter(a => { try { return a.check(); } catch { return false; } });
+function achievementContext() {
+  const streakRecord = loadJson('ra-shuffle-streak-v1', null);
+  const localStreak = achievementsModule?.currentLocalStreak(streakRecord) || 0;
+  return {
+    correct: getTotalCorrectCount(),
+    hardCorrect: getCorrectCountByDifficulty('hard') + getCorrectCountByDifficulty('very-advanced'),
+    masteredCategories: getCategoryMasterCount(),
+    favorites: getFavoriteSet().size,
+    streak: Math.max(state.streak || 0, localStreak),
+    flags: { speedDemon: !!loadJson('jakh-speed-demon', 0), usedArabic: !!loadJson('jakh-used-ar', 0) && !!loadJson('jakh-used-en', 0), nightOwl: !!loadJson('jakh-night-owl', 0), shared: !!loadJson('jakh-shared', 0) },
+    shuffle: achievementsModule?.shuffleContext(loadJson(achievementsModule.SHUFFLE_STATS_KEY, null)),
+  };
 }
 
+function computeAchievements() {
+  return achievementsModule ? achievementsModule.computeAchievements(achievementContext()) : [];
+}
+
+// Guests keep their unlocked list under a shared key; accounts under their own.
 function checkNewAchievements() {
-  if (!state.dbUser) return;
-  const key = `jakh-ach-${state.dbUser.id}`;
-  const stored = new Set(loadJson(key, []));
-  const earned = computeAchievements();
-  const newOnes = earned.filter(a => !stored.has(a.id));
-  if (!newOnes.length) return;
-  newOnes.forEach(a => stored.add(a.id));
-  saveJson(key, [...stored]);
-  newOnes.forEach((a, i) => setTimeout(() => {
-    hapticSuccess();
-    showToast(`${a.icon} ${state.lang === 'ar' ? 'إنجاز جديد: ' : 'Achievement unlocked: '}${state.lang === 'ar' ? a.ar : a.en}!`);
-  }, i * 2400));
+  loadAchievementsModule().then((module) => {
+    const key = state.dbUser ? `jakh-ach-${state.dbUser.id}` : 'jakh-ach-guest';
+    const { fresh, next } = module.unlockDiff(loadJson(key, []), computeAchievements());
+    if (!fresh.length) return;
+    saveJson(key, next);
+    fresh.forEach((a, i) => setTimeout(() => {
+      hapticSuccess();
+      showToast(`${a.icon} ${state.lang === 'ar' ? 'إنجاز جديد: ' : 'Achievement unlocked: '}${module.title(a, state.lang)}!`);
+    }, i * 2400));
+  }).catch(() => {});
 }
 
 function isCategoryComplete(slug) {

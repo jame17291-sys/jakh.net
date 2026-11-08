@@ -22,6 +22,7 @@ import {
   PRE_PARTY_SITEMAP_PATHS,
   PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS,
   PRE_COLLECTION_EXPANSION_SITEMAP_PATHS,
+  includesPredecessorMarker,
   COLLECTION_EXPANSION_SITEMAP_PATHS,
   QUARANTINED_CATEGORY_SLUGS,
   QUARANTINED_SITE_ROUTES,
@@ -784,6 +785,31 @@ test("the exact-version pre-friendship-arcade release permits the existing party
       assert.ok(current.failures.some(({ name }) => name === `Site: ${route.name}`), `${route.path} must work on the candidate`);
     }
   });
+});
+
+test("the release baseline accepts the homepage title the previous release actually served", async () => {
+  // Static release 42480760524 failed because production still served the 2026-10-25 homepage
+  // title, which neither the current marker nor the pre-navigation "Riddle Arabia" marker matched.
+  const previousTitle = "<title>Arabic Riddles, Trivia &amp; Games | Riddle Arabia</title>";
+  const homeRoute = HTML_ROUTES.find(({ path }) => path === "/");
+  const currentTitle = `${homeRoute.marker}</title>`;
+  await withFixture({ productionSite: true }, async (fixtureOrigin) => {
+    const options = productionFixtureOptions(fixtureOrigin);
+    const predecessor = async (input, init) => {
+      const response = await options.fetchImpl(input, init);
+      if (new URL(input).pathname !== "/") return response;
+      const text = (await response.text()).replace(currentTitle, previousTitle);
+      assert.ok(text.includes(previousTitle), "fixture homepage must carry the previous title");
+      return new Response(text, { status: response.status, headers: response.headers });
+    };
+    const baseline = await runProductionMonitor({ ...options, fetchImpl: predecessor });
+    assert.deepEqual(baseline.failures, []);
+    const current = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: predecessor });
+    assert.ok(current.failures.some(({ name, message }) => /\bHome\b/u.test(name) && /missing page marker/u.test(message)),
+      "the candidate itself must still carry the current homepage title");
+  });
+  assert.ok(includesPredecessorMarker(homeRoute, "<title>Riddle Arabia</title>"), "pre-navigation generation stays accepted");
+  assert.equal(includesPredecessorMarker(homeRoute, "<title>Something else</title>"), false);
 });
 
 test("the exact-version pre-collection-expansion release predates only the Math and Hard riddles pairs", async () => {

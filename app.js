@@ -4384,6 +4384,7 @@ async function startShuffleChallenge() {
     isRecordUnavailable: dailyRecordIsUnavailable,
     loadTopicCards: loadShuffleTopicCards,
     topicRoute: categoryRouteForLanguage,
+    share: shareOrCopy,
     levelLabel: level => t(level === 'very-advanced' ? 'veryAdvanced' : level),
     topics: () => (state.catalog?.categories || []).filter(category => !categoryIsQuarantined(category.slug)),
   });

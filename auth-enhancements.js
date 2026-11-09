@@ -175,10 +175,10 @@ export function renderAccountPanel({
           <div class="profile-identity">
             <h3 class="profile-name">${e(account.username)}</h3>
             <p class="profile-level"><span class="profile-level-title">${e(level.title)}</span>${level.next ? ` <span class="profile-level-next">· ${ar ? `${e(level.next.title)} عند ${n(level.next.at)}` : `${e(level.next.title)} at ${n(level.next.at)}`}</span>` : ''}</p>
-            <button type="button" class="profile-avatar-toggle" aria-expanded="false" aria-controls="avatarSelector">${e(ar ? 'تغيير الصورة الرمزية' : 'Change avatar')}</button>
+            <button type="button" class="profile-avatar-toggle" data-lang="${ar ? 'ar' : 'en'}" aria-expanded="true" aria-controls="avatarSelector">${e(ar ? 'إخفاء الصور الرمزية' : 'Hide avatars')}</button>
           </div>
         </header>
-        <div id="avatarSelector" class="profile-avatar-picker" hidden tabindex="-1" ${avatarSaving ? 'aria-busy="true"' : ''}>
+        <div id="avatarSelector" class="profile-avatar-picker" tabindex="-1" ${avatarSaving ? 'aria-busy="true"' : ''}>
           ${AVATARS.map(emoji => `<button type="button" class="avatar-btn ${account.avatar === emoji ? 'is-active' : ''}" ${avatarSaving ? 'disabled' : ''} aria-describedby="avatarStatus" aria-label="${e(fmt('chooseAvatarAria', { avatar: emoji }))}" aria-pressed="${account.avatar === emoji ? 'true' : 'false'}" data-emoji="${emoji}">${emoji}</button>`).join('')}
           <p id="avatarStatus" class="auth-inline-status" role="status" aria-live="polite" aria-atomic="true">${avatarSaving ? e(t('avatarSaving')) : ''}</p>
         </div>
@@ -194,7 +194,7 @@ export function renderAccountPanel({
         ${trophiesHtml}
         ${topicsHtml}
 
-        <details class="profile-settings" id="profileSettings">
+        <details class="profile-settings" id="profileSettings" open>
           <summary>${e(ar ? 'الحساب والأمان' : 'Account & security')}</summary>
           <div class="profile-settings-body">
             <p class="muted">${e(t('accountReady'))}</p>
@@ -237,10 +237,12 @@ export function bindProfilePanel(root) {
   const picker = root?.querySelector('#avatarSelector');
   if (!toggle || !picker || toggle.dataset.bound) return;
   toggle.dataset.bound = '1';
+  const labels = toggle.dataset.lang === 'ar' ? ['إخفاء الصور الرمزية', 'تغيير الصورة الرمزية'] : ['Hide avatars', 'Change avatar'];
   toggle.addEventListener('click', () => {
     const open = picker.hidden;
     picker.hidden = !open;
     toggle.setAttribute('aria-expanded', String(open));
+    toggle.textContent = open ? labels[0] : labels[1];
     if (open) picker.querySelector('.avatar-btn.is-active, .avatar-btn')?.focus();
   });
 }

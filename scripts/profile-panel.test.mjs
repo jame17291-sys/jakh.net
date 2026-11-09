@@ -49,7 +49,8 @@ test('user-supplied text is escaped and settings sit behind an expander', () => 
   const html = panel();
   assert.match(html, /Noor &lt;3/u);
   assert.doesNotMatch(html, /Noor <3/u);
-  assert.match(html, /<details class="profile-settings" id="profileSettings">/u);
+  assert.match(html, /<details class="profile-settings" id="profileSettings" open>/u, 'open by default so the controls are reachable without a tap');
+  assert.doesNotMatch(html, /id="avatarSelector"[^>]*\bhidden\b/u, 'the avatar picker is visible by default');
   assert.ok(html.indexOf('id="profileSettings"') > html.indexOf('profile-trophies'), 'trophies come before settings');
   assert.equal((html.match(/style="/gu) || []).length, (html.match(/style="width:/gu) || []).length, 'only progress widths are inline');
 });

@@ -1156,9 +1156,12 @@ function t(key) {
 let authEnhancementsPromise;
 let accountPanelMarkup;
 function loadAuthEnhancements() {
+  // The signed-in panel also needs its stylesheet and the trophy catalogue;
+  // both are small, fetched once with the dialog, and optional (a failure
+  // falls back to the shared styles and a medals-only trophy case).
   authEnhancementsPromise ||= import('/auth-enhancements.js').then((feature) => {
     accountPanelMarkup = feature.renderAccountPanel;
-    return feature;
+    return Promise.all([feature.loadProfileStyles?.(), loadAchievementsModule()]).catch(() => {}).then(() => feature);
   });
   return authEnhancementsPromise;
 }
@@ -3701,13 +3704,20 @@ function renderAuthModal(mode = 'signin') {
   if (account) {
     const avatarSaving = avatarSavePending?.user === state.dbUser;
     const securityLoading = adminSecurityLoadPending?.user === state.dbUser;
+    const streakRecord = loadJson('ra-shuffle-streak-v1', null);
+    const earned = computeAchievements();
     els.authModalBody.innerHTML = accountPanelMarkup({
       account, language: state.lang, role: state.dbUser?.role,
       score: getScore(), correctCount: getTotalCorrectCount(),
       progress: publicAccountProgress(), categories: state.catalog?.categories || [], getCorrectCountByDifficulty,
       avatarSaving, securityLoading, privacyPath: sharedRouteForLanguage('/privacy', state.lang),
       t, fmt, escapeHtml,
+      totalQuestions: state.catalog?.site?.totalQuestions || 0,
+      streak: Math.max(state.streak || 0, achievementsModule?.currentLocalStreak(streakRecord) || 0),
+      bestStreak: streakRecord?.best || 0,
+      trophies: achievementsModule ? { all: achievementsModule.ACHIEVEMENTS, earnedIds: new Set(earned.map(a => a.id)), title: a => achievementsModule.title(a, state.lang), description: a => achievementsModule.description(a, state.lang) } : null,
     });
+    loadAuthEnhancements().then(feature => feature.bindProfilePanel?.(els.authModalBody)).catch(() => {});
     
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) logoutBtn.addEventListener('click', async () => {

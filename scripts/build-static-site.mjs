@@ -106,7 +106,7 @@ export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
   "/data/card-index.json",
   "/auth-enhancements.js",
   "/speech-quality.js",
-  "/auth-security.css", "/auth-security.js",
+  "/auth-security.css", "/auth-security.js", "/profile.css",
   "/kids-learning.js", "/kids-state.js", "/kids-learning.css", "/data/kids/catalog.json",
   ...SHARED_MODULES,
   ...ILLUSTRATION_MODULES,
@@ -1193,9 +1193,8 @@ export async function buildStaticSite({
     ...PAGE_RUNTIME_SCRIPTS,
     "/content-overrides.js",
     "/data/card-index.json",
-    "/auth-enhancements.js",
     "/speech-quality.js",
-    "/auth-security.css",
+    "/auth-security.css", "/profile.css",
     "/kids-state.js", "/kids-learning.css", "/data/kids/catalog.json",
     "/styles.css",
     "/site-navigation.js",
@@ -1255,6 +1254,14 @@ export async function buildStaticSite({
   if (searchSource) {
     const rewritten = rewriteSharedModuleImports(rewriteSearchLeaderboard(searchSource.toString("utf8"), fingerprints), fingerprints);
     addFingerprint("/search-leaderboard.js", Buffer.from(rewritten, "utf8"));
+  }
+
+  // The profile panel loads its stylesheet by URL, so pin it the same way.
+  const enhancementsSource = sourceBytes.get("auth-enhancements.js");
+  if (enhancementsSource) {
+    invariant(fingerprints['/profile.css'], 'The account panel requires its stylesheet');
+    const rewritten = replaceQuotedUrl(enhancementsSource.toString('utf8'), '/profile.css', fingerprints['/profile.css']).value;
+    addFingerprint('/auth-enhancements.js', Buffer.from(rewritten, 'utf8'));
   }
 
   const securitySource = sourceBytes.get("auth-security.js");

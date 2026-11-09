@@ -5,7 +5,7 @@ catalogue dump and it does not publish pagination pages for every topic.
 
 ## Indexable pages
 
-The source of truth is `scripts/riddlearabia-seo.mjs`. It defines fourteen original
+The source of truth is `scripts/riddlearabia-seo.mjs`. It defines eighteen original
 bilingual experiences:
 
 - Riddles
@@ -18,6 +18,7 @@ bilingual experiences:
 - Math riddles (added 2026-11-08)
 - Hard riddles (added 2026-11-08)
 - Science trivia, Geography quiz, Football quiz, Flags quiz (added 2026-11-09)
+- History quiz, Animal quiz, Space quiz, Anime quiz (added 2026-11-09, round three)
 - Brain games
 
 Each experience has its own bilingual copy, purpose, canonical pair, reciprocal
@@ -25,8 +26,8 @@ Each experience has its own bilingual copy, purpose, canonical pair, reciprocal
 curated set of real question cards. The two riddle pairs (`/riddles` with `/ar/alghaz/`, and
 `/arabic-riddles` with `/ar/alghaz-arabiya/`) feature 30 published riddles
 each, ordered from easy to hard. Logic puzzles, general knowledge, Arabia
-history, Math riddles, Hard riddles, Science, Geography, Football and Flags also
-feature 30, kids riddles 24, and the Spacetoon quiz eight. Math riddles draws on the Math topic; Hard riddles draws on
+history, Math riddles, Hard riddles, Science, Geography, Football, Flags, History,
+Animals, Space and Anime also feature 30, kids riddles 24, and the Spacetoon quiz eight. Math riddles draws on the Math topic; Hard riddles draws on
 the Classic Riddles and Logic Puzzles cards that the two riddle pairs and the
 logic collection do not already feature. Each collection's "Keep exploring"
 section links the next three collections in list order, so every collection is
@@ -40,10 +41,11 @@ current game list rather than copying quiz content.
 Mind Lab, Play, Daily, Privacy, Akshifha, and the ten classic game routes remain
 indexable. Thirteen new bilingual puzzle destinations add twelve playable
 engines and one Bonus collection. With the bilingual Kids Learning & Play
-pages the sitemap lists 1,188 canonical URLs (100 core pages plus 1,088 kids
+pages the sitemap lists 1,196 canonical URLs (108 core pages plus 1,088 kids
 pages); `sitemap.xml` contains only indexable canonicals. Pages added after a
 release carry a `sitemapGeneration` tag listed in `COLLECTION_GENERATIONS` in
-`scripts/monitor-production.mjs` (`collections-2026-11`, `collections-2026-11b`).
+`scripts/monitor-production.mjs` (`collections-2026-11`, `collections-2026-11b`,
+`collections-2026-11c`).
 Each generation's inventory is an accepted exact-version release baseline, so a
 release that adds the next generation proves the previous one while the candidate
 must publish the full inventory. To add pages: tag them with a new generation and

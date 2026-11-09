@@ -75,9 +75,10 @@ Search Console, not guesses: queries at positions 5–20 with impressions, pages
 and few clicks, and whether `/math-riddles` and `/hard-riddles` gained impressions.
 
 **Candidates, in rough order of search demand.**
-- More collection pairs from banks with no search page yet: science, geography, Islamic
-  knowledge, football, Arabic language. Same pattern as the math and hard collections, 30 cards
-  each, drawn from unfeatured cards; each one widens `seo-pagination.test.mjs` deliberately.
+- More collection pairs from banks with no search page yet. Science, geography, football,
+  flags, history, animals, space and anime shipped on 9 Nov; TV shows, psychology, software and
+  superheroes remain. Same pattern as the math and hard collections, 30 cards each, drawn from
+  unfeatured cards; each one widens `seo-pagination.test.mjs` deliberately.
 - A short article section for long-tail phrases the collections do not cover ("riddles for a
   five-year-old in Arabic", "riddles that trick adults"), two or three to start.
 - Sitemap resubmitted in Search Console after each release.
@@ -110,7 +111,8 @@ request.
 | When | Work | Needs owner |
 | --- | --- | --- |
 | 8–9 Nov | Phases 1 and 1b shipped; sitemap resubmitted; social posts drafted | done |
-| Week of 10 Nov | Owner shares the two new pages; next collections (science, geography, football, Islamic knowledge) | merge only |
+| 9 Nov | Collections round two (#200: science, geography, football, flags) and round three (history, animals, space, anime) | merge only |
+| Week of 10 Nov | Owner shares the new pages; request indexing for the sixteen new URLs | owner |
 | Mid November | Phase 2 pre-review of medical (no public change) | reviewer decision |
 | Early December | Read Search Console; pick Phase 3 items | share the data |
 | December | Phase 3 | merge only |

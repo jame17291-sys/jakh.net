@@ -20,6 +20,7 @@ const seoPairs = [
   ['spacetoon-nostalgia', 'hanin-spacetoon'], ['brain-games', 'alab-al-dimagh'],
   ['math-riddles', 'alghaz-riyadiyat'], ['hard-riddles', 'alghaz-saaba'],
   ['science-trivia', 'asila-ilmiya'], ['geography-quiz', 'asila-jughrafiya'], ['football-quiz', 'asila-kurat-alqadam'], ['flags-quiz', 'alam-alduwal'],
+  ['history-quiz', 'asila-tarikhiya'], ['animal-quiz', 'asila-an-alhayawanat'], ['space-quiz', 'asila-an-alfadaa'], ['anime-quiz', 'asila-anime'],
 ];
 export const GENERATED_OUTPUTS = Object.freeze([
   'data/catalog.json', 'data/search-index.json', 'data/search-index.en.json', 'data/search-index.ar.json',

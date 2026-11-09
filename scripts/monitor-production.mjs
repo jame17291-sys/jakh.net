@@ -205,15 +205,29 @@ export const PRE_COLLECTION_EXPANSION_SITEMAP_PATHS = Object.freeze([
   ...PARTY_GAME_HTML_ROUTES.map(({ path }) => path),
 ]);
 
-export const COLLECTION_EXPANSION_SITEMAP_PATHS = Object.freeze(
-  RIDDLE_ARABIA_SEO_PAGES.filter((page) => page.sitemapGeneration === "collections-2026-11")
-    .flatMap((page) => [page.paths.en, page.paths.ar]),
-);
+// Collection pages are added in generations. Each generation's inventory is an
+// accepted exact-version release baseline, so a release introducing the next
+// generation proves the previous one before the new URLs can be deployed.
+export const COLLECTION_GENERATIONS = Object.freeze(["collections-2026-11", "collections-2026-11b"]);
 
-export const INDEXABLE_SITEMAP_PATHS = Object.freeze([
-  ...PRE_COLLECTION_EXPANSION_SITEMAP_PATHS,
-  ...COLLECTION_EXPANSION_SITEMAP_PATHS,
-]);
+const collectionPathsFor = (generation) => RIDDLE_ARABIA_SEO_PAGES
+  .filter((page) => page.sitemapGeneration === generation).flatMap((page) => [page.paths.en, page.paths.ar]);
+
+for (const page of RIDDLE_ARABIA_SEO_PAGES) {
+  if (page.sitemapGeneration && !COLLECTION_GENERATIONS.includes(page.sitemapGeneration)) {
+    throw new Error(`Unknown sitemapGeneration "${page.sitemapGeneration}" on ${page.key}; add it to COLLECTION_GENERATIONS.`);
+  }
+}
+
+export const COLLECTION_EXPANSION_SITEMAP_PATHS = Object.freeze(collectionPathsFor(COLLECTION_GENERATIONS[0]));
+
+// Inventories at each generation boundary, oldest first; the last is current.
+export const COLLECTION_GENERATION_SITEMAP_PATHS = Object.freeze(COLLECTION_GENERATIONS.reduce((layers, generation) => {
+  const previous = layers.length ? layers[layers.length - 1] : PRE_COLLECTION_EXPANSION_SITEMAP_PATHS;
+  return [...layers, Object.freeze([...previous, ...collectionPathsFor(generation)])];
+}, []));
+
+export const INDEXABLE_SITEMAP_PATHS = COLLECTION_GENERATION_SITEMAP_PATHS[COLLECTION_GENERATION_SITEMAP_PATHS.length - 1];
 
 export const PRE_NAVIGATION_SITEMAP_PATHS = Object.freeze(
   PRE_PUZZLE_SITEMAP_PATHS.filter((path) => !["/daily", "/ar/daily/"].includes(path)),
@@ -757,16 +771,20 @@ export async function runProductionMonitor(options = {}) {
       && navigationLayout === "current" && includeKidsNavigation
       && urls.length === preFriendshipArcadeUrls.length
       && preFriendshipArcadeUrls.every((url) => urls.includes(url));
-    const preCollectionExpansionUrls = inventoryPaths(PRE_COLLECTION_EXPANSION_SITEMAP_PATHS).map((pathname) => new URL(pathname, config.siteOrigin).href);
-    const isCollectionExpansionPredecessor = config.siteContract === "release-baseline"
-      && navigationLayout === "current" && includeKidsNavigation
-      && urls.length === preCollectionExpansionUrls.length
-      && preCollectionExpansionUrls.every((url) => urls.includes(url));
+    // Any earlier collection generation (or the inventory just before the first)
+    // is an exact-version predecessor; the current generation is never one.
+    const collectionPredecessorPaths = config.siteContract === "release-baseline" && navigationLayout === "current" && includeKidsNavigation
+      ? [PRE_COLLECTION_EXPANSION_SITEMAP_PATHS, ...COLLECTION_GENERATION_SITEMAP_PATHS.slice(0, -1)].find((paths) => {
+        const layerUrls = inventoryPaths(paths).map((pathname) => new URL(pathname, config.siteOrigin).href);
+        return urls.length === layerUrls.length && layerUrls.every((url) => urls.includes(url));
+      }) || null
+      : null;
+    const isCollectionExpansionPredecessor = collectionPredecessorPaths !== null;
     const expectedPaths = navigationLayout === "pre-navigation" ? PRE_NAVIGATION_SITEMAP_PATHS
       : isPuzzlePredecessor ? PRE_PUZZLE_SITEMAP_PATHS
         : isPartyPredecessor ? PRE_PARTY_SITEMAP_PATHS
           : isFriendshipArcadePredecessor ? PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS
-            : isCollectionExpansionPredecessor ? PRE_COLLECTION_EXPANSION_SITEMAP_PATHS
+            : isCollectionExpansionPredecessor ? collectionPredecessorPaths
               : !includeKidsNavigation ? PRE_KIDS_SITEMAP_PATHS : INDEXABLE_SITEMAP_PATHS;
     const expectedUrls = inventoryPaths(expectedPaths).map((pathname) => new URL(pathname, config.siteOrigin).href);
     if (legacyBaseline) {

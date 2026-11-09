@@ -10,7 +10,11 @@
     "arabia-quiz": { "cardCount": 30, "sourceCategories": ["middle-east-history"], "minSubcategories": 3 },
     "spacetoon-nostalgia": { "cardCount": 8, "sourceCategories": ["ayam-tayebeen"], "minSubcategories": 1 },
     "math-riddles": { "cardCount": 30, "sourceCategories": ["math"], "minSubcategories": 3 },
-    "hard-riddles": { "cardCount": 30, "sourceCategories": ["classic-riddles", "logic-puzzles"], "minSubcategories": 3 }
+    "hard-riddles": { "cardCount": 30, "sourceCategories": ["classic-riddles", "logic-puzzles"], "minSubcategories": 3 },
+    "science-trivia": { "cardCount": 30, "sourceCategories": ["science"], "minSubcategories": 3 },
+    "geography-quiz": { "cardCount": 30, "sourceCategories": ["geography"], "minSubcategories": 3 },
+    "football-quiz": { "cardCount": 30, "sourceCategories": ["football"], "minSubcategories": 3 },
+    "flags-quiz": { "cardCount": 30, "sourceCategories": ["flag-questions"], "minSubcategories": 3 }
   },
   "holds": [
     {

@@ -19,6 +19,7 @@ const seoPairs = [
   ['general-knowledge', 'malumat-amma'], ['arabia-quiz', 'tarikh-al-arab'],
   ['spacetoon-nostalgia', 'hanin-spacetoon'], ['brain-games', 'alab-al-dimagh'],
   ['math-riddles', 'alghaz-riyadiyat'], ['hard-riddles', 'alghaz-saaba'],
+  ['science-trivia', 'asila-ilmiya'], ['geography-quiz', 'asila-jughrafiya'], ['football-quiz', 'asila-kurat-alqadam'], ['flags-quiz', 'alam-alduwal'],
 ];
 export const GENERATED_OUTPUTS = Object.freeze([
   'data/catalog.json', 'data/search-index.json', 'data/search-index.en.json', 'data/search-index.ar.json',

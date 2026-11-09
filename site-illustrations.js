@@ -12,6 +12,7 @@ export const COLLECTION_ILLUSTRATIONS = Object.freeze({
   'spacetoon-nostalgia': 'nostalgia', 'brain-games': 'shared-play',
   'math-riddles': 'topic-math', 'hard-riddles': 'topic-logic-puzzles',
   'science-trivia': 'topic-science', 'geography-quiz': 'topic-geography', 'football-quiz': 'topic-football', 'flags-quiz': 'topic-flag-questions',
+  'history-quiz': 'topic-history', 'animal-quiz': 'topic-animal-kingdom', 'space-quiz': 'topic-space-and-astrology', 'anime-quiz': 'topic-anime',
 });
 
 export const TOPIC_ILLUSTRATIONS = Object.freeze({

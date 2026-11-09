@@ -14,7 +14,11 @@
     "science-trivia": { "cardCount": 30, "sourceCategories": ["science"], "minSubcategories": 3 },
     "geography-quiz": { "cardCount": 30, "sourceCategories": ["geography"], "minSubcategories": 3 },
     "football-quiz": { "cardCount": 30, "sourceCategories": ["football"], "minSubcategories": 3 },
-    "flags-quiz": { "cardCount": 30, "sourceCategories": ["flag-questions"], "minSubcategories": 3 }
+    "flags-quiz": { "cardCount": 30, "sourceCategories": ["flag-questions"], "minSubcategories": 3 },
+    "history-quiz": { "cardCount": 30, "sourceCategories": ["history"], "minSubcategories": 3 },
+    "animal-quiz": { "cardCount": 30, "sourceCategories": ["animal-kingdom"], "minSubcategories": 3 },
+    "space-quiz": { "cardCount": 30, "sourceCategories": ["space-and-astrology"], "minSubcategories": 3 },
+    "anime-quiz": { "cardCount": 30, "sourceCategories": ["anime"], "minSubcategories": 3 }
   },
   "holds": [
     {

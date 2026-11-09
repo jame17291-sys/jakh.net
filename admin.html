@@ -96,11 +96,12 @@
             <div class="updated"><span data-i18n="updated">Updated</span> <time id="lastUpdated">—</time></div>
           </div>
 
-          <section id="metricGrid" class="metric-grid editorial-metrics" aria-label="Editorial work"></section>
+          <section id="accountMetricGrid" class="metric-grid" aria-label="Site at a glance"></section>
 
           <div class="dashboard-grid editorial-dashboard">
             <article class="panel action-panel">
-              <div class="panel-heading compact-heading"><h2 data-i18n="nextActions">What needs attention</h2><button class="text-button" type="button" data-open-tab="content" data-i18n="browseContent">Browse content</button></div>
+              <div class="panel-heading compact-heading"><div><h2 data-i18n="nextActions">What needs attention</h2><p data-i18n="editorialWork">Editorial work</p></div><button class="text-button" type="button" data-open-tab="content" data-i18n="browseContent">Browse content</button></div>
+              <section id="metricGrid" class="metric-grid editorial-metrics compact-metrics" aria-label="Editorial work"></section>
               <div id="actionQueue" class="action-queue"></div>
             </article>
             <article class="panel">
@@ -108,15 +109,6 @@
               <div id="recentEdits" class="activity-list"></div>
             </article>
           </div>
-
-          <article class="panel overview-feedback">
-            <div class="panel-heading compact-heading"><div><h2 data-i18n="recentFeedback">Recent feedback</h2><p data-i18n="recentFeedbackHint">Newest visitor reports and suggestions</p></div><button class="text-button" type="button" data-open-tab="feedback" data-i18n="reviewFeedback">Review feedback</button></div>
-            <div id="recentSuggestions" class="activity-list"></div>
-          </article>
-
-          <details class="operations-details">
-            <summary data-i18n="accountActivity">Accounts and service status</summary>
-            <section id="accountMetricGrid" class="metric-grid" aria-label="Account metrics"></section>
 
           <div class="dashboard-grid">
             <article class="panel health-panel">
@@ -128,11 +120,24 @@
                 <span id="healthPill" class="status-pill is-pending" data-i18n="checking">Checking</span>
               </div>
               <p id="healthMessage" class="muted" data-i18n="healthChecking">Checking the Riddle Arabia API and database schema.</p>
+              <dl id="releaseFacts" class="fact-list" aria-label="Release"></dl>
+              <p class="muted"><a id="releaseActionsLink" href="https://github.com/jame17291-sys/jakh.net/actions" target="_blank" rel="noopener" data-i18n="releaseHistory">Release history on GitHub</a></p>
               <div class="guardrail-list">
                 <span><i class="check-dot" aria-hidden="true"></i><span data-i18n="guardrailRoles">Server-enforced Riddle Arabia roles</span></span>
                 <span><i class="check-dot" aria-hidden="true"></i><span data-i18n="guardrailAudit">Privileged changes are recorded</span></span>
                 <span><i class="check-dot" aria-hidden="true"></i><span data-i18n="guardrailStepUp">High-impact actions need password confirmation</span></span>
               </div>
+            </article>
+            <article class="panel overview-feedback">
+              <div class="panel-heading compact-heading"><div><h2 data-i18n="recentFeedback">Recent feedback</h2><p data-i18n="recentFeedbackHint">Newest visitor reports and suggestions</p></div><button class="text-button" type="button" data-open-tab="feedback" data-i18n="reviewFeedback">Review feedback</button></div>
+              <div id="recentSuggestions" class="activity-list"></div>
+            </article>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="panel inventory-panel">
+              <div class="panel-heading compact-heading"><div><h2 data-i18n="contentInventory">Content inventory</h2><p id="inventorySummary" class="muted" data-i18n="inventoryLoading">Loading the published catalog.</p></div><a class="text-button" href="/" target="_blank" rel="noopener" data-i18n="viewSite">View site</a></div>
+              <div id="inventoryList" class="inventory-list"></div>
             </article>
             <article class="panel">
               <div class="panel-heading compact-heading">
@@ -142,7 +147,6 @@
               <div id="recentUsers" class="activity-list"></div>
             </article>
           </div>
-          </details>
         </section>
 
         <section id="contentPanel" class="tab-panel" role="tabpanel" aria-labelledby="contentTab" data-panel="content" hidden>

@@ -129,7 +129,7 @@ test("real refresh re-gates both MFA failures while retaining ordinary forbidden
     const error = new AdminApiError(status, code), gated = [], toasts = [];
     await runInNewContext(`${source.slice(start, end)}\nrefreshVisible(false);`, {
       state: { activeTab: 'overview' }, AdminApiError,
-      loadOverview: async () => { throw error; }, loadHealth: async () => {}, loadSecurity: async () => {},
+      loadOverview: async () => { throw error; }, loadHealth: async () => {}, loadSecurity: async () => {}, loadRelease: async () => {}, loadInventory: async () => {},
       handleActionError: failure => gated.push(failure), showToast: (...args) => toasts.push(args), t: key => key,
     });
     assert.equal(gated.length, expectedGate ? 1 : 0, code);

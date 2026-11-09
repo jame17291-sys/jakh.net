@@ -124,10 +124,11 @@ function sitemapEntries() {
   });
 }
 
-test("the public SEO surface is ten original bilingual Riddle Arabia experiences", () => {
-  // Eight editorial experiences plus the Math riddles and Hard riddles collections added on
-  // 2026-11-08 (owner decision, PR after #185). Every further page is a deliberate addition here.
-  assert.equal(RIDDLE_ARABIA_SEO_PAGES.length, 10, "the experience architecture must stay compact and intentional");
+test("the public SEO surface is fourteen original bilingual Riddle Arabia experiences", () => {
+  // Eight editorial experiences, plus Math riddles and Hard riddles (2026-11-08, #186), plus
+  // Science, Geography, Football and Flags (2026-11-09, roadmap phase 3). Every further page is a
+  // deliberate addition here.
+  assert.equal(RIDDLE_ARABIA_SEO_PAGES.length, 14, "the experience architecture must stay compact and intentional");
   const titles = { en: new Set(), ar: new Set() };
 
   for (const experience of RIDDLE_ARABIA_SEO_PAGES) {

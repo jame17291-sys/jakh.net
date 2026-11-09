@@ -5,7 +5,7 @@ catalogue dump and it does not publish pagination pages for every topic.
 
 ## Indexable pages
 
-The source of truth is `scripts/riddlearabia-seo.mjs`. It defines ten original
+The source of truth is `scripts/riddlearabia-seo.mjs`. It defines fourteen original
 bilingual experiences:
 
 - Riddles
@@ -17,6 +17,7 @@ bilingual experiences:
 - Spacetoon nostalgia
 - Math riddles (added 2026-11-08)
 - Hard riddles (added 2026-11-08)
+- Science trivia, Geography quiz, Football quiz, Flags quiz (added 2026-11-09)
 - Brain games
 
 Each experience has its own bilingual copy, purpose, canonical pair, reciprocal
@@ -24,8 +25,8 @@ Each experience has its own bilingual copy, purpose, canonical pair, reciprocal
 curated set of real question cards. The two riddle pairs (`/riddles` with `/ar/alghaz/`, and
 `/arabic-riddles` with `/ar/alghaz-arabiya/`) feature 30 published riddles
 each, ordered from easy to hard. Logic puzzles, general knowledge, Arabia
-history, Math riddles and Hard riddles also feature 30, kids riddles 24, and the
-Spacetoon quiz eight. Math riddles draws on the Math topic; Hard riddles draws on
+history, Math riddles, Hard riddles, Science, Geography, Football and Flags also
+feature 30, kids riddles 24, and the Spacetoon quiz eight. Math riddles draws on the Math topic; Hard riddles draws on
 the Classic Riddles and Logic Puzzles cards that the two riddle pairs and the
 logic collection do not already feature. Each collection's "Keep exploring"
 section links the next three collections in list order, so every collection is
@@ -39,11 +40,14 @@ current game list rather than copying quiz content.
 Mind Lab, Play, Daily, Privacy, Akshifha, and the ten classic game routes remain
 indexable. Thirteen new bilingual puzzle destinations add twelve playable
 engines and one Bonus collection. With the bilingual Kids Learning & Play
-pages the sitemap lists 1,180 canonical URLs (92 core pages plus 1,088 kids
+pages the sitemap lists 1,188 canonical URLs (100 core pages plus 1,088 kids
 pages); `sitemap.xml` contains only indexable canonicals. Pages added after a
-release carry a `sitemapGeneration` tag (currently `collections-2026-11`) so the
-production monitor can accept the previous sitemap as the exact-version release
-baseline while the candidate must publish the full inventory. Search-engine
+release carry a `sitemapGeneration` tag listed in `COLLECTION_GENERATIONS` in
+`scripts/monitor-production.mjs` (`collections-2026-11`, `collections-2026-11b`).
+Each generation's inventory is an accepted exact-version release baseline, so a
+release that adds the next generation proves the previous one while the candidate
+must publish the full inventory. To add pages: tag them with a new generation and
+append it to `COLLECTION_GENERATIONS`. Search-engine
 submission is described in `docs/SEARCH-DISCOVERY.md`.
 
 The new destinations use `puzzle-routes.js` for route identity and

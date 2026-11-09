@@ -1256,11 +1256,14 @@ export async function buildStaticSite({
     addFingerprint("/search-leaderboard.js", Buffer.from(rewritten, "utf8"));
   }
 
-  // The profile panel loads its stylesheet by URL, so pin it the same way.
+  // The profile panel loads its stylesheet by URL, so pin it the same way. The
+  // stylesheet is optional at build time (fixtures may omit it; the panel
+  // falls back to the shared styles), but when present it must be pinned.
   const enhancementsSource = sourceBytes.get("auth-enhancements.js");
   if (enhancementsSource) {
-    invariant(fingerprints['/profile.css'], 'The account panel requires its stylesheet');
-    const rewritten = replaceQuotedUrl(enhancementsSource.toString('utf8'), '/profile.css', fingerprints['/profile.css']).value;
+    let rewritten = enhancementsSource.toString('utf8');
+    if (fingerprints['/profile.css']) rewritten = replaceQuotedUrl(rewritten, '/profile.css', fingerprints['/profile.css']).value;
+    else invariant(!sourceBytes.has('profile.css'), 'profile.css exists but was not fingerprinted before auth-enhancements.js');
     addFingerprint('/auth-enhancements.js', Buffer.from(rewritten, 'utf8'));
   }
 

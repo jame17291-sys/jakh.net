@@ -80,7 +80,9 @@ export function buildPlan({ startDate, days, seed = 0, used = new Set() }) {
         if (!cardFits(entry)) continue;
         cursors.set(key, index + 1);
         taken.add(id);
-        chosen = { day: day + 1, date, collection: key, topic, id };
+        // Every day carries a vertical card reel (see social-reels.mjs); the images stay
+        // for Facebook's first-comment fallback and for the plan's audit trail.
+        chosen = { day: day + 1, date, collection: key, topic, id, reel: true };
         break;
       }
     }

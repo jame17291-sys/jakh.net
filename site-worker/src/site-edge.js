@@ -257,7 +257,7 @@ export function cachePolicy({ pathname, status, contentType, record }) {
   if (hasBuildIdentityInName(pathname, record)) return "public, max-age=31536000, immutable";
   const extension = fileExtension(pathname);
   if ([".css", ".js", ".json", ".map", ".mjs"].includes(extension)) return MUTABLE_ASSET_CACHE;
-  if ([".gif", ".ico", ".jpeg", ".jpg", ".png", ".svg", ".webp", ".woff", ".woff2"].includes(extension)) {
+  if ([".gif", ".ico", ".jpeg", ".jpg", ".mp4", ".png", ".svg", ".webp", ".woff", ".woff2"].includes(extension)) {
     return MEDIA_CACHE;
   }
   return MUTABLE_ASSET_CACHE;

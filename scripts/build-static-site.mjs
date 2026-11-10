@@ -176,6 +176,7 @@ const DEPLOYABLE_EXTENSIONS = new Set([
   ".json",
   ".map",
   ".mjs",
+  ".mp4",
   ".png",
   ".svg",
   ".txt",

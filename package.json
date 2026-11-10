@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build:site": "node scripts/build-static-site.mjs",
-    "generate:social": "node scripts/generate-social-cards.mjs --plan docs/social/plan-2026-11.json",
+    "generate:social": "node scripts/generate-social-cards.mjs --plan docs/social/plan-2026-11.json && node scripts/generate-social-reels.mjs --plan docs/social/plan-2026-11.json",
     "generate:category-art": "node scripts/generate-category-art.mjs",
     "check:category-art": "node scripts/generate-category-art.mjs --check",
     "check:production": "node scripts/validate-production-hygiene.mjs",

@@ -78,7 +78,10 @@ test("every committed plan matches its generator, has both images and a reel per
     assert.deepEqual(entry.captions, captions(entry));
     const item = card(entry.topic, entry.id);
     assert.ok(entry.captions.instagram.includes(item.question.ar) && entry.captions.instagram.includes(item.question.en));
-    assert.ok(!entry.captions.instagram.includes(item.answer.en), "the caption never spoils the answer");
+    // The question itself may contain the answer word ("True or False: ..."); the rest of
+    // the caption must not.
+    const beyondQuestion = entry.captions.instagram.replace(item.question.ar, "").replace(item.question.en, "");
+    assert.ok(!beyondQuestion.includes(item.answer.en) && !beyondQuestion.includes(item.answer.ar), `the caption never spoils the answer (${entry.id})`);
     assert.match(entry.captions.facebook, /\?ref=facebook/u);
   }
   }

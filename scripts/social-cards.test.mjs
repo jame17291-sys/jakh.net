@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { ROOT, ROTATION, buildPlan, cardFits, card, cardHtml, captions, imagePaths, collection } from "./social-cards.mjs";
 import { RIDDLE_ARABIA_SEO_PAGES } from "./riddlearabia-seo.mjs";
+import { reelHtml, audioExpression } from "./social-reels.mjs";
 
 const HELD_CATEGORIES = ["economics-and-finance", "law-middle-east", "medical-questions", "pharmacy", "survival"];
 
@@ -38,7 +39,8 @@ test("the committed November plan matches its generator, has both images per day
   const planPath = path.join(ROOT, "docs", "social", "plan-2026-11.json");
   const plan = JSON.parse(fs.readFileSync(planPath, "utf8"));
   const expected = buildPlan({ startDate: plan.startDate, days: plan.days.length });
-  assert.deepEqual(plan.days.map(({ day, date, collection: key, topic, id }) => ({ day, date, collection: key, topic, id })), expected);
+  assert.deepEqual(plan.days.map(({ day, date, collection: key, topic, id, reel }) => ({ day, date, collection: key, topic, id, reel })), expected);
+  assert.deepEqual(plan.days.filter((entry) => entry.reel).map((entry) => entry.date), ["2026-11-12", "2026-11-19", "2026-11-26", "2026-12-03"], "reels fall on Thursdays");
   for (const entry of plan.days) {
     const paths = imagePaths(entry);
     assert.ok(fs.existsSync(path.join(ROOT, paths.question)), `${paths.question} exists`);
@@ -49,6 +51,17 @@ test("the committed November plan matches its generator, has both images per day
     assert.ok(!entry.captions.instagram.includes(item.answer.en), "the caption never spoils the answer");
     assert.match(entry.captions.facebook, /\?ref=facebook/u);
   }
+});
+
+test("reel markup carries question, answer, the collection link and a seek function; audio is synthesised", () => {
+  const entry = buildPlan({ startDate: "2026-11-11", days: 2 })[1];
+  const item = card(entry.topic, entry.id);
+  const html = reelHtml(entry);
+  assert.ok(html.includes(item.question.ar) && html.includes(item.question.en) && html.includes(item.answer.ar) && html.includes(item.answer.en));
+  assert.ok(html.includes(`riddlearabia.com${collection(entry.collection).paths.en}`));
+  assert.ok(html.includes("window.seek = function"));
+  assert.match(audioExpression(), /^[0-9A-Za-z_.*+()\/,-]+$/u, "the ffmpeg expression contains no quoting hazards");
+  assert.ok(fs.existsSync(path.join(ROOT, "assets", "social", "2026-11-19-history-004.mp4")), "the first Thursday reel is rendered");
 });
 
 test("card markup escapes content and carries both languages", () => {

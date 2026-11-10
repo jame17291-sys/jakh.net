@@ -80,7 +80,8 @@ export function buildPlan({ startDate, days, seed = 0, used = new Set() }) {
         if (!cardFits(entry)) continue;
         cursors.set(key, index + 1);
         taken.add(id);
-        chosen = { day: day + 1, date, collection: key, topic, id };
+        // Thursdays carry a vertical card reel instead of the carousel (see social-reels.mjs).
+        chosen = { day: day + 1, date, collection: key, topic, id, reel: new Date(`${date}T00:00:00Z`).getUTCDay() === 4 };
         break;
       }
     }

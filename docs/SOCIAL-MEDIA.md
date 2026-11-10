@@ -16,7 +16,10 @@ Metricool, and a weekly task queues the next seven days.
 
 ## Content: plans and cards
 
-- `docs/social/plan-YYYY-MM.json` is a 28-day plan: one card per day, rotating through the
+- Content is planned and rendered through **9 Feb 2027**: `plan-2026-11.json` (11 Nov – 8 Dec),
+  `plan-2026-12.json` (9 – 31 Dec), `plan-2027-01.json` (January), `plan-2027-02.json`
+  (1 – 9 Feb). The next plan should start 10 Feb 2027 and be merged before then.
+- `docs/social/plan-YYYY-MM.json` is a plan of consecutive days: one card per day, rotating through the
   public collections in `scripts/social-cards.mjs` (`ROTATION`). Cards come only from the SEO
   collection pages, so they already passed `npm run check:featured` (no held category, no card
   shared between collections). Only easy/medium cards up to 170 characters are planned.
@@ -33,8 +36,8 @@ Metricool, and a weekly task queues the next seven days.
   ffmpeg; `--preview <date>` writes four JPEG frames instead of a video). About 0.6–0.9 MB each.
 - Regenerate or extend: `node scripts/generate-social-cards.mjs --plan docs/social/plan-2026-11.json`
   renders missing images; `--new-plan docs/social/plan-2026-12.json --start 2026-12-09 --days 28`
-  writes the next plan, excluding every card used by earlier plans, with Thursdays marked as
-  reel days (all of them). Needs Playwright (same as the browser suites). `scripts/social-cards.test.mjs` pins
+  writes the next plan, excluding every card used by earlier plans, with every day a reel day.
+  Then render its reels with `generate-social-reels.mjs --plan <file>`. Needs Playwright (same as the browser suites). `scripts/social-cards.test.mjs` pins
   the plan to its generator. `npm run generate:social` renders both images and reels.
 
 ## Scheduling
@@ -45,8 +48,9 @@ Metricool, and a weekly task queues the next seven days.
 - The question/answer images remain available as a fallback if a network rejects a video.
 - A weekly scheduled task queues the next seven days from the current plan and reports what it
   queued in one line. The plan file is the source of truth; nothing is improvised at post time.
-- A new plan is needed every 28 days: a small PR with the plan and its images, merged like any
-  other change (the release publishes the images).
+- A new plan is needed before the last one ends: a PR with the plan, its images and its reels,
+  merged like any other change (the release publishes the media). The test pins every plan to
+  its generator and checks the plans run back to back with no gap and no repeated card.
 
 ## Rules
 

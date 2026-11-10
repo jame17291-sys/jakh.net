@@ -69,7 +69,12 @@ the queue and the plans topped up.
 ## Rules
 
 - Everything posted is a question card from the public site, in the site's Modern Standard
-  Arabic and English. No politics, no religion debates, no held categories, no paid promotion,
-  no engagement bait beyond "answer in the comments".
+  Arabic and English. No politics, no held categories, no paid promotion, no engagement bait
+  beyond "answer in the comments".
+- **No religion content at all** (owner decision, 10 Nov 2026): no religious figures, places,
+  practices, holidays, symbols or wars, even as history. `RELIGION_TERMS` in
+  `scripts/social-cards.mjs` filters the card pool before planning, and
+  `scripts/social-cards.test.mjs` fails if any committed plan contains a religious card. This
+  applies to social media; the site's own question banks are unchanged.
 - Analytics: Metricool's own numbers plus the `?ref=` tags in site logs. No tracking is added to
   the site for this.

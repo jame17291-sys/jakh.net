@@ -51,8 +51,19 @@ export function card(topic, id) {
 
 const text = (value) => (typeof value === "string" ? value : "");
 
+// Owner decision (10 Nov 2026): no religion topics, questions or content on social media.
+// Matched on the English question, answer and explanation (the Arabic mirrors them), as
+// whole words so "crossed" or "Christopher" do not trip it. Over-matching is acceptable:
+// it only means a card is skipped.
+export const RELIGION_TERMS = /\b(gods?|allah|prophets?|islam\w*|muslims?|mosques?|quran|koran|mecca|makkah|medina|madinah|hijra|hijri|caliph\w*|church(?:es)?|chapel|cathedral|basilica|christ|christian\w*|christmas|jesus|bible|biblical|religio\w*|prayers?|ramadan|eid|hajj|umrah|kaaba|saints?|pope|papal|vatican|holy|sacred|temples?|angels?|heaven|jewish|judaism|torah|hindu\w*|buddh\w*|monks?|monaster\w*|spiritual|worship\w*|imam|scripture|crusade\w*|crusaders|sharia|sunni|shia|ashura|karbala|jerusalem|bethlehem|pilgrim\w*|cross|crucif\w*|deity|deities)\b/iu;
+
+export function isReligious(entry) {
+  return RELIGION_TERMS.test([text(entry.question?.en), text(entry.answer?.en), text(entry.explanation?.en)].join(" | "));
+}
+
 export function cardFits(entry) {
-  return ["easy", "medium"].includes(entry.difficulty)
+  return !isReligious(entry)
+    && ["easy", "medium"].includes(entry.difficulty)
     && text(entry.question?.en).length > 0 && text(entry.question?.en).length <= MAX_QUESTION_CHARS
     && text(entry.question?.ar).length > 0 && text(entry.question?.ar).length <= MAX_QUESTION_CHARS
     && text(entry.answer?.en).length > 0 && text(entry.answer?.ar).length > 0;

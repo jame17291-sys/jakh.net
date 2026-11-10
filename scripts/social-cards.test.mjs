@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
-import { ROOT, ROTATION, buildPlan, cardFits, card, cardHtml, captions, imagePaths, collection } from "./social-cards.mjs";
+import { ROOT, ROTATION, buildPlan, cardFits, card, cardHtml, captions, imagePaths, collection, isReligious } from "./social-cards.mjs";
 import { RIDDLE_ARABIA_SEO_PAGES } from "./riddlearabia-seo.mjs";
 import { reelHtml, audioExpression } from "./social-reels.mjs";
 
@@ -44,6 +44,18 @@ function committedPlans() {
     .map((name) => ({ name, ...JSON.parse(fs.readFileSync(path.join(dir, name), "utf8")) }))
     .sort((a, b) => a.startDate.localeCompare(b.startDate));
 }
+
+test("no religion content is ever planned for social media (owner decision, 10 Nov 2026)", () => {
+  // Known religious cards in the pool must be refused by the filter...
+  for (const [topic, id] of [["middle-east-history", "me-hist-004"], ["middle-east-history", "me-hist-001"], ["football", "football-004"], ["history", "history-031"], ["geography", "geography-029"], ["flag-questions", "flag-questions-010"]]) {
+    assert.ok(isReligious(card(topic, id)) && !cardFits(card(topic, id)), `${id} is filtered out`);
+  }
+  // ...while whole-word matching leaves ordinary cards alone.
+  assert.ok(!isReligious({ question: { en: "Which explorer, Christopher Columbus, crossed the Atlantic?" }, answer: { en: "Columbus" } }));
+  for (const plan of committedPlans()) {
+    for (const entry of plan.days) assert.ok(!isReligious(card(entry.topic, entry.id)), `${plan.name} ${entry.date} ${entry.id} is religious`);
+  }
+});
 
 test("committed plans run back to back with no gap and never repeat a card", () => {
   const plans = committedPlans();

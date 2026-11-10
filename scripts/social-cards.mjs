@@ -183,7 +183,10 @@ export function captions(entry) {
   const topicEn = page.headings.en.replace(/ with answers$/u, "");
   const questionBlock = `${item.question.ar}\n\n${item.question.en}`;
   return {
-    instagram: `${questionBlock}\n\nاكتب جوابك في التعليقات ثم اسحب لترى الحل 👉\nAnswer in the comments, then swipe for the answer.\n\n${topicAr} · ${topicEn}: الرابط في البايو · link in bio\n\n${HASHTAGS.ar} ${HASHTAGS.en}`,
+    // A reel reveals the answer itself after the countdown; only a carousel is swiped.
+    instagram: `${questionBlock}\n\n${entry.reel
+      ? "اكتب جوابك في التعليقات قبل أن يظهر الحل في الفيديو ⏳\nAnswer in the comments before the video reveals it."
+      : "اكتب جوابك في التعليقات ثم اسحب لترى الحل 👉\nAnswer in the comments, then swipe for the answer."}\n\n${topicAr} · ${topicEn}: الرابط في البايو · link in bio\n\n${HASHTAGS.ar} ${HASHTAGS.en}`,
     facebook: `${questionBlock}\n\nاكتب جوابك في التعليقات 👇 Answer in the comments.\n\n${topicAr} · ${topicEn} (30 ${/riddle/iu.test(page.key) ? "riddles" : "questions"}, free, no sign-up):\n${SITE_ORIGIN}${page.paths.ar}?ref=facebook\n${SITE_ORIGIN}${page.paths.en}?ref=facebook`,
   };
 }

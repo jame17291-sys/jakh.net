@@ -40,7 +40,8 @@ test("the committed November plan matches its generator, has both images per day
   const plan = JSON.parse(fs.readFileSync(planPath, "utf8"));
   const expected = buildPlan({ startDate: plan.startDate, days: plan.days.length });
   assert.deepEqual(plan.days.map(({ day, date, collection: key, topic, id, reel }) => ({ day, date, collection: key, topic, id, reel })), expected);
-  assert.deepEqual(plan.days.filter((entry) => entry.reel).map((entry) => entry.date), ["2026-11-12", "2026-11-19", "2026-11-26", "2026-12-03"], "reels fall on Thursdays");
+  assert.ok(plan.days.every((entry) => entry.reel === true), "every day is a reel day");
+  for (const entry of plan.days) assert.ok(fs.existsSync(path.join(ROOT, "assets", "social", `${entry.date}-${entry.id}.mp4`)), `${entry.date} reel is rendered`);
   for (const entry of plan.days) {
     const paths = imagePaths(entry);
     assert.ok(fs.existsSync(path.join(ROOT, paths.question)), `${paths.question} exists`);

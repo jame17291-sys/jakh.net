@@ -80,8 +80,9 @@ export function buildPlan({ startDate, days, seed = 0, used = new Set() }) {
         if (!cardFits(entry)) continue;
         cursors.set(key, index + 1);
         taken.add(id);
-        // Thursdays carry a vertical card reel instead of the carousel (see social-reels.mjs).
-        chosen = { day: day + 1, date, collection: key, topic, id, reel: new Date(`${date}T00:00:00Z`).getUTCDay() === 4 };
+        // Every day carries a vertical card reel (see social-reels.mjs); the images stay
+        // for Facebook's first-comment fallback and for the plan's audit trail.
+        chosen = { day: day + 1, date, collection: key, topic, id, reel: true };
         break;
       }
     }

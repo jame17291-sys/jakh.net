@@ -52,6 +52,20 @@ Metricool, and a weekly task queues the next seven days.
   merged like any other change (the release publishes the media). The test pins every plan to
   its generator and checks the plans run back to back with no gap and no repeated card.
 
+## Scheduled tasks (Claude, owner's account)
+
+All times Asia/Dubai. Each reports to the owner in one short phone message.
+
+| Task | When | What it does | Changes anything? |
+| --- | --- | --- | --- |
+| Riddle Arabia social week | Sundays 09:37 | Queues the next 7 days of Reels in Metricool from the plan files. | Creates Metricool posts only. |
+| Riddle Arabia plan renewal | 1st and 15th, 11:36 | When planned content ends within 28 days, writes the next plan, renders its images and reels, runs the checks and opens a PR. Stops (never relaxes rules) if the question pool runs out. | Opens a PR; the owner merges. |
+| Riddle Arabia social report | 1st, 09:35 | Last month's Metricool numbers, best and worst topics, missed posts, queue health. | Read-only. |
+| Riddle Arabia Google check | 2nd, 14:36 | Checks every collection page loads, is indexable and in the sitemap; in Search Console reads coverage and performance and requests indexing for collection pages not yet on Google. Needs the owner's computer on with Chrome open. | Only "Request indexing". |
+
+Metricool publishes whatever is queued even when Claude is unavailable; the tasks only keep
+the queue and the plans topped up.
+
 ## Rules
 
 - Everything posted is a question card from the public site, in the site's Modern Standard

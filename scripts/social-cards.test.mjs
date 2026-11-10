@@ -35,11 +35,40 @@ test("cards already used by an earlier plan are excluded from the next one", () 
   assert.deepEqual(overlap, []);
 });
 
-test("the committed November plan matches its generator, has both images per day and bilingual captions", () => {
-  const planPath = path.join(ROOT, "docs", "social", "plan-2026-11.json");
-  const plan = JSON.parse(fs.readFileSync(planPath, "utf8"));
-  const expected = buildPlan({ startDate: plan.startDate, days: plan.days.length });
-  assert.deepEqual(plan.days.map(({ day, date, collection: key, topic, id, reel }) => ({ day, date, collection: key, topic, id, reel })), expected);
+// Every committed plan, oldest first. Each was generated excluding the cards of the
+// plans before it, so replaying them in order must reproduce them exactly.
+function committedPlans() {
+  const dir = path.join(ROOT, "docs", "social");
+  return fs.readdirSync(dir)
+    .filter((name) => /^plan-.*\.json$/u.test(name))
+    .map((name) => ({ name, ...JSON.parse(fs.readFileSync(path.join(dir, name), "utf8")) }))
+    .sort((a, b) => a.startDate.localeCompare(b.startDate));
+}
+
+test("committed plans run back to back with no gap and never repeat a card", () => {
+  const plans = committedPlans();
+  assert.ok(plans.length >= 1);
+  const seen = new Set();
+  for (let index = 0; index < plans.length; index++) {
+    const plan = plans[index];
+    if (index > 0) {
+      const previous = plans[index - 1].days.at(-1).date;
+      const next = new Date(Date.parse(`${previous}T00:00:00Z`) + 86_400_000).toISOString().slice(0, 10);
+      assert.equal(plan.startDate, next, `${plan.name} starts the day after ${plans[index - 1].name} ends`);
+    }
+    for (const entry of plan.days) {
+      assert.ok(!seen.has(entry.id), `${entry.id} in ${plan.name} was already planned`);
+      seen.add(entry.id);
+    }
+  }
+});
+
+test("every committed plan matches its generator, has both images and a reel per day and bilingual captions", () => {
+  const used = new Set();
+  for (const plan of committedPlans()) {
+  const expected = buildPlan({ startDate: plan.startDate, days: plan.days.length, used });
+  assert.deepEqual(plan.days.map(({ day, date, collection: key, topic, id, reel }) => ({ day, date, collection: key, topic, id, reel })), expected, `${plan.name} matches its generator`);
+  for (const entry of plan.days) used.add(entry.id);
   assert.ok(plan.days.every((entry) => entry.reel === true), "every day is a reel day");
   for (const entry of plan.days) assert.ok(fs.existsSync(path.join(ROOT, "assets", "social", `${entry.date}-${entry.id}.mp4`)), `${entry.date} reel is rendered`);
   for (const entry of plan.days) {
@@ -51,6 +80,7 @@ test("the committed November plan matches its generator, has both images per day
     assert.ok(entry.captions.instagram.includes(item.question.ar) && entry.captions.instagram.includes(item.question.en));
     assert.ok(!entry.captions.instagram.includes(item.answer.en), "the caption never spoils the answer");
     assert.match(entry.captions.facebook, /\?ref=facebook/u);
+  }
   }
 });
 

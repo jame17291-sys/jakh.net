@@ -35,6 +35,14 @@ Guests also get a "Sign up free" button in every page header (inserted by `accou
 before the Profile link, so no page HTML changes). On phones it takes the place of the Profile
 link to keep the header on one row; the form it opens has a Sign in tab. Members never see it.
 
+One free try a day (owner decision 17 Nov 2026): the play and kids panels offer "Try one free
+game today" / "Try one free activity today". The chosen page is stored as
+`localStorage['ra-trial']` (`<local date>|<path>`), the page reloads with `ra-trial` on
+`<html>`, and its play area stays open on that browser until the date changes. Every other
+game shows the panel with "You have used today's free try." Harder levels, Quick Fire and
+Battle are never part of the free try. The Arabic and English routes of a game count as
+different pages.
+
 The hint holds no account data. An unreachable API never signs a member out of the gate.
 
 ## Limits to keep in mind

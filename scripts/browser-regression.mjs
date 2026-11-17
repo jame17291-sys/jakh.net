@@ -1245,6 +1245,22 @@ async function main() {
         await page.goto(`${baseUrl}/math?mode=quick-fire`, { waitUntil: NAVIGATION_READY_EVENT });
         await page.locator("dialog#raGateDialog").waitFor({ state: "visible" });
         assert.equal(await page.locator("#timedQuizOverlay").evaluate(node => node.classList.contains("hidden")), true, "Quick Fire does not start for a guest");
+
+        // One free game a day: the chosen game opens, every other game stays locked.
+        await page.goto(`${baseUrl}/chess`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator("section.ra-gate button.ra-trial-btn").click();
+        await page.locator("#chessBoard").waitFor({ state: "visible" });
+        assert.match(await page.locator('section.ra-gate[data-gate="trial"]').textContent(), /This is your free try for today/u);
+        assert.equal(await page.locator('section.ra-gate[data-gate="trial"] a').getAttribute("href"), "/mind-lab?profile=1&signup=1&next=%2Fchess");
+        await page.reload({ waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator("#chessBoard").waitFor({ state: "visible" });
+        await page.goto(`${baseUrl}/sudoku`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator('section.ra-gate[data-gate="play"]').waitFor({ state: "visible" });
+        assert.equal(await page.locator("#puzzle-mount").isVisible(), false, "a second game stays locked");
+        assert.equal(await page.locator("section.ra-gate button.ra-trial-btn").count(), 0);
+        assert.equal(await page.locator("section.ra-gate .ra-trial-used").textContent(), "You have used today\u2019s free try.");
+        await page.goto(`${baseUrl}/riddles`, { waitUntil: NAVIGATION_READY_EVENT });
+        assert.equal(await page.locator(".seo-qa-card.members-only").first().isVisible(), false, "the free try never opens harder levels");
         assertNoPageErrors();
       } finally {
         await context.close();

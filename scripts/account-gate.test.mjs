@@ -89,29 +89,36 @@ test('every public page that has the shared navigation also loads the gate', () 
   assert.ok(gated > 1_000, 'the gate covers kids, game, topic and collection pages');
 });
 
-test('the gate covers every kind of game and stores only a yes/no hint', () => {
+test('the gate covers every kind of game and stores only a yes/no hint and the free-try page', () => {
   for (const selector of ['body[data-page="game"] main', '.mm-wrapper', '#puzzle-stage', '#party-app', '#ak-game', '#shuffleChallenge', '#tvTrivia', '.seo-qa-card.members-only']) {
     assert.ok(gate.includes(selector), `gate covers ${selector}`);
   }
   for (const kind of ['activity', 'pack', 'plan', 'riddles', 'toolkit']) assert.ok(gate.includes(`'${kind}'`), `kids ${kind} pages are gated`);
   const keys = [...gate.matchAll(/(?:local|session)Storage\.(?:get|set)Item\(([A-Z_]+)/gu)].map(match => match[1]);
-  assert.deepEqual([...new Set(keys)].sort(), ['CHECKED_KEY', 'HINT_KEY']);
+  assert.deepEqual([...new Set(keys)].sort(), ['CHECKED_KEY', 'HINT_KEY', 'TRIAL_KEY']);
   assert.doesNotMatch(gate, /username|email|password|recovery/iu, 'the gate never touches account details');
   assert.match(gate, /credentials: 'include'/u);
   assert.doesNotMatch(gate, /jakh\.net/u);
 });
 
-function runGate({ hint = null, kidsPage = false, lang = 'en', path = '/chess', search = '', authForm = false, noHeader = false } = {}) {
+function runGate({ hint = null, kidsPage = false, lang = 'en', path = '/chess', search = '', authForm = false, noHeader = false, trial = null, storageBlocked = false } = {}) {
   const store = new Map(hint === null ? [] : [['ra-member', hint]]);
+  if (trial !== null) store.set('ra-trial', trial);
+  const created = [];
+  let reloads = 0;
   const classes = new Set();
   const inserted = [];
   const header = [];
   const replaced = [];
-  const make = () => ({ dataset: {}, className: '', setAttribute() {}, set innerHTML(value) { this.html = value; }, get innerHTML() { return this.html; },
-    querySelector: () => ({ append() {} }), addEventListener() {}, append() {}, remove() {} });
+  const make = () => {
+    const node = { dataset: {}, className: '', handlers: {}, appended: [], setAttribute() {}, set innerHTML(value) { this.html = value; }, get innerHTML() { return this.html; },
+      querySelector: () => ({ append: child => node.appended.push(child) }), addEventListener(type, handler) { node.handlers[type] = handler; }, append: child => node.appended.push(child), remove() {} };
+    created.push(node);
+    return node;
+  };
   const target = { before: node => inserted.push(node), closest: () => null };
   const document = {
-    documentElement: { lang, classList: { toggle: (name, on) => (on ? classes.add(name) : classes.delete(name)) } },
+    documentElement: { lang, classList: { toggle: (name, on) => { if (on) classes.add(name); else classes.delete(name); } } },
     body: { classList: { contains: name => kidsPage && name === 'kids-page' }, append() {} },
     head: { append() {} },
     scripts: [{ getAttribute: () => '/app.0123456789abcdef.js' }],
@@ -122,10 +129,10 @@ function runGate({ hint = null, kidsPage = false, lang = 'en', path = '/chess', 
     addEventListener() {},
   };
   const window = { addEventListener() {} };
-  vm.runInNewContext(gate, { document, window, location: { pathname: path, search, hash: '', hostname: 'riddlearabia.com', origin: 'https://riddlearabia.com', replace: target => replaced.push(target) }, URL, URLSearchParams,
-    localStorage: { getItem: key => store.get(key) ?? null, setItem: (key, value) => store.set(key, value) }, sessionStorage: { getItem: () => null, setItem() {} },
+  vm.runInNewContext(gate, { document, window, location: { pathname: path, search, hash: '', hostname: 'riddlearabia.com', origin: 'https://riddlearabia.com', replace: target => replaced.push(target), reload: () => { reloads += 1; } }, URL, URLSearchParams,
+    localStorage: { getItem: key => store.get(key) ?? null, setItem: (key, value) => { if (storageBlocked) throw new Error('blocked'); store.set(key, value); } }, sessionStorage: { getItem: () => null, setItem() {} },
     Event: class {}, Date, Number, Object, String, encodeURIComponent, fetch: () => { throw new Error('app pages confirm the session themselves'); } });
-  return { classes, inserted, header, replaced, store, api: window.raGate };
+  return { classes, inserted, header, replaced, store, created, reloads: () => reloads, api: window.raGate };
 }
 
 test('a guest sees a registration panel in place of the game; a member sees the game', () => {
@@ -151,6 +158,50 @@ test('a guest sees a registration panel in place of the game; a member sees the 
   member.api.sync(false);
   assert.ok(member.classes.has('ra-guest'), 'signing out locks the page again');
   assert.equal(member.store.get('ra-member'), '0');
+});
+
+test('a guest may open one game or activity a day; everything else stays locked', () => {
+  const now = new Date();
+  const day = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+  const offer = node => node.appended.find(child => child.className === 'ra-gate-secondary ra-trial-btn');
+
+  const fresh = runGate();
+  const button = offer(fresh.inserted[0]);
+  assert.equal(button.textContent, 'Try one free game today');
+  assert.equal(fresh.classes.has('ra-trial'), false);
+  button.handlers.click();
+  assert.equal(fresh.store.get('ra-trial'), `${day}|/chess`);
+  assert.equal(fresh.reloads(), 1, 'the chosen game is loaded again with its play area open');
+
+  const playing = runGate({ trial: `${day}|/chess` });
+  assert.ok(playing.classes.has('ra-guest') && playing.classes.has('ra-trial'));
+  assert.equal(playing.inserted[0].dataset.gate, 'trial');
+  assert.match(playing.inserted[0].html, /This is your free try for today\. <a href="\/mind-lab\?profile=1&signup=1&next=%2Fchess">Create free account<\/a>/u);
+
+  const elsewhere = runGate({ trial: `${day}|/chess`, path: '/sudoku' });
+  assert.equal(elsewhere.classes.has('ra-trial'), false, 'a second game stays locked');
+  assert.equal(offer(elsewhere.inserted[0]), undefined);
+  assert.equal(elsewhere.inserted[0].appended[0].textContent, 'You have used today\u2019s free try.');
+
+  const nextDay = runGate({ trial: '2026-1-1|/chess' });
+  assert.equal(nextDay.classes.has('ra-trial'), false);
+  assert.ok(offer(nextDay.inserted[0]), 'a new day brings a new free try');
+
+  const kids = runGate({ kidsPage: true, lang: 'ar', path: '/ar/kids-riddles/riddles/' });
+  assert.equal(offer(kids.inserted[0]).textContent, 'جرّب نشاطًا واحدًا مجانًا اليوم');
+
+  const blocked = runGate({ storageBlocked: true });
+  offer(blocked.inserted[0]).handlers.click();
+  assert.equal(blocked.reloads(), 0);
+  assert.ok(blocked.classes.has('ra-trial'), 'without storage the try lasts for this visit');
+
+  const member = runGate({ hint: '1', trial: `${day}|/chess` });
+  assert.equal(member.classes.has('ra-trial'), false);
+  assert.equal(member.inserted.length, 0);
+
+  // Harder levels, Quick Fire and Battle are not part of the free try.
+  assert.match(gate, /html\.ra-guest \$\{LOCKED_CARDS\} \{ display: none !important; \}/u);
+  assert.match(gate, /html\.ra-guest:not\(\.ra-trial\) \$\{\[\.\.\.PLAY_AREAS, \.\.\.PLAY_CONTROLS\]/u);
 });
 
 test('a guest gets a Sign up free button in the page header; a member does not', () => {

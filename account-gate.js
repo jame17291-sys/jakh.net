@@ -1,11 +1,13 @@
 /* Account gate: games and every level above Piece of Cake need a free account.
    This is a browser-side membership prompt, not a security boundary: the
    question bank stays public data. It never reads or stores account details,
-   only a yes/no hint so returning members are not shown the prompt. */
+   only a yes/no hint so returning members are not shown the prompt, and the
+   page a guest chose as today's one free game or activity. */
 (() => {
   'use strict';
   const HINT_KEY = 'ra-member';
   const CHECKED_KEY = 'ra-member-checked';
+  const TRIAL_KEY = 'ra-trial';
   const root = document.documentElement;
 
   // Whole play areas that guests may not use. The surrounding page (title,
@@ -37,6 +39,10 @@
       register: 'Create free account',
       signIn: 'Sign in',
       signUp: 'Sign up free',
+      playTrial: 'Try one free game today',
+      kidsTrial: 'Try one free activity today',
+      trialUsed: 'You have used today\u2019s free try.',
+      trialNote: 'This is your free try for today.',
       close: 'Not now',
     },
     ar: {
@@ -49,12 +55,16 @@
       register: 'أنشئ حسابًا مجانيًا',
       signIn: 'تسجيل الدخول',
       signUp: 'سجّل مجانًا',
+      playTrial: 'جرّب لعبة واحدة مجانًا اليوم',
+      kidsTrial: 'جرّب نشاطًا واحدًا مجانًا اليوم',
+      trialUsed: 'استخدمت تجربتك المجانية لهذا اليوم.',
+      trialNote: 'هذه تجربتك المجانية لهذا اليوم.',
       close: 'ليس الآن',
     },
   };
 
   const STYLE = `
-html.ra-guest ${[...PLAY_AREAS, ...PLAY_CONTROLS].join(',\nhtml.ra-guest ')},
+html.ra-guest:not(.ra-trial) ${[...PLAY_AREAS, ...PLAY_CONTROLS].join(',\nhtml.ra-guest:not(.ra-trial) ')},
 html.ra-guest ${LOCKED_CARDS} { display: none !important; }
 .ra-gate { box-sizing: border-box; width: min(100% - 2rem, 640px); margin: 1.5rem auto; padding: 1.5rem 1.25rem; text-align: center;
   background: var(--panel, #fffdf8); color: var(--text, #322016); border: 1px solid var(--line-strong, rgba(72,42,23,.24));
@@ -77,6 +87,9 @@ html.ra-guest ${LOCKED_CARDS} { display: none !important; }
   html.ra-guest .site-utilities [data-site-profile] { display: none; }
 }
 @media (max-width: 359px) { .site-utilities a.ra-signup { padding-inline: .4rem; font-size: .75rem; } }
+.ra-gate[data-gate="trial"] { padding: .7rem 1rem; margin: .75rem auto; }
+.ra-gate[data-gate="trial"] p { margin: 0; }
+.ra-gate[data-gate="trial"] a { color: var(--accent-ink, #733217); font-weight: 700; text-decoration: underline; }
 dialog.ra-gate { position: fixed; inset: 0; margin: auto; max-height: calc(100dvh - 2rem); overflow: auto; }
 dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
 `;
@@ -86,6 +99,21 @@ dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
     try { return localStorage.getItem(HINT_KEY) === '1'; } catch (_) { return false; }
   }
   let member = readHint();
+
+  // One free game or activity a day: the guest picks a page and it stays open
+  // on this browser until the local date changes.
+  const here = () => location.pathname.replace(/\.html$/, '').replace(/\/+$/, '') || '/';
+  function today() {
+    const now = new Date();
+    return `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+  }
+  function readTrial() {
+    try {
+      const [day, page] = (localStorage.getItem(TRIAL_KEY) || '').split('|');
+      return day === today() ? page : '';
+    } catch (_) { return ''; }
+  }
+  let trial = readTrial();
 
   const lang = () => (root.lang || '').toLowerCase().startsWith('ar') || /^\/ar(?:\/|$)/.test(location.pathname) ? 'ar' : 'en';
 
@@ -129,12 +157,30 @@ dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
     root.classList.toggle('ra-guest', !member);
     document.querySelectorAll('section.ra-gate[data-auto]').forEach(node => node.remove());
     headerButton();
+    const playArea = member ? null : document.querySelector(PLAY_AREAS.join(','));
+    const onTrial = !!playArea && trial === here();
+    root.classList.toggle('ra-trial', onTrial);
     if (member) return;
-    // Query without the guest class in play so hidden targets are still found.
-    const playArea = document.querySelector(PLAY_AREAS.join(','));
     if (playArea) {
-      const section = panel(document.body.classList.contains('kids-page') ? 'kids' : 'play');
+      const kind = document.body.classList.contains('kids-page') ? 'kids' : 'play';
+      const copy = COPY[lang()];
+      const section = panel(onTrial ? 'trial' : kind);
       section.dataset.auto = '';
+      if (onTrial) {
+        section.innerHTML = `<p id="raGateTitle">${copy.trialNote} <a href="${accountHref(true)}">${copy.register}</a></p>`;
+      } else if (trial) {
+        const used = document.createElement('p');
+        used.className = 'ra-trial-used';
+        used.textContent = copy.trialUsed;
+        section.append(used);
+      } else {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'ra-gate-secondary ra-trial-btn';
+        button.textContent = copy[`${kind}Trial`];
+        button.addEventListener('click', startTrial);
+        section.querySelector('.ra-gate-actions').append(button);
+      }
       // TV trivia redraws its own container, so the panel sits after it.
       const redrawn = playArea.closest('#tvTrivia');
       if (redrawn) redrawn.after(section);
@@ -145,6 +191,18 @@ dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
       const section = panel('levels', lockedCards.length, 'raLevelsGateTitle');
       section.dataset.auto = '';
       lockedCards[0].before(section);
+    }
+  }
+
+  // Games set themselves up while the page loads, so the chosen page is loaded
+  // again with its play area open. Without storage the try lasts for this visit.
+  function startTrial() {
+    trial = here();
+    try {
+      localStorage.setItem(TRIAL_KEY, `${today()}|${trial}`);
+      location.reload();
+    } catch (_) {
+      apply();
     }
   }
 

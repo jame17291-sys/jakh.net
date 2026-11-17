@@ -1196,6 +1196,24 @@ async function main() {
         // Collection pages keep Piece of Cake open and lock the rest behind one panel.
         await page.goto(`${baseUrl}/riddles`, { waitUntil: NAVIGATION_READY_EVENT });
         await page.locator("section.ra-gate").waitFor({ state: "visible" });
+        // Every header offers a guest one clear way in, on a single row on phones.
+        const signUp = page.locator(".site-utilities a.ra-signup");
+        assert.equal(await signUp.textContent(), "Sign up free");
+        assert.equal(await signUp.getAttribute("href"), "/mind-lab?profile=1&signup=1&next=%2Friddles");
+        assert.equal(await page.locator(".site-utilities [data-site-profile]").isVisible(), false, "the phone header swaps Profile for the sign-up button");
+        const headerRow = await page.evaluate(() => {
+          const boxes = [...document.querySelectorAll(".site-utilities > a")].filter(link => link.offsetParent).map(link => link.getBoundingClientRect());
+          return { tops: [...new Set(boxes.map(box => Math.round(box.top)))], minHeight: Math.min(...boxes.map(box => box.height)), fits: document.documentElement.scrollWidth <= innerWidth };
+        });
+        assert.equal(headerRow.tops.length, 1, "language and sign-up share one row");
+        assert.ok(headerRow.minHeight >= 44 && headerRow.fits, "header targets stay large and inside the screen");
+        await page.setViewportSize({ width: 320, height: 700 });
+        assert.equal(await page.evaluate(() => new Set([...document.querySelectorAll(".site-utilities > a")].filter(link => link.offsetParent).map(link => Math.round(link.getBoundingClientRect().top))).size), 1, "one row on the narrowest phones too");
+        await page.setViewportSize({ width: 390, height: 844 });
+        await signUp.click();
+        await page.locator('#tabRegister[aria-selected="true"]').waitFor({ state: "visible" });
+        await page.goto(`${baseUrl}/riddles`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator("section.ra-gate").waitFor({ state: "visible" });
         const collection = await page.evaluate(() => {
           const cards = [...document.querySelectorAll(".seo-qa-card")];
           return {

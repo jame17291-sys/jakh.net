@@ -31,6 +31,10 @@ confirm the session there (`checkCloudSession()` calls `syncMember()`); other pa
 `/mind-lab?profile=1&signup=1&next=<page>`; after signing in or saving the recovery code the
 visitor returns to that page (`postAuthDestination()` accepts same-site public paths only).
 
+Guests also get a "Sign up free" button in every page header (inserted by `account-gate.js`
+before the Profile link, so no page HTML changes). On phones it takes the place of the Profile
+link to keep the header on one row; the form it opens has a Sign in tab. Members never see it.
+
 The hint holds no account data. An unreachable API never signs a member out of the gate.
 
 ## Limits to keep in mind

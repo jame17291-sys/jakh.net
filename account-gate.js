@@ -36,6 +36,7 @@
       levelsBody: count => `Piece of Cake questions are open to everyone. Create a free account to unlock Brain Tickler, Head Scratcher and Brick Wall${count ? ` (${count} more here)` : ''}.`,
       register: 'Create free account',
       signIn: 'Sign in',
+      signUp: 'Sign up free',
       close: 'Not now',
     },
     ar: {
@@ -47,6 +48,7 @@
       levelsBody: count => `أسئلة المستوى السهل متاحة للجميع. أنشئ حسابًا مجانيًا لفتح المستويات: متوسط، صعب، صعب جدًا${count ? ` (عدد الأسئلة المقفلة هنا: ${count})` : ''}.`,
       register: 'أنشئ حسابًا مجانيًا',
       signIn: 'تسجيل الدخول',
+      signUp: 'سجّل مجانًا',
       close: 'ليس الآن',
     },
   };
@@ -67,6 +69,14 @@ html.ra-guest ${LOCKED_CARDS} { display: none !important; }
 .ra-gate-primary { background: var(--accent, #94431f); color: #fff; border: 1px solid var(--accent, #94431f); }
 .ra-gate-secondary { background: transparent; color: var(--accent-ink, #733217); border: 1px solid var(--line-strong, rgba(72,42,23,.24)); }
 .ra-gate-actions a:focus-visible, .ra-gate-actions button:focus-visible { outline: 3px solid var(--accent-3, #c5832e); outline-offset: 2px; }
+.site-utilities a.ra-signup { padding-inline: .95rem; border-radius: 999px; background: var(--accent, #94431f); color: #fff; white-space: nowrap; }
+.site-utilities a.ra-signup:hover { background: var(--accent-ink, #733217); }
+.site-utilities a.ra-signup:focus-visible { outline: 3px solid var(--accent-3, #c5832e); outline-offset: 2px; }
+@media (max-width: 600px) {
+  .site-utilities a.ra-signup { padding-inline: .7rem; }
+  html.ra-guest .site-utilities [data-site-profile] { display: none; }
+}
+@media (max-width: 359px) { .site-utilities a.ra-signup { padding-inline: .4rem; font-size: .75rem; } }
 dialog.ra-gate { position: fixed; inset: 0; margin: auto; max-height: calc(100dvh - 2rem); overflow: auto; }
 dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
 `;
@@ -102,9 +112,23 @@ dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
     return section;
   }
 
+  // Guests get a clear way in from every page header. On phones it takes the
+  // place of the Profile link; the form it opens also has a Sign in tab.
+  function headerButton() {
+    document.querySelectorAll('a.ra-signup').forEach(node => node.remove());
+    const profile = document.querySelector('.site-utilities [data-site-profile]');
+    if (member || !profile) return;
+    const link = document.createElement('a');
+    link.className = 'ra-signup';
+    link.href = accountHref(true);
+    link.textContent = COPY[lang()].signUp;
+    profile.before(link);
+  }
+
   function apply() {
     root.classList.toggle('ra-guest', !member);
     document.querySelectorAll('section.ra-gate[data-auto]').forEach(node => node.remove());
+    headerButton();
     if (member) return;
     // Query without the guest class in play so hidden targets are still found.
     const playArea = document.querySelector(PLAY_AREAS.join(','));

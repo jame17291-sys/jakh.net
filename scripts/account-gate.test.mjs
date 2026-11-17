@@ -101,10 +101,11 @@ test('the gate covers every kind of game and stores only a yes/no hint', () => {
   assert.doesNotMatch(gate, /jakh\.net/u);
 });
 
-function runGate({ hint = null, kidsPage = false, lang = 'en', path = '/chess', search = '', authForm = false } = {}) {
+function runGate({ hint = null, kidsPage = false, lang = 'en', path = '/chess', search = '', authForm = false, noHeader = false } = {}) {
   const store = new Map(hint === null ? [] : [['ra-member', hint]]);
   const classes = new Set();
   const inserted = [];
+  const header = [];
   const replaced = [];
   const make = () => ({ dataset: {}, className: '', setAttribute() {}, set innerHTML(value) { this.html = value; }, get innerHTML() { return this.html; },
     querySelector: () => ({ append() {} }), addEventListener() {}, append() {}, remove() {} });
@@ -115,8 +116,8 @@ function runGate({ hint = null, kidsPage = false, lang = 'en', path = '/chess', 
     head: { append() {} },
     scripts: [{ getAttribute: () => '/app.0123456789abcdef.js' }],
     createElement: make,
-    querySelector: () => target,
-    querySelectorAll: () => [],
+    querySelector: selector => (selector.includes('data-site-profile') ? (noHeader ? null : { before: node => header.push(node) }) : target),
+    querySelectorAll: selector => (selector === 'a.ra-signup' ? header.splice(0).map(() => ({ remove() {} })) : []),
     getElementById: id => (id === 'authForm' && authForm ? {} : null),
     addEventListener() {},
   };
@@ -124,7 +125,7 @@ function runGate({ hint = null, kidsPage = false, lang = 'en', path = '/chess', 
   vm.runInNewContext(gate, { document, window, location: { pathname: path, search, hash: '', hostname: 'riddlearabia.com', origin: 'https://riddlearabia.com', replace: target => replaced.push(target) }, URL, URLSearchParams,
     localStorage: { getItem: key => store.get(key) ?? null, setItem: (key, value) => store.set(key, value) }, sessionStorage: { getItem: () => null, setItem() {} },
     Event: class {}, Date, Number, Object, String, encodeURIComponent, fetch: () => { throw new Error('app pages confirm the session themselves'); } });
-  return { classes, inserted, replaced, store, api: window.raGate };
+  return { classes, inserted, header, replaced, store, api: window.raGate };
 }
 
 test('a guest sees a registration panel in place of the game; a member sees the game', () => {
@@ -150,6 +151,30 @@ test('a guest sees a registration panel in place of the game; a member sees the 
   member.api.sync(false);
   assert.ok(member.classes.has('ra-guest'), 'signing out locks the page again');
   assert.equal(member.store.get('ra-member'), '0');
+});
+
+test('a guest gets a Sign up free button in the page header; a member does not', () => {
+  const guest = runGate({ path: '/riddles' });
+  assert.equal(guest.header.length, 1);
+  assert.equal(guest.header[0].className, 'ra-signup');
+  assert.equal(guest.header[0].textContent, 'Sign up free');
+  assert.equal(guest.header[0].href, '/mind-lab?profile=1&signup=1&next=%2Friddles');
+  guest.api.sync(true);
+  assert.equal(guest.header.length, 0, 'the button goes away once the visitor is a member');
+
+  const arabic = runGate({ lang: 'ar', path: '/ar/alghaz/' });
+  assert.equal(arabic.header[0].textContent, 'سجّل مجانًا');
+  assert.equal(arabic.header[0].href, '/ar/mind-lab/?profile=1&signup=1&next=%2Far%2Falghaz%2F');
+
+  assert.equal(runGate({ hint: '1' }).header.length, 0);
+  const member = runGate({ hint: '1' });
+  member.api.sync(false);
+  assert.equal(member.header.length, 1, 'signing out brings the button back');
+  assert.equal(runGate({ noHeader: true }).header.length, 0, 'pages without the shared header are left alone');
+  // The button must stay readable on hover and never push the phone header onto two rows.
+  assert.match(gate, /\.site-utilities a\.ra-signup:hover \{ background: var\(--accent-ink/u);
+  assert.match(gate, /@media \(max-width: 600px\) \{[^}]*\}\s*html\.ra-guest \.site-utilities \[data-site-profile\] \{ display: none; \}/u);
+  assert.match(gate, /@media \(max-width: 359px\) \{ \.site-utilities a\.ra-signup \{/u);
 });
 
 test('an already signed-in member returns to the page that asked; an open form is never interrupted', () => {

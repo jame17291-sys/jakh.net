@@ -45,6 +45,25 @@ different pages.
 
 The hint holds no account data. An unreachable API never signs a member out of the gate.
 
+## Measuring the funnel
+
+For visitors who allowed analytics (and only then), `account-gate.js` sends these Google
+Analytics events through the consent module's `gtag`. Each carries three parameters only:
+`gate` (`play`, `kids`, `levels`, `trial` or `header`), `surface` (`panel`, `dialog` or
+`header`) and `language`.
+
+| Event | Meaning |
+| --- | --- |
+| `gate_view` | a guest was shown a registration panel or prompt (`gate: trial` = playing the free try) |
+| `gate_trial_start` | a guest started today's free try |
+| `gate_signup_click` | a guest chose "Create free account" or the header "Sign up free" |
+| `gate_signin_click` | a guest chose "Sign in" on a panel |
+| `sign_up`, `login` | already sent by `app.js` when an account is created or signed in |
+
+Read the funnel as `gate_view` → `gate_signup_click` → `sign_up`. To break events down by
+`gate` or `surface` in Google Analytics, register them once as event-scoped custom dimensions.
+Counts cover consenting visitors only, so compare ratios, not totals.
+
 ## Limits to keep in mind
 
 - It is a browser-side prompt, not a security boundary. `data/*.json` and the HTML still

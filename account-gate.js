@@ -117,6 +117,20 @@ dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
 
   const lang = () => (root.lang || '').toLowerCase().startsWith('ar') || /^\/ar(?:\/|$)/.test(location.pathname) ? 'ar' : 'en';
 
+  // Funnel counts for the owner: panel seen, free try started, sign-up or
+  // sign-in chosen. Sent only after the visitor allowed analytics, and only
+  // the kind of panel, where it was shown and the page language.
+  const counted = new Set();
+  function track(name, gate, surface, once = false) {
+    try {
+      if (window.JakhPrivacy?.analyticsAllowed?.() !== true) return;
+      const key = `${name}|${gate}|${surface}`;
+      if (once && counted.has(key)) return;
+      counted.add(key);
+      window.gtag?.('event', name, { gate, surface, language: lang() });
+    } catch (_) {}
+  }
+
   function accountHref(register) {
     const next = location.pathname + location.search + location.hash;
     return `${lang() === 'ar' ? '/ar/mind-lab/' : '/mind-lab'}?profile=1${register ? '&signup=1' : ''}&next=${encodeURIComponent(next)}`;
@@ -181,6 +195,7 @@ dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
         button.addEventListener('click', startTrial);
         section.querySelector('.ra-gate-actions').append(button);
       }
+      track('gate_view', section.dataset.gate, 'panel', true);
       // TV trivia redraws its own container, so the panel sits after it.
       const redrawn = playArea.closest('#tvTrivia');
       if (redrawn) redrawn.after(section);
@@ -191,12 +206,14 @@ dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
       const section = panel('levels', lockedCards.length, 'raLevelsGateTitle');
       section.dataset.auto = '';
       lockedCards[0].before(section);
+      track('gate_view', 'levels', 'panel', true);
     }
   }
 
   // Games set themselves up while the page loads, so the chosen page is loaded
   // again with its play area open. Without storage the try lasts for this visit.
   function startTrial() {
+    track('gate_trial_start', document.body.classList.contains('kids-page') ? 'kids' : 'play', 'panel');
     trial = here();
     try {
       localStorage.setItem(TRIAL_KEY, `${today()}|${trial}`);
@@ -214,6 +231,7 @@ dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
     if (!count) return;
     const section = panel('levels', count, 'raLevelsGateTitle');
     section.id = 'raLevelsGate';
+    track('gate_view', 'levels', 'panel', true);
     (document.getElementById('loadMoreBtn') || grid).after(section);
   }
 
@@ -223,6 +241,8 @@ dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
     const dialog = document.createElement('dialog');
     dialog.id = 'raGateDialog';
     dialog.className = 'ra-gate';
+    dialog.dataset.gate = kind;
+    track('gate_view', kind, 'dialog');
     dialog.setAttribute('aria-labelledby', 'raGateDialogTitle');
     dialog.innerHTML = panelMarkup(kind, 0, 'raGateDialogTitle');
     const close = document.createElement('button');
@@ -281,6 +301,14 @@ dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
     select.dispatchEvent(new Event('change', { bubbles: true }));
     prompt('levels');
   }, true);
+
+  document.addEventListener('click', event => {
+    const link = event.target?.closest?.('.ra-gate a, a.ra-signup');
+    if (!link) return;
+    const holder = link.closest('.ra-gate');
+    const surface = !holder ? 'header' : holder.id === 'raGateDialog' ? 'dialog' : 'panel';
+    track(/[?&]signup=1/.test(link.getAttribute('href') || '') ? 'gate_signup_click' : 'gate_signin_click', holder?.dataset.gate || 'header', surface);
+  });
 
   window.addEventListener('storage', event => {
     if (event.key === HINT_KEY && (event.newValue === '1') !== member) sync(event.newValue === '1');

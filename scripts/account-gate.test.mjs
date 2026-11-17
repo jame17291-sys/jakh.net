@@ -101,10 +101,12 @@ test('the gate covers every kind of game and stores only a yes/no hint and the f
   assert.doesNotMatch(gate, /jakh\.net/u);
 });
 
-function runGate({ hint = null, kidsPage = false, lang = 'en', path = '/chess', search = '', authForm = false, noHeader = false, trial = null, storageBlocked = false } = {}) {
+function runGate({ hint = null, kidsPage = false, lang = 'en', path = '/chess', search = '', authForm = false, noHeader = false, trial = null, storageBlocked = false, analytics = null } = {}) {
   const store = new Map(hint === null ? [] : [['ra-member', hint]]);
   if (trial !== null) store.set('ra-trial', trial);
   const created = [];
+  const events = [];
+  const listeners = {};
   let reloads = 0;
   const classes = new Set();
   const inserted = [];
@@ -126,13 +128,17 @@ function runGate({ hint = null, kidsPage = false, lang = 'en', path = '/chess', 
     querySelector: selector => (selector.includes('data-site-profile') ? (noHeader ? null : { before: node => header.push(node) }) : target),
     querySelectorAll: selector => (selector === 'a.ra-signup' ? header.splice(0).map(() => ({ remove() {} })) : []),
     getElementById: id => (id === 'authForm' && authForm ? {} : null),
-    addEventListener() {},
+    addEventListener(type, handler) { (listeners[type] ||= []).push(handler); },
   };
   const window = { addEventListener() {} };
+  if (analytics !== null) {
+    window.JakhPrivacy = { analyticsAllowed: () => analytics };
+    window.gtag = (kind, name, params) => events.push([kind, name, { ...params }]);
+  }
   vm.runInNewContext(gate, { document, window, location: { pathname: path, search, hash: '', hostname: 'riddlearabia.com', origin: 'https://riddlearabia.com', replace: target => replaced.push(target), reload: () => { reloads += 1; } }, URL, URLSearchParams,
     localStorage: { getItem: key => store.get(key) ?? null, setItem: (key, value) => { if (storageBlocked) throw new Error('blocked'); store.set(key, value); } }, sessionStorage: { getItem: () => null, setItem() {} },
     Event: class {}, Date, Number, Object, String, encodeURIComponent, fetch: () => { throw new Error('app pages confirm the session themselves'); } });
-  return { classes, inserted, header, replaced, store, created, reloads: () => reloads, api: window.raGate };
+  return { classes, inserted, header, replaced, store, created, events, listeners, reloads: () => reloads, api: window.raGate };
 }
 
 test('a guest sees a registration panel in place of the game; a member sees the game', () => {
@@ -202,6 +208,43 @@ test('a guest may open one game or activity a day; everything else stays locked'
   // Harder levels, Quick Fire and Battle are not part of the free try.
   assert.match(gate, /html\.ra-guest \$\{LOCKED_CARDS\} \{ display: none !important; \}/u);
   assert.match(gate, /html\.ra-guest:not\(\.ra-trial\) \$\{\[\.\.\.PLAY_AREAS, \.\.\.PLAY_CONTROLS\]/u);
+});
+
+test('the sign-up funnel is counted only with analytics consent and carries no personal detail', () => {
+  const offer = node => node.appended.find(child => child.className === 'ra-gate-secondary ra-trial-btn');
+  const click = (run, target) => run.listeners.click.forEach(handler => handler({ target }));
+  const anchor = (href, holder = null) => { const node = { getAttribute: () => href }; node.closest = selector => (selector === '.ra-gate' ? holder : node); return { closest: () => node }; };
+
+  for (const analytics of [null, false]) {
+    const silent = runGate({ analytics });
+    offer(silent.inserted[0]).handlers.click();
+    silent.api.prompt('levels');
+    click(silent, anchor('/mind-lab?profile=1&signup=1&next=%2Fchess'));
+    assert.deepEqual(silent.events, [], 'nothing is sent without consent');
+  }
+
+  const run = runGate({ analytics: true });
+  assert.deepEqual(run.events, [['event', 'gate_view', { gate: 'play', surface: 'panel', language: 'en' }]]);
+  run.api.prompt('levels');
+  click(run, anchor('/mind-lab?profile=1&signup=1&next=%2Fchess'));
+  click(run, anchor('/mind-lab?profile=1&signup=1&next=%2Fchess', { id: '', dataset: { gate: 'play' } }));
+  click(run, anchor('/mind-lab?profile=1&next=%2Fchess', { id: 'raGateDialog', dataset: { gate: 'levels' } }));
+  click(run, { closest: () => null });
+  offer(run.inserted[0]).handlers.click();
+  assert.deepEqual(run.events.slice(1).map(([, name, params]) => [name, params.gate, params.surface]), [
+    ['gate_view', 'levels', 'dialog'],
+    ['gate_signup_click', 'header', 'header'],
+    ['gate_signup_click', 'play', 'panel'],
+    ['gate_signin_click', 'levels', 'dialog'],
+    ['gate_trial_start', 'play', 'panel'],
+  ]);
+  for (const [, , params] of run.events) assert.deepEqual(Object.keys(params).sort(), ['gate', 'language', 'surface']);
+
+  const kids = runGate({ analytics: true, kidsPage: true, lang: 'ar', path: '/ar/kids-riddles/riddles/' });
+  assert.deepEqual(kids.events[0][2], { gate: 'kids', surface: 'panel', language: 'ar' });
+  assert.deepEqual(runGate({ analytics: true, hint: '1' }).events, [], 'members are never counted');
+  // The gate sends through the consent module only; it loads no analytics itself.
+  assert.doesNotMatch(gate, /googletagmanager|google-analytics|dataLayer/u);
 });
 
 test('a guest gets a Sign up free button in the page header; a member does not', () => {

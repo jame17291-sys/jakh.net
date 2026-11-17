@@ -73,6 +73,22 @@ ownership verification files are protocol assets; only an exact Google filename
 and matching one-line payload are exempt from editorial HTML checks. They are
 served at the exact `.html` URL, carry noindex, and stay out of the sitemap.
 
+## Registration wall (since 17 Nov 2026)
+
+Guests see Piece of Cake cards; harder cards and all games need a free account
+(`docs/ACCOUNT-GATE.md`). Harder cards on the collection pages keep their text in
+the HTML with class `members-only`, and each such page carries a `WebPage` node
+with `isAccessibleForFree: false` and a `hasPart` `WebPageElement` whose
+`cssSelector` is `.members-only`. That is the markup Google documents for content
+behind a registration wall, so serving the text to crawlers is not cloaking. Kids
+activity, pack, plan and riddle pages declare the same for their main content.
+Never hide gated text from the HTML while showing it to crawlers by another route,
+and never drop the markup while the gate is on.
+
+Kids pages also carry a page-specific meta description (`seoDescription` in
+`scripts/generate-kids-pages.mjs`): activity, pack, plan, guide, age and area
+pages no longer share or truncate their search snippet.
+
 ## Sharing and language entry
 
 Every collection page offers a WhatsApp link for the whole collection and

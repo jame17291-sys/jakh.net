@@ -50,7 +50,11 @@ const GAME_SMOKE_FIXTURES = Object.freeze([
   { name: "Alliances", route: "/alliances", root: "#dip-map", action: "#btn-resolve" },
 ]);
 
-async function mockApi(context, { battle = null, profile = null } = {}) {
+// Games and levels above Piece of Cake need an account (docs/ACCOUNT-GATE.md).
+// Unless a case asks for a guest, the browser is a returning member: the
+// membership hint is set and the session answers as signed in.
+async function mockApi(context, { battle = null, profile = null, member = true } = {}) {
+  if (member) await context.addInitScript(() => localStorage.setItem('ra-member', '1'));
   await context.route("**/api/**", async (route) => {
     const request = route.request();
     const path = new URL(request.url()).pathname;
@@ -89,7 +93,7 @@ async function mockApi(context, { battle = null, profile = null } = {}) {
         status: 200,
         contentType: "application/json",
         headers,
-        body: JSON.stringify({ authenticated: Boolean(profile) }),
+        body: JSON.stringify({ authenticated: Boolean(profile) || member }),
       });
       return;
     }
@@ -768,10 +772,12 @@ async function main() {
     });
 
     await runTest("blocked storage, filters, cards, and Quick Fire race guard", async () => {
+      // With storage blocked there is no membership hint, so the member is
+      // recognised by the confirmed session alone.
       const context = await createContext(browser, {
         viewport: { width: 1280, height: 800 },
         serviceWorkers: "block",
-      });
+      }, { profile: { id: "storage-member", username: "StorageMember", role: "USER", avatar: "🙂", progress: [], favorites: [] } });
       await context.addInitScript(() => {
         for (const name of ["getItem", "setItem", "removeItem", "clear", "key"]) {
           Object.defineProperty(Storage.prototype, name, {
@@ -1148,6 +1154,80 @@ async function main() {
             await page.close();
           }
         }
+      } finally {
+        await context.close();
+      }
+    });
+
+    await runTest("guests are asked to register for games and for levels above Piece of Cake", async () => {
+      const context = await createContext(browser, {
+        viewport: { width: 390, height: 844 },
+        serviceWorkers: "block",
+      }, { member: false });
+      await setCurrentDeniedConsent(context);
+      const page = await context.newPage();
+      const assertNoPageErrors = trackPageErrors(page);
+      try {
+        // Every kind of game shows the registration panel in place of the play area.
+        for (const [route, hidden, title] of [
+          ["/chess", "#chessBoard", "Create a free account to play"],
+          ["/sudoku", "#puzzle-mount", "Create a free account to play"],
+          ["/most-likely-to", "#party-app", "Create a free account to play"],
+          ["/daily", "#shuffleChallenge", "Create a free account to play"],
+          ["/ar/games/akshifha/", "#ak-game", "أنشئ حسابًا مجانيًا لتلعب"],
+          ["/kids-riddles/riddles/", ".kids-card-grid", "Ask a grown-up to create a free account"],
+        ]) {
+          await page.goto(`${baseUrl}${route}`, { waitUntil: NAVIGATION_READY_EVENT });
+          const gate = page.locator("section.ra-gate");
+          await gate.waitFor({ state: "visible" });
+          assert.equal(await gate.locator("h2").textContent(), title, `${route}: gate title`);
+          assert.equal(await page.locator(hidden).first().isVisible(), false, `${route}: play area is hidden for a guest`);
+          assert.equal(await page.locator("h1").first().isVisible(), true, `${route}: the page title stays readable`);
+          const box = await gate.boundingBox();
+          assert.ok(box && box.x >= -0.5 && box.x + box.width <= 390.5, `${route}: the panel fits a phone screen`);
+        }
+        assert.match(await page.locator("section.ra-gate a.ra-gate-primary").getAttribute("href"), /^\/mind-lab\?profile=1&signup=1&next=%2Fkids-riddles%2Friddles%2F$/u);
+
+        // The panel opens the registration form, not the sign-in form.
+        await page.locator("section.ra-gate a.ra-gate-primary").click();
+        await page.locator('#tabRegister[aria-selected="true"]').waitFor({ state: "visible" });
+        assert.equal(new URL(page.url()).searchParams.get("next"), "/kids-riddles/riddles/");
+
+        // Collection pages keep Piece of Cake open and lock the rest behind one panel.
+        await page.goto(`${baseUrl}/riddles`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator("section.ra-gate").waitFor({ state: "visible" });
+        const collection = await page.evaluate(() => {
+          const cards = [...document.querySelectorAll(".seo-qa-card")];
+          return {
+            total: cards.length,
+            visibleLocked: cards.filter(card => card.classList.contains("members-only") && card.offsetParent).length,
+            visibleOpen: cards.filter(card => !card.classList.contains("members-only") && card.offsetParent).length,
+            open: cards.filter(card => !card.classList.contains("members-only")).length,
+          };
+        });
+        assert.equal(collection.total, 30);
+        assert.equal(collection.visibleLocked, 0, "no harder card is shown to a guest");
+        assert.ok(collection.open >= 5 && collection.visibleOpen === collection.open, "every Piece of Cake card stays open");
+
+        // Topic pages show Piece of Cake only, and a harder level or Quick Fire opens the prompt.
+        await page.goto(`${baseUrl}/math`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator("#cardGrid .badge-difficulty").first().waitFor({ state: "visible" });
+        await page.locator("#raLevelsGate").waitFor({ state: "visible" });
+        assert.deepEqual(await page.evaluate(() => [...new Set([...document.querySelectorAll("#cardGrid .badge-difficulty")].map(badge => badge.dataset.difficulty))]), ["easy"]);
+        // The filter sits in a collapsed panel on phones; choose the level directly.
+        await page.locator("#difficultySelect").evaluate((select) => {
+          select.value = "hard";
+          select.dispatchEvent(new Event("change", { bubbles: true }));
+        });
+        const dialog = page.locator("dialog#raGateDialog");
+        await dialog.waitFor({ state: "visible" });
+        assert.equal(await page.locator("#difficultySelect").inputValue(), "all");
+        await dialog.locator("button.ra-gate-secondary").click();
+        await dialog.waitFor({ state: "detached" });
+        await page.goto(`${baseUrl}/math?mode=quick-fire`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator("dialog#raGateDialog").waitFor({ state: "visible" });
+        assert.equal(await page.locator("#timedQuizOverlay").evaluate(node => node.classList.contains("hidden")), true, "Quick Fire does not start for a guest");
+        assertNoPageErrors();
       } finally {
         await context.close();
       }

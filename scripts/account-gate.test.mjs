@@ -1,0 +1,214 @@
+// Owner decision, 17 Nov 2026: playing any game, and seeing questions above
+// Piece of Cake, needs a free account. The gate is a browser-side membership
+// prompt; the question bank stays public data.
+import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
+import fs from 'node:fs';
+import test from 'node:test';
+import vm from 'node:vm';
+
+const root = new URL('../', import.meta.url);
+const read = file => fs.readFileSync(new URL(file, root), 'utf8');
+const app = read('app.js');
+const gate = read('account-gate.js');
+
+function functionSource(name) {
+  const start = app.indexOf(`async function ${name}(`) >= 0 ? app.indexOf(`async function ${name}(`) : app.indexOf(`function ${name}(`);
+  assert.ok(start >= 0, `missing ${name}`);
+  return app.slice(start, app.indexOf('\n}', start) + 2);
+}
+
+function card(id, difficulty) {
+  return { id, difficulty, question: { en: id, ar: id }, answer: { en: 'a', ar: 'a' } };
+}
+
+function appContext(extra = {}) {
+  const storage = new Map();
+  const context = vm.createContext({
+    state: { dbUser: null, difficulty: 'all', view: 'all', subcategory: 'all', search: '', sort: 'featured', lang: 'en',
+      categoryData: { cards: ['easy', 'medium', 'hard', 'very-advanced', 'easy'].map((level, index) => card(`c${index}`, level)) } },
+    safeStorageGet: (_area, key) => storage.get(key) ?? null,
+    safeStorageSet: (_area, key, value) => storage.set(key, String(value)),
+    window: {},
+    ...extra,
+  });
+  vm.runInContext(['isGuest', 'syncMember', 'getFilteredCards'].map(functionSource).join('\n'), context);
+  return { context, storage };
+}
+
+test('a guest is shown Piece of Cake cards only; a member is shown every level', () => {
+  const { context, storage } = appContext();
+  assert.equal(context.isGuest(), true);
+  assert.deepEqual([...new Set(context.getFilteredCards().map(item => item.difficulty))], ['easy']);
+  context.state.difficulty = 'hard';
+  assert.equal(context.getFilteredCards().length, 0, 'a level link cannot reveal harder cards to a guest');
+  context.state.difficulty = 'all';
+  context.state.dbUser = { id: 'member' };
+  assert.equal(context.isGuest(), false);
+  assert.equal(context.getFilteredCards().length, 5);
+  // A returning member is recognised before the session check answers.
+  context.state.dbUser = null;
+  storage.set('ra-member', '1');
+  assert.equal(context.isGuest(), false);
+});
+
+test('a confirmed session updates the membership hint and the page gate', () => {
+  const calls = [];
+  const { context } = appContext();
+  context.window.raGate = { sync: value => calls.push(value) };
+  context.state.dbUser = { id: 'member' };
+  context.syncMember();
+  context.state.dbUser = null;
+  context.syncMember();
+  assert.deepEqual(calls, [true, false]);
+  const session = app.slice(app.indexOf('async function checkCloudSession('), app.indexOf('function isGuest('));
+  assert.equal(session.match(/syncMember\(\);/gu)?.length, 3, 'signed-in, signed-out and rejected sessions each sync');
+  assert.doesNotMatch(session.slice(session.lastIndexOf('state.dbUser = previousUser')), /syncMember/u, 'an unreachable API never signs a member out of the gate');
+  assert.match(app, /state\.dbUser = null;\n\s+syncMember\(\);\n\s+notifyAuthChange\('signed-out'\)/u);
+});
+
+test('Quick Fire and Battle ask a guest to register before anything starts', () => {
+  for (const name of ['startTimedQuiz', 'openBattleModal']) {
+    const body = functionSource(name).split('\n');
+    assert.match(body[1], /^\s+if \(isGuest\(\)\) return void window\.raGate\?\.prompt\(\);$/u, `${name}: the guest check comes first`);
+  }
+  assert.match(app, /params\.get\('profile'\) === '1'\) void openAuthModal\(null, params\.has\('signup'\) \? 'register' : 'signin'\)/u);
+  assert.match(functionSource('renderRecoveryCodeReceipt'), /const destination = postAuthDestination\(\);\n\s+if \(destination\) return void location\.assign\(destination\);/u,
+    'a new member returns to the page that asked them to register');
+});
+
+test('every public page that has the shared navigation also loads the gate', () => {
+  const pages = execFileSync('git', ['ls-files', '*.html'], { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 }).split('\n').filter(Boolean);
+  let gated = 0;
+  for (const page of pages) {
+    const source = read(page);
+    if (!source.includes('src="/site-navigation.js"')) continue;
+    assert.ok(source.includes('<script defer src="/site-navigation.js"></script><script defer src="/account-gate.js"></script>'), `${page}: loads account-gate.js`);
+    gated += 1;
+  }
+  assert.ok(gated > 1_000, 'the gate covers kids, game, topic and collection pages');
+});
+
+test('the gate covers every kind of game and stores only a yes/no hint', () => {
+  for (const selector of ['body[data-page="game"] main', '.mm-wrapper', '#puzzle-stage', '#party-app', '#ak-game', '#shuffleChallenge', '#tvTrivia', '.seo-qa-card.members-only']) {
+    assert.ok(gate.includes(selector), `gate covers ${selector}`);
+  }
+  for (const kind of ['activity', 'pack', 'plan', 'riddles', 'toolkit']) assert.ok(gate.includes(`'${kind}'`), `kids ${kind} pages are gated`);
+  const keys = [...gate.matchAll(/(?:local|session)Storage\.(?:get|set)Item\(([A-Z_]+)/gu)].map(match => match[1]);
+  assert.deepEqual([...new Set(keys)].sort(), ['CHECKED_KEY', 'HINT_KEY']);
+  assert.doesNotMatch(gate, /username|email|password|recovery/iu, 'the gate never touches account details');
+  assert.match(gate, /credentials: 'include'/u);
+  assert.doesNotMatch(gate, /jakh\.net/u);
+});
+
+function runGate({ hint = null, kidsPage = false, lang = 'en', path = '/chess', search = '', authForm = false } = {}) {
+  const store = new Map(hint === null ? [] : [['ra-member', hint]]);
+  const classes = new Set();
+  const inserted = [];
+  const replaced = [];
+  const make = () => ({ dataset: {}, className: '', setAttribute() {}, set innerHTML(value) { this.html = value; }, get innerHTML() { return this.html; },
+    querySelector: () => ({ append() {} }), addEventListener() {}, append() {}, remove() {} });
+  const target = { before: node => inserted.push(node), closest: () => null };
+  const document = {
+    documentElement: { lang, classList: { toggle: (name, on) => (on ? classes.add(name) : classes.delete(name)) } },
+    body: { classList: { contains: name => kidsPage && name === 'kids-page' }, append() {} },
+    head: { append() {} },
+    scripts: [{ getAttribute: () => '/app.0123456789abcdef.js' }],
+    createElement: make,
+    querySelector: () => target,
+    querySelectorAll: () => [],
+    getElementById: id => (id === 'authForm' && authForm ? {} : null),
+    addEventListener() {},
+  };
+  const window = { addEventListener() {} };
+  vm.runInNewContext(gate, { document, window, location: { pathname: path, search, hash: '', hostname: 'riddlearabia.com', origin: 'https://riddlearabia.com', replace: target => replaced.push(target) }, URL, URLSearchParams,
+    localStorage: { getItem: key => store.get(key) ?? null, setItem: (key, value) => store.set(key, value) }, sessionStorage: { getItem: () => null, setItem() {} },
+    Event: class {}, Date, Number, Object, String, encodeURIComponent, fetch: () => { throw new Error('app pages confirm the session themselves'); } });
+  return { classes, inserted, replaced, store, api: window.raGate };
+}
+
+test('a guest sees a registration panel in place of the game; a member sees the game', () => {
+  const guest = runGate();
+  assert.equal(guest.api.member(), false);
+  assert.ok(guest.classes.has('ra-guest'));
+  assert.equal(guest.inserted.length, 1);
+  assert.match(guest.inserted[0].html, /Create a free account to play/u);
+  assert.match(guest.inserted[0].html, /href="\/mind-lab\?profile=1&signup=1&next=%2Fchess"/u);
+  assert.match(guest.inserted[0].html, /href="\/mind-lab\?profile=1&next=%2Fchess"/u);
+
+  const arabic = runGate({ lang: 'ar', path: '/ar/games/chess/' });
+  assert.match(arabic.inserted[0].html, /أنشئ حسابًا مجانيًا لتلعب/u);
+  assert.match(arabic.inserted[0].html, /href="\/ar\/mind-lab\/\?profile=1&signup=1&next=%2Far%2Fgames%2Fchess%2F"/u);
+
+  const kids = runGate({ kidsPage: true, path: '/kids-riddles/toolkit/' });
+  assert.match(kids.inserted[0].html, /Ask a grown-up to create a free account/u);
+
+  const member = runGate({ hint: '1' });
+  assert.equal(member.api.member(), true);
+  assert.equal(member.classes.has('ra-guest'), false);
+  assert.equal(member.inserted.length, 0);
+  member.api.sync(false);
+  assert.ok(member.classes.has('ra-guest'), 'signing out locks the page again');
+  assert.equal(member.store.get('ra-member'), '0');
+});
+
+test('an already signed-in member returns to the page that asked; an open form is never interrupted', () => {
+  const search = '?profile=1&next=%2Fsudoku%3Fdate%3D2026-11-17';
+  const returning = runGate({ path: '/mind-lab', search });
+  returning.api.sync(true);
+  assert.deepEqual(returning.replaced, ['/sudoku?date=2026-11-17']);
+
+  const registering = runGate({ path: '/mind-lab', search, authForm: true });
+  registering.api.sync(true);
+  assert.deepEqual(registering.replaced, [], 'a new member sees their one-time code before leaving');
+  assert.equal(registering.api.member(), true);
+
+  for (const next of ['https://attacker.invalid/x', '//attacker.invalid/x', '/api/auth/session', '/mind-lab', '/ar/mind-lab/']) {
+    const blocked = runGate({ path: '/mind-lab', search: `?profile=1&next=${encodeURIComponent(next)}` });
+    blocked.api.sync(true);
+    assert.deepEqual(blocked.replaced, [], `${next} is not a return destination`);
+  }
+});
+
+test('only a guest facing a locked play area asks the API about the session', () => {
+  const guard = gate.slice(gate.indexOf('const hasApp'), gate.indexOf('fetch('));
+  assert.match(guard, /if \(hasApp \|\| member \|\| !document\.querySelector\('section\.ra-gate\[data-gate="play"\], section\.ra-gate\[data-gate="kids"\]'\)\) return;/u);
+  assert.equal(gate.match(/\bfetch\(/gu).length, 1);
+});
+
+test('collection pages keep harder cards in the HTML and declare the registration wall', () => {
+  for (const [file, lang] of [['riddles.html', 'en'], ['ar/alghaz/index.html', 'ar'], ['math-riddles.html', 'en'], ['ar/asila-anime/index.html', 'ar']]) {
+    const source = read(file);
+    const cards = [...source.matchAll(/<article class="seo-qa-card( members-only)?" id="([^"]+)"/gu)];
+    assert.ok(cards.length >= 8, `${file}: cards stay in the page`);
+    const levels = new Map();
+    for (const [, locked, id] of cards) {
+      const slug = id.replace(/-\d+$/u, '');
+      if (!levels.has(slug)) levels.set(slug, new Map(JSON.parse(read(`data/${slug}.json`)).map(item => [item.id, item.difficulty])));
+      assert.equal(Boolean(locked), levels.get(slug).get(id) !== 'easy', `${file}: ${id} is locked exactly when it is above Piece of Cake`);
+    }
+    const graph = JSON.parse(source.match(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/u)[1])['@graph'];
+    const page = graph.find(node => node['@type'] === 'WebPage');
+    assert.equal(page.isAccessibleForFree, false, `${file}: page declares gated content`);
+    assert.deepEqual(page.hasPart, { '@type': 'WebPageElement', isAccessibleForFree: false, cssSelector: '.members-only' });
+    assert.equal(page.inLanguage, lang);
+    assert.equal(graph.find(node => node['@type'] === 'Quiz').isAccessibleForFree, undefined, `${file}: no contradictory free claim`);
+  }
+});
+
+test('public copy no longer promises play without an account', () => {
+  const stale = /No sign-up needed|No account needed|no account needed|No account is needed|with or without an account|من دون تسجيل|لا تحتاج إلى حساب|بلا حساب|بحساب أو بدونه|مجانًا دون حساب/u;
+  for (const file of ['index.html', 'ar/index.html', 'app.js', 'akshifha-copy.js', 'akshifha.html', 'party-games-copy.js', 'friendship-games-copy.js',
+    'tv-trivia-copy.js', 'puzzle-duel.js', 'kids-riddles.html', 'most-likely-to.html', 'scripts/generate-kids-pages.mjs', 'scripts/generate-arabic-routes.mjs']) {
+    assert.doesNotMatch(read(file), stale, `${file}: stale no-account promise`);
+  }
+});
+
+test('global search shows a guest Piece of Cake questions only', () => {
+  const search = read('search-leaderboard.js');
+  assert.match(app, /fetchJson,\n\s+isGuest,\n\s+loadCardIndex,/u, 'the search module receives the guest check and the level list');
+  assert.match(search, /if \(isGuest\(\)\) \{\n\s+const levels = await loadCardIndex\(\)\.catch\(\(\) => \(\{\}\)\);\n\s+hits = allHits\.filter\(hit => levels\[hit\.id\]\?\.\[1\] === 'easy'\);/u);
+  for (const lang of ['Results from harder levels are for members', 'نتائج المستويات الأصعب للأعضاء']) assert.ok(search.includes(lang));
+  const index = JSON.parse(read('data/card-index.json'));
+  assert.ok(Object.values(index).every(entry => typeof entry[1] === 'string'), 'every card has a level for the guest filter');
+});

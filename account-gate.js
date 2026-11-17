@@ -38,7 +38,8 @@
       levelsBody: count => `Piece of Cake questions are open to everyone. Create a free account to unlock Brain Tickler, Head Scratcher and Brick Wall${count ? ` (${count} more here)` : ''}.`,
       register: 'Create free account',
       signIn: 'Sign in',
-      signUp: 'Sign up free',
+      signUp: 'Sign up',
+      signUpMore: ' free',
       playTrial: 'Try one free game today',
       kidsTrial: 'Try one free activity today',
       trialUsed: 'You have used today\u2019s free try.',
@@ -54,7 +55,8 @@
       levelsBody: count => `أسئلة المستوى السهل متاحة للجميع. أنشئ حسابًا مجانيًا لفتح المستويات: متوسط، صعب، صعب جدًا${count ? ` (عدد الأسئلة المقفلة هنا: ${count})` : ''}.`,
       register: 'أنشئ حسابًا مجانيًا',
       signIn: 'تسجيل الدخول',
-      signUp: 'سجّل مجانًا',
+      signUp: 'سجّل',
+      signUpMore: ' مجانًا',
       playTrial: 'جرّب لعبة واحدة مجانًا اليوم',
       kidsTrial: 'جرّب نشاطًا واحدًا مجانًا اليوم',
       trialUsed: 'استخدمت تجربتك المجانية لهذا اليوم.',
@@ -86,7 +88,9 @@ html.ra-guest ${LOCKED_CARDS} { display: none !important; }
   .site-utilities a.ra-signup { padding-inline: .7rem; }
   html.ra-guest .site-utilities [data-site-profile] { display: none; }
 }
-@media (max-width: 359px) { .site-utilities a.ra-signup { padding-inline: .4rem; font-size: .75rem; } }
+/* Small phones show the short label so the header can never wrap, whatever the font. */
+.ra-signup-more { white-space: pre; }
+@media (max-width: 399px) { .ra-signup-more { display: none; } }
 .ra-gate[data-gate="trial"] { padding: .7rem 1rem; margin: .75rem auto; }
 .ra-gate[data-gate="trial"] p { margin: 0; }
 .ra-gate[data-gate="trial"] a { color: var(--accent-ink, #733217); font-weight: 700; text-decoration: underline; }
@@ -156,6 +160,7 @@ dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
 
   // Guests get a clear way in from every page header. On phones it takes the
   // place of the Profile link; the form it opens also has a Sign in tab.
+  // The label is "Sign up free", shortened to "Sign up" on small phones.
   function headerButton() {
     document.querySelectorAll('a.ra-signup').forEach(node => node.remove());
     const profile = document.querySelector('.site-utilities [data-site-profile]');
@@ -164,6 +169,10 @@ dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
     link.className = 'ra-signup';
     link.href = accountHref(true);
     link.textContent = COPY[lang()].signUp;
+    const more = document.createElement('span');
+    more.className = 'ra-signup-more';
+    more.textContent = COPY[lang()].signUpMore;
+    link.append(more);
     profile.before(link);
   }
 

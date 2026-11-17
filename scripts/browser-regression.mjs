@@ -1208,7 +1208,19 @@ async function main() {
         assert.equal(headerRow.tops.length, 1, "language and sign-up share one row");
         assert.ok(headerRow.minHeight >= 44 && headerRow.fits, "header targets stay large and inside the screen");
         await page.setViewportSize({ width: 320, height: 700 });
-        assert.equal(await page.evaluate(() => new Set([...document.querySelectorAll(".site-utilities > a")].filter(link => link.offsetParent).map(link => Math.round(link.getBoundingClientRect().top))).size), 1, "one row on the narrowest phones too");
+        // Fonts differ between systems: the row must hold even with much wider letters.
+        await page.addStyleTag({ content: ".site-utilities a { letter-spacing: .12em !important; }" });
+        for (const width of [320, 360, 399, 400, 430]) {
+          await page.setViewportSize({ width, height: 700 });
+          const narrow = await page.evaluate(() => {
+            const links = [...document.querySelectorAll(".site-utilities > a")].filter(link => link.offsetParent);
+            return { rows: new Set(links.map(link => Math.round(link.getBoundingClientRect().top))).size, label: document.querySelector(".ra-signup").innerText.replace(/\s+/gu, " ").trim(), fits: document.documentElement.scrollWidth <= innerWidth };
+          });
+          assert.equal(narrow.rows, 1, `${width}px: language and sign-up share one row with wide letters`);
+          assert.ok(narrow.fits, `${width}px: the header stays inside the screen`);
+          assert.equal(narrow.label, width < 400 ? "Sign up" : "Sign up free", `${width}px: small phones show the short label`);
+        }
+        await page.goto(`${baseUrl}/riddles`, { waitUntil: NAVIGATION_READY_EVENT });
         await page.setViewportSize({ width: 390, height: 844 });
         await signUp.click();
         await page.locator('#tabRegister[aria-selected="true"]').waitFor({ state: "visible" });

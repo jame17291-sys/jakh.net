@@ -251,13 +251,15 @@ test('a guest gets a Sign up free button in the page header; a member does not',
   const guest = runGate({ path: '/riddles' });
   assert.equal(guest.header.length, 1);
   assert.equal(guest.header[0].className, 'ra-signup');
-  assert.equal(guest.header[0].textContent, 'Sign up free');
+  const label = node => node.textContent + node.appended.map(child => child.textContent).join('');
+  assert.equal(label(guest.header[0]), 'Sign up free');
+  assert.equal(guest.header[0].appended[0].className, 'ra-signup-more');
   assert.equal(guest.header[0].href, '/mind-lab?profile=1&signup=1&next=%2Friddles');
   guest.api.sync(true);
   assert.equal(guest.header.length, 0, 'the button goes away once the visitor is a member');
 
   const arabic = runGate({ lang: 'ar', path: '/ar/alghaz/' });
-  assert.equal(arabic.header[0].textContent, 'سجّل مجانًا');
+  assert.equal(label(arabic.header[0]), 'سجّل مجانًا');
   assert.equal(arabic.header[0].href, '/ar/mind-lab/?profile=1&signup=1&next=%2Far%2Falghaz%2F');
 
   assert.equal(runGate({ hint: '1' }).header.length, 0);
@@ -268,7 +270,7 @@ test('a guest gets a Sign up free button in the page header; a member does not',
   // The button must stay readable on hover and never push the phone header onto two rows.
   assert.match(gate, /\.site-utilities a\.ra-signup:hover \{ background: var\(--accent-ink/u);
   assert.match(gate, /@media \(max-width: 600px\) \{[^}]*\}\s*html\.ra-guest \.site-utilities \[data-site-profile\] \{ display: none; \}/u);
-  assert.match(gate, /@media \(max-width: 359px\) \{ \.site-utilities a\.ra-signup \{/u);
+  assert.match(gate, /@media \(max-width: 399px\) \{ \.ra-signup-more \{ display: none; \} \}/u);
 });
 
 test('an already signed-in member returns to the page that asked; an open form is never interrupted', () => {

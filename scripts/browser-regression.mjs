@@ -1276,6 +1276,25 @@ async function main() {
         // Some engines report navigation before deferred scripts have run.
         await page.locator("section.ra-gate").waitFor({ state: "visible" });
         assert.equal(await page.locator(".seo-qa-card.members-only").first().isVisible(), false, "the free try never opens harder levels");
+        // The Arabic page of the same game is the same free try.
+        await page.goto(`${baseUrl}/ar/games/chess/`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator("#chessBoard").waitFor({ state: "visible" });
+        assert.match(await page.locator('section.ra-gate[data-gate="trial"]').textContent(), /هذه تجربتك المجانية لهذا اليوم/u);
+
+        // Signing in is acknowledged once, on the next page; the home page greets a member.
+        await page.evaluate(() => { localStorage.setItem("ra-member", "1"); sessionStorage.setItem("ra-welcome", "1"); localStorage.setItem("ra-shuffle-streak-v1", JSON.stringify({ v: 1, last: new Date().toLocaleDateString("en-CA"), count: 3, best: 3 })); });
+        await page.goto(`${baseUrl}/`, { waitUntil: NAVIGATION_READY_EVENT });
+        const welcomeNote = page.locator("main > .ra-welcome");
+        assert.equal(await welcomeNote.locator("span").textContent(), "Welcome! Every game and every level is now open to you.");
+        assert.equal(await page.locator(".ra-home-member").innerText(), "Welcome back. Your Shuffle Challenge streak: 3 days. Keep it going");
+        assert.equal(await page.locator(".ra-home-member a").getAttribute("href"), "/daily");
+        assert.equal(await page.locator(".site-utilities a.ra-signup").count(), 0);
+        assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "the member home page fits a phone screen");
+        await welcomeNote.locator("button").click();
+        assert.equal(await welcomeNote.count(), 0);
+        await page.reload({ waitUntil: NAVIGATION_READY_EVENT });
+        assert.equal(await page.locator(".ra-welcome").count(), 0, "the welcome line is shown once");
+        assert.equal(await page.locator(".ra-home-member").count(), 1);
         assertNoPageErrors();
       } finally {
         await context.close();

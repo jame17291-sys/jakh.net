@@ -8,6 +8,8 @@
   const HINT_KEY = 'ra-member';
   const CHECKED_KEY = 'ra-member-checked';
   const TRIAL_KEY = 'ra-trial';
+  const WELCOME_KEY = 'ra-welcome';
+  const STREAK_KEY = 'ra-shuffle-streak-v1';
   const root = document.documentElement;
 
   // Whole play areas that guests may not use. The surrounding page (title,
@@ -44,6 +46,12 @@
       kidsTrial: 'Try one free activity today',
       trialUsed: 'You have used today\u2019s free try.',
       trialNote: 'This is your free try for today.',
+      welcome: 'Welcome! Every game and every level is now open to you.',
+      dismiss: 'Close',
+      homeBack: 'Welcome back.',
+      homeStreak: days => `Your Shuffle Challenge streak: ${days} ${days === 1 ? 'day' : 'days'}.`,
+      homeKeep: 'Keep it going',
+      homePlay: 'Play today\u2019s Shuffle Challenge',
       close: 'Not now',
     },
     ar: {
@@ -61,6 +69,12 @@
       kidsTrial: 'جرّب نشاطًا واحدًا مجانًا اليوم',
       trialUsed: 'استخدمت تجربتك المجانية لهذا اليوم.',
       trialNote: 'هذه تجربتك المجانية لهذا اليوم.',
+      welcome: 'أهلًا بك! كل الألعاب وكل المستويات متاحة لك الآن.',
+      dismiss: 'إغلاق',
+      homeBack: 'مرحبًا بعودتك.',
+      homeStreak: days => `عدد أيام سلسلتك في تحدي الخلطة: ${days}.`,
+      homeKeep: 'واصل السلسلة',
+      homePlay: 'العب تحدي الخلطة اليوم',
       close: 'ليس الآن',
     },
   };
@@ -98,6 +112,13 @@ html.ra-guest ${LOCKED_CARDS} { display: none !important; }
 .ra-gate[data-gate="trial"] { padding: .7rem 1rem; margin: .75rem auto; }
 .ra-gate[data-gate="trial"] p { margin: 0; }
 .ra-gate[data-gate="trial"] a { color: var(--accent-ink, #733217); font-weight: 700; text-decoration: underline; }
+.ra-welcome, .ra-home-member { box-sizing: border-box; width: min(100% - 2rem, 640px); margin: .75rem auto; padding: .7rem 1rem; text-align: center;
+  background: var(--panel-strong, #f5e4c9); color: var(--text, #322016); border: 1px solid var(--line-strong, rgba(72,42,23,.24)); border-radius: 16px; line-height: 1.6; }
+.ra-welcome { display: flex; gap: .75rem; align-items: center; justify-content: center; flex-wrap: wrap; }
+.ra-welcome button { min-height: 44px; padding: .4rem 1rem; border-radius: 999px; font: inherit; font-weight: 700; cursor: pointer;
+  background: transparent; color: var(--accent-ink, #733217); border: 1px solid var(--line-strong, rgba(72,42,23,.24)); }
+.ra-home-member a { color: var(--accent-ink, #733217); font-weight: 700; text-decoration: underline; }
+.ra-welcome button:focus-visible, .ra-home-member a:focus-visible { outline: 3px solid var(--accent-3, #c5832e); outline-offset: 2px; }
 dialog.ra-gate { position: fixed; inset: 0; margin: auto; max-height: calc(100dvh - 2rem); overflow: auto; }
 dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
 `;
@@ -109,17 +130,25 @@ dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
   let member = readHint();
 
   // One free game or activity a day: the guest picks a page and it stays open
-  // on this browser until the local date changes.
-  const here = () => location.pathname.replace(/\.html$/, '').replace(/\/+$/, '') || '/';
+  // on this browser until the local date changes. The same game in the other
+  // language is the same free try.
+  const pagePath = pathname => pathname.replace(/\.html$/, '').replace(/\/+$/, '') || '/';
+  const here = () => pagePath(location.pathname);
+  function otherLanguage() {
+    try {
+      const href = document.querySelector('.language-route-link')?.getAttribute('href');
+      return href ? pagePath(new URL(href, location.origin).pathname) : '';
+    } catch (_) { return ''; }
+  }
   function today() {
     const now = new Date();
     return `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
   }
   function readTrial() {
     try {
-      const [day, page] = (localStorage.getItem(TRIAL_KEY) || '').split('|');
-      return day === today() ? page : '';
-    } catch (_) { return ''; }
+      const [day, ...pages] = (localStorage.getItem(TRIAL_KEY) || '').split('|');
+      return day === today() ? pages.filter(Boolean) : [];
+    } catch (_) { return []; }
   }
   let trial = readTrial();
 
@@ -180,12 +209,63 @@ dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
     profile.before(link);
   }
 
+  // Shown once, on the first page a visitor opens after signing in or up.
+  function welcome() {
+    try {
+      if (!member || sessionStorage.getItem(WELCOME_KEY) !== '1') return;
+      sessionStorage.removeItem(WELCOME_KEY);
+    } catch (_) { return; }
+    const main = document.querySelector('main');
+    if (!main) return;
+    const copy = COPY[lang()];
+    const note = document.createElement('div');
+    note.className = 'ra-welcome';
+    note.setAttribute('role', 'status');
+    const text = document.createElement('span');
+    text.textContent = copy.welcome;
+    const close = document.createElement('button');
+    close.type = 'button';
+    close.textContent = copy.dismiss;
+    close.addEventListener('click', () => note.remove());
+    note.append(text, close);
+    main.prepend(note);
+  }
+
+  // The home page makes no account request, so a member is greeted with what
+  // this browser already knows: the Shuffle Challenge streak.
+  function streakDays() {
+    try {
+      const record = JSON.parse(localStorage.getItem(STREAK_KEY) || 'null');
+      if (!record || record.v !== 1 || !/^\d{4}-\d{2}-\d{2}$/.test(record.last) || !Number.isInteger(record.count) || record.count < 1) return 0;
+      const day = value => Math.round(Date.UTC(+value.slice(0, 4), +value.slice(5, 7) - 1, +value.slice(8, 10)) / 86_400_000);
+      const now = new Date();
+      const gap = Math.round(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 86_400_000) - day(record.last);
+      return gap === 0 || gap === 1 ? record.count : 0;
+    } catch (_) { return 0; }
+  }
+  function homeNote() {
+    document.querySelectorAll('.ra-home-member').forEach(node => node.remove());
+    const intro = member && document.body.classList.contains('page-home') ? document.querySelector('.ra-illustrated-intro') : null;
+    if (!intro) return;
+    const copy = COPY[lang()];
+    const days = streakDays();
+    const note = document.createElement('p');
+    note.className = 'ra-home-member';
+    note.textContent = `${copy.homeBack} ${days ? `${copy.homeStreak(days)} ` : ''}`;
+    const link = document.createElement('a');
+    link.href = lang() === 'ar' ? '/ar/daily/' : '/daily';
+    link.textContent = days ? copy.homeKeep : copy.homePlay;
+    note.append(link);
+    intro.after(note);
+  }
+
   function apply() {
     root.classList.toggle('ra-guest', !member);
+    homeNote();
     document.querySelectorAll('section.ra-gate[data-auto]').forEach(node => node.remove());
     headerButton();
     const playArea = member ? null : document.querySelector(PLAY_AREAS.join(','));
-    const onTrial = !!playArea && trial === here();
+    const onTrial = !!playArea && trial.includes(here());
     root.classList.toggle('ra-trial', onTrial);
     if (member) return;
     if (playArea) {
@@ -195,7 +275,7 @@ dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
       section.dataset.auto = '';
       if (onTrial) {
         section.innerHTML = `<p id="raGateTitle">${copy.trialNote} <a href="${accountHref(true)}">${copy.register}</a></p>`;
-      } else if (trial) {
+      } else if (trial.length) {
         const used = document.createElement('p');
         used.className = 'ra-trial-used';
         used.textContent = copy.trialUsed;
@@ -227,9 +307,9 @@ dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
   // again with its play area open. Without storage the try lasts for this visit.
   function startTrial() {
     track('gate_trial_start', document.body.classList.contains('kids-page') ? 'kids' : 'play', 'panel');
-    trial = here();
+    trial = [here(), otherLanguage()].filter(Boolean);
     try {
-      localStorage.setItem(TRIAL_KEY, `${today()}|${trial}`);
+      localStorage.setItem(TRIAL_KEY, `${today()}|${trial.join('|')}`);
       location.reload();
     } catch (_) {
       apply();
@@ -293,6 +373,7 @@ dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
     try { localStorage.setItem(HINT_KEY, next ? '1' : '0'); } catch (_) {}
     if (next === member) return;
     member = next;
+    if (member) { try { sessionStorage.setItem(WELCOME_KEY, '1'); } catch (_) {} }
     if (member && returnToSender()) return;
     apply();
     document.getElementById('raGateDialog')?.remove();
@@ -305,6 +386,7 @@ dialog.ra-gate::backdrop { background: rgba(50, 32, 22, .55); }
   style.textContent = STYLE;
   document.head.append(style);
   apply();
+  welcome();
 
   // A guest choosing a harder level on a topic page gets the prompt instead of an empty list.
   document.addEventListener('change', event => {

@@ -95,15 +95,19 @@ test('the gate covers every kind of game and stores only a yes/no hint and the f
   }
   for (const kind of ['activity', 'pack', 'plan', 'riddles', 'toolkit']) assert.ok(gate.includes(`'${kind}'`), `kids ${kind} pages are gated`);
   const keys = [...gate.matchAll(/(?:local|session)Storage\.(?:get|set)Item\(([A-Z_]+)/gu)].map(match => match[1]);
-  assert.deepEqual([...new Set(keys)].sort(), ['CHECKED_KEY', 'HINT_KEY', 'TRIAL_KEY']);
+  assert.deepEqual([...new Set(keys)].sort(), ['CHECKED_KEY', 'HINT_KEY', 'STREAK_KEY', 'TRIAL_KEY', 'WELCOME_KEY']);
   assert.doesNotMatch(gate, /username|email|password|recovery/iu, 'the gate never touches account details');
   assert.match(gate, /credentials: 'include'/u);
   assert.doesNotMatch(gate, /jakh\.net/u);
 });
 
-function runGate({ hint = null, kidsPage = false, lang = 'en', path = '/chess', search = '', authForm = false, noHeader = false, trial = null, storageBlocked = false, analytics = null } = {}) {
+function runGate({ hint = null, kidsPage = false, lang = 'en', path = '/chess', search = '', authForm = false, noHeader = false, trial = null, storageBlocked = false, analytics = null, home = false, alternate = null, session = {}, streak = null } = {}) {
   const store = new Map(hint === null ? [] : [['ra-member', hint]]);
   if (trial !== null) store.set('ra-trial', trial);
+  if (streak !== null) store.set('ra-shuffle-streak-v1', JSON.stringify(streak));
+  const sessionStore = new Map(Object.entries(session));
+  const main = [];
+  const homeNotes = [];
   const created = [];
   const events = [];
   const listeners = {};
@@ -121,11 +125,17 @@ function runGate({ hint = null, kidsPage = false, lang = 'en', path = '/chess', 
   const target = { before: node => inserted.push(node), closest: () => null };
   const document = {
     documentElement: { lang, classList: { toggle: (name, on) => { if (on) classes.add(name); else classes.delete(name); } } },
-    body: { classList: { contains: name => kidsPage && name === 'kids-page' }, append() {} },
+    body: { classList: { contains: name => (kidsPage && name === 'kids-page') || (home && name === 'page-home') }, append() {} },
     head: { append() {} },
     scripts: [{ getAttribute: () => '/app.0123456789abcdef.js' }],
     createElement: make,
-    querySelector: selector => (selector.includes('data-site-profile') ? (noHeader ? null : { before: node => header.push(node) }) : target),
+    querySelector: selector => {
+      if (selector.includes('data-site-profile')) return noHeader ? null : { before: node => header.push(node) };
+      if (selector === '.language-route-link') return alternate ? { getAttribute: () => alternate } : null;
+      if (selector === 'main') return { prepend: node => main.push(node) };
+      if (selector === '.ra-illustrated-intro') return home ? { after: node => homeNotes.push(node) } : null;
+      return target;
+    },
     querySelectorAll: selector => (selector === 'a.ra-signup' ? header.splice(0).map(() => ({ remove() {} })) : []),
     getElementById: id => (id === 'authForm' && authForm ? {} : null),
     addEventListener(type, handler) { (listeners[type] ||= []).push(handler); },
@@ -136,9 +146,9 @@ function runGate({ hint = null, kidsPage = false, lang = 'en', path = '/chess', 
     window.gtag = (kind, name, params) => events.push([kind, name, { ...params }]);
   }
   vm.runInNewContext(gate, { document, window, location: { pathname: path, search, hash: '', hostname: 'riddlearabia.com', origin: 'https://riddlearabia.com', replace: target => replaced.push(target), reload: () => { reloads += 1; } }, URL, URLSearchParams,
-    localStorage: { getItem: key => store.get(key) ?? null, setItem: (key, value) => { if (storageBlocked) throw new Error('blocked'); store.set(key, value); } }, sessionStorage: { getItem: () => null, setItem() {} },
-    Event: class {}, Date, Number, Object, String, encodeURIComponent, fetch: () => { throw new Error('app pages confirm the session themselves'); } });
-  return { classes, inserted, header, replaced, store, created, events, listeners, reloads: () => reloads, api: window.raGate };
+    localStorage: { getItem: key => store.get(key) ?? null, setItem: (key, value) => { if (storageBlocked) throw new Error('blocked'); store.set(key, value); } }, sessionStorage: { getItem: key => sessionStore.get(key) ?? null, setItem: (key, value) => sessionStore.set(key, value), removeItem: key => sessionStore.delete(key) },
+    Event: class {}, Date, Number, Object, String, JSON, Math, encodeURIComponent, fetch: () => { throw new Error('app pages confirm the session themselves'); } });
+  return { classes, inserted, header, replaced, store, sessionStore, main, homeNotes, created, events, listeners, reloads: () => reloads, api: window.raGate };
 }
 
 test('a guest sees a registration panel in place of the game; a member sees the game', () => {
@@ -208,6 +218,62 @@ test('a guest may open one game or activity a day; everything else stays locked'
   // Harder levels, Quick Fire and Battle are not part of the free try.
   assert.match(gate, /html\.ra-guest \$\{LOCKED_CARDS\} \{ display: none !important; \}/u);
   assert.match(gate, /html\.ra-guest:not\(\.ra-trial\) \$\{\[\.\.\.PLAY_AREAS, \.\.\.PLAY_CONTROLS\]/u);
+});
+
+test('the free try covers the same game in the other language', () => {
+  const now = new Date();
+  const day = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+  const offer = node => node.appended.find(child => child.className === 'ra-gate-secondary ra-trial-btn');
+  const english = runGate({ path: '/chess', alternate: '/ar/games/chess/?game=1#top' });
+  offer(english.inserted[0]).handlers.click();
+  assert.equal(english.store.get('ra-trial'), `${day}|/chess|/ar/games/chess`);
+  assert.ok(runGate({ trial: `${day}|/chess|/ar/games/chess`, lang: 'ar', path: '/ar/games/chess/' }).classes.has('ra-trial'));
+  assert.ok(runGate({ trial: `${day}|/chess|/ar/games/chess`, path: '/chess.html' }).classes.has('ra-trial'));
+  assert.equal(runGate({ trial: `${day}|/chess|/ar/games/chess`, path: '/sudoku' }).classes.has('ra-trial'), false);
+  assert.ok(runGate({ trial: `${day}|/chess`, path: '/chess' }).classes.has('ra-trial'), 'a try saved before this change still counts');
+});
+
+test('a new member is welcomed once, on the next page they open', () => {
+  const joining = runGate({ path: '/mind-lab', authForm: true });
+  joining.api.sync(true);
+  assert.equal(joining.sessionStore.get('ra-welcome'), '1');
+  assert.equal(joining.main.length, 0, 'nothing appears behind the open form');
+
+  const next = runGate({ hint: '1', session: { 'ra-welcome': '1' } });
+  assert.equal(next.main.length, 1);
+  assert.equal(next.main[0].className, 'ra-welcome');
+  assert.equal(next.main[0].appended[0].textContent, 'Welcome! Every game and every level is now open to you.');
+  assert.equal(next.sessionStore.has('ra-welcome'), false, 'shown once');
+  assert.equal(runGate({ hint: '1' }).main.length, 0);
+  assert.equal(runGate({ session: { 'ra-welcome': '1' } }).main.length, 0, 'a guest is never welcomed as a member');
+  assert.equal(runGate({ hint: '1', lang: 'ar', path: '/ar/', session: { 'ra-welcome': '1' } }).main[0].appended[0].textContent, 'أهلًا بك! كل الألعاب وكل المستويات متاحة لك الآن.');
+});
+
+test('the home page greets a member with their streak and makes no account request', () => {
+  const pad = number => String(number).padStart(2, '0');
+  const iso = date => `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+  const today = new Date();
+  const yesterday = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1);
+  const old = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 3);
+  const note = run => run.homeNotes.at(-1);
+
+  const active = runGate({ hint: '1', home: true, path: '/', streak: { v: 1, last: iso(yesterday), count: 4 } });
+  assert.equal(note(active).textContent, 'Welcome back. Your Shuffle Challenge streak: 4 days. ');
+  assert.equal(note(active).appended[0].href, '/daily');
+  assert.equal(note(active).appended[0].textContent, 'Keep it going');
+
+  const lapsed = runGate({ hint: '1', home: true, path: '/', streak: { v: 1, last: iso(old), count: 9 } });
+  assert.equal(note(lapsed).textContent, 'Welcome back. ');
+  assert.equal(note(lapsed).appended[0].textContent, 'Play today\u2019s Shuffle Challenge');
+  assert.equal(note(runGate({ hint: '1', home: true, path: '/', streak: { v: 1, last: iso(today), count: 1 } })).textContent, 'Welcome back. Your Shuffle Challenge streak: 1 day. ');
+
+  const arabic = runGate({ hint: '1', home: true, lang: 'ar', path: '/ar/', streak: { v: 1, last: iso(today), count: 3 } });
+  assert.equal(note(arabic).textContent, 'مرحبًا بعودتك. عدد أيام سلسلتك في تحدي الخلطة: 3. ');
+  assert.equal(note(arabic).appended[0].href, '/ar/daily/');
+
+  assert.equal(runGate({ home: true, path: '/' }).homeNotes.length, 0, 'guests see the ordinary home page');
+  assert.equal(runGate({ hint: '1', path: '/chess' }).homeNotes.length, 0);
+  assert.equal(runGate({ hint: '1', home: true, path: '/', streak: { v: 2, last: 'x', count: -1 } }).homeNotes.at(-1).textContent, 'Welcome back. ');
 });
 
 test('the sign-up funnel is counted only with analytics consent and carries no personal detail', () => {

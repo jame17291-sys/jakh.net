@@ -40,10 +40,20 @@ game today" / "Try one free activity today". The chosen page is stored as
 `localStorage['ra-trial']` (`<local date>|<path>`), the page reloads with `ra-trial` on
 `<html>`, and its play area stays open on that browser until the date changes. Every other
 game shows the panel with "You have used today's free try." Harder levels, Quick Fire and
-Battle are never part of the free try. The Arabic and English routes of a game count as
-different pages.
+Battle are never part of the free try. The Arabic and English routes of a game are one free
+try: the stored value also holds the path behind the page's language link
+(`<local date>|<path>|<other-language path>`).
 
 The hint holds no account data. An unreachable API never signs a member out of the gate.
+
+## After signing in
+
+- The first page a visitor opens after signing in or up shows one dismissible line: "Welcome!
+  Every game and every level is now open to you." (`sessionStorage['ra-welcome']`, cleared
+  when shown).
+- On the home page a member sees "Welcome back." with their Shuffle Challenge streak, read
+  from this browser's `ra-shuffle-streak-v1`, and a link to `/daily`. The home page still
+  makes no account request, so account progress is not shown there.
 
 ## Measuring the funnel
 

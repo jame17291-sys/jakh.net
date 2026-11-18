@@ -90,7 +90,11 @@ html.ra-guest ${LOCKED_CARDS} { display: none !important; }
 }
 /* Small phones show the short label so the header can never wrap, whatever the font. */
 .ra-signup-more { white-space: pre; }
-@media (max-width: 399px) { .ra-signup-more { display: none; } }
+@media (max-width: 479px) { .ra-signup-more { display: none; } }
+@media (max-width: 359px) {
+  html.ra-guest .site-utilities a { padding-inline: .4rem; }
+  .site-utilities a.ra-signup { font-size: .8125rem; }
+}
 .ra-gate[data-gate="trial"] { padding: .7rem 1rem; margin: .75rem auto; }
 .ra-gate[data-gate="trial"] p { margin: 0; }
 .ra-gate[data-gate="trial"] a { color: var(--accent-ink, #733217); font-weight: 700; text-decoration: underline; }

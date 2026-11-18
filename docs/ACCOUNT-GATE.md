@@ -33,7 +33,7 @@ visitor returns to that page (`postAuthDestination()` accepts same-site public p
 
 Guests also get a "Sign up free" button in every page header (inserted by `account-gate.js`
 before the Profile link, so no page HTML changes). On phones it takes the place of the Profile
-link to keep the header on one row, and below 400px the label shortens to "Sign up"; the form it opens has a Sign in tab. Members never see it.
+link to keep the header on one row, and below 480px the label shortens to "Sign up"; the form it opens has a Sign in tab. Members never see it.
 
 One free try a day (owner decision 17 Nov 2026): the play and kids panels offer "Try one free
 game today" / "Try one free activity today". The chosen page is stored as

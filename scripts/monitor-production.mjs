@@ -208,7 +208,7 @@ export const PRE_COLLECTION_EXPANSION_SITEMAP_PATHS = Object.freeze([
 // Collection pages are added in generations. Each generation's inventory is an
 // accepted exact-version release baseline, so a release introducing the next
 // generation proves the previous one before the new URLs can be deployed.
-export const COLLECTION_GENERATIONS = Object.freeze(["collections-2026-11", "collections-2026-11b", "collections-2026-11c"]);
+export const COLLECTION_GENERATIONS = Object.freeze(["collections-2026-11", "collections-2026-11b", "collections-2026-11c", "collections-2026-11d"]);
 
 const collectionPathsFor = (generation) => RIDDLE_ARABIA_SEO_PAGES
   .filter((page) => page.sitemapGeneration === generation).flatMap((page) => [page.paths.en, page.paths.ar]);

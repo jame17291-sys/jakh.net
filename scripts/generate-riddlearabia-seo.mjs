@@ -228,11 +228,28 @@ function loadPageCards(page) {
   return results;
 }
 
+// Piece of Cake cards are open to every visitor. Harder cards need a free
+// account: account-gate.js hides `.members-only` for guests, and the page says
+// so with schema.org's registration-wall markup so the text may stay in the HTML.
+function membersOnly(card) {
+  return card.difficulty !== "easy";
+}
+
 function quizStructuredData(page, cards, lang, canonical) {
   const subjects = page.subjects[lang].map((name) => ({ "@type": "Thing", name }));
+  const gated = cards.some(membersOnly);
   return {
     "@context": "https://schema.org",
     "@graph": [
+      ...(gated ? [{
+        "@type": "WebPage",
+        "@id": `${canonical}#webpage`,
+        url: canonical,
+        inLanguage: lang,
+        isAccessibleForFree: false,
+        hasPart: { "@type": "WebPageElement", isAccessibleForFree: false, cssSelector: ".members-only" },
+        mainEntity: { "@id": `${canonical}#quiz` },
+      }] : []),
       {
         "@type": "Quiz",
         "@id": `${canonical}#quiz`,
@@ -240,7 +257,7 @@ function quizStructuredData(page, cards, lang, canonical) {
         description: page.descriptions[lang],
         url: canonical,
         inLanguage: lang,
-        isAccessibleForFree: true,
+        ...(gated ? {} : { isAccessibleForFree: true }),
         provider: {
           "@type": "Organization",
           name: "Riddle Arabia",
@@ -322,7 +339,7 @@ function answerCardMarkup(card, index, lang, page, canonical) {
   const categoryName = card.sourceCategory.title[lang] || card.sourceCategory.title.en;
   const number = String(index + 1).padStart(2, "0");
   const noun = RIDDLE_COLLECTION_KEYS.has(page.key) ? (isAr ? "اللغز" : "riddle") : (isAr ? "السؤال" : "question");
-  return `<article class="seo-qa-card" id="${escapeHtml(card.id)}" data-card-id="${escapeHtml(card.id)}">
+  return `<article class="seo-qa-card${membersOnly(card) ? " members-only" : ""}" id="${escapeHtml(card.id)}" data-card-id="${escapeHtml(card.id)}">
           <details>
             <summary><span class="seo-question-number">${number}</span><span>${escapeHtml(card.question[lang])}</span></summary>
             <div class="seo-answer">

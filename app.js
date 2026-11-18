@@ -260,7 +260,7 @@ const UI = {
     homeSpacetoonCta: 'Browse riddles',
     homeAkshifhaCta: 'Connect the clues',
     homeCaseTitle: "Arabic riddles, trivia & games.",
-    homeCaseMeta: "No account needed to begin. Choose your own pace.",
+    homeCaseMeta: "Choose your own pace.",
     homeClueEyebrow: 'Your first piece of evidence',
     homeClueTitle: 'The rehearsal log',
     homeClueTime: '18:12–18:27',
@@ -455,8 +455,8 @@ const UI = {
     pageQuestions: '{count} questions',
     openPage: 'Open page',
     savedProgress: 'Saved progress',
-    guestTitle: 'Play free, with or without an account',
-    guestText: 'All practice levels are free. Progress and favorites stay in this browser; an optional free account syncs them across your devices.',
+    guestTitle: 'A free account unlocks everything',
+    guestText: 'A free account unlocks every level and game and syncs your progress.',
     createLocalProfile: 'Sync across devices',
     signedInAs: 'Signed in as',
     score: 'Practice points',
@@ -679,7 +679,7 @@ const UI = {
     homeSpacetoonCta: 'تصفّح الألغاز',
     homeAkshifhaCta: 'اربط الأدلة',
     homeCaseTitle: "ألغاز عربية وأسئلة وألعاب.",
-    homeCaseMeta: "لا تحتاج إلى حساب لتبدأ. العب بالوتيرة التي تناسبك.",
+    homeCaseMeta: "العب بالوتيرة التي تناسبك.",
     homeClueEyebrow: 'دليلك الأول',
     homeClueTitle: 'سجل البروفة',
     homeClueTime: '18:12–18:27',
@@ -874,8 +874,8 @@ const UI = {
     pageQuestions: '{count} سؤال',
     openPage: 'استكشف الموضوع',
     savedProgress: 'تقدّم محفوظ',
-    guestTitle: 'العب مجانًا، بحساب أو بدونه',
-    guestText: 'كل مستويات التدريب مجانية. يبقى تقدمك ومفضلتك في هذا المتصفح، ويمكنك إنشاء حساب مجاني اختياري لمزامنتهما عبر أجهزتك.',
+    guestTitle: 'الحساب المجاني يفتح كل شيء',
+    guestText: 'الحساب المجاني يفتح كل المستويات والألعاب ويزامن تقدمك.',
     createLocalProfile: 'مزامنة عبر الأجهزة',
     signedInAs: 'مسجّل الدخول باسم',
     score: 'نقاط التدريب',
@@ -1335,10 +1335,12 @@ async function checkCloudSession() {
       state.dbUser = null;
       state.accountAnalyticsAllowed = false;
       clearAllCloudMutations();
+      syncMember();
       return;
     }
     const data = await apiFetch('/user/profile');
     state.dbUser = data;
+    syncMember();
     if (previousUserId && previousUserId !== data?.id) clearAllCloudMutations();
     retainCloudMutationsForUser(data?.id);
     try {
@@ -1354,6 +1356,7 @@ async function checkCloudSession() {
       state.dbUser = null;
       state.accountAnalyticsAllowed = false;
       clearAllCloudMutations();
+      syncMember();
       return;
     }
     state.dbUser = previousUser;
@@ -1361,13 +1364,16 @@ async function checkCloudSession() {
   }
 }
 
+function isGuest() { return !state.dbUser && safeStorageGet('local', 'ra-member') !== '1'; }
+function syncMember() { window.raGate?.sync(!!state.dbUser); }
+
 function postAuthDestination() {
   const next = new URL(location.href).searchParams.get('next');
   if (!next) return '';
   try {
     const target = new URL(next, location.origin);
     if (target.origin !== location.origin) return '';
-    if (!['/admin', '/admin.html', '/privacy', '/privacy.html', '/ar/privacy/'].includes(target.pathname)) return '';
+    if (!/^\/(?!api|(ar\/)?mind-lab)[a-z0-9/.-]+$/.test(target.pathname)) return '';
     return `${target.pathname}${target.search}${target.hash}`;
   } catch (_) {
     return '';
@@ -2008,8 +2014,8 @@ function updateDocumentTitle() {
         ? 'ألغاز عربية مع الحل وأسئلة ثقافية وألعاب مجانية | ريدل أرابيا'
         : 'Arabic Riddles With Answers, Trivia & Free Games | Riddle Arabia';
       description = state.lang === 'ar'
-        ? 'أكثر من 100 لغز مجاني مع الحل، وأسئلة ثقافية في 48 موضوعاً، وكلمات متقاطعة وسودوكو وألعاب كلمات. بالعربية والإنجليزية من دون تسجيل.'
-        : '100+ free riddles with answers, Arabic trivia across 48 topics, crosswords, Sudoku and word games, in Arabic and English. No sign-up needed.';
+        ? 'أكثر من 100 لغز مجاني مع الحل، وأسئلة ثقافية في 48 موضوعاً، وكلمات متقاطعة وسودوكو وألعاب كلمات. بالعربية والإنجليزية.'
+        : '100+ free riddles with answers, Arabic trivia across 48 topics, crosswords, Sudoku and word games, in Arabic and English.';
     }
   } else if (state.categoryData) {
     const category = state.categoryData;
@@ -3091,6 +3097,7 @@ function restoreFilterParams() {
 function getFilteredCards() {
   if (!state.categoryData) return [];
   let cards = [...state.categoryData.cards];
+  if (isGuest()) cards = cards.filter((card) => card.difficulty === 'easy');
   if (state.difficulty !== 'all') cards = cards.filter((card) => card.difficulty === state.difficulty);
   if (state.view === 'solved') cards = cards.filter((card) => getProgressResult(card.id) === 'correct');
   if (state.view === 'unsolved') cards = cards.filter((card) => getProgressResult(card.id) !== 'correct');
@@ -3286,6 +3293,7 @@ function renderCards(focusRequest = null) {
       : `Showing ${rendered} of ${matched} matching questions (${categoryTotal} total in this topic).${remaining ? ` ${remaining} more available via “Show more.”` : ' All matching results are rendered.'}`;
     if (els.resultsLabel.textContent !== label) els.resultsLabel.textContent = label;
   }
+  window.raGate?.levels(els.cardGrid, state.categoryData.cards);
   renderAccountSummary(els.categorySummaryMount);
   restoreCardFocus(focusRequest);
 }
@@ -3591,7 +3599,7 @@ function closeModal(name) {
   releaseFocus(modal, { restore: true });
 }
 
-async function openAuthModal(event) {
+async function openAuthModal(event, mode = 'signin') {
   event?.preventDefault();
   const { ensureAuthModalShell } = await loadAuthEnhancements();
   ensureAuthModalShell();
@@ -3609,7 +3617,7 @@ async function openAuthModal(event) {
     // A slow session lookup must not reopen a dialog the visitor dismissed.
     if (els.authModal.classList.contains('hidden')) return;
   }
-  renderAuthModal('signin');
+  renderAuthModal(mode);
   openModal('auth');
 }
 
@@ -3687,6 +3695,8 @@ function renderRecoveryCodeReceipt(recoveryCode) {
 
   document.getElementById('acknowledgeRecoveryCodeBtn')?.addEventListener('click', () => {
     codeNode.textContent = '';
+    const destination = postAuthDestination();
+    if (destination) return void location.assign(destination);
     renderAuthModal('signin');
     focusAuthControl('signedInAccountPanel');
   });
@@ -3737,6 +3747,7 @@ function renderAuthModal(mode = 'signin') {
       }
       clearAllCloudMutations();
       state.dbUser = null;
+      syncMember();
       notifyAuthChange('signed-out');
       state.accountAnalyticsAllowed = false;
       stopAnalyticsHeartbeat();
@@ -4546,6 +4557,7 @@ function createTimedQuizModal() {
 }
 
 function startTimedQuiz() {
+  if (isGuest()) return void window.raGate?.prompt();
   if (tvTrivia) { tvTrivia.startTimed(); return; }
   if (!state.categoryData?.cards?.length) return;
   const seen = new Set();
@@ -4821,6 +4833,8 @@ function loadSearchLeaderboard() {
         debounce,
         escapeHtml,
         fetchJson,
+        isGuest,
+        loadCardIndex,
         localizedErrorMessage,
         openAuthModal,
         releaseFocus,
@@ -5231,7 +5245,7 @@ async function init() {
     applyCapabilityVisibility();
   });
   const params = new URLSearchParams(location.search);
-  if (params.get('profile') === '1') void openAuthModal();
+  if (params.get('profile') === '1') void openAuthModal(null, params.has('signup') ? 'register' : 'signin');
   if (params.get('join') === '1') void openBattleModal('', 'join');
   if (state.page === 'category') {
     if (params.get('mode') === 'quick-fire') startTimedQuiz();
@@ -5404,6 +5418,7 @@ function loadBattleMode() {
 }
 
 async function openBattleModal(slug, tab = 'create', initialCode = '') {
+  if (isGuest()) return void window.raGate?.prompt();
   createBattleModal();
   const overlay = document.getElementById('battleOverlay');
   if (!overlay) return;

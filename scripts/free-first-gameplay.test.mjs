@@ -27,7 +27,9 @@ function card(id = 'card-1', difficulty = 'hard') {
   };
 }
 
-test('every public practice level reveals freely, even with exhausted legacy trial state', () => {
+// Since 17 Nov 2026 guests are shown Piece of Cake cards only (see
+// account-gate.test.mjs). A card that is shown never carries a per-card lock.
+test('every card that is shown reveals freely, even with exhausted legacy trial state', () => {
   const changes = [];
   const context = loadFunctions(vm.createContext({
     state: { dbUser: null, lang: 'en', flipped: new Set(), audioEnabled: false,
@@ -140,7 +142,8 @@ function quizHarness(cards = Array.from({ length: 5 }, (_, index) => card(`card-
   for (const id of ['timedQuizOverlay', 'tqQuestion', 'tqAnswer', 'tqAnswerWrap', 'tqOptions', 'tqFeedback', 'tqProgressText', 'tqCountdown', 'tqTrackFill', 'tqActions', 'tqResult', 'tqScoreBig', 'tqScoreSub', 'tqPlayAgain', 'result-actions']) nodes.set(id, new Element(id));
   nodes.get('timedQuizOverlay').classList.add('hidden');
   const context = loadFunctions(vm.createContext({
-    state: { lang: 'en', dbUser: null, categorySlug: 'math', categoryData: { cards, title: { en: 'Math', ar: 'رياضيات' } } },
+    state: { lang: 'en', dbUser: { id: 'member' }, categorySlug: 'math', categoryData: { cards, title: { en: 'Math', ar: 'رياضيات' } } },
+    isGuest: () => false,
     timedQuizState: { session: 0, timer: null, advanceTimeout: null }, tvTrivia: null,
     document: { getElementById: id => nodes.get(id) || null, querySelectorAll: () => buttons,
       createElement: () => new Element(), body: new Element() },

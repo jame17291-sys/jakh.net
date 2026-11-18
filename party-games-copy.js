@@ -2,7 +2,7 @@ export const PARTY_COPY = {
   en: {
     mostTitle: 'Most Likely To: Chaos Vote', knowTitle: 'How Well Do You Know Me?', eyebrow: 'THE FRIENDSHIP GAMES',
     mostIntro: 'Big plot twists. Bold predictions. Your friends in the spotlight.', knowIntro: 'Pick your answers. Challenge your friends. Find out who gets you.',
-    mostStart: 'Start a group game', knowStart: 'Create my quiz', free: 'Free · No account needed', games: 'All games',
+    mostStart: 'Start a group game', knowStart: 'Create my quiz', free: 'Free for members', games: 'All games',
     mostCard: 'Secret votes, outrageous prompts and dramatic group reveals.', knowCard: 'Make a ten-question challenge about you and share it with your friends.',
     mostHow: 'Add 2–12 names, choose a question pack, then point together or pass the phone for Chaos Vote. Reveal the group’s pick and keep the stories coming.',
     knowHow: 'Choose your own answer to ten questions. Share your link so friends can guess on their phones. Compare scores without showing them your answers.',
@@ -22,7 +22,7 @@ export const PARTY_COPY = {
   ar: {
     mostTitle: 'مَن تتوقّعون؟ تصويت الأصدقاء', knowTitle: 'ما مدى معرفتك بي؟', eyebrow: 'ألعاب الأصدقاء',
     mostIntro: 'مواقف طريفة وغير متوقعة. اختاروا الصديق الأقرب لكل موقف، واستمتعوا بالحكايات.', knowIntro: 'أجب عن أسئلة تخصّك، ثم تحدَّ أصدقاءك لمعرفة مَن يخمّن إجاباتك بدقة.',
-    mostStart: 'ابدأ لعبة جماعية', knowStart: 'أنشئ اختباري', free: 'مجانية · لا تحتاج إلى حساب', games: 'كل الألعاب',
+    mostStart: 'ابدأ لعبة جماعية', knowStart: 'أنشئ اختباري', free: 'مجانية للأعضاء', games: 'كل الألعاب',
     mostCard: 'مَن الأقرب لكل موقف طريف؟ اختاروا معًا أو صوّتوا سرًا.', knowCard: 'أجب عن عشرة أسئلة عن نفسك، وشارك الاختبار مع أصدقائك.',
     mostHow: 'اكتب أسماء من لاعبين إلى 12 لاعبًا، واختر مجموعة الأسئلة وطريقة التصويت. اقرأوا كل سؤال واختاروا الصديق الأقرب للموقف: بالإشارة معًا أو بالتصويت السري على الهاتف. اعرضوا النتيجة قبل السؤال التالي.',
     knowHow: 'اختر إجابة واحدة عن كل سؤال من عشرة أسئلة تخصّك. يمكنك استبدال الأسئلة ومراجعة إجاباتك قبل إنشاء رابط المشاركة. يخمّن أصدقاؤك إجاباتك من هواتفهم، ثم تظهر درجاتهم دون كشف إجاباتك لهم.',

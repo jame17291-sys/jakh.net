@@ -48,6 +48,8 @@ export function renderPuzzlePage(id, lang = 'en') {
     <meta property="og:description" content="${esc(description)}" />
     <meta property="og:url" content="${canonical}" />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="${lang === "ar" ? "ar_AE" : "en_US"}" />
+    <meta property="og:locale:alternate" content="${lang === "ar" ? "en_US" : "ar_AE"}" />
     <meta property="og:site_name" content="${brand}" />
     <meta property="og:image" content="${PRIMARY_SITE_ORIGIN}/assets/riddlearabia-og-image.png" />
     <meta property="og:image:type" content="image/png" />

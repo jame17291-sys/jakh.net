@@ -185,6 +185,7 @@ async function configureContext(context, { shuffleState = "", ownerAdmin = false
       updatedAt: new Date(0).toISOString(),
       source: "accessibility-browser",
     }));
+    localStorage.setItem("ra-member", "1");
     if (shuffleRound) localStorage.setItem("ra-shuffle-round-v1", JSON.stringify(shuffleRound));
   }, { shuffleRound: SHUFFLE_STATES[shuffleState] || null });
   if (ownerAdmin) {
@@ -349,7 +350,8 @@ async function configureContext(context, { shuffleState = "", ownerAdmin = false
       return;
     }
     if (path === "/api/auth/session") {
-      await fulfillJson({ authenticated: ownerAdmin });
+      // Audited as a returning member so games and every level are on the page.
+      await fulfillJson({ authenticated: true });
       return;
     }
     await fulfillJson({ error: "Not found", code: "NOT_FOUND" }, 404);

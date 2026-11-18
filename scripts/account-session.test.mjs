@@ -86,11 +86,13 @@ function extract(source, name) {
   return source.slice(start, end + 2);
 }
 
-test('post-login destinations allow only supported local admin and privacy routes', () => {
+test('post-login destinations allow only same-site public, admin and privacy routes', () => {
   for (const [next, expected] of [
     ['/admin?lang=ar', '/admin?lang=ar'], ['/privacy#account', '/privacy#account'],
     ['/ar/privacy/#account', '/ar/privacy/#account'], ['https://attacker.invalid/admin', ''],
-    ['//attacker.invalid/admin', ''], ['/admin/../other', ''], ['/mind-lab', ''],
+    ['//attacker.invalid/admin', ''], ['/admin/../other', '/other'], ['/mind-lab', ''], ['/ar/mind-lab/?profile=1', ''],
+    ['/api/auth/session', ''], ['/sudoku?date=2026-11-17', '/sudoku?date=2026-11-17'], ['/ar/games/chess/', '/ar/games/chess/'],
+    ['/math?difficulty=hard#card', '/math?difficulty=hard#card'], ['/javascript:alert(1)', ''], ['/%0d%0aSet-Cookie', ''],
   ]) {
     const context = vm.createContext({ URL, location: { origin: 'https://riddlearabia.com', href: `https://riddlearabia.com/mind-lab?profile=1&next=${encodeURIComponent(next)}` } });
     vm.runInContext(`${extract(read('app.js'), 'postAuthDestination')}\nthis.result=postAuthDestination();`, context);

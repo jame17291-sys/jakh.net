@@ -270,7 +270,8 @@ test('a guest gets a Sign up free button in the page header; a member does not',
   // The button must stay readable on hover and never push the phone header onto two rows.
   assert.match(gate, /\.site-utilities a\.ra-signup:hover \{ background: var\(--accent-ink/u);
   assert.match(gate, /@media \(max-width: 600px\) \{[^}]*\}\s*html\.ra-guest \.site-utilities \[data-site-profile\] \{ display: none; \}/u);
-  assert.match(gate, /@media \(max-width: 399px\) \{ \.ra-signup-more \{ display: none; \} \}/u);
+  assert.match(gate, /@media \(max-width: 479px\) \{ \.ra-signup-more \{ display: none; \} \}/u);
+  assert.match(gate, /@media \(max-width: 359px\) \{\s*html\.ra-guest \.site-utilities a \{ padding-inline: \.4rem; \}/u);
 });
 
 test('an already signed-in member returns to the page that asked; an open form is never interrupted', () => {

@@ -79,6 +79,10 @@ Counts cover consenting visitors only, so compare ratios, not totals.
 - It is a browser-side prompt, not a security boundary. `data/*.json` and the HTML still
   contain every question. Enforcing it on the server would mean moving the question bank
   behind the API, which is a separate project.
+  Owner decision, 18 Nov 2026: not building this. The repository is public, so every
+  question is readable on GitHub whatever the website serves; a server-side lock would only
+  be real with a private repository. It would also remove the harder cards from the pages
+  Google reads. Revisit only if the funnel numbers show visitors getting around the wall.
 - Children are asked to involve a grown-up. Registration collects a username, a password
   and an optional email; do not add child profile fields.
 - New game or activity pages must be added to `PLAY_AREAS` in `account-gate.js` and covered

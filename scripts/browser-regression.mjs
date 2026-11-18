@@ -1273,6 +1273,8 @@ async function main() {
         assert.equal(await page.locator("section.ra-gate button.ra-trial-btn").count(), 0);
         assert.equal(await page.locator("section.ra-gate .ra-trial-used").textContent(), "You have used today\u2019s free try.");
         await page.goto(`${baseUrl}/riddles`, { waitUntil: NAVIGATION_READY_EVENT });
+        // Some engines report navigation before deferred scripts have run.
+        await page.locator("section.ra-gate").waitFor({ state: "visible" });
         assert.equal(await page.locator(".seo-qa-card.members-only").first().isVisible(), false, "the free try never opens harder levels");
         assertNoPageErrors();
       } finally {

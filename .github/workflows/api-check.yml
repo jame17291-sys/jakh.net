@@ -163,7 +163,8 @@ jobs:
     # A cold Playwright Chromium download can consume most of the former
     # 20-minute budget before the regression suite starts. Leave enough time
     # for the actual browser verification instead of cancelling a healthy job.
-    timeout-minutes: 35
+    # The Firefox and WebKit pass at the end needs its own share of that time.
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -224,3 +225,14 @@ jobs:
           JAKH_SITE_ROOT: ${{ github.workspace }}/site-worker/dist
           JAKH_SITE_MANIFEST: ${{ github.workspace }}/site-worker/generated/site-manifest.json
         run: npm run test:a11y
+      # A release runs the suite in three engines. Running the other two here
+      # keeps an engine-only failure from first appearing after the merge.
+      - name: Install Playwright Firefox and WebKit
+        run: ./node_modules/.bin/playwright install --with-deps firefox webkit
+      - name: Run browser regression suite in Firefox and WebKit
+        env:
+          JAKH_SITE_ROOT: ${{ github.workspace }}/site-worker/dist
+          JAKH_SITE_MANIFEST: ${{ github.workspace }}/site-worker/generated/site-manifest.json
+          JAKH_BROWSER_MATRIX_ENGINES: firefox,webkit
+          JAKH_BROWSER_ANNOTATE: "1"
+        run: npm run test:browser:matrix

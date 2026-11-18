@@ -19,7 +19,13 @@ import {
 } from "./browser-matrix-policy.mjs";
 
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const engines = ["chromium", "firefox", "webkit"];
+const allEngines = ["chromium", "firefox", "webkit"];
+// Pull requests already run Chromium in its own step, so they ask for the
+// other two engines only. A release always runs all three.
+const requestedEngines = (process.env.JAKH_BROWSER_MATRIX_ENGINES || "").split(",").map((name) => name.trim().toLowerCase()).filter(Boolean);
+const unknownEngines = requestedEngines.filter((name) => !allEngines.includes(name));
+if (unknownEngines.length) throw new Error(`Unsupported JAKH_BROWSER_MATRIX_ENGINES entry: ${unknownEngines.join(", ")}`);
+const engines = requestedEngines.length ? allEngines.filter((name) => requestedEngines.includes(name)) : allEngines;
 const diagnosticsPath = process.env.JAKH_BROWSER_MATRIX_DIAGNOSTICS || null;
 const annotate = browserAnnotationsEnabled();
 const diagnostics = [];

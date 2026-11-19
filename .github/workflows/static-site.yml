@@ -661,13 +661,29 @@ jobs:
           WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-site-wrangler-verify.log
         run: |
           set -euo pipefail
-          (
-            cd site-worker
-            ./node_modules/.bin/wrangler deployments status --json \
-              > "$RECEIPT_DIR/deployment-after-initial.json"
-          )
-          worker_version="$(node scripts/site-release-receipt.mjs active-version \
-            --deployment "$RECEIPT_DIR/deployment-after-initial.json")"
+          worker_version=""
+          # The deployment API can keep reporting the predecessor for a moment
+          # after a deploy. Comparing the live site with that stale version
+          # rolled back a correct release on 2026-11-19, so wait until the
+          # active version is this release's own and not the rollback target.
+          for attempt in {1..12}; do
+            (
+              cd site-worker
+              ./node_modules/.bin/wrangler deployments status --json \
+                > "$RECEIPT_DIR/deployment-after-initial.json"
+            )
+            if worker_version="$(node scripts/site-release-receipt.mjs candidate-version \
+              --receipt "$RECEIPT_DIR/release-receipt.json" \
+              --deployment "$RECEIPT_DIR/deployment-after-initial.json")"; then
+              break
+            fi
+            worker_version=""
+            if [ "$attempt" -lt 12 ]; then sleep 5; fi
+          done
+          if [ -z "$worker_version" ]; then
+            echo "::error title=Static site release safety gate::The deployment API never reported this release as the active Site Worker version."
+            exit 1
+          fi
           echo "worker-version=$worker_version" >> "$GITHUB_OUTPUT"
 
       - name: Smoke exact candidate

@@ -490,6 +490,14 @@ Do not use an imaginary `deploy-site.yml`, `rollback=true`, or arbitrary
 
 The workflow must validate the built manifest, final-byte inventory, dry run,
 baseline smoke, rollback-target proof, candidate smoke, and runtime proof.
+
+Before candidate smoke the workflow waits (up to a minute) until the deployment
+API reports this release's own Worker version: not the rollback target, and with
+this run's deployment message. On 2026-11-19 a single early read still named the
+predecessor, the smoke check compared the correct live site against it, and a
+good release was rolled back. If that wait fails, the release rolls back as for
+any other failed gate; start the static release again.
+
 Require the candidate deployment message to bind the source SHA, build ID,
 and this static workflow run ID.
 Both API gate receipts must be verified and API identity must remain unchanged.

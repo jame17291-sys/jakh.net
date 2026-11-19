@@ -76,6 +76,11 @@ Counts cover consenting visitors only, so compare ratios, not totals.
 
 ## Limits to keep in mind
 
+- Safari's engine applies the gate's styles a moment late on pages that fetch a
+  stylesheet of their own while loading (word, logic and duel puzzles). Until that
+  stylesheet arrives a guest sees the panel unstyled and the page's loading line; the
+  puzzle itself is mounted only afterwards, so it is never shown. Browser tests wait
+  for the play area to be hidden instead of sampling it the instant the panel appears.
 - It is a browser-side prompt, not a security boundary. `data/*.json` and the HTML still
   contain every question. Enforcing it on the server would mean moving the question bank
   behind the API, which is a separate project.

@@ -496,7 +496,10 @@ API reports this release's own Worker version: not the rollback target, and with
 this run's deployment message. On 2026-11-19 a single early read still named the
 predecessor, the smoke check compared the correct live site against it, and a
 good release was rolled back. If that wait fails, the release rolls back as for
-any other failed gate; start the static release again.
+any other failed gate; start the static release again. A status read that
+fails outright is retried the same way, and the read taken after the smoke
+check waits for the same version before the post-deploy gate judges it.
+The API workflow and both rollback verifications still take a single read.
 
 Require the candidate deployment message to bind the source SHA, build ID,
 and this static workflow run ID.

@@ -83,6 +83,8 @@ with `isAccessibleForFree: false` and a `hasPart` `WebPageElement` whose
 `cssSelector` is `.members-only`. That is the markup Google documents for content
 behind a registration wall, so serving the text to crawlers is not cloaking. Kids
 activity, pack, plan and riddle pages declare the same for their main content.
+Party and friendship game pages need an account to play, so their `VideoGame`
+node makes no `isAccessibleForFree` claim.
 Never hide gated text from the HTML while showing it to crawlers by another route,
 and never drop the markup while the gate is on.
 

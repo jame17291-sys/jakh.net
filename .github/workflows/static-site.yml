@@ -666,15 +666,13 @@ jobs:
           # after a deploy. Comparing the live site with that stale version
           # rolled back a correct release on 2026-11-19, so wait until the
           # active version is this release's own and not the rollback target.
+          # A status read that fails outright is retried like a stale one.
           for attempt in {1..12}; do
-            (
-              cd site-worker
-              ./node_modules/.bin/wrangler deployments status --json \
-                > "$RECEIPT_DIR/deployment-after-initial.json"
-            )
-            if worker_version="$(node scripts/site-release-receipt.mjs candidate-version \
-              --receipt "$RECEIPT_DIR/release-receipt.json" \
-              --deployment "$RECEIPT_DIR/deployment-after-initial.json")"; then
+            if ( cd site-worker && ./node_modules/.bin/wrangler deployments status --json \
+                > "$RECEIPT_DIR/deployment-after-initial.json" ) \
+              && worker_version="$(node scripts/site-release-receipt.mjs candidate-version \
+                --receipt "$RECEIPT_DIR/release-receipt.json" \
+                --deployment "$RECEIPT_DIR/deployment-after-initial.json")"; then
               break
             fi
             worker_version=""
@@ -709,11 +707,21 @@ jobs:
           WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-site-wrangler-verify.log
         run: |
           set -euo pipefail
-          (
-            cd site-worker
-            ./node_modules/.bin/wrangler deployments status --json \
-              > "$RECEIPT_DIR/deployment-after.json"
-          )
+          # The deployment API can answer with the predecessor again here, so
+          # re-read until it names the version the smoke check verified. The
+          # post-deploy gate below still judges whatever the last read says.
+          expected_version="${{ steps.candidate_identity.outputs.worker-version }}"
+          for attempt in {1..12}; do
+            if ( cd site-worker && ./node_modules/.bin/wrangler deployments status --json \
+                > "$RECEIPT_DIR/deployment-after.json" ) \
+              && reread_version="$(node scripts/site-release-receipt.mjs candidate-version \
+                --receipt "$RECEIPT_DIR/release-receipt.json" \
+                --deployment "$RECEIPT_DIR/deployment-after.json")" \
+              && [ "$reread_version" = "$expected_version" ]; then
+              break
+            fi
+            if [ "$attempt" -lt 12 ]; then sleep 5; fi
+          done
           node scripts/site-release-receipt.mjs post-deploy \
             --receipt "$RECEIPT_DIR/release-receipt.json" \
             --deployment "$RECEIPT_DIR/deployment-after.json" \

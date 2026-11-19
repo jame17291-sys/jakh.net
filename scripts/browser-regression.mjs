@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import { chromium, firefox, webkit } from "playwright";
 
 import { browserAnnotationsEnabled, describeBrowserError, formatBrowserFailureAnnotation } from "./browser-annotations.mjs";
+import { trackPageErrors as trackEnginePageErrors } from "./browser-page-errors.mjs";
 import { startBrowserSite } from "./local-browser-site.mjs";
 import { CASES as AKSHIFHA_CASES } from "../akshifha-cases.js";
 import { AKSHIFHA_UI } from "../akshifha-copy.js";
@@ -140,15 +141,21 @@ async function mockApi(context, { battle = null, profile = null, member = true }
   });
 }
 
-function trackPageErrors(page) {
-  const errors = [];
-  page.on("pageerror", (error) => errors.push(error.message));
-  return (allowedPatterns = []) => {
-    const unexpected = errors.filter((message) => (
-      !allowedPatterns.some((pattern) => pattern.test(message))
-    ));
-    assert.deepEqual(unexpected, [], `Unexpected page errors:\n${unexpected.join("\n")}`);
-  };
+// Page errors are collected by scripts/browser-page-errors.mjs, which sets
+// aside one WebKit log line that only means "the test left this page".
+const trackPageErrors = (page) => trackEnginePageErrors(page, { engine: BROWSER_ENGINE });
+
+// The account gate hides play areas with a <style> it adds when it runs. WebKit
+// does not apply a newly added <style> until stylesheets that are still loading
+// have arrived (a puzzle page fetches its own CSS at the same moment), so the
+// registration panel can be on the page a few frames before the play area
+// disappears. Only the page's loading line shows in that gap: a puzzle is
+// mounted after its stylesheet. Allow the gate that short settling time, then
+// require the area to be hidden.
+async function assertHiddenFromGuest(page, selector, message) {
+  const target = page.locator(selector).first();
+  await target.waitFor({ state: "hidden", timeout: 5_000 }).catch(() => {});
+  assert.equal(await target.isVisible(), false, message);
 }
 
 async function createContext(browser, options = {}, mockOptions = {}) {
@@ -1181,7 +1188,7 @@ async function main() {
           const gate = page.locator("section.ra-gate");
           await gate.waitFor({ state: "visible" });
           assert.equal(await gate.locator("h2").textContent(), title, `${route}: gate title`);
-          assert.equal(await page.locator(hidden).first().isVisible(), false, `${route}: play area is hidden for a guest`);
+          await assertHiddenFromGuest(page, hidden, `${route}: play area is hidden for a guest`);
           assert.equal(await page.locator("h1").first().isVisible(), true, `${route}: the page title stays readable`);
           const box = await gate.boundingBox();
           assert.ok(box && box.x >= -0.5 && box.x + box.width <= 390.5, `${route}: the panel fits a phone screen`);
@@ -1269,13 +1276,13 @@ async function main() {
         await page.locator("#chessBoard").waitFor({ state: "visible" });
         await page.goto(`${baseUrl}/sudoku`, { waitUntil: NAVIGATION_READY_EVENT });
         await page.locator('section.ra-gate[data-gate="play"]').waitFor({ state: "visible" });
-        assert.equal(await page.locator("#puzzle-mount").isVisible(), false, "a second game stays locked");
+        await assertHiddenFromGuest(page, "#puzzle-mount", "a second game stays locked");
         assert.equal(await page.locator("section.ra-gate button.ra-trial-btn").count(), 0);
         assert.equal(await page.locator("section.ra-gate .ra-trial-used").textContent(), "You have used today\u2019s free try.");
         await page.goto(`${baseUrl}/riddles`, { waitUntil: NAVIGATION_READY_EVENT });
         // Some engines report navigation before deferred scripts have run.
         await page.locator("section.ra-gate").waitFor({ state: "visible" });
-        assert.equal(await page.locator(".seo-qa-card.members-only").first().isVisible(), false, "the free try never opens harder levels");
+        await assertHiddenFromGuest(page, ".seo-qa-card.members-only", "the free try never opens harder levels");
         // The Arabic page of the same game is the same free try.
         await page.goto(`${baseUrl}/ar/games/chess/`, { waitUntil: NAVIGATION_READY_EVENT });
         await page.locator("#chessBoard").waitFor({ state: "visible" });
@@ -1293,6 +1300,9 @@ async function main() {
         await welcomeNote.locator("button").click();
         assert.equal(await welcomeNote.count(), 0);
         await page.reload({ waitUntil: NAVIGATION_READY_EVENT });
+        // Some engines report navigation before deferred scripts have run; the
+        // gate writes the home line and the welcome note in the same pass.
+        await page.locator(".ra-home-member").waitFor({ state: "visible" });
         assert.equal(await page.locator(".ra-welcome").count(), 0, "the welcome line is shown once");
         assert.equal(await page.locator(".ra-home-member").count(), 1);
         assertNoPageErrors();

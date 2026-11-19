@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { execFileSync, spawnSync } from "node:child_process";
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
@@ -379,4 +379,107 @@ test("the static release waits for its own deployment before telling the smoke c
   assert.doesNotMatch(step, /site-release-receipt\.mjs active-version/u, "an unchecked single read is not the expected version");
   assert.match(step, /if \[ -z "\$worker_version" \]; then\n\s+echo "::error title=Static site release safety gate::[^"]+"\n\s+exit 1/u);
   assert.match(workflow, /--expected-worker-version "\$\{\{ steps\.candidate_identity\.outputs\.worker-version \}\}"/u);
+});
+
+// Runs the workflow's own shell for the two status reads against a stand-in
+// "wrangler" whose answers follow a plan (fresh, stale or fail per read).
+function runStatusStep({ stepName, nextStepName, plan, judge = false }) {
+  const workflow = readFileSync(new URL("../.github/workflows/static-site.yml", import.meta.url), "utf8");
+  const start = workflow.indexOf(`- name: ${stepName}`);
+  const end = workflow.indexOf(`- name: ${nextStepName}`, start);
+  assert.ok(start > 0 && end > start, `${stepName}: step not found`);
+  const step = workflow.slice(start, end);
+  const script = fileURLToPath(new URL("./site-release-receipt.mjs", import.meta.url));
+  let body = step.slice(step.indexOf("run: |") + "run: |\n".length)
+    .split("\n").map((line) => line.replace(/^ {10}/u, "")).join("\n")
+    .replaceAll("node scripts/site-release-receipt.mjs", `"${process.execPath}" "${script}"`)
+    .replaceAll("${{ steps.candidate_identity.outputs.worker-version }}", CANDIDATE_VERSION);
+  assert.doesNotMatch(body, /\$\{\{/u, `${stepName}: every workflow expression is resolved for the test`);
+  if (judge) {
+    // Stand in for the post-deploy gate: report which version the last read named.
+    const gate = body.indexOf(`"${process.execPath}" "${script}" post-deploy`);
+    assert.ok(gate > 0, `${stepName}: the post-deploy gate still follows the wait`);
+    body = `${body.slice(0, gate)}echo "judged=$(cat "$RECEIPT_DIR/deployment-after.json")"\n`;
+  }
+  const directory = mkdtempSync(join(tmpdir(), "jakh-status-step-"));
+  try {
+    const bin = join(directory, "site-worker", "node_modules", ".bin");
+    mkdirSync(bin, { recursive: true });
+    mkdirSync(join(directory, "receipts"));
+    writeFileSync(join(directory, "receipts", "release-receipt.json"), JSON.stringify(candidateReceipt()));
+    writeFileSync(join(directory, "fresh.json"), JSON.stringify(deploymentStatus(CANDIDATE_VERSION, RELEASE_MESSAGE)));
+    writeFileSync(join(directory, "stale.json"), JSON.stringify(deploymentStatus(WORKER_VERSION, "JAKH site earlier release")));
+    writeFileSync(join(bin, "wrangler"), [
+      "#!/usr/bin/env bash",
+      "n=$(cat \"$COUNT\" 2>/dev/null || echo 0); n=$((n+1)); echo \"$n\" > \"$COUNT\"",
+      "mode=$(echo \"$PLAN\" | cut -d, -f\"$n\"); [ -z \"$mode\" ] && mode=$(echo \"$PLAN\" | awk -F, '{print $NF}')",
+      "case \"$mode\" in",
+      `  fresh) cat "${join(directory, "fresh.json")}";;`,
+      `  stale) cat "${join(directory, "stale.json")}";;`,
+      "  *) echo 'A request to the Cloudflare API failed.' >&2; exit 1;;",
+      "esac",
+      "",
+    ].join("\n"));
+    chmodSync(join(bin, "wrangler"), 0o755);
+    writeFileSync(join(directory, "step.sh"), `sleep() { echo waited >> "$WAITS"; }\n${body}`);
+    const result = spawnSync("bash", ["step.sh"], {
+      cwd: directory,
+      encoding: "utf8",
+      env: {
+        ...process.env,
+        RECEIPT_DIR: join(directory, "receipts"),
+        GITHUB_OUTPUT: join(directory, "github-output"),
+        COUNT: join(directory, "count"),
+        WAITS: join(directory, "waits"),
+        PLAN: plan,
+      },
+    });
+    const read = (name) => (existsSync(join(directory, name)) ? readFileSync(join(directory, name), "utf8") : "");
+    return {
+      status: result.status,
+      stdout: result.stdout,
+      output: read("github-output").trim(),
+      reads: Number(read("count").trim() || 0),
+      waits: read("waits").split("\n").filter(Boolean).length,
+    };
+  } finally {
+    rmSync(directory, { recursive: true, force: true });
+  }
+}
+
+test("the identity step waits out stale and failed status reads, then fails closed", () => {
+  const identity = (plan) => runStatusStep({
+    stepName: "Capture exact candidate Worker identity before smoke",
+    nextStepName: "Smoke exact candidate",
+    plan,
+  });
+  const expected = `worker-version=${CANDIDATE_VERSION}`;
+  assert.deepEqual(identity("fresh"), { status: 0, stdout: "", output: expected, reads: 1, waits: 0 });
+  // 2026-11-19: the first read after the deploy still named the predecessor.
+  assert.deepEqual(identity("stale,stale,fresh"), { status: 0, stdout: "", output: expected, reads: 3, waits: 2 });
+  assert.deepEqual(identity("stale,fail,fresh"), { status: 0, stdout: "", output: expected, reads: 3, waits: 2 });
+  for (const plan of ["stale", "fail"]) {
+    const never = identity(plan);
+    assert.equal(never.status, 1, `${plan}: the gate fails, so the release rolls back`);
+    assert.equal(never.output, "", `${plan}: no version is handed to the smoke check`);
+    assert.equal(never.reads, 12);
+    assert.equal(never.waits, 11);
+    assert.match(never.stdout, /^::error title=Static site release safety gate::/u);
+  }
+});
+
+test("the verification step re-reads until the status names the verified version, and the gate judges the last read", () => {
+  const verification = (plan) => runStatusStep({
+    stepName: "Verify active Worker version and release identity",
+    nextStepName: "Re-prove live API after static deployment",
+    plan,
+    judge: true,
+  });
+  const judged = (run) => JSON.parse(run.stdout.replace(/^judged=/u, "")).versions[0].version_id;
+  const fresh = verification("fresh");
+  assert.deepEqual([fresh.status, fresh.reads, fresh.waits, judged(fresh)], [0, 1, 0, CANDIDATE_VERSION]);
+  const recovered = verification("stale,fail,fresh");
+  assert.deepEqual([recovered.status, recovered.reads, recovered.waits, judged(recovered)], [0, 3, 2, CANDIDATE_VERSION]);
+  const stale = verification("stale");
+  assert.deepEqual([stale.reads, stale.waits, judged(stale)], [12, 11, WORKER_VERSION], "a status that stays stale reaches the gate unchanged");
 });

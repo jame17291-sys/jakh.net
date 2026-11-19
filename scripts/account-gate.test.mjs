@@ -384,6 +384,16 @@ test('collection pages keep harder cards in the HTML and declare the registratio
   }
 });
 
+test('party and friendship game pages make no free-access claim while the games need an account', () => {
+  const pages = ['most-likely-to', 'how-well-do-you-know-me', 'secret-word-impostor', 'panic-mode', 'friendship-court']
+    .flatMap(slug => [`${slug}.html`, `ar/games/${slug}/index.html`]);
+  for (const file of pages) {
+    const graph = JSON.parse(read(file).match(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/u)[1])['@graph'];
+    assert.ok(graph.some(node => node['@type'] === 'VideoGame'), `${file}: still describes the game`);
+    for (const node of graph) assert.equal(node.isAccessibleForFree, undefined, `${file}: ${node['@type']} has no contradictory free claim`);
+  }
+});
+
 test('public copy no longer promises play without an account', () => {
   const stale = /No sign-up needed|No account needed|no account needed|No account is needed|with or without an account|من دون تسجيل|لا تحتاج إلى حساب|بلا حساب|بحساب أو بدونه|مجانًا دون حساب/u;
   for (const file of ['index.html', 'ar/index.html', 'app.js', 'akshifha-copy.js', 'akshifha.html', 'party-games-copy.js', 'friendship-games-copy.js',

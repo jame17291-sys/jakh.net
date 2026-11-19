@@ -1,8 +1,14 @@
 import assert from "node:assert/strict";
+import { execFileSync, spawnSync } from "node:child_process";
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
 
 import {
   applyRuntimeProof,
+  candidateVersion,
   runSmoke,
   smokeDefinitions,
 } from "./site-release-receipt.mjs";
@@ -298,4 +304,79 @@ test("missing baseline checks and Worker drift withhold rollback eligibility or 
       else assert.equal(result.receipt.result, "rollback-verification-failed");
     }
   }
+});
+
+// On 2026-11-19 the deployment API still reported the predecessor two seconds
+// after a deploy. The smoke check was told to expect that old version, saw the
+// correct new one, and a good release was rolled back.
+const RELEASE_COMMIT = "c".repeat(40);
+const candidateReceipt = () => ({
+  release: { commit: RELEASE_COMMIT, runId: "4242" },
+  candidate: { buildId: BUILD_ID },
+  safety: { workerRollbackTarget: WORKER_VERSION },
+});
+const deploymentStatus = (version, message) => ({
+  versions: [{ version_id: version, percentage: 100 }],
+  annotations: { "workers/message": message },
+});
+const RELEASE_MESSAGE = `JAKH site ${RELEASE_COMMIT} build ${BUILD_ID} run 4242`;
+
+test("the candidate Worker version is only taken from this release's own deployment", () => {
+  assert.equal(
+    candidateVersion({ receipt: candidateReceipt(), deployment: deploymentStatus(CANDIDATE_VERSION, RELEASE_MESSAGE) }),
+    CANDIDATE_VERSION,
+  );
+  assert.throws(
+    () => candidateVersion({ receipt: candidateReceipt(), deployment: deploymentStatus(WORKER_VERSION, "JAKH site earlier release") }),
+    /still reports the rollback target/u,
+    "a stale status naming the predecessor is never the candidate",
+  );
+  assert.throws(
+    () => candidateVersion({ receipt: candidateReceipt(), deployment: deploymentStatus(CANDIDATE_VERSION, "JAKH site another release") }),
+    /does not identify this exact release/u,
+    "another deployment's version is never the candidate",
+  );
+  assert.throws(
+    () => candidateVersion({ receipt: { ...candidateReceipt(), release: {} }, deployment: deploymentStatus(CANDIDATE_VERSION, RELEASE_MESSAGE) }),
+    /does not identify the commit and run/u,
+  );
+  assert.throws(() => candidateVersion({
+    receipt: candidateReceipt(),
+    deployment: { versions: [{ version_id: CANDIDATE_VERSION, percentage: 50 }, { version_id: WORKER_VERSION, percentage: 50 }] },
+  }), /exactly one Worker version/u);
+});
+
+test("the candidate-version command prints the version or fails quietly so the workflow can retry", () => {
+  const script = fileURLToPath(new URL("./site-release-receipt.mjs", import.meta.url));
+  const directory = mkdtempSync(join(tmpdir(), "jakh-candidate-version-"));
+  try {
+    const receipt = join(directory, "receipt.json"), fresh = join(directory, "fresh.json"), stale = join(directory, "stale.json");
+    writeFileSync(receipt, JSON.stringify(candidateReceipt()));
+    writeFileSync(fresh, JSON.stringify(deploymentStatus(CANDIDATE_VERSION, RELEASE_MESSAGE)));
+    writeFileSync(stale, JSON.stringify(deploymentStatus(WORKER_VERSION, "JAKH site earlier release")));
+    assert.equal(
+      execFileSync(process.execPath, [script, "candidate-version", "--receipt", receipt, "--deployment", fresh], { encoding: "utf8" }),
+      CANDIDATE_VERSION,
+    );
+    const refused = spawnSync(process.execPath, [script, "candidate-version", "--receipt", receipt, "--deployment", stale], { encoding: "utf8" });
+    assert.equal(refused.status, 1);
+    assert.equal(refused.stdout, "", "a stale status prints no version");
+    assert.match(refused.stderr, /still reports the rollback target/u);
+    assert.doesNotMatch(refused.stderr, /::error/u, "a retried read raises no failure annotation");
+  } finally {
+    rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test("the static release waits for its own deployment before telling the smoke check what to expect", () => {
+  const workflow = readFileSync(new URL("../.github/workflows/static-site.yml", import.meta.url), "utf8");
+  const start = workflow.indexOf("- name: Capture exact candidate Worker identity before smoke");
+  const end = workflow.indexOf("- name: Smoke exact candidate");
+  assert.ok(start > 0 && end > start);
+  const step = workflow.slice(start, end);
+  assert.match(step, /for attempt in \{1\.\.12\}; do/u);
+  assert.match(step, /site-release-receipt\.mjs candidate-version \\\n\s+--receipt "\$RECEIPT_DIR\/release-receipt\.json" \\\n\s+--deployment "\$RECEIPT_DIR\/deployment-after-initial\.json"/u);
+  assert.doesNotMatch(step, /site-release-receipt\.mjs active-version/u, "an unchecked single read is not the expected version");
+  assert.match(step, /if \[ -z "\$worker_version" \]; then\n\s+echo "::error title=Static site release safety gate::[^"]+"\n\s+exit 1/u);
+  assert.match(workflow, /--expected-worker-version "\$\{\{ steps\.candidate_identity\.outputs\.worker-version \}\}"/u);
 });

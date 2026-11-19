@@ -38,7 +38,7 @@ export function generatePartyGames({ check = false } = {}) {
     const title = `${name} | ${brand}`, url = `https://riddlearabia.com${route}`;
     const graph = { '@context': 'https://schema.org', '@graph': [
       { '@type': 'WebPage', '@id': `${url}#webpage`, name, description, url, inLanguage: lang, isPartOf: { '@id': 'https://riddlearabia.com/#website' }, mainEntity: { '@id': `${url}#game` } },
-      { '@type': 'VideoGame', '@id': `${url}#game`, name, description, url, inLanguage: lang, gamePlatform: 'Web browser', isAccessibleForFree: true },
+      { '@type': 'VideoGame', '@id': `${url}#game`, name, description, url, inLanguage: lang, gamePlatform: 'Web browser' },
       { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: ar ? 'الرئيسية' : 'Home', item: ar ? 'https://riddlearabia.com/ar/' : 'https://riddlearabia.com/' }, { '@type': 'ListItem', position: 2, name: ar ? 'الألعاب' : 'Games', item: `https://riddlearabia.com${ar ? '/ar/play/' : '/play'}` }, { '@type': 'ListItem', position: 3, name, item: url }] },
     ] };
     const html = `<!doctype html>

@@ -10,6 +10,22 @@ import { friendshipLanding } from '../friendship-games-markup.js';
 import { siteHeader, navigationScript } from './site-navigation-markup.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+// The on-page intro is a short tagline. Search results and link previews need a
+// sentence that says what the game is, so these three pages carry their own.
+const SEARCH_DESCRIPTIONS = Object.freeze({
+  mostLikely: {
+    en: 'Most Likely To is a party game for friends on one phone: read a funny scenario, vote for the friend who fits it best, and see who collects the most picks.',
+    ar: 'لعبة جماعية للأصدقاء على هاتف واحد: اقرؤوا موقفًا طريفًا، وصوّتوا للصديق الذي ينطبق عليه أكثر، واعرفوا من يحصد أكبر عدد من الأصوات.',
+  },
+  knowMe: {
+    en: 'Answer ten questions about yourself, send the link to your friends, and see who knows you best. A friendship quiz in English and Arabic with a leaderboard.',
+    ar: 'أجب عن عشرة أسئلة عن نفسك، وأرسل الرابط إلى أصدقائك، واعرف من يعرفك أكثر. اختبار صداقة بالعربية والإنجليزية مع لوحة نتائج مشتركة.',
+  },
+  impostor: {
+    en: 'A bluffing party game on one phone: everyone sees the secret word except one friend. Give careful clues, spot who is guessing, and vote out the impostor.',
+    ar: 'لعبة خداع جماعية على هاتف واحد: يرى الجميع الكلمة السرية إلا لاعبًا واحدًا. قدّموا تلميحات حذرة، وراقبوا من يخمّن، ثم صوّتوا لكشف المندسّ.',
+  },
+});
 export function generatePartyGames({ check = false } = {}) {
   const allGames = [...Object.keys(PARTY_ROUTES), ...Object.keys(FRIENDSHIP_ROUTES)];
   for (const game of allGames) for (const lang of ['en', 'ar']) {
@@ -17,7 +33,7 @@ export function generatePartyGames({ check = false } = {}) {
     const friendship = Object.hasOwn(FRIENDSHIP_ROUTES, game);
     const ft = FRIENDSHIP_COPY[lang]?.[game];
     const route = friendship ? friendshipPath(game, lang) : partyPath(game, lang), alternate = friendship ? friendshipPath(game, ar ? 'en' : 'ar') : partyPath(game, ar ? 'en' : 'ar');
-    const name = friendship ? ft.title : most ? t.mostTitle : t.knowTitle, description = friendship ? ft.intro : most ? t.mostIntro : t.knowIntro;
+    const name = friendship ? ft.title : most ? t.mostTitle : t.knowTitle, description = SEARCH_DESCRIPTIONS[game]?.[lang] || (friendship ? ft.intro : most ? t.mostIntro : t.knowIntro);
     const brand = ar ? 'ريدل أرابيا' : 'Riddle Arabia';
     const title = `${name} | ${brand}`, url = `https://riddlearabia.com${route}`;
     const graph = { '@context': 'https://schema.org', '@graph': [

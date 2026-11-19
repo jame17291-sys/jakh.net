@@ -262,6 +262,13 @@ test("both browser workflows turn on annotations for their browser steps", async
   const regression = step(pullRequest, "Run browser regression suite");
   assert.match(regression, /\n {10}JAKH_BROWSER_ANNOTATE: "1"\n/u);
   assert.match(regression, /run: npm run test:browser/u);
+  // A pull request also runs the two engines a release would otherwise meet first.
+  const otherEngines = step(pullRequest, "Run browser regression suite in Firefox and WebKit");
+  assert.match(otherEngines, /\n {10}JAKH_BROWSER_MATRIX_ENGINES: firefox,webkit\n/u);
+  assert.match(otherEngines, /\n {10}JAKH_BROWSER_ANNOTATE: "1"\n/u);
+  assert.match(otherEngines, /run: npm run test:browser:matrix/u);
+  assert.match(pullRequest, /playwright install --with-deps firefox webkit/u);
+  assert.doesNotMatch(step(release, "Validate browser matrix"), /JAKH_BROWSER_MATRIX_ENGINES/u, "a release always runs all three engines");
 });
 
 test("the browser suite records the failing suite name and the matrix reads it", async () => {

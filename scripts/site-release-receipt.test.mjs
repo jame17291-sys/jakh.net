@@ -8,7 +8,9 @@ import { fileURLToPath } from "node:url";
 
 import {
   applyRuntimeProof,
+  buildPostRollback,
   candidateVersion,
+  rollbackVersion,
   runSmoke,
   smokeDefinitions,
 } from "./site-release-receipt.mjs";
@@ -381,9 +383,22 @@ test("the static release waits for its own deployment before telling the smoke c
   assert.match(workflow, /--expected-worker-version "\$\{\{ steps\.candidate_identity\.outputs\.worker-version \}\}"/u);
 });
 
-// Runs the workflow's own shell for the two status reads against a stand-in
-// "wrangler" whose answers follow a plan (fresh, stale or fail per read).
-function runStatusStep({ stepName, nextStepName, plan, judge = false }) {
+const ROLLBACK_MESSAGE = "Automatic static-site rollback after GitHub Actions run 4242";
+const DEPLOY_STATUSES = {
+  fresh: deploymentStatus(CANDIDATE_VERSION, RELEASE_MESSAGE),
+  stale: deploymentStatus(WORKER_VERSION, "JAKH site earlier release"),
+};
+const ROLLBACK_STATUSES = {
+  fresh: deploymentStatus(WORKER_VERSION, ROLLBACK_MESSAGE),
+  stale: deploymentStatus(CANDIDATE_VERSION, RELEASE_MESSAGE),
+  // The target is active, but under the deployment that preceded this release.
+  earlier: deploymentStatus(WORKER_VERSION, "JAKH site earlier release"),
+};
+
+// Runs the workflow's own shell for a status read against a stand-in
+// "wrangler" whose answers follow a plan (a named status, or fail, per read).
+// `judge` cuts the step at the named check and reports the status left for it.
+function runStatusStep({ stepName, nextStepName, plan, judge = null, statuses = DEPLOY_STATUSES }) {
   const workflow = readFileSync(new URL("../.github/workflows/static-site.yml", import.meta.url), "utf8");
   const start = workflow.indexOf(`- name: ${stepName}`);
   const end = workflow.indexOf(`- name: ${nextStepName}`, start);
@@ -393,31 +408,33 @@ function runStatusStep({ stepName, nextStepName, plan, judge = false }) {
   let body = step.slice(step.indexOf("run: |") + "run: |\n".length)
     .split("\n").map((line) => line.replace(/^ {10}/u, "")).join("\n")
     .replaceAll("node scripts/site-release-receipt.mjs", `"${process.execPath}" "${script}"`)
-    .replaceAll("${{ steps.candidate_identity.outputs.worker-version }}", CANDIDATE_VERSION);
+    .replaceAll("${{ steps.candidate_identity.outputs.worker-version }}", CANDIDATE_VERSION)
+    .replaceAll("${{ steps.preflight.outputs.rollback-version }}", WORKER_VERSION)
+    .replaceAll("${{ steps.preflight.outputs.rollback-build-id }}", BUILD_ID);
   assert.doesNotMatch(body, /\$\{\{/u, `${stepName}: every workflow expression is resolved for the test`);
   if (judge) {
-    // Stand in for the post-deploy gate: report which version the last read named.
-    const gate = body.indexOf(`"${process.execPath}" "${script}" post-deploy`);
-    assert.ok(gate > 0, `${stepName}: the post-deploy gate still follows the wait`);
-    body = `${body.slice(0, gate)}echo "judged=$(cat "$RECEIPT_DIR/deployment-after.json")"\n`;
+    // Stand in for the checks after the wait: report which status the last read left them.
+    const gate = body.indexOf(`"${process.execPath}" "${script}" ${judge.command}`);
+    assert.ok(gate > 0, `${stepName}: the ${judge.command} check still follows the wait`);
+    body = `${body.slice(0, gate)}echo "judged=$(cat "$RECEIPT_DIR/${judge.file}")"\n`;
   }
+  assert.doesNotMatch(body, /\bcurl\b|monitor-production\.mjs|"\s+smoke\b/u, `${stepName}: the test never reaches the network`);
   const directory = mkdtempSync(join(tmpdir(), "jakh-status-step-"));
   try {
     const bin = join(directory, "site-worker", "node_modules", ".bin");
     mkdirSync(bin, { recursive: true });
     mkdirSync(join(directory, "receipts"));
     writeFileSync(join(directory, "receipts", "release-receipt.json"), JSON.stringify(candidateReceipt()));
-    writeFileSync(join(directory, "fresh.json"), JSON.stringify(deploymentStatus(CANDIDATE_VERSION, RELEASE_MESSAGE)));
-    writeFileSync(join(directory, "stale.json"), JSON.stringify(deploymentStatus(WORKER_VERSION, "JAKH site earlier release")));
+    mkdirSync(join(directory, "statuses"));
+    for (const [name, status] of Object.entries(statuses)) {
+      writeFileSync(join(directory, "statuses", `${name}.json`), JSON.stringify(status));
+    }
     writeFileSync(join(bin, "wrangler"), [
       "#!/usr/bin/env bash",
       "n=$(cat \"$COUNT\" 2>/dev/null || echo 0); n=$((n+1)); echo \"$n\" > \"$COUNT\"",
       "mode=$(echo \"$PLAN\" | cut -d, -f\"$n\"); [ -z \"$mode\" ] && mode=$(echo \"$PLAN\" | awk -F, '{print $NF}')",
-      "case \"$mode\" in",
-      `  fresh) cat "${join(directory, "fresh.json")}";;`,
-      `  stale) cat "${join(directory, "stale.json")}";;`,
-      "  *) echo 'A request to the Cloudflare API failed.' >&2; exit 1;;",
-      "esac",
+      `status="${join(directory, "statuses")}/$mode.json"`,
+      "if [ -f \"$status\" ]; then cat \"$status\"; else echo 'A request to the Cloudflare API failed.' >&2; exit 1; fi",
       "",
     ].join("\n"));
     chmodSync(join(bin, "wrangler"), 0o755);
@@ -473,7 +490,7 @@ test("the verification step re-reads until the status names the verified version
     stepName: "Verify active Worker version and release identity",
     nextStepName: "Re-prove live API after static deployment",
     plan,
-    judge: true,
+    judge: { command: "post-deploy", file: "deployment-after.json" },
   });
   const judged = (run) => JSON.parse(run.stdout.replace(/^judged=/u, "")).versions[0].version_id;
   const fresh = verification("fresh");
@@ -482,4 +499,95 @@ test("the verification step re-reads until the status names the verified version
   assert.deepEqual([recovered.status, recovered.reads, recovered.waits, judged(recovered)], [0, 3, 2, CANDIDATE_VERSION]);
   const stale = verification("stale");
   assert.deepEqual([stale.reads, stale.waits, judged(stale)], [12, 11, WORKER_VERSION], "a status that stays stale reaches the gate unchanged");
+});
+
+test("the rollback is only confirmed by the rollback target under this run's rollback message", () => {
+  const confirm = (deployment, receipt = candidateReceipt()) => rollbackVersion({ receipt, deployment });
+  assert.equal(confirm(ROLLBACK_STATUSES.fresh), WORKER_VERSION);
+  assert.throws(() => confirm(ROLLBACK_STATUSES.stale), /does not yet report the rollback target/u,
+    "a stale status naming the failed candidate is not the rollback");
+  assert.throws(() => confirm(ROLLBACK_STATUSES.earlier), /is not this run's rollback/u,
+    "the target under an earlier deployment is not this rollback");
+  assert.throws(() => confirm(deploymentStatus(WORKER_VERSION, "Automatic static-site rollback after GitHub Actions run 4243")),
+    /is not this run's rollback/u, "another run's rollback is not this rollback");
+  assert.throws(() => confirm(ROLLBACK_STATUSES.fresh, { ...candidateReceipt(), release: {} }), /does not identify the run/u);
+  assert.throws(() => confirm(ROLLBACK_STATUSES.fresh, { ...candidateReceipt(), safety: {} }), /does not record the Site Worker rollback target/u);
+  assert.throws(() => confirm({
+    versions: [{ version_id: CANDIDATE_VERSION, percentage: 50 }, { version_id: WORKER_VERSION, percentage: 50 }],
+  }), /exactly one Worker version/u);
+});
+
+test("the rollback-version command prints the version or fails quietly so the workflow can retry", () => {
+  const script = fileURLToPath(new URL("./site-release-receipt.mjs", import.meta.url));
+  const directory = mkdtempSync(join(tmpdir(), "jakh-rollback-version-"));
+  try {
+    const receipt = join(directory, "receipt.json"), fresh = join(directory, "fresh.json"), stale = join(directory, "stale.json");
+    writeFileSync(receipt, JSON.stringify(candidateReceipt()));
+    writeFileSync(fresh, JSON.stringify(ROLLBACK_STATUSES.fresh));
+    writeFileSync(stale, JSON.stringify(ROLLBACK_STATUSES.stale));
+    assert.equal(
+      execFileSync(process.execPath, [script, "rollback-version", "--receipt", receipt, "--deployment", fresh], { encoding: "utf8" }),
+      WORKER_VERSION,
+    );
+    const refused = spawnSync(process.execPath, [script, "rollback-version", "--receipt", receipt, "--deployment", stale], { encoding: "utf8" });
+    assert.equal(refused.status, 1);
+    assert.equal(refused.stdout, "", "a stale status prints no version");
+    assert.match(refused.stderr, /does not yet report the rollback target/u);
+    assert.doesNotMatch(refused.stderr, /::error/u, "a retried read raises no failure annotation");
+  } finally {
+    rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test("the rollback message the wait looks for is the one the rollback step sends", () => {
+  const workflow = readFileSync(new URL("../.github/workflows/static-site.yml", import.meta.url), "utf8");
+  const messages = [...workflow.matchAll(/wrangler rollback [^\n]+\\\n\s+--yes \\\n\s+--message "([^"]+)"/gu)].map((match) => match[1]);
+  assert.deepEqual(messages, ["Automatic static-site rollback after GitHub Actions run $GITHUB_RUN_ID"]);
+  assert.equal(messages[0].replace("$GITHUB_RUN_ID", "4242"), ROLLBACK_MESSAGE);
+});
+
+test("the rollback verification waits out stale and failed status reads, then lets the gate judge the last read", () => {
+  const stepName = "Verify exact rollback version and build";
+  const nextStepName = "Finalize release receipt";
+  const rollback = (plan) => runStatusStep({
+    stepName,
+    nextStepName,
+    plan,
+    statuses: ROLLBACK_STATUSES,
+    judge: { command: "smoke", file: "deployment-after-rollback.json" },
+  });
+  const judged = (run) => JSON.parse(run.stdout.replace(/^judged=/u, ""));
+  const summary = (run) => [run.status, run.reads, run.waits, judged(run).versions[0].version_id];
+  assert.deepEqual(summary(rollback("fresh")), [0, 1, 0, WORKER_VERSION]);
+  // The first read after the rollback can still name the failed candidate.
+  assert.deepEqual(summary(rollback("stale,stale,fresh")), [0, 3, 2, WORKER_VERSION]);
+  assert.deepEqual(summary(rollback("stale,fail,fresh")), [0, 3, 2, WORKER_VERSION]);
+  const earlier = rollback("earlier,fresh");
+  assert.deepEqual(summary(earlier), [0, 2, 1, WORKER_VERSION]);
+  assert.equal(judged(earlier).annotations["workers/message"], ROLLBACK_MESSAGE, "the gate is handed the rollback's own deployment");
+  // A status that never names the rollback reaches the unchanged gate, which rejects it as before.
+  const never = rollback("stale");
+  assert.deepEqual(summary(never), [0, 12, 11, CANDIDATE_VERSION]);
+  assert.match(
+    buildPostRollback({ receipt: candidateReceipt(), deployment: judged(never), smoke: null }).errors.join("\n"),
+    new RegExp(`rollback activated ${CANDIDATE_VERSION}, expected ${WORKER_VERSION}`, "u"),
+  );
+  const unreadable = rollback("fail");
+  assert.deepEqual([unreadable.reads, unreadable.waits, unreadable.stdout], [12, 11, "judged=\n"], "no readable status is left for the gate, so it fails");
+
+  // The checks that follow the wait are the ones that were there before it.
+  const workflow = readFileSync(new URL("../.github/workflows/static-site.yml", import.meta.url), "utf8");
+  const step = workflow.slice(workflow.indexOf(`- name: ${stepName}`), workflow.indexOf(`- name: ${nextStepName}`));
+  const order = [
+    "for attempt in {1..12}; do",
+    "site-release-receipt.mjs rollback-version",
+    "site-release-receipt.mjs smoke",
+    'site-release-receipt.mjs post-rollback \\\n            --receipt "$RECEIPT_DIR/release-receipt.json" \\\n            --deployment "$RECEIPT_DIR/deployment-after-rollback.json"',
+    "node scripts/monitor-production.mjs",
+    "site-release-receipt.mjs runtime-proof",
+  ].map((text) => step.indexOf(text));
+  assert.ok(order.every((index) => index > 0), "every rollback check is still present");
+  assert.deepEqual(order, [...order].sort((left, right) => left - right), "the wait comes first and the checks keep their order");
+  assert.equal(step.match(/for attempt in \{1\.\.12\}; do/gu)?.length, 1);
+  assert.match(step, /if \[ "\$attempt" -lt 12 \]; then sleep 5; fi/u);
 });

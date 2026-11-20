@@ -260,6 +260,65 @@ function expectedDeploymentMessage(receipt, phase) {
   return `JAKH final ${receipt.release.commit} schema ${receipt.source.schema} run ${receipt.release.runId}`;
 }
 
+function expectedRollbackMessage(receipt) {
+  if (!receipt?.release?.runId) return null;
+  const label = receipt.phase === "compatibility" ? "compatibility" : "final";
+  return `Automatic ${label} rollback after GitHub Actions run ${receipt.release.runId}`;
+}
+
+// Right after a deploy the deployment API can still report the predecessor for
+// a moment. The version the health check must find is the one that is not the
+// predecessor recorded in the receipt and whose message names this run's own
+// deployment. The predecessor is the field the phase's own gate compares with.
+export function candidateVersion({ receipt, deployment }) {
+  releasePhase(receipt?.phase);
+  const activeVersion = extractActiveVersion(deployment);
+  const predecessor = receipt.phase === "compatibility"
+    ? receipt.preDeployment?.activeWorkerVersion
+    : receipt.safety?.provenCompatibilityWorker;
+  invariant(
+    typeof predecessor === "string" && predecessor.length > 0,
+    "release receipt does not record the predecessor Worker version",
+  );
+  invariant(
+    activeVersion !== predecessor,
+    "deployment status still reports the predecessor as the active Worker version",
+  );
+  const expectedMessage = receipt.release && receipt.safety && receipt.source
+    ? expectedDeploymentMessage(receipt, receipt.phase === "compatibility" ? "compatibility" : "final")
+    : null;
+  invariant(expectedMessage, "release receipt does not identify the commit and run of this release");
+  invariant(
+    deployment?.annotations?.["workers/message"] === expectedMessage,
+    "active Worker deployment message does not identify this run's own deployment",
+  );
+  return activeVersion;
+}
+
+// Right after a rollback the deployment API can still report the failed
+// candidate, or the target under an earlier deployment. The rollback is visible
+// once the status names the rollback target and this run's rollback message.
+export function rollbackVersion({ receipt, deployment }) {
+  releasePhase(receipt?.phase);
+  const activeVersion = extractActiveVersion(deployment);
+  const target = receipt.safety?.workerRollbackTarget;
+  invariant(
+    typeof target === "string" && target.length > 0,
+    "release receipt does not record the Worker rollback target",
+  );
+  invariant(
+    activeVersion === target,
+    "deployment status does not yet report the rollback target as the active Worker version",
+  );
+  const expectedMessage = expectedRollbackMessage(receipt);
+  invariant(expectedMessage, "release receipt does not identify the run of this release");
+  invariant(
+    deployment?.annotations?.["workers/message"] === expectedMessage,
+    "active Worker deployment message is not this run's rollback",
+  );
+  return activeVersion;
+}
+
 export function buildPreflight({
   phase,
   source,
@@ -676,6 +735,20 @@ async function commandProbe(options) {
   invariant(errors.length === 0, errors.join("; "));
 }
 
+// Retried by the workflow, so a deployment that is not visible yet is reported
+// on standard error without a failure annotation.
+async function commandAwaitedVersion(options, resolveVersion) {
+  try {
+    process.stdout.write(resolveVersion({
+      receipt: await readJson(requireOption(options, "receipt")),
+      deployment: await readJson(requireOption(options, "deployment")),
+    }));
+  } catch (error) {
+    process.stderr.write(`${error.message}\n`);
+    process.exitCode = 1;
+  }
+}
+
 async function commandFinalize(options) {
   const receiptPath = requireOption(options, "receipt");
   const receipt = await readJson(receiptPath);
@@ -744,6 +817,8 @@ async function main() {
       process.stdout.write(extractActiveVersion(await readJson(requireOption(options, "deployment"))));
       break;
     }
+    case "candidate-version": await commandAwaitedVersion(options, candidateVersion); break;
+    case "rollback-version": await commandAwaitedVersion(options, rollbackVersion); break;
     case "probe": await commandProbe(options); break;
     case "finalize": await commandFinalize(options); break;
     case "summary": await commandSummary(options); break;

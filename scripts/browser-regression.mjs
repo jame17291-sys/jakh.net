@@ -1464,6 +1464,63 @@ async function main() {
       }
     });
 
+    await runTest("Battle button keeps a click while the page labels it again", async () => {
+      // The page applies its copy again when it finishes loading and whenever
+      // its window regains focus. It used to rebuild the icon and label inside
+      // the Battle button each time; when that happened between a mouse press
+      // and its release the pressed element was gone, the browser sent no
+      // click, and the button did nothing. On a busy machine that now and then
+      // stalled the Battle invite test below at its first step.
+      const context = await createContext(browser, {
+        viewport: { width: 1280, height: 800 },
+        serviceWorkers: "block",
+      });
+      await setCurrentDeniedConsent(context);
+      const page = await context.newPage();
+      const assertNoPageErrors = trackPageErrors(page);
+      try {
+        await page.goto(`${baseUrl}/mind-lab`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator("#battleNavBtn .nav-action-label").waitFor({ state: "visible" });
+        // Make the page label the button again, as it does when its window
+        // regains focus, and compare everything a mouse press could be on.
+        // Safari also drops the click when only the text inside the pressed
+        // element is replaced, so the text is compared too.
+        await page.evaluate(() => {
+          const button = document.querySelector("#battleNavBtn");
+          const contents = () => {
+            const walker = document.createTreeWalker(button);
+            const nodes = [];
+            while (walker.nextNode()) nodes.push(walker.currentNode);
+            return nodes;
+          };
+          const before = contents();
+          new MutationObserver((records, observer) => {
+            observer.disconnect();
+            const after = contents();
+            window.__battleContentsKept = before.length > 0 && before.length === after.length
+              && before.every((node, index) => node === after[index]);
+          }).observe(button, { attributes: true, childList: true, subtree: true });
+          window.dispatchEvent(new Event("focus"));
+        });
+        await page.waitForFunction(() => typeof window.__battleContentsKept === "boolean");
+        assert.equal(await page.evaluate(() => window.__battleContentsKept), true,
+          "labelling the Battle button again replaced its icon or label; a click in progress would be lost");
+
+        // The same with a real, slow click: the press starts the account check
+        // and the label is applied again before the release.
+        await page.evaluate(() => {
+          document.querySelector("#battleNavBtn").addEventListener("mousedown", () => {
+            window.dispatchEvent(new Event("focus"));
+          }, { once: true });
+        });
+        await page.locator("#battleNavBtn").click({ delay: 300 });
+        await page.locator("#battleNameInput").waitFor({ state: "visible" });
+        assertNoPageErrors();
+      } finally {
+        await context.close();
+      }
+    });
+
     await runTest("Battle query invite joins a second player and starts the same question", async () => {
       const battle = {
         code: "SCI7X2KQ",
@@ -1506,7 +1563,17 @@ async function main() {
         await guest.goto(inviteUrl.href, { waitUntil: NAVIGATION_READY_EVENT });
         await guest.locator("#battleCodeInput").waitFor({ state: "visible" });
         assert.equal(await guest.locator("#battleCodeInput").inputValue(), battle.code);
+        // The form places the cursor in the room code field on the frame after
+        // it renders, which is before the browser first shows it to a person.
+        // Automation can type ahead of that frame: the cursor then moves while
+        // the name is being typed, the name lands in the code field, and Join
+        // asks for a name instead of joining (the Firefox release-check failure
+        // of 2026-11-20). Start typing only once the form has taken focus.
+        await guest.waitForFunction(() => document.activeElement?.id === "battleCodeInput");
         await guest.locator("#battleNameInput").fill("Guest");
+        assert.equal(await guest.locator("#battleNameInput").inputValue(), "Guest");
+        assert.equal(await guest.locator("#battleCodeInput").inputValue(), battle.code,
+          "typing a name must not change the invited room code");
         await guest.locator("#battleJoinBtn").click();
         await guest.waitForFunction(() => document.querySelector("#battleJoinBtn")?.disabled === true);
         assert.equal(await guest.locator("#battleJoinBtn").isDisabled(), true);

@@ -1911,17 +1911,17 @@ function applyRuntimeAccessibilityCopy() {
     button.setAttribute('aria-label', t('close'));
   });
   document.querySelector('.kv-hero-title .sr-only')?.replaceChildren(document.createTextNode(` ${t('homeSrTitle')}`));
-  document.getElementById('leaderboardBtn')?.setAttribute('aria-label', t('leaderboardTitle'));
-  document.getElementById('battleNavBtn')?.setAttribute('aria-label', t('teamBattle'));
   const leaderboardBtn = document.getElementById('leaderboardBtn');
   if (leaderboardBtn) {
     leaderboardBtn.title = t('leaderboardTitle');
-    leaderboardBtn.innerHTML = `<span aria-hidden="true">🏆</span><span class="nav-action-label">${escapeHtml(t('leaderboardNav'))}</span>`;
+    leaderboardBtn.setAttribute('aria-label', t('leaderboardTitle'));
+    if (!leaderboardBtn.firstElementChild) leaderboardBtn.innerHTML = `<span aria-hidden="true">🏆</span><span class="nav-action-label">${escapeHtml(t('leaderboardNav'))}</span>`;
   }
   const battleNavBtn = document.getElementById('battleNavBtn');
   if (battleNavBtn) {
     battleNavBtn.title = t('teamBattle');
-    battleNavBtn.innerHTML = `<span aria-hidden="true">⚡</span><span class="nav-action-label">${escapeHtml(t('battleNav'))}</span>`;
+    battleNavBtn.setAttribute('aria-label', t('teamBattle'));
+    if (!battleNavBtn.firstElementChild) battleNavBtn.innerHTML = `<span aria-hidden="true">⚡</span><span class="nav-action-label">${escapeHtml(t('battleNav'))}</span>`;
   }
   const searchBtn = document.getElementById('globalSearchBtn');
   if (searchBtn) searchBtn.textContent = state.lang === 'ar' ? 'ابحث في الأسئلة' : 'Search questions';
@@ -1936,7 +1936,8 @@ function applyRuntimeAccessibilityCopy() {
 function applyStaticCopy() {
   document.querySelectorAll('[data-i18n]').forEach((node) => {
     const key = node.dataset.i18n;
-    node.textContent = t(key);
+    const target = node.querySelector('.nav-action-label') || node;
+    if (target.textContent !== t(key)) target.textContent = t(key);
   });
   document.querySelectorAll('[data-i18n-aria-label]').forEach((node) => {
     node.setAttribute('aria-label', t(node.dataset.i18nAriaLabel));

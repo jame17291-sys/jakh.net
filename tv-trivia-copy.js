@@ -1,6 +1,6 @@
 export const COPY = {
   en: {
-    eyebrow: 'THE TV TRIVIA CLUB', title: 'How well do you know your favourite shows?', intro: '10 questions. Your favourite shows. No sign-up needed.',
+    eyebrow: 'THE TV TRIVIA CLUB', title: 'How well do you know your favourite shows?', intro: '10 questions. Your favourite shows. Free for members.',
     mixed: 'Play a mixed quiz', choose: 'Choose a show', safe: 'Spoiler-safe by default', safeDetail: 'Premise, cast and production facts. No plot twists.', relaxed: 'No timer. Just good TV.',
     shows: 'Pick your next obsession', showsIntro: 'A little nostalgia. A little friendly competition.', showCount: '{shows} · 2 languages', play: 'Play 10 questions', options: 'Round options',
     back: 'Back to shows', show: 'Show', all: 'All shows', season: 'I have finished season', story: 'Include story questions', storyHint: 'Questions may reveal events up to the season you choose.',
@@ -24,7 +24,7 @@ export const COPY = {
     bankCount: 'questions in total', availableCount: 'questions available with these settings',
   },
   ar: {
-    eyebrow: 'نادي تحدّي المسلسلات', title: 'جاهز لتحدّي مسلسلاتك المفضلة؟', intro: '10 أسئلة. مسلسلاتك المفضلة. بلا تسجيل.',
+    eyebrow: 'نادي تحدّي المسلسلات', title: 'جاهز لتحدّي مسلسلاتك المفضلة؟', intro: '10 أسئلة. مسلسلاتك المفضلة. مجانًا للأعضاء.',
     mixed: 'ابدأ تحدّيًا متنوعًا', choose: 'اختر مسلسلًا', safe: 'بلا حرق للأحداث افتراضيًا', safeDetail: 'أسئلة عن الفكرة الأساسية والممثلين والإنتاج، بلا مفاجآت القصة.', relaxed: 'بلا مؤقّت. استمتع بالتحدّي.',
     shows: 'اختر مسلسلك المفضل', showsIntro: 'قليل من الحنين، وكثير من متعة التحدّي.', showCount: '{shows} · لغتان', play: 'العب 10 أسئلة', options: 'خيارات الجولة',
     back: 'العودة إلى المسلسلات', show: 'المسلسل', all: 'كل المسلسلات', season: 'أكملت مشاهدة الموسم', story: 'أضف أسئلة عن أحداث القصة', storyHint: 'قد تكشف الأسئلة أحداثًا حتى الموسم الذي تختاره.',

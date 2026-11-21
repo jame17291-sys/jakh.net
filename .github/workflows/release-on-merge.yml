@@ -1,0 +1,54 @@
+name: Release on merge
+run-name: Release on merge · ${{ github.sha }}
+
+# Merging a pull request into protected main releases Riddle Arabia. This
+# workflow starts the two protected release workflows in their required order
+# (API deploy with release_phase=compatibility, then Static site) for the exact
+# merged commit, with the inputs the deployment checklist prescribes. It does
+# not deploy anything itself: every authorization, build, proof, environment
+# approval, rollback and receipt step still happens inside those workflows, and
+# the monitors still see ordinary workflow_dispatch release runs.
+#
+# Changes that only touch documentation or Markdown do not start a release.
+# Schema changes (migrate-final) are never automatic; follow the checklist.
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "docs/**"
+      - "**/*.md"
+      - ".github/ISSUE_TEMPLATE/**"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+# Separate from the release group: this job waits on the release workflows,
+# which hold jakh-production-release themselves.
+concurrency:
+  group: jakh-release-on-merge
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Start API deploy, then Static site, for the merged commit
+    if: ${{ github.repository == 'jame17291-sys/jakh.net' && github.ref == 'refs/heads/main' && github.ref_protected }}
+    runs-on: ubuntu-latest
+    # Each release workflow may wait for a production environment approval, so
+    # this watcher allows up to about three hours per stage.
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "24"
+      - name: Validate the release-on-merge policy
+        run: node --test scripts/release-on-merge.test.mjs
+      - name: Release the merged commit through the protected workflows
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/release-on-merge.mjs

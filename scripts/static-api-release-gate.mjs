@@ -14,7 +14,7 @@ const EXPECTED_PUBLICATION = Object.freeze({
   state: "safety-quarantine-active",
   categories: Object.freeze([...publicationQuarantine.categorySlugs].sort()),
   quarantinedQuestions: publicationQuarantine.manifest.totalCards,
-  publicQuestions: 3_286,
+  publicQuestions: 3_360,
   manifestSha256: publicationQuarantine.policySha256,
 });
 

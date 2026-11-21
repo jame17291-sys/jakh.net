@@ -8,10 +8,10 @@
     "highStakes": "High-stakes completion requires an independent sign-off backed by a verified domain qualification."
   },
   "summary": {
-    "packets": 366,
-    "cards": 3564,
+    "packets": 371,
+    "cards": 3638,
     "reviewed": 3,
-    "pending": 3561,
+    "pending": 3635,
     "evidenceComplete": 0,
     "highStakes": {
       "total": 278,
@@ -41731,6 +41731,134 @@
     },
     {
       "sequence": 162,
+      "id": "kids-riddles--animals-nature",
+      "category": {
+        "slug": "kids-riddles",
+        "title": {
+          "en": "Kids Riddles",
+          "ar": "ألغاز للأطفال"
+        }
+      },
+      "subcategory": {
+        "en": "Animals & Nature",
+        "ar": "الحيوانات والطبيعة"
+      },
+      "priority": "standard",
+      "highStakes": false,
+      "cardCount": 4,
+      "cards": [
+        {
+          "id": "kids-riddles-031",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 3,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "kids-riddles-032",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "kids-riddles-033",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 10,
+              "ar": 7
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "kids-riddles-035",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 163,
       "id": "kids-riddles--art-paper-school-tools",
       "category": {
         "slug": "kids-riddles",
@@ -41885,7 +42013,7 @@
       ]
     },
     {
-      "sequence": 163,
+      "sequence": 164,
       "id": "kids-riddles--logic-codes-patterns",
       "category": {
         "slug": "kids-riddles",
@@ -41900,7 +42028,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 5,
+      "cardCount": 6,
       "cards": [
         {
           "id": "kids-riddles-019",
@@ -41910,8 +42038,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 1,
-              "ar": 1
+              "en": 9,
+              "ar": 8
             },
             "containsNumber": true,
             "containsYear": false,
@@ -42036,11 +42164,38 @@
               "evidence-record-missing"
             ]
           }
+        },
+        {
+          "id": "kids-riddles-039",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 6,
+              "ar": 7
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
         }
       ]
     },
     {
-      "sequence": 164,
+      "sequence": 165,
       "id": "kids-riddles--numbers-counting",
       "category": {
         "slug": "kids-riddles",
@@ -42055,7 +42210,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 5,
+      "cardCount": 7,
       "cards": [
         {
           "id": "kids-riddles-011",
@@ -42086,7 +42241,7 @@
         },
         {
           "id": "kids-riddles-021",
-          "difficulty": "hard",
+          "difficulty": "medium",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [],
@@ -42095,7 +42250,7 @@
               "en": 1,
               "ar": 1
             },
-            "containsNumber": true,
+            "containsNumber": false,
             "containsYear": false,
             "needsClaimDecomposition": false
           },
@@ -42191,11 +42346,65 @@
               "evidence-record-missing"
             ]
           }
+        },
+        {
+          "id": "kids-riddles-036",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 3,
+              "ar": 3
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "kids-riddles-038",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 12,
+              "ar": 8
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
         }
       ]
     },
     {
-      "sequence": 165,
+      "sequence": 166,
       "id": "kids-riddles--objects-clothing-technology",
       "category": {
         "slug": "kids-riddles",
@@ -42377,7 +42586,7 @@
       ]
     },
     {
-      "sequence": 166,
+      "sequence": 167,
       "id": "kids-riddles--time-space-directions",
       "category": {
         "slug": "kids-riddles",
@@ -42392,7 +42601,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 5,
+      "cardCount": 7,
       "cards": [
         {
           "id": "kids-riddles-012",
@@ -42450,7 +42659,7 @@
         },
         {
           "id": "kids-riddles-015",
-          "difficulty": "medium",
+          "difficulty": "easy",
           "reviewStatus": "pending",
           "highStakes": false,
           "mutableSignals": [
@@ -42530,11 +42739,67 @@
               "evidence-record-missing"
             ]
           }
+        },
+        {
+          "id": "kids-riddles-034",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 11,
+              "ar": 12
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "kids-riddles-040",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [
+            "current-state"
+          ],
+          "contentSignals": {
+            "answerWords": {
+              "en": 8,
+              "ar": 7
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
         }
       ]
     },
     {
-      "sequence": 167,
+      "sequence": 168,
       "id": "kids-riddles--wordplay-classic-riddles",
       "category": {
         "slug": "kids-riddles",
@@ -42549,7 +42814,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 4,
+      "cardCount": 5,
       "cards": [
         {
           "id": "kids-riddles-002",
@@ -42658,11 +42923,38 @@
               "evidence-record-missing"
             ]
           }
+        },
+        {
+          "id": "kids-riddles-037",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 11,
+              "ar": 8
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
         }
       ]
     },
     {
-      "sequence": 168,
+      "sequence": 169,
       "id": "law-middle-east--civil-property-labor-law",
       "category": {
         "slug": "law-middle-east",
@@ -42817,7 +43109,7 @@
       ]
     },
     {
-      "sequence": 169,
+      "sequence": 170,
       "id": "law-middle-east--constitutional-legal-systems",
       "category": {
         "slug": "law-middle-east",
@@ -43026,7 +43318,7 @@
       ]
     },
     {
-      "sequence": 170,
+      "sequence": 171,
       "id": "law-middle-east--criminal-law-justice",
       "category": {
         "slug": "law-middle-east",
@@ -43235,7 +43527,7 @@
       ]
     },
     {
-      "sequence": 171,
+      "sequence": 172,
       "id": "law-middle-east--family-inheritance-law",
       "category": {
         "slug": "law-middle-east",
@@ -43417,7 +43709,7 @@
       ]
     },
     {
-      "sequence": 172,
+      "sequence": 173,
       "id": "law-middle-east--international-law-human-rights",
       "category": {
         "slug": "law-middle-east",
@@ -43680,7 +43972,7 @@
       ]
     },
     {
-      "sequence": 173,
+      "sequence": 174,
       "id": "law-middle-east--islamic-finance-commercial-law",
       "category": {
         "slug": "law-middle-east",
@@ -43862,7 +44154,7 @@
       ]
     },
     {
-      "sequence": 174,
+      "sequence": 175,
       "id": "law-middle-east--islamic-jurisprudence-sources",
       "category": {
         "slug": "law-middle-east",
@@ -44098,7 +44390,7 @@
       ]
     },
     {
-      "sequence": 175,
+      "sequence": 176,
       "id": "math--algebra-functions",
       "category": {
         "slug": "math",
@@ -44280,7 +44572,7 @@
       ]
     },
     {
-      "sequence": 176,
+      "sequence": 177,
       "id": "math--arithmetic-fractions-percentages",
       "category": {
         "slug": "math",
@@ -44462,7 +44754,7 @@
       ]
     },
     {
-      "sequence": 177,
+      "sequence": 178,
       "id": "math--calculus-analysis",
       "category": {
         "slug": "math",
@@ -44752,7 +45044,7 @@
       ]
     },
     {
-      "sequence": 178,
+      "sequence": 179,
       "id": "math--geometry-trigonometry",
       "category": {
         "slug": "math",
@@ -45393,7 +45685,7 @@
       ]
     },
     {
-      "sequence": 179,
+      "sequence": 180,
       "id": "math--logic-foundations-unsolved-problems",
       "category": {
         "slug": "math",
@@ -45874,7 +46166,7 @@
       ]
     },
     {
-      "sequence": 180,
+      "sequence": 181,
       "id": "math--number-theory-number-riddles",
       "category": {
         "slug": "math",
@@ -46650,7 +46942,7 @@
       ]
     },
     {
-      "sequence": 181,
+      "sequence": 182,
       "id": "math--patterns-sequences-word-problems",
       "category": {
         "slug": "math",
@@ -47048,7 +47340,7 @@
       ]
     },
     {
-      "sequence": 182,
+      "sequence": 183,
       "id": "math--probability-combinatorics-statistics",
       "category": {
         "slug": "math",
@@ -47500,7 +47792,7 @@
       ]
     },
     {
-      "sequence": 183,
+      "sequence": 184,
       "id": "mechanical-engineering--fluids-hydraulics",
       "category": {
         "slug": "mechanical-engineering",
@@ -47655,7 +47947,7 @@
       ]
     },
     {
-      "sequence": 184,
+      "sequence": 185,
       "id": "mechanical-engineering--machines-gears-mechanisms",
       "category": {
         "slug": "mechanical-engineering",
@@ -47945,7 +48237,7 @@
       ]
     },
     {
-      "sequence": 185,
+      "sequence": 186,
       "id": "mechanical-engineering--materials-failure",
       "category": {
         "slug": "mechanical-engineering",
@@ -48208,7 +48500,7 @@
       ]
     },
     {
-      "sequence": 186,
+      "sequence": 187,
       "id": "mechanical-engineering--measurement-maintenance",
       "category": {
         "slug": "mechanical-engineering",
@@ -48309,7 +48601,7 @@
       ]
     },
     {
-      "sequence": 187,
+      "sequence": 188,
       "id": "mechanical-engineering--mechanics-structural-analysis",
       "category": {
         "slug": "mechanical-engineering",
@@ -48437,7 +48729,7 @@
       ]
     },
     {
-      "sequence": 188,
+      "sequence": 189,
       "id": "mechanical-engineering--thermodynamics-heat-power",
       "category": {
         "slug": "mechanical-engineering",
@@ -48700,7 +48992,7 @@
       ]
     },
     {
-      "sequence": 189,
+      "sequence": 190,
       "id": "medical-questions--anatomy-physiology",
       "category": {
         "slug": "medical-questions",
@@ -49584,7 +49876,7 @@
       ]
     },
     {
-      "sequence": 190,
+      "sequence": 191,
       "id": "medical-questions--cardiovascular-blood",
       "category": {
         "slug": "medical-questions",
@@ -49739,7 +50031,7 @@
       ]
     },
     {
-      "sequence": 191,
+      "sequence": 192,
       "id": "medical-questions--clinical-care-prevention",
       "category": {
         "slug": "medical-questions",
@@ -49840,7 +50132,7 @@
       ]
     },
     {
-      "sequence": 192,
+      "sequence": 193,
       "id": "medical-questions--disease-genetics-pathology",
       "category": {
         "slug": "medical-questions",
@@ -50481,7 +50773,7 @@
       ]
     },
     {
-      "sequence": 193,
+      "sequence": 194,
       "id": "medical-questions--immunity-infection",
       "category": {
         "slug": "medical-questions",
@@ -50582,7 +50874,7 @@
       ]
     },
     {
-      "sequence": 194,
+      "sequence": 195,
       "id": "medical-questions--neurology-mental-health",
       "category": {
         "slug": "medical-questions",
@@ -50710,7 +51002,7 @@
       ]
     },
     {
-      "sequence": 195,
+      "sequence": 196,
       "id": "medical-questions--organ-systems-metabolism",
       "category": {
         "slug": "medical-questions",
@@ -51000,7 +51292,7 @@
       ]
     },
     {
-      "sequence": 196,
+      "sequence": 197,
       "id": "medical-questions--pharmacology-toxicology",
       "category": {
         "slug": "medical-questions",
@@ -51560,7 +51852,7 @@
       ]
     },
     {
-      "sequence": 197,
+      "sequence": 198,
       "id": "middle-east-history--ancient",
       "category": {
         "slug": "middle-east-history",
@@ -51742,7 +52034,7 @@
       ]
     },
     {
-      "sequence": 198,
+      "sequence": 199,
       "id": "middle-east-history--islamic-history",
       "category": {
         "slug": "middle-east-history",
@@ -52358,7 +52650,7 @@
       ]
     },
     {
-      "sequence": 199,
+      "sequence": 200,
       "id": "middle-east-history--modern-history",
       "category": {
         "slug": "middle-east-history",
@@ -53053,7 +53345,7 @@
       ]
     },
     {
-      "sequence": 200,
+      "sequence": 201,
       "id": "middle-east-history--ottoman-history",
       "category": {
         "slug": "middle-east-history",
@@ -53262,7 +53554,7 @@
       ]
     },
     {
-      "sequence": 201,
+      "sequence": 202,
       "id": "pharmacy--antimicrobials-resistance",
       "category": {
         "slug": "pharmacy",
@@ -53417,7 +53709,7 @@
       ]
     },
     {
-      "sequence": 202,
+      "sequence": 203,
       "id": "pharmacy--drug-classes-therapeutics",
       "category": {
         "slug": "pharmacy",
@@ -53842,7 +54134,7 @@
       ]
     },
     {
-      "sequence": 203,
+      "sequence": 204,
       "id": "pharmacy--drug-development-formulation",
       "category": {
         "slug": "pharmacy",
@@ -53970,7 +54262,7 @@
       ]
     },
     {
-      "sequence": 204,
+      "sequence": 205,
       "id": "pharmacy--drug-safety-interactions",
       "category": {
         "slug": "pharmacy",
@@ -54179,7 +54471,7 @@
       ]
     },
     {
-      "sequence": 205,
+      "sequence": 206,
       "id": "pharmacy--pharmacodynamics-receptors",
       "category": {
         "slug": "pharmacy",
@@ -54415,7 +54707,7 @@
       ]
     },
     {
-      "sequence": 206,
+      "sequence": 207,
       "id": "pharmacy--pharmacokinetics-biopharmaceutics",
       "category": {
         "slug": "pharmacy",
@@ -54651,7 +54943,7 @@
       ]
     },
     {
-      "sequence": 207,
+      "sequence": 208,
       "id": "pharmacy--precision-biologic-therapies",
       "category": {
         "slug": "pharmacy",
@@ -54752,7 +55044,7 @@
       ]
     },
     {
-      "sequence": 208,
+      "sequence": 209,
       "id": "philosophy--epistemology-logic",
       "category": {
         "slug": "philosophy",
@@ -54907,7 +55199,7 @@
       ]
     },
     {
-      "sequence": 209,
+      "sequence": 210,
       "id": "philosophy--ethics",
       "category": {
         "slug": "philosophy",
@@ -55062,7 +55354,7 @@
       ]
     },
     {
-      "sequence": 210,
+      "sequence": 211,
       "id": "philosophy--language-philosophy-of-science",
       "category": {
         "slug": "philosophy",
@@ -55190,7 +55482,7 @@
       ]
     },
     {
-      "sequence": 211,
+      "sequence": 212,
       "id": "philosophy--metaphysics-mind",
       "category": {
         "slug": "philosophy",
@@ -55426,7 +55718,7 @@
       ]
     },
     {
-      "sequence": 212,
+      "sequence": 213,
       "id": "philosophy--philosophical-traditions",
       "category": {
         "slug": "philosophy",
@@ -55797,7 +56089,7 @@
       ]
     },
     {
-      "sequence": 213,
+      "sequence": 214,
       "id": "philosophy--political-philosophy",
       "category": {
         "slug": "philosophy",
@@ -55952,7 +56244,7 @@
       ]
     },
     {
-      "sequence": 214,
+      "sequence": 215,
       "id": "psychology--clinical-mental-health",
       "category": {
         "slug": "psychology",
@@ -56269,7 +56561,7 @@
       ]
     },
     {
-      "sequence": 215,
+      "sequence": 216,
       "id": "psychology--cognition-memory-perception",
       "category": {
         "slug": "psychology",
@@ -56856,7 +57148,7 @@
       ]
     },
     {
-      "sequence": 216,
+      "sequence": 217,
       "id": "psychology--developmental-psychology",
       "category": {
         "slug": "psychology",
@@ -57200,7 +57492,7 @@
       ]
     },
     {
-      "sequence": 217,
+      "sequence": 218,
       "id": "psychology--foundations-learning-motivation",
       "category": {
         "slug": "psychology",
@@ -57598,7 +57890,7 @@
       ]
     },
     {
-      "sequence": 218,
+      "sequence": 219,
       "id": "psychology--neuroscience",
       "category": {
         "slug": "psychology",
@@ -57915,7 +58207,7 @@
       ]
     },
     {
-      "sequence": 219,
+      "sequence": 220,
       "id": "psychology--personality-emotion",
       "category": {
         "slug": "psychology",
@@ -58151,7 +58443,7 @@
       ]
     },
     {
-      "sequence": 220,
+      "sequence": 221,
       "id": "psychology--research-methods",
       "category": {
         "slug": "psychology",
@@ -58387,7 +58679,7 @@
       ]
     },
     {
-      "sequence": 221,
+      "sequence": 222,
       "id": "psychology--social-psychology",
       "category": {
         "slug": "psychology",
@@ -58812,7 +59104,7 @@
       ]
     },
     {
-      "sequence": 222,
+      "sequence": 223,
       "id": "relationship-questions--boundaries-permission",
       "category": {
         "slug": "relationship-questions",
@@ -59021,7 +59313,7 @@
       ]
     },
     {
-      "sequence": 223,
+      "sequence": 224,
       "id": "relationship-questions--communication-listening",
       "category": {
         "slug": "relationship-questions",
@@ -59419,7 +59711,7 @@
       ]
     },
     {
-      "sequence": 224,
+      "sequence": 225,
       "id": "relationship-questions--conflict-repair",
       "category": {
         "slug": "relationship-questions",
@@ -59655,7 +59947,7 @@
       ]
     },
     {
-      "sequence": 225,
+      "sequence": 226,
       "id": "relationship-questions--digital-privacy-expectations",
       "category": {
         "slug": "relationship-questions",
@@ -59756,7 +60048,7 @@
       ]
     },
     {
-      "sequence": 226,
+      "sequence": 227,
       "id": "relationship-questions--friendship-closeness",
       "category": {
         "slug": "relationship-questions",
@@ -60046,7 +60338,7 @@
       ]
     },
     {
-      "sequence": 227,
+      "sequence": 228,
       "id": "relationship-questions--support-shared-decisions",
       "category": {
         "slug": "relationship-questions",
@@ -60120,7 +60412,7 @@
       ]
     },
     {
-      "sequence": 228,
+      "sequence": 229,
       "id": "science--biology-life-sciences",
       "category": {
         "slug": "science",
@@ -60302,7 +60594,7 @@
       ]
     },
     {
-      "sequence": 229,
+      "sequence": 230,
       "id": "science--chemistry-materials",
       "category": {
         "slug": "science",
@@ -60540,7 +60832,7 @@
       ]
     },
     {
-      "sequence": 230,
+      "sequence": 231,
       "id": "science--heat-energy",
       "category": {
         "slug": "science",
@@ -60884,7 +61176,7 @@
       ]
     },
     {
-      "sequence": 231,
+      "sequence": 232,
       "id": "science--mechanics-classical-physics",
       "category": {
         "slug": "science",
@@ -61336,7 +61628,7 @@
       ]
     },
     {
-      "sequence": 232,
+      "sequence": 233,
       "id": "science--quantum-relativity-cosmology",
       "category": {
         "slug": "science",
@@ -62004,7 +62296,7 @@
       ]
     },
     {
-      "sequence": 233,
+      "sequence": 234,
       "id": "science--waves-light-sound",
       "category": {
         "slug": "science",
@@ -62402,7 +62694,7 @@
       ]
     },
     {
-      "sequence": 234,
+      "sequence": 235,
       "id": "social-sciences--anthropology",
       "category": {
         "slug": "social-sciences",
@@ -62638,7 +62930,7 @@
       ]
     },
     {
-      "sequence": 235,
+      "sequence": 236,
       "id": "social-sciences--economics",
       "category": {
         "slug": "social-sciences",
@@ -63009,7 +63301,7 @@
       ]
     },
     {
-      "sequence": 236,
+      "sequence": 237,
       "id": "social-sciences--political-science",
       "category": {
         "slug": "social-sciences",
@@ -63353,7 +63645,7 @@
       ]
     },
     {
-      "sequence": 237,
+      "sequence": 238,
       "id": "social-sciences--sociology",
       "category": {
         "slug": "social-sciences",
@@ -63834,7 +64126,7 @@
       ]
     },
     {
-      "sequence": 238,
+      "sequence": 239,
       "id": "software-and-computing--algorithms-data-structures",
       "category": {
         "slug": "software-and-computing",
@@ -64097,7 +64389,7 @@
       ]
     },
     {
-      "sequence": 239,
+      "sequence": 240,
       "id": "software-and-computing--computer-science",
       "category": {
         "slug": "software-and-computing",
@@ -64468,7 +64760,7 @@
       ]
     },
     {
-      "sequence": 240,
+      "sequence": 241,
       "id": "software-and-computing--programming-fundamentals",
       "category": {
         "slug": "software-and-computing",
@@ -64650,7 +64942,7 @@
       ]
     },
     {
-      "sequence": 241,
+      "sequence": 242,
       "id": "software-and-computing--software-engineering",
       "category": {
         "slug": "software-and-computing",
@@ -64994,7 +65286,7 @@
       ]
     },
     {
-      "sequence": 242,
+      "sequence": 243,
       "id": "software-and-computing--systems-networking",
       "category": {
         "slug": "software-and-computing",
@@ -65284,7 +65576,7 @@
       ]
     },
     {
-      "sequence": 243,
+      "sequence": 244,
       "id": "software-and-computing--ui-ux-visual-design",
       "category": {
         "slug": "software-and-computing",
@@ -65412,7 +65704,7 @@
       ]
     },
     {
-      "sequence": 244,
+      "sequence": 245,
       "id": "software-and-computing--web-development",
       "category": {
         "slug": "software-and-computing",
@@ -65594,7 +65886,7 @@
       ]
     },
     {
-      "sequence": 245,
+      "sequence": 246,
       "id": "space-and-astrology--black-holes-gravity",
       "category": {
         "slug": "space-and-astrology",
@@ -65884,7 +66176,7 @@
       ]
     },
     {
-      "sequence": 246,
+      "sequence": 247,
       "id": "space-and-astrology--galaxies-cosmology",
       "category": {
         "slug": "space-and-astrology",
@@ -66471,7 +66763,7 @@
       ]
     },
     {
-      "sequence": 247,
+      "sequence": 248,
       "id": "space-and-astrology--observational-astronomy",
       "category": {
         "slug": "space-and-astrology",
@@ -66734,7 +67026,7 @@
       ]
     },
     {
-      "sequence": 248,
+      "sequence": 249,
       "id": "space-and-astrology--solar-system-planets",
       "category": {
         "slug": "space-and-astrology",
@@ -67458,7 +67750,7 @@
       ]
     },
     {
-      "sequence": 249,
+      "sequence": 250,
       "id": "space-and-astrology--space-exploration-telescopes",
       "category": {
         "slug": "space-and-astrology",
@@ -67883,7 +68175,7 @@
       ]
     },
     {
-      "sequence": 250,
+      "sequence": 251,
       "id": "space-and-astrology--space-physics-orbits",
       "category": {
         "slug": "space-and-astrology",
@@ -67984,7 +68276,7 @@
       ]
     },
     {
-      "sequence": 251,
+      "sequence": 252,
       "id": "space-and-astrology--stars-stellar-evolution",
       "category": {
         "slug": "space-and-astrology",
@@ -68436,7 +68728,7 @@
       ]
     },
     {
-      "sequence": 252,
+      "sequence": 253,
       "id": "story-mysteries--arts-language-performance",
       "category": {
         "slug": "story-mysteries",
@@ -68566,7 +68858,7 @@
       ]
     },
     {
-      "sequence": 253,
+      "sequence": 254,
       "id": "story-mysteries--crime-investigation",
       "category": {
         "slug": "story-mysteries",
@@ -68748,7 +69040,7 @@
       ]
     },
     {
-      "sequence": 254,
+      "sequence": 255,
       "id": "story-mysteries--everyday-family",
       "category": {
         "slug": "story-mysteries",
@@ -69094,7 +69386,7 @@
       ]
     },
     {
-      "sequence": 255,
+      "sequence": 256,
       "id": "story-mysteries--games-competition",
       "category": {
         "slug": "story-mysteries",
@@ -69195,7 +69487,7 @@
       ]
     },
     {
-      "sequence": 256,
+      "sequence": 257,
       "id": "story-mysteries--logic-paradoxes",
       "category": {
         "slug": "story-mysteries",
@@ -69377,7 +69669,7 @@
       ]
     },
     {
-      "sequence": 257,
+      "sequence": 258,
       "id": "story-mysteries--science-medicine",
       "category": {
         "slug": "story-mysteries",
@@ -69505,7 +69797,7 @@
       ]
     },
     {
-      "sequence": 258,
+      "sequence": 259,
       "id": "story-mysteries--society-money-power",
       "category": {
         "slug": "story-mysteries",
@@ -69662,7 +69954,7 @@
       ]
     },
     {
-      "sequence": 259,
+      "sequence": 260,
       "id": "story-mysteries--survival-accidents",
       "category": {
         "slug": "story-mysteries",
@@ -69900,7 +70192,7 @@
       ]
     },
     {
-      "sequence": 260,
+      "sequence": 261,
       "id": "tv-shows-trivia--al-hashasheen",
       "category": {
         "slug": "tv-shows-trivia",
@@ -71000,7 +71292,7 @@
       ]
     },
     {
-      "sequence": 261,
+      "sequence": 262,
       "id": "tv-shows-trivia--bab-al-hara",
       "category": {
         "slug": "tv-shows-trivia",
@@ -72100,7 +72392,7 @@
       ]
     },
     {
-      "sequence": 262,
+      "sequence": 263,
       "id": "tv-shows-trivia--breaking-bad",
       "category": {
         "slug": "tv-shows-trivia",
@@ -73200,7 +73492,7 @@
       ]
     },
     {
-      "sequence": 263,
+      "sequence": 264,
       "id": "tv-shows-trivia--dirilis-ertug-rul",
       "category": {
         "slug": "tv-shows-trivia",
@@ -74300,7 +74592,7 @@
       ]
     },
     {
-      "sequence": 264,
+      "sequence": 265,
       "id": "tv-shows-trivia--friends",
       "category": {
         "slug": "tv-shows-trivia",
@@ -75400,7 +75692,7 @@
       ]
     },
     {
-      "sequence": 265,
+      "sequence": 266,
       "id": "tv-shows-trivia--game-of-thrones",
       "category": {
         "slug": "tv-shows-trivia",
@@ -76500,7 +76792,7 @@
       ]
     },
     {
-      "sequence": 266,
+      "sequence": 267,
       "id": "tv-shows-trivia--maraya",
       "category": {
         "slug": "tv-shows-trivia",
@@ -77335,7 +77627,7 @@
       ]
     },
     {
-      "sequence": 267,
+      "sequence": 268,
       "id": "tv-shows-trivia--stranger-things",
       "category": {
         "slug": "tv-shows-trivia",
@@ -78435,7 +78727,7 @@
       ]
     },
     {
-      "sequence": 268,
+      "sequence": 269,
       "id": "tv-shows-trivia--tash-ma-tash",
       "category": {
         "slug": "tv-shows-trivia",
@@ -79373,7 +79665,7 @@
       ]
     },
     {
-      "sequence": 269,
+      "sequence": 270,
       "id": "world-habits-and-etiquette--dining-etiquette",
       "category": {
         "slug": "world-habits-and-etiquette",
@@ -79636,7 +79928,7 @@
       ]
     },
     {
-      "sequence": 270,
+      "sequence": 271,
       "id": "world-habits-and-etiquette--greetings-gestures",
       "category": {
         "slug": "world-habits-and-etiquette",
@@ -79982,7 +80274,7 @@
       ]
     },
     {
-      "sequence": 271,
+      "sequence": 272,
       "id": "world-habits-and-etiquette--religious-ceremonial",
       "category": {
         "slug": "world-habits-and-etiquette",
@@ -80191,7 +80483,7 @@
       ]
     },
     {
-      "sequence": 272,
+      "sequence": 273,
       "id": "world-habits-and-etiquette--social-customs",
       "category": {
         "slug": "world-habits-and-etiquette",
@@ -80645,7 +80937,7 @@
       ]
     },
     {
-      "sequence": 273,
+      "sequence": 274,
       "id": "environment-and-ecology--atmosphere-weather",
       "category": {
         "slug": "environment-and-ecology",
@@ -80827,7 +81119,7 @@
       ]
     },
     {
-      "sequence": 274,
+      "sequence": 275,
       "id": "environment-and-ecology--biogeochemical-cycles",
       "category": {
         "slug": "environment-and-ecology",
@@ -80955,7 +81247,7 @@
       ]
     },
     {
-      "sequence": 275,
+      "sequence": 276,
       "id": "environment-and-ecology--climate-change",
       "category": {
         "slug": "environment-and-ecology",
@@ -81191,7 +81483,7 @@
       ]
     },
     {
-      "sequence": 276,
+      "sequence": 277,
       "id": "environment-and-ecology--conservation-policy",
       "category": {
         "slug": "environment-and-ecology",
@@ -81400,7 +81692,7 @@
       ]
     },
     {
-      "sequence": 277,
+      "sequence": 278,
       "id": "environment-and-ecology--ecosystems-biodiversity",
       "category": {
         "slug": "environment-and-ecology",
@@ -81692,7 +81984,7 @@
       ]
     },
     {
-      "sequence": 278,
+      "sequence": 279,
       "id": "environment-and-ecology--oceans-water",
       "category": {
         "slug": "environment-and-ecology",
@@ -81874,7 +82166,7 @@
       ]
     },
     {
-      "sequence": 279,
+      "sequence": 280,
       "id": "environment-and-ecology--pollution-waste",
       "category": {
         "slug": "environment-and-ecology",
@@ -82137,7 +82429,7 @@
       ]
     },
     {
-      "sequence": 280,
+      "sequence": 281,
       "id": "ancient-civilizations--africa-near-east",
       "category": {
         "slug": "ancient-civilizations",
@@ -82431,7 +82723,7 @@
       ]
     },
     {
-      "sequence": 281,
+      "sequence": 282,
       "id": "ancient-civilizations--ancient-egypt",
       "category": {
         "slug": "ancient-civilizations",
@@ -82777,7 +83069,7 @@
       ]
     },
     {
-      "sequence": 282,
+      "sequence": 283,
       "id": "ancient-civilizations--asian-civilizations",
       "category": {
         "slug": "ancient-civilizations",
@@ -82963,7 +83255,7 @@
       ]
     },
     {
-      "sequence": 283,
+      "sequence": 284,
       "id": "ancient-civilizations--civilizations-of-the-americas",
       "category": {
         "slug": "ancient-civilizations",
@@ -83118,7 +83410,7 @@
       ]
     },
     {
-      "sequence": 284,
+      "sequence": 285,
       "id": "ancient-civilizations--greece-rome",
       "category": {
         "slug": "ancient-civilizations",
@@ -83383,7 +83675,7 @@
       ]
     },
     {
-      "sequence": 285,
+      "sequence": 286,
       "id": "ancient-civilizations--mesopotamia",
       "category": {
         "slug": "ancient-civilizations",
@@ -83619,7 +83911,7 @@
       ]
     },
     {
-      "sequence": 286,
+      "sequence": 287,
       "id": "inventions-and-minds--communications",
       "category": {
         "slug": "inventions-and-minds",
@@ -83774,7 +84066,7 @@
       ]
     },
     {
-      "sequence": 287,
+      "sequence": 288,
       "id": "inventions-and-minds--computing-history",
       "category": {
         "slug": "inventions-and-minds",
@@ -84091,7 +84383,7 @@
       ]
     },
     {
-      "sequence": 288,
+      "sequence": 289,
       "id": "inventions-and-minds--energy-engineering",
       "category": {
         "slug": "inventions-and-minds",
@@ -84219,7 +84511,7 @@
       ]
     },
     {
-      "sequence": 289,
+      "sequence": 290,
       "id": "inventions-and-minds--everyday-technology",
       "category": {
         "slug": "inventions-and-minds",
@@ -84401,7 +84693,7 @@
       ]
     },
     {
-      "sequence": 290,
+      "sequence": 291,
       "id": "inventions-and-minds--materials",
       "category": {
         "slug": "inventions-and-minds",
@@ -84529,7 +84821,7 @@
       ]
     },
     {
-      "sequence": 291,
+      "sequence": 292,
       "id": "inventions-and-minds--navigation",
       "category": {
         "slug": "inventions-and-minds",
@@ -84603,7 +84895,7 @@
       ]
     },
     {
-      "sequence": 292,
+      "sequence": 293,
       "id": "inventions-and-minds--science-medicine",
       "category": {
         "slug": "inventions-and-minds",
@@ -84785,7 +85077,7 @@
       ]
     },
     {
-      "sequence": 293,
+      "sequence": 294,
       "id": "inventions-and-minds--transportation",
       "category": {
         "slug": "inventions-and-minds",
@@ -84859,7 +85151,7 @@
       ]
     },
     {
-      "sequence": 294,
+      "sequence": 295,
       "id": "animal-kingdom--animal-anatomy-physiology",
       "category": {
         "slug": "animal-kingdom",
@@ -85095,7 +85387,7 @@
       ]
     },
     {
-      "sequence": 295,
+      "sequence": 296,
       "id": "animal-kingdom--behavior-ecology-adaptation",
       "category": {
         "slug": "animal-kingdom",
@@ -85304,7 +85596,7 @@
       ]
     },
     {
-      "sequence": 296,
+      "sequence": 297,
       "id": "animal-kingdom--birds-flight",
       "category": {
         "slug": "animal-kingdom",
@@ -85594,7 +85886,7 @@
       ]
     },
     {
-      "sequence": 297,
+      "sequence": 298,
       "id": "animal-kingdom--insects-arthropods",
       "category": {
         "slug": "animal-kingdom",
@@ -85803,7 +86095,7 @@
       ]
     },
     {
-      "sequence": 298,
+      "sequence": 299,
       "id": "animal-kingdom--mammals",
       "category": {
         "slug": "animal-kingdom",
@@ -86120,7 +86412,7 @@
       ]
     },
     {
-      "sequence": 299,
+      "sequence": 300,
       "id": "animal-kingdom--marine-life",
       "category": {
         "slug": "animal-kingdom",
@@ -86358,7 +86650,7 @@
       ]
     },
     {
-      "sequence": 300,
+      "sequence": 301,
       "id": "animal-kingdom--reproduction-life-cycles",
       "category": {
         "slug": "animal-kingdom",
@@ -86486,7 +86778,7 @@
       ]
     },
     {
-      "sequence": 301,
+      "sequence": 302,
       "id": "animal-kingdom--reptiles-amphibians",
       "category": {
         "slug": "animal-kingdom",
@@ -86641,7 +86933,7 @@
       ]
     },
     {
-      "sequence": 302,
+      "sequence": 303,
       "id": "economics-and-finance--economic-thought",
       "category": {
         "slug": "economics-and-finance",
@@ -86796,7 +87088,7 @@
       ]
     },
     {
-      "sequence": 303,
+      "sequence": 304,
       "id": "economics-and-finance--information-economics",
       "category": {
         "slug": "economics-and-finance",
@@ -86870,7 +87162,7 @@
       ]
     },
     {
-      "sequence": 304,
+      "sequence": 305,
       "id": "economics-and-finance--investing-corporate-finance",
       "category": {
         "slug": "economics-and-finance",
@@ -86971,7 +87263,7 @@
       ]
     },
     {
-      "sequence": 305,
+      "sequence": 306,
       "id": "economics-and-finance--macroeconomics",
       "category": {
         "slug": "economics-and-finance",
@@ -87315,7 +87607,7 @@
       ]
     },
     {
-      "sequence": 306,
+      "sequence": 307,
       "id": "economics-and-finance--markets-trade",
       "category": {
         "slug": "economics-and-finance",
@@ -87524,7 +87816,7 @@
       ]
     },
     {
-      "sequence": 307,
+      "sequence": 308,
       "id": "economics-and-finance--money-banking",
       "category": {
         "slug": "economics-and-finance",
@@ -87679,7 +87971,7 @@
       ]
     },
     {
-      "sequence": 308,
+      "sequence": 309,
       "id": "economics-and-finance--personal-finance",
       "category": {
         "slug": "economics-and-finance",
@@ -87753,7 +88045,7 @@
       ]
     },
     {
-      "sequence": 309,
+      "sequence": 310,
       "id": "economics-and-finance--public-economics",
       "category": {
         "slug": "economics-and-finance",
@@ -87881,7 +88173,7 @@
       ]
     },
     {
-      "sequence": 310,
+      "sequence": 311,
       "id": "architecture-and-landmarks--architects-designers",
       "category": {
         "slug": "architecture-and-landmarks",
@@ -88144,7 +88436,7 @@
       ]
     },
     {
-      "sequence": 311,
+      "sequence": 312,
       "id": "architecture-and-landmarks--architectural-elements",
       "category": {
         "slug": "architecture-and-landmarks",
@@ -88353,7 +88645,7 @@
       ]
     },
     {
-      "sequence": 312,
+      "sequence": 313,
       "id": "architecture-and-landmarks--architectural-styles",
       "category": {
         "slug": "architecture-and-landmarks",
@@ -88508,7 +88800,7 @@
       ]
     },
     {
-      "sequence": 313,
+      "sequence": 314,
       "id": "architecture-and-landmarks--architectural-theory",
       "category": {
         "slug": "architecture-and-landmarks",
@@ -88636,7 +88928,7 @@
       ]
     },
     {
-      "sequence": 314,
+      "sequence": 315,
       "id": "architecture-and-landmarks--classical-architecture",
       "category": {
         "slug": "architecture-and-landmarks",
@@ -88791,7 +89083,7 @@
       ]
     },
     {
-      "sequence": 315,
+      "sequence": 316,
       "id": "architecture-and-landmarks--materials-structures",
       "category": {
         "slug": "architecture-and-landmarks",
@@ -88865,7 +89157,7 @@
       ]
     },
     {
-      "sequence": 316,
+      "sequence": 317,
       "id": "architecture-and-landmarks--world-landmarks",
       "category": {
         "slug": "architecture-and-landmarks",
@@ -89213,7 +89505,7 @@
       ]
     },
     {
-      "sequence": 317,
+      "sequence": 318,
       "id": "music-and-performing-arts--composers-works",
       "category": {
         "slug": "music-and-performing-arts",
@@ -89584,7 +89876,7 @@
       ]
     },
     {
-      "sequence": 318,
+      "sequence": 319,
       "id": "music-and-performing-arts--genres-traditions",
       "category": {
         "slug": "music-and-performing-arts",
@@ -89820,7 +90112,7 @@
       ]
     },
     {
-      "sequence": 319,
+      "sequence": 320,
       "id": "music-and-performing-arts--instruments-ensembles",
       "category": {
         "slug": "music-and-performing-arts",
@@ -90056,7 +90348,7 @@
       ]
     },
     {
-      "sequence": 320,
+      "sequence": 321,
       "id": "music-and-performing-arts--modern-experimental-music",
       "category": {
         "slug": "music-and-performing-arts",
@@ -90184,7 +90476,7 @@
       ]
     },
     {
-      "sequence": 321,
+      "sequence": 322,
       "id": "music-and-performing-arts--music-theory-notation",
       "category": {
         "slug": "music-and-performing-arts",
@@ -90501,7 +90793,7 @@
       ]
     },
     {
-      "sequence": 322,
+      "sequence": 323,
       "id": "music-and-performing-arts--performance-techniques",
       "category": {
         "slug": "music-and-performing-arts",
@@ -90629,7 +90921,7 @@
       ]
     },
     {
-      "sequence": 323,
+      "sequence": 324,
       "id": "music-and-performing-arts--sound-tuning-acoustics",
       "category": {
         "slug": "music-and-performing-arts",
@@ -90703,7 +90995,7 @@
       ]
     },
     {
-      "sequence": 324,
+      "sequence": 325,
       "id": "food-and-cuisines--baking-fermentation",
       "category": {
         "slug": "food-and-cuisines",
@@ -90831,7 +91123,7 @@
       ]
     },
     {
-      "sequence": 325,
+      "sequence": 326,
       "id": "food-and-cuisines--cooking-techniques",
       "category": {
         "slug": "food-and-cuisines",
@@ -91040,7 +91332,7 @@
       ]
     },
     {
-      "sequence": 326,
+      "sequence": 327,
       "id": "food-and-cuisines--drinks-spices",
       "category": {
         "slug": "food-and-cuisines",
@@ -91303,7 +91595,7 @@
       ]
     },
     {
-      "sequence": 327,
+      "sequence": 328,
       "id": "food-and-cuisines--food-culture",
       "category": {
         "slug": "food-and-cuisines",
@@ -91404,7 +91696,7 @@
       ]
     },
     {
-      "sequence": 328,
+      "sequence": 329,
       "id": "food-and-cuisines--food-science",
       "category": {
         "slug": "food-and-cuisines",
@@ -91559,7 +91851,7 @@
       ]
     },
     {
-      "sequence": 329,
+      "sequence": 330,
       "id": "food-and-cuisines--ingredients",
       "category": {
         "slug": "food-and-cuisines",
@@ -91822,7 +92114,7 @@
       ]
     },
     {
-      "sequence": 330,
+      "sequence": 331,
       "id": "food-and-cuisines--world-cuisines",
       "category": {
         "slug": "food-and-cuisines",
@@ -92058,7 +92350,7 @@
       ]
     },
     {
-      "sequence": 331,
+      "sequence": 332,
       "id": "cinema-and-film-history--awards-festivals-industry",
       "category": {
         "slug": "cinema-and-film-history",
@@ -92321,7 +92613,7 @@
       ]
     },
     {
-      "sequence": 332,
+      "sequence": 333,
       "id": "cinema-and-film-history--cinematography-camera",
       "category": {
         "slug": "cinema-and-film-history",
@@ -92476,7 +92768,7 @@
       ]
     },
     {
-      "sequence": 333,
+      "sequence": 334,
       "id": "cinema-and-film-history--editing-sound-visual-effects",
       "category": {
         "slug": "cinema-and-film-history",
@@ -92606,7 +92898,7 @@
       ]
     },
     {
-      "sequence": 334,
+      "sequence": 335,
       "id": "cinema-and-film-history--film-history-milestones",
       "category": {
         "slug": "cinema-and-film-history",
@@ -92950,7 +93242,7 @@
       ]
     },
     {
-      "sequence": 335,
+      "sequence": 336,
       "id": "cinema-and-film-history--film-theory-storytelling",
       "category": {
         "slug": "cinema-and-film-history",
@@ -93051,7 +93343,7 @@
       ]
     },
     {
-      "sequence": 336,
+      "sequence": 337,
       "id": "cinema-and-film-history--filmmakers-performers",
       "category": {
         "slug": "cinema-and-film-history",
@@ -93432,7 +93724,7 @@
       ]
     },
     {
-      "sequence": 337,
+      "sequence": 338,
       "id": "cinema-and-film-history--movements-genres",
       "category": {
         "slug": "cinema-and-film-history",
@@ -93506,7 +93798,7 @@
       ]
     },
     {
-      "sequence": 338,
+      "sequence": 339,
       "id": "cinema-and-film-history--production-roles-planning",
       "category": {
         "slug": "cinema-and-film-history",
@@ -93580,7 +93872,7 @@
       ]
     },
     {
-      "sequence": 339,
+      "sequence": 340,
       "id": "future-tech-and-energy--advanced-materials-manufacturing",
       "category": {
         "slug": "future-tech-and-energy",
@@ -93681,7 +93973,7 @@
       ]
     },
     {
-      "sequence": 340,
+      "sequence": 341,
       "id": "future-tech-and-energy--ai-machine-learning",
       "category": {
         "slug": "future-tech-and-energy",
@@ -93836,7 +94128,7 @@
       ]
     },
     {
-      "sequence": 341,
+      "sequence": 342,
       "id": "future-tech-and-energy--biotechnology-human-enhancement",
       "category": {
         "slug": "future-tech-and-energy",
@@ -93937,7 +94229,7 @@
       ]
     },
     {
-      "sequence": 342,
+      "sequence": 343,
       "id": "future-tech-and-energy--computing-security",
       "category": {
         "slug": "future-tech-and-energy",
@@ -94146,7 +94438,7 @@
       ]
     },
     {
-      "sequence": 343,
+      "sequence": 344,
       "id": "future-tech-and-energy--connected-immersive-tech",
       "category": {
         "slug": "future-tech-and-energy",
@@ -94247,7 +94539,7 @@
       ]
     },
     {
-      "sequence": 344,
+      "sequence": 345,
       "id": "future-tech-and-energy--energy-power-systems",
       "category": {
         "slug": "future-tech-and-energy",
@@ -94564,7 +94856,7 @@
       ]
     },
     {
-      "sequence": 345,
+      "sequence": 346,
       "id": "future-tech-and-energy--robotics-autonomous-systems",
       "category": {
         "slug": "future-tech-and-energy",
@@ -94667,7 +94959,7 @@
       ]
     },
     {
-      "sequence": 346,
+      "sequence": 347,
       "id": "future-tech-and-energy--space-futures",
       "category": {
         "slug": "future-tech-and-energy",
@@ -94822,7 +95114,7 @@
       ]
     },
     {
-      "sequence": 347,
+      "sequence": 348,
       "id": "anime--attack-on-titan",
       "category": {
         "slug": "anime",
@@ -95247,7 +95539,7 @@
       ]
     },
     {
-      "sequence": 348,
+      "sequence": 349,
       "id": "anime--death-note",
       "category": {
         "slug": "anime",
@@ -95672,7 +95964,7 @@
       ]
     },
     {
-      "sequence": 349,
+      "sequence": 350,
       "id": "anime--demon-slayer",
       "category": {
         "slug": "anime",
@@ -96097,7 +96389,7 @@
       ]
     },
     {
-      "sequence": 350,
+      "sequence": 351,
       "id": "anime--dragon-ball-z",
       "category": {
         "slug": "anime",
@@ -96522,7 +96814,7 @@
       ]
     },
     {
-      "sequence": 351,
+      "sequence": 352,
       "id": "anime--fullmetal-alchemist-brotherhood",
       "category": {
         "slug": "anime",
@@ -96947,7 +97239,7 @@
       ]
     },
     {
-      "sequence": 352,
+      "sequence": 353,
       "id": "anime--my-hero-academia",
       "category": {
         "slug": "anime",
@@ -97372,7 +97664,7 @@
       ]
     },
     {
-      "sequence": 353,
+      "sequence": 354,
       "id": "anime--naruto",
       "category": {
         "slug": "anime",
@@ -97797,7 +98089,7 @@
       ]
     },
     {
-      "sequence": 354,
+      "sequence": 355,
       "id": "anime--one-piece",
       "category": {
         "slug": "anime",
@@ -98222,7 +98514,7 @@
       ]
     },
     {
-      "sequence": 355,
+      "sequence": 356,
       "id": "anime--poke-mon",
       "category": {
         "slug": "anime",
@@ -98647,7 +98939,7 @@
       ]
     },
     {
-      "sequence": 356,
+      "sequence": 357,
       "id": "anime--sword-art-online",
       "category": {
         "slug": "anime",
@@ -99072,7 +99364,7 @@
       ]
     },
     {
-      "sequence": 357,
+      "sequence": 358,
       "id": "ayam-tayebeen--adnan-and-lina",
       "category": {
         "slug": "ayam-tayebeen",
@@ -99578,7 +99870,7 @@
       ]
     },
     {
-      "sequence": 358,
+      "sequence": 359,
       "id": "ayam-tayebeen--captain-majid",
       "category": {
         "slug": "ayam-tayebeen",
@@ -99949,7 +100241,7 @@
       ]
     },
     {
-      "sequence": 359,
+      "sequence": 360,
       "id": "ayam-tayebeen--chibi-maruko-chan",
       "category": {
         "slug": "ayam-tayebeen",
@@ -100428,7 +100720,911 @@
       ]
     },
     {
-      "sequence": 360,
+      "sequence": 361,
+      "id": "ayam-tayebeen--detective-conan",
+      "category": {
+        "slug": "ayam-tayebeen",
+        "title": {
+          "en": "Spacetoon Classics",
+          "ar": "أيام الطيبين - سبيستون"
+        }
+      },
+      "subcategory": {
+        "en": "Detective Conan",
+        "ar": "المحقق كونان"
+      },
+      "priority": "standard",
+      "highStakes": false,
+      "cardCount": 16,
+      "cards": [
+        {
+          "id": "ayt-201",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-202",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 7,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-203",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-204",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 3,
+              "ar": 3
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-205",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 4,
+              "ar": 4
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-206",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-207",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 2
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-208",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 3
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-209",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-210",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 6,
+              "ar": 5
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-211",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-212",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 2
+            },
+            "containsNumber": true,
+            "containsYear": true,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-213",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 3
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-214",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 6,
+              "ar": 5
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-215",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 6,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-216",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 362,
+      "id": "ayam-tayebeen--digimon-adventure",
+      "category": {
+        "slug": "ayam-tayebeen",
+        "title": {
+          "en": "Spacetoon Classics",
+          "ar": "أيام الطيبين - سبيستون"
+        }
+      },
+      "subcategory": {
+        "en": "Digimon Adventure",
+        "ar": "أبطال الديجيتال"
+      },
+      "priority": "standard",
+      "highStakes": false,
+      "cardCount": 16,
+      "cards": [
+        {
+          "id": "ayt-233",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 7,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-234",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 5,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-235",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-236",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 7,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-237",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 5,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-238",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 5,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-239",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-240",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 10,
+              "ar": 4
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-241",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 3,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-242",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-243",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 5,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-244",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 7,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-245",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-246",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-247",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 3,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-248",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 6,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 363,
       "id": "ayam-tayebeen--grendizer",
       "category": {
         "slug": "ayam-tayebeen",
@@ -100934,7 +102130,459 @@
       ]
     },
     {
-      "sequence": 361,
+      "sequence": 364,
+      "id": "ayam-tayebeen--hunter-hunter",
+      "category": {
+        "slug": "ayam-tayebeen",
+        "title": {
+          "en": "Spacetoon Classics",
+          "ar": "أيام الطيبين - سبيستون"
+        }
+      },
+      "subcategory": {
+        "en": "Hunter × Hunter",
+        "ar": "القناص"
+      },
+      "priority": "standard",
+      "highStakes": false,
+      "cardCount": 16,
+      "cards": [
+        {
+          "id": "ayt-217",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-218",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 10,
+              "ar": 7
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-219",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-220",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 3,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-221",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-222",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 3,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-223",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 3,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-224",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-225",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 3,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-226",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-227",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-228",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-229",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-230",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-231",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 4,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-232",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 365,
       "id": "ayam-tayebeen--iron-man",
       "category": {
         "slug": "ayam-tayebeen",
@@ -101332,7 +102980,7 @@
       ]
     },
     {
-      "sequence": 362,
+      "sequence": 366,
       "id": "ayam-tayebeen--remi",
       "category": {
         "slug": "ayam-tayebeen",
@@ -101757,7 +103405,7 @@
       ]
     },
     {
-      "sequence": 363,
+      "sequence": 367,
       "id": "ayam-tayebeen--sally",
       "category": {
         "slug": "ayam-tayebeen",
@@ -102317,7 +103965,7 @@
       ]
     },
     {
-      "sequence": 364,
+      "sequence": 368,
       "id": "ayam-tayebeen--sandybell",
       "category": {
         "slug": "ayam-tayebeen",
@@ -102661,7 +104309,459 @@
       ]
     },
     {
-      "sequence": 365,
+      "sequence": 369,
+      "id": "ayam-tayebeen--sindbad",
+      "category": {
+        "slug": "ayam-tayebeen",
+        "title": {
+          "en": "Spacetoon Classics",
+          "ar": "أيام الطيبين - سبيستون"
+        }
+      },
+      "subcategory": {
+        "en": "Sindbad",
+        "ar": "مغامرات سندباد"
+      },
+      "priority": "standard",
+      "highStakes": false,
+      "cardCount": 16,
+      "cards": [
+        {
+          "id": "ayt-249",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-250",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 3,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-251",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-252",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-253",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-254",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-255",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-256",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-257",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 3,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-258",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 6,
+              "ar": 4
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-259",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 6,
+              "ar": 4
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-260",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 5,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-261",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-262",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 3,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-263",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 7,
+              "ar": 3
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "ayt-264",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 370,
       "id": "ayam-tayebeen--tom-and-jerry",
       "category": {
         "slug": "ayam-tayebeen",
@@ -103167,7 +105267,7 @@
       ]
     },
     {
-      "sequence": 366,
+      "sequence": 371,
       "id": "ayam-tayebeen--treasure-island",
       "category": {
         "slug": "ayam-tayebeen",

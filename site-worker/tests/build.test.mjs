@@ -214,8 +214,8 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   assert.deepEqual(manifest.publication, {
     state: "safety-quarantine-active",
     policySha256: digest(quarantineBytes),
-    fullQuestions: 3_564,
-    publicQuestions: 3_286,
+    fullQuestions: 3_638,
+    publicQuestions: 3_360,
     quarantinedQuestions: 278,
     publicCategories: 48,
     quarantinedCategories: [
@@ -350,13 +350,13 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   const publicCatalog = JSON.parse(await readFile(join(repositoryRoot, "site-worker/dist/data/catalog.json"), "utf8"));
   const publicCardIndex = JSON.parse(await readFile(join(repositoryRoot, "site-worker/dist/data/card-index.json"), "utf8"));
   assert.equal(publicCatalog.categories.length, 48);
-  assert.equal(publicCatalog.site.totalQuestions, 3_286);
+  assert.equal(publicCatalog.site.totalQuestions, 3_360);
   assert.equal(publicCatalog.site.publication, undefined, "public catalog must not expose release governance metadata");
   assert.ok(
     publicCatalog.categories.every((category) => !Object.hasOwn(category, "reviewedQuestionCount")),
     "public catalog must not expose reviewer metrics",
   );
-  assert.equal(Object.keys(publicCardIndex).length, 3_286);
+  assert.equal(Object.keys(publicCardIndex).length, 3_360);
   const publicCardsById = new Map();
   for (const category of publicCatalog.categories) {
     const sourcePath = join(repositoryRoot, `data/${category.slug}.json`);
@@ -374,8 +374,8 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   for (const language of ["en", "ar"]) {
     const shard = JSON.parse(await readFile(join(repositoryRoot, `site-worker/dist/data/search-index.${language}.json`), "utf8"));
     assert.equal(shard.categories.length, 48, language);
-    assert.equal(shard.total, 3_286, language);
-    assert.equal(shard.cards.length, 3_286, language);
+    assert.equal(shard.total, 3_360, language);
+    assert.equal(shard.cards.length, 3_360, language);
     assert.equal(shard.cards.some((row) => quarantine.cardIds.has(row[1])), false, language);
     for (const [, cardId, question, answer] of shard.cards) {
       const sourceCard = publicCardsById.get(cardId);
@@ -403,11 +403,11 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   const sectionContracts = [
     // Arabic labels follow MSA counting on the last two digits: 3–10 take the
     // plural, 11–99 the accusative singular, and round hundreds the genitive singular.
-    ["mind", 8, 432, "8 موضوعات", "432 سؤالًا"],
+    ["mind", 8, 442, "8 موضوعات", "442 سؤالًا"],
     ["science", 8, 650, "8 موضوعات", "650 سؤالًا"],
     ["tech", 9, 400, "9 موضوعات", "400 سؤال"],
     ["world", 11, 609, "11 موضوعًا", "609 أسئلة"],
-    ["culture", 12, 1_195, "12 موضوعًا", "1,195 سؤالًا"],
+    ["culture", 12, 1_259, "12 موضوعًا", "1,259 سؤالًا"],
   ];
   const mindLab = await readFile(join(repositoryRoot, "site-worker/dist/mind-lab.html"), "utf8");
   const arabicMindLab = await readFile(join(repositoryRoot, "site-worker/dist/ar/mind-lab/index.html"), "utf8");
@@ -559,7 +559,7 @@ test("fixture builds precompress HTML behind the switch and keep loopback admin 
 
 test("artifact text scan rejects held Q/A encodings but permits policy identifiers", () => {
   const quarantine = loadProductionQuarantine(repositoryRoot);
-  const publication = { publicCategories: 48, publicQuestions: 3_286 };
+  const publication = { publicCategories: 48, publicQuestions: 3_360 };
   assert.doesNotThrow(() => assertPublicProjection(new Map([
     ["publication-policy.txt", Buffer.from(
       "safety-quarantine-active survival law-middle-east medical-questions pharmacy economics-and-finance",

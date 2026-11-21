@@ -21,6 +21,10 @@ import {
   PRE_PUZZLE_SITEMAP_PATHS,
   PRE_PARTY_SITEMAP_PATHS,
   PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS,
+  PRE_COLLECTION_EXPANSION_SITEMAP_PATHS,
+  includesPredecessorMarker,
+  COLLECTION_EXPANSION_SITEMAP_PATHS,
+  COLLECTION_GENERATION_SITEMAP_PATHS,
   QUARANTINED_CATEGORY_SLUGS,
   QUARANTINED_SITE_ROUTES,
   PRIMARY_SITE_ORIGIN,
@@ -81,12 +85,14 @@ function apiHeaders(origin, cacheControl = "no-store") {
   return headers;
 }
 
-// Public inventories: the current release serves 48 topics with 3,286 cards;
-// the release after the 2026-10-25 topic merges served 48 topics with 3,704
-// cards, and the releases before the merges served 51 topics.
-const CURRENT_PUBLIC_QUESTIONS = 3_286;
+// Public inventories: the current release serves 48 topics with 3,360 cards;
+// the release after the 2026-10-25 phase-2 content pass served 48 topics with
+// 3,286 cards, the release after the topic merges 48 topics with 3,704 cards,
+// and the releases before the merges served 51 topics.
+const CURRENT_PUBLIC_QUESTIONS = 3_360;
+const POST_PHASE2_PUBLIC_QUESTIONS = 3_286;
 const POST_MERGE_PUBLIC_QUESTIONS = 3_704;
-const fixtureCategories = (publicQuestions) => ([CURRENT_PUBLIC_QUESTIONS, POST_MERGE_PUBLIC_QUESTIONS].includes(publicQuestions) ? 48 : 51);
+const fixtureCategories = (publicQuestions) => ([CURRENT_PUBLIC_QUESTIONS, POST_PHASE2_PUBLIC_QUESTIONS, POST_MERGE_PUBLIC_QUESTIONS].includes(publicQuestions) ? 48 : 51);
 
 function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false, preNavigation = false, builtHtml = false, publicQuestions = CURRENT_PUBLIC_QUESTIONS, publicCategories = fixtureCategories(publicQuestions) }) {
   if (legacySite && ["/riddles", "/ar/alghaz/", "/brain-games"].includes(pathname)) return null;
@@ -408,7 +414,7 @@ const PUBLIC_DISCOVERY_PROBES = [
 ];
 
 test("only the exact-version production release baseline accepts a coherent pre-merge predecessor", async () => {
-  for (const publicQuestions of [3_825, 3_798, POST_MERGE_PUBLIC_QUESTIONS, CURRENT_PUBLIC_QUESTIONS]) {
+  for (const publicQuestions of [3_825, 3_798, POST_MERGE_PUBLIC_QUESTIONS, POST_PHASE2_PUBLIC_QUESTIONS, CURRENT_PUBLIC_QUESTIONS]) {
     await withFixture({ productionSite: true, publicQuestions }, async (fixtureOrigin) => {
       const options = productionFixtureOptions(fixtureOrigin);
       const baseline = await runProductionMonitor(options);
@@ -428,7 +434,7 @@ test("only the exact-version production release baseline accepts a coherent pre-
 });
 
 test("the release baseline rejects mixed discovery inventories in either direction", async () => {
-  const inventories = [3_825, 3_798, POST_MERGE_PUBLIC_QUESTIONS, CURRENT_PUBLIC_QUESTIONS];
+  const inventories = [3_825, 3_798, POST_MERGE_PUBLIC_QUESTIONS, POST_PHASE2_PUBLIC_QUESTIONS, CURRENT_PUBLIC_QUESTIONS];
   for (const [position, publicQuestions] of inventories.entries()) {
     await withFixture({ productionSite: true, publicQuestions }, async (fixtureOrigin) => {
       const options = productionFixtureOptions(fixtureOrigin);
@@ -451,7 +457,7 @@ test("the release baseline rejects mixed discovery inventories in either directi
 });
 
 test("a coherent but unknown card count is never a recognized release baseline", async () => {
-  for (const publicQuestions of [3_285, 3_287, 3_703, 3_705, 3_797, 3_799, 3_824, 3_826]) {
+  for (const publicQuestions of [3_285, 3_287, 3_359, 3_361, 3_703, 3_705, 3_797, 3_799, 3_824, 3_826]) {
     await withFixture({ productionSite: true, publicQuestions }, async (fixtureOrigin) => {
       const summary = await runProductionMonitor(productionFixtureOptions(fixtureOrigin));
       for (const [, name] of PUBLIC_DISCOVERY_PROBES) {
@@ -462,7 +468,7 @@ test("a coherent but unknown card count is never a recognized release baseline",
 });
 
 test("a known card total served with the wrong number of topics is never a recognized release baseline", async () => {
-  for (const [publicQuestions, publicCategories] of [[3_798, 48], [3_825, 48], [POST_MERGE_PUBLIC_QUESTIONS, 51], [POST_MERGE_PUBLIC_QUESTIONS, 47], [CURRENT_PUBLIC_QUESTIONS, 51], [CURRENT_PUBLIC_QUESTIONS, 47]]) {
+  for (const [publicQuestions, publicCategories] of [[3_798, 48], [3_825, 48], [POST_MERGE_PUBLIC_QUESTIONS, 51], [POST_MERGE_PUBLIC_QUESTIONS, 47], [POST_PHASE2_PUBLIC_QUESTIONS, 51], [POST_PHASE2_PUBLIC_QUESTIONS, 47], [CURRENT_PUBLIC_QUESTIONS, 51], [CURRENT_PUBLIC_QUESTIONS, 47]]) {
     await withFixture({ productionSite: true, publicQuestions, publicCategories }, async (fixtureOrigin) => {
       const summary = await runProductionMonitor(productionFixtureOptions(fixtureOrigin));
       assert.match(summary.failures.find((failure) => failure.name === "Site: catalog data")?.message || "", /categories and/u,
@@ -645,7 +651,7 @@ test("only an exact-version release baseline accepts coherent pre-kids navigatio
 
     const candidate = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: predecessor() });
     assert.match(candidate.failures.find(({ name }) => name === "Site: Home")?.message || "", /5 destination links/u);
-    assert.match(candidate.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /78 URLs instead of 1176/u);
+    assert.match(candidate.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /78 URLs instead of 1200/u);
 
     const mixed = await runProductionMonitor({ ...options, fetchImpl: predecessor({ mixedRoute: "/ar/daily/" }) });
     assert.match(mixed.failures.find(({ name }) => name === "Site: Arabic Shuffle Challenge")?.message || "", /4 destination links/u);
@@ -680,7 +686,7 @@ test("only an exact-version release baseline accepts the complete 52-URL pre-puz
     assert.equal(baseline.results.find(({ name }) => name === "Site: sitemap")?.workerVersionId, FIXTURE_WORKER_VERSION);
 
     const candidate = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: fetchPredecessor });
-    assert.match(candidate.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /52 URLs instead of 1176/u);
+    assert.match(candidate.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /52 URLs instead of 1200/u);
 
     for (const paths of [
       [...PRE_PUZZLE_SITEMAP_PATHS.slice(1), "/unexpected-indexable-route"],
@@ -727,7 +733,7 @@ test("the exact-version pre-party release is a rollback target while current che
     assert.equal(proof.safe, true, JSON.stringify(proof));
 
     const current = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: predecessorFetch });
-    assert.match(current.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1166 URLs instead of 1176/u);
+    assert.match(current.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1166 URLs instead of 1200/u);
     for (const route of PARTY_GAME_HTML_ROUTES) {
       assert.ok(current.failures.some(({ name }) => name === `Site: ${route.name}`), `${route.path} must work on the candidate`);
     }
@@ -775,10 +781,113 @@ test("the exact-version pre-friendship-arcade release permits the existing party
     assert.deepEqual(baseline.failures, []);
     assert.deepEqual(requestedNewGames, [], "The verified predecessor predates only the new friendship arcade routes");
     const current = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: predecessor });
-    assert.match(current.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1170 URLs instead of 1176/u);
+    assert.match(current.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1170 URLs instead of 1200/u);
     for (const route of PARTY_GAME_HTML_ROUTES.filter(({ friendshipArcade }) => friendshipArcade)) {
       assert.ok(current.failures.some(({ name }) => name === `Site: ${route.name}`), `${route.path} must work on the candidate`);
     }
+  });
+});
+
+test("the release baseline accepts the homepage title the previous release actually served", async () => {
+  // Static release 42480760524 failed because production still served the 2026-10-25 homepage
+  // title, which neither the current marker nor the pre-navigation "Riddle Arabia" marker matched.
+  const previousTitle = "<title>Arabic Riddles, Trivia &amp; Games | Riddle Arabia</title>";
+  const homeRoute = HTML_ROUTES.find(({ path }) => path === "/");
+  const currentTitle = `${homeRoute.marker}</title>`;
+  await withFixture({ productionSite: true }, async (fixtureOrigin) => {
+    const options = productionFixtureOptions(fixtureOrigin);
+    const predecessor = async (input, init) => {
+      const response = await options.fetchImpl(input, init);
+      if (new URL(input).pathname !== "/") return response;
+      const text = (await response.text()).replace(currentTitle, previousTitle);
+      assert.ok(text.includes(previousTitle), "fixture homepage must carry the previous title");
+      return new Response(text, { status: response.status, headers: response.headers });
+    };
+    const baseline = await runProductionMonitor({ ...options, fetchImpl: predecessor });
+    assert.deepEqual(baseline.failures, []);
+    const current = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: predecessor });
+    assert.ok(current.failures.some(({ name, message }) => /\bHome\b/u.test(name) && /missing page marker/u.test(message)),
+      "the candidate itself must still carry the current homepage title");
+  });
+  assert.ok(includesPredecessorMarker(homeRoute, "<title>Riddle Arabia</title>"), "pre-navigation generation stays accepted");
+  assert.equal(includesPredecessorMarker(homeRoute, "<title>Something else</title>"), false);
+});
+
+test("the exact-version pre-collection-expansion release predates only the Math and Hard riddles pairs", async () => {
+  await withFixture({ productionSite: true }, async (fixtureOrigin) => {
+    const options = productionFixtureOptions(fixtureOrigin);
+    const newCollectionPaths = new Set(COLLECTION_EXPANSION_SITEMAP_PATHS);
+    assert.deepEqual([...newCollectionPaths].sort(), ["/ar/alghaz-riyadiyat/", "/ar/alghaz-saaba/", "/hard-riddles", "/math-riddles"]);
+    const requestedNewCollections = [];
+    const predecessor = async (input, init) => {
+      const pathname = new URL(input).pathname;
+      if (pathname === "/sitemap.xml") return new Response(`<urlset>${PRE_COLLECTION_EXPANSION_SITEMAP_PATHS.map(path => `<url><loc>${PRIMARY_SITE_ORIGIN}${path}</loc></url>`).join("")}</urlset>`, {
+        headers: { "content-type": "application/xml", "x-jakh-worker-version": FIXTURE_WORKER_VERSION },
+      });
+      if (newCollectionPaths.has(pathname)) {
+        requestedNewCollections.push(pathname);
+        return new Response("Not found", { status: 404, headers: { "content-type": "text/html", "x-jakh-worker-version": FIXTURE_WORKER_VERSION } });
+      }
+      return options.fetchImpl(input, init);
+    };
+    const baseline = await runProductionMonitor({ ...options, fetchImpl: predecessor });
+    assert.deepEqual(baseline.failures, []);
+    assert.deepEqual(requestedNewCollections, [], "The verified predecessor predates only the new collection routes");
+    const current = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: predecessor });
+    assert.match(current.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1176 URLs instead of 1200/u);
+    for (const paths of [
+      [...PRE_COLLECTION_EXPANSION_SITEMAP_PATHS, "/math-riddles"],
+      [...PRE_COLLECTION_EXPANSION_SITEMAP_PATHS.slice(1), "/hard-riddles"],
+    ]) {
+      const mixed = await runProductionMonitor({ ...options, fetchImpl: async (input, init) => (new URL(input).pathname === "/sitemap.xml"
+        ? new Response(`<urlset>${paths.map(path => `<url><loc>${PRIMARY_SITE_ORIGIN}${path}</loc></url>`).join("")}</urlset>`, {
+          headers: { "content-type": "application/xml", "x-jakh-worker-version": FIXTURE_WORKER_VERSION },
+        })
+        : predecessor(input, init)) });
+      assert.ok(mixed.failures.some(({ name }) => name === "Site: sitemap"), "a partial collection rollout is not an accepted predecessor");
+    }
+  });
+});
+
+test("each earlier collection generation is an exact-version predecessor; the current one is not", async () => {
+  await withFixture({ productionSite: true }, async (fixtureOrigin) => {
+    const options = productionFixtureOptions(fixtureOrigin);
+    const [firstGeneration, secondGeneration, thirdGeneration, current] = COLLECTION_GENERATION_SITEMAP_PATHS;
+    const secondGenerationPaths = new Set(secondGeneration.filter((path) => !firstGeneration.includes(path)));
+    assert.deepEqual([...secondGenerationPaths].sort(), [
+      "/ar/alam-alduwal/", "/ar/asila-ilmiya/", "/ar/asila-jughrafiya/", "/ar/asila-kurat-alqadam/",
+      "/flags-quiz", "/football-quiz", "/geography-quiz", "/science-trivia",
+    ]);
+    const thirdGenerationPaths = new Set(thirdGeneration.filter((path) => !secondGeneration.includes(path)));
+    assert.deepEqual([...thirdGenerationPaths].sort(), [
+      "/animal-quiz", "/anime-quiz", "/ar/asila-an-alfadaa/", "/ar/asila-an-alhayawanat/",
+      "/ar/asila-anime/", "/ar/asila-tarikhiya/", "/history-quiz", "/space-quiz",
+    ]);
+    const fourthGenerationPaths = new Set(current.filter((path) => !thirdGeneration.includes(path)));
+    assert.deepEqual([...fourthGenerationPaths].sort(), [
+      "/ar/asila-ilm-alnafs/", "/ar/asila-musalsalat/", "/psychology-quiz", "/tv-quiz",
+    ]);
+    const serveSitemap = (paths) => async (input, init) => {
+      const pathname = new URL(input).pathname;
+      if (pathname === "/sitemap.xml") return new Response(`<urlset>${paths.map(path => `<url><loc>${PRIMARY_SITE_ORIGIN}${path}</loc></url>`).join("")}</urlset>`, {
+        headers: { "content-type": "application/xml", "x-jakh-worker-version": FIXTURE_WORKER_VERSION },
+      });
+      if (!paths.includes(pathname) && (secondGenerationPaths.has(pathname) || thirdGenerationPaths.has(pathname) || fourthGenerationPaths.has(pathname))) {
+        return new Response("Not found", { status: 404, headers: { "content-type": "text/html", "x-jakh-worker-version": FIXTURE_WORKER_VERSION } });
+      }
+      return options.fetchImpl(input, init);
+    };
+    // Production at the first generation (1,180 URLs), the second (1,188) or the third (1,196) is accepted as the release baseline.
+    for (const generation of [firstGeneration, secondGeneration, thirdGeneration]) {
+      const baseline = await runProductionMonitor({ ...options, fetchImpl: serveSitemap(generation) });
+      assert.deepEqual(baseline.failures, [], `${generation.length} URLs`);
+    }
+    // The same production fails the current contract, naming the missing count.
+    const asCurrent = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: serveSitemap(thirdGeneration) });
+    assert.match(asCurrent.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1196 URLs instead of 1200/u);
+    // A partial fourth generation is neither a predecessor nor current.
+    const partial = await runProductionMonitor({ ...options, fetchImpl: serveSitemap([...thirdGeneration, "/tv-quiz", "/ar/asila-musalsalat/"]) });
+    assert.ok(partial.failures.some(({ name }) => name === "Site: sitemap"));
   });
 });
 
@@ -1235,7 +1344,10 @@ test("the exact-version pre-rename release keeps its former game addresses while
 });
 
 test("production monitor follows the focused sitemap inventory", () => {
-  assert.equal(INDEXABLE_SITEMAP_PATHS.length, 1176);
+  assert.equal(INDEXABLE_SITEMAP_PATHS.length, 1200);
+  assert.equal(PRE_COLLECTION_EXPANSION_SITEMAP_PATHS.length, 1176);
+  assert.equal(COLLECTION_EXPANSION_SITEMAP_PATHS.length, 4);
+  assert.deepEqual(COLLECTION_GENERATION_SITEMAP_PATHS.map((paths) => paths.length), [1180, 1188, 1196, 1200]);
   assert.equal(PRE_PARTY_SITEMAP_PATHS.length, 1166);
   assert.equal(PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS.length, 1170);
   assert.equal(new Set(INDEXABLE_SITEMAP_PATHS).size, INDEXABLE_SITEMAP_PATHS.length);
@@ -1690,7 +1802,7 @@ test("an incomplete sitemap from the expected Worker fails without a propagation
       logger: quietLogger(),
     });
     assert.equal(sitemapAttempts, 1);
-    assert.match(summary.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1170 URLs instead of 1176/u);
+    assert.match(summary.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1170 URLs instead of 1200/u);
   });
 });
 

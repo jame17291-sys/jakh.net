@@ -56,7 +56,7 @@ test('one bilingual navigation contract names five real destinations and separat
       assert.doesNotMatch(header, /bottom-nav|hamburger|<button[^>]*aria-current/u);
     }
   }
-  assert.match(navigationScript, /^<script defer src="\/site-navigation\.js"><\/script>$/u);
+  assert.match(navigationScript, /^<script defer src="\/site-navigation\.js"><\/script><script defer src="\/account-gate\.js"><\/script>$/u);
 });
 
 test('main journeys and every public topic have the same server-rendered navigation', () => {

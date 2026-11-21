@@ -26,7 +26,7 @@
       tryAgain: "Try again",
       adminScope: "Administration applies only to Riddle Arabia accounts and riddlearabia.com operations.",
       overview: "Overview",
-      contentStudio: "Content",
+      contentStudio: "Content Studio",
       editorialWorkspace: "Editorial workspace",
       contentHeading: "Content",
       contentLead: "Find a question, edit both languages, and send it for review.",
@@ -76,6 +76,20 @@
       updated: "Updated",
       serviceReadiness: "Service readiness",
       productionStatus: "Production status",
+      siteAtAGlance: "Site at a glance",
+      releaseSite: "Site build",
+      releaseApi: "API worker",
+      releaseSchema: "Database schema",
+      releaseUnknown: "not reported",
+      releaseHistory: "Release history on GitHub",
+      contentInventory: "Content inventory",
+      inventoryLoading: "Loading the published catalog.",
+      inventoryUnavailable: "The published catalog could not be loaded.",
+      inventorySummary: "{topics} public topics · {questions} questions · {held} held from publication",
+      inventoryThinnest: "Thinnest topics first",
+      inventoryHeld: "Held from publication (needs a qualified review before release)",
+      reviewedShort: "reviewed",
+      viewSite: "View site",
       checking: "Checking",
       healthChecking: "Checking the Riddle Arabia API and database schema.",
       guardrailRoles: "Server-enforced Riddle Arabia roles",
@@ -260,7 +274,7 @@
       tryAgain: "حاول مجدداً",
       adminScope: "تنطبق الإدارة على حسابات Riddle Arabia وعمليات riddlearabia.com فقط.",
       overview: "نظرة عامة",
-      contentStudio: "المحتوى",
+      contentStudio: "استوديو المحتوى",
       editorialWorkspace: "مساحة التحرير",
       contentHeading: "المحتوى",
       contentLead: "ابحث عن سؤال، وحرره باللغتين، ثم أرسله للمراجعة.",
@@ -310,6 +324,20 @@
       updated: "تم التحديث",
       serviceReadiness: "جاهزية الخدمة",
       productionStatus: "حالة الإنتاج",
+      siteAtAGlance: "الموقع في لمحة",
+      releaseSite: "إصدار الموقع",
+      releaseApi: "خدمة الواجهة البرمجية",
+      releaseSchema: "مخطط قاعدة البيانات",
+      releaseUnknown: "غير مُبلّغ",
+      releaseHistory: "سجل الإصدارات على GitHub",
+      contentInventory: "جرد المحتوى",
+      inventoryLoading: "جارٍ تحميل الفهرس المنشور.",
+      inventoryUnavailable: "تعذّر تحميل الفهرس المنشور.",
+      inventorySummary: "{topics} موضوعًا عامًا · {questions} سؤالًا · {held} محجوزة عن النشر",
+      inventoryThinnest: "الموضوعات الأقل محتوى أولًا",
+      inventoryHeld: "محجوزة عن النشر (تحتاج إلى مراجعة مؤهلة قبل الإصدار)",
+      reviewedShort: "مُراجَع",
+      viewSite: "عرض الموقع",
       checking: "جارٍ التحقق",
       healthChecking: "جارٍ فحص واجهة Riddle Arabia وقاعدة البيانات.",
       guardrailRoles: "أدوار Riddle Arabia مفروضة من الخادم",
@@ -545,7 +573,7 @@
     autopilot: "Autopilot", autopilotLead: "Scheduled maintenance for generated search indexes and site pages.",
     autopilotStatus: "Schedule status", autopilotPaused: "Paused", autopilotNotConnected: "Not connected", autopilotStatusError: "Status unavailable",
     autopilotPausedMessage: "Scheduled runs are paused. A run already in progress may finish.",
-    autopilotNotConnectedMessage: "The Autopilot service is not connected yet. Refresh after it becomes available.",
+    autopilotNotConnectedMessage: "The Autopilot API did not answer. Check that the API worker is healthy under Overview, then refresh. If it stays unavailable, open Actions on GitHub and look at the latest site-autopilot run.",
     autopilotLoadError: "Could not confirm Autopilot status. Refresh to try again.", autopilotUpdateError: "Could not confirm the change. Refresh the status before trying again.",
     autopilotResume: "Resume Autopilot", autopilotPause: "Pause Autopilot", autopilotUpdating: "Updating…",
     autopilotResumed: "Scheduled checks are enabled. Run activity will confirm execution.", autopilotPausedToast: "Autopilot is paused.",
@@ -579,7 +607,7 @@
     autopilot: "التشغيل التلقائي", autopilotLead: "صيانة مجدولة لفهارس البحث وصفحات الموقع المولّدة.",
     autopilotStatus: "حالة الجدولة", autopilotPaused: "متوقف مؤقتًا", autopilotNotConnected: "غير متصل", autopilotStatusError: "الحالة غير متاحة",
     autopilotPausedMessage: "التشغيل المجدول متوقف مؤقتًا. قد تكتمل عملية بدأت بالفعل.",
-    autopilotNotConnectedMessage: "خدمة التشغيل التلقائي غير متصلة بعد. حدّث الحالة عندما تصبح متاحة.",
+    autopilotNotConnectedMessage: "لم تستجب واجهة التشغيل التلقائي. تأكّد من سلامة خدمة الواجهة البرمجية في نظرة عامة ثم حدّث. وإن استمرّ التعذّر، افتح Actions على GitHub وراجع آخر تشغيل لـ site-autopilot.",
     autopilotLoadError: "تعذر التحقق من حالة التشغيل التلقائي. حدّث الحالة للمحاولة مجددًا.", autopilotUpdateError: "تعذر تأكيد التغيير. حدّث الحالة قبل المحاولة مجددًا.",
     autopilotResume: "استئناف التشغيل التلقائي", autopilotPause: "إيقاف التشغيل التلقائي مؤقتًا", autopilotUpdating: "جارٍ التحديث…",
     autopilotResumed: "فُعّلت الفحوص المجدولة. يؤكد سجل التشغيل تنفيذها.", autopilotPausedToast: "توقف التشغيل التلقائي مؤقتًا.",
@@ -773,6 +801,8 @@
     if (state.me) renderIdentity();
     if (state.overview) renderOverview(state.overview);
     if (state.health) renderHealth(state.health);
+    renderRelease();
+    if (els.inventoryList?.innerHTML) void loadInventory();
     if (state.people.items.length) renderPeople();
     if (state.feedback.items.length) renderFeedback();
     if (state.audit) renderAudit();
@@ -902,12 +932,12 @@
 
   function renderOverview(data) {
     const metrics = data.metrics || {};
+    // Headline row: how the site is doing. Editorial counts live in the
+    // "What needs attention" panel below, where the work is.
     els.accountMetricGrid.innerHTML = [
       metric(t("members"), metrics.users, t("allTime")),
-      metric(t("privileged"), metrics.administrators, t("ownerAndAdmin")),
       metric(t("activeSessions"), metrics.activeSessions, t("liveNow")),
       metric(t("correctSolves"), metrics.solved, t("answeredCorrectly")),
-      metric(t("newFeedback"), metrics.pendingSuggestions, t("awaitingReview")),
       metric(t("suspendedAccounts"), metrics.suspendedUsers, t("accessRestricted")),
     ].join("");
     const editorial = data.editorial || {};
@@ -963,6 +993,87 @@
     els.healthMessage.textContent = isHealthy
       ? t("healthReady", { schema: health.schema || "—" })
       : t("healthUnavailable");
+    state.release = { ...(state.release || {}), api: health?.workerVersionId || null, schema: health?.schema || null };
+    renderRelease();
+  }
+
+  // What is actually running: the static build id (served as a response
+  // header by the edge) and the API worker version. Short ids are enough to
+  // match a release receipt or an Actions run.
+  const shortId = (value) => (value ? String(value).slice(0, 12) : null);
+  function renderRelease() {
+    if (!els.releaseFacts) return;
+    const release = state.release || {};
+    const fact = (label, value) => `<div><dt>${escapeHtml(label)}</dt><dd dir="ltr">${value ? `<code>${escapeHtml(value)}</code>` : `<span class="muted">${escapeHtml(t("releaseUnknown"))}</span>`}</dd></div>`;
+    els.releaseFacts.innerHTML = [
+      fact(t("releaseSite"), shortId(release.site)),
+      fact(t("releaseApi"), shortId(release.api)),
+      fact(t("releaseSchema"), release.schema),
+    ].join("");
+  }
+
+  async function loadRelease() {
+    try {
+      const response = await fetch("/", { method: "HEAD", cache: "no-store" });
+      state.release = { ...(state.release || {}), site: response.headers.get("x-jakh-site-version") };
+    } catch (_) {
+      state.release = { ...(state.release || {}), site: null };
+    }
+    renderRelease();
+  }
+
+  // Published topics from the public catalog, thinnest first, plus the
+  // categories held from publication. Read-only; the catalog is what visitors
+  // already see, so nothing here is privileged.
+  const HELD_CATEGORIES = Object.freeze([
+    ["economics-and-finance", "Economics & finance", "الاقتصاد والمال"],
+    ["law-middle-east", "Law (Middle East)", "القانون في الشرق الأوسط"],
+    ["medical-questions", "Medical questions", "أسئلة طبية"],
+    ["pharmacy", "Pharmacy", "الصيدلة"],
+    ["survival", "Survival", "البقاء على قيد الحياة"],
+  ]);
+  // "1 question", "36 questions"; Arabic counted forms for the one noun used here.
+  function questionCount(count) {
+    if (state.lang !== "ar") return `${numberFormat(count)} ${count === 1 ? "question" : "questions"}`;
+    if (count === 1) return "سؤال واحد";
+    if (count === 2) return "سؤالان";
+    if (count >= 3 && count <= 10) return `${numberFormat(count)} أسئلة`;
+    return `${numberFormat(count)} سؤالًا`;
+  }
+
+  async function loadInventory() {
+    if (!els.inventoryList) return;
+    try {
+      const response = await fetch("/data/catalog.json", { cache: "no-store" });
+      if (!response.ok) throw new Error(String(response.status));
+      const catalog = await response.json();
+      const categories = Array.isArray(catalog.categories) ? catalog.categories : [];
+      const total = categories.reduce((sum, item) => sum + (Number(item.count) || 0), 0);
+      els.inventorySummary.textContent = t("inventorySummary", { topics: numberFormat(categories.length), questions: numberFormat(total), held: numberFormat(HELD_CATEGORIES.length) });
+      const rows = [...categories].sort((a, b) => (Number(a.count) || 0) - (Number(b.count) || 0));
+      const max = Math.max(1, ...rows.map((item) => Number(item.count) || 0));
+      const row = (item) => {
+        const count = Number(item.count) || 0;
+        const reviewed = Number(item.reviewedQuestionCount) || 0;
+        const name = item.title?.[state.lang] || item.title?.en || item.slug;
+        return `<a class="inventory-row" href="${escapeHtml(item.href || `/${item.slug}`)}" target="_blank" rel="noopener">
+          <span class="inventory-emoji" aria-hidden="true">${escapeHtml(item.emoji || "📚")}</span>
+          <span class="inventory-name">${escapeHtml(name)}</span>
+          <span class="inventory-bar" aria-hidden="true"><b data-width="${Math.max(2, Math.round((count / max) * 100))}"></b></span>
+          <span class="inventory-count">${escapeHtml(questionCount(count))}${reviewed ? ` <small>· ${escapeHtml(numberFormat(reviewed))} ${escapeHtml(t("reviewedShort"))}</small>` : ""}</span>
+        </a>`;
+      };
+      els.inventoryList.innerHTML = `
+        <p class="muted inventory-caption">${escapeHtml(t("inventoryThinnest"))}</p>
+        <div class="inventory-rows">${rows.map(row).join("")}</div>
+        <p class="muted inventory-caption">${escapeHtml(t("inventoryHeld"))}</p>
+        <ul class="inventory-held">${HELD_CATEGORIES.map(([slug, en, ar]) => `<li><span class="status-label suspended">${escapeHtml(state.lang === "ar" ? ar : en)}</span> <code dir="ltr">${escapeHtml(slug)}</code></li>`).join("")}</ul>`;
+      // The admin CSP forbids inline style attributes; widths are set through the CSSOM instead.
+      for (const bar of els.inventoryList.querySelectorAll(".inventory-bar b[data-width]")) bar.style.width = `${Number(bar.dataset.width) || 0}%`;
+    } catch (_) {
+      els.inventorySummary.textContent = t("inventoryUnavailable");
+      els.inventoryList.innerHTML = "";
+    }
   }
 
   function personActionMarkup(user) {
@@ -1960,7 +2071,7 @@
 
   async function refreshVisible(showMessage = false) {
     if (showMessage && state.activeTab === "content" && !confirmContentLeave()) return;
-    const tasks = [loadOverview(), loadHealth(), loadSecurity()];
+    const tasks = [loadOverview(), loadHealth(), loadSecurity(), loadRelease(), loadInventory()];
     if (state.activeTab === "people") tasks.push(loadPeople(true));
     if (state.activeTab === "feedback") tasks.push(loadFeedback(true));
     if (state.activeTab === "content") tasks.push(loadContentCategory({ preserveSelection: true, refresh: showMessage, authorized: true }));
@@ -2623,7 +2734,7 @@
       "contentUnpublish", "contentHistory", "contentHistoryList",
       "contentCategorySearch", "contentActiveFilters", "contentClearFilters", "contentPageSize", "contentPageInfo", "contentPreviousPage", "contentNextPage",
       "contentWorkspace", "contentBackButton", "contentPreviewLanguage", "contentAddSource", "contentSaveState", "contentReportContext", "contentPublishedState",
-      "recentEdits", "accountMetricGrid",
+      "recentEdits", "accountMetricGrid", "releaseFacts", "inventorySummary", "inventoryList",
       "autopilotTab", "autopilotPanel", "autopilotStatus", "autopilotStatusMessage", "autopilotError", "autopilotRefresh", "autopilotToggle",
       "autopilotPolicy", "autopilotBudgetMessage", "autopilotLastRun", "autopilotRuns",
     ].forEach((id) => { els[id] = document.getElementById(id); });

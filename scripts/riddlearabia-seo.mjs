@@ -45,15 +45,17 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
     // Expanded from 8 to 30 riddles, ordered from easy to hard, on 2026-10-23.
     // Arabic card wording returned to Modern Standard Arabic on 2026-10-25.
     // Cards removed in the 2026-10-25 phase-2 content pass replaced with current cards of the same topic.
-    lastModified: "2026-10-25",
+    // Search titles and descriptions rewritten for click-through on 2026-11-08
+    // (counts, difficulty range and a challenge hook; no new claims).
+    lastModified: "2026-11-08",
     paths: { en: "/riddles", ar: "/ar/alghaz/" },
     titles: {
-      en: "Riddles With Answers | Riddle Arabia",
-      ar: "ألغاز مع الحل | ريدل أرابيا",
+      en: "30 Riddles With Answers, Easy to Hard | Riddle Arabia",
+      ar: "30 لغزاً مع الحل من السهل إلى الصعب | ريدل أرابيا",
     },
     descriptions: {
-      en: "Solve free riddles with answers in English and Arabic, from easy everyday clues to hard number and logic riddles. Make your guess, then reveal each answer when you are ready.",
-      ar: "حلّ ألغازاً مع الحل بالعربية والإنجليزية مجاناً، من ألغاز سهلة عن الأشياء اليومية إلى ألغاز صعبة في الأرقام والمنطق. خمّن أولاً، ثم اكشف إجابة كل لغز.",
+      en: "Can you solve all 30? Free riddles with answers in English and Arabic, from easy everyday clues to hard number and logic riddles. Guess first, then reveal.",
+      ar: "هل تستطيع حل الألغاز الثلاثين كلها؟ ألغاز مجانية مع الحل بالعربية والإنجليزية، من ألغاز سهلة عن الأشياء اليومية إلى ألغاز صعبة في الأرقام والمنطق. خمّن أولاً، ثم اكشف الحل.",
     },
     eyebrow: { en: "From easy to hard", ar: "من السهل إلى الصعب" },
     headings: { en: "Riddles with answers", ar: "ألغاز مع الحل" },
@@ -104,15 +106,16 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
     // Expanded from 8 to 30 riddles whose wording works naturally in Arabic on 2026-10-23.
     // Arabic card wording returned to Modern Standard Arabic on 2026-10-25.
     // Cards removed in the 2026-10-25 phase-2 content pass replaced with current cards of the same topic.
-    lastModified: "2026-10-25",
+    // Search titles and descriptions rewritten for click-through on 2026-11-08.
+    lastModified: "2026-11-08",
     paths: { en: "/arabic-riddles", ar: "/ar/alghaz-arabiya/" },
     titles: {
-      en: "Arabic Riddles With Answers | Riddle Arabia",
-      ar: "ألغاز عربية مع الحل | ريدل أرابيا",
+      en: "30 Arabic Riddles With Answers (English Too) | Riddle Arabia",
+      ar: "30 لغزاً عربياً مع الحل | ريدل أرابيا",
     },
     descriptions: {
-      en: "Try free Arabic riddles with answers and English translations. Solve clues about familiar objects, words, and ideas on your own or with friends.",
-      ar: "جرّب ألغازاً عربية مع الحل وترجمة إنجليزية مجاناً. خمّن إجابات ألغاز عن الأشياء المألوفة والكلمات والأفكار، بمفردك أو مع الأصدقاء.",
+      en: "30 free Arabic riddles with answers, each with an English version. Guess the familiar object, word or idea, then reveal the answer and share it on WhatsApp.",
+      ar: "30 لغزاً عربياً مجاناً مع الحل، ولكل لغز نسخة إنجليزية. خمّن الشيء المألوف أو الكلمة أو الفكرة، ثم اكشف الحل وشارك اللغز على واتساب.",
     },
     eyebrow: { en: "Think across languages", ar: "فكّر بلغتين" },
     headings: { en: "Arabic riddles with answers", ar: "ألغاز عربية مع الحل" },
@@ -163,15 +166,16 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
     // Expanded from 8 to 30 puzzles, easy to hard, on 2026-10-23.
     // Arabic card wording returned to Modern Standard Arabic on 2026-10-25.
     // Cards removed in the 2026-10-25 phase-2 content pass replaced with current cards of the same topic.
-    lastModified: "2026-10-25",
+    // Search titles and descriptions rewritten for click-through on 2026-11-08.
+    lastModified: "2026-11-08",
     paths: { en: "/logic-challenges", ar: "/ar/alghaz-mantiq/" },
     titles: {
-      en: "Logic Puzzles and Brain Teasers With Answers | Riddle Arabia",
-      ar: "ألغاز منطقية وألغاز ذكاء مع الحل | ريدل أرابيا",
+      en: "30 Logic Puzzles & Brain Teasers With Answers | Riddle Arabia",
+      ar: "30 لغزاً منطقياً ولغز ذكاء مع الحل | ريدل أرابيا",
     },
     descriptions: {
-      en: "Logic puzzles and brain teasers with answers in English and Arabic, from easy to hard: deduction, numbers, and lateral thinking that reward careful reading before you reveal the answer.",
-      ar: "ألغاز منطقية وألغاز ذكاء مع الحل بالعربية والإنجليزية، من السهل إلى الصعب: استنتاج وأرقام وتفكير جانبي يكافئ القراءة الدقيقة قبل كشف الحل.",
+      en: "30 logic puzzles and brain teasers with answers in English and Arabic, from easy to hard: deduction, numbers and lateral thinking, up to the three doors puzzle.",
+      ar: "30 لغزاً منطقياً مع الحل بالعربية والإنجليزية، من السهل إلى الصعب: استنتاج وأرقام وتفكير جانبي، وصولاً إلى لغز الأبواب الثلاثة.",
     },
     eyebrow: { en: "Slow down and solve", ar: "تمهّل ثم حل" },
     headings: { en: "Logic puzzles & brain teasers", ar: "ألغاز منطقية وألغاز ذكاء" },
@@ -220,16 +224,18 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   {
     key: "kids-riddles",
     // Expanded from 8 to 24 riddles, easy to hard, with kids search wording on 2026-10-23.
-    // Arabic card wording returned to Modern Standard Arabic on 2026-10-25.
-    lastModified: { en: "2026-10-23", ar: "2026-10-25" },
+    // Arabic card wording returned to Modern Standard Arabic on 2026-10-25, and the same day
+    // kids-riddles-019 and -021 got new puzzles in both languages.
+    // Search titles and descriptions rewritten for click-through on 2026-11-08.
+    lastModified: "2026-11-08",
     paths: { en: "/family-riddles", ar: "/ar/alghaz-atfal/" },
     titles: {
-      en: "Riddles for Kids With Answers | Riddle Arabia",
-      ar: "ألغاز للأطفال مع الحل | ريدل أرابيا",
+      en: "24 Easy Riddles for Kids With Answers | Riddle Arabia",
+      ar: "24 لغزاً سهلاً للأطفال مع الحل | ريدل أرابيا",
     },
     descriptions: {
-      en: "Enjoy bilingual riddles for kids with answers: familiar objects, everyday observation, and simple counting and logic puzzles—ideal for families and classrooms.",
-      ar: "ألغاز للأطفال مع الحل بالعربية والإنجليزية: أشياء مألوفة وملاحظات يومية وألغاز عدّ ومنطق بسيطة، مناسبة للعائلة والصف.",
+      en: "24 easy riddles for kids with answers in Arabic and English: a crayon, a lamp, a pair of socks, then simple counting puzzles. Free for families and classrooms.",
+      ar: "24 لغزاً سهلاً للأطفال مع الحل بالعربية والإنجليزية: قلم شمع ومصباح وزوج من الجوارب، ثم ألغاز عدّ بسيطة. مجاناً للعائلة والصف.",
     },
     eyebrow: { en: "Share the guess", ar: "شارك التخمين" },
     headings: { en: "Riddles for kids", ar: "ألغاز للأطفال مع الحل" },
@@ -275,15 +281,16 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
     // Arabic cards briefly used everyday Arabic (2026-10-21, #144) and returned
     // to Modern Standard Arabic on 2026-10-25.
     // Cards removed in the 2026-10-25 phase-2 content pass replaced with current cards of the same topic.
-    lastModified: "2026-10-25",
+    // Search titles and descriptions rewritten for click-through on 2026-11-08.
+    lastModified: "2026-11-08",
     paths: { en: "/general-knowledge", ar: "/ar/malumat-amma/" },
     titles: {
-      en: "Arabic Trivia & General Knowledge Quiz | Riddle Arabia",
-      ar: "أسئلة ثقافية ومعلومات عامة مع الأجوبة | ريدل أرابيا",
+      en: "30 Arabic Trivia Questions & Answers | Riddle Arabia",
+      ar: "30 سؤالاً ثقافياً ومعلومات عامة مع الأجوبة | ريدل أرابيا",
     },
     descriptions: {
-      en: "Test your general knowledge with free trivia questions and answers in Arabic and English: geography, history, science, space, the human body, art, and ancient civilizations. Great for family quiz nights.",
-      ar: "اختبر ثقافتك بأسئلة ثقافية ومعلومات عامة مع الأجوبة بالعربية والإنجليزية مجاناً: الجغرافيا والتاريخ والعلوم والفضاء وجسم الإنسان والفن والحضارات القديمة. مناسبة للمسابقات العائلية.",
+      en: "How many of these 30 can you get right? Free trivia questions and answers in Arabic and English: geography, history, science, art and ancient civilizations.",
+      ar: "كم سؤالاً من الثلاثين ستجيب عنه صحيحاً؟ أسئلة ثقافية مجانية مع الأجوبة بالعربية والإنجليزية في الجغرافيا والتاريخ والعلوم والفن والحضارات القديمة.",
     },
     eyebrow: { en: "A little of everything", ar: "قليل من كل شيء" },
     headings: { en: "Arabic trivia & general knowledge", ar: "أسئلة ثقافية ومعلومات عامة مع الأجوبة" },
@@ -334,21 +341,24 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
     // Arabic cards briefly used everyday Arabic (2026-10-21, #144) and returned
     // to Modern Standard Arabic on 2026-10-25.
     // Card wording updated in the 2026-10-25 phase-2 content pass.
-    lastModified: "2026-10-25",
+    // Expanded from 8 to 30 questions on 2026-11-08, ordered easy to very advanced, keeping the
+    // existing focus on ancient civilizations, Islamic and Ottoman history, cities and scholarship.
+    // Search titles and descriptions rewritten for click-through the same day.
+    lastModified: "2026-11-08",
     paths: { en: "/arabia-quiz", ar: "/ar/tarikh-al-arab/" },
     titles: {
-      en: "Arab & Middle East History Trivia | Riddle Arabia",
-      ar: "أسئلة عن تاريخ العرب والشرق الأوسط | ريدل أرابيا",
+      en: "30 Arab & Middle East History Quiz Questions | Riddle Arabia",
+      ar: "30 سؤالاً عن تاريخ العرب والشرق الأوسط مع الأجوبة | ريدل أرابيا",
     },
     descriptions: {
-      en: "Try Arab and Middle East history trivia with answers in Arabic and English. Explore ancient civilizations, Islamic history, cities, and scholarship.",
-      ar: "جرّب أسئلة عن تاريخ العرب والشرق الأوسط مع الإجابات بالعربية والإنجليزية. اختبر معرفتك بالحضارات القديمة والتاريخ الإسلامي والمدن والعلم.",
+      en: "30 Arab and Middle East history questions with answers in Arabic and English, easy to expert: Mesopotamia, Islamic and Ottoman history, cities and scholarship.",
+      ar: "30 سؤالاً عن تاريخ العرب والشرق الأوسط مع الأجوبة بالعربية والإنجليزية، من السهل إلى المتقدّم: بلاد الرافدين، والتاريخ الإسلامي والعثماني، والمدن والعلم.",
     },
     eyebrow: { en: "History with context", ar: "تاريخ في سياقه" },
     headings: { en: "Arab & Middle East history trivia", ar: "أسئلة عن تاريخ العرب والشرق الأوسط" },
     introductions: {
-      en: "Explore the history of the Arab world and the wider Middle East through a short trivia quiz. The questions move from ancient Egypt, Mesopotamia, and Persia to Islamic history and the translation of scientific works into Arabic. Read in Arabic or English and reveal the answers as you go.",
-      ar: "استكشف تاريخ العالم العربي والشرق الأوسط في مسابقة قصيرة. تنتقل الأسئلة من مصر القديمة وبلاد الرافدين وفارس إلى التاريخ الإسلامي وترجمة الأعمال العلمية إلى العربية. اقرأ بالعربية أو الإنجليزية، واكشف الإجابات أثناء تقدّمك.",
+      en: "Explore the history of the Arab world and the wider Middle East through 30 trivia questions, ordered from easy to very advanced. They move from ancient Mesopotamia, Persia and Palmyra to Islamic history, the great cities of Baghdad, Cairo and Fez, Ottoman reforms, and the founding of modern Gulf states. Read in Arabic or English and reveal the answers as you go.",
+      ar: "استكشف تاريخ العالم العربي والشرق الأوسط عبر 30 سؤالاً مرتّبة من السهل إلى المتقدّم. تنتقل الأسئلة من بلاد الرافدين وفارس وتدمر القديمة إلى التاريخ الإسلامي، ومدن بغداد والقاهرة وفاس، والإصلاحات العثمانية، وقيام دول الخليج الحديثة. اقرأ بالعربية أو الإنجليزية، واكشف الإجابات أثناء تقدّمك.",
     },
     guidance: {
       en: "Use this page for learning and conversation, not as a substitute for a full historical source. Open the answer only after forming your own response.",
@@ -356,14 +366,40 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
     },
     subjects: { en: ["History trivia", "Arab history", "Middle East history", "Ancient civilizations"], ar: ["أسئلة تاريخية", "تاريخ العرب", "تاريخ الشرق الأوسط", "حضارات قديمة"] },
     cards: [
+      // Easy
       ["middle-east-history", "me-hist-001"],
       ["middle-east-history", "me-hist-002"],
-      ["middle-east-history", "me-hist-003"],
       ["middle-east-history", "me-hist-004"],
       ["middle-east-history", "me-hist-005"],
+      ["middle-east-history", "me-hist-006"],
       ["middle-east-history", "me-hist-007"],
+      ["middle-east-history", "me-hist-008"],
       ["middle-east-history", "me-hist-009"],
       ["middle-east-history", "me-hist-010"],
+      // Medium
+      ["middle-east-history", "me-hist-003"],
+      ["middle-east-history", "me-hist-012"],
+      ["middle-east-history", "me-hist-018"],
+      ["middle-east-history", "me-hist-021"],
+      ["middle-east-history", "me-hist-022"],
+      ["middle-east-history", "me-hist-023"],
+      ["middle-east-history", "me-hist-029"],
+      ["middle-east-history", "me-hist-050"],
+      // Hard
+      ["middle-east-history", "me-hist-030"],
+      ["middle-east-history", "me-hist-032"],
+      ["middle-east-history", "me-hist-040"],
+      ["middle-east-history", "me-hist-043"],
+      ["middle-east-history", "me-hist-045"],
+      ["middle-east-history", "me-hist-049"],
+      ["middle-east-history", "me-hist-051"],
+      // Very advanced
+      ["middle-east-history", "me-hist-052"],
+      ["middle-east-history", "me-hist-053"],
+      ["middle-east-history", "me-hist-055"],
+      ["middle-east-history", "me-hist-056"],
+      ["middle-east-history", "me-hist-058"],
+      ["middle-east-history", "me-hist-060"],
     ],
   },
   {
@@ -371,15 +407,16 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
     // Arabic cards briefly used everyday Arabic (2026-10-21, #144) and returned
     // to Modern Standard Arabic on 2026-10-25.
     // Cards removed in the 2026-10-25 phase-2 content pass replaced with current cards of the same topic.
-    lastModified: "2026-10-25",
+    // Search titles and descriptions rewritten for click-through on 2026-11-08.
+    lastModified: "2026-11-08",
     paths: { en: "/spacetoon-nostalgia", ar: "/ar/hanin-spacetoon/" },
     titles: {
-      en: "Spacetoon Nostalgia Quiz | Riddle Arabia",
-      ar: "اختبار حنين سبيستون | ريدل أرابيا",
+      en: "Spacetoon Nostalgia Quiz: 8 Questions | Riddle Arabia",
+      ar: "اختبار حنين سبيستون: 8 أسئلة | ريدل أرابيا",
     },
     descriptions: {
-      en: "Try eight questions for fans of classic Arabic-dubbed animation. Make a guess, reveal the answers, and share memories in this independent bilingual quiz.",
-      ar: "جرّب ثمانية أسئلة لمحبي الرسوم المدبلجة الكلاسيكية. خمّن ثم اكشف الإجابات وشارك ذكرياتك في هذا الاختبار المستقل بالعربية والإنجليزية.",
+      en: "How much do you remember? 8 questions for fans of classic Arabic-dubbed animation, in Arabic and English. Guess, reveal the answers and share with friends.",
+      ar: "كم تتذكر منها؟ 8 أسئلة لمحبي الرسوم المدبلجة الكلاسيكية بالعربية والإنجليزية. خمّن ثم اكشف الإجابات وشارك الاختبار مع أصدقائك.",
     },
     eyebrow: { en: "A shared memory", ar: "ذكرى مشتركة" },
     headings: { en: "Spacetoon nostalgia", ar: "حنين سبيستون" },
@@ -408,18 +445,763 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
     ],
   },
   {
+    key: "math-riddles",
+    // New collection on 2026-11-08: 30 math riddles and number puzzles from the Math topic,
+    // ordered easy to hard. None of these cards is featured elsewhere.
+    sitemapGeneration: "collections-2026-11",
+    lastModified: "2026-11-08",
+    paths: { en: "/math-riddles", ar: "/ar/alghaz-riyadiyat/" },
+    titles: {
+      en: "30 Math Riddles With Answers, Easy to Hard | Riddle Arabia",
+      ar: "30 لغزاً رياضياً مع الحل من السهل إلى الصعب | ريدل أرابيا",
+    },
+    descriptions: {
+      en: "30 math riddles and number puzzles with answers in English and Arabic: the bat and ball, the missing dollar, the clock hands and more. Work it out, then reveal.",
+      ar: "30 لغزاً رياضياً ولغز أرقام مع الحل بالعربية والإنجليزية: المضرب والكرة، والدولار المفقود، وعقارب الساعة وغيرها. احسبها بنفسك، ثم اكشف الحل.",
+    },
+    eyebrow: { en: "Numbers that trick you", ar: "أرقام تخدعك" },
+    headings: { en: "Math riddles with answers", ar: "ألغاز رياضية مع الحل" },
+    introductions: {
+      en: "These math riddles need no formulas, only careful thinking about numbers. The list starts with quick arithmetic traps and counting puzzles, moves through classic word problems about trains, ropes and handshakes, and ends with harder problems about clock hands, magic squares and probability. Read each one in English or Arabic, work it out on paper, then reveal the answer with its explanation.",
+      ar: "لا تحتاج هذه الألغاز الرياضية إلى معادلات، بل إلى تفكير دقيق في الأرقام. تبدأ القائمة بفخاخ حسابية سريعة وألغاز عدّ، ثم تنتقل إلى مسائل كلامية كلاسيكية عن القطارات والحبال والمصافحات، وتنتهي بمسائل أصعب عن عقارب الساعة والمربعات السحرية والاحتمالات. اقرأ كل لغز بالعربية أو الإنجليزية، واحسبه على الورق، ثم اكشف الحل مع شرحه.",
+    },
+    guidance: {
+      en: "Write the numbers down before you answer; most of these riddles are designed so the first answer that comes to mind is wrong. Each answer includes a short explanation, and the full Math topic has 120 more questions.",
+      ar: "اكتب الأرقام قبل أن تجيب؛ فمعظم هذه الألغاز مصمّمة بحيث تكون الإجابة الأولى التي تخطر في البال خاطئة. يتضمّن كل حل شرحاً قصيراً، ويضم موضوع الرياضيات الكامل 120 سؤالاً آخر.",
+    },
+    subjects: { en: ["Math riddles", "Number puzzles", "Arithmetic", "Logic"], ar: ["ألغاز رياضية", "ألغاز أرقام", "حساب", "منطق"] },
+    cards: [
+      // Easy
+      ["math", "math-001"],
+      ["math", "math-002"],
+      ["math", "math-101"],
+      ["math", "math-103"],
+      ["math", "math-104"],
+      ["math", "math-020"],
+      ["math", "math-031"],
+      ["math", "math-012"],
+      ["math", "math-025"],
+      ["math", "math-047"],
+      ["math", "math-030"],
+      // Medium
+      ["math", "math-016"],
+      ["math", "math-054"],
+      ["math", "math-052"],
+      ["math", "math-035"],
+      ["math", "math-036"],
+      ["math", "math-037"],
+      ["math", "math-110"],
+      ["math", "math-112"],
+      ["math", "math-113"],
+      ["math", "math-117"],
+      ["math", "math-123"],
+      ["math", "math-127"],
+      // Hard
+      ["math", "math-039"],
+      ["math", "math-153"],
+      ["math", "math-157"],
+      ["math", "math-155"],
+      ["math", "math-156"],
+      ["math", "math-159"],
+      ["math", "math-152"],
+    ],
+  },
+  {
+    key: "hard-riddles",
+    // New collection on 2026-11-08: 30 hard riddles and brain teasers drawn from the Classic
+    // Riddles and Logic Puzzles topics, none of which is featured on another collection.
+    sitemapGeneration: "collections-2026-11",
+    lastModified: "2026-11-08",
+    paths: { en: "/hard-riddles", ar: "/ar/alghaz-saaba/" },
+    titles: {
+      en: "30 Hard Riddles With Answers (Brain Teasers) | Riddle Arabia",
+      ar: "30 لغزاً صعباً مع الحل: ألغاز ذكاء للكبار | ريدل أرابيا",
+    },
+    descriptions: {
+      en: "30 hard riddles with answers in English and Arabic for adults who find easy riddles boring: three boxes, twelve balls, the bridge at night and more.",
+      ar: "30 لغزاً صعباً مع الحل بالعربية والإنجليزية، لمن يملّ من الألغاز السهلة: الصناديق الثلاثة، والكرات الاثنتا عشرة، والجسر ليلاً وغيرها من ألغاز الذكاء الكلاسيكية.",
+    },
+    eyebrow: { en: "For stubborn solvers", ar: "لمن لا يستسلم" },
+    headings: { en: "Hard riddles with answers", ar: "ألغاز صعبة مع الحل" },
+    introductions: {
+      en: "These are the riddles people argue about. They start with tricky number and deduction puzzles, then move to famous brain teasers: the three mislabelled boxes, the knights and knaves, the two hourglasses, the twelve balls and the bridge crossing at night. Each one is written in English and Arabic, and every answer explains the reasoning, so you can check your logic rather than just the result.",
+      ar: "هذه هي الألغاز التي يتجادل الناس حولها. تبدأ بألغاز أرقام واستنتاج ماكرة، ثم تنتقل إلى ألغاز ذكاء مشهورة: الصناديق الثلاثة الخاطئة التسمية، والفرسان والكذّابون، والساعتان الرمليتان، والكرات الاثنتا عشرة، وعبور الجسر ليلاً. كل لغز مكتوب بالعربية والإنجليزية، ويشرح كل حل طريقة التفكير، لتتحقّق من منطقك لا من النتيجة فقط.",
+    },
+    guidance: {
+      en: "Do not rush. Write down what the riddle actually states, separate it from what you assume, and only then open the answer. If you solve the last five without help, you are in rare company.",
+      ar: "لا تستعجل. اكتب ما يقوله اللغز فعلاً، وافصله عمّا تفترضه، ثم افتح الحل. وإن حللت الخمسة الأخيرة من دون مساعدة، فأنت من القلّة.",
+    },
+    subjects: { en: ["Hard riddles", "Brain teasers", "Logic", "Deduction"], ar: ["ألغاز صعبة", "ألغاز ذكاء", "منطق", "استنتاج"] },
+    cards: [
+      // Warm-up: medium
+      ["classic-riddles", "classic-riddles-051"],
+      ["logic-puzzles", "logic-puzzles-016"],
+      ["logic-puzzles", "logic-puzzles-027"],
+      ["logic-puzzles", "logic-puzzles-026"],
+      ["logic-puzzles", "logic-puzzles-031"],
+      ["logic-puzzles", "logic-puzzles-035"],
+      ["logic-puzzles", "logic-puzzles-025"],
+      ["logic-puzzles", "logic-puzzles-020"],
+      // Hard
+      ["classic-riddles", "classic-riddles-070"],
+      ["logic-puzzles", "logic-puzzles-056"],
+      ["logic-puzzles", "logic-puzzles-038"],
+      ["logic-puzzles", "logic-puzzles-040"],
+      ["logic-puzzles", "logic-puzzles-062"],
+      ["logic-puzzles", "logic-puzzles-061"],
+      ["classic-riddles", "classic-riddles-102"],
+      ["classic-riddles", "classic-riddles-096"],
+      ["classic-riddles", "classic-riddles-082"],
+      // Very advanced
+      ["classic-riddles", "classic-riddles-079"],
+      ["logic-puzzles", "logic-puzzles-060"],
+      ["classic-riddles", "classic-riddles-085"],
+      ["classic-riddles", "classic-riddles-077"],
+      ["classic-riddles", "classic-riddles-099"],
+      ["logic-puzzles", "logic-puzzles-064"],
+      ["logic-puzzles", "logic-puzzles-063"],
+      ["logic-puzzles", "logic-puzzles-065"],
+      ["logic-puzzles", "logic-puzzles-066"],
+      ["logic-puzzles", "logic-puzzles-067"],
+      ["logic-puzzles", "logic-puzzles-054"],
+      ["logic-puzzles", "logic-puzzles-068"],
+      ["logic-puzzles", "logic-puzzles-052"],
+    ],
+  },
+  {
+    key: "science-trivia",
+    // New collection on 2026-11-09: 30 science questions from the Science topic, easy to expert.
+    sitemapGeneration: "collections-2026-11b",
+    lastModified: "2026-11-09",
+    paths: { en: "/science-trivia", ar: "/ar/asila-ilmiya/" },
+    titles: {
+      en: "30 Science Trivia Questions & Answers | Riddle Arabia",
+      ar: "30 سؤالاً علمياً مع الأجوبة | ريدل أرابيا",
+    },
+    descriptions: {
+      en: "30 science trivia questions with answers in English and Arabic: why the sky is blue, what a mirage really is, why pasta cooks slowly up a mountain. Easy to expert.",
+      ar: "30 سؤالاً علمياً مع الأجوبة بالعربية والإنجليزية: لماذا السماء زرقاء، وما حقيقة السراب، ولماذا يتأخر نضج المعكرونة في الجبال. من السهل إلى المتقدّم.",
+    },
+    eyebrow: { en: "Everyday things, explained", ar: "أشياء يومية مشروحة" },
+    headings: { en: "Science trivia questions with answers", ar: "أسئلة علمية مع الأجوبة" },
+    introductions: {
+      en: "These science questions start with the basics of states of matter, forces and the body, move through the physics behind everyday sights such as rainbows, sirens and a blue sky, and end with harder ideas from relativity and quantum physics and two scholars, Ibn Sahl and Ole Rømer, whose measurements changed what we know about light. Each answer explains the idea, not just the word.",
+      ar: "تبدأ هذه الأسئلة العلمية بأساسيات حالات المادة والقوى وجسم الإنسان، ثم تنتقل إلى الفيزياء وراء مشاهد يومية مثل قوس قزح وصفّارة الإسعاف وزرقة السماء، وتنتهي بأفكار أصعب من النسبية وفيزياء الكم، وبعالمين، ابن سهل وأولي رومر، غيّرت قياساتهما ما نعرفه عن الضوء. يشرح كل جواب الفكرة لا الكلمة فقط.",
+    },
+    guidance: {
+      en: "Guess the explanation before you reveal it; the point is the why, not the term. The full Science topic has 80 questions, and Chemistry, Biology and Space have their own.",
+      ar: "خمّن التفسير قبل أن تكشفه؛ فالمقصود هو السبب لا المصطلح. يضم موضوع العلوم الكامل 80 سؤالاً، ولكلٍّ من الكيمياء والأحياء والفضاء موضوعه الخاص.",
+    },
+    subjects: { en: ["Science trivia", "Physics", "Chemistry", "Biology"], ar: ["أسئلة علمية", "فيزياء", "كيمياء", "أحياء"] },
+    cards: [
+      // Easy
+      ["science", "science-007"],
+      ["science", "science-008"],
+      ["science", "science-003"],
+      ["science", "science-033"],
+      ["science", "science-039"],
+      ["science", "science-038"],
+      ["science", "science-045"],
+      ["science", "science-040"],
+      ["science", "physical-and-life-sciences-001"],
+      // Medium
+      ["science", "science-011"],
+      ["science", "science-012"],
+      ["science", "science-013"],
+      ["science", "science-014"],
+      ["science", "science-016"],
+      ["science", "science-017"],
+      ["science", "science-058"],
+      ["science", "science-060"],
+      ["science", "science-056"],
+      ["science", "science-029"],
+      // Hard
+      ["science", "science-021"],
+      ["science", "science-022"],
+      ["science", "science-101"],
+      ["science", "science-103"],
+      ["science", "science-104"],
+      ["science", "science-105"],
+      ["science", "science-106"],
+      // Very advanced
+      ["science", "science-110"],
+      ["science", "science-111"],
+      ["science", "science-113"],
+      ["science", "science-114"],
+    ],
+  },
+  {
+    key: "geography-quiz",
+    // New collection on 2026-11-09: 30 geography questions from the Geography topic, easy to expert.
+    sitemapGeneration: "collections-2026-11b",
+    lastModified: "2026-11-09",
+    paths: { en: "/geography-quiz", ar: "/ar/asila-jughrafiya/" },
+    titles: {
+      en: "30 Geography Quiz Questions & Answers | Riddle Arabia",
+      ar: "30 سؤالاً في الجغرافيا مع الأجوبة | ريدل أرابيا",
+    },
+    descriptions: {
+      en: "30 geography quiz questions with answers in English and Arabic: capitals, oceans, deserts and straits, from the Sahara to the river that crosses the equator twice.",
+      ar: "30 سؤالاً في الجغرافيا مع الأجوبة بالعربية والإنجليزية: عواصم ومحيطات وصحارى ومضائق، من الصحراء الكبرى إلى النهر الذي يعبر خط الاستواء مرتين.",
+    },
+    eyebrow: { en: "Around the world in 30", ar: "حول العالم في 30 سؤالاً" },
+    headings: { en: "Geography quiz questions with answers", ar: "أسئلة في الجغرافيا مع الأجوبة" },
+    introductions: {
+      en: "This geography quiz starts with the capitals, oceans and deserts most people know, then works through the Arab world's straits and sand seas, the largest landlocked country and the deepest lake, and ends with questions that catch even keen travellers: the only country entirely above 1,000 metres, the river that crosses the equator twice, and the largest country with no permanent river. Answers are explained in English and Arabic.",
+      ar: "يبدأ اختبار الجغرافيا هذا بالعواصم والمحيطات والصحارى التي يعرفها معظم الناس، ثم يمرّ بمضائق العالم العربي وبحار رماله، وأكبر دولة حبيسة وأعمق بحيرة، وينتهي بأسئلة تُحيّر حتى المسافرين المتمرّسين: الدولة الوحيدة التي تقع أراضيها كلها فوق 1000 متر، والنهر الذي يعبر خط الاستواء مرتين، وأكبر دولة من دون نهر دائم. الأجوبة مشروحة بالعربية والإنجليزية.",
+    },
+    guidance: {
+      en: "Picture the map before you answer. The full Geography topic has 100 questions, and Flags has its own collection.",
+      ar: "تخيّل الخريطة قبل أن تجيب. يضم موضوع الجغرافيا الكامل 100 سؤال، وللأعلام مجموعتها الخاصة.",
+    },
+    subjects: { en: ["Geography quiz", "Capitals", "Oceans and seas", "Deserts and mountains"], ar: ["أسئلة جغرافيا", "عواصم", "محيطات وبحار", "صحارى وجبال"] },
+    cards: [
+      // Easy
+      ["geography", "geography-013"],
+      ["geography", "geography-037"],
+      ["geography", "geography-042"],
+      ["geography", "geography-029"],
+      ["geography", "geography-032"],
+      ["geography", "geography-044"],
+      ["geography", "geography-033"],
+      ["geography", "geography-055"],
+      ["geography", "geography-043"],
+      // Medium
+      ["geography", "geography-004"],
+      ["geography", "geography-012"],
+      ["geography", "geography-046"],
+      ["geography", "geography-048"],
+      ["geography", "geography-049"],
+      ["geography", "geography-056"],
+      ["geography", "geography-059"],
+      ["geography", "geography-062"],
+      ["geography", "geography-036"],
+      ["geography", "geography-019"],
+      // Hard
+      ["geography", "geography-011"],
+      ["geography", "geography-023"],
+      ["geography", "geography-026"],
+      ["geography", "geography-064"],
+      ["geography", "geography-072"],
+      ["geography", "geography-065"],
+      ["geography", "geography-091"],
+      // Very advanced
+      ["geography", "geography-006"],
+      ["geography", "geography-040"],
+      ["geography", "geography-031"],
+      ["geography", "geography-057"],
+    ],
+  },
+  {
+    key: "football-quiz",
+    // New collection on 2026-11-09: 30 football questions from the Football topic, easy to expert. Cards tied to 2025-26 results are left out so the page stays true without upkeep.
+    sitemapGeneration: "collections-2026-11b",
+    lastModified: "2026-11-09",
+    paths: { en: "/football-quiz", ar: "/ar/asila-kurat-alqadam/" },
+    titles: {
+      en: "30 Football Quiz Questions & Answers | Riddle Arabia",
+      ar: "30 سؤالاً في كرة القدم مع الأجوبة | ريدل أرابيا",
+    },
+    descriptions: {
+      en: "30 football quiz questions with answers in English and Arabic: World Cup history, famous finals, Arab football moments and the rules, easy to expert.",
+      ar: "30 سؤالاً في كرة القدم مع الأجوبة بالعربية والإنجليزية: تاريخ كأس العالم ونهائيات شهيرة ولحظات عربية وقواعد اللعبة، من السهل إلى المتقدّم.",
+    },
+    eyebrow: { en: "From the terraces", ar: "من المدرجات" },
+    headings: { en: "Football quiz questions with answers", ar: "أسئلة في كرة القدم مع الأجوبة" },
+    introductions: {
+      en: "This football quiz opens with the basics every fan knows, then moves through the great finals, the managers and the derbies, with a strong thread of Arab football: Al-Dawsari's winner against Argentina, Al-Owairan's solo goal, Algeria beating West Germany in 1982, and Madjer's backheel in a European Cup final. It ends with questions for the historians: the only player to win the Champions League with three clubs, Pelé's real name and the first Arab team at a World Cup. Answers are explained in English and Arabic.",
+      ar: "يفتتح اختبار كرة القدم هذا بالأساسيات التي يعرفها كل مشجع، ثم يمرّ بالنهائيات الكبرى والمدرّبين والديربيات، مع خيط عربي قوي: هدف الدوسري في مرمى الأرجنتين، وهدف العويران الفردي، وفوز الجزائر على ألمانيا الغربية عام 1982، وكعب ماجر في نهائي كأس أوروبا. وينتهي بأسئلة لعشّاق التاريخ: اللاعب الوحيد الذي فاز بدوري الأبطال مع ثلاثة أندية، واسم بيليه الحقيقي، وأول منتخب عربي في كأس العالم. الأجوبة مشروحة بالعربية والإنجليزية.",
+    },
+    guidance: {
+      en: "Settle the argument before you reveal the answer. The full Football topic has 160 questions, and Battle rooms let you play a friend live.",
+      ar: "احسم الجدل قبل أن تكشف الجواب. يضم موضوع كرة القدم الكامل 160 سؤالاً، وتتيح لك غرف المواجهة اللعب مع صديق مباشرة.",
+    },
+    subjects: { en: ["Football quiz", "World Cup", "Champions League", "Arab football"], ar: ["أسئلة كرة القدم", "كأس العالم", "دوري الأبطال", "الكرة العربية"] },
+    cards: [
+      // Easy
+      ["football", "football-001"],
+      ["football", "football-004"],
+      ["football", "football-019"],
+      ["football", "football-051"],
+      ["football", "football-052"],
+      ["football", "football-057"],
+      ["football", "football-071"],
+      ["football", "football-117"],
+      ["football", "football-bw-025"],
+      // Medium
+      ["football", "football-021"],
+      ["football", "football-012"],
+      ["football", "football-014"],
+      ["football", "football-017"],
+      ["football", "football-039"],
+      ["football", "football-040"],
+      ["football", "football-070"],
+      ["football", "football-105"],
+      ["football", "football-045"],
+      ["football", "football-111"],
+      // Hard
+      ["football", "football-016"],
+      ["football", "football-026"],
+      ["football", "football-032"],
+      ["football", "football-112"],
+      ["football", "football-132"],
+      ["football", "football-141"],
+      ["football", "football-150"],
+      // Very advanced
+      ["football", "football-102"],
+      ["football", "football-122"],
+      ["football", "football-152"],
+      ["football", "football-155"],
+    ],
+  },
+  {
+    key: "flags-quiz",
+    // New collection on 2026-11-09: 30 flag questions from the Flags topic, easy to expert.
+    sitemapGeneration: "collections-2026-11b",
+    lastModified: "2026-11-09",
+    paths: { en: "/flags-quiz", ar: "/ar/alam-alduwal/" },
+    titles: {
+      en: "30 Flag Quiz Questions & Answers (World Flags) | Riddle Arabia",
+      ar: "30 سؤالاً عن أعلام الدول مع الأجوبة | ريدل أرابيا",
+    },
+    descriptions: {
+      en: "30 flag quiz questions with answers in English and Arabic: the Nordic cross, the Pan-Arab colours, the dagger on Oman's flag and the only flag that is not a rectangle.",
+      ar: "30 سؤالاً عن أعلام الدول مع الأجوبة بالعربية والإنجليزية: الصليب الإسكندنافي، والألوان العربية، والخنجر على علم عُمان، والعلم الوحيد الذي ليس مستطيلاً.",
+    },
+    eyebrow: { en: "Know your colours", ar: "اعرف الألوان" },
+    headings: { en: "Flag quiz questions with answers", ar: "أسئلة عن أعلام الدول مع الأجوبة" },
+    introductions: {
+      en: "This flag quiz starts with the flags everyone recognises, then the stories behind them: why the Gulf flags share a palette, which country's flag is square and which is two pennants, what the Pan-Arab colours mean, and what the five points on Bahrain's flag stand for. It ends with the details only flag enthusiasts know. Every answer is explained in English and Arabic.",
+      ar: "يبدأ اختبار الأعلام هذا بالأعلام التي يعرفها الجميع، ثم بالقصص التي خلفها: لماذا تتشارك أعلام الخليج ألوانها، وأي دولة علمها مربع وأيها علمها رايتان مثلثتان، وما معنى الألوان العربية، وما الذي ترمز إليه النقاط الخمس في علم البحرين. وينتهي بتفاصيل لا يعرفها إلا هواة الأعلام. كل جواب مشروح بالعربية والإنجليزية.",
+    },
+    guidance: {
+      en: "Picture the flag before you answer. The full Flags topic has 40 questions, and Geography has its own collection.",
+      ar: "تخيّل العلم قبل أن تجيب. يضم موضوع الأعلام الكامل 40 سؤالاً، وللجغرافيا مجموعتها الخاصة.",
+    },
+    subjects: { en: ["Flag quiz", "World flags", "Arab flags", "Vexillology"], ar: ["أسئلة أعلام", "أعلام العالم", "أعلام عربية", "علم الأعلام"] },
+    cards: [
+      // Easy
+      ["flag-questions", "flag-questions-001"],
+      ["flag-questions", "flag-questions-002"],
+      ["flag-questions", "flag-questions-003"],
+      ["flag-questions", "flag-questions-005"],
+      ["flag-questions", "flag-questions-008"],
+      ["flag-questions", "flag-questions-010"],
+      ["flag-questions", "flag-questions-017"],
+      ["flag-questions", "flag-questions-030"],
+      ["flag-questions", "flag-questions-031"],
+      // Medium
+      ["flag-questions", "flag-questions-006"],
+      ["flag-questions", "flag-questions-009"],
+      ["flag-questions", "flag-questions-011"],
+      ["flag-questions", "flag-questions-013"],
+      ["flag-questions", "flag-questions-014"],
+      ["flag-questions", "flag-questions-016"],
+      ["flag-questions", "flag-questions-018"],
+      ["flag-questions", "flag-questions-019"],
+      ["flag-questions", "flag-questions-029"],
+      // Hard
+      ["flag-questions", "flag-questions-012"],
+      ["flag-questions", "flag-questions-021"],
+      ["flag-questions", "flag-questions-022"],
+      ["flag-questions", "flag-questions-024"],
+      ["flag-questions", "flag-questions-032"],
+      ["flag-questions", "flag-questions-033"],
+      ["flag-questions", "flag-questions-034"],
+      // Very advanced
+      ["flag-questions", "flag-questions-028"],
+      ["flag-questions", "flag-questions-035"],
+      ["flag-questions", "flag-questions-036"],
+      ["flag-questions", "flag-questions-037"],
+      ["flag-questions", "flag-questions-040"],
+    ],
+  },
+  {
+    key: "history-quiz",
+    // New collection on 2026-11-09 (round three): 30 world-history questions from the History topic, easy to expert. The two cards already on General knowledge are not reused.
+    sitemapGeneration: "collections-2026-11c",
+    lastModified: "2026-11-09",
+    paths: { en: "/history-quiz", ar: "/ar/asila-tarikhiya/" },
+    titles: {
+      en: "30 History Quiz Questions & Answers | Riddle Arabia",
+      ar: "30 سؤالاً في التاريخ مع الأجوبة | ريدل أرابيا",
+    },
+    descriptions: {
+      en: "30 history quiz questions with answers in English and Arabic: the Berlin Wall, Ibn Battuta, Tariq ibn Ziyad, Mansa Musa, Zheng He and the year without a summer.",
+      ar: "30 سؤالاً في التاريخ مع الأجوبة بالعربية والإنجليزية: جدار برلين، وابن بطوطة، وطارق بن زياد، ومنسا موسى، وتشنغ خه، والسنة التي بلا صيف.",
+    },
+    eyebrow: { en: "Across the centuries", ar: "عبر القرون" },
+    headings: { en: "History quiz questions with answers", ar: "أسئلة في التاريخ مع الأجوبة" },
+    introductions: {
+      en: "This history quiz starts with dates most people know, the Titanic, the first steps on the Moon and the fall of the Berlin Wall, then widens to the whole world: Tariq ibn Ziyad crossing into Spain, Suleiman the Magnificent, Mehmed II at Constantinople and the Umayyad capital in al-Andalus. The hard questions move to Mali, Mughal India, the Aztecs and Samarkand, and the last five are for the historians: Zheng He's treasure fleets, Menelik II at Adwa, Korea's turtle ships and the volcano that cancelled a summer. Every answer is explained in English and Arabic.",
+      ar: "يبدأ اختبار التاريخ هذا بتواريخ يعرفها معظم الناس: تيتانيك، وأول خطوة على سطح القمر، وسقوط جدار برلين، ثم يتسع ليشمل العالم كله: عبور طارق بن زياد إلى الأندلس، وسليمان القانوني، ومحمد الفاتح أمام القسطنطينية، وعاصمة الأمويين في الأندلس. وتنتقل الأسئلة الصعبة إلى مالي والهند المغولية والأزتيك وسمرقند، وتُترك الخمسة الأخيرة لعشّاق التاريخ: أساطيل تشنغ خه، ومنليك الثاني في عدوة، وسفن السلاحف الكورية، والبركان الذي ألغى صيفًا كاملاً. كل جواب مشروح بالعربية والإنجليزية.",
+    },
+    guidance: {
+      en: "Say the century before you reveal the answer. The full History topic has 100 questions, and the Arabia quiz covers the region in depth.",
+      ar: "حدّد القرن قبل أن تكشف الجواب. يضم موضوع التاريخ الكامل 100 سؤال، ويغطي اختبار الجزيرة العربية المنطقة بعمق.",
+    },
+    subjects: { en: ["History quiz", "World history", "Islamic history", "Empires"], ar: ["أسئلة تاريخية", "تاريخ العالم", "التاريخ الإسلامي", "الإمبراطوريات"] },
+    cards: [
+      // Easy
+      ["history", "history-004"],
+      ["history", "history-005"],
+      ["history", "history-009"],
+      ["history", "history-010"],
+      ["history", "history-031"],
+      ["history", "history-032"],
+      ["history", "history-034"],
+      ["history", "history-035"],
+      ["history", "history-052"],
+      // Medium
+      ["history", "history-011"],
+      ["history", "history-017"],
+      ["history", "history-047"],
+      ["history", "history-057"],
+      ["history", "history-058"],
+      ["history", "history-063"],
+      ["history", "history-077"],
+      ["history", "history-083"],
+      ["history", "history-100"],
+      // Hard
+      ["history", "history-024"],
+      ["history", "history-026"],
+      ["history", "history-028"],
+      ["history", "history-060"],
+      ["history", "history-066"],
+      ["history", "history-071"],
+      ["history", "history-078"],
+      // Very advanced
+      ["history", "history-029"],
+      ["history", "history-045"],
+      ["history", "history-054"],
+      ["history", "history-062"],
+      ["history", "history-098"],
+    ],
+  },
+  {
+    key: "animal-quiz",
+    // New collection on 2026-11-09 (round three): 30 animal questions from the Animal Kingdom topic, easy to expert, with the Arabian wildlife cards included. The three cards already on General knowledge are not reused.
+    sitemapGeneration: "collections-2026-11c",
+    lastModified: "2026-11-09",
+    paths: { en: "/animal-quiz", ar: "/ar/asila-an-alhayawanat/" },
+    titles: {
+      en: "30 Animal Quiz Questions & Answers | Riddle Arabia",
+      ar: "30 سؤالاً عن الحيوانات مع الأجوبة | ريدل أرابيا",
+    },
+    descriptions: {
+      en: "30 animal quiz questions with answers in English and Arabic: what a camel really stores in its hump, the fennec, the Arabian oryx, the dugong and the bird that flies for ten months.",
+      ar: "30 سؤالاً عن الحيوانات مع الأجوبة بالعربية والإنجليزية: ما يخزّنه الجمل فعلاً في سنامه، والفنك، والمها العربي، والأطوم، والطائر الذي يحلّق عشرة أشهر.",
+    },
+    eyebrow: { en: "Wild and wonderful", ar: "من عالم الحيوان" },
+    headings: { en: "Animal quiz questions with answers", ar: "أسئلة عن الحيوانات مع الأجوبة" },
+    introductions: {
+      en: "This animal quiz begins with the favourites, the cheetah, the blue whale, the chameleon and the ship of the desert, then goes to the animals of this region: the fennec fox of the Sahara, the Arabian oryx that came back from extinction in the wild, the dugongs of the Gulf and the Arabian leopard of Dhofar. The hard questions ask why a giraffe needs such high blood pressure and what decides a sea turtle's sex, and the last five are for the naturalists: oval camel blood cells, sandgrouse that carry water in their feathers and the swift that stays airborne for ten months. Every answer is explained in English and Arabic.",
+      ar: "يبدأ اختبار الحيوانات هذا بالمفضّلات: الفهد، والحوت الأزرق، والحرباء، وسفينة الصحراء، ثم ينتقل إلى حيوانات هذه المنطقة: ثعلب الفنك في الصحراء الكبرى، والمها العربي الذي عاد بعد انقراضه في البرية، وأطوم الخليج، والنمر العربي في ظفار. وتسأل الأسئلة الصعبة لماذا تحتاج الزرافة إلى ضغط دم مرتفع إلى هذا الحد، وما الذي يحدد جنس السلحفاة البحرية، وتُترك الخمسة الأخيرة لعشّاق الطبيعة: كريات دم الجمل البيضاوية، وطيور القطا التي تحمل الماء في ريشها، والسمامة التي تبقى محلّقة عشرة أشهر. كل جواب مشروح بالعربية والإنجليزية.",
+    },
+    guidance: {
+      en: "Good for a family round: the easy questions suit children, the last ten suit a biologist. The full Animal Kingdom topic has 60 questions.",
+      ar: "مناسب لجولة عائلية: الأسئلة السهلة تناسب الأطفال، والعشرة الأخيرة تناسب عالِم أحياء. يضم موضوع عالم الحيوان الكامل 60 سؤالاً.",
+    },
+    subjects: { en: ["Animal quiz", "Wildlife", "Arabian wildlife", "Zoology"], ar: ["أسئلة عن الحيوانات", "الحياة البرية", "حيوانات الجزيرة العربية", "علم الحيوان"] },
+    cards: [
+      // Easy
+      ["animal-kingdom", "ani-1"],
+      ["animal-kingdom", "ani-6"],
+      ["animal-kingdom", "ani-8"],
+      ["animal-kingdom", "ani-9"],
+      ["animal-kingdom", "ani-41"],
+      ["animal-kingdom", "biology-033"],
+      ["animal-kingdom", "biology-037"],
+      ["animal-kingdom", "biology-043"],
+      // Medium
+      ["animal-kingdom", "ani-12"],
+      ["animal-kingdom", "ani-14"],
+      ["animal-kingdom", "ani-15"],
+      ["animal-kingdom", "ani-17"],
+      ["animal-kingdom", "ani-19"],
+      ["animal-kingdom", "ani-23"],
+      ["animal-kingdom", "ani-26"],
+      ["animal-kingdom", "ani-32"],
+      ["animal-kingdom", "ani-35"],
+      // Hard
+      ["animal-kingdom", "ani-21"],
+      ["animal-kingdom", "ani-27"],
+      ["animal-kingdom", "ani-28"],
+      ["animal-kingdom", "ani-42"],
+      ["animal-kingdom", "ani-43"],
+      ["animal-kingdom", "ani-44"],
+      ["animal-kingdom", "ani-45"],
+      ["animal-kingdom", "ani-47"],
+      // Very advanced
+      ["animal-kingdom", "ani-49"],
+      ["animal-kingdom", "ani-50"],
+      ["animal-kingdom", "ani-54"],
+      ["animal-kingdom", "ani-55"],
+      ["animal-kingdom", "ani-56"],
+    ],
+  },
+  {
+    key: "space-quiz",
+    // New collection on 2026-11-09 (round three): 30 space questions from the Space & Astronomy topic, easy to expert, with the Arab astronomy cards included. The three cards already on General knowledge are not reused.
+    sitemapGeneration: "collections-2026-11c",
+    lastModified: "2026-11-09",
+    paths: { en: "/space-quiz", ar: "/ar/asila-an-alfadaa/" },
+    titles: {
+      en: "30 Space Quiz Questions & Answers | Riddle Arabia",
+      ar: "30 سؤالاً عن الفضاء مع الأجوبة | ريدل أرابيا",
+    },
+    descriptions: {
+      en: "30 space quiz questions with answers in English and Arabic: the Red Planet, Saturn's rings, the Hope probe, the first Arab astronaut, al-Sufi's star book and the Wow! signal.",
+      ar: "30 سؤالاً عن الفضاء مع الأجوبة بالعربية والإنجليزية: الكوكب الأحمر، وحلقات زحل، ومسبار الأمل، وأول رائد فضاء عربي، وكتاب الصوفي للنجوم، وإشارة Wow!.",
+    },
+    eyebrow: { en: "Look up", ar: "انظر إلى السماء" },
+    headings: { en: "Space quiz questions with answers", ar: "أسئلة عن الفضاء مع الأجوبة" },
+    introductions: {
+      en: "This space quiz opens with the solar system everyone learns at school, Mars, Saturn's rings, Pluto's demotion and Halley's comet, then follows the human story into orbit: Sputnik, Gagarin, the first Arab astronaut in 1985 and the UAE's Hope probe at Mars. The hard questions reach the Kuiper belt, the parsec and the first photographed black hole, and the last five are for the astronomers: al-Battani's measurement of the year, the Laniakea supercluster, gravitational waves, the Fermi paradox and the signal that was heard once and never again. Every answer is explained in English and Arabic.",
+      ar: "يفتتح اختبار الفضاء هذا بالمجموعة الشمسية التي يتعلّمها الجميع في المدرسة: المريخ، وحلقات زحل، وتنزيل بلوتو من مرتبة الكواكب، ومذنّب هالي، ثم يتتبّع قصة الإنسان في المدار: سبوتنيك، وغاغارين، وأول رائد فضاء عربي عام 1985، ومسبار الأمل الإماراتي عند المريخ. وتصل الأسئلة الصعبة إلى حزام كايبر والفرسخ الفلكي وأول ثقب أسود مصوَّر، وتُترك الخمسة الأخيرة لعشّاق الفلك: قياس البتّاني لطول السنة، وعنقود لانياكيا الفائق، وموجات الجاذبية، ومفارقة فيرمي، والإشارة التي سُمعت مرة واحدة ولم تتكرر. كل جواب مشروح بالعربية والإنجليزية.",
+    },
+    guidance: {
+      en: "Answer out loud before you reveal. The full Space & Astronomy topic has 100 questions, and Science has its own collection.",
+      ar: "أجب بصوت مسموع قبل أن تكشف الجواب. يضم موضوع الفضاء وعلم الفلك الكامل 100 سؤال، وللعلوم مجموعتها الخاصة.",
+    },
+    subjects: { en: ["Space quiz", "Astronomy", "Solar system", "Arab astronomy"], ar: ["أسئلة عن الفضاء", "علم الفلك", "المجموعة الشمسية", "الفلك العربي"] },
+    cards: [
+      // Easy
+      ["space-and-astrology", "space-and-astrology-001"],
+      ["space-and-astrology", "space-and-astrology-006"],
+      ["space-and-astrology", "space-and-astrology-009"],
+      ["space-and-astrology", "space-and-astrology-012"],
+      ["space-and-astrology", "space-and-astrology-014"],
+      ["space-and-astrology", "space-and-astrology-015"],
+      ["space-and-astrology", "space-035"],
+      ["space-and-astrology", "space-036"],
+      ["space-and-astrology", "space-038"],
+      // Medium
+      ["space-and-astrology", "space-and-astrology-008"],
+      ["space-and-astrology", "space-and-astrology-018"],
+      ["space-and-astrology", "space-and-astrology-019"],
+      ["space-and-astrology", "space-073"],
+      ["space-and-astrology", "space-040"],
+      ["space-and-astrology", "space-055"],
+      ["space-and-astrology", "space-056"],
+      ["space-and-astrology", "space-057"],
+      ["space-and-astrology", "space-058"],
+      // Hard
+      ["space-and-astrology", "space-and-astrology-023"],
+      ["space-and-astrology", "space-and-astrology-024"],
+      ["space-and-astrology", "space-and-astrology-027"],
+      ["space-and-astrology", "space-and-astrology-029"],
+      ["space-and-astrology", "space-061"],
+      ["space-and-astrology", "space-071"],
+      ["space-and-astrology", "space-096"],
+      // Very advanced
+      ["space-and-astrology", "space-054"],
+      ["space-and-astrology", "space-084"],
+      ["space-and-astrology", "space-085"],
+      ["space-and-astrology", "space-087"],
+      ["space-and-astrology", "space-094"],
+    ],
+  },
+  {
+    key: "anime-quiz",
+    // New collection on 2026-11-09 (round three): 30 anime questions, three from each of the ten series in the Anime topic, easy to expert.
+    sitemapGeneration: "collections-2026-11c",
+    lastModified: "2026-11-09",
+    paths: { en: "/anime-quiz", ar: "/ar/asila-anime/" },
+    titles: {
+      en: "30 Anime Quiz Questions & Answers | Riddle Arabia",
+      ar: "30 سؤالاً عن الأنمي مع الأجوبة | ريدل أرابيا",
+    },
+    descriptions: {
+      en: "30 anime quiz questions with answers in English and Arabic, three from each of ten series: Naruto, One Piece, Dragon Ball Z, Attack on Titan, Demon Slayer, Death Note and more.",
+      ar: "30 سؤالاً عن الأنمي مع الأجوبة بالعربية والإنجليزية، ثلاثة من كل مسلسل من عشرة: ناروتو، وون بيس، ودراغون بول زد، وهجوم العمالقة، وقاتل الشياطين، ومذكرة الموت وغيرها.",
+    },
+    eyebrow: { en: "For the fans", ar: "لعشّاق الأنمي" },
+    headings: { en: "Anime quiz questions with answers", ar: "أسئلة عن الأنمي مع الأجوبة" },
+    introductions: {
+      en: "This anime quiz takes three questions from each of ten series, so no single fandom can run away with it: Naruto, Dragon Ball Z, Pokémon, Death Note, Attack on Titan, One Piece, Demon Slayer, Fullmetal Alchemist: Brotherhood, My Hero Academia and Sword Art Online. The easy ten are the names everyone knows, the middle ten ask about mentors, villains and gear, and the last ten reach the deep lore: the Void Century, the kingdom of Xerxes, All Might's mentor and the program that seeded every virtual world. Every answer is explained in English and Arabic.",
+      ar: "يأخذ اختبار الأنمي هذا ثلاثة أسئلة من كل مسلسل من عشرة، حتى لا يستأثر به جمهور واحد: ناروتو، ودراغون بول زد، وبوكيمون، ومذكرة الموت، وهجوم العمالقة، وون بيس، وقاتل الشياطين، والخيميائي المعدني الكامل: الأخوّة، وأكاديميتي للأبطال، وفن السيف أونلاين. العشرة السهلة هي الأسماء التي يعرفها الجميع، والعشرة الوسطى تسأل عن المعلّمين والأشرار والمعدّات، والعشرة الأخيرة تصل إلى أعماق القصة: القرن المفقود، ومملكة زركسيس، ومعلّمة أول مايت، والبرنامج الذي زرع كل عالم افتراضي. كل جواب مشروح بالعربية والإنجليزية.",
+    },
+    guidance: {
+      en: "Play it with a friend from a different fandom and compare. The full Anime topic has 150 questions across the ten series.",
+      ar: "العبه مع صديق من جمهور مختلف وقارنا النتائج. يضم موضوع الأنمي الكامل 150 سؤالاً عبر المسلسلات العشرة.",
+    },
+    subjects: { en: ["Anime quiz", "Naruto", "One Piece", "Attack on Titan"], ar: ["أسئلة أنمي", "ناروتو", "ون بيس", "هجوم العمالقة"] },
+    cards: [
+      // Easy
+      ["anime", "anime-001"],
+      ["anime", "anime-016"],
+      ["anime", "anime-031"],
+      ["anime", "anime-047"],
+      ["anime", "anime-062"],
+      ["anime", "anime-078"],
+      ["anime", "anime-094"],
+      ["anime", "anime-106"],
+      ["anime", "anime-122"],
+      ["anime", "anime-137"],
+      // Medium
+      ["anime", "anime-005"],
+      ["anime", "anime-021"],
+      ["anime", "anime-037"],
+      ["anime", "anime-050"],
+      ["anime", "anime-065"],
+      ["anime", "anime-080"],
+      ["anime", "anime-098"],
+      ["anime", "anime-112"],
+      ["anime", "anime-125"],
+      ["anime", "anime-141"],
+      // Hard
+      ["anime", "anime-014"],
+      ["anime", "anime-026"],
+      ["anime", "anime-039"],
+      ["anime", "anime-054"],
+      ["anime", "anime-071"],
+      ["anime", "anime-099"],
+      // Very advanced
+      ["anime", "anime-089"],
+      ["anime", "anime-119"],
+      ["anime", "anime-132"],
+      ["anime", "anime-145"],
+    ],
+  },
+  {
+    key: "tv-quiz",
+    // New collection on 2026-11-18 (round four): 30 TV questions across the nine series in the TV Shows topic, easy to expert.
+    sitemapGeneration: "collections-2026-11d",
+    lastModified: "2026-11-18",
+    paths: { en: "/tv-quiz", ar: "/ar/asila-musalsalat/" },
+    titles: {
+      en: "30 TV Show Quiz Questions & Answers | Riddle Arabia",
+      ar: "30 سؤالاً عن المسلسلات مع الأجوبة | ريدل أرابيا",
+    },
+    descriptions: {
+      en: "30 TV quiz questions with answers in English and Arabic: Breaking Bad, Game of Thrones, Friends, Stranger Things, Bab Al-Hara, Maraya, Tash Ma Tash and more.",
+      ar: "30 سؤالاً عن المسلسلات مع الأجوبة بالعربية والإنجليزية: بريكينغ باد، وصراع العروش، وفريندز، وباب الحارة، ومرايا، وطاش ما طاش وغيرها.",
+    },
+    eyebrow: { en: "From Hawkins to Damascus", ar: "من هوكينز إلى دمشق" },
+    headings: { en: "TV show quiz questions with answers", ar: "أسئلة عن المسلسلات مع الأجوبة" },
+    introductions: {
+      en: "This TV quiz mixes nine series that rarely share a quiz: Breaking Bad, Game of Thrones, Friends and Stranger Things alongside Bab Al-Hara, Maraya, Tash Ma Tash, Diriliş: Ertuğrul and Al-Hashasheen. It opens with names and places most viewers know, moves on to characters, catchphrases and songs, and ends with behind-the-scenes details that only committed fans remember. Read each question in English or Arabic, make your guess, then reveal the answer.",
+      ar: "يجمع اختبار المسلسلات هذا تسعة أعمال قلّما تلتقي في اختبار واحد: بريكينغ باد وصراع العروش وفريندز وسترينجر ثينغز، إلى جانب باب الحارة ومرايا وطاش ما طاش وقيامة أرطغرل والحشاشين. يبدأ بأسماء وأماكن يعرفها معظم المشاهدين، ثم ينتقل إلى الشخصيات والعبارات الشهيرة والأغاني، وينتهي بتفاصيل من الكواليس لا يتذكرها إلا المتابعون المخلصون. اقرأ كل سؤال بالعربية أو الإنجليزية، وخمّن الإجابة، ثم اكشفها.",
+    },
+    guidance: {
+      en: "Some answers reveal plot twists, so skip a series you have not finished. The full TV Shows topic has 344 questions across the nine series.",
+      ar: "تكشف بعض الإجابات تحولات في الأحداث، فتجاوز المسلسل الذي لم تنهِ مشاهدته بعد. يضم موضوع المسلسلات الكامل 344 سؤالاً عن الأعمال التسعة.",
+    },
+    subjects: { en: ["TV quiz", "Breaking Bad", "Game of Thrones", "Friends", "Bab Al-Hara"], ar: ["أسئلة مسلسلات", "بريكينغ باد", "صراع العروش", "فريندز", "باب الحارة"] },
+    cards: [
+      // Easy
+      ["tv-shows-trivia", "tv-shows-trivia-003"],
+      ["tv-shows-trivia", "tv-shows-trivia-026"],
+      ["tv-shows-trivia", "tv-shows-trivia-051"],
+      ["tv-shows-trivia", "tv-shows-trivia-056"],
+      ["tv-shows-trivia", "tv-shows-trivia-102"],
+      ["tv-shows-trivia", "tv-shows-trivia-130"],
+      ["tv-shows-trivia", "tv-shows-trivia-152"],
+      ["tv-shows-trivia", "tv-shows-trivia-176"],
+      ["tv-shows-trivia", "tv-shows-trivia-204"],
+      ["tv-shows-trivia", "tv-shows-trivia-226"],
+      // Medium
+      ["tv-shows-trivia", "tv-shows-trivia-009"],
+      ["tv-shows-trivia", "tv-shows-trivia-037"],
+      ["tv-shows-trivia", "tv-shows-trivia-073"],
+      ["tv-shows-trivia", "tv-shows-trivia-108"],
+      ["tv-shows-trivia", "tv-shows-trivia-111"],
+      ["tv-shows-trivia", "tv-shows-trivia-132"],
+      ["tv-shows-trivia", "tv-shows-trivia-161"],
+      ["tv-shows-trivia", "tv-shows-trivia-184"],
+      ["tv-shows-trivia", "tv-shows-trivia-208"],
+      ["tv-shows-trivia", "tv-shows-trivia-234"],
+      // Hard
+      ["tv-shows-trivia", "tv-shows-trivia-024"],
+      ["tv-shows-trivia", "tv-shows-trivia-041"],
+      ["tv-shows-trivia", "tv-shows-trivia-069"],
+      ["tv-shows-trivia", "tv-shows-trivia-114"],
+      ["tv-shows-trivia", "tv-shows-trivia-167"],
+      ["tv-shows-trivia", "tv-shows-trivia-192"],
+      ["tv-shows-trivia", "tv-shows-trivia-537"],
+      // Expert
+      ["tv-shows-trivia", "tv-shows-trivia-016"],
+      ["tv-shows-trivia", "tv-shows-trivia-064"],
+      ["tv-shows-trivia", "tv-shows-trivia-834"],
+    ],
+  },
+  {
+    key: "psychology-quiz",
+    // New collection on 2026-11-18 (round four): 30 psychology questions from the Psychology topic, easy to expert.
+    sitemapGeneration: "collections-2026-11d",
+    lastModified: "2026-11-18",
+    paths: { en: "/psychology-quiz", ar: "/ar/asila-ilm-alnafs/" },
+    titles: {
+      en: "30 Psychology Quiz Questions & Answers | Riddle Arabia",
+      ar: "30 سؤالاً في علم النفس مع الأجوبة | ريدل أرابيا",
+    },
+    descriptions: {
+      en: "30 psychology quiz questions with answers in English and Arabic: Freud and Pavlov, memory and bias, famous experiments, and a few popular myths corrected.",
+      ar: "30 سؤالاً في علم النفس مع الأجوبة بالعربية والإنجليزية: فرويد وبافلوف، والذاكرة والانحيازات، وتجارب شهيرة، وتصحيح بعض الخرافات الشائعة.",
+    },
+    eyebrow: { en: "How the mind works", ar: "كيف يعمل العقل" },
+    headings: { en: "Psychology quiz questions with answers", ar: "أسئلة في علم النفس مع الأجوبة" },
+    introductions: {
+      en: "This psychology quiz covers the names, ideas and experiments that come up most often when people talk about the mind. It starts with Freud, Pavlov's dogs and everyday terms such as empathy and déjà vu, moves on to biases, memory and the bystander effect, and ends with the history of the field and with famous studies that later research has questioned. Read each question in English or Arabic, make your guess, then reveal the answer.",
+      ar: "يتناول اختبار علم النفس هذا الأسماء والأفكار والتجارب التي تتردد كثيراً عند الحديث عن العقل. يبدأ بفرويد وكلاب بافلوف ومصطلحات يومية مثل التعاطف وديجا فو، ثم ينتقل إلى الانحيازات والذاكرة وتأثير المتفرج، وينتهي بتاريخ هذا العلم وبدراسات شهيرة أعادت أبحاث لاحقة النظر فيها. اقرأ كل سؤال بالعربية أو الإنجليزية، وخمّن الإجابة، ثم اكشفها.",
+    },
+    guidance: {
+      en: "These questions are for general knowledge, not for diagnosis or advice. Several answers explain where a popular belief goes beyond the evidence, and the full Psychology topic has 100 questions.",
+      ar: "هذه الأسئلة للثقافة العامة، وليست للتشخيص أو تقديم المشورة. توضّح بعض الإجابات أين يتجاوز اعتقاد شائع ما تدعمه الأدلة، ويضم موضوع علم النفس الكامل 100 سؤال.",
+    },
+    subjects: { en: ["Psychology quiz", "Cognitive biases", "Memory", "Famous experiments"], ar: ["أسئلة علم النفس", "الانحيازات المعرفية", "الذاكرة", "تجارب شهيرة"] },
+    cards: [
+      // Easy
+      ["psychology", "psychology-001"],
+      ["psychology", "psychology-003"],
+      ["psychology", "psychology-005"],
+      ["psychology", "psychology-007"],
+      ["psychology", "psychology-010"],
+      ["psychology", "psychology-011"],
+      ["psychology", "psychology-013"],
+      ["psychology", "psychology-020"],
+      ["psychology", "psychology-038"],
+      ["psychology", "psychology-043"],
+      // Medium
+      ["psychology", "psychology-014"],
+      ["psychology", "psychology-015"],
+      ["psychology", "psychology-016"],
+      ["psychology", "psychology-019"],
+      ["psychology", "psychology-036"],
+      ["psychology", "psychology-050"],
+      ["psychology", "psychology-051"],
+      ["psychology", "psychology-052"],
+      ["psychology", "psychology-055"],
+      ["psychology", "psychology-070"],
+      // Hard
+      ["psychology", "psychology-022"],
+      ["psychology", "psychology-023"],
+      ["psychology", "psychology-030"],
+      ["psychology", "psychology-031"],
+      ["psychology", "psychology-068"],
+      ["psychology", "psychology-071"],
+      ["psychology", "psychology-082"],
+      // Expert
+      ["psychology", "psychology-028"],
+      ["psychology", "psychology-058"],
+      ["psychology", "psychology-098"],
+    ],
+  },
+  {
     key: "brain-games",
     // Game names changed on 2026-10-25 (see site-worker/src/seo-route-migrations.js).
-    lastModified: "2026-10-25",
+    // Search title and description rewritten for click-through on 2026-11-08.
+    lastModified: "2026-11-08",
     paths: { en: "/brain-games", ar: "/ar/alab-al-dimagh/" },
     kind: "games",
     titles: {
-      en: "Free Brain Games in Arabic & English | Riddle Arabia",
-      ar: "ألعاب ذكاء مجانية بالعربية والإنجليزية | ريدل أرابيا",
+      en: "Play Free Brain Games: Crosswords, Sudoku & More | Riddle Arabia",
+      ar: "ألعاب ذكاء مجانية: كلمات متقاطعة وسودوكو والمزيد | ريدل أرابيا",
     },
     descriptions: {
-      en: "Find free word games, crosswords, Sudoku and logic puzzles in Arabic and English. Compare how to play, try a daily selection, or invite a friend to Word Duel.",
-      ar: "اكتشف ألعاب كلمات وكلمات متقاطعة وسودوكو وألغاز منطق مجانية بالعربية والإنجليزية. تعرّف إلى طرق اللعب أو ادعُ صديقاً إلى مبارزة الكلمات.",
+      en: "Free brain games in Arabic and English, no download or sign-up: crosswords, Sudoku, word games and logic puzzles. Try a daily pick or challenge a friend to Word Duel.",
+      ar: "ألعاب ذكاء مجانية بالعربية والإنجليزية من دون تنزيل أو تسجيل: كلمات متقاطعة وسودوكو وألعاب كلمات وألغاز منطق. جرّب اختيار اليوم أو تحدَّ صديقاً في مبارزة الكلمات.",
     },
     eyebrow: { en: "Games", ar: "الألعاب" },
     headings: { en: "Brain games in Arabic and English", ar: "ألعاب ذكاء بالعربية والإنجليزية" },

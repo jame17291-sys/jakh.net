@@ -257,7 +257,7 @@ export function cachePolicy({ pathname, status, contentType, record }) {
   if (hasBuildIdentityInName(pathname, record)) return "public, max-age=31536000, immutable";
   const extension = fileExtension(pathname);
   if ([".css", ".js", ".json", ".map", ".mjs"].includes(extension)) return MUTABLE_ASSET_CACHE;
-  if ([".gif", ".ico", ".jpeg", ".jpg", ".png", ".svg", ".webp", ".woff", ".woff2"].includes(extension)) {
+  if ([".gif", ".ico", ".jpeg", ".jpg", ".mp4", ".png", ".svg", ".webp", ".woff", ".woff2"].includes(extension)) {
     return MEDIA_CACHE;
   }
   return MUTABLE_ASSET_CACHE;
@@ -584,8 +584,8 @@ function validateManifest(siteManifest) {
   );
   invariant(siteManifest.publication?.state === "safety-quarantine-active", "Production publication quarantine is not active");
   invariant(/^[a-f0-9]{64}$/u.test(siteManifest.publication.policySha256 || ""), "Invalid publication policy digest");
-  invariant(siteManifest.publication.fullQuestions === 3_564, "Invalid full publication corpus total");
-  invariant(siteManifest.publication.publicQuestions === 3_286, "Invalid public publication corpus total");
+  invariant(siteManifest.publication.fullQuestions === 3_638, "Invalid full publication corpus total");
+  invariant(siteManifest.publication.publicQuestions === 3_360, "Invalid public publication corpus total");
   invariant(siteManifest.publication.quarantinedQuestions === 278, "Invalid quarantined publication total");
   invariant(siteManifest.publication.publicCategories === 48, "Invalid public category total");
   invariant(

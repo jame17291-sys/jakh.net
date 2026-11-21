@@ -38,6 +38,7 @@ const FEATURE_COPY = Object.freeze({
     globalSearchStart: 'Start typing to search across all categories…',
     globalSearchMin: 'Type at least 2 characters…',
     globalSearchEmpty: 'No results.',
+    globalSearchMembers: 'Results from harder levels are for members. Create a free account to see them.',
   }),
   ar: Object.freeze({
     leaderboardTop: 'ترتيب الإجابات المرسلة بحسب الدقة فقط',
@@ -70,6 +71,7 @@ const FEATURE_COPY = Object.freeze({
     globalSearchStart: 'اكتب للبحث في جميع الفئات…',
     globalSearchMin: 'اكتب حرفين على الأقل…',
     globalSearchEmpty: 'لا توجد نتائج.',
+    globalSearchMembers: 'نتائج المستويات الأصعب للأعضاء. أنشئ حسابًا مجانيًا لعرضها.',
   }),
 });
 
@@ -140,6 +142,8 @@ export function createSearchLeaderboard(dependencies) {
     debounce,
     escapeHtml,
     fetchJson,
+    isGuest = () => false,
+    loadCardIndex = async () => ({}),
     localizedErrorMessage,
     openAuthModal,
     releaseFocus,
@@ -315,18 +319,28 @@ export function createSearchLeaderboard(dependencies) {
     if (generation !== searchGeneration) return;
     resultsEl.removeAttribute('aria-busy');
 
-    const hits = rankGlobalSearch(searchIndex, state.catalog?.categories || [], q, state.lang);
+    const allHits = rankGlobalSearch(searchIndex, state.catalog?.categories || [], q, state.lang);
+    // Guests search Piece of Cake questions only (docs/ACCOUNT-GATE.md). If the
+    // level list cannot be read, a guest is shown no question at all.
+    let hits = allHits;
+    if (isGuest()) {
+      const levels = await loadCardIndex().catch(() => ({}));
+      hits = allHits.filter(hit => levels[hit.id]?.[1] === 'easy');
+    }
+    const membersNote = hits.length < allHits.length
+      ? `<p class="global-search-hint">${escapeHtml(t('globalSearchMembers'))}</p>`
+      : '';
 
     if (generation !== searchGeneration) return;
     if (!hits.length) {
-      resultsEl.innerHTML = `<p class="global-search-hint">${escapeHtml(t('globalSearchEmpty'))}</p>`;
+      resultsEl.innerHTML = membersNote || `<p class="global-search-hint">${escapeHtml(t('globalSearchEmpty'))}</p>`;
       return;
     }
     const shownHits = hits.slice(0, 30);
     const resultSummary = state.lang === 'ar'
       ? `عُثر على ${arabicCount(hits.length, AR_RESULTS_GENITIVE)}.${hits.length > shownHits.length ? ` نعرض أفضل ${shownHits.length} منها حسب الصلة.` : ''}`
       : `${hits.length} results found. Showing the top ${shownHits.length}, ranked by relevance.`;
-    resultsEl.innerHTML = `<p class="global-search-summary" role="status">${escapeHtml(resultSummary)}</p>` + shownHits.map(({ cat, id, question, answer, subtopic }) => `
+    resultsEl.innerHTML = `<p class="global-search-summary" role="status">${escapeHtml(resultSummary)}</p>${membersNote}` + shownHits.map(({ cat, id, question, answer, subtopic }) => `
       <a class="gs-result" href="${escapeHtml(categoryRouteForLanguage(cat.slug, state.lang))}?card=${encodeURIComponent(id)}">
         <span class="gs-result-cat">${escapeHtml(cat.emoji)} ${escapeHtml(cat.title[state.lang])}${subtopic ? `<span class="gs-result-subtopic"><span aria-hidden="true"> · </span><span class="sr-only">${state.lang === 'ar' ? '، ' : ', '}</span>${escapeHtml(subtopic)}</span>` : ''}</span>
         <span class="gs-result-q">${escapeHtml(question)}</span>

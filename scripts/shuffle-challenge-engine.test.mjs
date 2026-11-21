@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import {
   ROUND_SIZE, EXCLUDED_TOPIC_LEVELS, normalizeLevel, planRound, poolsByTopic, replacementId, restoreRound, reveal, answerCard,
   replaceCurrent, retopicCurrent, isFinished, roundScore, rememberSeen, topicAllowsLevel, updateBest,
+  restoreStreak, recordStreakDay, currentStreak, localDay, shareText, SHARE_REF,
 } from '../shuffle-challenge-engine.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -166,4 +167,45 @@ test('a withdrawn card is replaced from the same topic at the same level', () =>
   let round = { v: 1, level: 'easy', items: [{ slug: 'quiz', id: 'q-1', result: null }], position: 0, revealed: false };
   round = replaceCurrent(round, 'q-3');
   assert.equal(round.items[0].id, 'q-3');
+});
+
+test('streaks count consecutive local days, survive a same-day replay and lapse after a missed day', () => {
+  const start = recordStreakDay(null, '2026-11-08');
+  assert.deepEqual(start, { v: 1, count: 1, last: '2026-11-08', best: 1 });
+  assert.equal(recordStreakDay(start, '2026-11-08').count, 1, 'a second round the same day does not double count');
+  const two = recordStreakDay(start, '2026-11-09');
+  assert.equal(two.count, 2);
+  assert.equal(currentStreak(two, '2026-11-09'), 2);
+  assert.equal(currentStreak(two, '2026-11-10'), 2, 'still alive the next day until midnight');
+  assert.equal(currentStreak(two, '2026-11-11'), 0, 'lapsed once a whole day was missed');
+  const restarted = recordStreakDay(two, '2026-11-12');
+  assert.deepEqual(restarted, { v: 1, count: 1, last: '2026-11-12', best: 2 }, 'the best survives a restart');
+  // Month and year boundaries are ordinary days.
+  assert.equal(recordStreakDay({ v: 1, count: 3, last: '2026-11-30', best: 3 }, '2026-12-01').count, 4);
+  assert.equal(recordStreakDay({ v: 1, count: 3, last: '2026-12-31', best: 3 }, '2027-01-01').count, 4);
+});
+
+test('malformed or foreign streak records are ignored instead of trusted', () => {
+  assert.deepEqual(restoreStreak(undefined), { v: 1, count: 0, last: null, best: 0 });
+  assert.deepEqual(restoreStreak({ v: 2, count: 9, last: '2026-11-08' }), { v: 1, count: 0, last: null, best: 0 });
+  assert.deepEqual(restoreStreak({ v: 1, count: -4, last: 'yesterday', best: 'x' }), { v: 1, count: 0, last: null, best: 0 });
+  assert.equal(recordStreakDay({ v: 1, count: 2, last: '2026-11-08', best: 2 }, 'not-a-day').count, 2);
+  assert.equal(currentStreak({ v: 1, count: 2, last: '2026-11-08', best: 2 }, '08/11/2026'), 0);
+  assert.match(localDay(new Date(2026, 0, 5)), /^2026-01-05$/u, 'local day uses the player clock, zero padded');
+});
+
+test('the shareable recap spoils nothing and links to the public Shuffle page with a ref', () => {
+  const round = { v: 1, level: 'easy', position: 4, revealed: false, items: [
+    { slug: 'math', id: 'math-1', result: 'knew' }, { slug: 'science', id: 'sci-1', result: 'missed' },
+    { slug: 'history', id: 'his-1', result: 'skipped' }, { slug: 'football', id: 'fb-1', result: null },
+  ] };
+  const en = shareText(round, { lang: 'en', levelLabel: 'Easy', streakLabel: '3 days in a row', today: '2026-11-08' });
+  assert.equal(en, 'Riddle Arabia Shuffle 2026-11-08 · Easy\n1/4\n🟩🟥⬜⬜\n🔥 3 days in a row\nhttps://riddlearabia.com/daily?ref=shuffle-share');
+  const ar = shareText(round, { lang: 'ar', levelLabel: 'سهل', url: 'https://riddlearabia.com/ar/daily/', today: '2026-11-08' });
+  assert.equal(ar, 'خلطة ريدل أرابيا 2026-11-08 · سهل\n1/4\n🟩🟥⬜⬜\nhttps://riddlearabia.com/ar/daily/?ref=shuffle-share');
+  for (const text of [en, ar]) {
+    assert.doesNotMatch(text, /math|science|history|football|sci-1/u, 'no topic names or card ids leak into the share');
+    assert.doesNotMatch(text, /\bundefined\b/u);
+  }
+  assert.equal(SHARE_REF, 'shuffle-share');
 });

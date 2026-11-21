@@ -6,6 +6,7 @@
 // lists fields the pass added; each removed card is stored in full with its
 // original position; each added card was appended to its topic file.
 import fs from 'node:fs';
+import { readTopicFileBeforeAdditions } from './content-additions-ledger.mjs';
 
 export const CONTENT_PHASE2_LEDGER = 'docs/content-review/content-phase2-2026-10-25.json';
 
@@ -20,6 +21,10 @@ export function readCurrentTopicFile(category) {
   const file = repositoryFile(`data/${category}.json`);
   return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : [];
 }
+
+// A topic file exactly as this pass left it. The later 2026-10-25 Spacetoon and
+// kids-riddles additions are reversed first, from their own ledger.
+export const readTopicFileAfterPhase2 = readTopicFileBeforeAdditions;
 
 export function beforePhase2Change(card, change) {
   const restored = structuredClone(card);
@@ -45,8 +50,9 @@ export function beforePhase2Change(card, change) {
 
 // A topic file's cards exactly as they stood before the pass: added cards are
 // taken out, edits are reversed, and removed cards are put back at their
-// recorded positions. `readBank` defaults to the repository's data files.
-export function bankBeforePhase2(ledger, category, readBank = readCurrentTopicFile) {
+// recorded positions. `readBank` defaults to the topic files as this pass left
+// them (the repository's data files with the later additions reversed).
+export function bankBeforePhase2(ledger, category, readBank = readTopicFileAfterPhase2) {
   const added = new Set(ledger.added.filter(entry => entry.category === category).map(entry => entry.id));
   const changes = new Map(ledger.changes.filter(entry => entry.category === category).map(entry => [entry.id, entry]));
   const cards = readBank(category)

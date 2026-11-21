@@ -402,6 +402,8 @@ test("cache policy is immutable only when the filename carries its own digest", 
   assert.equal(cachePolicy({ pathname: "/app-abcdef123456.js", status: 200, contentType: "text/javascript", record }), "public, max-age=3600, must-revalidate");
   assert.equal(cachePolicy({ pathname: "/app.abcdef123456.extra.js", status: 200, contentType: "text/javascript", record }), "public, max-age=3600, must-revalidate");
   assert.equal(cachePolicy({ pathname: "/app.000000000000.js", status: 200, contentType: "text/javascript", record }), "public, max-age=3600, must-revalidate");
+  assert.equal(cachePolicy({ pathname: "/assets/social/2026-11-19-history-004.mp4", status: 200, contentType: "video/mp4", record }),
+    cachePolicy({ pathname: "/assets/riddlearabia-logo.webp", status: 200, contentType: "image/webp", record }), "card reels cache like other media");
   assert.equal(cachePolicy({ pathname: "/admin", status: 200, contentType: "text/html", record }), "no-store");
   assert.equal(cachePolicy({ pathname: "/admin.html", status: 304, contentType: "text/html", record }), "no-store");
   assert.equal(cachePolicy({ pathname: "/admin.abcdef123456.js", status: 200, contentType: "text/javascript", record }), "public, max-age=31536000, immutable");

@@ -1,0 +1,137 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import path from "node:path";
+import { ROOT, ROTATION, buildPlan, cardFits, card, cardHtml, captions, imagePaths, collection, isReligious } from "./social-cards.mjs";
+import { RIDDLE_ARABIA_SEO_PAGES } from "./riddlearabia-seo.mjs";
+import { reelHtml, audioExpression } from "./social-reels.mjs";
+
+const HELD_CATEGORIES = ["economics-and-finance", "law-middle-east", "medical-questions", "pharmacy", "survival"];
+
+test("the rotation names real collections with published cards, and never a held category", () => {
+  for (const key of ROTATION) {
+    const page = collection(key);
+    assert.ok((page.cards || []).length >= 24, `${key} has enough cards to rotate`);
+    for (const [topic] of page.cards) assert.ok(!HELD_CATEGORIES.includes(topic), `${key} draws from ${topic}`);
+  }
+});
+
+test("a plan is deterministic, visits every collection in turn and never repeats a card", () => {
+  const first = buildPlan({ startDate: "2026-11-11", days: 28 });
+  const second = buildPlan({ startDate: "2026-11-11", days: 28 });
+  assert.deepEqual(first, second);
+  assert.equal(first.length, 28);
+  assert.equal(new Set(first.map((entry) => entry.id)).size, 28);
+  assert.deepEqual(first.slice(0, ROTATION.length).map((entry) => entry.collection), [...ROTATION]);
+  assert.equal(first[0].date, "2026-11-11");
+  assert.equal(first[27].date, "2026-12-08");
+  for (const entry of first) assert.ok(cardFits(card(entry.topic, entry.id)), `${entry.id} is short and easy or medium`);
+});
+
+test("cards already used by an earlier plan are excluded from the next one", () => {
+  const first = buildPlan({ startDate: "2026-11-11", days: 28 });
+  const next = buildPlan({ startDate: "2026-12-09", days: 28, used: new Set(first.map((entry) => entry.id)) });
+  const overlap = next.filter((entry) => first.some((previous) => previous.id === entry.id));
+  assert.deepEqual(overlap, []);
+});
+
+// Every committed plan, oldest first. Each was generated excluding the cards of the
+// plans before it, so replaying them in order must reproduce them exactly.
+function committedPlans() {
+  const dir = path.join(ROOT, "docs", "social");
+  return fs.readdirSync(dir)
+    .filter((name) => /^plan-.*\.json$/u.test(name))
+    .map((name) => ({ name, ...JSON.parse(fs.readFileSync(path.join(dir, name), "utf8")) }))
+    .sort((a, b) => a.startDate.localeCompare(b.startDate));
+}
+
+test("no religion content is ever planned for social media (owner decision, 10 Nov 2026)", () => {
+  // Known religious cards in the pool must be refused by the filter...
+  for (const [topic, id] of [["middle-east-history", "me-hist-004"], ["middle-east-history", "me-hist-001"], ["football", "football-004"], ["history", "history-031"], ["geography", "geography-029"], ["flag-questions", "flag-questions-010"]]) {
+    assert.ok(isReligious(card(topic, id)) && !cardFits(card(topic, id)), `${id} is filtered out`);
+  }
+  // ...while whole-word matching leaves ordinary cards alone.
+  assert.ok(!isReligious({ question: { en: "Which explorer, Christopher Columbus, crossed the Atlantic?" }, answer: { en: "Columbus" } }));
+  for (const plan of committedPlans()) {
+    for (const entry of plan.days) assert.ok(!isReligious(card(entry.topic, entry.id)), `${plan.name} ${entry.date} ${entry.id} is religious`);
+  }
+});
+
+test("committed plans run back to back with no gap and never repeat a card", () => {
+  const plans = committedPlans();
+  assert.ok(plans.length >= 1);
+  const seen = new Set();
+  for (let index = 0; index < plans.length; index++) {
+    const plan = plans[index];
+    if (index > 0) {
+      const previous = plans[index - 1].days.at(-1).date;
+      const next = new Date(Date.parse(`${previous}T00:00:00Z`) + 86_400_000).toISOString().slice(0, 10);
+      assert.equal(plan.startDate, next, `${plan.name} starts the day after ${plans[index - 1].name} ends`);
+    }
+    for (const entry of plan.days) {
+      assert.ok(!seen.has(entry.id), `${entry.id} in ${plan.name} was already planned`);
+      seen.add(entry.id);
+    }
+  }
+});
+
+test("every committed plan matches its generator, has both images and a reel per day and bilingual captions", () => {
+  const used = new Set();
+  for (const plan of committedPlans()) {
+  const expected = buildPlan({ startDate: plan.startDate, days: plan.days.length, used });
+  assert.deepEqual(plan.days.map(({ day, date, collection: key, topic, id, reel }) => ({ day, date, collection: key, topic, id, reel })), expected, `${plan.name} matches its generator`);
+  for (const entry of plan.days) used.add(entry.id);
+  assert.ok(plan.days.every((entry) => entry.reel === true), "every day is a reel day");
+  for (const entry of plan.days) assert.ok(fs.existsSync(path.join(ROOT, "assets", "social", `${entry.date}-${entry.id}.mp4`)), `${entry.date} reel is rendered`);
+  for (const entry of plan.days) {
+    const paths = imagePaths(entry);
+    assert.ok(fs.existsSync(path.join(ROOT, paths.question)), `${paths.question} exists`);
+    assert.ok(fs.existsSync(path.join(ROOT, paths.answer)), `${paths.answer} exists`);
+    assert.deepEqual(entry.captions, captions(entry));
+    const item = card(entry.topic, entry.id);
+    assert.ok(entry.captions.instagram.includes(item.question.ar) && entry.captions.instagram.includes(item.question.en));
+    // The question itself may contain the answer word ("True or False: ..."); the rest of
+    // the caption must not.
+    const beyondQuestion = entry.captions.instagram.replace(item.question.ar, "").replace(item.question.en, "");
+    assert.ok(!beyondQuestion.includes(item.answer.en) && !beyondQuestion.includes(item.answer.ar), `the caption never spoils the answer (${entry.id})`);
+    assert.match(entry.captions.facebook, /\?ref=facebook/u);
+  }
+  }
+});
+
+test("reel markup carries question, answer, the collection link and a seek function; audio is synthesised", () => {
+  const entry = buildPlan({ startDate: "2026-11-11", days: 2 })[1];
+  const item = card(entry.topic, entry.id);
+  const html = reelHtml(entry);
+  assert.ok(html.includes(item.question.ar) && html.includes(item.question.en) && html.includes(item.answer.ar) && html.includes(item.answer.en));
+  assert.ok(html.includes(`riddlearabia.com${collection(entry.collection).paths.en}`));
+  assert.ok(html.includes("window.seek = function"));
+  assert.match(audioExpression(), /^[0-9A-Za-z_.*+()\/,-]+$/u, "the ffmpeg expression contains no quoting hazards");
+  assert.ok(fs.existsSync(path.join(ROOT, "assets", "social", "2026-11-19-history-004.mp4")), "the first Thursday reel is rendered");
+});
+
+test("card markup escapes content and carries both languages", () => {
+  const entry = buildPlan({ startDate: "2026-11-11", days: 1 })[0];
+  const item = card(entry.topic, entry.id);
+  const html = cardHtml(entry, "question");
+  assert.ok(html.includes(item.question.ar) && html.includes(item.question.en));
+  assert.ok(!html.includes(item.answer.en));
+  const fake = { ...entry };
+  const original = item.question.en;
+  item.question.en = 'Who said "<b>hi</b>" & left?';
+  try {
+    assert.ok(cardHtml(fake, "question").includes("&lt;b&gt;hi&lt;/b&gt;&quot; &amp; left"));
+  } finally {
+    item.question.en = original;
+  }
+});
+
+test("every collection page's cards are still unique across the SEO surface (the plan relies on it)", () => {
+  const seen = new Map();
+  for (const page of RIDDLE_ARABIA_SEO_PAGES) {
+    for (const [, id] of page.cards || []) {
+      assert.ok(!seen.has(id), `${id} is featured on both ${seen.get(id)} and ${page.key}`);
+      seen.set(id, page.key);
+    }
+  }
+});

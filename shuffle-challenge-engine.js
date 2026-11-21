@@ -118,3 +118,63 @@ export function updateBest(bests, level, knew) {
   const key = normalizeLevel(level), previous = Number.isInteger(clean[key]) ? clean[key] : 0;
   return { ...clean, [key]: Math.max(previous, Math.max(0, Math.min(ROUND_SIZE, knew | 0))) };
 }
+
+// --- Streak and shareable recap -------------------------------------------
+// A streak counts consecutive local calendar days with at least one finished
+// round. It lives only in this browser (no account, nothing sent anywhere).
+// `today` is a YYYY-MM-DD string in local time so the day boundary follows
+// the player's clock, not UTC.
+const DAY = /^\d{4}-\d{2}-\d{2}$/u;
+
+export function localDay(date = new Date()) {
+  const pad = n => String(n).padStart(2, '0');
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+}
+
+function dayNumber(day) { return Math.round(Date.UTC(+day.slice(0, 4), +day.slice(5, 7) - 1, +day.slice(8, 10)) / 86_400_000); }
+
+export function restoreStreak(value) {
+  if (!value || typeof value !== 'object' || value.v !== 1) return { v: 1, count: 0, last: null, best: 0 };
+  const count = Number.isInteger(value.count) && value.count > 0 ? value.count : 0;
+  const last = typeof value.last === 'string' && DAY.test(value.last) ? value.last : null;
+  const best = Number.isInteger(value.best) && value.best > 0 ? value.best : 0;
+  return { v: 1, count: last ? count : 0, last, best: Math.max(best, last ? count : 0) };
+}
+
+// Called once per finished round. A second round on the same day keeps the
+// count; a round the day after extends it; a longer gap starts again at 1.
+export function recordStreakDay(streak, today = localDay()) {
+  const clean = restoreStreak(streak);
+  if (!DAY.test(today)) return clean;
+  let count = 1;
+  if (clean.last === today) count = clean.count || 1;
+  else if (clean.last && dayNumber(today) - dayNumber(clean.last) === 1) count = clean.count + 1;
+  return { v: 1, count, last: today, best: Math.max(clean.best, count) };
+}
+
+// What the streak is worth right now: unchanged if played today or yesterday,
+// otherwise it has lapsed and shows as 0 until the next finished round.
+export function currentStreak(streak, today = localDay()) {
+  const clean = restoreStreak(streak);
+  if (!clean.last || !DAY.test(today)) return 0;
+  const gap = dayNumber(today) - dayNumber(clean.last);
+  return gap === 0 || gap === 1 ? clean.count : 0;
+}
+
+export const SHARE_REF = 'shuffle-share';
+const RESULT_GLYPH = { knew: '🟩', missed: '🟥', skipped: '⬜' };
+
+// Plain text in the Wordle-grid style: a headline, one glyph per card, and the
+// public link with a ref parameter so return visits are visible in server
+// logs without any identity. No topic names: the grid should spoil nothing.
+// `streakLabel` arrives already localised (Arabic counted nouns live in the
+// page module), and is left out when empty.
+export function shareText(round, { lang = 'en', streakLabel = '', levelLabel = '', url = 'https://riddlearabia.com/daily', today = localDay() } = {}) {
+  const score = roundScore(round);
+  const grid = (round?.items || []).map(item => RESULT_GLYPH[item.result] || RESULT_GLYPH.skipped).join('');
+  const link = new URL(url);
+  link.searchParams.set('ref', SHARE_REF);
+  const title = lang === 'ar' ? 'خلطة ريدل أرابيا' : 'Riddle Arabia Shuffle';
+  const lines = [`${title} ${today}${levelLabel ? ` · ${levelLabel}` : ''}`, `${score.knew}/${score.total}`, grid, streakLabel ? `🔥 ${streakLabel}` : '', link.href];
+  return lines.filter(Boolean).join('\n');
+}

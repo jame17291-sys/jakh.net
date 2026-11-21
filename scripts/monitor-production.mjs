@@ -36,13 +36,15 @@ const RETIRED_SEO_REDIRECT_QUERY = "retired_seo_redirect_probe=riddlearabia";
 const RENAMED_GAME_REDIRECT_QUERY = "renamed_game_redirect_probe=riddlearabia";
 // Public inventories of earlier releases: 51 topics with 3,825 cards before
 // the 2026-10-25 card audit (PR #175) and 3,798 cards after it, then 48 topics
-// with 3,704 cards after the topic merges (PR #177), before the phase-2 content
-// pass. Only the exact-version release baseline may still serve one of these
-// inventories, and only as a coherent pair.
+// with 3,704 cards after the topic merges (PR #177) and 3,286 cards after the
+// phase-2 content pass (PR #179), before the Spacetoon and kids-riddles
+// additions. Only the exact-version release baseline may still serve one of
+// these inventories, and only as a coherent pair.
 const PREDECESSOR_INVENTORIES = Object.freeze([
   Object.freeze({ publicQuestions: 3_825, publicCategories: 51 }),
   Object.freeze({ publicQuestions: 3_798, publicCategories: 51 }),
   Object.freeze({ publicQuestions: 3_704, publicCategories: 48 }),
+  Object.freeze({ publicQuestions: 3_286, publicCategories: 48 }),
 ]);
 export const PUBLIC_CATEGORY_TOTAL = 48;
 const FRIENDSHIP_ARCADE_SLUGS = new Set(["secret-word-impostor", "panic-mode", "friendship-court"]);
@@ -57,7 +59,7 @@ export const CONTENT_PUBLICATION_CONTRACT = Object.freeze({
   state: "safety-quarantine-active",
   quarantinedCategories: Object.freeze([...checkedPublicationQuarantine.categorySlugs]),
   quarantinedQuestions: checkedPublicationQuarantine.manifest.totalCards,
-  publicQuestions: 3_286,
+  publicQuestions: 3_360,
   manifestSha256: checkedPublicationQuarantine.policySha256,
 });
 
@@ -88,7 +90,7 @@ export const PRE_NAVIGATION_HTML_ROUTES = [
   { name: "Home", path: "/", marker: "<title>Riddle Arabia", bilingualMarker: 'id="langSelect"' },
   { name: "Mind Lab", path: "/mind-lab", marker: "<title>Mind Lab", bilingualMarker: 'id="langSelect"' },
   { name: "Collections", path: "/collections", marker: "<title>Discover Riddles &amp; Brain Games", bilingualMarker: 'hreflang="ar"' },
-  { name: "Riddles", path: "/riddles", marker: "<title>Riddles With Answers", bilingualMarker: 'hreflang="ar"' },
+  { name: "Riddles", path: "/riddles", marker: "<title>30 Riddles With Answers", baselineMarker: "<title>Riddles With Answers", bilingualMarker: 'hreflang="ar"' },
   { name: "Arabic riddles", path: "/ar/alghaz/", marker: '<html lang="ar" dir="rtl">', bilingualMarker: 'hreflang="en"' },
   { name: "Brain Games", path: "/brain-games", marker: "<title>Free Brain Games Online", bilingualMarker: 'hreflang="ar"' },
   { name: "Arabic science topic", path: "/ar/topics/science/", marker: '<html lang="ar" dir="rtl">', bilingualMarker: 'hreflang="en"' },
@@ -109,10 +111,12 @@ export const PRE_NAVIGATION_HTML_ROUTES = [
 ];
 
 const NAVIGATION_ROUTE_UPDATES = {
-  "/": { marker: "<title>Arabic Riddles, Trivia &amp; Games | Riddle Arabia", baselineMarker: "<title>Riddle Arabia", bilingualMarker: 'class="language-route-link"' },
+  // baselineMarker is the title the immediately preceding release served; olderBaselineMarkers
+  // keep earlier exact-version generations (the pre-navigation homepage was titled "Riddle Arabia").
+  "/": { marker: "<title>Arabic Riddles With Answers, Trivia &amp; Free Games | Riddle Arabia", baselineMarker: "<title>Arabic Riddles, Trivia &amp; Games | Riddle Arabia", olderBaselineMarkers: ["<title>Riddle Arabia"], bilingualMarker: 'class="language-route-link"' },
   "/mind-lab": { name: "Riddles & Quizzes", marker: "<title>Riddles, Trivia &amp; Quizzes in Arabic &amp; English", baselineMarker: "<title>Riddles &amp; Quizzes", bilingualMarker: 'class="language-route-link"' },
   "/collections": { marker: "<title>Short Riddle &amp; Quiz Collections" },
-  "/brain-games": { marker: "<title>Free Brain Games in Arabic &amp; English", baselineMarker: "<title>Free Brain Games Online" },
+  "/brain-games": { marker: "<title>Play Free Brain Games", baselineMarker: "<title>Free Brain Games in Arabic &amp; English" },
   "/play": { name: "Games", marker: "<title>Free Arabic &amp; English Puzzle Games", baselineMarker: "<title>Free Arabic Games Online", bilingualMarker: 'class="language-route-link"' },
   "/science": { bilingualMarker: 'class="language-route-link"' },
 };
@@ -164,7 +168,7 @@ export const PRE_PUZZLE_SITEMAP_PATHS = Object.freeze([
   "/ar/about/",
   "/privacy",
   "/ar/privacy/",
-  ...RIDDLE_ARABIA_SEO_PAGES.flatMap((page) => [page.paths.en, page.paths.ar]),
+  ...RIDDLE_ARABIA_SEO_PAGES.filter((page) => !page.sitemapGeneration).flatMap((page) => [page.paths.en, page.paths.ar]),
   ...RIDDLE_ARABIA_GAME_CATALOG.filter((game) => !PARTY_GAME_SLUGS.has(game.slug)).flatMap((game) => [
     `/${game.slug}`,
     `/ar/games/${game.slug}/`,
@@ -193,10 +197,37 @@ export const PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS = Object.freeze([
   ...PARTY_GAME_HTML_ROUTES.filter((route) => !route.friendshipArcade).map(({ path }) => path),
 ]);
 
-export const INDEXABLE_SITEMAP_PATHS = Object.freeze([
+// Production before the 2026-11 collection expansion lists every route except the
+// Math riddles and Hard riddles pairs. A release that introduces them must prove
+// that exact predecessor before the four new URLs can be deployed.
+export const PRE_COLLECTION_EXPANSION_SITEMAP_PATHS = Object.freeze([
   ...PRE_PARTY_SITEMAP_PATHS,
   ...PARTY_GAME_HTML_ROUTES.map(({ path }) => path),
 ]);
+
+// Collection pages are added in generations. Each generation's inventory is an
+// accepted exact-version release baseline, so a release introducing the next
+// generation proves the previous one before the new URLs can be deployed.
+export const COLLECTION_GENERATIONS = Object.freeze(["collections-2026-11", "collections-2026-11b", "collections-2026-11c", "collections-2026-11d"]);
+
+const collectionPathsFor = (generation) => RIDDLE_ARABIA_SEO_PAGES
+  .filter((page) => page.sitemapGeneration === generation).flatMap((page) => [page.paths.en, page.paths.ar]);
+
+for (const page of RIDDLE_ARABIA_SEO_PAGES) {
+  if (page.sitemapGeneration && !COLLECTION_GENERATIONS.includes(page.sitemapGeneration)) {
+    throw new Error(`Unknown sitemapGeneration "${page.sitemapGeneration}" on ${page.key}; add it to COLLECTION_GENERATIONS.`);
+  }
+}
+
+export const COLLECTION_EXPANSION_SITEMAP_PATHS = Object.freeze(collectionPathsFor(COLLECTION_GENERATIONS[0]));
+
+// Inventories at each generation boundary, oldest first; the last is current.
+export const COLLECTION_GENERATION_SITEMAP_PATHS = Object.freeze(COLLECTION_GENERATIONS.reduce((layers, generation) => {
+  const previous = layers.length ? layers[layers.length - 1] : PRE_COLLECTION_EXPANSION_SITEMAP_PATHS;
+  return [...layers, Object.freeze([...previous, ...collectionPathsFor(generation)])];
+}, []));
+
+export const INDEXABLE_SITEMAP_PATHS = COLLECTION_GENERATION_SITEMAP_PATHS[COLLECTION_GENERATION_SITEMAP_PATHS.length - 1];
 
 export const PRE_NAVIGATION_SITEMAP_PATHS = Object.freeze(
   PRE_PUZZLE_SITEMAP_PATHS.filter((path) => !["/daily", "/ar/daily/"].includes(path)),
@@ -382,6 +413,12 @@ function legacyOrigins(value, fallback) {
     .filter(Boolean)
     .map((candidate) => origin(candidate, "legacy site origin"));
   return [...new Set(normalized)];
+}
+
+// A release baseline may serve any marker a previous exact-version release used.
+export function includesPredecessorMarker(route, text) {
+  return [route?.baselineMarker, ...(route?.olderBaselineMarkers || [])]
+    .some((marker) => typeof marker === "string" && marker.length > 0 && text.includes(marker));
 }
 
 function expect(condition, message) {
@@ -679,7 +716,7 @@ export async function runProductionMonitor(options = {}) {
       expectContentType(resource.response, /^text\/html\b/iu);
       expect(
         resource.text.includes(NAVIGATION_ROUTE_UPDATES["/"].marker)
-          || resource.text.includes(NAVIGATION_ROUTE_UPDATES["/"].baselineMarker),
+          || includesPredecessorMarker(NAVIGATION_ROUTE_UPDATES["/"], resource.text),
         "baseline homepage is not Riddle Arabia",
       );
       if (resource.text.includes('class="primary-navigation"')) {
@@ -734,11 +771,21 @@ export async function runProductionMonitor(options = {}) {
       && navigationLayout === "current" && includeKidsNavigation
       && urls.length === preFriendshipArcadeUrls.length
       && preFriendshipArcadeUrls.every((url) => urls.includes(url));
+    // Any earlier collection generation (or the inventory just before the first)
+    // is an exact-version predecessor; the current generation is never one.
+    const collectionPredecessorPaths = config.siteContract === "release-baseline" && navigationLayout === "current" && includeKidsNavigation
+      ? [PRE_COLLECTION_EXPANSION_SITEMAP_PATHS, ...COLLECTION_GENERATION_SITEMAP_PATHS.slice(0, -1)].find((paths) => {
+        const layerUrls = inventoryPaths(paths).map((pathname) => new URL(pathname, config.siteOrigin).href);
+        return urls.length === layerUrls.length && layerUrls.every((url) => urls.includes(url));
+      }) || null
+      : null;
+    const isCollectionExpansionPredecessor = collectionPredecessorPaths !== null;
     const expectedPaths = navigationLayout === "pre-navigation" ? PRE_NAVIGATION_SITEMAP_PATHS
       : isPuzzlePredecessor ? PRE_PUZZLE_SITEMAP_PATHS
         : isPartyPredecessor ? PRE_PARTY_SITEMAP_PATHS
           : isFriendshipArcadePredecessor ? PRE_FRIENDSHIP_ARCADE_SITEMAP_PATHS
-            : !includeKidsNavigation ? PRE_KIDS_SITEMAP_PATHS : INDEXABLE_SITEMAP_PATHS;
+            : isCollectionExpansionPredecessor ? collectionPredecessorPaths
+              : !includeKidsNavigation ? PRE_KIDS_SITEMAP_PATHS : INDEXABLE_SITEMAP_PATHS;
     const expectedUrls = inventoryPaths(expectedPaths).map((pathname) => new URL(pathname, config.siteOrigin).href);
     if (legacyBaseline) {
       expect(urls.length > 0, "baseline sitemap is empty");
@@ -801,7 +848,7 @@ export async function runProductionMonitor(options = {}) {
         // An exact-version release baseline may still serve the previous SEO
         // copy. Candidate and routine checks must require the current marker.
         const predecessorMarkerMatches = config.siteContract === "release-baseline"
-          && route.baselineMarker && resource.text.includes(route.baselineMarker);
+          && includesPredecessorMarker(route, resource.text);
         expect(resource.text.includes(route.marker) || predecessorMarkerMatches, `missing page marker "${route.marker}"`);
       }
       if (route.bilingualMarker === "privacy-consent.js") {

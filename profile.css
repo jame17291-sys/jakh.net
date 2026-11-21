@@ -1,0 +1,74 @@
+/* Player profile inside the account dialog. Loaded with auth-enhancements.js. */
+.profile { display: grid; gap: 1.1rem; }
+.profile-head { display: flex; align-items: center; gap: 1rem; }
+.profile-avatar { flex: none; width: 4.5rem; height: 4.5rem; display: grid; place-items: center; font-size: 2.6rem; line-height: 1; border-radius: 50%; background: var(--bg); border: 3px solid var(--accent); box-shadow: var(--shadow); }
+.profile-identity { min-width: 0; }
+.profile-name { margin: 0; font-size: 1.35rem; line-height: 1.2; overflow-wrap: anywhere; }
+.profile-level { margin: .2rem 0 .35rem; font-size: .95rem; }
+.profile-level-title { font-weight: 700; color: var(--accent); }
+.profile-level-next { color: var(--muted); }
+.profile-avatar-toggle { background: none; border: 0; padding: 0; color: var(--accent); font: inherit; font-size: .9rem; font-weight: 600; cursor: pointer; text-decoration: underline; text-underline-offset: .2em; }
+.profile-avatar-toggle:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.profile-avatar-picker { display: flex; flex-wrap: wrap; gap: .4rem; padding: .75rem; border-radius: var(--radius-sm); background: var(--bg); border: 2px solid var(--line); }
+.profile-avatar-picker[hidden] { display: none; }
+.profile-avatar-picker .avatar-btn { width: 2.6rem; height: 2.6rem; display: grid; place-items: center; font-size: 1.45rem; line-height: 1; background: var(--panel); border: 2px solid transparent; border-radius: 50%; cursor: pointer; transition: transform .15s ease, border-color .15s ease; }
+.profile-avatar-picker .avatar-btn.is-active { border-color: var(--accent); transform: scale(1.08); }
+.profile-avatar-picker .avatar-btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.profile-avatar-picker .auth-inline-status { flex-basis: 100%; }
+
+.profile-stats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+.profile-stat { display: grid; gap: .1rem; padding: .7rem .5rem; text-align: center; border-radius: var(--radius-sm); background: var(--bg); border: 2px solid var(--line); min-width: 0; }
+.profile-stat strong { font-size: 1.45rem; line-height: 1.1; }
+.profile-stat span { font-size: .8rem; color: var(--muted); }
+.profile-stat small { font-size: .72rem; color: var(--muted); line-height: 1.25; }
+.profile-stat.is-streak { background: color-mix(in srgb, var(--accent-3) 12%, var(--panel)); border-color: color-mix(in srgb, var(--accent-3) 45%, var(--line)); }
+
+.profile-progress { height: .55rem; border-radius: 999px; background: var(--line); overflow: hidden; }
+.profile-progress-fill { display: block; height: 100%; background: var(--accent); border-radius: inherit; transition: width .4s ease; }
+.profile-progress-text { margin: -.5rem 0 0; font-size: .85rem; color: var(--muted); }
+
+.profile-section { display: grid; gap: .6rem; }
+.profile-section-title { margin: 0; font-size: 1.05rem; display: flex; align-items: baseline; gap: .5rem; }
+.profile-section-count { font-size: .85rem; font-weight: 600; color: var(--muted); }
+.profile-empty { margin: 0; color: var(--muted); font-size: .92rem; }
+
+.profile-trophies { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr)); }
+.profile-trophy { display: flex; gap: .55rem; align-items: flex-start; padding: .55rem .7rem; border-radius: var(--radius-sm); background: var(--bg); border: 2px solid var(--line); line-height: 1.3; }
+.profile-trophy.is-earned { border-color: color-mix(in srgb, var(--accent-3) 45%, var(--line)); background: color-mix(in srgb, var(--accent-3) 10%, var(--panel)); }
+.profile-trophy.is-locked { border-style: dashed; }
+.profile-trophy.is-locked .profile-trophy-icon { opacity: .6; }
+.profile-trophy-icon { font-size: 1.3rem; line-height: 1.1; flex: none; }
+.profile-trophy-text { display: grid; gap: .1rem; min-width: 0; }
+.profile-trophy-name { font-weight: 700; font-size: .95rem; }
+.profile-trophy-desc { font-size: .82rem; color: var(--muted); }
+.profile-more { margin-top: .2rem; }
+.profile-more > summary { cursor: pointer; font-weight: 700; color: var(--accent); padding: .3rem 0; }
+.profile-more > summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+.profile-more[open] > summary { margin-bottom: .5rem; }
+
+.profile-topics { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
+.profile-topic-link { display: grid; grid-template-columns: auto 1fr auto; grid-template-areas: "emoji name pct" "emoji bar bar"; column-gap: .6rem; row-gap: .3rem; align-items: center; padding: .55rem .7rem; border-radius: var(--radius-sm); background: var(--bg); border: 2px solid var(--line); color: inherit; text-decoration: none; }
+.profile-topic-link:hover, .profile-topic-link:focus-visible { border-color: var(--accent); }
+.profile-topic-emoji { grid-area: emoji; font-size: 1.3rem; }
+.profile-topic-name { grid-area: name; font-weight: 700; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.profile-topic-pct { grid-area: pct; font-size: .85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.profile-topic-bar { grid-area: bar; height: .4rem; border-radius: 999px; background: var(--line); overflow: hidden; }
+.profile-topic-fill { display: block; height: 100%; background: var(--accent); border-radius: inherit; }
+.profile-nudge { margin: 0; padding: .6rem .75rem; border-radius: var(--radius-sm); background: color-mix(in srgb, var(--accent) 8%, var(--panel)); font-size: .92rem; line-height: 1.45; }
+.profile-nudge a { color: var(--accent); font-weight: 700; }
+
+.profile-settings { border-top: 2px solid var(--line); padding-top: .6rem; }
+.profile-settings > summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; padding: .4rem 0; list-style-position: inside; }
+.profile-settings > summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+.profile-settings-body { display: grid; gap: .7rem; padding-top: .5rem; }
+.profile-settings-title { margin: .6rem 0 0; font-size: .95rem; }
+.profile-settings-links { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .8rem; align-items: center; }
+.profile-logout { color: var(--muted); }
+
+@media (max-width: 420px) {
+  .profile-stat strong { font-size: 1.25rem; }
+  .profile-stat small { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .profile-progress-fill, .profile-avatar-picker .avatar-btn { transition: none; }
+}

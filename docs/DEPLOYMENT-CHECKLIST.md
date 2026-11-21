@@ -5,8 +5,15 @@ Use this runbook for releases of **jame17291-sys/jakh.net** to
 It covers release preparation, API compatibility, conditional D1 migration,
 the static site, and monitoring and recovery.
 
+**Normal releases are automatic.** Since 2026-11-08, merging a pull request into protected
+`main` starts `release-on-merge.yml`, which dispatches `api-deploy.yml`
+(`release_phase=compatibility`, `domain_cutover=false`) and then `static-site.yml` (exact
+confirmation, `domain_cutover=false`) for the merged commit. The owner only approves the
+`production` environment when GitHub asks. The workflow-dispatch commands below are the same
+runs that Release on merge starts; use them by hand only when a release needs attention, when
+re-running a stage, or for `migrate-final`, which is never automatic.
+
 This document does not authorize a deployment, migration, rollback, or restore.
-The workflow-dispatch examples are for a separately approved future release.
 Creating or reviewing these documentation PRs requires no manual workflow run.
 
 Commands assume the repository root, Node.js 24, an authenticated GitHub CLI,
@@ -39,9 +46,9 @@ At the source baseline used to write this checklist:
 - The static production gate currently requires final API schema **10**.
 - Registration, account recovery, account deletion, content studio, and admin MFA
   must all be ready for the final API/static release.
-- The source corpus contains **3,564 cards** in **53 topics**, including **278 quarantined cards**.
-- The public question projection contains **3,286 cards** in **48 topics**.
-- Editorial progress is **3/3,564 reviewed**, **0/3,564 evidence-complete**, and
+- The source corpus contains **3,638 cards** in **53 topics**, including **278 quarantined cards**.
+- The public question projection contains **3,360 cards** in **48 topics**.
+- Editorial progress is **3/3,638 reviewed**, **0/3,638 evidence-complete**, and
   **0/278 high-stakes reviewed**, with no evidence-validation errors.
 
 These numbers describe this commit, not permanent targets.
@@ -483,6 +490,27 @@ Do not use an imaginary `deploy-site.yml`, `rollback=true`, or arbitrary
 
 The workflow must validate the built manifest, final-byte inventory, dry run,
 baseline smoke, rollback-target proof, candidate smoke, and runtime proof.
+
+Before candidate smoke the workflow waits (up to a minute) until the deployment
+API reports this release's own Worker version: not the rollback target, and with
+this run's deployment message. On 2026-11-19 a single early read still named the
+predecessor, the smoke check compared the correct live site against it, and a
+good release was rolled back. If that wait fails, the release rolls back as for
+any other failed gate; start the static release again. A status read that
+fails outright is retried the same way, and the read taken after the smoke
+check waits for the same version before the post-deploy gate judges it.
+
+The API workflow waits the same way after its compatibility and final deploys,
+before the health check is told which Worker version to expect: the active
+version must not be the predecessor in the receipt and must carry this run's
+deployment message. If that wait fails, the phase fails and the conditional
+Worker rollback applies; in `migrate-final` D1 stays migrated.
+
+Every rollback verification (static, and both API phases) waits with the same
+bound until the status names the rollback target and this run's rollback
+message. The wait only delays the existing checks: they judge the last read,
+so a status that never names the rollback target fails as it did before.
+
 Require the candidate deployment message to bind the source SHA, build ID,
 and this static workflow run ID.
 Both API gate receipts must be verified and API identity must remain unchanged.

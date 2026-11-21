@@ -14,8 +14,9 @@ The owner works from different devices. Nothing important may live only on one m
   directly to `main`, never force-push `main`, never hard-reset someone else's work.
 - Decisions, open questions and follow-ups go into the pull request, an issue, or the docs in
   this repository, not into local notes.
-- Production is released only by the protected GitHub Actions workflows (see Release). No ad hoc
-  local `wrangler deploy`, no local migrations against production.
+- Production is released only by the protected GitHub Actions workflows (see Release). Merging a
+  pull request into `main` starts them automatically. No ad hoc local `wrangler deploy`, no local
+  migrations against production.
 - Cloudflare credentials live as GitHub Actions secrets. Never ask for them in chat, print them or
   copy them into files.
 
@@ -42,10 +43,16 @@ Riddle Arabia is unrelated to the owner's JAKH ERP/Odoo project.
   cards and interface copy use clear Modern Standard Arabic (the owner reversed the
   everyday-dialect style on 25 Oct 2026). See `docs/content-review/ARABIC-STYLE-GUIDE.md`. Keep the
   cream / terracotta / hourglass identity unless the owner asks otherwise.
-- All public practice questions and difficulty levels are free to guests. Accounts are optional.
-  Do not add guest question limits, difficulty paywalls, paid services, paid tiers or external
-  speech APIs without an owner decision. Hosting stays zero-cost.
-- Already built (do not re-propose as new): 51 public categories, Quick Fire, server-checked
+- Since 17 Nov 2026 (owner decision) a free account is required to play any game, Kids
+  Learning & Play included, and to see questions above Piece of Cake. Guests still see every
+  Piece of Cake card and all page text, and may open one game or kids activity a day as a
+  free try. `account-gate.js` (loaded on every page after
+  `site-navigation.js`) hides play areas and `.members-only` cards and shows a registration
+  panel; `app.js` filters topic cards with `isGuest()`. It is a browser-side prompt, not a
+  security boundary: the question bank stays public data. See `docs/ACCOUNT-GATE.md`. Do not
+  add paid services, paid tiers or external speech APIs without an owner decision. Hosting
+  stays zero-cost.
+- Already built (do not re-propose as new): 48 public topics (merged from 51 on 25 Oct 2026), Quick Fire, server-checked
   scoring, leaderboard, Battle rooms, Kids Learning & Play (480 activities), Akshifha, puzzle and
   word games, board games, Most Likely To, How Well Do You Know Me, Friendship Court, Panic Mode,
   Secret Word Impostor, accounts/privacy, admin workspace with Content Studio and Autopilot.
@@ -90,29 +97,35 @@ Pick checks by what changed (see `package.json` for the full list): `npm run bui
 `npm run test:browser:matrix`, `npm run test:a11y`. Never weaken tests, budgets, coverage or
 review gates to get a green result.
 
-## Release (only when the owner asks)
+## Release
 
-Follow the current `docs/DEPLOYMENT-CHECKLIST.md` and workflow source.
+Merging a pull request into protected `main` is the release. **Release on merge**
+(`.github/workflows/release-on-merge.yml`) then starts **API deploy** (`release_phase=compatibility`,
+`domain_cutover=false`) and, once it succeeds, **Static site** (`domain_cutover=false`, exact
+confirmation) for the merged commit. Nothing else is needed from the owner except approving the
+`production` environment when GitHub asks for it in the Actions tab (once per workflow). Changes that
+touch only `docs/` or Markdown files do not start a release.
 
-1. Merge the pull request into protected `main` with required checks green.
-2. Run **API deploy** (`.github/workflows/api-deploy.yml`) from `main` with
-   `release_phase=compatibility` and `domain_cutover=false`.
-3. Then run **Static site** (`.github/workflows/static-site.yml`) from the same `main` commit with
-   `domain_cutover=false` and confirmation `DEPLOY riddlearabia.com FROM protected main`.
-4. Verify production and keep the commit SHA, Worker versions, build ID and monitor result.
+Claude never runs, re-runs or approves a release workflow itself, and never bypasses Release on merge
+with a manual dispatch unless the owner asks. The release workflows are unchanged: their
+authorization, build, proof, rollback and receipt steps are still the contract, and
+`docs/DEPLOYMENT-CHECKLIST.md` remains the reference when a release needs attention. After a release,
+report the commit SHA and the two workflow run links; do not claim production success from source
+inspection alone.
 
-`migrate-final` (schema changes) is a separate operation with backup, restore proof and approval
-requirements in the checklist. Worker rollback does not undo D1.
+`migrate-final` (schema changes) is never automatic. It is a separate manual operation with backup,
+restore proof and approval requirements in the checklist. Worker rollback does not undo D1.
 
 `production-monitor.yml`, `site-autopilot.yml` and `recovery-verification.yml` run on schedules.
 `pages.yml` is legacy break-glass only.
 
 ## Where to read next
 
-Read only what the task needs: `docs/DEPLOYMENT-CHECKLIST.md`; content: `docs/CONTENT-STUDIO.md`,
+Read only what the task needs. Current state and next steps: `docs/HANDOVER-2026-11-09.md`
+and `docs/ROADMAP-2026-11.md`. Release: `docs/DEPLOYMENT-CHECKLIST.md`; content: `docs/CONTENT-STUDIO.md`,
 `docs/content-review/README.md`, `docs/content-review/ARABIC-STYLE-GUIDE.md`; admin: `docs/ADMIN-WORKSPACE.md`,
 `docs/ADMIN-MFA.md`; autopilot: `docs/AUTOPILOT.md`; kids: `docs/kids-learning.md`; social games:
-`docs/PARTY-GAMES.md`; puzzles: `docs/games/puzzle-room.md`; SEO/performance: `docs/SEO-ARCHITECTURE.md`,
+`docs/PARTY-GAMES.md`; social media posting: `docs/SOCIAL-MEDIA.md`; puzzles: `docs/games/puzzle-room.md`; SEO/performance: `docs/SEO-ARCHITECTURE.md`,
 `docs/PERFORMANCE-BUDGETS.md`, `docs/HTML-DELIVERY-POLICY.md`; release/recovery:
 `docs/STATIC-API-RELEASE-GATE.md`, `docs/RELEASE-MANIFEST.md`, `worker/RECOVERY.md`.
 Older remediation ledgers and counts are historical, not today's issue list.

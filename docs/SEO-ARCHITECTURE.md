@@ -5,7 +5,7 @@ catalogue dump and it does not publish pagination pages for every topic.
 
 ## Indexable pages
 
-The source of truth is `scripts/riddlearabia-seo.mjs`. It defines eight original
+The source of truth is `scripts/riddlearabia-seo.mjs`. It defines twenty original
 bilingual experiences:
 
 - Riddles
@@ -15,14 +15,24 @@ bilingual experiences:
 - General knowledge
 - Arabia & Middle East history
 - Spacetoon nostalgia
+- Math riddles (added 2026-11-08)
+- Hard riddles (added 2026-11-08)
+- Science trivia, Geography quiz, Football quiz, Flags quiz (added 2026-11-09)
+- History quiz, Animal quiz, Space quiz, Anime quiz (added 2026-11-09, round three)
+- TV quiz, Psychology quiz (added 2026-11-18, round four)
 - Brain games
 
 Each experience has its own bilingual copy, purpose, canonical pair, reciprocal
 `hreflang`, social metadata, and schema. Quiz experiences publish a small,
 curated set of real question cards. The two riddle pairs (`/riddles` with `/ar/alghaz/`, and
 `/arabic-riddles` with `/ar/alghaz-arabiya/`) feature 30 published riddles
-each, ordered from easy to hard. Logic puzzles and general knowledge also
-feature 30, kids riddles 24, and the Arabia history and Spacetoon quizzes eight.
+each, ordered from easy to hard. Logic puzzles, general knowledge, Arabia
+history, Math riddles, Hard riddles, Science, Geography, Football, Flags, History,
+Animals, Space, Anime, TV shows and Psychology also feature 30, kids riddles 24, and the Spacetoon quiz eight. Math riddles draws on the Math topic; Hard riddles draws on
+the Classic Riddles and Logic Puzzles cards that the two riddle pairs and the
+logic collection do not already feature. Each collection's "Keep exploring"
+section links the next three collections in list order, so every collection is
+linked from three others.
 `docs/content-review/featured-policy.json` fixes each count, and
 `npm run check:featured` rejects held cards and any card featured on two
 collections, so indexable pages never repeat each other. The brain-games experience publishes a
@@ -32,8 +42,15 @@ current game list rather than copying quiz content.
 Mind Lab, Play, Daily, Privacy, Akshifha, and the ten classic game routes remain
 indexable. Thirteen new bilingual puzzle destinations add twelve playable
 engines and one Bonus collection. With the bilingual Kids Learning & Play
-pages the sitemap lists 1,176 canonical URLs (88 core pages plus 1,088 kids
-pages); `sitemap.xml` contains only indexable canonicals. Search-engine
+pages the sitemap lists 1,200 canonical URLs (112 core pages plus 1,088 kids
+pages); `sitemap.xml` contains only indexable canonicals. Pages added after a
+release carry a `sitemapGeneration` tag listed in `COLLECTION_GENERATIONS` in
+`scripts/monitor-production.mjs` (`collections-2026-11`, `collections-2026-11b`,
+`collections-2026-11c`, `collections-2026-11d`).
+Each generation's inventory is an accepted exact-version release baseline, so a
+release that adds the next generation proves the previous one while the candidate
+must publish the full inventory. To add pages: tag them with a new generation and
+append it to `COLLECTION_GENERATIONS`. Search-engine
 submission is described in `docs/SEARCH-DISCOVERY.md`.
 
 The new destinations use `puzzle-routes.js` for route identity and
@@ -56,6 +73,24 @@ Dubai calendar date. Regeneration alone must not refresh those dates. Google
 ownership verification files are protocol assets; only an exact Google filename
 and matching one-line payload are exempt from editorial HTML checks. They are
 served at the exact `.html` URL, carry noindex, and stay out of the sitemap.
+
+## Registration wall (since 17 Nov 2026)
+
+Guests see Piece of Cake cards; harder cards and all games need a free account
+(`docs/ACCOUNT-GATE.md`). Harder cards on the collection pages keep their text in
+the HTML with class `members-only`, and each such page carries a `WebPage` node
+with `isAccessibleForFree: false` and a `hasPart` `WebPageElement` whose
+`cssSelector` is `.members-only`. That is the markup Google documents for content
+behind a registration wall, so serving the text to crawlers is not cloaking. Kids
+activity, pack, plan and riddle pages declare the same for their main content.
+Party and friendship game pages need an account to play, so their `VideoGame`
+node makes no `isAccessibleForFree` claim.
+Never hide gated text from the HTML while showing it to crawlers by another route,
+and never drop the markup while the gate is on.
+
+Kids pages also carry a page-specific meta description (`seoDescription` in
+`scripts/generate-kids-pages.mjs`): activity, pack, plan, guide, age and area
+pages no longer share or truncate their search snippet.
 
 ## Sharing and language entry
 

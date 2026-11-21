@@ -267,7 +267,7 @@
   },
   {
     "id": "kids-riddles-015",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Time, Space & Directions",
       "ar": "الوقت والفضاء والاتجاهات"
@@ -349,12 +349,12 @@
       "ar": "المنطق والشفرات والأنماط"
     },
     "question": {
-      "en": "A three-digit code has a middle digit of 3. Its first digit is twice its last, and all three digits add to 9. What is the code?",
-      "ar": "رمز من ثلاثة أرقام، رقمه الأوسط 3. الرقم الأول يساوي ضعف الأخير، ومجموع الأرقام الثلاثة 9. ما الرمز؟"
+      "en": "If 3 cats catch 3 mice in 3 minutes, how many cats are needed to catch 100 mice in 100 minutes?",
+      "ar": "إذا اصطادت 3 قطط 3 فئران في 3 دقائق، فكم قطة نحتاج لاصطياد 100 فأر في 100 دقيقة؟"
     },
     "answer": {
-      "en": "432",
-      "ar": "432"
+      "en": "3 cats: together they catch one mouse every minute.",
+      "ar": "3 قطط: معًا تصطاد فأرًا واحدًا كل دقيقة."
     },
     "review": {
       "status": "pending"
@@ -381,18 +381,18 @@
   },
   {
     "id": "kids-riddles-021",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Numbers & Counting",
       "ar": "الأعداد والعد"
     },
     "question": {
-      "en": "My two digits add to 9. I am 27 greater than the number made by reversing my digits. What number am I?",
-      "ar": "مجموع رقميّ يساوي 9، وأنا أكبر بـ27 من العدد الناتج عن عكس ترتيبهما. ما العدد؟"
+      "en": "I'm a number. Whatever number you multiply me by, the answer is always me. What am I?",
+      "ar": "أنا عدد، وأيًّا كان العدد الذي تضربني فيه، فالناتج هو أنا دائمًا. ما أنا؟"
     },
     "answer": {
-      "en": "63",
-      "ar": "63"
+      "en": "Zero.",
+      "ar": "الصفر."
     },
     "review": {
       "status": "pending"
@@ -564,6 +564,260 @@
     "answer": {
       "en": "A piano (a computer keyboard works too)",
       "ar": "البيانو (أو لوحة مفاتيح الكمبيوتر)"
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "kids-riddles-031",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Animals & Nature",
+      "ar": "الحيوانات والطبيعة"
+    },
+    "question": {
+      "en": "I grow tall in hot deserts, wear a crown of long leaves, and give you sweet brown fruit. What am I?",
+      "ar": "أنمو عاليةً في الصحراء الحارة، وأضع تاجًا من الأوراق الطويلة، وأقدّم لك ثمرًا حلوًا بنّيّ اللون. ما أنا؟"
+    },
+    "answer": {
+      "en": "A date palm.",
+      "ar": "النخلة."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "kids-riddles-032",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Animals & Nature",
+      "ar": "الحيوانات والطبيعة"
+    },
+    "question": {
+      "en": "I have no eyelids, so I rest with my eyes open, and I breathe through gills. What am I?",
+      "ar": "ليس لي جفون، فأستريح وعيناي مفتوحتان، وأتنفّس بالخياشيم. ما أنا؟"
+    },
+    "answer": {
+      "en": "A fish.",
+      "ar": "السمكة."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "kids-riddles-033",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Animals & Nature",
+      "ar": "الحيوانات والطبيعة"
+    },
+    "question": {
+      "en": "I can carry a giant ship on my back, but I can't hold up a tiny nail. What am I?",
+      "ar": "أحمل على ظهري سفينة ضخمة، لكنني لا أستطيع أن أحمل مسمارًا صغيرًا. ما أنا؟"
+    },
+    "answer": {
+      "en": "The sea: ships float on it, but a nail sinks.",
+      "ar": "البحر: تطفو عليه السفينة، ويغرق فيه المسمار."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "The sea",
+        "Water"
+      ],
+      "ar": [
+        "البحر",
+        "الماء"
+      ]
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "kids-riddles-034",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Time, Space & Directions",
+      "ar": "الوقت والفضاء والاتجاهات"
+    },
+    "question": {
+      "en": "Which is heavier: the full moon or a thin crescent moon?",
+      "ar": "أيّهما أثقل: القمر حين يكون بدرًا، أم حين يكون هلالًا رفيعًا؟"
+    },
+    "answer": {
+      "en": "Neither: it is the same Moon, lit differently by the Sun.",
+      "ar": "لا أحد منهما: إنه القمر نفسه، لكن الشمس تضيء منه جزءًا مختلفًا."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Neither",
+        "They weigh the same"
+      ],
+      "ar": [
+        "لا أحد منهما",
+        "وزنهما واحد"
+      ]
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "kids-riddles-035",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Animals & Nature",
+      "ar": "الحيوانات والطبيعة"
+    },
+    "question": {
+      "en": "I have a hooked beak and very sharp eyes. In the Gulf, people carry me on a gloved arm and train me to hunt. What am I?",
+      "ar": "لي منقار معقوف وعينان حادّتان جدًا. في الخليج يحملني الناس على ذراع تلبس قفازًا، ويدرّبونني على الصيد. ما أنا؟"
+    },
+    "answer": {
+      "en": "A falcon.",
+      "ar": "الصقر."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Falcon",
+        "Peregrine falcon"
+      ],
+      "ar": [
+        "الصقر",
+        "الشاهين"
+      ]
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "kids-riddles-036",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Numbers & Counting",
+      "ar": "الأعداد والعد"
+    },
+    "question": {
+      "en": "A farmer has 5 haystacks in one field and 4 in another. He heaps all the hay together in one field. How many haystacks does he have now?",
+      "ar": "لدى مزارع 5 أكوام من القش في حقل، و4 أكوام في حقل آخر. جمع القش كله معًا في حقل واحد. كم كومة لديه الآن؟"
+    },
+    "answer": {
+      "en": "One big haystack.",
+      "ar": "كومة واحدة كبيرة."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "One",
+        "1"
+      ],
+      "ar": [
+        "واحدة",
+        "1"
+      ]
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "kids-riddles-037",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Wordplay & Classic Riddles",
+      "ar": "التلاعب بالكلمات والألغاز الكلاسيكية"
+    },
+    "question": {
+      "en": "A basket holds 5 apples. Five children each take one apple, yet one apple is still in the basket. How?",
+      "ar": "في سلّة 5 تفاحات. أخذ كل طفل من خمسة أطفال تفاحة واحدة، ومع ذلك بقيت تفاحة في السلّة. كيف؟"
+    },
+    "answer": {
+      "en": "The last child took the basket with the apple still inside.",
+      "ar": "أخذ الطفل الأخير السلّة وتفاحته ما زالت فيها."
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "kids-riddles-038",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Numbers & Counting",
+      "ar": "الأعداد والعد"
+    },
+    "question": {
+      "en": "Sara has 4 sisters, and each of her sisters has 1 brother. How many children are in the family?",
+      "ar": "لسارة 4 أخوات، ولكل واحدة من أخواتها أخ واحد. كم طفلًا في العائلة؟"
+    },
+    "answer": {
+      "en": "6: five girls and one boy, who is brother to them all.",
+      "ar": "6: خمس بنات وولد واحد هو أخو الجميع."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "6"
+      ],
+      "ar": [
+        "6"
+      ]
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "kids-riddles-039",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Logic, Codes & Patterns",
+      "ar": "المنطق والشفرات والأنماط"
+    },
+    "question": {
+      "en": "How many small 1 cm cubes do you need to build one bigger cube with 2 cm sides?",
+      "ar": "كم مكعبًا صغيرًا طول ضلعه 1 سم تحتاج لتبني مكعبًا أكبر طول ضلعه 2 سم؟"
+    },
+    "answer": {
+      "en": "8: two layers of four cubes.",
+      "ar": "8: طبقتان، في كل منهما 4 مكعبات."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "8"
+      ],
+      "ar": [
+        "8"
+      ]
+    },
+    "review": {
+      "status": "pending"
+    }
+  },
+  {
+    "id": "kids-riddles-040",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Time, Space & Directions",
+      "ar": "الوقت والفضاء والاتجاهات"
+    },
+    "question": {
+      "en": "What comes next: Monday, Wednesday, Friday, …?",
+      "ar": "ما اليوم التالي في هذا التسلسل: الاثنين، الأربعاء، الجمعة، …؟"
+    },
+    "answer": {
+      "en": "Sunday: the pattern skips one day each time.",
+      "ar": "الأحد: نتخطّى يومًا واحدًا في كل مرة."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Sunday"
+      ],
+      "ar": [
+        "الأحد"
+      ]
     },
     "review": {
       "status": "pending"

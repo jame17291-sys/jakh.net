@@ -234,7 +234,7 @@ const UI = {
     homeDailyText: "Ten random cards from all 48 topics. Pick your level, guess, then reveal each answer.",
     homeDailyTitle: "Shuffle the whole library",
     homeCollectionTriviaTitle: "Arabic trivia & general knowledge",
-    homeCollectionTriviaMeta: "Try eight questions in Arabic or English",
+    homeCollectionTriviaMeta: "Thirty questions in Arabic or English",
     homeGameCta: "See the games",
     homeGameText: "Try crosswords, Sudoku and word games, or invite a friend to Word Duel.",
     homeGameTitle: "Play free Arabic games",
@@ -260,7 +260,7 @@ const UI = {
     homeSpacetoonCta: 'Browse riddles',
     homeAkshifhaCta: 'Connect the clues',
     homeCaseTitle: "Arabic riddles, trivia & games.",
-    homeCaseMeta: "No account needed to begin. Choose your own pace.",
+    homeCaseMeta: "Choose your own pace.",
     homeClueEyebrow: 'Your first piece of evidence',
     homeClueTitle: 'The rehearsal log',
     homeClueTime: '18:12–18:27',
@@ -455,8 +455,8 @@ const UI = {
     pageQuestions: '{count} questions',
     openPage: 'Open page',
     savedProgress: 'Saved progress',
-    guestTitle: 'Play free, with or without an account',
-    guestText: 'All practice levels are free. Progress and favorites stay in this browser; an optional free account syncs them across your devices.',
+    guestTitle: 'A free account unlocks everything',
+    guestText: 'A free account unlocks every level and game and syncs your progress.',
     createLocalProfile: 'Sync across devices',
     signedInAs: 'Signed in as',
     score: 'Practice points',
@@ -653,7 +653,7 @@ const UI = {
     homeDailyText: "عشر بطاقات عشوائية من بين 48 موضوعًا. اختر مستواك، وخمّن، ثم اكشف كل إجابة.",
     homeDailyTitle: "اخلط المكتبة كلها",
     homeCollectionTriviaTitle: "أسئلة معلومات عامة مع الإجابات",
-    homeCollectionTriviaMeta: "جرّب ثمانية أسئلة بالعربية أو الإنجليزية",
+    homeCollectionTriviaMeta: "ثلاثون سؤالاً بالعربية أو الإنجليزية",
     homeGameCta: "اكتشف الألعاب",
     homeGameText: "جرّب الكلمات المتقاطعة وسودوكو وألعاب الكلمات، أو ادعُ صديقاً إلى مبارزة الكلمات.",
     homeGameTitle: "العب ألعاباً عربية مجانية",
@@ -679,7 +679,7 @@ const UI = {
     homeSpacetoonCta: 'تصفّح الألغاز',
     homeAkshifhaCta: 'اربط الأدلة',
     homeCaseTitle: "ألغاز عربية وأسئلة وألعاب.",
-    homeCaseMeta: "لا تحتاج إلى حساب لتبدأ. العب بالوتيرة التي تناسبك.",
+    homeCaseMeta: "العب بالوتيرة التي تناسبك.",
     homeClueEyebrow: 'دليلك الأول',
     homeClueTitle: 'سجل البروفة',
     homeClueTime: '18:12–18:27',
@@ -874,8 +874,8 @@ const UI = {
     pageQuestions: '{count} سؤال',
     openPage: 'استكشف الموضوع',
     savedProgress: 'تقدّم محفوظ',
-    guestTitle: 'العب مجانًا، بحساب أو بدونه',
-    guestText: 'كل مستويات التدريب مجانية. يبقى تقدمك ومفضلتك في هذا المتصفح، ويمكنك إنشاء حساب مجاني اختياري لمزامنتهما عبر أجهزتك.',
+    guestTitle: 'الحساب المجاني يفتح كل شيء',
+    guestText: 'الحساب المجاني يفتح كل المستويات والألعاب ويزامن تقدمك.',
     createLocalProfile: 'مزامنة عبر الأجهزة',
     signedInAs: 'مسجّل الدخول باسم',
     score: 'نقاط التدريب',
@@ -1137,20 +1137,13 @@ function isSolvedStatus(status) {
   return typeof status === 'string' && status !== '' && !status.startsWith('wrong-');
 }
 
-const ACHIEVEMENTS = [
-  { id: 'first-solve', icon: '⭐', en: 'First Steps', ar: 'الخطوة الأولى', descEn: 'Answer your first question correctly', descAr: 'أجب إجابة صحيحة عن سؤالك الأول', check: () => getTotalCorrectCount() >= 1 },
-  { id: 'scholar', icon: '🎓', en: 'Scholar', ar: 'المثقف', descEn: 'Answer 100 questions correctly', descAr: 'أجب إجابة صحيحة عن 100 سؤال', check: () => getTotalCorrectCount() >= 100 },
-  { id: 'streak-7', icon: '🔥', en: '7-Day Streak', ar: '٧ أيام متتالية', descEn: '7 consecutive active days', descAr: '٧ أيام نشاط متتالية', check: () => state.streak >= 7 },
-  { id: 'category-master', icon: '👑', en: 'Category Master', ar: 'خبير الموضوع', descEn: 'Complete any category 100%', descAr: 'أكمل أي موضوع بنسبة 100%', check: () => getCategoryMasterCount() >= 1 },
-  { id: 'completionist', icon: '💎', en: 'Completionist', ar: 'المُنجز', descEn: 'Complete 5 categories 100%', descAr: 'أكمل 5 موضوعات بنسبة 100%', check: () => getCategoryMasterCount() >= 5 },
-  { id: 'speed-demon', icon: '⚡', en: 'Speed Demon', ar: 'الرعد', descEn: 'Score 8/10+ in Quick Fire', descAr: 'احصل على 8/10 أو أعلى في الاختبار السريع', check: () => loadJson('jakh-speed-demon', 0) >= 1 },
-  { id: 'bookworm', icon: '📚', en: 'Bookworm', ar: 'نهم القراءة', descEn: 'Add 20 questions to favorites', descAr: 'أضف 20 سؤالًا إلى المفضلة', check: () => getFavoriteSet().size >= 20 },
-  { id: 'bilingual', icon: '🌐', en: 'Bilingual', ar: 'ثنائي اللغة', descEn: 'Use both Arabic and English modes', descAr: 'استخدم العربية والإنجليزية', check: () => !!loadJson('jakh-used-ar', 0) && !!loadJson('jakh-used-en', 0) },
-  { id: 'night-owl', icon: '🦉', en: 'Night Owl', ar: 'بومة الليل', descEn: 'Answer a question after midnight', descAr: 'أجب على سؤال بعد منتصف الليل', check: () => !!loadJson('jakh-night-owl', 0) },
-  { id: 'streak-30', icon: '🏆', en: '30-Day Streak', ar: '٣٠ يومًا متتاليًا', descEn: '30 consecutive active days', descAr: '٣٠ يومًا من النشاط المتواصل', check: () => state.streak >= 30 },
-  { id: 'hard-solver', icon: '💪', en: 'Hard Hitter', ar: 'مواجه الصعاب', descEn: 'Answer 25 hard or difficult questions correctly', descAr: 'أجب إجابة صحيحة عن 25 سؤالًا صعبًا', check: () => getCorrectCountByDifficulty('hard') + getCorrectCountByDifficulty('very-advanced') >= 25 },
-  { id: 'sharer', icon: '🔗', en: 'Sharer', ar: 'المشارك', descEn: 'Share your first question', descAr: 'شارك سؤالك الأول', check: () => !!loadJson('jakh-shared', 0) },
-];
+// Trophy definitions live in achievements.js (loaded once, lazily) so their
+// bilingual copy stays out of this file's budget.
+let achievementsModule = null;
+function loadAchievementsModule() {
+  return achievementsModule ? Promise.resolve(achievementsModule)
+    : import('/achievements.js').then((module) => { achievementsModule = module; return module; });
+}
 
 const completedCategoriesShown = new Set();
 
@@ -1163,9 +1156,12 @@ function t(key) {
 let authEnhancementsPromise;
 let accountPanelMarkup;
 function loadAuthEnhancements() {
+  // The signed-in panel also needs its stylesheet and the trophy catalogue;
+  // both are small, fetched once with the dialog, and optional (a failure
+  // falls back to the shared styles and a medals-only trophy case).
   authEnhancementsPromise ||= import('/auth-enhancements.js').then((feature) => {
     accountPanelMarkup = feature.renderAccountPanel;
-    return feature;
+    return Promise.all([feature.loadProfileStyles?.(), loadAchievementsModule()]).catch(() => {}).then(() => feature);
   });
   return authEnhancementsPromise;
 }
@@ -1339,10 +1335,12 @@ async function checkCloudSession() {
       state.dbUser = null;
       state.accountAnalyticsAllowed = false;
       clearAllCloudMutations();
+      syncMember();
       return;
     }
     const data = await apiFetch('/user/profile');
     state.dbUser = data;
+    syncMember();
     if (previousUserId && previousUserId !== data?.id) clearAllCloudMutations();
     retainCloudMutationsForUser(data?.id);
     try {
@@ -1358,6 +1356,7 @@ async function checkCloudSession() {
       state.dbUser = null;
       state.accountAnalyticsAllowed = false;
       clearAllCloudMutations();
+      syncMember();
       return;
     }
     state.dbUser = previousUser;
@@ -1365,13 +1364,16 @@ async function checkCloudSession() {
   }
 }
 
+function isGuest() { return !state.dbUser && safeStorageGet('local', 'ra-member') !== '1'; }
+function syncMember() { window.raGate?.sync(!!state.dbUser); }
+
 function postAuthDestination() {
   const next = new URL(location.href).searchParams.get('next');
   if (!next) return '';
   try {
     const target = new URL(next, location.origin);
     if (target.origin !== location.origin) return '';
-    if (!['/admin', '/admin.html', '/privacy', '/privacy.html', '/ar/privacy/'].includes(target.pathname)) return '';
+    if (!/^\/(?!api|(ar\/)?mind-lab)[a-z0-9/.-]+$/.test(target.pathname)) return '';
     return `${target.pathname}${target.search}${target.hash}`;
   } catch (_) {
     return '';
@@ -1909,17 +1911,17 @@ function applyRuntimeAccessibilityCopy() {
     button.setAttribute('aria-label', t('close'));
   });
   document.querySelector('.kv-hero-title .sr-only')?.replaceChildren(document.createTextNode(` ${t('homeSrTitle')}`));
-  document.getElementById('leaderboardBtn')?.setAttribute('aria-label', t('leaderboardTitle'));
-  document.getElementById('battleNavBtn')?.setAttribute('aria-label', t('teamBattle'));
   const leaderboardBtn = document.getElementById('leaderboardBtn');
   if (leaderboardBtn) {
     leaderboardBtn.title = t('leaderboardTitle');
-    leaderboardBtn.innerHTML = `<span aria-hidden="true">🏆</span><span class="nav-action-label">${escapeHtml(t('leaderboardNav'))}</span>`;
+    leaderboardBtn.setAttribute('aria-label', t('leaderboardTitle'));
+    if (!leaderboardBtn.firstElementChild) leaderboardBtn.innerHTML = `<span aria-hidden="true">🏆</span><span class="nav-action-label">${escapeHtml(t('leaderboardNav'))}</span>`;
   }
   const battleNavBtn = document.getElementById('battleNavBtn');
   if (battleNavBtn) {
     battleNavBtn.title = t('teamBattle');
-    battleNavBtn.innerHTML = `<span aria-hidden="true">⚡</span><span class="nav-action-label">${escapeHtml(t('battleNav'))}</span>`;
+    battleNavBtn.setAttribute('aria-label', t('teamBattle'));
+    if (!battleNavBtn.firstElementChild) battleNavBtn.innerHTML = `<span aria-hidden="true">⚡</span><span class="nav-action-label">${escapeHtml(t('battleNav'))}</span>`;
   }
   const searchBtn = document.getElementById('globalSearchBtn');
   if (searchBtn) searchBtn.textContent = state.lang === 'ar' ? 'ابحث في الأسئلة' : 'Search questions';
@@ -1934,7 +1936,8 @@ function applyRuntimeAccessibilityCopy() {
 function applyStaticCopy() {
   document.querySelectorAll('[data-i18n]').forEach((node) => {
     const key = node.dataset.i18n;
-    node.textContent = t(key);
+    const target = node.querySelector('.nav-action-label') || node;
+    if (target.textContent !== t(key)) target.textContent = t(key);
   });
   document.querySelectorAll('[data-i18n-aria-label]').forEach((node) => {
     node.setAttribute('aria-label', t(node.dataset.i18nAriaLabel));
@@ -2009,11 +2012,11 @@ function updateDocumentTitle() {
         : 'Explore riddles and trivia in Arabic and English across 48 topics. Choose science, history, culture or logic, guess the answer, and play at your own pace.';
     } else {
       title = state.lang === 'ar'
-        ? 'ألغاز عربية وأسئلة معلومات عامة وألعاب | ريدل أرابيا'
-        : 'Arabic Riddles, Trivia & Games | Riddle Arabia';
+        ? 'ألغاز عربية مع الحل وأسئلة ثقافية وألعاب مجانية | ريدل أرابيا'
+        : 'Arabic Riddles With Answers, Trivia & Free Games | Riddle Arabia';
       description = state.lang === 'ar'
-        ? 'حلّ ألغازاً عربية مع الحل، واختبر معلوماتك بأسئلة ثقافية، والعب ألعاباً مجانية أونلاين. اكتشف ريدل أرابيا بالعربية والإنجليزية ومن دون تنزيل.'
-        : 'Solve Arabic riddles with answers, test your knowledge with Arabic trivia, and play free games online. Explore Riddle Arabia in Arabic and English.';
+        ? 'أكثر من 100 لغز مجاني مع الحل، وأسئلة ثقافية في 48 موضوعاً، وكلمات متقاطعة وسودوكو وألعاب كلمات. بالعربية والإنجليزية.'
+        : '100+ free riddles with answers, Arabic trivia across 48 topics, crosswords, Sudoku and word games, in Arabic and English.';
     }
   } else if (state.categoryData) {
     const category = state.categoryData;
@@ -2779,7 +2782,7 @@ function renderAccountSummary(mount) {
   if (state.page === 'category') {
     const earned = computeAchievements();
     const achHtml = earned.length
-      ? earned.map(a => `<span class="achievement-badge" title="${escapeHtml(state.lang === 'ar' ? a.descAr : a.descEn)}">${a.icon} ${escapeHtml(state.lang === 'ar' ? a.ar : a.en)}</span>`).join('')
+      ? earned.map(a => `<span class="achievement-badge" title="${escapeHtml(achievementsModule.description(a, state.lang))}">${a.icon} ${escapeHtml(achievementsModule.title(a, state.lang))}</span>`).join('')
       : `<span class="muted" style="font-size:0.82rem">${escapeHtml(t('achNoAchievements'))}</span>`;
     const dc = state.categoryData?.difficultyCounts || {};
     const diffs = [
@@ -2846,7 +2849,7 @@ function renderAccountSummary(mount) {
   const insight = getDashInsight(totalSolved, totalQ, catProgress, state.lang);
   const earned = computeAchievements();
   const achHtml = earned.length
-    ? `<div class="dash-achievements">${earned.map(a => `<span class="achievement-badge" title="${escapeHtml(state.lang === 'ar' ? a.descAr : a.descEn)}">${a.icon} ${escapeHtml(state.lang === 'ar' ? a.ar : a.en)}</span>`).join('')}</div>`
+    ? `<div class="dash-achievements">${earned.map(a => `<span class="achievement-badge" title="${escapeHtml(achievementsModule.description(a, state.lang))}">${a.icon} ${escapeHtml(achievementsModule.title(a, state.lang))}</span>`).join('')}</div>`
     : '';
 
   mount.innerHTML = `
@@ -3017,8 +3020,12 @@ function renderSubcategoryFilters(focusSubcategory = '') {
       counts[sc.en].count++;
     }
   }
+  // The catalog's pinnedTopics come first (scripts/catalog-topics.mjs).
+  const pins = state.categoryData.pinnedTopics || [];
+  const pin = (name) => (pins.includes(name) ? pins.indexOf(name) : 99);
   const subcats = Object.values(counts).sort((a, b) => (
-    b.count - a.count
+    pin(a.en) - pin(b.en)
+    || b.count - a.count
     || a.en.localeCompare(b.en)
   ));
   if (!subcats.length) {
@@ -3091,6 +3098,7 @@ function restoreFilterParams() {
 function getFilteredCards() {
   if (!state.categoryData) return [];
   let cards = [...state.categoryData.cards];
+  if (isGuest()) cards = cards.filter((card) => card.difficulty === 'easy');
   if (state.difficulty !== 'all') cards = cards.filter((card) => card.difficulty === state.difficulty);
   if (state.view === 'solved') cards = cards.filter((card) => getProgressResult(card.id) === 'correct');
   if (state.view === 'unsolved') cards = cards.filter((card) => getProgressResult(card.id) !== 'correct');
@@ -3286,6 +3294,7 @@ function renderCards(focusRequest = null) {
       : `Showing ${rendered} of ${matched} matching questions (${categoryTotal} total in this topic).${remaining ? ` ${remaining} more available via “Show more.”` : ' All matching results are rendered.'}`;
     if (els.resultsLabel.textContent !== label) els.resultsLabel.textContent = label;
   }
+  window.raGate?.levels(els.cardGrid, state.categoryData.cards);
   renderAccountSummary(els.categorySummaryMount);
   restoreCardFocus(focusRequest);
 }
@@ -3591,7 +3600,7 @@ function closeModal(name) {
   releaseFocus(modal, { restore: true });
 }
 
-async function openAuthModal(event) {
+async function openAuthModal(event, mode = 'signin') {
   event?.preventDefault();
   const { ensureAuthModalShell } = await loadAuthEnhancements();
   ensureAuthModalShell();
@@ -3609,7 +3618,7 @@ async function openAuthModal(event) {
     // A slow session lookup must not reopen a dialog the visitor dismissed.
     if (els.authModal.classList.contains('hidden')) return;
   }
-  renderAuthModal('signin');
+  renderAuthModal(mode);
   openModal('auth');
 }
 
@@ -3687,6 +3696,8 @@ function renderRecoveryCodeReceipt(recoveryCode) {
 
   document.getElementById('acknowledgeRecoveryCodeBtn')?.addEventListener('click', () => {
     codeNode.textContent = '';
+    const destination = postAuthDestination();
+    if (destination) return void location.assign(destination);
     renderAuthModal('signin');
     focusAuthControl('signedInAccountPanel');
   });
@@ -3704,13 +3715,20 @@ function renderAuthModal(mode = 'signin') {
   if (account) {
     const avatarSaving = avatarSavePending?.user === state.dbUser;
     const securityLoading = adminSecurityLoadPending?.user === state.dbUser;
+    const streakRecord = loadJson('ra-shuffle-streak-v1', null);
+    const earned = computeAchievements();
     els.authModalBody.innerHTML = accountPanelMarkup({
       account, language: state.lang, role: state.dbUser?.role,
       score: getScore(), correctCount: getTotalCorrectCount(),
       progress: publicAccountProgress(), categories: state.catalog?.categories || [], getCorrectCountByDifficulty,
       avatarSaving, securityLoading, privacyPath: sharedRouteForLanguage('/privacy', state.lang),
       t, fmt, escapeHtml,
+      totalQuestions: state.catalog?.site?.totalQuestions || 0,
+      streak: Math.max(state.streak || 0, achievementsModule?.currentLocalStreak(streakRecord) || 0),
+      bestStreak: streakRecord?.best || 0,
+      trophies: achievementsModule ? { all: achievementsModule.ACHIEVEMENTS, earnedIds: new Set(earned.map(a => a.id)), title: a => achievementsModule.title(a, state.lang), description: a => achievementsModule.description(a, state.lang) } : null,
     });
+    loadAuthEnhancements().then(feature => feature.bindProfilePanel?.(els.authModalBody)).catch(() => {});
     
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) logoutBtn.addEventListener('click', async () => {
@@ -3730,6 +3748,7 @@ function renderAuthModal(mode = 'signin') {
       }
       clearAllCloudMutations();
       state.dbUser = null;
+      syncMember();
       notifyAuthChange('signed-out');
       state.accountAnalyticsAllowed = false;
       stopAnalyticsHeartbeat();
@@ -4380,6 +4399,9 @@ async function startShuffleChallenge() {
     isRecordUnavailable: dailyRecordIsUnavailable,
     loadTopicCards: loadShuffleTopicCards,
     topicRoute: categoryRouteForLanguage,
+    share: shareOrCopy,
+    trophies: () => loadAchievementsModule().then(module => ({ module, earned: computeAchievements() })),
+    unlockCheck: checkNewAchievements,
     levelLabel: level => t(level === 'very-advanced' ? 'veryAdvanced' : level),
     topics: () => (state.catalog?.categories || []).filter(category => !categoryIsQuarantined(category.slug)),
   });
@@ -4536,6 +4558,7 @@ function createTimedQuizModal() {
 }
 
 function startTimedQuiz() {
+  if (isGuest()) return void window.raGate?.prompt();
   if (tvTrivia) { tvTrivia.startTimed(); return; }
   if (!state.categoryData?.cards?.length) return;
   const seen = new Set();
@@ -4811,6 +4834,8 @@ function loadSearchLeaderboard() {
         debounce,
         escapeHtml,
         fetchJson,
+        isGuest,
+        loadCardIndex,
         localizedErrorMessage,
         openAuthModal,
         releaseFocus,
@@ -4863,23 +4888,36 @@ function getCategoryMasterCount() {
   }).length;
 }
 
-function computeAchievements() {
-  return ACHIEVEMENTS.filter(a => { try { return a.check(); } catch { return false; } });
+function achievementContext() {
+  const streakRecord = loadJson('ra-shuffle-streak-v1', null);
+  const localStreak = achievementsModule?.currentLocalStreak(streakRecord) || 0;
+  return {
+    correct: getTotalCorrectCount(),
+    hardCorrect: getCorrectCountByDifficulty('hard') + getCorrectCountByDifficulty('very-advanced'),
+    masteredCategories: getCategoryMasterCount(),
+    favorites: getFavoriteSet().size,
+    streak: Math.max(state.streak || 0, localStreak),
+    flags: { speedDemon: !!loadJson('jakh-speed-demon', 0), usedArabic: !!loadJson('jakh-used-ar', 0) && !!loadJson('jakh-used-en', 0), nightOwl: !!loadJson('jakh-night-owl', 0), shared: !!loadJson('jakh-shared', 0) },
+    shuffle: achievementsModule?.shuffleContext(loadJson(achievementsModule.SHUFFLE_STATS_KEY, null)),
+  };
 }
 
+function computeAchievements() {
+  return achievementsModule ? achievementsModule.computeAchievements(achievementContext()) : [];
+}
+
+// Guests keep their unlocked list under a shared key; accounts under their own.
 function checkNewAchievements() {
-  if (!state.dbUser) return;
-  const key = `jakh-ach-${state.dbUser.id}`;
-  const stored = new Set(loadJson(key, []));
-  const earned = computeAchievements();
-  const newOnes = earned.filter(a => !stored.has(a.id));
-  if (!newOnes.length) return;
-  newOnes.forEach(a => stored.add(a.id));
-  saveJson(key, [...stored]);
-  newOnes.forEach((a, i) => setTimeout(() => {
-    hapticSuccess();
-    showToast(`${a.icon} ${state.lang === 'ar' ? 'إنجاز جديد: ' : 'Achievement unlocked: '}${state.lang === 'ar' ? a.ar : a.en}!`);
-  }, i * 2400));
+  loadAchievementsModule().then((module) => {
+    const key = state.dbUser ? `jakh-ach-${state.dbUser.id}` : 'jakh-ach-guest';
+    const { fresh, next } = module.unlockDiff(loadJson(key, []), computeAchievements());
+    if (!fresh.length) return;
+    saveJson(key, next);
+    fresh.forEach((a, i) => setTimeout(() => {
+      hapticSuccess();
+      showToast(`${a.icon} ${state.lang === 'ar' ? 'إنجاز جديد: ' : 'Achievement unlocked: '}${module.title(a, state.lang)}!`);
+    }, i * 2400));
+  }).catch(() => {});
 }
 
 function isCategoryComplete(slug) {
@@ -5208,7 +5246,7 @@ async function init() {
     applyCapabilityVisibility();
   });
   const params = new URLSearchParams(location.search);
-  if (params.get('profile') === '1') void openAuthModal();
+  if (params.get('profile') === '1') void openAuthModal(null, params.has('signup') ? 'register' : 'signin');
   if (params.get('join') === '1') void openBattleModal('', 'join');
   if (state.page === 'category') {
     if (params.get('mode') === 'quick-fire') startTimedQuiz();
@@ -5381,6 +5419,7 @@ function loadBattleMode() {
 }
 
 async function openBattleModal(slug, tab = 'create', initialCode = '') {
+  if (isGuest()) return void window.raGate?.prompt();
   createBattleModal();
   const overlay = document.getElementById('battleOverlay');
   if (!overlay) return;

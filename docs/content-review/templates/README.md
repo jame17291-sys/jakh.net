@@ -21,7 +21,7 @@ are rejected by the structural check. There is no extra `cardId`,
 `categorySlug`, or card-level `status` field inside an evidence record: its
 object key identifies the card and its category comes from the corpus.
 
-The current corpus contains 3,982 cards. The 278 cards in `survival` (40),
+The current corpus contains 3,638 cards. The 278 cards in `survival` (40),
 `law-middle-east` (48), `medical-questions` (100), `pharmacy` (50), and
 `economics-and-finance` (40) remain subject to the production hold.
 Regeneration does not authorize release from that hold.
@@ -149,8 +149,8 @@ quarantine manifest by hand.
 node scripts/content-review-report.mjs --complete
 ```
 
-This strict read-only closure gate currently fails: 3/3,982 cards carry
-legacy reviewed status, 0/3,982 are evidence-complete, and 0/278 high-stakes
+This strict read-only closure gate currently fails: 3/3,638 cards carry
+legacy reviewed status, 0/3,638 are evidence-complete, and 0/278 high-stakes
 cards are reviewed. It succeeds only after every card legitimately meets
 the existing closure requirements. The scaffold changes neither those gates
 nor the 278-card production hold. Release from the hold also requires the

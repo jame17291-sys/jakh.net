@@ -211,6 +211,10 @@ export async function startBrowserSite({
 
   const port = await new Promise((resolveListen, reject) => {
     server.once("error", reject);
+    // Node closes an idle keep-alive socket after five seconds. WebKit can
+    // pick that socket for its next navigation at the same moment and then
+    // wait forever, so idle sockets stay open for the length of a suite.
+    server.keepAliveTimeout = 10 * 60_000;
     server.listen(0, loopbackHost, () => {
       server.off("error", reject);
       const address = server.address();

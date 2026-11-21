@@ -70,7 +70,7 @@ export const STATIC_ASSET_LIMITS = Object.freeze({ files: 20_000, bytesPerFile: 
 
 // Dependency-free modules shared by several entry points. They are fingerprinted
 // first so every importer can pin the exact release it was built with.
-const SHARED_MODULES = Object.freeze(["/arabic-count.js"]);
+const SHARED_MODULES = Object.freeze(["/arabic-count.js", "/achievements.js"]);
 
 const ILLUSTRATION_MODULES = Object.freeze(["/site-illustrations.js", "/directory-ui.js"]);
 
@@ -106,14 +106,14 @@ export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
   "/data/card-index.json",
   "/auth-enhancements.js",
   "/speech-quality.js",
-  "/auth-security.css", "/auth-security.js",
+  "/auth-security.css", "/auth-security.js", "/profile.css",
   "/kids-learning.js", "/kids-state.js", "/kids-learning.css", "/data/kids/catalog.json",
   ...SHARED_MODULES,
   ...ILLUSTRATION_MODULES,
   ...PUZZLE_ASSETS,
   ...PARTY_ASSETS,
   "/app.js",
-  "/site-navigation.js",
+  "/site-navigation.js", "/account-gate.js",
   "/akshifha.js",
   "/akshifha-engine.js",
   "/akshifha-cases.js",
@@ -145,7 +145,7 @@ const HTML_FINGERPRINT_SOURCE_PATHS = new Set([
   "/puzzle-room.js",
   "/puzzle-room.css",
   "/app.js",
-  "/site-navigation.js",
+  "/site-navigation.js", "/account-gate.js",
   "/akshifha.js",
   "/akshifha.css",
   "/styles.css",
@@ -176,6 +176,7 @@ const DEPLOYABLE_EXTENSIONS = new Set([
   ".json",
   ".map",
   ".mjs",
+  ".mp4",
   ".png",
   ".svg",
   ".txt",
@@ -840,7 +841,7 @@ export function assertPublicProjection(artifactBytes, { publication, quarantine 
     }
   }
   invariant(publication.publicCategories === 48, `public category contract changed from 48 to ${publication.publicCategories}`);
-  invariant(publication.publicQuestions === 3_286, `public question contract changed from 3286 to ${publication.publicQuestions}`);
+  invariant(publication.publicQuestions === 3_360, `public question contract changed from 3360 to ${publication.publicQuestions}`);
   invariant(quarantine.manifest.totalCards === 278, "production quarantine contract changed from 278 cards");
 }
 
@@ -1193,12 +1194,11 @@ export async function buildStaticSite({
     ...PAGE_RUNTIME_SCRIPTS,
     "/content-overrides.js",
     "/data/card-index.json",
-    "/auth-enhancements.js",
     "/speech-quality.js",
-    "/auth-security.css",
+    "/auth-security.css", "/profile.css",
     "/kids-state.js", "/kids-learning.css", "/data/kids/catalog.json",
     "/styles.css",
-    "/site-navigation.js",
+    "/site-navigation.js", "/account-gate.js",
     "/akshifha.css",
     ...AKSHIFHA_MODULE_DEPENDENCIES,
     "/privacy.css",
@@ -1255,6 +1255,17 @@ export async function buildStaticSite({
   if (searchSource) {
     const rewritten = rewriteSharedModuleImports(rewriteSearchLeaderboard(searchSource.toString("utf8"), fingerprints), fingerprints);
     addFingerprint("/search-leaderboard.js", Buffer.from(rewritten, "utf8"));
+  }
+
+  // The profile panel loads its stylesheet by URL, so pin it the same way. The
+  // stylesheet is optional at build time (fixtures may omit it; the panel
+  // falls back to the shared styles), but when present it must be pinned.
+  const enhancementsSource = sourceBytes.get("auth-enhancements.js");
+  if (enhancementsSource) {
+    let rewritten = enhancementsSource.toString('utf8');
+    if (fingerprints['/profile.css']) rewritten = replaceQuotedUrl(rewritten, '/profile.css', fingerprints['/profile.css']).value;
+    else invariant(!sourceBytes.has('profile.css'), 'profile.css exists but was not fingerprinted before auth-enhancements.js');
+    addFingerprint('/auth-enhancements.js', Buffer.from(rewritten, 'utf8'));
   }
 
   const securitySource = sourceBytes.get("auth-security.js");

@@ -1065,6 +1065,130 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
     ],
   },
   {
+    key: "tv-quiz",
+    // New collection on 2026-11-18 (round four): 30 TV questions across the nine series in the TV Shows topic, easy to expert.
+    sitemapGeneration: "collections-2026-11d",
+    lastModified: "2026-11-18",
+    paths: { en: "/tv-quiz", ar: "/ar/asila-musalsalat/" },
+    titles: {
+      en: "30 TV Show Quiz Questions & Answers | Riddle Arabia",
+      ar: "30 سؤالاً عن المسلسلات مع الأجوبة | ريدل أرابيا",
+    },
+    descriptions: {
+      en: "30 TV quiz questions with answers in English and Arabic: Breaking Bad, Game of Thrones, Friends, Stranger Things, Bab Al-Hara, Maraya, Tash Ma Tash and more.",
+      ar: "30 سؤالاً عن المسلسلات مع الأجوبة بالعربية والإنجليزية: بريكينغ باد، وصراع العروش، وفريندز، وباب الحارة، ومرايا، وطاش ما طاش وغيرها.",
+    },
+    eyebrow: { en: "From Hawkins to Damascus", ar: "من هوكينز إلى دمشق" },
+    headings: { en: "TV show quiz questions with answers", ar: "أسئلة عن المسلسلات مع الأجوبة" },
+    introductions: {
+      en: "This TV quiz mixes nine series that rarely share a quiz: Breaking Bad, Game of Thrones, Friends and Stranger Things alongside Bab Al-Hara, Maraya, Tash Ma Tash, Diriliş: Ertuğrul and Al-Hashasheen. It opens with names and places most viewers know, moves on to characters, catchphrases and songs, and ends with behind-the-scenes details that only committed fans remember. Read each question in English or Arabic, make your guess, then reveal the answer.",
+      ar: "يجمع اختبار المسلسلات هذا تسعة أعمال قلّما تلتقي في اختبار واحد: بريكينغ باد وصراع العروش وفريندز وسترينجر ثينغز، إلى جانب باب الحارة ومرايا وطاش ما طاش وقيامة أرطغرل والحشاشين. يبدأ بأسماء وأماكن يعرفها معظم المشاهدين، ثم ينتقل إلى الشخصيات والعبارات الشهيرة والأغاني، وينتهي بتفاصيل من الكواليس لا يتذكرها إلا المتابعون المخلصون. اقرأ كل سؤال بالعربية أو الإنجليزية، وخمّن الإجابة، ثم اكشفها.",
+    },
+    guidance: {
+      en: "Some answers reveal plot twists, so skip a series you have not finished. The full TV Shows topic has 344 questions across the nine series.",
+      ar: "تكشف بعض الإجابات تحولات في الأحداث، فتجاوز المسلسل الذي لم تنهِ مشاهدته بعد. يضم موضوع المسلسلات الكامل 344 سؤالاً عن الأعمال التسعة.",
+    },
+    subjects: { en: ["TV quiz", "Breaking Bad", "Game of Thrones", "Friends", "Bab Al-Hara"], ar: ["أسئلة مسلسلات", "بريكينغ باد", "صراع العروش", "فريندز", "باب الحارة"] },
+    cards: [
+      // Easy
+      ["tv-shows-trivia", "tv-shows-trivia-003"],
+      ["tv-shows-trivia", "tv-shows-trivia-026"],
+      ["tv-shows-trivia", "tv-shows-trivia-051"],
+      ["tv-shows-trivia", "tv-shows-trivia-056"],
+      ["tv-shows-trivia", "tv-shows-trivia-102"],
+      ["tv-shows-trivia", "tv-shows-trivia-130"],
+      ["tv-shows-trivia", "tv-shows-trivia-152"],
+      ["tv-shows-trivia", "tv-shows-trivia-176"],
+      ["tv-shows-trivia", "tv-shows-trivia-204"],
+      ["tv-shows-trivia", "tv-shows-trivia-226"],
+      // Medium
+      ["tv-shows-trivia", "tv-shows-trivia-009"],
+      ["tv-shows-trivia", "tv-shows-trivia-037"],
+      ["tv-shows-trivia", "tv-shows-trivia-073"],
+      ["tv-shows-trivia", "tv-shows-trivia-108"],
+      ["tv-shows-trivia", "tv-shows-trivia-111"],
+      ["tv-shows-trivia", "tv-shows-trivia-132"],
+      ["tv-shows-trivia", "tv-shows-trivia-161"],
+      ["tv-shows-trivia", "tv-shows-trivia-184"],
+      ["tv-shows-trivia", "tv-shows-trivia-208"],
+      ["tv-shows-trivia", "tv-shows-trivia-234"],
+      // Hard
+      ["tv-shows-trivia", "tv-shows-trivia-024"],
+      ["tv-shows-trivia", "tv-shows-trivia-041"],
+      ["tv-shows-trivia", "tv-shows-trivia-069"],
+      ["tv-shows-trivia", "tv-shows-trivia-114"],
+      ["tv-shows-trivia", "tv-shows-trivia-167"],
+      ["tv-shows-trivia", "tv-shows-trivia-192"],
+      ["tv-shows-trivia", "tv-shows-trivia-537"],
+      // Expert
+      ["tv-shows-trivia", "tv-shows-trivia-016"],
+      ["tv-shows-trivia", "tv-shows-trivia-064"],
+      ["tv-shows-trivia", "tv-shows-trivia-834"],
+    ],
+  },
+  {
+    key: "psychology-quiz",
+    // New collection on 2026-11-18 (round four): 30 psychology questions from the Psychology topic, easy to expert.
+    sitemapGeneration: "collections-2026-11d",
+    lastModified: "2026-11-18",
+    paths: { en: "/psychology-quiz", ar: "/ar/asila-ilm-alnafs/" },
+    titles: {
+      en: "30 Psychology Quiz Questions & Answers | Riddle Arabia",
+      ar: "30 سؤالاً في علم النفس مع الأجوبة | ريدل أرابيا",
+    },
+    descriptions: {
+      en: "30 psychology quiz questions with answers in English and Arabic: Freud and Pavlov, memory and bias, famous experiments, and a few popular myths corrected.",
+      ar: "30 سؤالاً في علم النفس مع الأجوبة بالعربية والإنجليزية: فرويد وبافلوف، والذاكرة والانحيازات، وتجارب شهيرة، وتصحيح بعض الخرافات الشائعة.",
+    },
+    eyebrow: { en: "How the mind works", ar: "كيف يعمل العقل" },
+    headings: { en: "Psychology quiz questions with answers", ar: "أسئلة في علم النفس مع الأجوبة" },
+    introductions: {
+      en: "This psychology quiz covers the names, ideas and experiments that come up most often when people talk about the mind. It starts with Freud, Pavlov's dogs and everyday terms such as empathy and déjà vu, moves on to biases, memory and the bystander effect, and ends with the history of the field and with famous studies that later research has questioned. Read each question in English or Arabic, make your guess, then reveal the answer.",
+      ar: "يتناول اختبار علم النفس هذا الأسماء والأفكار والتجارب التي تتردد كثيراً عند الحديث عن العقل. يبدأ بفرويد وكلاب بافلوف ومصطلحات يومية مثل التعاطف وديجا فو، ثم ينتقل إلى الانحيازات والذاكرة وتأثير المتفرج، وينتهي بتاريخ هذا العلم وبدراسات شهيرة أعادت أبحاث لاحقة النظر فيها. اقرأ كل سؤال بالعربية أو الإنجليزية، وخمّن الإجابة، ثم اكشفها.",
+    },
+    guidance: {
+      en: "These questions are for general knowledge, not for diagnosis or advice. Several answers explain where a popular belief goes beyond the evidence, and the full Psychology topic has 100 questions.",
+      ar: "هذه الأسئلة للثقافة العامة، وليست للتشخيص أو تقديم المشورة. توضّح بعض الإجابات أين يتجاوز اعتقاد شائع ما تدعمه الأدلة، ويضم موضوع علم النفس الكامل 100 سؤال.",
+    },
+    subjects: { en: ["Psychology quiz", "Cognitive biases", "Memory", "Famous experiments"], ar: ["أسئلة علم النفس", "الانحيازات المعرفية", "الذاكرة", "تجارب شهيرة"] },
+    cards: [
+      // Easy
+      ["psychology", "psychology-001"],
+      ["psychology", "psychology-003"],
+      ["psychology", "psychology-005"],
+      ["psychology", "psychology-007"],
+      ["psychology", "psychology-010"],
+      ["psychology", "psychology-011"],
+      ["psychology", "psychology-013"],
+      ["psychology", "psychology-020"],
+      ["psychology", "psychology-038"],
+      ["psychology", "psychology-043"],
+      // Medium
+      ["psychology", "psychology-014"],
+      ["psychology", "psychology-015"],
+      ["psychology", "psychology-016"],
+      ["psychology", "psychology-019"],
+      ["psychology", "psychology-036"],
+      ["psychology", "psychology-050"],
+      ["psychology", "psychology-051"],
+      ["psychology", "psychology-052"],
+      ["psychology", "psychology-055"],
+      ["psychology", "psychology-070"],
+      // Hard
+      ["psychology", "psychology-022"],
+      ["psychology", "psychology-023"],
+      ["psychology", "psychology-030"],
+      ["psychology", "psychology-031"],
+      ["psychology", "psychology-068"],
+      ["psychology", "psychology-071"],
+      ["psychology", "psychology-082"],
+      // Expert
+      ["psychology", "psychology-028"],
+      ["psychology", "psychology-058"],
+      ["psychology", "psychology-098"],
+    ],
+  },
+  {
     key: "brain-games",
     // Game names changed on 2026-10-25 (see site-worker/src/seo-route-migrations.js).
     // Search title and description rewritten for click-through on 2026-11-08.

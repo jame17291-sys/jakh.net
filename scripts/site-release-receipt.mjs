@@ -359,6 +359,52 @@ function expectedDeploymentMessage(receipt) {
   return `JAKH site ${receipt.release.commit} build ${receipt.candidate.buildId} run ${receipt.release.runId}`;
 }
 
+// Right after a deploy the deployment API can still report the predecessor for
+// a moment. The version the smoke check must find is the one that is not the
+// rollback target and whose message names this exact release.
+export function candidateVersion({ receipt, deployment }) {
+  const activeVersion = extractActiveVersion(deployment);
+  invariant(
+    activeVersion !== receipt?.safety?.workerRollbackTarget,
+    "deployment status still reports the rollback target as the active Site Worker version",
+  );
+  const expectedMessage = expectedDeploymentMessage(receipt);
+  invariant(expectedMessage, "release receipt does not identify the commit and run of this release");
+  invariant(
+    deployment?.annotations?.["workers/message"] === expectedMessage,
+    "active Site Worker deployment message does not identify this exact release",
+  );
+  return activeVersion;
+}
+
+function expectedRollbackMessage(receipt) {
+  if (!receipt?.release?.runId) return null;
+  return `Automatic static-site rollback after GitHub Actions run ${receipt.release.runId}`;
+}
+
+// Right after a rollback the deployment API can still report the failed
+// candidate, or the target under an earlier deployment. The rollback is visible
+// once the status names the rollback target and this run's rollback message.
+export function rollbackVersion({ receipt, deployment }) {
+  const activeVersion = extractActiveVersion(deployment);
+  const target = receipt?.safety?.workerRollbackTarget;
+  invariant(
+    typeof target === "string" && target.length > 0,
+    "release receipt does not record the Site Worker rollback target",
+  );
+  invariant(
+    activeVersion === target,
+    "deployment status does not yet report the rollback target as the active Site Worker version",
+  );
+  const expectedMessage = expectedRollbackMessage(receipt);
+  invariant(expectedMessage, "release receipt does not identify the run of this release");
+  invariant(
+    deployment?.annotations?.["workers/message"] === expectedMessage,
+    "active Site Worker deployment message is not this run's rollback",
+  );
+  return activeVersion;
+}
+
 export function buildPreflight({ manifest, deployment, baselineSmoke, environment = process.env }) {
   const domainCutover = environment.JAKH_DOMAIN_CUTOVER === "true";
   const errors = [
@@ -640,6 +686,22 @@ async function main() {
     case "runtime-proof": await commandRuntimeProof(options); break;
     case "active-version": {
       process.stdout.write(extractActiveVersion(await readJson(requireOption(options, "deployment"))));
+      break;
+    }
+    case "candidate-version":
+    case "rollback-version": {
+      // Retried by the workflow, so a not-yet-visible deployment is reported
+      // on standard error without a failure annotation.
+      const resolveVersion = command === "candidate-version" ? candidateVersion : rollbackVersion;
+      try {
+        process.stdout.write(resolveVersion({
+          receipt: await readJson(requireOption(options, "receipt")),
+          deployment: await readJson(requireOption(options, "deployment")),
+        }));
+      } catch (error) {
+        process.stderr.write(`${error.message}\n`);
+        process.exitCode = 1;
+      }
       break;
     }
     case "finalize": await commandFinalize(options); break;

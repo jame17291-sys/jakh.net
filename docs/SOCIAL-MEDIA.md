@@ -9,8 +9,11 @@ Metricool, and a weekly task queues the next seven days.
 - Metricool brand **Riddle Arabia** (timezone Asia/Dubai) with the Facebook page *Riddle Arabia*
   and the Instagram professional account *riddle_arabia* connected. Metricool is connected to
   the owner's Claude account as a connector; posts are created with its `createScheduledPost`.
-- **X** is not connected: Metricool allows X only on a paid plan. Decision pending with the
-  owner. Until then, nothing is posted to X.
+- **X** is not used: Metricool allows X only on a paid plan, and on 10 Nov 2026 the owner
+  decided to leave X out (hosting and tools stay zero-cost). Nothing is posted to X; don't
+  re-propose it unless the owner raises it.
+- Old Instagram reels from May 2026 still mention jakh.net; the owner archives them in the
+  Instagram app (the web has no archive option). Nothing new mentions jakh.net.
 - Credentials never live in this repository or in chat. Connecting a network is always the
   owner signing in; Claude does not enter passwords.
 
@@ -69,7 +72,12 @@ the queue and the plans topped up.
 ## Rules
 
 - Everything posted is a question card from the public site, in the site's Modern Standard
-  Arabic and English. No politics, no religion debates, no held categories, no paid promotion,
-  no engagement bait beyond "answer in the comments".
+  Arabic and English. No politics, no held categories, no paid promotion, no engagement bait
+  beyond "answer in the comments".
+- **No religion content at all** (owner decision, 10 Nov 2026): no religious figures, places,
+  practices, holidays, symbols or wars, even as history. `RELIGION_TERMS` in
+  `scripts/social-cards.mjs` filters the card pool before planning, and
+  `scripts/social-cards.test.mjs` fails if any committed plan contains a religious card. This
+  applies to social media; the site's own question banks are unchanged.
 - Analytics: Metricool's own numbers plus the `?ref=` tags in site logs. No tracking is added to
   the site for this.

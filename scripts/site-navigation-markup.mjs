@@ -1,5 +1,5 @@
 // One progressively enhanced navigation contract for every public page.
-export const navigationScript = '<script defer src="/site-navigation.js"></script>';
+export const navigationScript = '<script defer src="/site-navigation.js"></script><script defer src="/account-gate.js"></script>';
 
 export function siteHeader({ lang = 'en', alternate = '/', active = '' } = {}) {
   const ar = lang === 'ar';

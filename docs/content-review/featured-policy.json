@@ -18,7 +18,9 @@
     "history-quiz": { "cardCount": 30, "sourceCategories": ["history"], "minSubcategories": 3 },
     "animal-quiz": { "cardCount": 30, "sourceCategories": ["animal-kingdom"], "minSubcategories": 3 },
     "space-quiz": { "cardCount": 30, "sourceCategories": ["space-and-astrology"], "minSubcategories": 3 },
-    "anime-quiz": { "cardCount": 30, "sourceCategories": ["anime"], "minSubcategories": 3 }
+    "anime-quiz": { "cardCount": 30, "sourceCategories": ["anime"], "minSubcategories": 3 },
+    "tv-quiz": { "cardCount": 30, "sourceCategories": ["tv-shows-trivia"], "minSubcategories": 3 },
+    "psychology-quiz": { "cardCount": 30, "sourceCategories": ["psychology"], "minSubcategories": 3 }
   },
   "holds": [
     {

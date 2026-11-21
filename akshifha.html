@@ -5,7 +5,7 @@
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fffaf2" />
     <title>Akshifha: Connect the Clues | Riddle Arabia</title>
-    <meta name="description" content="Connect two clues and discover what follows. Eleven free deduction cases, including six new mysteries, in Arabic and English. No account or timer." />
+    <meta name="description" content="Connect two clues and discover what follows. Eleven free deduction cases, including six new mysteries, in Arabic and English. No timer." />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href="https://riddlearabia.com/akshifha" />
     <link rel="alternate" hreflang="en" href="https://riddlearabia.com/akshifha" />
@@ -14,6 +14,8 @@
     <meta property="og:title" content="Akshifha: Connect the Clues | Riddle Arabia" />
     <meta property="og:description" content="Two clues. A discovery. Eleven free deduction cases in Arabic and English." />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ar_AE" />
     <meta property="og:url" content="https://riddlearabia.com/akshifha" />
     <meta property="og:site_name" content="Riddle Arabia" />
     <meta property="og:image" content="https://riddlearabia.com/assets/riddlearabia-og-image.png" />
@@ -23,7 +25,7 @@
     <meta property="og:image:alt" content="Riddle Arabia — Akshifha deduction game" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Akshifha: Connect the Clues | Riddle Arabia" />
-    <meta name="twitter:description" content="Connect two clues and discover what follows. Eleven free cases, no account needed." />
+    <meta name="twitter:description" content="Connect two clues and discover what follows. Eleven free cases, no timer." />
     <meta name="twitter:image" content="https://riddlearabia.com/assets/riddlearabia-og-image.png" />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/styles.css?v=2026091102" />
@@ -57,10 +59,10 @@
         <p class="eyebrow" data-i18n="akEyebrow">A little evidence. A real aha moment.</p>
         <h1 id="ak-title" data-i18n="akTitle">Akshifha</h1>
         <p class="ak-subtitle" data-i18n="akSubtitle">Two clues. A discovery. What can you prove?</p>
-        <p class="ak-pilot" data-i18n="akPilot">Six new cases + five originals · Free · No account or timer</p>
+        <p class="ak-pilot" data-i18n="akPilot">Six new cases + five originals · Free · No timer</p>
       </section>
       <noscript><p class="ak-notice" data-i18n="akNoScript">Akshifha needs JavaScript to check your clues. You can still browse our riddle collections.</p><a class="secondary-btn" href="/collections" data-i18n="akCollections">Browse riddles</a></noscript>
-      <div id="ak-loading"><p data-i18n="akLoading">Opening the evidence…</p><p data-i18n="akLoadHelp">If the case does not open, reload this page. No account is needed.</p></div>
+      <div id="ak-loading"><p data-i18n="akLoading">Opening the evidence…</p><p data-i18n="akLoadHelp">If the case does not open, reload this page.</p></div>
       <div id="ak-game" hidden>
         <nav class="ak-mode-nav" aria-label="Game navigation" data-i18n-aria-label="akNavigation">
           <button type="button" class="secondary-btn" id="ak-daily" data-i18n="akDaily">Daily pick</button>
@@ -112,6 +114,6 @@
       </div>
     </main>
     <footer class="site-footer shell ak-footer"><p data-i18n="akFooter">Written for reasoning, not speed. Play in Arabic or English.</p><nav class="ak-actions" aria-label="Game navigation" data-i18n-aria-label="akNavigation"><a href="/play" data-i18n="akGames">Games</a><a href="/privacy" data-i18n="akPrivacy">Privacy</a></nav></footer>
-    <script defer src="/site-navigation.js"></script>
+    <script defer src="/site-navigation.js"></script><script defer src="/account-gate.js"></script>
   </body>
 </html>

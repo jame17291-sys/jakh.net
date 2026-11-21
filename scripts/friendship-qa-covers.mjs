@@ -19,6 +19,7 @@ async function captureSection(page,selector,filename,viewport){
 try{
   for(const viewport of [{width:390,height:844},{width:1440,height:1000}])for(const lang of ['en','ar']){
     const context=await browser.newContext({viewport,serviceWorkers:'block'});
+    await context.addInitScript(()=>localStorage.setItem('ra-member','1'));
     await context.addInitScript(()=>localStorage.setItem('jakh-consent-v1',JSON.stringify({version:2,noticeVersion:'2026-08-01',analytics:false,updatedAt:new Date(0).toISOString(),source:'friendship-qa'})));
     const page=await context.newPage();
     try{

@@ -76,8 +76,8 @@ and few clicks, and whether `/math-riddles` and `/hard-riddles` gained impressio
 
 **Candidates, in rough order of search demand.**
 - More collection pairs from banks with no search page yet. Science, geography, football,
-  flags, history, animals, space and anime shipped on 9 Nov; TV shows, psychology, software and
-  superheroes remain. Same pattern as the math and hard collections, 30 cards each, drawn from
+  flags, history, animals, space and anime shipped on 9 Nov; TV shows and psychology were added
+  on 18 Nov; software and superheroes remain. Same pattern as the math and hard collections, 30 cards each, drawn from
   unfeatured cards; each one widens `seo-pagination.test.mjs` deliberately.
 - A short article section for long-tail phrases the collections do not cover ("riddles for a
   five-year-old in Arabic", "riddles that trick adults"), two or three to start.

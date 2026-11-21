@@ -32,12 +32,13 @@ async function mockApi(context) {
       ok: true, schema: '10', targetSchema: '10',
       features: { registration: true, accountRecovery: true, accountDeletion: true, contentStudio: true, adminMfa: true },
     };
-    else if (path === '/api/auth/session') body = { authenticated: false };
+    else if (path === '/api/auth/session') body = { authenticated: true };
     else if (path === '/api/content/questions') body = { overrides: [] };
     else body = { error: 'Not found', code: 'NOT_FOUND' };
     return route.fulfill({ status: body.error ? 404 : 200, headers, contentType: 'application/json', body: JSON.stringify(body) });
   });
   await context.addInitScript(() => {
+    localStorage.setItem('ra-member', '1');
     localStorage.setItem('jakh-consent-v1', JSON.stringify({
       version: 2, noticeVersion: '2026-08-01', analytics: false,
       updatedAt: new Date(0).toISOString(), source: 'akshifha-browser-regression',

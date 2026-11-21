@@ -1,5 +1,10 @@
 # Riddle Arabia: free-first launch and growth
 
+> **Partly superseded on 2026-11-17.** The owner decided that playing any game and seeing
+> questions above Piece of Cake needs a free account (`docs/ACCOUNT-GATE.md`). Everything
+> here about guests having every level and game without an account is historical. The site
+> remains free of charge; no paid tier was introduced.
+
 Decision date: 2026-09-16. This supersedes suggestions to introduce paid packs,
 subscriptions, or paid hosting. The owner wants a free site, audience growth,
 and advertising later. No ad application, advertising campaign, outreach,

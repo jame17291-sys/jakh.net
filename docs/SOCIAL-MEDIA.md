@@ -9,8 +9,11 @@ Metricool, and a weekly task queues the next seven days.
 - Metricool brand **Riddle Arabia** (timezone Asia/Dubai) with the Facebook page *Riddle Arabia*
   and the Instagram professional account *riddle_arabia* connected. Metricool is connected to
   the owner's Claude account as a connector; posts are created with its `createScheduledPost`.
-- **X** is not connected: Metricool allows X only on a paid plan. Decision pending with the
-  owner. Until then, nothing is posted to X.
+- **X** is not used: Metricool allows X only on a paid plan, and on 10 Nov 2026 the owner
+  decided to leave X out (hosting and tools stay zero-cost). Nothing is posted to X; don't
+  re-propose it unless the owner raises it.
+- Old Instagram reels from May 2026 still mention jakh.net; the owner archives them in the
+  Instagram app (the web has no archive option). Nothing new mentions jakh.net.
 - Credentials never live in this repository or in chat. Connecting a network is always the
   owner signing in; Claude does not enter passwords.
 

@@ -34,9 +34,10 @@ async function createContext(browser,options={}) {
   context.setDefaultTimeout(12_000);context.setDefaultNavigationTimeout(45_000);
   if(!live)await context.route('**/api/**',async route=>{
     const pathname=new URL(route.request().url()).pathname;
-    const value=pathname==='/api/health'?{ok:true,schema:'10',targetSchema:'10',features:{registration:true,adminMfa:true}}:pathname==='/api/auth/session'?{authenticated:false}:pathname==='/api/content/questions'?{overrides:[]}:{error:'Not found',code:'NOT_FOUND'};
-    await route.fulfill({status:['/api/health','/api/auth/session','/api/content/questions'].includes(pathname)?200:404,contentType:'application/json',headers:{'Access-Control-Allow-Origin':'*'},body:JSON.stringify(value)});
+    const value=pathname==='/api/health'?{ok:true,schema:'10',targetSchema:'10',features:{registration:true,adminMfa:true}}:pathname==='/api/auth/session'?{authenticated:true}:pathname==='/api/content/questions'?{overrides:[]}:{error:'Not found',code:'NOT_FOUND'};
+    await route.fulfill({status:['/api/health','/api/auth/session','/api/content/questions'].includes(pathname)?200:404,contentType:'application/json',headers:{'Access-Control-Allow-Origin':route.request().headers().origin||'*','Access-Control-Allow-Credentials':'true'},body:JSON.stringify(value)});
   });
+  await context.addInitScript(()=>localStorage.setItem('ra-member','1'));
   await context.addInitScript(()=>localStorage.setItem('jakh-consent-v1',JSON.stringify({version:2,noticeVersion:'2026-08-01',analytics:false,updatedAt:new Date(0).toISOString(),source:'friendship-qa'})));
   return context;
 }

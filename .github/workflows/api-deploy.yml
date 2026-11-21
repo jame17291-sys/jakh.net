@@ -360,13 +360,27 @@ jobs:
           WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
         run: |
           set -euo pipefail
-          (
-            cd worker
-            ./node_modules/.bin/wrangler deployments status --json \
-              > "$RECEIPT_DIR/worker-after-compatibility-initial.json"
-          )
-          expected_worker_version="$(node scripts/api-release-receipt.mjs active-version \
-            --deployment "$RECEIPT_DIR/worker-after-compatibility-initial.json")"
+          expected_worker_version=""
+          # The deployment API can keep reporting the predecessor for a moment
+          # after a deploy. Trusting one early read rolled back a correct
+          # static release on 2026-11-19, so wait until the active version is
+          # this run's own deployment and not the predecessor. A status read
+          # that fails outright is retried like a stale one.
+          for attempt in {1..12}; do
+            if ( cd worker && ./node_modules/.bin/wrangler deployments status --json \
+                > "$RECEIPT_DIR/worker-after-compatibility-initial.json" ) \
+              && expected_worker_version="$(node scripts/api-release-receipt.mjs candidate-version \
+                --receipt "$RECEIPT_DIR/release-receipt.json" \
+                --deployment "$RECEIPT_DIR/worker-after-compatibility-initial.json")"; then
+              break
+            fi
+            expected_worker_version=""
+            if [ "$attempt" -lt 12 ]; then sleep 5; fi
+          done
+          if [ -z "$expected_worker_version" ]; then
+            echo "::error title=API release safety gate::The deployment API never reported this run's deployment as the active Worker version."
+            exit 1
+          fi
           echo "expected-worker-version=$expected_worker_version" >> "$GITHUB_OUTPUT"
           set +e
           health_status=000
@@ -467,11 +481,21 @@ jobs:
           WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
         run: |
           set -euo pipefail
-          (
-            cd worker
-            ./node_modules/.bin/wrangler deployments status --json \
-              > "$RECEIPT_DIR/worker-after-rollback-initial.json"
-          )
+          # After a rollback the deployment API can keep reporting the failed
+          # candidate for a moment. Wait until the status names the rollback
+          # target and this run's rollback message; a status read that fails
+          # outright is retried like a stale one. The checks below still judge
+          # whatever the last read says.
+          for attempt in {1..12}; do
+            if ( cd worker && ./node_modules/.bin/wrangler deployments status --json \
+                > "$RECEIPT_DIR/worker-after-rollback-initial.json" ) \
+              && node scripts/api-release-receipt.mjs rollback-version \
+                --receipt "$RECEIPT_DIR/release-receipt.json" \
+                --deployment "$RECEIPT_DIR/worker-after-rollback-initial.json" > /dev/null; then
+              break
+            fi
+            if [ "$attempt" -lt 12 ]; then sleep 5; fi
+          done
           expected_worker_version="${{ steps.preflight.outputs.rollback-version }}"
           initial_worker_version="$(node scripts/api-release-receipt.mjs active-version \
             --deployment "$RECEIPT_DIR/worker-after-rollback-initial.json")"
@@ -907,13 +931,28 @@ jobs:
           WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
         run: |
           set -euo pipefail
-          (
-            cd worker
-            ./node_modules/.bin/wrangler deployments status --json \
-              > "$RECEIPT_DIR/worker-after-worker-initial.json"
-          )
-          expected_worker_version="$(node scripts/api-release-receipt.mjs active-version \
-            --deployment "$RECEIPT_DIR/worker-after-worker-initial.json")"
+          expected_worker_version=""
+          # The deployment API can keep reporting the compatibility Worker for
+          # a moment after the final deploy. D1 is already migrated here, so a
+          # false failure would roll back a correct release: wait until the
+          # active version is this run's own deployment and not the
+          # predecessor. A status read that fails outright is retried like a
+          # stale one.
+          for attempt in {1..12}; do
+            if ( cd worker && ./node_modules/.bin/wrangler deployments status --json \
+                > "$RECEIPT_DIR/worker-after-worker-initial.json" ) \
+              && expected_worker_version="$(node scripts/api-release-receipt.mjs candidate-version \
+                --receipt "$RECEIPT_DIR/release-receipt.json" \
+                --deployment "$RECEIPT_DIR/worker-after-worker-initial.json")"; then
+              break
+            fi
+            expected_worker_version=""
+            if [ "$attempt" -lt 12 ]; then sleep 5; fi
+          done
+          if [ -z "$expected_worker_version" ]; then
+            echo "::error title=API release safety gate::The deployment API never reported this run's deployment as the active Worker version."
+            exit 1
+          fi
           echo "expected-worker-version=$expected_worker_version" >> "$GITHUB_OUTPUT"
           set +e
           health_status=000
@@ -1010,11 +1049,21 @@ jobs:
           WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
         run: |
           set -euo pipefail
-          (
-            cd worker
-            ./node_modules/.bin/wrangler deployments status --json \
-              > "$RECEIPT_DIR/worker-after-rollback-initial.json"
-          )
+          # After a rollback the deployment API can keep reporting the failed
+          # candidate for a moment. Wait until the status names the rollback
+          # target and this run's rollback message; a status read that fails
+          # outright is retried like a stale one. The checks below still judge
+          # whatever the last read says.
+          for attempt in {1..12}; do
+            if ( cd worker && ./node_modules/.bin/wrangler deployments status --json \
+                > "$RECEIPT_DIR/worker-after-rollback-initial.json" ) \
+              && node scripts/api-release-receipt.mjs rollback-version \
+                --receipt "$RECEIPT_DIR/release-receipt.json" \
+                --deployment "$RECEIPT_DIR/worker-after-rollback-initial.json" > /dev/null; then
+              break
+            fi
+            if [ "$attempt" -lt 12 ]; then sleep 5; fi
+          done
           expected_worker_version="${{ steps.preflight.outputs.rollback-version }}"
           initial_worker_version="$(node scripts/api-release-receipt.mjs active-version \
             --deployment "$RECEIPT_DIR/worker-after-rollback-initial.json")"

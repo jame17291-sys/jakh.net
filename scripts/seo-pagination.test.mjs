@@ -124,12 +124,13 @@ function sitemapEntries() {
   });
 }
 
-test("the public SEO surface is eighteen original bilingual Riddle Arabia experiences", () => {
+test("the public SEO surface is twenty original bilingual Riddle Arabia experiences", () => {
   // Eight editorial experiences, plus Math riddles and Hard riddles (2026-11-08, #186), plus
   // Science, Geography, Football and Flags (2026-11-09, roadmap phase 3, #200), plus History,
-  // Animals, Space and Anime (2026-11-09, round three). Every further page is a deliberate
+  // Animals, Space and Anime (2026-11-09, round three), plus TV shows and Psychology
+  // (2026-11-18, round four). Every further page is a deliberate
   // addition here.
-  assert.equal(RIDDLE_ARABIA_SEO_PAGES.length, 18, "the experience architecture must stay compact and intentional");
+  assert.equal(RIDDLE_ARABIA_SEO_PAGES.length, 20, "the experience architecture must stay compact and intentional");
   const titles = { en: new Set(), ar: new Set() };
 
   for (const experience of RIDDLE_ARABIA_SEO_PAGES) {
@@ -179,7 +180,7 @@ test("the public SEO surface is eighteen original bilingual Riddle Arabia experi
 
       const expectedCards = experience.cards.map(([slug, id]) => sourceCard(slug, id));
       const expectedIds = expectedCards.map((card) => card.id);
-      const cardIds = [...source.matchAll(/<article\b[^>]*\bclass="seo-qa-card"[^>]*\bdata-card-id="([^"]+)"/giu)]
+      const cardIds = [...source.matchAll(/<article\b[^>]*\bclass="seo-qa-card(?: members-only)?"[^>]*\bdata-card-id="([^"]+)"/giu)]
         .map((match) => match[1]);
       assert.deepEqual(cardIds, expectedIds, `${relative}: original curated card order`);
       assert.equal(new Set(cardIds).size, cardIds.length, `${relative}: no duplicate curated card`);
@@ -197,7 +198,7 @@ test("the public SEO surface is eighteen original bilingual Riddle Arabia experi
         assert.ok(source.includes(escapeHtml(card.question[lang])), `${relative}: visible question ${card.id}`);
         assert.ok(source.includes(escapeHtml(card.answer[lang])), `${relative}: visible answer ${card.id}`);
       }
-      const articles = [...source.matchAll(/<article\b[^>]*class="seo-qa-card"[^>]*>([\s\S]*?)<\/article>/gu)];
+      const articles = [...source.matchAll(/<article\b[^>]*class="seo-qa-card(?: members-only)?"[^>]*>([\s\S]*?)<\/article>/gu)];
       assert.equal(articles.length, expectedCards.length);
       for (const [index, [, article]] of articles.entries()) {
         assert.match(article, /<\/details>\s*<div class="seo-qa-actions">\s*<a class="text-btn collection-topic-link"/u, `${relative}: full-topic link is visible before revealing an answer`);

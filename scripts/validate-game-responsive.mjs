@@ -160,11 +160,18 @@ const configuredExecutable = process.env.JAKH_BROWSER_EXECUTABLE;
 const macChrome = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const executablePath = configuredExecutable || (existsSync(macChrome) ? macChrome : undefined);
 const browser = await chromium.launch({ headless: true, executablePath });
+// Games need a free account (docs/ACCOUNT-GATE.md); the controls are measured
+// as a returning member sees them.
+async function memberPage(viewport) {
+  const page = await browser.newPage({ viewport, serviceWorkers: 'block' });
+  await page.addInitScript(() => { try { localStorage.setItem('ra-member', '1'); } catch {} });
+  return page;
+}
 const report = [];
 try {
   for (const viewport of viewports) {
     for (const name of ['fireworks', 'backgammon', 'chess', 'reversi']) {
-      const page = await browser.newPage({ viewport, serviceWorkers: 'block' });
+      const page = await memberPage(viewport);
       const runtimeErrors = [];
       page.on('pageerror', (error) => runtimeErrors.push(error.message));
       await page.goto(`${baseUrl}/${name}.html`, { waitUntil: 'domcontentloaded' });
@@ -206,7 +213,7 @@ try {
 
   for (const name of ['fireworks', 'backgammon', 'chess', 'reversi']) {
     const viewport = { width: 320, height: 568 };
-    const page = await browser.newPage({ viewport, serviceWorkers: 'block' });
+    const page = await memberPage(viewport);
     await page.goto(`${baseUrl}/${name}.html?lang=ar`, { waitUntil: 'domcontentloaded' });
     await page.waitForTimeout(150);
     check(await page.getAttribute('html', 'dir') === 'rtl', `${name}: Arabic direction was not applied`);

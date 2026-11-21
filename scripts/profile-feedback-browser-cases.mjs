@@ -185,7 +185,9 @@ export async function runProfileFeedbackRegressions({ browser, baseUrl, createCo
       await page.locator('#authModal').waitFor({ state: 'hidden' });
       avatarPending.release.resolve();
       await page.waitForFunction(() => !document.getElementById('avatarSelector')?.hasAttribute('aria-busy'));
-      await page.locator('#openAuthBtn').click();
+      // Signed out, a phone header shows "Sign up free" in place of Profile. Open the
+      // panel on this same page so the late response is still in flight.
+      await page.locator('#openAuthBtn').evaluate(node => node.click());
       await page.locator('#authForm').waitFor({ state: 'visible' });
       assert.equal(await page.locator('#signedInAccountPanel').count(), 0);
       assert.deepEqual(errors, [], `${language}: Profile feedback emitted browser errors`);

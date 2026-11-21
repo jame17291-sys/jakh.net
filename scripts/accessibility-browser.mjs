@@ -176,8 +176,38 @@ const ROUTES = [
   ["offline fallback", "/offline"],
 ];
 
-async function configureContext(context, { shuffleState = "", ownerAdmin = false } = {}) {
-  await context.addInitScript(({ shuffleRound }) => {
+// Views that only a guest, a guest on the day's free try, or a member who has
+// just signed in can see. The main route list is audited as a returning member.
+const GATE_STATES = [
+  ["guest game panel", "/chess", { guest: true }, 'section.ra-gate[data-gate="play"] .ra-trial-btn'],
+  ["guest Arabic party game panel", "/ar/games/most-likely-to/", { guest: true }, 'section.ra-gate[data-gate="play"] .ra-trial-btn'],
+  ["guest kids activity panel", "/kids-riddles/activities/kids-3-4-logic-01/", { guest: true }, 'section.ra-gate[data-gate="kids"] .ra-trial-btn'],
+  ["guest locked levels", "/riddles", { guest: true }, 'section.ra-gate[data-gate="levels"]'],
+  ["guest Arabic locked levels", "/ar/alghaz/", { guest: true }, 'section.ra-gate[data-gate="levels"]'],
+  ["guest topic levels", "/science", { guest: true }, "#raLevelsGate"],
+  ["guest level prompt", "/science", { guest: true, pickLevel: "hard" }, "dialog#raGateDialog[open]"],
+  ["guest Arabic level prompt", "/ar/topics/science/", { guest: true, pickLevel: "hard" }, "dialog#raGateDialog[open]"],
+  ["guest free try", "/chess", { guest: true, trial: ["/chess"] }, 'html.ra-trial section.ra-gate[data-gate="trial"]'],
+  ["guest Arabic free try", "/ar/games/most-likely-to/", { guest: true, trial: ["/ar/games/most-likely-to"] }, 'html.ra-trial section.ra-gate[data-gate="trial"]'],
+  ["guest free try used", "/reversi", { guest: true, trial: ["/chess"] }, "section.ra-gate .ra-trial-used"],
+  ["member welcome and home streak", "/", { welcome: true, streak: 4 }, ".ra-welcome"],
+  ["member Arabic welcome and home streak", "/ar/", { welcome: true, streak: 4 }, ".ra-welcome"],
+];
+const GATE_VIEWPORTS = [
+  ["phone", { viewport: { width: 360, height: 740 } }],
+  ["desktop", { viewport: { width: 1280, height: 800 } }],
+  ["forced colors", { viewport: { width: 1280, height: 800 }, forcedColors: "active", reducedMotion: "reduce" }],
+];
+
+async function configureContext(context, { shuffleState = "", ownerAdmin = false, guest = false, trial = null, welcome = false, streak = 0 } = {}) {
+  await context.addInitScript(({ shuffleRound, guest, trial, welcome, streak }) => {
+    const now = new Date();
+    if (trial) localStorage.setItem("ra-trial", [`${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`, ...trial].join("|"));
+    if (welcome) sessionStorage.setItem("ra-welcome", "1");
+    if (streak) {
+      const pad = (value) => String(value).padStart(2, "0");
+      localStorage.setItem("ra-shuffle-streak-v1", JSON.stringify({ v: 1, last: `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`, count: streak }));
+    }
     localStorage.setItem("jakh-consent-v1", JSON.stringify({
       version: 2,
       noticeVersion: "2026-08-01",
@@ -185,8 +215,9 @@ async function configureContext(context, { shuffleState = "", ownerAdmin = false
       updatedAt: new Date(0).toISOString(),
       source: "accessibility-browser",
     }));
+    localStorage.setItem("ra-member", guest ? "0" : "1");
     if (shuffleRound) localStorage.setItem("ra-shuffle-round-v1", JSON.stringify(shuffleRound));
-  }, { shuffleRound: SHUFFLE_STATES[shuffleState] || null });
+  }, { shuffleRound: SHUFFLE_STATES[shuffleState] || null, guest, trial, welcome, streak });
   if (ownerAdmin) {
     await context.route(/\/data\/catalog(?:\.[a-f0-9]{16})?\.json(?:\?.*)?$/u, async (route) => {
       await route.fulfill({
@@ -349,7 +380,9 @@ async function configureContext(context, { shuffleState = "", ownerAdmin = false
       return;
     }
     if (path === "/api/auth/session") {
-      await fulfillJson({ authenticated: ownerAdmin });
+      // Audited as a returning member so games and every level are on the page,
+      // except in the guest states.
+      await fulfillJson({ authenticated: !guest });
       return;
     }
     await fulfillJson({ error: "Not found", code: "NOT_FOUND" }, 404);
@@ -366,7 +399,7 @@ function formatViolations(label, violations) {
   }).join("\n");
 }
 
-async function auditRoute(context, baseUrl, label, route, { readySelector = "" } = {}) {
+async function auditRoute(context, baseUrl, label, route, { readySelector = "", pickLevel = "", alsoVisible = "" } = {}) {
   const page = await context.newPage();
   const pageErrors = [];
   page.on("pageerror", (error) => pageErrors.push(error.message));
@@ -374,9 +407,18 @@ async function auditRoute(context, baseUrl, label, route, { readySelector = "" }
     const response = await page.goto(`${baseUrl}${route}`, { waitUntil: "domcontentloaded" });
     assert.equal(response?.status(), 200, `${label} returned ${response?.status()}`);
     await page.locator("body").waitFor({ state: "visible" });
-    if (readySelector) await page.locator(readySelector).waitFor({ state: "visible" });
+    if (pickLevel) {
+      await page.locator("#raLevelsGate").waitFor({ state: "visible" });
+      // On phones the picker sits in a closed filter drawer, so set it directly.
+      await page.locator("#difficultySelect").evaluate((select, level) => {
+        select.value = level;
+        select.dispatchEvent(new Event("change", { bubbles: true }));
+      }, pickLevel);
+    }
+    if (readySelector) await page.locator(readySelector).first().waitFor({ state: "visible" });
     else if (/\/(?:ar\/)?daily\/?$/u.test(route)) await page.locator('.shuffle-setup [data-shuffle="start"]').waitFor({ state: 'visible' });
     else if (/\/(?:most-likely-to|how-well-do-you-know-me|secret-word-impostor|panic-mode|friendship-court)\/?$/u.test(route)) await page.locator('#party-app[aria-busy="false"] [data-party-action="start"]:enabled, #party-app[aria-busy="false"] [data-party-action="setup"]:enabled').waitFor({ state: 'visible' });
+    if (alsoVisible) await page.locator(alsoVisible).first().waitFor({ state: "visible" });
     await page.waitForTimeout(250);
     const results = await new AxeBuilder({ page }).withTags(WCAG_TAGS).analyze();
     assert.equal(
@@ -464,12 +506,13 @@ async function auditOwnerAdmin(context, baseUrl, lang) {
   }
 }
 
-async function verifyReflow(context, baseUrl, label, route) {
+async function verifyReflow(context, baseUrl, label, route, { readySelector = "" } = {}) {
   const page = await context.newPage();
   try {
     await page.goto(`${baseUrl}${route}`, { waitUntil: "domcontentloaded" });
     await page.locator("body").waitFor({ state: "visible" });
-    if (/\/(?:ar\/)?daily\/?$/u.test(route)) await page.locator('.shuffle-setup [data-shuffle="start"]').waitFor({ state: 'visible' });
+    if (readySelector) await page.locator(readySelector).first().waitFor({ state: "visible" });
+    else if (/\/(?:ar\/)?daily\/?$/u.test(route)) await page.locator('.shuffle-setup [data-shuffle="start"]').waitFor({ state: 'visible' });
     else if (/\/(?:most-likely-to|how-well-do-you-know-me|secret-word-impostor|panic-mode|friendship-court)\/?$/u.test(route)) await page.locator('#party-app[aria-busy="false"] [data-party-action="start"]:enabled, #party-app[aria-busy="false"] [data-party-action="setup"]:enabled').waitFor({ state: 'visible' });
     await page.waitForTimeout(100);
     const overflow = await page.evaluate(() => {
@@ -574,6 +617,20 @@ async function main() {
       await shuffleContext.close();
     }
 
+    for (const [viewportLabel, contextOptions] of GATE_VIEWPORTS) {
+      for (const [stateLabel, route, state, readySelector] of GATE_STATES) {
+        const gateContext = await browser.newContext(contextOptions);
+        await configureContext(gateContext, state);
+        const label = `${stateLabel} (${viewportLabel})`;
+        // The header sign-up button (guests) or the home welcome-back line (members) must be in the audited view.
+        const alsoVisible = state.guest ? "a.ra-signup" : ".ra-home-member";
+        rulesPassed += await auditRoute(gateContext, baseUrl, label, route, { readySelector, pickLevel: state.pickLevel, alsoVisible });
+        if (viewportLabel === "phone" && !state.pickLevel) await verifyReflow(gateContext, baseUrl, label, route, { readySelector });
+        console.log(`PASS axe state: ${label}`);
+        await gateContext.close();
+      }
+    }
+
     const ownerAdminContext = await browser.newContext({ viewport: { width: 1280, height: 900 } });
     await configureContext(ownerAdminContext, { ownerAdmin: true });
     let adminTabFixtures = 0;
@@ -584,7 +641,7 @@ async function main() {
     }
     await ownerAdminContext.close();
 
-    console.log(`Accessibility browser audit passed: ${ROUTES.length} standard routes, ${ROUTES.length} forced-color routes, ${ROUTES.length} zoom checks, 3 Shuffle Challenge states, ${adminTabFixtures} OWNER-admin tab states, ${rulesPassed} Axe rule passes.`);
+    console.log(`Accessibility browser audit passed: ${ROUTES.length} standard routes, ${ROUTES.length} forced-color routes, ${ROUTES.length} zoom checks, 3 Shuffle Challenge states, ${GATE_STATES.length * GATE_VIEWPORTS.length} guest and member states, ${adminTabFixtures} OWNER-admin tab states, ${rulesPassed} Axe rule passes.`);
   } finally {
     await browser.close();
     await server.close();

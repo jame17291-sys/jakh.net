@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import { chromium, firefox, webkit } from "playwright";
 
 import { browserAnnotationsEnabled, describeBrowserError, formatBrowserFailureAnnotation } from "./browser-annotations.mjs";
+import { trackPageErrors as trackEnginePageErrors } from "./browser-page-errors.mjs";
 import { startBrowserSite } from "./local-browser-site.mjs";
 import { CASES as AKSHIFHA_CASES } from "../akshifha-cases.js";
 import { AKSHIFHA_UI } from "../akshifha-copy.js";
@@ -50,7 +51,11 @@ const GAME_SMOKE_FIXTURES = Object.freeze([
   { name: "Alliances", route: "/alliances", root: "#dip-map", action: "#btn-resolve" },
 ]);
 
-async function mockApi(context, { battle = null, profile = null } = {}) {
+// Games and levels above Piece of Cake need an account (docs/ACCOUNT-GATE.md).
+// Unless a case asks for a guest, the browser is a returning member: the
+// membership hint is set and the session answers as signed in.
+async function mockApi(context, { battle = null, profile = null, member = true } = {}) {
+  if (member) await context.addInitScript(() => localStorage.setItem('ra-member', '1'));
   await context.route("**/api/**", async (route) => {
     const request = route.request();
     const path = new URL(request.url()).pathname;
@@ -89,7 +94,7 @@ async function mockApi(context, { battle = null, profile = null } = {}) {
         status: 200,
         contentType: "application/json",
         headers,
-        body: JSON.stringify({ authenticated: Boolean(profile) }),
+        body: JSON.stringify({ authenticated: Boolean(profile) || member }),
       });
       return;
     }
@@ -136,15 +141,21 @@ async function mockApi(context, { battle = null, profile = null } = {}) {
   });
 }
 
-function trackPageErrors(page) {
-  const errors = [];
-  page.on("pageerror", (error) => errors.push(error.message));
-  return (allowedPatterns = []) => {
-    const unexpected = errors.filter((message) => (
-      !allowedPatterns.some((pattern) => pattern.test(message))
-    ));
-    assert.deepEqual(unexpected, [], `Unexpected page errors:\n${unexpected.join("\n")}`);
-  };
+// Page errors are collected by scripts/browser-page-errors.mjs, which sets
+// aside one WebKit log line that only means "the test left this page".
+const trackPageErrors = (page) => trackEnginePageErrors(page, { engine: BROWSER_ENGINE });
+
+// The account gate hides play areas with a <style> it adds when it runs. WebKit
+// does not apply a newly added <style> until stylesheets that are still loading
+// have arrived (a puzzle page fetches its own CSS at the same moment), so the
+// registration panel can be on the page a few frames before the play area
+// disappears. Only the page's loading line shows in that gap: a puzzle is
+// mounted after its stylesheet. Allow the gate that short settling time, then
+// require the area to be hidden.
+async function assertHiddenFromGuest(page, selector, message) {
+  const target = page.locator(selector).first();
+  await target.waitFor({ state: "hidden", timeout: 5_000 }).catch(() => {});
+  assert.equal(await target.isVisible(), false, message);
 }
 
 async function createContext(browser, options = {}, mockOptions = {}) {
@@ -768,10 +779,12 @@ async function main() {
     });
 
     await runTest("blocked storage, filters, cards, and Quick Fire race guard", async () => {
+      // With storage blocked there is no membership hint, so the member is
+      // recognised by the confirmed session alone.
       const context = await createContext(browser, {
         viewport: { width: 1280, height: 800 },
         serviceWorkers: "block",
-      });
+      }, { profile: { id: "storage-member", username: "StorageMember", role: "USER", avatar: "🙂", progress: [], favorites: [] } });
       await context.addInitScript(() => {
         for (const name of ["getItem", "setItem", "removeItem", "clear", "key"]) {
           Object.defineProperty(Storage.prototype, name, {
@@ -1153,6 +1166,151 @@ async function main() {
       }
     });
 
+    await runTest("guests are asked to register for games and for levels above Piece of Cake", async () => {
+      const context = await createContext(browser, {
+        viewport: { width: 390, height: 844 },
+        serviceWorkers: "block",
+      }, { member: false });
+      await setCurrentDeniedConsent(context);
+      const page = await context.newPage();
+      const assertNoPageErrors = trackPageErrors(page);
+      try {
+        // Every kind of game shows the registration panel in place of the play area.
+        for (const [route, hidden, title] of [
+          ["/chess", "#chessBoard", "Create a free account to play"],
+          ["/sudoku", "#puzzle-mount", "Create a free account to play"],
+          ["/most-likely-to", "#party-app", "Create a free account to play"],
+          ["/daily", "#shuffleChallenge", "Create a free account to play"],
+          ["/ar/games/akshifha/", "#ak-game", "أنشئ حسابًا مجانيًا لتلعب"],
+          ["/kids-riddles/riddles/", ".kids-card-grid", "Ask a grown-up to create a free account"],
+        ]) {
+          await page.goto(`${baseUrl}${route}`, { waitUntil: NAVIGATION_READY_EVENT });
+          const gate = page.locator("section.ra-gate");
+          await gate.waitFor({ state: "visible" });
+          assert.equal(await gate.locator("h2").textContent(), title, `${route}: gate title`);
+          await assertHiddenFromGuest(page, hidden, `${route}: play area is hidden for a guest`);
+          assert.equal(await page.locator("h1").first().isVisible(), true, `${route}: the page title stays readable`);
+          const box = await gate.boundingBox();
+          assert.ok(box && box.x >= -0.5 && box.x + box.width <= 390.5, `${route}: the panel fits a phone screen`);
+        }
+        assert.match(await page.locator("section.ra-gate a.ra-gate-primary").getAttribute("href"), /^\/mind-lab\?profile=1&signup=1&next=%2Fkids-riddles%2Friddles%2F$/u);
+
+        // The panel opens the registration form, not the sign-in form.
+        await page.locator("section.ra-gate a.ra-gate-primary").click();
+        await page.locator('#tabRegister[aria-selected="true"]').waitFor({ state: "visible" });
+        assert.equal(new URL(page.url()).searchParams.get("next"), "/kids-riddles/riddles/");
+
+        // Collection pages keep Piece of Cake open and lock the rest behind one panel.
+        await page.goto(`${baseUrl}/riddles`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator("section.ra-gate").waitFor({ state: "visible" });
+        // Every header offers a guest one clear way in, on a single row on phones.
+        const signUp = page.locator(".site-utilities a.ra-signup");
+        assert.equal(await signUp.textContent(), "Sign up free");
+        assert.equal(await signUp.getAttribute("href"), "/mind-lab?profile=1&signup=1&next=%2Friddles");
+        assert.equal(await page.locator(".site-utilities [data-site-profile]").isVisible(), false, "the phone header swaps Profile for the sign-up button");
+        const headerRow = await page.evaluate(() => {
+          const boxes = [...document.querySelectorAll(".site-utilities > a")].filter(link => link.offsetParent).map(link => link.getBoundingClientRect());
+          return { tops: [...new Set(boxes.map(box => Math.round(box.top)))], minHeight: Math.min(...boxes.map(box => box.height)), fits: document.documentElement.scrollWidth <= innerWidth };
+        });
+        assert.equal(headerRow.tops.length, 1, "language and sign-up share one row");
+        assert.ok(headerRow.minHeight >= 44 && headerRow.fits, "header targets stay large and inside the screen");
+        await page.setViewportSize({ width: 320, height: 700 });
+        // Fonts differ between systems: the row must hold even with much wider letters.
+        await page.addStyleTag({ content: ".site-utilities a { letter-spacing: .12em !important; }" });
+        for (const width of [320, 340, 360, 479, 480, 520]) {
+          await page.setViewportSize({ width, height: 700 });
+          const narrow = await page.evaluate(() => {
+            const links = [...document.querySelectorAll(".site-utilities > a")].filter(link => link.offsetParent);
+            return { rows: new Set(links.map(link => Math.round(link.getBoundingClientRect().top))).size, minHeight: Math.min(...links.map(link => link.getBoundingClientRect().height)), label: document.querySelector(".ra-signup").innerText.replace(/\s+/gu, " ").trim(), fits: document.documentElement.scrollWidth <= innerWidth };
+          });
+          assert.equal(narrow.rows, 1, `${width}px: language and sign-up share one row with wide letters`);
+          assert.ok(narrow.fits, `${width}px: the header stays inside the screen`);
+          assert.ok(narrow.minHeight >= 44, `${width}px: header targets stay large`);
+          assert.equal(narrow.label, width < 480 ? "Sign up" : "Sign up free", `${width}px: small phones show the short label`);
+        }
+        await page.goto(`${baseUrl}/riddles`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.setViewportSize({ width: 390, height: 844 });
+        await signUp.click();
+        await page.locator('#tabRegister[aria-selected="true"]').waitFor({ state: "visible" });
+        await page.goto(`${baseUrl}/riddles`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator("section.ra-gate").waitFor({ state: "visible" });
+        const collection = await page.evaluate(() => {
+          const cards = [...document.querySelectorAll(".seo-qa-card")];
+          return {
+            total: cards.length,
+            visibleLocked: cards.filter(card => card.classList.contains("members-only") && card.offsetParent).length,
+            visibleOpen: cards.filter(card => !card.classList.contains("members-only") && card.offsetParent).length,
+            open: cards.filter(card => !card.classList.contains("members-only")).length,
+          };
+        });
+        assert.equal(collection.total, 30);
+        assert.equal(collection.visibleLocked, 0, "no harder card is shown to a guest");
+        assert.ok(collection.open >= 5 && collection.visibleOpen === collection.open, "every Piece of Cake card stays open");
+
+        // Topic pages show Piece of Cake only, and a harder level or Quick Fire opens the prompt.
+        await page.goto(`${baseUrl}/math`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator("#cardGrid .badge-difficulty").first().waitFor({ state: "visible" });
+        await page.locator("#raLevelsGate").waitFor({ state: "visible" });
+        assert.deepEqual(await page.evaluate(() => [...new Set([...document.querySelectorAll("#cardGrid .badge-difficulty")].map(badge => badge.dataset.difficulty))]), ["easy"]);
+        // The filter sits in a collapsed panel on phones; choose the level directly.
+        await page.locator("#difficultySelect").evaluate((select) => {
+          select.value = "hard";
+          select.dispatchEvent(new Event("change", { bubbles: true }));
+        });
+        const dialog = page.locator("dialog#raGateDialog");
+        await dialog.waitFor({ state: "visible" });
+        assert.equal(await page.locator("#difficultySelect").inputValue(), "all");
+        await dialog.locator("button.ra-gate-secondary").click();
+        await dialog.waitFor({ state: "detached" });
+        await page.goto(`${baseUrl}/math?mode=quick-fire`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator("dialog#raGateDialog").waitFor({ state: "visible" });
+        assert.equal(await page.locator("#timedQuizOverlay").evaluate(node => node.classList.contains("hidden")), true, "Quick Fire does not start for a guest");
+
+        // One free game a day: the chosen game opens, every other game stays locked.
+        await page.goto(`${baseUrl}/chess`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator("section.ra-gate button.ra-trial-btn").click();
+        await page.locator("#chessBoard").waitFor({ state: "visible" });
+        assert.match(await page.locator('section.ra-gate[data-gate="trial"]').textContent(), /This is your free try for today/u);
+        assert.equal(await page.locator('section.ra-gate[data-gate="trial"] a').getAttribute("href"), "/mind-lab?profile=1&signup=1&next=%2Fchess");
+        await page.reload({ waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator("#chessBoard").waitFor({ state: "visible" });
+        await page.goto(`${baseUrl}/sudoku`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator('section.ra-gate[data-gate="play"]').waitFor({ state: "visible" });
+        await assertHiddenFromGuest(page, "#puzzle-mount", "a second game stays locked");
+        assert.equal(await page.locator("section.ra-gate button.ra-trial-btn").count(), 0);
+        assert.equal(await page.locator("section.ra-gate .ra-trial-used").textContent(), "You have used today\u2019s free try.");
+        await page.goto(`${baseUrl}/riddles`, { waitUntil: NAVIGATION_READY_EVENT });
+        // Some engines report navigation before deferred scripts have run.
+        await page.locator("section.ra-gate").waitFor({ state: "visible" });
+        await assertHiddenFromGuest(page, ".seo-qa-card.members-only", "the free try never opens harder levels");
+        // The Arabic page of the same game is the same free try.
+        await page.goto(`${baseUrl}/ar/games/chess/`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator("#chessBoard").waitFor({ state: "visible" });
+        assert.match(await page.locator('section.ra-gate[data-gate="trial"]').textContent(), /هذه تجربتك المجانية لهذا اليوم/u);
+
+        // Signing in is acknowledged once, on the next page; the home page greets a member.
+        await page.evaluate(() => { localStorage.setItem("ra-member", "1"); sessionStorage.setItem("ra-welcome", "1"); localStorage.setItem("ra-shuffle-streak-v1", JSON.stringify({ v: 1, last: new Date().toLocaleDateString("en-CA"), count: 3, best: 3 })); });
+        await page.goto(`${baseUrl}/`, { waitUntil: NAVIGATION_READY_EVENT });
+        const welcomeNote = page.locator("main > .ra-welcome");
+        assert.equal(await welcomeNote.locator("span").textContent(), "Welcome! Every game and every level is now open to you.");
+        assert.equal(await page.locator(".ra-home-member").innerText(), "Welcome back. Your Shuffle Challenge streak: 3 days. Keep it going");
+        assert.equal(await page.locator(".ra-home-member a").getAttribute("href"), "/daily");
+        assert.equal(await page.locator(".site-utilities a.ra-signup").count(), 0);
+        assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "the member home page fits a phone screen");
+        await welcomeNote.locator("button").click();
+        assert.equal(await welcomeNote.count(), 0);
+        await page.reload({ waitUntil: NAVIGATION_READY_EVENT });
+        // Some engines report navigation before deferred scripts have run; the
+        // gate writes the home line and the welcome note in the same pass.
+        await page.locator(".ra-home-member").waitFor({ state: "visible" });
+        assert.equal(await page.locator(".ra-welcome").count(), 0, "the welcome line is shown once");
+        assert.equal(await page.locator(".ra-home-member").count(), 1);
+        assertNoPageErrors();
+      } finally {
+        await context.close();
+      }
+    });
+
     await runTest("Akshifha bilingual deduction, selection limits, progress, and responsive layout", async () => {
       const cake = AKSHIFHA_CASES.find((item) => item.id === "the-first-van");
       const revealCase = AKSHIFHA_CASES.find((item) => item.id === "one-table-please");
@@ -1306,6 +1464,63 @@ async function main() {
       }
     });
 
+    await runTest("Battle button keeps a click while the page labels it again", async () => {
+      // The page applies its copy again when it finishes loading and whenever
+      // its window regains focus. It used to rebuild the icon and label inside
+      // the Battle button each time; when that happened between a mouse press
+      // and its release the pressed element was gone, the browser sent no
+      // click, and the button did nothing. On a busy machine that now and then
+      // stalled the Battle invite test below at its first step.
+      const context = await createContext(browser, {
+        viewport: { width: 1280, height: 800 },
+        serviceWorkers: "block",
+      });
+      await setCurrentDeniedConsent(context);
+      const page = await context.newPage();
+      const assertNoPageErrors = trackPageErrors(page);
+      try {
+        await page.goto(`${baseUrl}/mind-lab`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator("#battleNavBtn .nav-action-label").waitFor({ state: "visible" });
+        // Make the page label the button again, as it does when its window
+        // regains focus, and compare everything a mouse press could be on.
+        // Safari also drops the click when only the text inside the pressed
+        // element is replaced, so the text is compared too.
+        await page.evaluate(() => {
+          const button = document.querySelector("#battleNavBtn");
+          const contents = () => {
+            const walker = document.createTreeWalker(button);
+            const nodes = [];
+            while (walker.nextNode()) nodes.push(walker.currentNode);
+            return nodes;
+          };
+          const before = contents();
+          new MutationObserver((records, observer) => {
+            observer.disconnect();
+            const after = contents();
+            window.__battleContentsKept = before.length > 0 && before.length === after.length
+              && before.every((node, index) => node === after[index]);
+          }).observe(button, { attributes: true, childList: true, subtree: true });
+          window.dispatchEvent(new Event("focus"));
+        });
+        await page.waitForFunction(() => typeof window.__battleContentsKept === "boolean");
+        assert.equal(await page.evaluate(() => window.__battleContentsKept), true,
+          "labelling the Battle button again replaced its icon or label; a click in progress would be lost");
+
+        // The same with a real, slow click: the press starts the account check
+        // and the label is applied again before the release.
+        await page.evaluate(() => {
+          document.querySelector("#battleNavBtn").addEventListener("mousedown", () => {
+            window.dispatchEvent(new Event("focus"));
+          }, { once: true });
+        });
+        await page.locator("#battleNavBtn").click({ delay: 300 });
+        await page.locator("#battleNameInput").waitFor({ state: "visible" });
+        assertNoPageErrors();
+      } finally {
+        await context.close();
+      }
+    });
+
     await runTest("Battle query invite joins a second player and starts the same question", async () => {
       const battle = {
         code: "SCI7X2KQ",
@@ -1348,7 +1563,17 @@ async function main() {
         await guest.goto(inviteUrl.href, { waitUntil: NAVIGATION_READY_EVENT });
         await guest.locator("#battleCodeInput").waitFor({ state: "visible" });
         assert.equal(await guest.locator("#battleCodeInput").inputValue(), battle.code);
+        // The form places the cursor in the room code field on the frame after
+        // it renders, which is before the browser first shows it to a person.
+        // Automation can type ahead of that frame: the cursor then moves while
+        // the name is being typed, the name lands in the code field, and Join
+        // asks for a name instead of joining (the Firefox release-check failure
+        // of 2026-11-20). Start typing only once the form has taken focus.
+        await guest.waitForFunction(() => document.activeElement?.id === "battleCodeInput");
         await guest.locator("#battleNameInput").fill("Guest");
+        assert.equal(await guest.locator("#battleNameInput").inputValue(), "Guest");
+        assert.equal(await guest.locator("#battleCodeInput").inputValue(), battle.code,
+          "typing a name must not change the invited room code");
         await guest.locator("#battleJoinBtn").click();
         await guest.waitForFunction(() => document.querySelector("#battleJoinBtn")?.disabled === true);
         assert.equal(await guest.locator("#battleJoinBtn").isDisabled(), true);

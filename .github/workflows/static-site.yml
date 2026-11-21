@@ -661,13 +661,27 @@ jobs:
           WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-site-wrangler-verify.log
         run: |
           set -euo pipefail
-          (
-            cd site-worker
-            ./node_modules/.bin/wrangler deployments status --json \
-              > "$RECEIPT_DIR/deployment-after-initial.json"
-          )
-          worker_version="$(node scripts/site-release-receipt.mjs active-version \
-            --deployment "$RECEIPT_DIR/deployment-after-initial.json")"
+          worker_version=""
+          # The deployment API can keep reporting the predecessor for a moment
+          # after a deploy. Comparing the live site with that stale version
+          # rolled back a correct release on 2026-11-19, so wait until the
+          # active version is this release's own and not the rollback target.
+          # A status read that fails outright is retried like a stale one.
+          for attempt in {1..12}; do
+            if ( cd site-worker && ./node_modules/.bin/wrangler deployments status --json \
+                > "$RECEIPT_DIR/deployment-after-initial.json" ) \
+              && worker_version="$(node scripts/site-release-receipt.mjs candidate-version \
+                --receipt "$RECEIPT_DIR/release-receipt.json" \
+                --deployment "$RECEIPT_DIR/deployment-after-initial.json")"; then
+              break
+            fi
+            worker_version=""
+            if [ "$attempt" -lt 12 ]; then sleep 5; fi
+          done
+          if [ -z "$worker_version" ]; then
+            echo "::error title=Static site release safety gate::The deployment API never reported this release as the active Site Worker version."
+            exit 1
+          fi
           echo "worker-version=$worker_version" >> "$GITHUB_OUTPUT"
 
       - name: Smoke exact candidate
@@ -693,11 +707,21 @@ jobs:
           WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-site-wrangler-verify.log
         run: |
           set -euo pipefail
-          (
-            cd site-worker
-            ./node_modules/.bin/wrangler deployments status --json \
-              > "$RECEIPT_DIR/deployment-after.json"
-          )
+          # The deployment API can answer with the predecessor again here, so
+          # re-read until it names the version the smoke check verified. The
+          # post-deploy gate below still judges whatever the last read says.
+          expected_version="${{ steps.candidate_identity.outputs.worker-version }}"
+          for attempt in {1..12}; do
+            if ( cd site-worker && ./node_modules/.bin/wrangler deployments status --json \
+                > "$RECEIPT_DIR/deployment-after.json" ) \
+              && reread_version="$(node scripts/site-release-receipt.mjs candidate-version \
+                --receipt "$RECEIPT_DIR/release-receipt.json" \
+                --deployment "$RECEIPT_DIR/deployment-after.json")" \
+              && [ "$reread_version" = "$expected_version" ]; then
+              break
+            fi
+            if [ "$attempt" -lt 12 ]; then sleep 5; fi
+          done
           node scripts/site-release-receipt.mjs post-deploy \
             --receipt "$RECEIPT_DIR/release-receipt.json" \
             --deployment "$RECEIPT_DIR/deployment-after.json" \
@@ -804,11 +828,21 @@ jobs:
           WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-site-wrangler-rollback-verify.log
         run: |
           set -euo pipefail
-          (
-            cd site-worker
-            ./node_modules/.bin/wrangler deployments status --json \
-              > "$RECEIPT_DIR/deployment-after-rollback.json"
-          )
+          # After a rollback the deployment API can keep reporting the failed
+          # candidate for a moment. Wait until the status names the rollback
+          # target and this run's rollback message; a status read that fails
+          # outright is retried like a stale one. The post-rollback gate below
+          # still judges whatever the last read says.
+          for attempt in {1..12}; do
+            if ( cd site-worker && ./node_modules/.bin/wrangler deployments status --json \
+                > "$RECEIPT_DIR/deployment-after-rollback.json" ) \
+              && node scripts/site-release-receipt.mjs rollback-version \
+                --receipt "$RECEIPT_DIR/release-receipt.json" \
+                --deployment "$RECEIPT_DIR/deployment-after-rollback.json" > /dev/null; then
+              break
+            fi
+            if [ "$attempt" -lt 12 ]; then sleep 5; fi
+          done
           node scripts/site-release-receipt.mjs smoke \
             --expected-build-id "${{ steps.preflight.outputs.rollback-build-id }}" \
             --expected-worker-version "${{ steps.preflight.outputs.rollback-version }}" \

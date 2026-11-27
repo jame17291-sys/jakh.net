@@ -92,7 +92,7 @@ export const PRE_NAVIGATION_HTML_ROUTES = [
   { name: "Home", path: "/", marker: "<title>Riddle Arabia", bilingualMarker: 'id="langSelect"' },
   { name: "Mind Lab", path: "/mind-lab", marker: "<title>Mind Lab", bilingualMarker: 'id="langSelect"' },
   { name: "Collections", path: "/collections", marker: "<title>Discover Riddles &amp; Brain Games", bilingualMarker: 'hreflang="ar"' },
-  { name: "Riddles", path: "/riddles", marker: "<title>30 Riddles With Answers", baselineMarker: "<title>Riddles With Answers", bilingualMarker: 'hreflang="ar"' },
+  { name: "Riddles", path: "/riddles", marker: "<title>50 Riddles With Answers", baselineMarker: "<title>30 Riddles With Answers", olderBaselineMarkers: ["<title>Riddles With Answers"], bilingualMarker: 'hreflang="ar"' },
   { name: "Arabic riddles", path: "/ar/alghaz/", marker: '<html lang="ar" dir="rtl">', bilingualMarker: 'hreflang="en"' },
   { name: "Brain Games", path: "/brain-games", marker: "<title>Free Brain Games Online", bilingualMarker: 'hreflang="ar"' },
   { name: "Arabic science topic", path: "/ar/topics/science/", marker: '<html lang="ar" dir="rtl">', bilingualMarker: 'hreflang="en"' },

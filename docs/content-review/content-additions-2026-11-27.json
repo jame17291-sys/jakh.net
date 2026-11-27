@@ -1,0 +1,1127 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-27",
+  "baseCommit": "69bdf109",
+  "scope": "Owner decision of 27 Nov 2026: make the main riddle pages fuller so they can climb in Google. Classic Riddles gains 38 new riddles (70 to 108), appended to the topic file with the next free ids: classic-riddles-104 to -123 are featured on Riddles with answers (/riddles, /ar/alghaz/, 30 to 50 cards) and classic-riddles-124 to -141 on Hard riddles (/hard-riddles, /ar/alghaz-saaba/, 30 to 50 cards together with the two hard cards the topics had not featured yet). No existing card changes. Held categories are untouched.",
+  "ownerDecision": {
+    "date": "2026-11-27",
+    "request": "After a Search Console reading (28 days to 25 Nov 2026: 140 clicks, 6,850 impressions, the main Arabic riddle searches at positions 10 to 13), the owner approved making the main Arabic riddle pages fuller. The Classic Riddles topic had one unfeatured card left, so the riddle pages could only grow with new riddles."
+  },
+  "reviewStatus": "pending editorial review; a passing validator or AI review is not factual or bilingual approval",
+  "reviewNote": "Claude (an AI) wrote every card in English and Modern Standard Arabic following docs/content-review/ARABIC-STYLE-GUIDE.md, worked every answer through, and checked each riddle against the existing riddle, logic, math, kids-riddle and story-mystery banks for repeats. A separate AI reviewer checked answers, fairness and the Arabic, and its corrections are applied. No human editor or native-speaker reviewer has checked these cards; every card keeps review status pending.",
+  "counts": {
+    "addedCards": 38,
+    "changedCards": 0,
+    "publicCards": {
+      "before": 3360,
+      "after": 3398
+    },
+    "sourceCards": {
+      "before": 3638,
+      "after": 3676
+    }
+  },
+  "topics": [
+    {
+      "slug": "classic-riddles",
+      "before": {
+        "total": 70,
+        "levels": {
+          "easy": 30,
+          "medium": 20,
+          "hard": 10,
+          "very-advanced": 10
+        }
+      },
+      "after": {
+        "total": 108,
+        "levels": {
+          "easy": 39,
+          "medium": 32,
+          "hard": 19,
+          "very-advanced": 18
+        }
+      }
+    }
+  ],
+  "descriptionChanges": [
+    {
+      "slug": "classic-riddles",
+      "previous": {
+        "en": "Classic flip-card riddles with everyday objects, clever clues, and a balanced path from easy to very advanced.",
+        "ar": "يضم موضوع «ألغاز كلاسيكية» 70 سؤالًا بالعربية والإنجليزية، ويتناول الأشياء والحياة اليومية، الأرقام والرموز، والطبيعة والعالم. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+      },
+      "description": {
+        "en": "Classic flip-card riddles with everyday objects, clever clues, and a balanced path from easy to very advanced.",
+        "ar": "يضم موضوع «ألغاز كلاسيكية» 108 أسئلة بالعربية والإنجليزية، ويتناول الأشياء والحياة اليومية، الأرقام والرموز، والطبيعة والعالم. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+      }
+    }
+  ],
+  "changes": [],
+  "added": [
+    {
+      "id": "classic-riddles-104",
+      "category": "classic-riddles",
+      "featuredOn": "riddles",
+      "reason": "New riddle for Riddles with answers (/riddles, /ar/alghaz/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 70,
+      "afterHash": "89d4b04c5f0b2bf4186fa2472a441a790963958b411a79cd323ac3ce1690fce1",
+      "card": {
+        "id": "classic-riddles-104",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Objects & Everyday Life",
+          "ar": "الأشياء والحياة اليومية"
+        },
+        "question": {
+          "en": "The more I dry, the wetter I get. What am I?",
+          "ar": "كلما جفّفتُ شيئاً ازددتُ بللاً. ما أنا؟"
+        },
+        "answer": {
+          "en": "A towel",
+          "ar": "المنشفة"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-105",
+      "category": "classic-riddles",
+      "featuredOn": "riddles",
+      "reason": "New riddle for Riddles with answers (/riddles, /ar/alghaz/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 71,
+      "afterHash": "c31d1e00bfab6b3497cd4f332ca19349f302675ea19c91fd664ebceefc9c1c90",
+      "card": {
+        "id": "classic-riddles-105",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Objects & Everyday Life",
+          "ar": "الأشياء والحياة اليومية"
+        },
+        "question": {
+          "en": "Drop me and I may crack, but smile at me and I will smile back. What am I?",
+          "ar": "إذا أسقطتني فقد أنكسر، وإذا ابتسمتَ لي ابتسمتُ لك. ما أنا؟"
+        },
+        "answer": {
+          "en": "A mirror",
+          "ar": "المرآة"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-106",
+      "category": "classic-riddles",
+      "featuredOn": "riddles",
+      "reason": "New riddle for Riddles with answers (/riddles, /ar/alghaz/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 72,
+      "afterHash": "bfa0cfcf15dc6a4376d4d075b11420bff15c34896a0498f688f528396617e92f",
+      "card": {
+        "id": "classic-riddles-106",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Objects & Everyday Life",
+          "ar": "الأشياء والحياة اليومية"
+        },
+        "question": {
+          "en": "I open up when the rain comes down and fold away when the sky clears. What am I?",
+          "ar": "أنفتح حين ينزل المطر، وأُطوى حين يصفو الجو. ما أنا؟"
+        },
+        "answer": {
+          "en": "An umbrella",
+          "ar": "المظلة"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-107",
+      "category": "classic-riddles",
+      "featuredOn": "riddles",
+      "reason": "New riddle for Riddles with answers (/riddles, /ar/alghaz/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 73,
+      "afterHash": "7e33205076200bb4dd67659b9cb3b37f0128d7996857add549dc01931d5b187c",
+      "card": {
+        "id": "classic-riddles-107",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Nature & the World",
+          "ar": "الطبيعة والعالم"
+        },
+        "question": {
+          "en": "Open the curtains and I fill the whole room at once, yet I take up no space at all. What am I?",
+          "ar": "إذا فتحتَ الستائر ملأتُ الغرفة كلها في لحظة، ومع ذلك لا أشغل منها أي حيّز. ما أنا؟"
+        },
+        "answer": {
+          "en": "Light",
+          "ar": "الضوء"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-108",
+      "category": "classic-riddles",
+      "featuredOn": "riddles",
+      "reason": "New riddle for Riddles with answers (/riddles, /ar/alghaz/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 74,
+      "afterHash": "52bba469d81f4c0f994823434f0678df831f7543921c5d9edd52cde199f91c05",
+      "card": {
+        "id": "classic-riddles-108",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Objects & Everyday Life",
+          "ar": "الأشياء والحياة اليومية"
+        },
+        "question": {
+          "en": "You eat from me every day, but you never eat me. What am I?",
+          "ar": "تأكل منّي كل يوم، لكنك لا تأكلني أبداً. ما أنا؟"
+        },
+        "answer": {
+          "en": "A plate (a bowl also fits)",
+          "ar": "الطبق (ويصحّ الوعاء)"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-109",
+      "category": "classic-riddles",
+      "featuredOn": "riddles",
+      "reason": "New riddle for Riddles with answers (/riddles, /ar/alghaz/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 75,
+      "afterHash": "1fb92f9a90b509b5af68216d8cb0aa1ad51a9d6a942fedb1c300628e51710ae8",
+      "card": {
+        "id": "classic-riddles-109",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Objects & Everyday Life",
+          "ar": "الأشياء والحياة اليومية"
+        },
+        "question": {
+          "en": "I have a collar and two sleeves, but no head and no hands. What am I?",
+          "ar": "لي ياقة وكُمّان، لكن ليس لي رأس ولا يدان. ما أنا؟"
+        },
+        "answer": {
+          "en": "A shirt (a jacket or coat also fits)",
+          "ar": "القميص (وتصحّ السترة أو المعطف)"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-110",
+      "category": "classic-riddles",
+      "featuredOn": "riddles",
+      "reason": "New riddle for Riddles with answers (/riddles, /ar/alghaz/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 76,
+      "afterHash": "d2175b5b405a15c564167f64a0ba2793cbe55ac42aeffcf99cae2a9f4d4edd52",
+      "card": {
+        "id": "classic-riddles-110",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Logic & Deduction",
+          "ar": "المنطق والاستنتاج"
+        },
+        "question": {
+          "en": "What two things can you never eat for breakfast?",
+          "ar": "ما الشيئان اللذان لا يمكن أن تأكلهما على الفطور أبداً؟"
+        },
+        "answer": {
+          "en": "Lunch and dinner",
+          "ar": "الغداء والعشاء"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-111",
+      "category": "classic-riddles",
+      "featuredOn": "riddles",
+      "reason": "New riddle for Riddles with answers (/riddles, /ar/alghaz/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 77,
+      "afterHash": "7f06c8df181c94237ad3efe130e69b54d4329736b5611567a166fbde5afc917d",
+      "card": {
+        "id": "classic-riddles-111",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Objects & Everyday Life",
+          "ar": "الأشياء والحياة اليومية"
+        },
+        "question": {
+          "en": "What is black when it is clean and white when it is dirty?",
+          "ar": "ما الشيء الذي يكون أسود وهو نظيف، وأبيض وهو متّسخ؟"
+        },
+        "answer": {
+          "en": "A blackboard (chalkboard)",
+          "ar": "السبّورة السوداء"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-112",
+      "category": "classic-riddles",
+      "featuredOn": "riddles",
+      "reason": "New riddle for Riddles with answers (/riddles, /ar/alghaz/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 78,
+      "afterHash": "1932fd4339cd1cbde23e5431692156e8ddfa0a5330add547ea369a9bc4694e43",
+      "card": {
+        "id": "classic-riddles-112",
+        "difficulty": "easy",
+        "subcategory": {
+          "en": "Nature & the World",
+          "ar": "الطبيعة والعالم"
+        },
+        "question": {
+          "en": "I carry a thousand needles on my back, but I have never sewn a thing. What am I?",
+          "ar": "أحمل على ظهري ألف إبرة، لكني لم أخِط بها شيئاً قط. ما أنا؟"
+        },
+        "answer": {
+          "en": "A hedgehog (a porcupine also fits)",
+          "ar": "القنفذ (ويصحّ النيص)"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-113",
+      "category": "classic-riddles",
+      "featuredOn": "riddles",
+      "reason": "New riddle for Riddles with answers (/riddles, /ar/alghaz/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 79,
+      "afterHash": "afa69d85b22e234482191fe5c51b10a6d522b1f646822d82a08a61fcbcfbea38",
+      "card": {
+        "id": "classic-riddles-113",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Objects & Everyday Life",
+          "ar": "الأشياء والحياة اليومية"
+        },
+        "question": {
+          "en": "I have a tongue but no mouth. Shake me, and everyone nearby hears me. What am I?",
+          "ar": "لي لسان وليس لي فم، وإذا هززتني سمعني كل من حولي. ما أنا؟"
+        },
+        "answer": {
+          "en": "A bell",
+          "ar": "الجرس"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-114",
+      "category": "classic-riddles",
+      "featuredOn": "riddles",
+      "reason": "New riddle for Riddles with answers (/riddles, /ar/alghaz/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 80,
+      "afterHash": "76defcb5abbf22c74bd97dfd5f330952cebc3c66f411ae056b46dda1443f4e65",
+      "card": {
+        "id": "classic-riddles-114",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Wordplay & Language",
+          "ar": "التلاعب بالكلمات واللغة"
+        },
+        "question": {
+          "en": "It is easy to get into and hard to get out of. What is it?",
+          "ar": "يسهل الدخول فيه ويصعب الخروج منه. ما هو؟"
+        },
+        "answer": {
+          "en": "Trouble (debt, or a warm bed on a cold morning, also fits)",
+          "ar": "الورطة (ويصحّ الدَّين، أو الفراش في صباح بارد)"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-115",
+      "category": "classic-riddles",
+      "featuredOn": "riddles",
+      "reason": "New riddle for Riddles with answers (/riddles, /ar/alghaz/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 81,
+      "afterHash": "b5016b9bb7edb6e65b77381207c72c38758a54d02f936e9000df403c33d3ab43",
+      "card": {
+        "id": "classic-riddles-115",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Time, Space & Measurement",
+          "ar": "الزمن والمكان والقياس"
+        },
+        "question": {
+          "en": "The longer it lasts, the shorter it gets. What is it?",
+          "ar": "كلما طال قَصُر. ما هو؟"
+        },
+        "answer": {
+          "en": "A lifetime: every day lived leaves one day less (a burning candle also fits)",
+          "ar": "العمر: كل يوم يمضي ينقص منه يوماً (وتصحّ الشمعة المشتعلة)"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-116",
+      "category": "classic-riddles",
+      "featuredOn": "riddles",
+      "reason": "New riddle for Riddles with answers (/riddles, /ar/alghaz/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 82,
+      "afterHash": "6090282f864674a62520e56fabbac405c0a7eae0bfb068c86f78aa207d40a5d6",
+      "card": {
+        "id": "classic-riddles-116",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Wordplay & Language",
+          "ar": "التلاعب بالكلمات واللغة"
+        },
+        "question": {
+          "en": "The more you use it, the sharper it gets, though it has no blade. What is it?",
+          "ar": "كلما استعملته ازداد حدّة، مع أنه بلا نصل. ما هو؟"
+        },
+        "answer": {
+          "en": "The mind",
+          "ar": "العقل (أو الذهن)"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-117",
+      "category": "classic-riddles",
+      "featuredOn": "riddles",
+      "reason": "New riddle for Riddles with answers (/riddles, /ar/alghaz/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 83,
+      "afterHash": "328a917d8bcfcd68482decc57da80eca6d5fccad42bb44c487131dd44bc8a21d",
+      "card": {
+        "id": "classic-riddles-117",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Logic & Deduction",
+          "ar": "المنطق والاستنتاج"
+        },
+        "question": {
+          "en": "A man walked for an hour through heavy rain with no umbrella, hat or hood, yet not a single hair on his head got wet. How?",
+          "ar": "مشى رجل ساعةً تحت مطر غزير بلا مظلة ولا قبعة ولا غطاء رأس، ومع ذلك لم تبتلّ شعرة واحدة من رأسه. كيف؟"
+        },
+        "answer": {
+          "en": "He was bald.",
+          "ar": "كان أصلع."
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-118",
+      "category": "classic-riddles",
+      "featuredOn": "riddles",
+      "reason": "New riddle for Riddles with answers (/riddles, /ar/alghaz/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 84,
+      "afterHash": "482833c17add3dc5188602ac976ff4223f29688d64eecc997384693eac4ddfe3",
+      "card": {
+        "id": "classic-riddles-118",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Wordplay & Language",
+          "ar": "التلاعب بالكلمات واللغة"
+        },
+        "question": {
+          "en": "You can hear it and control it, but you can never see it or touch it. What is it?",
+          "ar": "تسمعه وتتحكّم فيه، لكنك لا تراه ولا تلمسه. ما هو؟"
+        },
+        "answer": {
+          "en": "Your voice (any sound you make also fits)",
+          "ar": "صوتك (ويصحّ أي صوت تصدره)"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-119",
+      "category": "classic-riddles",
+      "featuredOn": "riddles",
+      "reason": "New riddle for Riddles with answers (/riddles, /ar/alghaz/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 85,
+      "afterHash": "74e797871c3a7a69081ab44c46d9fd2edc7beaad1c018a1e0d38159bf89d8681",
+      "card": {
+        "id": "classic-riddles-119",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Objects & Everyday Life",
+          "ar": "الأشياء والحياة اليومية"
+        },
+        "question": {
+          "en": "Sailors throw me into the water when they want to stay, and pull me back up when they want to leave. What am I?",
+          "ar": "يرميني البحّارة في الماء حين يريدون البقاء، ويرفعونني حين يريدون الرحيل. ما أنا؟"
+        },
+        "answer": {
+          "en": "An anchor",
+          "ar": "المرساة"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-120",
+      "category": "classic-riddles",
+      "featuredOn": "riddles",
+      "reason": "New riddle for Riddles with answers (/riddles, /ar/alghaz/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 86,
+      "afterHash": "3d6b5ef326cdba811a1b0ffdbef46977ae51f3744a7a87c92eaa2b1dbd4171b1",
+      "card": {
+        "id": "classic-riddles-120",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Objects & Everyday Life",
+          "ar": "الأشياء والحياة اليومية"
+        },
+        "question": {
+          "en": "I carry and I am carried. Half of me is dry and half of me is wet. What am I?",
+          "ar": "أحمِلُ وأُحمَل، نصفي جافّ ونصفي مبتلّ. ما أنا؟"
+        },
+        "answer": {
+          "en": "A ship: it carries people and cargo, and the water carries it (a boat also fits)",
+          "ar": "السفينة: تحمل الناس والبضائع، ويحملها الماء (ويصحّ القارب)"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-121",
+      "category": "classic-riddles",
+      "featuredOn": "riddles",
+      "reason": "New riddle for Riddles with answers (/riddles, /ar/alghaz/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 87,
+      "afterHash": "9be9be49fffdf6c83ccef174b094121218c4be015a91b85a21cd5116428e60a9",
+      "card": {
+        "id": "classic-riddles-121",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Wordplay & Language",
+          "ar": "التلاعب بالكلمات واللغة"
+        },
+        "question": {
+          "en": "It pinches without hands and bites without teeth, and only food can quiet it. What is it?",
+          "ar": "يقرصك بلا يدين، ويعضّك بلا أسنان، ولا يُسكته إلا الطعام. ما هو؟"
+        },
+        "answer": {
+          "en": "Hunger",
+          "ar": "الجوع"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-122",
+      "category": "classic-riddles",
+      "featuredOn": "riddles",
+      "reason": "New riddle for Riddles with answers (/riddles, /ar/alghaz/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 88,
+      "afterHash": "18d698ec56b6a312d240b8ec3f8d613dafcc09fd782fd3adf2a0522d7436bfff",
+      "card": {
+        "id": "classic-riddles-122",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Logic & Deduction",
+          "ar": "المنطق والاستنتاج"
+        },
+        "question": {
+          "en": "The poor have it, the rich need it, and if you eat it, you will die. What is it?",
+          "ar": "الفقير يملكه، والغني يحتاج إليه، ومن أكله مات. ما هو؟"
+        },
+        "answer": {
+          "en": "Nothing",
+          "ar": "لا شيء"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-123",
+      "category": "classic-riddles",
+      "featuredOn": "riddles",
+      "reason": "New riddle for Riddles with answers (/riddles, /ar/alghaz/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 89,
+      "afterHash": "35c0b9201074078c2b5a2274ced105a17067590f7c8fb4f6c0db3f0ababf69dc",
+      "card": {
+        "id": "classic-riddles-123",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Time, Space & Measurement",
+          "ar": "الزمن والمكان والقياس"
+        },
+        "question": {
+          "en": "A tree has twelve branches, each branch has thirty leaves, and every leaf is half white and half black. What is it?",
+          "ar": "شجرة لها اثنا عشر غصناً، على كل غصن ثلاثون ورقة، وكل ورقة نصفها أبيض ونصفها أسود. ما هي؟"
+        },
+        "answer": {
+          "en": "A year: twelve months of about thirty days, each day with a daytime and a night",
+          "ar": "السنة: اثنا عشر شهراً، في كل شهر نحو ثلاثين يوماً، ولكل يوم نهار وليل"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-124",
+      "category": "classic-riddles",
+      "featuredOn": "hard-riddles",
+      "reason": "New hard riddle for Hard riddles (/hard-riddles, /ar/alghaz-saaba/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 90,
+      "afterHash": "e8552212eccbc588a658da8ac3bd3256180161827e321a99b3d3b0afadb9c8da",
+      "card": {
+        "id": "classic-riddles-124",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Logic & Deduction",
+          "ar": "المنطق والاستنتاج"
+        },
+        "question": {
+          "en": "A farmer must take a wolf, a goat and a cabbage across a river. His boat holds only him and one of them. Left together without him, the wolf eats the goat, and the goat eats the cabbage. How does he get all three across?",
+          "ar": "يريد مزارع أن ينقل ذئباً وعنزة ورأس ملفوف إلى الضفة الأخرى من النهر، ولا يتّسع قاربه إلا له ولواحد منها. إذا بقي الذئب مع العنزة من دونه أكلها، وإذا بقيت العنزة مع الملفوف أكلته. كيف ينقلها جميعاً؟"
+        },
+        "answer": {
+          "en": "Take the goat over and come back. Take the wolf over and bring the goat back. Take the cabbage over and come back. Finally, take the goat over. (Taking the cabbage over second and the wolf third works just as well.)",
+          "ar": "ينقل العنزة ويعود، ثم ينقل الذئب ويرجع بالعنزة، ثم ينقل الملفوف ويعود، وأخيراً ينقل العنزة. (ويصحّ أيضاً أن ينقل الملفوف قبل الذئب.)"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-125",
+      "category": "classic-riddles",
+      "featuredOn": "hard-riddles",
+      "reason": "New hard riddle for Hard riddles (/hard-riddles, /ar/alghaz-saaba/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 91,
+      "afterHash": "6d2bf1d502671c7202719d65415b36c8672f22b3f88cf836f97284df388e15ac",
+      "card": {
+        "id": "classic-riddles-125",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Logic & Deduction",
+          "ar": "المنطق والاستنتاج"
+        },
+        "question": {
+          "en": "Crossing a desert takes six days on foot, and each person can carry food and water for only four days. Helpers may walk part of the way, hand over some of their supplies and walk back, but nobody can leave supplies along the way to collect later. What is the smallest number of helpers a traveller needs to cross, if every helper must get back safely?",
+          "ar": "يستغرق عبور صحراء ستة أيام سيراً على الأقدام، ولا يستطيع أي شخص أن يحمل من الطعام والماء إلا ما يكفي أربعة أيام. يمكن لمرافقين أن يسيروا مع المسافر جزءاً من الطريق، ويعطوه من زادهم، ثم يعودوا، ولا يمكن لأحد أن يترك زاداً في الطريق ليأخذه لاحقاً. ما أقل عدد من المرافقين يحتاج إليه المسافر ليعبر الصحراء، إذا كان على كل مرافق أن يعود سالماً؟"
+        },
+        "answer": {
+          "en": "Two. All three set out with four days' supplies. After day 1, the first helper gives one day's supply each to the traveller and the second helper, and walks back on his last day's supply. After day 2, the second helper gives the traveller one day's supply and walks back on his remaining two. The traveller then has four days' supplies for the last four days.",
+          "ar": "مرافقان. ينطلق الثلاثة ومع كلٍّ منهم زاد أربعة أيام. بعد اليوم الأول يعطي المرافق الأول كلاً من المسافر والمرافق الثاني زاد يوم، ويعود بزاد اليوم الباقي معه. وبعد اليوم الثاني يعطي المرافق الثاني المسافر زاد يوم، ويعود بزاد اليومين الباقيين. فيكون مع المسافر زاد أربعة أيام للأيام الأربعة الأخيرة."
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-126",
+      "category": "classic-riddles",
+      "featuredOn": "hard-riddles",
+      "reason": "New hard riddle for Hard riddles (/hard-riddles, /ar/alghaz-saaba/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 92,
+      "afterHash": "b996271192735e4c2f31a496cc932bf0564416f08fbfab05af6193ecd3c41fdf",
+      "card": {
+        "id": "classic-riddles-126",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Logic & Deduction",
+          "ar": "المنطق والاستنتاج"
+        },
+        "question": {
+          "en": "Nine coins look identical, but one is slightly heavier than the rest. With a two-pan balance, what is the fewest number of weighings that is sure to find the heavy coin, and how?",
+          "ar": "لديك تسع قطع نقدية متشابهة تماماً، إلا أن واحدة منها أثقل قليلاً من البقية. ما أقل عدد من الوزنات بميزان ذي كفّتين يضمن لك أن تجد القطعة الثقيلة، وكيف؟"
+        },
+        "answer": {
+          "en": "Two. Weigh three coins against three. If they balance, the heavy coin is among the other three; if not, it is in the heavier group. Then weigh one coin of that group against another: the heavier one is it, and if they balance, it is the third.",
+          "ar": "وزنتان. ضع ثلاث قطع في كل كفة. إن توازنت الكفتان فالقطعة الثقيلة بين الثلاث الباقية، وإلا فهي بين الثلاث في الكفة الأثقل. ثم زن قطعة من تلك الثلاث مقابل أخرى: الأثقل هي المطلوبة، وإن توازنتا فهي الثالثة."
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-127",
+      "category": "classic-riddles",
+      "featuredOn": "hard-riddles",
+      "reason": "New hard riddle for Hard riddles (/hard-riddles, /ar/alghaz-saaba/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 93,
+      "afterHash": "1ba24abe079ea3cab8ee6603ef06a0489c4f8682fca57ae0e7fb3566531ebdc0",
+      "card": {
+        "id": "classic-riddles-127",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Numbers & Codes",
+          "ar": "الأرقام والرموز"
+        },
+        "question": {
+          "en": "Walking down a moving down escalator, you take 50 steps to reach the bottom. Another time you run down it at three times your walking speed and take 75 steps. How many steps would you see on the escalator if it were standing still?",
+          "ar": "نزلتَ ماشياً على سلّم متحرّك يتحرّك نزولاً، فخطوتَ 50 درجة حتى بلغتَ الأسفل. وفي مرة أخرى ركضتَ نزولاً عليه بثلاثة أضعاف سرعة مشيك، فخطوتَ 75 درجة. كم درجة تظهر من السلّم المتحرّك حين يكون متوقفاً؟"
+        },
+        "answer": {
+          "en": "100. Running, you spend half as long on it (75 steps at triple speed against 50 steps), so the escalator carries you twice as far while you walk. If it carries you x steps while you run, 50 + 2x = 75 + x, so x = 25 and the escalator has 100 steps.",
+          "ar": "100 درجة. حين تركض تبقى على السلّم نصف الوقت (75 خطوة بثلاثة أضعاف السرعة مقابل 50 خطوة)، فيحملك السلّم وأنت تمشي ضعف ما يحملك وأنت تركض. فإذا حملك وأنت تركض س درجة، فإن 50 + 2س = 75 + س، أي س = 25، وعدد درجات السلّم 100."
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-128",
+      "category": "classic-riddles",
+      "featuredOn": "hard-riddles",
+      "reason": "New hard riddle for Hard riddles (/hard-riddles, /ar/alghaz-saaba/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 94,
+      "afterHash": "84be1af81967f8f92a3577368ff5618c7383a69bfd0f26eaa374426160efafed",
+      "card": {
+        "id": "classic-riddles-128",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Logic & Deduction",
+          "ar": "المنطق والاستنتاج"
+        },
+        "question": {
+          "en": "A rope ladder hangs over the side of a ship, with its lowest rung just touching the water. The rungs are 30 cm apart. If the tide raises the water by 90 cm, how many rungs will be under water?",
+          "ar": "يتدلّى سلّم من الحبال على جانب سفينة، ودرجته السفلى تلامس سطح الماء، والمسافة بين كل درجتين 30 سنتيمتراً. إذا رفع المدّ مستوى الماء 90 سنتيمتراً، فكم درجة ستغمرها المياه؟"
+        },
+        "answer": {
+          "en": "None: the ship floats up with the tide, and the ladder rises with it.",
+          "ar": "لن تُغمر أي درجة: السفينة تطفو فترتفع مع المدّ، ويرتفع السلّم معها."
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-129",
+      "category": "classic-riddles",
+      "featuredOn": "hard-riddles",
+      "reason": "New hard riddle for Hard riddles (/hard-riddles, /ar/alghaz-saaba/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 95,
+      "afterHash": "17d391366e135831ee3c29bf14426b7ea4a585bb604c8caca9568b7574d374a5",
+      "card": {
+        "id": "classic-riddles-129",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Numbers & Codes",
+          "ar": "الأرقام والرموز"
+        },
+        "question": {
+          "en": "You leave 100 kg of cucumbers in the sun. They are 99% water. A few days later they are 98% water. How much do they weigh now?",
+          "ar": "تركت 100 كيلوغرام من الخيار في الشمس، والماء يشكّل 99% من وزنه. بعد بضعة أيام صار الماء 98% من وزنه. كم يزن الخيار الآن؟"
+        },
+        "answer": {
+          "en": "50 kg: the dry part stays at 1 kg, and 1 kg is now 2% of the total.",
+          "ar": "50 كيلوغراماً: الجزء الجاف يبقى كيلوغراماً واحداً، وهو الآن 2% من الوزن الكلي."
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-130",
+      "category": "classic-riddles",
+      "featuredOn": "hard-riddles",
+      "reason": "New hard riddle for Hard riddles (/hard-riddles, /ar/alghaz-saaba/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 96,
+      "afterHash": "27e676bc77df3f21f29e4e2afd205712b822b0574051325f1fc6981abb280bbf",
+      "card": {
+        "id": "classic-riddles-130",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Numbers & Codes",
+          "ar": "الأرقام والرموز"
+        },
+        "question": {
+          "en": "In a 100-metre race, Sami beats Fadi by 10 metres, and Fadi beats Hala by 10 metres. If each runs at a steady speed, by how many metres does Sami beat Hala?",
+          "ar": "في سباق 100 متر، يفوز سامي على فادي بفارق عشرة أمتار، ويفوز فادي على هالة بفارق عشرة أمتار. إذا ركض كلٌّ منهم بسرعة ثابتة، فبكم متراً يفوز سامي على هالة؟"
+        },
+        "answer": {
+          "en": "19 metres. When Sami finishes, Fadi has run 90 m. Hala covers 9 m for every 10 m that Fadi runs, so she has run 81 m.",
+          "ar": "بفارق تسعة عشر متراً. حين ينهي سامي السباق يكون فادي قد ركض 90 متراً، وهالة تقطع 9 أمتار مقابل كل 10 أمتار يقطعها فادي، فتكون قد ركضت 81 متراً."
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-131",
+      "category": "classic-riddles",
+      "featuredOn": "hard-riddles",
+      "reason": "New hard riddle for Hard riddles (/hard-riddles, /ar/alghaz-saaba/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 97,
+      "afterHash": "f23a5b662d52f858e34e59486303eebbdba13b819850f9fa2a44c180bd40b3cb",
+      "card": {
+        "id": "classic-riddles-131",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Numbers & Codes",
+          "ar": "الأرقام والرموز"
+        },
+        "question": {
+          "en": "A trader buys a horse for 600 dirhams and sells it for 700. He buys it back for 800 and sells it again for 900. How much profit does he make in total?",
+          "ar": "اشترى تاجر حصاناً بسعر 600 درهم وباعه بسعر 700، ثم اشتراه مرة أخرى بسعر 800 وباعه بسعر 900. كم ربح في المجموع؟"
+        },
+        "answer": {
+          "en": "200 dirhams: he pays out 1,400 and takes in 1,600.",
+          "ar": "200 درهم: دفع 1400 درهم وقبض 1600."
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-132",
+      "category": "classic-riddles",
+      "featuredOn": "hard-riddles",
+      "reason": "New hard riddle for Hard riddles (/hard-riddles, /ar/alghaz-saaba/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 98,
+      "afterHash": "47b4a7335a39b0c95b1613ef100a61fb7669369a393fcf8d1ee1ee08b07c8956",
+      "card": {
+        "id": "classic-riddles-132",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Numbers & Codes",
+          "ar": "الأرقام والرموز"
+        },
+        "question": {
+          "en": "What number comes next: 2, 3, 5, 9, 17, …?",
+          "ar": "ما العدد التالي: 2، 3، 5، 9، 17، …؟"
+        },
+        "answer": {
+          "en": "33: double each number and subtract 1.",
+          "ar": "33: ضاعِف كل عدد ثم اطرح منه 1."
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-133",
+      "category": "classic-riddles",
+      "featuredOn": "hard-riddles",
+      "reason": "New hard riddle for Hard riddles (/hard-riddles, /ar/alghaz-saaba/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 99,
+      "afterHash": "0ddc79d4bb366cac20ac9a44a73e115fe429d1a40a0e5bff425a2ccedda924c6",
+      "card": {
+        "id": "classic-riddles-133",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Time, Space & Measurement",
+          "ar": "الزمن والمكان والقياس"
+        },
+        "question": {
+          "en": "Two candles are the same length. One burns down completely in 4 hours, the other in 6 hours, each at a steady rate. You light both at the same time. After how long is one candle exactly twice as long as the other?",
+          "ar": "شمعتان بالطول نفسه، تحترق الأولى كلها في 4 ساعات، والثانية في 6 ساعات، وكلٌّ منهما بسرعة ثابتة. أشعلتهما في الوقت نفسه. بعد كم ساعة يصبح طول إحداهما ضعف طول الأخرى تماماً؟"
+        },
+        "answer": {
+          "en": "After 3 hours: the faster candle has a quarter of its length left, and the slower one has half.",
+          "ar": "بعد 3 ساعات: يبقى من الأولى ربع طولها، ومن الثانية نصف طولها."
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-134",
+      "category": "classic-riddles",
+      "featuredOn": "hard-riddles",
+      "reason": "New hard riddle for Hard riddles (/hard-riddles, /ar/alghaz-saaba/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 100,
+      "afterHash": "58b7013f4bc5e30f3ed96b92d3205567ea9a89faa66abb36c3080645ae05623b",
+      "card": {
+        "id": "classic-riddles-134",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Logic & Deduction",
+          "ar": "المنطق والاستنتاج"
+        },
+        "question": {
+          "en": "A merchant leaves 21 jars to his three sons: 7 full of oil, 7 half full and 7 empty. Without pouring oil from one jar into another, how can each son receive 7 jars and the same amount of oil?",
+          "ar": "ترك تاجر لأبنائه الثلاثة 21 جرّة: 7 مملوءة بالزيت، و7 نصف مملوءة، و7 فارغة. كيف يأخذ كل ابن 7 جرار ومقداراً متساوياً من الزيت، من دون أن يُصبّ الزيت من جرّة إلى أخرى؟"
+        },
+        "answer": {
+          "en": "One son takes 3 full, 1 half-full and 3 empty jars; each of the other two takes 2 full, 3 half-full and 2 empty. Every son gets 7 jars and enough oil to fill 3½ jars. (Another split also works: two sons each take 3 full, 1 half-full and 3 empty jars; the third takes 1 full, 5 half-full and 1 empty.)",
+          "ar": "يأخذ أحدهم ثلاث جرار مملوءة وجرّة نصف مملوءة وثلاث جرار فارغة، ويأخذ كلٌّ من الآخرَين جرّتين مملوءتين وثلاث جرار نصف مملوءة وجرّتين فارغتين. فيحصل كل ابن على سبع جرار، ومعها من الزيت ما يملأ ثلاث جرار ونصفاً. (ويصحّ تقسيم آخر: يأخذ كلٌّ من اثنين منهم ثلاث جرار مملوءة وجرّة نصف مملوءة وثلاث جرار فارغة، ويأخذ الثالث جرّة مملوءة وخمس جرار نصف مملوءة وجرّة فارغة.)"
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-135",
+      "category": "classic-riddles",
+      "featuredOn": "hard-riddles",
+      "reason": "New hard riddle for Hard riddles (/hard-riddles, /ar/alghaz-saaba/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 101,
+      "afterHash": "78f3a1939a6efd6758b9536974cc52d8b0ced028abf72198f46caefb51fdea65",
+      "card": {
+        "id": "classic-riddles-135",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Time, Space & Measurement",
+          "ar": "الزمن والمكان والقياس"
+        },
+        "question": {
+          "en": "How many times in one full day of 24 hours do the hour hand and the minute hand of a clock form a right angle?",
+          "ar": "كم مرة في اليوم الكامل، أي في 24 ساعة، يصنع عقرب الساعات وعقرب الدقائق زاوية قائمة؟"
+        },
+        "answer": {
+          "en": "44 times. The minute hand laps the hour hand 11 times in 12 hours, and each lap gives two right angles, so 22 in every 12 hours.",
+          "ar": "44 مرة: يسبق عقرب الدقائق عقرب الساعات دورة كاملة 11 مرة في كل 12 ساعة، وفي كل دورة زاويتان قائمتان، أي 22 مرة في كل 12 ساعة."
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-136",
+      "category": "classic-riddles",
+      "featuredOn": "hard-riddles",
+      "reason": "New hard riddle for Hard riddles (/hard-riddles, /ar/alghaz-saaba/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 102,
+      "afterHash": "9a27582bfe4c7618a0c7fcf9e6a62225ac05e181e9ad3ef0a5362002ccd23e81",
+      "card": {
+        "id": "classic-riddles-136",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Time, Space & Measurement",
+          "ar": "الزمن والمكان والقياس"
+        },
+        "question": {
+          "en": "Rami says: “The day before yesterday I was 25, and next year I will turn 28.” On what date is he speaking, and when is his birthday?",
+          "ar": "قال رامي: «أول أمس كان عمري 25 سنة، وفي السنة القادمة سأبلغ 28». في أي يوم قال ذلك، ومتى يوم ميلاده؟"
+        },
+        "answer": {
+          "en": "He is speaking on 1 January, and his birthday is 31 December. He was 25 on 30 December and turned 26 the next day; he will turn 27 this December and 28 next December.",
+          "ar": "قال ذلك في 1 يناير، ويوم ميلاده 31 ديسمبر: كان عمره 25 سنة يوم 30 ديسمبر، وبلغ 26 في اليوم التالي، وسيبلغ 27 في ديسمبر من هذه السنة، و28 في ديسمبر من السنة القادمة."
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-137",
+      "category": "classic-riddles",
+      "featuredOn": "hard-riddles",
+      "reason": "New hard riddle for Hard riddles (/hard-riddles, /ar/alghaz-saaba/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 103,
+      "afterHash": "9cdb3e1d39f073868c124a91d2e5ed0a12ae808647a61680b836a4cfd32849ee",
+      "card": {
+        "id": "classic-riddles-137",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Logic & Deduction",
+          "ar": "المنطق والاستنتاج"
+        },
+        "question": {
+          "en": "A traveller leaves the foot of a mountain at sunrise and reaches the top at sunset. The next day he leaves the top at sunrise and walks down the same path, reaching the foot at sunset. On both days he changes speed and stops to rest. Must there be a point on the path that he passes at exactly the same time of day on both days?",
+          "ar": "انطلق مسافر من سفح جبل عند شروق الشمس، فبلغ القمة عند غروبها. وفي اليوم التالي انطلق من القمة عند الشروق ونزل سالكاً الطريق نفسه، فبلغ السفح عند الغروب. وكان في اليومين يغيّر سرعته ويتوقف ليستريح. هل يوجد حتماً موضع على الطريق مرّ به في الوقت نفسه تماماً من اليومين؟"
+        },
+        "answer": {
+          "en": "Yes. Picture two travellers on the same day, one walking up and one walking down the path. They must meet somewhere, and that meeting point is passed at the same time on both days.",
+          "ar": "نعم. تخيّل مسافرَين في يوم واحد، أحدهما يصعد والآخر ينزل على الطريق نفسه. لا بد أن يلتقيا في موضع ما، وهذا الموضع هو الذي مرّ به في الوقت نفسه من اليومين."
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-138",
+      "category": "classic-riddles",
+      "featuredOn": "hard-riddles",
+      "reason": "New hard riddle for Hard riddles (/hard-riddles, /ar/alghaz-saaba/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 104,
+      "afterHash": "241ab90094b69d517d31ec17ce11ff5b056bf6bb53e326b6ac1b8c0ba6152180",
+      "card": {
+        "id": "classic-riddles-138",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Numbers & Codes",
+          "ar": "الأرقام والرموز"
+        },
+        "question": {
+          "en": "Numbering the pages of a book, starting from 1, takes 192 digits in total. How many pages does the book have?",
+          "ar": "احتاج ترقيم صفحات كتاب، بدءاً من الصفحة 1، إلى 192 رقماً. كم صفحة في الكتاب؟"
+        },
+        "answer": {
+          "en": "100 pages: pages 1–9 use 9 digits, pages 10–99 use 180, and page 100 uses the last 3.",
+          "ar": "100 صفحة: الصفحات من 1 إلى 9 تحتاج إلى 9 أرقام، ومن 10 إلى 99 إلى 180 رقماً، والصفحة 100 إلى الأرقام الثلاثة الأخيرة."
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-139",
+      "category": "classic-riddles",
+      "featuredOn": "hard-riddles",
+      "reason": "New hard riddle for Hard riddles (/hard-riddles, /ar/alghaz-saaba/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 105,
+      "afterHash": "198ecf879eacb4cd9af2077c6e78daf1a670068d43cafb7cf7650092d0af2511",
+      "card": {
+        "id": "classic-riddles-139",
+        "difficulty": "hard",
+        "subcategory": {
+          "en": "Numbers & Codes",
+          "ar": "الأرقام والرموز"
+        },
+        "question": {
+          "en": "100 teams enter a knockout tournament. Every match has a winner, the loser is out, and some teams may skip a round. How many matches are needed to find the champion?",
+          "ar": "يشارك 100 فريق في بطولة بنظام خروج المغلوب: في كل مباراة فائز، ويخرج الخاسر من البطولة، وقد تنتقل بعض الفرق إلى الدور التالي دون أن تلعب. كم مباراة تلزم لمعرفة البطل؟"
+        },
+        "answer": {
+          "en": "99: every match knocks out exactly one team, and 99 teams must be knocked out.",
+          "ar": "99 مباراة: كل مباراة تُخرج فريقاً واحداً بالضبط، ويجب أن يخرج 99 فريقاً."
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-140",
+      "category": "classic-riddles",
+      "featuredOn": "hard-riddles",
+      "reason": "New hard riddle for Hard riddles (/hard-riddles, /ar/alghaz-saaba/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 106,
+      "afterHash": "63117134c84f14e59e2eda2321e9e4deafd14281116fc46ada5d08ca2013a0fe",
+      "card": {
+        "id": "classic-riddles-140",
+        "difficulty": "very-advanced",
+        "subcategory": {
+          "en": "Logic & Deduction",
+          "ar": "المنطق والاستنتاج"
+        },
+        "question": {
+          "en": "You are blindfolded in front of 100 coins on a table. Exactly 10 of them show heads, and you cannot feel which side is up. How can you split the coins into two piles with the same number of heads?",
+          "ar": "عُصبت عيناك وأمامك 100 قطعة نقدية على طاولة، 10 منها فقط وجهها إلى الأعلى، ولا تستطيع أن تعرف باللمس أيّ جانب من القطعة إلى الأعلى. كيف تقسم القطع إلى كومتين فيهما العدد نفسه من القطع التي وجهها إلى الأعلى؟"
+        },
+        "answer": {
+          "en": "Move any 10 coins into a separate pile and turn every one of them over. For example, if that pile had 3 heads, the big pile has the other 7; after turning, the small pile has 7 heads too.",
+          "ar": "انقل أي 10 قطع إلى كومة منفصلة واقلبها كلها. فإذا كان فيها مثلاً 3 قطع وجهها إلى الأعلى، ففي الكومة الكبيرة 7 قطع وجهها إلى الأعلى، وبعد القلب يصير في الكومة الصغيرة 7 قطع وجهها إلى الأعلى أيضاً."
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "id": "classic-riddles-141",
+      "category": "classic-riddles",
+      "featuredOn": "hard-riddles",
+      "reason": "New hard riddle for Hard riddles (/hard-riddles, /ar/alghaz-saaba/), which grows from 30 to 50 cards.",
+      "sources": [],
+      "position": 107,
+      "afterHash": "78614da3eadcca4bcec3535b51a7ee4a602e0086a104af5d090ffffc7506bd14",
+      "card": {
+        "id": "classic-riddles-141",
+        "difficulty": "medium",
+        "subcategory": {
+          "en": "Logic & Deduction",
+          "ar": "المنطق والاستنتاج"
+        },
+        "question": {
+          "en": "Two brothers must share one cake, and each fears the other will end up with the bigger piece. They have one knife and no scale. How can they share it so that neither can complain?",
+          "ar": "على أخوين أن يتقاسما كعكة واحدة، وكلٌّ منهما يخشى أن ينال الآخر القطعة الأكبر. معهما سكّين واحدة ولا ميزان. كيف يقتسمانها بحيث لا يشكو أحدهما؟"
+        },
+        "answer": {
+          "en": "One brother cuts the cake into two pieces, and the other chooses first.",
+          "ar": "يقطع أحدهما الكعكة قطعتين، ويختار الآخر قطعته أولاً."
+        },
+        "review": {
+          "status": "pending"
+        }
+      }
+    }
+  ]
+}

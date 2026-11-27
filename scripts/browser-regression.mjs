@@ -1243,7 +1243,7 @@ async function main() {
             open: cards.filter(card => !card.classList.contains("members-only")).length,
           };
         });
-        assert.equal(collection.total, 30);
+        assert.equal(collection.total, 50);
         assert.equal(collection.visibleLocked, 0, "no harder card is shown to a guest");
         assert.ok(collection.open >= 5 && collection.visibleOpen === collection.open, "every Piece of Cake card stays open");
 

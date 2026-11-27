@@ -24,11 +24,12 @@ bilingual experiences:
 
 Each experience has its own bilingual copy, purpose, canonical pair, reciprocal
 `hreflang`, social metadata, and schema. Quiz experiences publish a small,
-curated set of real question cards. The two riddle pairs (`/riddles` with `/ar/alghaz/`, and
-`/arabic-riddles` with `/ar/alghaz-arabiya/`) feature 30 published riddles
-each, ordered from easy to hard. Logic puzzles, general knowledge, Arabia
-history, Math riddles, Hard riddles, Science, Geography, Football, Flags, History,
-Animals, Space, Anime, TV shows and Psychology also feature 30, kids riddles 24, and the Spacetoon quiz eight. Math riddles draws on the Math topic; Hard riddles draws on
+curated set of real question cards. The two riddle pairs feature published riddles
+ordered from easy to hard: `/riddles` with `/ar/alghaz/` has 50 and
+`/arabic-riddles` with `/ar/alghaz-arabiya/` has 30. Hard riddles features 50 and
+Math riddles 60 (both grew on 2026-11-27, see below). Logic puzzles, general
+knowledge, Arabia history, Science, Geography, Football, Flags, History,
+Animals, Space, Anime, TV shows and Psychology feature 30, kids riddles 24, and the Spacetoon quiz eight. Math riddles draws on the Math topic; Hard riddles draws on
 the Classic Riddles and Logic Puzzles cards that the two riddle pairs and the
 logic collection do not already feature. Each collection's "Keep exploring"
 section links the next three collections in list order, so every collection is
@@ -73,6 +74,26 @@ Dubai calendar date. Regeneration alone must not refresh those dates. Google
 ownership verification files are protocol assets; only an exact Google filename
 and matching one-line payload are exempt from editorial HTML checks. They are
 served at the exact `.html` URL, carry noindex, and stay out of the sitemap.
+
+## Fuller riddle pages (2026-11-27)
+
+Search Console for the 28 days to 25 Nov 2026 showed 140 clicks and 6,850
+impressions, with the main Arabic riddle searches («الغاز مع الحل»، «ألغاز مع
+الحل»، «الغاز») at positions 10 to 13 and «الغاز صعبة» around 7. With the owner's
+approval three collections grew on 2026-11-27:
+
+- Riddles (`/riddles`, `/ar/alghaz/`): 30 to 50 riddles, ordered easy to hard.
+- Hard riddles (`/hard-riddles`, `/ar/alghaz-saaba/`): 30 to 50.
+- Math riddles (`/math-riddles`, `/ar/alghaz-riyadiyat/`): 30 to 60, all from
+  existing puzzle-style Math cards; textbook items were left out.
+
+The Classic Riddles topic had one unfeatured card left, so 38 new riddles were
+written (Classic Riddles grows from 70 to 108). They are recorded in
+`docs/content-review/content-additions-2026-11-27.json`, stay pending review,
+and were checked by AI only, not by a human or native-speaker editor. Titles
+and descriptions changed only in their counts. To judge the change, compare
+Search Console positions and clicks for those queries and pages about four weeks
+after Google has re-crawled the pages, against the figures above.
 
 ## Registration wall (since 17 Nov 2026)
 

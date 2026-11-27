@@ -10,6 +10,12 @@
 import fs from 'node:fs';
 
 export const CONTENT_ADDITIONS_LEDGER = 'docs/content-review/content-additions-2026-10-25.json';
+// Later additions only append new cards. Each is recorded in its own ledger and
+// taken out again here, so this ledger and the ones it chains to keep verifying
+// the topic files exactly as the 2026-10-25 additions left them.
+export const LATER_CONTENT_ADDITIONS_LEDGERS = Object.freeze([
+  'docs/content-review/content-additions-2026-11-27.json',
+]);
 
 const repositoryFile = relative => new URL(`../${relative}`, import.meta.url);
 
@@ -19,10 +25,25 @@ export function readContentAdditionsLedger() {
   return cachedLedger;
 }
 
-// The current card list of a topic, or an empty list for a retired topic.
-export function readTopicFile(category) {
+let cachedLaterLedgers;
+export function readLaterContentAdditionsLedgers() {
+  cachedLaterLedgers ||= LATER_CONTENT_ADDITIONS_LEDGERS.map(relative => JSON.parse(fs.readFileSync(repositoryFile(relative), 'utf8')));
+  return cachedLaterLedgers;
+}
+
+// The card list of a topic as it stands in the repository, or an empty list for
+// a retired topic.
+export function readCurrentTopicFile(category) {
   const file = repositoryFile(`data/${category}.json`);
   return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : [];
+}
+
+// The card list of a topic as the 2026-10-25 additions left it: cards that a
+// later additions ledger appended are taken out.
+export function readTopicFile(category) {
+  const later = new Set(readLaterContentAdditionsLedgers()
+    .flatMap(ledger => ledger.added.filter(entry => entry.category === category).map(entry => entry.id)));
+  return readCurrentTopicFile(category).filter(card => !later.has(card.id));
 }
 
 export function beforeAdditionsChange(card, change) {
@@ -57,9 +78,20 @@ export function readTopicFileBeforeAdditions(category) {
   return structuredClone(afterPhase2.get(category));
 }
 
-// A topic's catalog description before the additions, or the current one when
-// the additions did not change it.
+// A topic's catalog description as the 2026-10-25 additions left it: later
+// description changes are undone first, newest first.
+export function descriptionAfterAdditions(slug, current) {
+  let description = current;
+  for (const ledger of [...readLaterContentAdditionsLedgers()].reverse()) {
+    const change = (ledger.descriptionChanges || []).find(entry => entry.slug === slug);
+    if (change) description = change.previous;
+  }
+  return structuredClone(description);
+}
+
+// A topic's catalog description before the additions, or the one the additions
+// left when they did not change it.
 export function descriptionBeforeAdditions(slug, current) {
   const change = readContentAdditionsLedger().descriptionChanges.find(entry => entry.slug === slug);
-  return change ? structuredClone(change.previous) : current;
+  return change ? structuredClone(change.previous) : descriptionAfterAdditions(slug, current);
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-10-25",
+  "asOf": "2026-11-27",
   "sourcePolicy": {
     "discoveryBatch": "One packet may share source-discovery work only within this exact category/subcategory group.",
     "claimMapping": "Every atomic claim must map reciprocally to accepted evidence with a precise locator.",
@@ -9,9 +9,9 @@
   },
   "summary": {
     "packets": 371,
-    "cards": 3638,
+    "cards": 3676,
     "reviewed": 3,
-    "pending": 3635,
+    "pending": 3673,
     "evidenceComplete": 0,
     "highStakes": {
       "total": 278,
@@ -22223,7 +22223,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 10,
+      "cardCount": 21,
       "cards": [
         {
           "id": "classic-riddles-011",
@@ -22494,6 +22494,307 @@
               "evidence-record-missing"
             ]
           }
+        },
+        {
+          "id": "classic-riddles-110",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 3,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-117",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 3,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-122",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-124",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 41,
+              "ar": 22
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": true
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-125",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [
+            "current-state"
+          ],
+          "contentSignals": {
+            "answerWords": {
+              "en": 66,
+              "ar": 49
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": true
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-126",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 47,
+              "ar": 37
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": true
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-128",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 14,
+              "ar": 12
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-134",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 62,
+              "ar": 64
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": true
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-137",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [
+            "current-state"
+          ],
+          "contentSignals": {
+            "answerWords": {
+              "en": 34,
+              "ar": 31
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": true
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-140",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 39,
+              "ar": 38
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": true
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-141",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 13,
+              "ar": 8
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
         }
       ]
     },
@@ -22513,7 +22814,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 11,
+      "cardCount": 13,
       "cards": [
         {
           "id": "classic-riddles-001",
@@ -22811,6 +23112,60 @@
               "evidence-record-missing"
             ]
           }
+        },
+        {
+          "id": "classic-riddles-107",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-112",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 6,
+              "ar": 3
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
         }
       ]
     },
@@ -22830,7 +23185,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 13,
+      "cardCount": 20,
       "cards": [
         {
           "id": "classic-riddles-051",
@@ -23182,6 +23537,195 @@
               "evidence-record-missing"
             ]
           }
+        },
+        {
+          "id": "classic-riddles-127",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 54,
+              "ar": 48
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": true
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-129",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 18,
+              "ar": 13
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-130",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 27,
+              "ar": 29
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-131",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 10,
+              "ar": 7
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-132",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 7,
+              "ar": 8
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-138",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 18,
+              "ar": 24
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-139",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 15,
+              "ar": 13
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
         }
       ]
     },
@@ -23201,7 +23745,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 21,
+      "cardCount": 30,
       "cards": [
         {
           "id": "classic-riddles-003",
@@ -23769,6 +24313,249 @@
               "evidence-record-missing"
             ]
           }
+        },
+        {
+          "id": "classic-riddles-104",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-105",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-106",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-108",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 6,
+              "ar": 3
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-109",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 8,
+              "ar": 5
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-111",
+          "difficulty": "easy",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 3,
+              "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-113",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-119",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 1
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-120",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 16,
+              "ar": 8
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
         }
       ]
     },
@@ -23788,7 +24575,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 8,
+      "cardCount": 13,
       "cards": [
         {
           "id": "classic-riddles-004",
@@ -24005,6 +24792,145 @@
               "evidence-record-missing"
             ]
           }
+        },
+        {
+          "id": "classic-riddles-115",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 14,
+              "ar": 10
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-123",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 16,
+              "ar": 14
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-133",
+          "difficulty": "hard",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 19,
+              "ar": 12
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-135",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [
+            "current-state"
+          ],
+          "contentSignals": {
+            "answerWords": {
+              "en": 27,
+              "ar": 27
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-136",
+          "difficulty": "very-advanced",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [
+            "current-state"
+          ],
+          "contentSignals": {
+            "answerWords": {
+              "en": 34,
+              "ar": 34
+            },
+            "containsNumber": true,
+            "containsYear": false,
+            "needsClaimDecomposition": true
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
         }
       ]
     },
@@ -24024,7 +24950,7 @@
       },
       "priority": "standard",
       "highStakes": false,
-      "cardCount": 7,
+      "cardCount": 11,
       "cards": [
         {
           "id": "classic-riddles-002",
@@ -24198,6 +25124,114 @@
             "answerWords": {
               "en": 3,
               "ar": 2
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-114",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 12,
+              "ar": 8
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-116",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 2,
+              "ar": 3
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-118",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 8,
+              "ar": 5
+            },
+            "containsNumber": false,
+            "containsYear": false,
+            "needsClaimDecomposition": false
+          },
+          "legacyReviewSources": [],
+          "evidenceState": {
+            "claims": 0,
+            "candidates": 0,
+            "accepted": 0,
+            "complete": false,
+            "blockers": [
+              "legacy-review-status-not-reviewed",
+              "evidence-record-missing"
+            ]
+          }
+        },
+        {
+          "id": "classic-riddles-121",
+          "difficulty": "medium",
+          "reviewStatus": "pending",
+          "highStakes": false,
+          "mutableSignals": [],
+          "contentSignals": {
+            "answerWords": {
+              "en": 1,
+              "ar": 1
             },
             "containsNumber": false,
             "containsYear": false,

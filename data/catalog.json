@@ -8,7 +8,7 @@
       "en": "A mobile-first bilingual riddle and quiz website with curated categories, clear levels, and premium-ready challenge pages.",
       "ar": "منصة ألغاز واختبارات ثنائية اللغة مصممة للهاتف أولاً، مع تصنيفات منسقة ومستويات واضحة وصفحات جاهزة للتجربة المميزة."
     },
-    "totalQuestions": 3638
+    "totalQuestions": 3676
   },
   "sections": [
     {
@@ -1224,7 +1224,7 @@
       },
       "description": {
         "en": "Classic flip-card riddles with everyday objects, clever clues, and a balanced path from easy to very advanced.",
-        "ar": "يضم موضوع «ألغاز كلاسيكية» 70 سؤالًا بالعربية والإنجليزية، ويتناول الأشياء والحياة اليومية، الأرقام والرموز، والطبيعة والعالم. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «ألغاز كلاسيكية» 108 أسئلة بالعربية والإنجليزية، ويتناول الأشياء والحياة اليومية، الأرقام والرموز، والطبيعة والعالم. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Mind & Puzzles",
@@ -1233,12 +1233,12 @@
       "cluster_key": "mind",
       "emoji": "❓",
       "mode": "riddle",
-      "count": 70,
+      "count": 108,
       "difficultyCounts": {
-        "easy": 30,
-        "medium": 20,
-        "hard": 10,
-        "very-advanced": 10
+        "easy": 39,
+        "medium": 32,
+        "hard": 19,
+        "very-advanced": 18
       },
       "href": "/classic-riddles",
       "image": "assets/classic-riddles.svg",
@@ -1246,32 +1246,32 @@
         {
           "en": "Objects & Everyday Life",
           "ar": "الأشياء والحياة اليومية",
+          "count": 30
+        },
+        {
+          "en": "Logic & Deduction",
+          "ar": "المنطق والاستنتاج",
           "count": 21
         },
         {
           "en": "Numbers & Codes",
           "ar": "الأرقام والرموز",
-          "count": 13
+          "count": 20
         },
         {
           "en": "Nature & the World",
           "ar": "الطبيعة والعالم",
-          "count": 11
-        },
-        {
-          "en": "Logic & Deduction",
-          "ar": "المنطق والاستنتاج",
-          "count": 10
+          "count": 13
         },
         {
           "en": "Time, Space & Measurement",
           "ar": "الزمن والمكان والقياس",
-          "count": 8
+          "count": 13
         },
         {
           "en": "Wordplay & Language",
           "ar": "التلاعب بالكلمات واللغة",
-          "count": 7
+          "count": 11
         }
       ],
       "related": [
@@ -1280,7 +1280,7 @@
         "story-mysteries",
         "true-crime"
       ],
-      "scorableQuestionCount": 63,
+      "scorableQuestionCount": 85,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 10
     },

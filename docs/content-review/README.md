@@ -1,6 +1,6 @@
 # Content evidence and review closure
 
-This directory is the editorial workbench for the 3,638-card corpus. It is intentionally separate from the public card JSON. Adding candidate evidence does not change a card from `pending` to `reviewed`, and the generator never promotes a status.
+This directory is the editorial workbench for the 3,676-card corpus. It is intentionally separate from the public card JSON. Adding candidate evidence does not change a card from `pending` to `reviewed`, and the generator never promotes a status.
 
 ## Files
 
@@ -61,7 +61,7 @@ The routine structural check remains usable while editorial work is in progress:
 node scripts/content-review-report.mjs --check
 ```
 
-The closure gate is deliberately strict and currently fails. It succeeds only with exactly 3,638/3,638 reviewed and evidence-complete cards, including 278/278 high-stakes cards, with zero pending, invalid, stale, or overdue records:
+The closure gate is deliberately strict and currently fails. It succeeds only with exactly 3,676/3,676 reviewed and evidence-complete cards, including 278/278 high-stakes cards, with zero pending, invalid, stale, or overdue records:
 
 ```sh
 node scripts/content-review-report.mjs --complete
